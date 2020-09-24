@@ -1,0 +1,255 @@
+% !TEX TS-program = ConTeXt Suite
+% !TEX root = volume01/prd_volume01.tex
+\startenvironment env_world
+% where \product and \component look for TeX input files
+\usepath[{Volume_01,Volume_02}]
+
+% Document Setup: Font's, Layout, Special sections
+
+% Fonts
+%
+% The method sent by Minion Math
+% \definefontfamily [mainfont] [rm][Libertinus Serif]% Libertinus for Text %[Minion Pro] % Minion Pro for Text
+% \definefontfamily [mainfont] [math][Libertinus Math]% Libertinus for Math % [Minion Math] % Minion Math for Math
+% \definefallbackfamily[mainfont][math][Cambria Math] % Script missing in MinionMath
+%                      [range={uppercasescript, lowercasescript}]
+% \definefallbackfamily[mainfont][math][Latin Modern Math] % Fraktur missing in MinionMath
+%                      [range={uppercasefraktur, lowercasefraktur}]
+\setupbodyfont [libertinus,11pt]% [mainfont,11pt] % Also possible, and free
+% Methods using typecripts from ConTeXt
+%\usetypescriptfile[type-adobe]
+%\usetypescript[minion]
+\setoldstyle % Old style numerals in text
+
+% Layout
+%
+% Page Layout
+\setuppapersize[letter]
+%\showframe
+\setuplayout[
+	topspace=36pt,% Vertical layout
+	height=702pt, % 9 3/4 in, text height = 8 in
+	header=18pt, % 1/2 in
+	headerdistance=27pt, % 3/8 in
+	footerdistance=27pt, % 3/8 in
+	footer=18pt,% 1/2 in
+	backspace=90pt, % Horizontal layout
+	leftmargin=36pt, % 1/2 in
+	leftmargindistance=9pt, % 3/8 in
+	width=306pt, % 4 1/4 in
+	rightmargindistance=27pt, % 3/8 in
+	rightmargin=144pt,  % 2 in
+	]
+\definemeasure [fullwidth]% Used for full width figures
+	[\textwidth+\rightmarginwidth+\rightmargindistance]
+
+%
+% Chapter heads
+\setuplabeltext [en] [chapter=Chapter~]
+\define[2]\MyChapter
+	{\framed[frame=off,width=broad,align=flushleft]{#1 \blank #2}}
+\definetext[chapter][footer][pagenumber]	
+\setuphead [chapter] [
+	command=\MyChapter,
+	header=high, footer=chapter, page=right,
+	indentnext=no,
+	numberstyle=scxx, textstyle=tfc,
+]
+% Versals for chapter openers
+\usemodule[lettrine]
+
+% Section heads
+\setuphead[section][
+	before=\blank,
+	after=,
+	sectionsegments=none,
+	style=sc,
+]
+
+% Page heads and page numbers
+\setuppagenumbering[location=,alternative=doublesided]
+\defineconversionset[frontpart:pagenumber][][romannumerals]
+\defineconversionset[bodypart:pagenumber][][numbers]
+%\defineconversionset[appendix:pagenumber][][Characters]
+\setupheadertexts[text][section][][][chapter]
+\setupheadertexts[margin][][\hfill\pagenumber][\pagenumber \hfill][]
+
+% Indenting
+\setupindenting[yes,medium]
+
+% Emphasis
+\define[1]\emph{{\em #1}}
+\define[1]\textit{{\it #1}}
+\define[1]\booktitle{{\it #1}}
+\define\visviva{{\it vis viva}}
+
+% References within text
+\define[1]\ref{\in[#1]}
+\define[1]\pageref{\at[#1]}
+
+% Quotes
+\setupdelimitedtext[blockquote][
+	spacebefore=medium, spaceafter=medium, % standard is the size of \blank, medium is a little smaller.
+	indenting=no, % blockquotes should not contain multiple paragraphs.
+	style=\nowhitespace,
+	indentnext=no, % no = never indent after a blockquote, auto = usual paragraph breaks
+]
+
+% Citations and Bibliography
+\usebtxdefinitions[apa] % Use APS or APA style Bibliography
+\usebtxdataset[BookBib.bib]
+\define[2]\autocite{\endnote{\cite[righttext={{#1}}][#2]}}%\autocite[p.~123]{Leibniz1695}
+\setupnote[endnote][location=text, symbolcommand = {#1.}] % Endnotes are used for citations
+\setupbtx [apa:cite][alternative=authoryears] % 
+
+% Formulas
+%\setupformulas[spacebefore=small,spaceafter=small]
+% Answer boxes and highlight boxes are currently turned off.
+\define[1]\answer{#1}
+\define[1]\highlightbox{#1}
+
+% Example Problems
+\defineenumeration[example]
+\setupenumeration[example][
+	margin=no,
+	headstyle=\ss\sc,
+	text=Example, % This text is part of the number, e.g. "Example 2.3"
+	style=\ss,
+	alternative=serried,
+	title=no, % This would be a title after the number
+	prefix=yes, % Turns on the prefix
+	prefixsegments=chapter, % makes the prefix the chapter number
+	way=bychapter, % Numbers within each chapter
+	%margin=standard, % Indents block on the left
+	width=fit, % Makes the space between the number and the question a good size
+	indentnext=no,
+]
+\definedelimitedtext[solution][
+	spacebefore=medium,
+	spaceafter=medium,
+	style=\rm\it,
+	leftmargin=standard, % Indents block on the left
+	rightmargin=yes, % Indents block on the right
+	indentnext = no,
+]
+
+% Exercises
+\define\question{\item}
+
+%
+% Floats
+%
+
+% Epigraphs
+
+% Figures & Tables
+%
+
+\defineexternalfigure[widefigure][width=\measure{fullwidth}]
+
+% Captions - always in the margin
+\setupcaptions[figure,table][
+	width=\rightmarginwidth,
+	location=bottom, % Places caption below the figure
+	headstyle=\sc,
+	style=\small,
+	align=flushleft,
+]
+% Sizes - Side (default), Text, and Wide
+%
+% Side floats are the default
+\definefloat[sidefloat][sidefloats][figure]
+\setupfloat[sidefloat][default=outermargin]
+\setupcaption[sidefloat][
+	width=\outermarginwidth,
+	location=bottom,
+]
+% Text floats are the width of the text block with the caption in the margin
+\definefloat[textfloat][textfloats][figure]
+\setupfloat[textfloat][
+	location=inner,
+	width=\measure{textwidth},
+	default={top,bottom},
+]
+\setupcaption[textfloat][
+	width=144pt,
+	location={high,outermargin},
+]
+% Wide Floats are the full width with the caption above or below in the margin
+\definefloat[widefloat][widefloats][figure]
+\setupfloat[widefloat][
+	location=inner,
+	width=\measure{fullwidth},
+	default={bottom},
+]
+\setupcaption[widefloat][
+%	width=\rightmarginwidth,
+	location=outermargin,
+%	headstyle=\sc,
+%	style=\small,
+%	align=flushleft,
+%	spacebefore=-3in,%Temporary! Puts caption above for Ch5
+	spacebefore=\the\dimexpr\naturalfloatht+\lineheight\relax,% This puts the caption below
+]
+
+% Fractions
+\define\half{{\textstyle\frac{1}{2}}}
+
+% numerator
+\define\fracone{\getnamedglyphdirect{libertinus}{onesuperior}} % 1
+\define\fractwo{\getnamedglyphdirect{libertinus}{twosuperior}} % 2
+\define\fracthree{\getnamedglyphdirect{libertinus}{threesuperior}} % 3
+\define\fracfour{\getnamedglyphdirect{libertinus}{foursuperior}} % 4
+\define\fracfive{\getnamedglyphdirect{libertinus}{fivesuperior}} % 5
+\define\fracseven{\getnamedglyphdirect{libertinus}{sevensuperior}} % 7
+\define\fraceight{\getnamedglyphdirect{libertinus}{eightsuperior}} % 8
+\define\fracnine{\getnamedglyphdirect{libertinus}{ninesuperior}} % 9
+\define\fracfifteen{\getnamedglyphdirect{libertinus}{onesuperior}\getnamedglyphdirect{libertinus}{fivesuperior}} % 15
+\define\fracsixteen{\getnamedglyphdirect{libertinus}{onesuperior}\getnamedglyphdirect{libertinus}{sixsuperior}} % 16
+
+% /denominator
+\define\halves{\textfraction\getnamedglyphdirect{libertinus}{twoinferior}} % /2
+\define\thirds{\textfraction\getnamedglyphdirect{libertinus}{threeinferior}} % /3
+\define\quarters{\textfraction\getnamedglyphdirect{libertinus}{fourinferior}} % /4
+\define\ninths{\textfraction\getnamedglyphdirect{libertinus}{nineinferior}} % /4
+\define\twelfths{\textfraction\getnamedglyphdirect{libertinus}{oneinferior}\getnamedglyphdirect{libertinus}{twoinferior}} % /16
+\define\sixteenths{\textfraction\getnamedglyphdirect{libertinus}{oneinferior}\getnamedglyphdirect{libertinus}{sixinferior}} % /16
+
+
+% numerator/denominator
+\define\threehalves{\text{\fracthree\halves}} %  3/2
+\define\fourthirds{\text{\fracfour\thirds}} %  4/3
+\define\fivequarter{\text{\fracfive\quarters}} % 5/4
+\define\sixteenquarter{\text{\fracsixteen\quarters}} % 16/4
+\define\ninequarter{\text{\fracnine\quarters}} % 9/4
+\define\eightninths{\text{\fraceight\ninths}} % 9/4
+\define\onetwelfth{\text{\fracone\twelfths}} % 1/12
+\define\twotwelfths{\text{\fractwo\twelfths}} % 2/12
+\define\fivetwelfths{\text{\fracfive\twelfths}} % 5/12
+\define\seventwelfths{\text{\fracseven\twelfths}} % 7/12
+\define\fifteensixteenths{\text{\fracfifteen\sixteenths}} % 15/16
+
+%% Fractions in Minion
+%\define\half{{\textstyle\frac{1}{2}}}
+%% /denominator
+%\define\halves{\textfraction\getnamedglyphdirect{minion}{two.denominator}} % /2
+%\define\quarters{\textfraction\getnamedglyphdirect{minion}{four.denominator}} % /4
+%% numerator
+%\define\fracthree{\getnamedglyphdirect{minion}{three.numerator}}
+%\define\fracfive{\getnamedglyphdirect{minion}{five.numerator}}
+%\define\fracnine{\getnamedglyphdirect{minion}{nine.numerator}}
+%\define\fracsixteen{\getnamedglyphdirect{minion}{one.numerator}\getnamedglyphdirect{minion}{six.numerator}} % 16
+%% numerator/denominator
+%\define\fivequarter{\text{\fracfive\quarters}} % 5/4
+%\define\sixteenquarter{\text{\fracsixteen\quarters}} % 16/4
+%\define\ninequarter{\text{\fracnine\quarters}} % 9/4
+%\define\threehalf{\text{\fracthree\halves}} %  3/2
+
+% Index
+\define[1]\keyterm{{\em #1}\index{#1}} % See "Context Excursion"
+%\newcommand{\keyterm}[2][\defaultindexentry]{% Optional argument [#1] goes in index, {#2} is in the text.
+%{\newcommand{\defaultindexentry}{#2}\newcommand{\indexentry}{#1}%
+%\textit{#2}\index{\indexentry|textbf}}% \textbf{#2}
+%}
+
+\stopenvironment

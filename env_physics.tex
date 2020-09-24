@@ -1,0 +1,76 @@
+% !TEX TS-program = ConTeXt Suite
+% !TEX root = volume01/prd_volume01.tex
+\startenvironment env_physics
+
+% Units
+\define[1]\unit{{%
+	\def\.{\!\cdot\!}% In LaTeX this was proceeded by \protect
+	\ifmmode{\rm#1}
+	\else{$\rm\,#1$}
+	\fi%
+}}
+\define[1]\units{\,\unit{#1}}
+\define\degree{{}^{\circ}} % \ensure math should be replaced for ConTeXt
+
+% Text subscripts in math
+\define[1]\sub{_{\text{\rm\tf#1}}} % \normalfont 
+\define\si{\sub{i}}
+\define\sf{\sub{f}}
+\define\sn{\sub{net}}
+\define[1]\average{{\langle#1\rangle_{\text{ave.}}}}
+
+% Math
+\definemathfence[abs][left="007C,right="007C,command=yes]
+\definemathfence[vabs][left="2016,right="2016,command=yes]
+%\define[1]\abs{\left|#1\right|} % better: https://tex.stackexchange.com/questions/475890/how-to-typeset-absolute-values-and-norms-in-context
+\define[1]\vabs{\left\Vert#1\right\Vert}
+\define[1]\components{\left\langle #1 \right\rangle}
+\define[1]\coordinates{\left( #1 \right)}
+\define[1]\sci{\times 10^{#1}}
+\define\dotp{\boldsymbol{\cdot}}%{\bullet}%
+
+% Planet symbols
+\define\Sun{\odot} % {\char "0263C}
+\define\Mercury{\char "0263F}
+\define\Venus{\char "02640}
+\define\Earth{\oplus}  % {\char "02641}
+\define\Moon{\char "0263E} % {\char "0263D}
+\define\Mars{\char "02642}
+\define\Jupiter{\char "02643}
+\define\Saturn{\char "02644}
+\define\Uranus{\char "02645}
+\define\Neptune{\char "02646}
+\define\Pluto{\char "02647}
+
+\define[1]\substar{\sub{\txx #1}}
+\define\sEarth{\substar{\Earth}}
+
+
+%\definefontsynonym[StarFont][name:STRFNSAN]% STRFNSER or STRFNSAN
+%\definefont[StarFont][name:STRFNSAN]
+%\definesymbol[Sun][\getnamedglyphdirect{StarFont}{s}]
+%\definesymbol[Mercury][\getnamedglyphdirect{StarFont}{f}]
+%\definesymbol[Venus][\getnamedglyphdirect{StarFont}{g}]
+%\definesymbol[Earth][\getnamedglyphdirect{StarFont}{L}]
+%\definesymbol[Moon][\getnamedglyphdirect{StarFont}{a}]
+%\definesymbol[Mars][\getnamedglyphdirect{StarFont}{h}]
+%\definesymbol[Ceres][\getnamedglyphdirect{StarFont}{Acircumflex}]
+%\definesymbol[Jupiter][\getnamedglyphdirect{StarFont}{j}]
+%\definesymbol[Saturn][\getnamedglyphdirect{StarFont}{S}]
+%\definesymbol[Uranus][\getnamedglyphdirect{StarFont}{A}]
+%\definesymbol[Neptune][\getnamedglyphdirect{StarFont}{G}]
+%\definesymbol[Pluto][\getnamedglyphdirect{StarFont}{H}]
+%\define\Sun{\symbol[Sun]}
+%\define\Mercury{\symbol[Mercury]}
+%\define\Venus{\symbol[Venus]}
+%\define\Earth{\symbol[Earth]}
+%\define\Moon{\symbol[Moon]}
+%\define\Mars{\symbol[Mars]}
+%\define\Ceres{\symbol[Ceres]}
+%\define\Jupiter{\symbol[Jupiter]}
+%\define\Saturn{\symbol[Saturn]}
+%\define\Uranus{\symbol[Uranus]}
+%\define\Neptune{\symbol[Neptune]}
+%\define\Pluto{\symbol[Pluto]}
+
+\stopenvironment

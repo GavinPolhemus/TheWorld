@@ -1,0 +1,141 @@
+% !TEX TS-program = ConTeXt Suite
+% !TEX root = volume01/prd_volume01.tex
+\startenvironment env_TikZ
+
+\usemodule[tikz]			% TikZ module for diagrams
+\usepgflibrary[shapes.misc]	% Node shapes for ConTeXt and pure pgf
+\usemodule[pgfplots]			% PGFPlots module for graphs
+\pgfplotsset{compat=1.16}		% Required to get new any features that could cause compatibility issues.
+\usetikzlibrary{arrows.meta,backgrounds}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{decorations.markings}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary[pgfplots.polar]
+
+\tikzset{>/.tip=Latex} % The tip drawn by -> will be the LaTeX tip.
+\tikzset{tips=proper} % Arrows with zero length will not have heads. 
+
+% Redefined footnote size graphs, replacing LaTeX style commands with ConTeXt commands.
+\pgfplotsset{
+    footnotesize/.style={
+		width=5cm,
+		height=,
+		%legend style={font=\switchtobodyfont[8pt]},
+		%tick label style={font=\switchtobodyfont[8pt]},
+		%label style={font=\switchtobodyfont[8pt]},
+		%title style={font=\switchtobodyfont[8pt]},
+		every axis title shift=0pt,
+		max space between ticks=15,
+		every mark/.append style={mark size=8},
+		major tick length=0.1cm,
+		minor tick length=0.066cm,
+		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+		major grid style = {middlegray},
+	},
+}
+
+% Cancel command for use in equations. Perhaps one command can work in both italic and roman.
+\tikzset{cancel/.style={
+	cross out, draw, semithick, % "cross out" or "strike out"
+	inner sep=0pt,outer sep=0pt,
+	anchor=text
+}}
+\define[1]\cancel{
+	\ifmmode
+		\mathchoice
+		{\tikz[baseline] \node[cancel]{$\displaystyle #1$};}
+		{\tikz[baseline] \node[cancel]{$\textstyle #1$};}
+		{\tikz[baseline] \node[cancel]{$\scriptstyle #1$};}
+		{\tikz[baseline] \node[cancel]{$\scriptscriptstyle #1$};}
+	\else
+    	\tikz[baseline] \node[cancel]{#1};
+	\fi
+}
+\define[1]\ucan{
+	\ifmmode
+		\mathchoice
+		{\tikz[baseline] \node[cancel]{$\rm \displaystyle #1$};}
+		{\tikz[baseline] \node[cancel]{$\rm \textstyle #1$};}
+		{\tikz[baseline] \node[cancel]{$\rm \scriptstyle #1$};}
+		{\tikz[baseline] \node[cancel]{$\rm \scriptscriptstyle #1$};}
+	\else
+    	\tikz[baseline] \node[cancel]{#1};
+	\fi
+}
+
+% Cart and a block on a track
+
+% Side view
+\pgfplotsset{margin cart track/.style={
+	footnotesize,
+	%width=\marginparwidth, scale only axis,
+	x={1mm},y={1mm},
+	xlabel={$x$ (cm)},
+	xmin=-0.5,xmax=49.5,
+	ymin=0,ymax=6.1,
+	hide y axis,
+	%xticklabel={\relax},
+	minor x tick num=4,
+	axis x line=bottom,
+	tick align=outside,
+	x axis line style={-}
+}}
+\tikzset{
+	cart/.pic={
+		\startscope[transparency group]
+		\filldraw  [fill=black!20, semithick]
+			(-6mm,1mm)
+			{[rounded corners=1mm]--(-6mm,5mm)
+			--(6mm,5mm)}
+			--(6mm,1mm)
+			--cycle;
+		\filldraw (-4mm,1mm) circle[radius=1mm];
+		\filldraw(4mm,1mm) circle[radius=1mm];
+		\fill(0mm,2.5mm) circle[radius=.4mm];
+		\stopscope
+	}
+}
+\tikzset{
+	block/.pic={
+		\filldraw  [fill=black!20, rounded corners=1mm, semithick]
+			(-3mm,0mm) rectangle (3mm,5mm);
+		\fill[fill=black] (0mm,2.5mm) circle[radius=.4mm];
+	}
+}
+\tikzset{
+	pics/pendulum/.style={
+		code = {
+			\coordinate (-center) at (0mm,-245mm);
+			\draw[color=black!#1, thick] (-center) -- (0mm,0mm);
+			\fill[fill=white] (-center) circle[radius=3mm];
+			\path[ball color=white, opacity={#1/100}] (-center) circle[radius=3mm];
+			\draw[draw=black!#1] (-center) circle[radius=3mm];
+			\fill[fill=black!#1] (-center) circle[radius=.4mm];
+			\fill[fill=black] (0mm,0mm) circle[radius=.4mm];
+		}
+	}
+}
+\tikzset{
+	pics/small pendulum/.style={
+		code = {
+			\coordinate (-center) at (0mm,-245mm);
+			\draw[color=black!#1, thick] (-center) -- (0mm,0mm);
+			\fill[fill=white] (-center) circle[radius=2mm];
+			\path[ball color=white, opacity={#1/100}] (-center) circle[radius=2mm];
+			\draw[draw=black!#1] (-center) circle[radius=2mm];
+			\fill[fill=black!#1] (-center) circle[radius=.4mm];
+			\fill[fill=black] (0mm,0mm) circle[radius=.4mm];
+		}
+	}
+}
+\tikzset{
+	dumbbell/.pic={
+		\startscope[transparency group]
+		\draw[ultra thick,black!67] (1.5cm,0) -- (-1.5cm,0);
+		\draw[shade, ball color = black] (-1.5cm,0) circle[radius=.125cm];
+		\draw[shade, ball color = gray] (1.5cm,0) circle[radius=.125cm];
+		\stopscope
+	}
+}
+
+\stopenvironment

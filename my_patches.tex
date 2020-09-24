@@ -1,0 +1,180 @@
+% !TEX TS-program = ConTeXt Suite
+% !TEX root = volume01/prd_volume01.tex
+\startenvironment my_patches
+
+\unprotect
+
+\ifdefined \d_strc_floats_overflow \else
+
+\newdimen \d_strc_floats_overflow
+
+\unexpanded\def\page_one_command_check_if_float_fits
+  {\ifconditional\c_page_floats_not_permitted
+     \global\setfalse\c_page_floats_room
+   \else
+     % new per 31/5/2004, should be an option, only one column mode
+     \begingroup
+     \scratchdimen\dimexpr\pagetotal+\lineheight\relax
+     \ifdim\scratchdimen>\pagegoal
+       \goodbreak % hack ?
+     \fi
+     % should be an option
+     \endgroup
+     \scratchdimenone\dimexpr
+        \pagetotal
+       +\floatheight
+       +\d_strc_floats_top
+       +\d_strc_floats_overflow
+       -\pageshrink
+     \relax
+     \scratchdimentwo\pagegoal
+     \relax % needed
+     \ifcase\c_page_one_float_method
+       % method 0 : raw
+     \or
+       % method 1 : safe
+       % too fuzzy as it can change and for a high page it's a lot : \scratchdimentwo .99\pagegoal
+       \advance\scratchdimentwo -\strutdp
+     \or
+       % method 2 : tight
+       \advance\scratchdimenone -\onepoint
+     \fi
+     \relax % really needed ! ! ! !
+     \ifdim\scratchdimenone>\scratchdimentwo
+       \global\setfalse\c_page_floats_room
+     \else
+       \global\settrue\c_page_floats_room
+     \fi
+   \fi}
+
+\def\strc_floats_analyze_variables_two
+  {\ifinsidecolumns
+     \global\setfalse\c_strc_floats_par_float
+   \else
+     \doifelsecommon\floatlocation\flushfloatslist
+       {\global\settrue \c_strc_floats_par_float}%
+       {\global\setfalse\c_strc_floats_par_float}%
+   \fi
+   % variable initializations
+   \global\d_page_sides_shift       \zeropoint
+   \global\d_page_sides_maximum     \zeropoint
+   \global\c_page_sides_align       \zerocount
+   \global\c_page_sides_tolerance   \zerocount
+   \global\c_page_sides_skipmode    \zerocount
+   \global\c_strc_floats_rotation   \zerocount
+   \global\d_page_sides_margin      \floatparameter\c!margin
+   \global\d_page_sides_leftshift   \floatparameter\c!leftmargindistance
+   \global\d_page_sides_rightshift  \floatparameter\c!rightmargindistance
+   \global\d_page_sides_topoffset   \floatparameter\c!topoffset
+   \global\d_page_sides_bottomoffset\floatparameter\c!bottomoffset
+   \global\c_page_sides_method      \floatparameter\c!sidemethod
+   \global\c_page_one_float_method  \floatparameter\c!textmethod
+   \global\c_page_floats_n_of_top   \rootfloatparameter\c!ntop
+   \global\c_page_floats_n_of_bottom\rootfloatparameter\c!nbottom
+   \global\d_strc_floats_overflow   \zeropoint
+   \ifconditional\c_strc_floats_par_float
+     \global\d_strc_floats_top        \zeropoint
+     \global\d_strc_floats_bottom     \zeropoint
+     \strc_floats_calculate_skip\d_page_sides_topskip   \c!sidespacebefore
+     \strc_floats_calculate_skip\d_page_sides_bottomskip\c!sidespaceafter
+     \strc_floats_calculate_skip\d_page_sides_midskip   \c!sidespaceinbetween
+     \strc_floats_calculate_skip\d_strc_floats_top      \c!spacebeforeside
+     \strc_floats_calculate_skip\d_strc_floats_bottom   \c!spaceafterside
+   \else
+     \global\d_page_sides_topskip     \zeropoint
+     \global\d_page_sides_bottomskip  \zeropoint
+     \strc_floats_calculate_skip\d_strc_floats_top   \c!spacebefore
+     \strc_floats_calculate_skip\d_strc_floats_bottom\c!spaceafter
+   \fi
+   % keyword handling
+   \ifconditional\c_strc_floats_par_float
+     \processaction
+       [\floatparameter\c!sidealign]
+       [\v!height=>\global\c_page_sides_align\plusone  ,%
+          \v!line=>\global\c_page_sides_align\plustwo  ,% (***)
+         \v!depth=>\global\c_page_sides_align\plusthree,%
+          \v!grid=>\global\c_page_sides_align\plusfour ,%
+      \v!halfline=>\global\c_page_sides_align\plusfive ]%
+     \ifcase\c_page_sides_align\relax % todo: optie v!lokaal => \else
+       \doifinset\v!height  \floatlocation{\global\c_page_sides_align\plusone  }%
+       \doifinset\v!line    \floatlocation{\global\c_page_sides_align\plustwo  }%
+       \doifinset\v!depth   \floatlocation{\global\c_page_sides_align\plusthree}%
+       \doifinset\v!grid    \floatlocation{\global\c_page_sides_align\plusfour }%
+       \doifinset\v!halfline\floatlocation{\global\c_page_sides_align\plusfive }% meant for 'none'
+     \fi
+     \doifinset\v!high        \floatlocation{\global\c_page_sides_skipmode \plusone  }%
+     \doifinset\v!low         \floatlocation{\global\c_page_sides_skipmode \plustwo  }%
+     \doifinset\v!fit         \floatlocation{\global\c_page_sides_skipmode \plusthree}%
+     \doifinset\v!tolerant    \floatlocation{\global\c_page_sides_tolerance\plusone  }%
+     \doifinset\v!verytolerant\floatlocation{\global\c_page_sides_tolerance\plustwo  }%
+   \else
+     \processallactionsinset
+       [\floatlocation]%
+       [ 90=>\global\c_strc_floats_rotation\commalistelement\relax,%
+        180=>\global\c_strc_floats_rotation\commalistelement\relax,%
+        270=>\global\c_strc_floats_rotation\commalistelement\relax]%
+   \fi
+   \doifelseinset\v!nonumber\floatlocation
+     {\global\nofloatnumbertrue}%
+     {\doifelse{\floatcaptionparameter\c!number}\v!yes
+        {\global\nofloatnumberfalse}%
+        {\global\nofloatnumbertrue}}%
+   \doifelseinset\v!none\floatlocation
+     {\global\nofloatcaptiontrue}%
+     {\global\nofloatcaptionfalse}%
+   \doif{\floatcaptionparameter\c!number}\v!none % new
+     {\global\nofloatcaptiontrue}%
+   \doifinset\v!effective\floatlocation
+     {\letfloatparameter       \c!leftmargin \effectiveleftskip
+      \letfloatparameter       \c!rightmargin\effectiverightskip
+      \letfloatcaptionparameter\c!leftmargin \effectiveleftskip
+      \letfloatcaptionparameter\c!rightmargin\effectiverightskip}%
+   \ifemptyfloatcaption \ifnofloatnumber
+     \global\nofloatcaptiontrue
+   \fi \fi}
+
+\def\strc_floats_build_box_next_right_margin_indeed#1#2%
+  {\ifconditional\c_strc_floats_par_float
+     \hpack\bgroup
+       \d_strc_float_temp_height\ht\b_strc_floats_content
+       \box\b_strc_floats_content
+       \hsmash{\hskip#1\vbox to\d_strc_float_temp_height{#2}}%
+     \egroup
+   \else
+     \begingroup
+     \d_strc_float_temp_height\ht\b_strc_floats_content
+     \setbox\scratchboxone\vbox{#2}%
+     \ifdim\htdp\scratchboxone>\htdp\b_strc_floats_content
+       \global\d_strc_floats_overflow\dimexpr\htdp\scratchboxone-\htdp\b_strc_floats_content\relax
+     \fi
+     \ht\scratchboxone\d_strc_float_temp_height
+     \everyrightofalignedline{\hsmash{\hskip#1\box\scratchboxone}}%
+     \strc_floats_align_content{\box\b_strc_floats_content}%
+     \endgroup
+    \fi}
+
+\def\strc_floats_build_box_next_left_margin_indeed#1#2%
+  {\ifconditional\c_strc_floats_par_float
+     \hpack\bgroup
+       \d_strc_float_temp_height\ht\b_strc_floats_content
+       \hsmash{\hskip-\dimexpr#1+\wd\b_strc_floats_caption\relax\vbox to\d_strc_float_temp_height{#2}}%
+       \box\b_strc_floats_content
+     \egroup
+   \else
+     \begingroup
+     \d_strc_float_temp_height\ht\b_strc_floats_content
+     \setbox\scratchboxone\vbox{#2}%
+     \ifdim\htdp\scratchboxone>\htdp\b_strc_floats_content
+       \global\d_strc_floats_overflow\dimexpr\htdp\scratchboxone-\htdp\b_strc_floats_content\relax
+     \fi
+     \ht\scratchboxone\d_strc_float_temp_height
+     \everyleftofalignedline{\hsmash{\hskip-\dimexpr#1+\wd\scratchboxone\relax\box\scratchboxone}}%
+     \strc_floats_align_content{\box\b_strc_floats_content}%
+     \endgroup
+   \fi}
+
+\fi
+
+\protect
+
+\stopenvironment
