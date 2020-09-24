@@ -1,0 +1,8 @@
+.DS_Store
+._*
+*.log
+*.tuc
+*.tmp
+*.bak
+*.bak.tex
+m_k_i_v_*
