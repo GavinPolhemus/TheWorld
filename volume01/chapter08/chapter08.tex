@@ -1,0 +1,47 @@
+% !TEX TS-program = ConTeXt Suite
+% !TEX useOldSyncParser
+\startcomponent c_chapter08
+\project project_world
+\product prd_volume01
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+\starttext
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title=Waves, reference=ch:Waves]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+[This chapter needs to be converted from LaTeX.]
+
+\subject{Notes}
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+ 
+%\subject{Bibliography}
+%        \placelistofpublications
+
+\stopchapter
+\stoptext
+\stopcomponent
+
+% Templates: 
+
+% Margin image
+\placefigure[margin][] % Location, Label
+{} % Caption
+{\externalfigure[chapter03/][width=144pt]} % File
+
+% Margin Figure
+\placefigure[margin][] % location
+{}	% caption text
+{\starttikzpicture	% tikz code
+\stoptikzpicture}
+
+% Aligned equation
+\startformula\startmathalignment
+\stopmathalignment\stopformula
+
+% Aligned Equations
+\startformula\startmathalignment[m=2,distance=2em]
+\stopmathalignment\stopformula
+

@@ -1,0 +1,144 @@
+% !TEX TS-program = ConTeXt Suite
+% !TEX useOldSyncParser
+\startcomponent c_chapter07
+\project project_world
+\product prd_volume01
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+\starttext
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title=Rotation, reference=ch:Rotation]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This chapter only deals with orbital angular momentum in 2D and orbits.
+
+
+\section{Reduced mass}
+[It is possible to find the effective mass for motion where not every part is moving the same speed. For an angular coordinate this is the moment of inertia. For a radial coordinate between to movable masses this is the reduced mass. More generally every mass contributes
+\startformula
+	\mu_i = m_i\left\lvert\frac{d\vec{x}}{d\xi}\right\rvert^2
+\stopformula
+to the generalized reduced mass $\mu$.]
+
+
+
+\section{The Vector Cross Product}
+%\subsection{Right Hand Rule}
+\section{Kinds of Angular Momentum}
+\section{Angular Momentum is Conserverd}
+\section{Torque}
+\startformula
+	\Gamma = \frac{dL}{dt}
+\stopformula
+\section{More Work}
+$dW= \vec \Gamma \dotp d\theta$
+
+
+\subject{Notes}
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+ 
+%\subject{Bibliography}
+%        \placelistofpublications
+
+\stopchapter
+\stoptext
+\stopcomponent
+
+\placetextfloat[top][fig:KeplerTerestrial]
+{The orbits of the inner planets. These are the also called the terrestrial or rocky planets. The orbits of Mercury and Mars are off-center. Although their orbits appear nearly circular, they are actually ellipses, with the sun at one focus of the ellipse.}	% caption text
+{\starttikzpicture	% tikz code
+\startpolaraxis
+ [	xticklabels=\empty,
+ 	ytick={0,0.5,...,2.5},
+ 	yticklabels={{},{},100\units{Gm},{},200\units{Gm},{}},
+ 	minor y tick num={4},
+	% yminorgrids=true,
+	hide x axis,
+	ymax = 2.5,
+	scale only axis=true, width={10cm},
+  	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
+ ]
+  	\node [name path=Sun] at (0,0) {\Sun};
+    \addplot [ % Mercury
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {0.5546/(1+0.20564*cos(x-77.46))}
+  [yshift=-.5pt]
+    node[pos=0.25] {\Mercury}
+    ;
+    \addplot [ % Venus
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {1.082/(1+0.00676*cos(x-131.77))}
+  [yshift=-1.7pt]
+    node[pos=0.25] {\Venus}
+    ;
+    \addplot [ % Earth
+    	name path=Earth,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {1.496/(1+0.0167*cos(x-102.93))}
+    node[pos=0.25] {\Terra}
+    ;
+    \addplot [ % Mars
+    	name path=Mars,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {2.259/(1+0.0934*cos(x-336.08))}
+  [yshift=1pt, xshift=1.1pt]
+    node[pos=0.25] {\Mars}
+    ;
+%    \addplot fill between [
+%        of=Mars and Earth,
+%        %soft clip={domain=120:180},
+%    ];
+\stoppolaraxis
+\stoptikzpicture}
+
+\stopchapter
+\stoptext
+\stopcomponent
+
+% Templates: 
+
+% Epigraph
+\placefigure[margin,none]{}{\small
+	\startalignment[flushleft]
+	\stopalignment
+	\startalignment[flushright]
+	{\it }\\
+	{\sc }\\
+	–
+	\stopalignment
+}
+
+
+% Margin image
+\placefigure[margin][] % Location, Label
+{} % Caption
+{\externalfigure[chapter03/][width=144pt]} % File
+
+% Margin Figure
+\placefigure[margin][] % location
+{}	% caption text
+{\starttikzpicture	% tikz code
+\stoptikzpicture}
+
+% Aligned equation
+\startformula\startmathalignment
+\stopmathalignment\stopformula
+
+% Aligned Equations
+\startformula\startmathalignment[m=2,distance=2em]
+\stopmathalignment\stopformula
+
