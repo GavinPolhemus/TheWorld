@@ -6,3 +6,7 @@
 *.bak
 *.bak.tex
 m_k_i_v_*
+*.pdf
+*.png
+*.pgf
+*.synctex
