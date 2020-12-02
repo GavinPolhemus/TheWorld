@@ -19,7 +19,24 @@
 % Methods using typecripts from ConTeXt
 %\usetypescriptfile[type-adobe]
 %\usetypescript[minion]
-\setoldstyle % Old style numerals in text
+%\setoldstyle % Old style numerals in text
+\definefontfeature[default][default][
+	pnum=yes, % proportial numbers
+	onum=yes, % oldstyle numbers
+	itlc=yes, % italic correction
+]
+\definefontfeature[smallcaps][default][ % smallcaps
+  %lnum=no,
+  smcp=yes, % smallcaps
+	script=latn,
+]
+\definefontfeature[normnum][default][ % normal proportional numbers
+  onum=no,pnum=yes,tnum=yes,
+]
+\definefontfeature[tabnum][default][ % tabular numbers
+  onum=no,pnum=no,tnum=yes,
+]
+
 
 % Layout
 %
@@ -44,11 +61,32 @@
 	[\textwidth+\rightmarginwidth+\rightmargindistance]
 
 %
+% PDF features (HR)
+%
+\startnotmode[print]
+\setupinteraction[state=start,color=,contrastcolor=,]
+\placebookmarks[chapter,section,subsection][chapter]
+\enabledirectives[references.bookmarks.preroll]
+\setupinteractionscreen[
+  option={doublesided,bookmark},
+  width=fit,height=max,
+]
+\stopnotmode
+\startmode[print]
+\setupinteraction[state=stop]
+\setupbackend[
+  format=PDF/X-4,
+  intent={Coated FOGRA39 (ISO 12647-2:2004)}, % European print standard; use SWOP?
+]
+\stopmode
+
+
+%
 % Chapter heads
 \setuplabeltext [en] [chapter=Chapter~]
 \define[2]\MyChapter
 	{\framed[frame=off,width=broad,align=flushleft]{#1 \blank #2}}
-\definetext[chapter][footer][pagenumber]	
+\definetext[chapter][footer][pagenumber]
 \setuphead [chapter] [
 	command=\MyChapter,
 	header=high, footer=chapter, page=right,
@@ -56,14 +94,14 @@
 	numberstyle=scxx, textstyle=tfc,
 ]
 % Versals for chapter openers
-\usemodule[lettrine]
+\usemodule[lettrine] % HR: is this necessary? probably outdated (LMTX?)
 
 % Section heads
 \setuphead[section][
 	before=\blank,
 	after=,
 	sectionsegments=none,
-	style=sc,
+	style=\scaps,
 ]
 
 % Page heads and page numbers
@@ -72,19 +110,23 @@
 \defineconversionset[bodypart:pagenumber][][numbers]
 %\defineconversionset[appendix:pagenumber][][Characters]
 \setupheadertexts[text][section][][][chapter]
-\setupheadertexts[margin][][\hfill\pagenumber][\pagenumber \hfill][]
+\setupheadertexts[margin][][\hfill\pagenumber][\pagenumber \hfill][] % HR: does \hfill work here at all?
 
 % Indenting
-\setupindenting[yes,medium]
+\setupindenting[yes,medium] % HR: not "next"?
 
 % Emphasis
-\define[1]\emph{{\em #1}}
-\define[1]\textit{{\it #1}}
-\define[1]\booktitle{{\it #1}}
-\define\visviva{{\it vis viva}}
-\define\Visviva{{\it Vis viva}}
+% HR: setup changed, use highlights, not just defines
+\setupbodyfontenvironment[default][em=italicface]
+\definehighlight[emph][style={\em}]
+\definehighlight[textit][style=italicface]
+\definehighlight[scaps][style={\addff{smallcaps}}]
+\definehighlight[booktitle][style=italicface]
+\define\visviva{\emph{vis viva}}
+\define\Visviva{\emph{Vis viva}}
 
 % References within text
+% HR: do you need to be LaTeX compatible?
 \define[1]\ref{\in[#1]}
 \define[1]\pageref{\at[#1]}
 
@@ -100,14 +142,17 @@
 \usebtxdefinitions[apa] % Use APS or APA style Bibliography
 \usebtxdataset[BookBib.bib]
 \define[2]\autocite{\endnote{\cite[righttext={{#1}}][#2]}}%\autocite[p.~123]{Leibniz1695}
-\setupnote[endnote][location=text, symbolcommand = {#1.}] % Endnotes are used for citations
-\setupbtx [apa:cite][alternative=authoryears] % 
+\define[1]\FNN{{\addff{normnum}#1.}} % footnote number
+\setupnote[endnote][
+	location=text,
+	%textcommand=\FNN, % footnote marker in text
+	%symbolcommand={\#1.}, % HR: does this work at all?
+] % Endnotes are used for citations
+\setupnotation[endnote][numbercommand=\FNN] % footnote number in list
+\setupbtx [apa:cite][alternative=authoryears] %
 
 % Formulas
 %\setupformulas[spacebefore=small,spaceafter=small]
-% Answer boxes and highlight boxes are currently turned off.
-\define[1]\answer{#1}
-\define[1]\highlightbox{#1}
 
 % Example Problems
 \defineenumeration[example]
@@ -136,6 +181,9 @@
 
 % Exercises
 \define\question{\item}
+% Answer boxes and highlight boxes are currently turned off.
+\define[1]\answer{#1}
+\define[1]\highlightbox{#1}
 
 %
 % Floats
@@ -194,6 +242,7 @@
 ]
 
 % Text Fractions
+% HR: this might be easier with OpenType features
 
 % numerator
 \define\fracone{\getnamedglyphdirect{libertinus}{onesuperior}} % 1
