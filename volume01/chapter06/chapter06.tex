@@ -1,0 +1,897 @@
+% !TEX TS-program = ConTeXt Suite
+% !TEX useOldSyncParser
+\startcomponent c_chapter06
+\project project_world
+\product prd_volume01
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+\starttext
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title=Hamilton's Equations,reference=ch:Hamilton]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\placefigure[margin,none]{}{\small
+	\startalignment[flushleft]
+The theoretical development of the laws of motion of bodies is a problem of such interest and importance, that it has engaged the attention of all the most eminent mathematicians, since the invention of dynamics as a mathematical science by {\sc Galileo}, and especially since the wonderful extension which was given to that science by {\sc Newton}. Among the successors of those illustrious men, {\sc Lagrange} has perhaps done more than any other analyst, to give extent and harmony to such deductive researches, by showing that the most varied consequences respecting the motions of systems of bodies may be derived from one radical formula; the beauty of the method so suiting the dignity of the results, as to make of his great work a kind of scientific poem\dots.
+%But the science of force, or of power acting by law in space and time, has undergone already another revolution, and has become already more dynamic, by having almost dismissed the conceptions of solidity and cohesion, and those other material ties, or geometrically imaginably conditions, which {\sc Lagrange} so happily reasoned on, and by tending more and more to resolve all connexions and actions of bodies into attractions and repulsions of points: and while the science is advancing thus in one direction by the improvement of physical views, it may advance in another direction also by the invention of mathematical methods.
+And the method proposed in the present essay, for the deductive study of the motions of attracting or repelling systems, will perhaps be received with indulgence, as an attempt to assist in carrying forward so high an inquiry.%\autocite[p.48]{Galileo1610}
+	\stopalignment
+	\startalignment[flushright]
+	{\it On A General Method In Dynamics}\\
+	{\sc William Rowan Hamilton}\\
+	1805--1865
+	\stopalignment
+}
+
+\lettrine{I}{n \booktitle{Hydrodynamica} and his other works,} Daniel Bernoulli applied sharp physical insights to practical problems – pipes, fountains, pumps, and other useful machines. Everyone else was going in other directions.
+
+Engineers developed and applied methods specific to specialized applications without looking for broadly applicable physical principles. This approach was incredibly successful, the engineers launched the industrial revolution with their practical methods, creating powerful working engines decades before physicists could explain them.
+
+Physicists largely ignored the engines, focusing their attention on abstract problems in pure mechanics and developing more general methods that could be applied to a huge range of problems – planetary motion, spinning tops, and  complicated jointed pendulums. These problems had little practical value, but they inspired rapid advances in applied mathematics, starting with the work of the great mathematician Leonhard Euler (who was also a close friend of Danial Bernoulli).  
+
+\startbuffer[TikZ:RigidPendulumPath1]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\draw [help lines, xstep=8, ystep=.34] (-4,0) grid (4.6,8.2); % Background grid
+%	\draw (-4.3,-0.5) rectangle (4.3,4.5); % Border
+	% h axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0)
+				node[left]{
+					\pgfmathparse{
+						-10+10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,-4pt);
+			},
+		}
+	] (-4,0) -- (-4,8);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1mm with {
+				\draw (0,0) -- (0,-2pt);	
+			},
+		}
+	] (-4,0) --node[sloped,above=5mm]{$h$ (cm)} (-4,8);
+	% U axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 6.8mm with {
+				\draw (0,0)
+				node[right]{
+					\pgfmathparse{
+						0.1*(-1+\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						})
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,4pt);
+			},
+		}
+	] (4.6,0) -- (4.6, 8.164);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3.4mm with {
+				\draw (0,0) -- (0,2pt);	
+			},
+		}
+	] (4.6,0) --node[sloped,below=6mm]{$U$ (J)} (4.6, 8.164);
+	\fill (0,4) circle[radius=.4mm]; % Pivot
+%	\node at (0,0) [above left]{B}; % Bottom
+%	\draw (0,-0.2) -- (0,4.2); % Central vertical
+%	\node at (-3.2,1.6) [above=2mm]{C}; % Left
+%	\node at (3.2,1.6) [above=1mm]{D}; % Right
+%	\fill (0,2) circle[radius=.4mm]node[left]{E}; % 2nd nail
+%	\fill (0,1) circle[radius=.4mm]node[left]{F}; % 3nd nail
+%	\node at (1.833,1.6) [above=1mm]{G}; % Right
+%	\node at (0.98,1.6) [above=1mm]{I}; % Right
+%	\draw (-4.0,1.6) -- (4.0,1.6); % horizontal at max height
+	% Pendulum path
+%	\draw[] (0,0) arc[start angle=270, end angle=336.4, radius=2cm];
+%	\draw[] (0,0) arc[start angle=270, end angle=371.5, radius=1cm];
+	% Positive on the right
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0) -- (0,-4pt)
+				node[below,transform shape]{
+					\pgfmathparse{
+						-10+10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				};
+			},
+		}
+	] (0,0) arc[start angle=-90, end angle=150, radius=4cm];
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1mm with {
+				\draw (0,0) -- (0,-2pt);	
+			},
+		}
+	] (0,0) arc[start angle=-90, end angle=150, radius=4cm];
+	% Negative on the left
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0) -- (0,4pt)
+				node[below, transform shape, rotate=180]{
+					\pgfmathparse{
+						10-10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				};
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1mm with {
+				\draw (0,0) -- (0,2pt);	
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
+	\node at (0,0) [below=5mm]{$s$ (cm)};
+	% Pendulum
+	\draw[thick] (0,4) --node[sloped,above]{$40\units{cm}$} (0,0); % String
+	\draw[ball color=white] (0,0) circle[radius=2mm]; % Ball , opacity=.5
+	\fill (0,0) circle[radius=.4mm]; % CoM
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[top][fig:RigidPendulumPath1] % location
+{Galileo's pendulum with the position $s$ shown along the ball's curved path.}	 % caption text
+{\noindent\typesetbuffer[TikZ:RigidPendulumPath1]} % figure contents
+
+\startbuffer[TikZ:RigidPendulumGraphU]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\startaxis[
+			scale only axis,
+			x={1mm},y={68mm},
+			xmin=-24, xmax=134,
+			minor x tick num=1,
+			xlabel=$s$ (cm),
+			%axis x line=none,
+			%axis y line*=right,
+			ymin=-0.05, ymax=1.2,
+			minor y tick num=3,
+			ylabel=Energy (J),
+			grid=both
+		]
+		\addplot[thick, domain=-24:134] {0.588*(1-cos(deg(x/40)))}node[above left, pos=.4]{$U$};
+		\addplot[thick, domain=-24:134] {0.588*2}node[below, pos=.6]{Tangent at maximum $U$};
+		\addplot[thick, domain=-24:134] {0}node[above, pos=.5]{Tangent at minimum $U$};
+		%\addplot[thick, domain=0:75] {0.2205*(1-cos(deg(x/15))};
+%		\draw[thin](-37,0) --node[pos=.7, below, sloped]{Release Position} (-37,.7);
+%		\addplot[thick, red, domain=-37:37] {0.235}node[above, pos=.3]{$H$};
+%		\addplot[thick, red, domain=-37:37] {0.235-0.588*(1-cos(deg(x/40))}node[below right, pos=.6]{$K$};
+%		\addplot[thick, red, domain=0:23] {0.22-0.2205*(1-cos(deg(x/15))};
+%	\draw[red, thin](37,0) --node[pos=.7, above, sloped]{Turning Point} (37,.7);
+	\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RigidPendulumGraphU] % location
+{An energy graph showing the ball's gravitational potential energy as a function of position $s$ along the curved path.}	% caption text
+{\vskip27pt\hbox{\starttikzpicture
+	\draw[white] (0,0)-- ++(5,0); % Sky to make height better
+\stoptikzpicture}}
+
+\placewidefloat[bottom,none]
+{This is its caption I need to fix.}
+{\hbox{\noindent\typesetbuffer[TikZ:RigidPendulumGraphU]}} % figure contents
+
+
+
+
+\startbuffer[TikZ:CartSlopeSpring]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startaxis[
+	big diagram cart track,
+	xmin=-54,xmax=54,
+	ymin=0,
+	ymax=50,
+	%axis x line=center,
+	style={rotate=5.7},
+	clip=false
+]
+\pic[rotate=5.7] at (6,0){cart};
+%\pic[rotate=5.7] at (15,0){block};
+%\fill [black!10, on layer={axis background}] (-1,0) rectangle (151,-1.5);
+%\pic at (49,0){block};
+\draw[decorate,decoration={coil,segment length=5pt}] (-50,2.5) --node[above=3pt] {$k$} (0,2.5);
+%\draw[decorate,decoration={coil,segment length=6pt}] (151,2.5) -- (52,2.5);
+\draw (-50,0) -- (-50,6);
+\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[bottom][fig:CartSlopeSpring] % location
+{Galileo's pendulum with the position $s$ shown along the ball's curved path.}	 % caption text
+{\noindent\typesetbuffer[TikZ:CartSlopeSpring]} % figure contents
+
+
+
+
+Lagrange’s equation connects forces to potential energy. If an apple's gravitational potential energy decreases when the apple goes down, then there is a gravitational force pushing the apple down. If a spring's potential energy increases when it is stretched, then the spring exerts a force pulling back towards its unstretched length. If the gravitational potential energy of a planet is lower when it is closer to the sun, then there is a gravitational force pulling the planet towards the sun. In fact, the equation gives the magnitude as well as the direction of the force. Using Leibniz's notation, Lagrange’s equation is
+\highlightbox{
+\startformula[eq:Hamilton2]
+	F = -\frac{\partial U}{\partial x}
+\stopformula
+}
+The force can easily be found on an energy vs.~position graph. 
+\startformula[eq:Laplace]
+	F = -\frac{\text{tangent's $\Delta U$}}{\text{tangent's $\Delta x$}}
+\stopformula
+
+\section{Gravitational Force}
+
+\placefigure[margin][fig:BoxEarthGravU] % location
+{The gravitational potential energy of a $3.0\units{kg}$ box as a function of its height $y$. The slope of the graph is $mg=29.4\units{J/m}$, so the $y$-components of the gravitational force is $F_y=-29.4\units{N}$.}	% caption text
+{\starttikzpicture
+\startaxis
+ [footnotesize, width=2.20in, height=2in,
+   xlabel={$y$ ($\units{m}$)},
+   xmin=0, xmax=6,
+   ylabel={$U$ ($\unit{J}$)},
+   ymin=0, ymax=200,
+   %ytick={-10,-8,...,0},
+ ]
+ \addplot[
+   thick,
+   domain=0:10,
+   samples=2
+  ]
+  {29.4*x}
+  ;
+\stopaxis
+\stoptikzpicture}
+
+Force is directional, so forces will be represented by vectors. Gravitational force is downwards. We will use $y$ as our vertical component in most cases, so force is in the negative $y$ direction.
+\startformula
+	\vec F\sub{g} = \components{0, -mg , 0} 
+\stopformula
+
+\placefigure[margin][fig:BoxEarthGravU] % location
+{The gravitational potential energy of a $3.0\units{kg}$ box as a function of its horizontal position $x$, shown for three different heights. The slope of the graph is zero in every case, so the $x$-component of the gravitational force  is $F_x = 0\units{N}$.
+}	% caption text
+{\starttikzpicture
+\startaxis
+ [footnotesize, width=2.20in, height=2in,
+   xlabel={$x$ ($\units{m}$)},
+   xmin=0, xmax=6,
+   ylabel={$U$ ($\unit{J}$)},
+   ymin=0, ymax=200,
+   %ytick={-10,-8,...,0},
+ ]
+ \addplot[
+   thick,
+   domain=0:6,
+   samples=2
+  ]
+  {29.4}
+  node[above,pos=0.5]{$y=1\units{m}$}
+  ;
+ \addplot[
+   thick,
+   domain=0:6,
+   samples=2
+  ]
+  {29.4*3}
+  node[above,pos=0.5]{$y=3\units{m}$}
+  ;
+ \addplot[
+   thick,
+   domain=0:6,
+   samples=2
+  ]
+  {29.4*5}
+  node[above,pos=0.5]{$y=5\units{m}$}
+  ;
+% \addplot[
+%   thick,
+%   domain=0:6,
+%   samples=2
+%  ]
+%  {29.4*6}
+%  node[below,pos=0.5]{$y=6\units{m}$}
+%  ;
+\stopaxis
+\stoptikzpicture}
+
+where $g = 9.8\units{N/kg}$ and the $y$ direction is upwards. From the equation we can see that the gravitational force does not have any $x$ or $z$ component and the $y$ component is negative. The gravitational force vector points straight down.
+
+
+\section{Projectile motion}
+
+Knowing the height of the drop, $h$, and the speed of the cart, $v\si$, there are several questions we might hope to answer.
+\startitemize[1,packed,broad]
+\startitem What is the cart's speed, $\vabs{\vec{v}_{\text{f}}}$, when it hits the ground. \stopitem
+\startitem What is the cart's velocity, $\vec{v}_{\text{f}}$, when it hits the ground. \stopitem
+\startitem How long will it take for the cart to reach the ground ($\Delta t$). \stopitem
+\startitem How far away from the table with the cart hit the ground ($\Delta x$). \stopitem
+\stopitemize
+We have three basic equations that will be useful: the conservation equations for energy and momentum and the position update formula. Let's see what each of these can tell us about the motion of the cart.
+
+\placefigure[margin][] % location
+{The path of a cart going off of a cliff.}	% caption text
+{\starttikzpicture
+	\startaxis[%axis equal,
+		footnotesize,
+		width=2.25in,%2.20in,
+		y={1cm},x={1cm},
+		xlabel={$x$ (m)},
+		xmin=0, xmax=4,
+		xtick={0,1,...,4},
+		%minor x tick num=9,
+		ylabel={$y$ (m)},
+		ymin=0, ymax=6,
+		ytick={0,1,...,6},
+		%minor y tick num=4,
+		]
+  \addplot[samples=100, variable=\t, domain=0:1]
+    ({4*t}, {5-5*t^2});
+  \addplot[samples=6, domain=0:1,
+    % the default choice âvariable=\xâ leads to
+    % unexpected results here!
+  	mark = *, mark size={.4pt},
+    variable=\t,
+    quiver={
+        u={3},
+        v={-7.5*t},
+        scale arrows=0.2}, thick,
+        ->]
+    ({4*t}, {5-5*t^2});
+	\stopaxis
+\stoptikzpicture}
+
+% Aligned Equations
+\startformula\startmathalignment[m=2,distance=2em]
+\stopmathalignment\stopformula
+
+Starting with conservation of energy, we will consider the cart's kinetic energy, $K$, and gravitational potential energy, $U$.
+\startformula\startmathalignment[m=2,distance=2em]
+\NC	E\sf \NC = E\si + \cancel{W} + \cancel{Q}	\NC \NC \text{no outside work or heat}\NR
+\NC	K\sf + \cancel{U\sf} \NC = K\si + U\si		\NC \NC \text{set $U=0$ at the floor}\NR
+\NC	\half m\abs{\vec{v}\sf}^2 \NC = \half mv\si^2 + mgh
+			\NC \NC \text{formulae for $K$ and $U$}	\NR
+\NC	\abs{\vec{v}\sf} \NC = \sqrt{v\si^2 + 2gh}
+			\NC \NC \text{solve for speed}
+\stopmathalignment\stopformula
+Compare this to the formula derived in Section \ref{sec:freefall}. Aside from the new vector notation, the formulae are almost identical. This is not a coincidence. Energy is not directional, so kinetic energy only depends on speed. This makes energy easy to work with, especially if all you want at the end is speed.
+
+To find the velocity rather than just the speed, we will use conservation of momentum. Rather than working with the full vector notation, we will find it helpful to break the equation into three component equations.
+\startformula\startmathalignment[m=3,distance=2em]
+\NC	\NC \NC 	\vec{p}\sf \NC = \vec{p}\si + \vec{F}\Delta t	\NR[1.5ex]
+\NC	p\sub{f,$x$} \NC = p\sub{i,$x$} + \cancel{F_x\Delta t}	\NC 
+	p\sub{f,$y$} \NC = \cancel{p\sub{i,$y$}} + F_y\Delta t	\NC 
+	p\sub{f,$z$} \NC = \cancel{p\sub{i,$z$}} + \cancel{F_z\Delta t}	\NR
+\NC	p\sub{f,$x$} \NC = p\sub{i,$x$}	\NC 
+	p\sub{f,$y$} \NC = -mg\Delta t	\NC 
+	p\sub{f,$z$} \NC = 0
+\stopmathalignment\stopformula
+Since the force is entirely in the $y$ direction, the $x$ and $z$ components of the force are zero. Force is required to change momentum, so the $x$ and $z$ components of the momentum do not change, meaning $x$ and $z$ components of the velocity are also constant.
+\startformula\startmathalignment[m=2,distance=2em]
+%	\NC \NC 	\vec{p}\sf \NC = \vec{p}\si + \vec{F}\Delta t	\NR
+\NC	p\sub{f,$x$} \NC = p\sub{i,$x$} 	\NC 
+%	p\sub{f,$y$} \NC = p\sub{i,$y$} + F_y\Delta t	\NC 
+	p\sub{f,$z$} \NC = 0	\NR
+\NC	mv\sub{f,$x$} \NC = mv\sub{i,$x$} 	\NC 
+%	mv\sub{f,$y$} \NC = mv\sub{i,$y$} + F_y\Delta t	\NC 
+	mv\sub{f,$z$} \NC = 0	\NR
+\NC	v\sub{f,$x$} \NC = v\si 	\NC 
+%	v\sub{f,$y$} \NC = v\sub{i,$y$} + F_y\Delta t	\NC 
+	v\sub{f,$z$} \NC = 0	
+\stopmathalignment\stopformula
+That is two components of the final velocity. What about the $y$ component of the final velocity? Since the $y$ component of the force is not zero, we have to actually calculate the final $y$ component of momentum using the force of gravity and the time of the fall. Unfortunately, we don't know the time of the fall; we only know the height.
+
+This is our first example of a very common problem when working in more than one dimension. Often the coordinates can be chosen so that motion in some of the directions is completely simple (like the constant momentum in the $x$ and $z$ directions), but something interesting is happening in the remaining direction. The trick is to return to conservation of energy, and use the simple motion to better understand the more complicated motion.
+
+\startformula\startmathalignment[m=2,distance=2em]
+\NC	E\sf \NC = E\si + \cancel{W} + \cancel{Q}	\NC \NC \text{no outside work or heat}\NR
+\NC	K\sf + \cancel{U\sf} \NC = K\si + U\si		\NC \NC \text{set $U=0$ at the floor}\NR
+\NC	K\sub{f,x} + K\sub{f,y} + K\sub{f,z}
+		\NC = K\sub{i,x} + K\sub{i,y} + K\sub{i,z} + U\si		\NC \NC \text{break $K$ into pieces}	\NR
+\NC	K\sub{f,x} + K\sub{f,y} + \cancel{K\sub{f,z}}
+		\NC = K\sub{i,x} + \cancel{K\sub{i,y}} + \cancel{K\sub{i,z}} + U\si		\NC \NC \text{some pieces are zero}	\NR
+\NC	K\sub{f,x} + K\sub{f,y}
+		\NC = K\sub{i,x} + U\si		%\NC \NC \text{some pieces are zero}
+\stopmathalignment\stopformula
+This looks like a bit of a mess, but it simplifies rapidly. The $x$ component of the momentum is constant, so the $x$ piece of the kinetic energy is also constant.
+\startformula
+	K\sub{f,x} = \frac{p\sub{f,x}^2}{2m} = \frac{p\sub{i,x}^2}{2m} = K\sub{i,x}	
+\stopformula
+This part of the kinetic energy just cancels between the two sides.
+\startformula\startmathalignment[m=2,distance=2em]
+\NC	\cancel{K\sub{f,x}} + K\sub{f,y}
+		\NC = \cancel{K\sub{i,x}} + U\si	\NC \NC \text{subtract $K_x$ from both sides}\NR
+\NC	\half mv\sub{f,y}^2 \NC = mgh		\NC \NC \text{formulae for $K$ and $U$}\NR
+\NC	v\sub{f,y} \NC = \pm\sqrt{2gh}			\NC \NC \text{solve for $v\sub{f,y}$}\NR
+\NC	v\sub{f,y} \NC = -\sqrt{2gh}			\NC \NC \text{negative as it hits the ground}
+\stopmathalignment\stopformula
+Now we have all three components of the final velocity. 
+
+Next we can find the time of the fall by returning to the $y$ component of the conservation of momentum formula. That component could not help us find $v\sub{f,y}$ because we did not have $\Delta t$, but now we can use it to find $\Delta t$ since we have $v\sub{f,y}$.
+\startformula\startmathalignment[m=2,distance=2em]
+\NC		p\sub{f,$y$} \NC = -mg\Delta t	\NC \NC \text{conservation of momentum}\NR
+\NC		mv\sub{f,$y$} \NC = - mg\Delta t	\NC \NC \text{formulae for $\vec{p}$}\NR
+\NC		\Delta t \NC = - \frac{v\sub{f,$y$}}{g} \NC \NC \text{solve for $\Delta t$}	\NR
+\NC		\Delta t \NC = - \frac{-\sqrt{2gh}}{g} \NC \NC \text{$v\sub{f,$y$}$ from above}	\NR
+\NC		\Delta t \NC = \sqrt{\frac{2h}{g}} \NC \NC \text{simplify}
+\stopmathalignment\stopformula
+
+Finally, we find the displacement in the $x$ direction using the position update formula. This works because the velocity in the $x$ direction is constant.
+\startformula\startmathalignment%[m=2,distance=2em]
+\NC	\Delta x \NC = v_x\Delta t	\NR
+\NC	\Delta x \NC = v\si\sqrt{\frac{2h}{g}}
+\stopmathalignment\stopformula
+
+
+\section{Spring Forces}
+
+
+\section{Universal Gravitation}
+
+\placefigure[margin][] % location
+{The path of a cart going off of a cliff.}	% caption text
+{\starttikzpicture
+	\startaxis[%axis equal,
+		footnotesize,
+		width=2.25in,%2.20in,
+		y={1cm},x={1cm},
+		xlabel={$x$ (m)},
+		xmin=0, xmax=4,
+		xtick={0,1,...,4},
+		%minor x tick num=9,
+		ylabel={$y$ (m)},
+		ymin=0, ymax=6,
+		ytick={0,1,...,6},
+		%minor y tick num=4,
+		]
+  \addplot[samples=100, variable=\t, domain=0:1]
+    ({4*t}, {5-5*t^2});
+  \addplot[samples=6, domain=0:1,
+    % the default choice âvariable=\xâ leads to
+    % unexpected results here!
+  	mark = *, mark size={.4pt},
+    variable=\t,
+    quiver={
+        u={3},
+        v={-7.5*t},
+        scale arrows=0.2}, thick,
+        ->]
+    ({4*t}, {5-5*t^2});
+	\stopaxis
+\stoptikzpicture}
+
+
+
+Joseph-Louis Lagrange's work on mechanics culminated in his book \booktitle{Analytique mechanique}, published in 1788. Lagrange's work is so abstract that the book contains no diagrams and no physical arguments, only pure mathematics of idealized, general mechanical systems. For those fluent in the new mathematical methods of French analysis, Lagrange's approach to mechanics is profound and beautiful. I will not attempt to explain a single word of it here.
+
+While the physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring French mathematical revolution transforming physics.  
+They remained paralyzed by a fanatic devotion to Newton's cumbersome, geometric methods and continued to hold a grudge over the Leibniz's calculus and \visviva. This problem persisted until 1812, when a group of young undergraduate students at Cambridge started the Analytical Society, partly as a joke, to study the methods of French analysis. They learned to solve problems using the continental notation and even translated a few important French books and papers into English. The club met for a few years and essentially disappeared after its members graduated and left Cambridge in 1817.
+
+That probably would have been the end of this little revolt, except that one of the members, George Peacock, was appointed in 1817 to write questions for the rigorous Mathematical Tripos exam taken by all third year mathematics students at Cambridge. He audaciously wrote his questions using the continental notation, which caused a bit of a stir among the faculty, but constrained by tradition, or perhaps simply too lazy to write the questions themselves, they did not interfere. Peacock was asked to write questions again in 1819, and students recognized this as a complete surrender by the Newtonian faculty. From there the adoption of continental notation and methods in England was quite swift. Newton remained a revered figure, but his  150 year old dispute against Leibniz finally passed into history. %Cannell p. 38
+
+The United Kingdom began producing great physicists. Among the first was William Rowan Hamilton. Hamilton was a genius, gifted in languages and mathematics. He learned Hebrew, Latin, and Greek from early childhood. At the age of 15 he read Newton's \booktitle{Principia}, and a two years later the great French work \booktitle{M\'echanique c\'eleste}, by Pierre-Simon Laplace.%Cannell p. 39
+
+In 1823, at the age of 18, Hamilton entered Trinity College Dublin.
+Trinity College had adopted the continental notation in 1812, a bit ahead of Cambridge, and used the French textbooks in mathematics and physics courses. Hamilton embraced the abstract approach. He earned top marks in all of his courses and won many awards, which propelled him to a position as head of the Dunsink Observatory, near Dublin. Although the observatory provided ample opportunity for practical astronomy, Hamilton continued to focus on more theoretical interests, first in optics and then in mechanics.
+
+Hamilton wrote two ground breaking papers on mechanics, \booktitle{On A General Method In Dynamics} in 1834 and \booktitle{Second Essay On A General Method In Dynamics} in 1835. In these he refined Lagrange's abstract approach, producing a pair of equations, now known as Hamilton's equations, that could be applied to any physical system, no matter how complicated. Both of these equations start with the total energy of the system. The first equation gives the velocities of the system's parts. The second gives the forces on the parts. If we know every part's starting position and momentum, then Hamilton's equations the velocities needed to compute new position and the forces required to calculate new momentums, all from knowing the system's energy!
+
+The formulation of these equations was very abstract, but their application is incredibly practical because the energy is relatively easy to determine. The total kinetic energy can be calculated from the parts' momentums. The potential energy can be calculated from the parts' positions. We will not need Hamilton's first equation because for all of the systems we have considered it gives the same formula for the velocities.
+\startformula
+	dx = \frac{\partial H}{\partial p} dt
+	\qquad
+	dx_1 = \frac{\partial H}{\partial p_1} dt
+\stopformula
+\startformula\startmathalignment
+\NC	\partial W	\NC= F_x\,\partial x + F_y\,\partial y + F_z\,\partial z	\NR
+\NC	-\partial U	\NC= F_x\,\partial x + F_y\,\partial y + F_z\,\partial z	\NR
+\stopmathalignment\stopformula
+\startformula
+	F_x = -\frac{\partial U}{\partial x}
+	\qquad
+	F_y = -\frac{\partial U}{\partial y}
+	\qquad
+	F_z = -\frac{\partial U}{\partial z}
+\stopformula
+This agrees with Newton's formula for momentum. I will return to Hamilton's first equation at the end of the chapter.
+
+Hamilton's second equation provides tremendous new information. It says that the system’s change in momentum $d\varpi$ is determined by the directional derivatives of the system’s total energy $H$, which is now called the Hamiltonian. Using Leibniz's notation, Hamilton's second equation is
+\highlightbox{
+\startformula[eq:Hamilton2]
+	dp = -\frac{\partial H}{\partial x} dt
+\stopformula
+}
+
+
+\section{Hamilton's First Equation for Photons}
+When introducing the formulas for momentum ($p=mv$) and kinetic energy ($K=p^2/2m$), I mentioned that these formulas will need to be replaced when we discuss particles traveling close to the speed of light.
+Hamilton's first equation does not tell us what the new formulas will be, but it does tell us how to get the new momentum formula once we have the new kinetic energy formula. For photons, particles of light, this is method is quite simple. A photon's kinetic energy is proportional its momentum by
+\startformula
+	K=\abs{p}c
+\stopformula
+where $c=3.00\sci{8}\units{m/s}$ is the speed of light. The kinetic energy of photons is quite noticeable. In direct sunlight photons warm your face by delivering about six joules of kinetic energy every second. The total momentum of all of those photons is far too small to notice
+\startformula
+	\abs{p} = \frac{K}{c}
+		= \frac{6\units{J}}{3\sci{8}\units{m/s}}
+		= \frac{6\units{kg\.m^2/s^2}}{3\sci{8}\units{m/s}}
+		= 2\sci{-8}\units{kg\.m/s}
+\stopformula
+You feel the warming energy of the photons, but you are not pushed by their momentum.
+
+Hamilton's first equation says that the photon's velocity is determined from the total energy
+\startformula[eq:Hamilton1]
+	v = \frac{\partial H}{\partial p}
+\stopformula
+This is the slope of the energy vs.~momentum graph. The right side of the graph has a positive slope $c$. Photons with positive momentum have a positive velocity which is the speed of light. Good thing that particles of light have a velocity equal to the speed of light! On the left side of the graph the slope is negative $c$. Photons with momentum in the negative direction have a velocity which is $-c$, the speed of light, but in the negative direction.
+
+
+
+\section{Contact Forces}
+Objects in our everyday lives exert forces on each other when they come in contact.
+
+\subsection{Spring Force: $F\sub{s} = kx$}
+Now that we are pros with vectors, we can write this as a vector equation.
+$\vec{F}\sub{s} = - k\vec{x}^2$
+
+\subsection{Friction Force: $F\sub{f} = \mu N$}
+
+This is interesting because the force of friction depends on another force, $N$.
+
+\subsection{Other forces}
+
+\section{Work: $W\sub{AB}=\vec F\sub{AB}\dotp \Delta \vec r$}
+In nearly all of the problems we will do, the energy is transferred through work.  When one object, call it A, pushes or pulls another object, B, then A transfers some energy to B.  The work done by A on B is given by
+\startformula[work]
+	W\sub{AB}=\vec F\sub{AB}\dotp \Delta \vec r = F\sub{AB} d \cos \theta
+\stopformula
+The force that A exerts on B is $\vec F\sub{AB}$, and the distance that B moves is $d$.
+The angle $\theta$ is measured between the force vector, $\vec F\sub{AB}$, and the direction vector, $\Delta \vec r$.
+
+Naturally, any energy that A gives to B can also be thought of as energy that B takes from A.  When B is pushed or pulled by A, we say that B has done negative work on A.  Mathematically, this means
+\startformula
+	W\sub{BA}=-W\sub{AB}
+\stopformula
+This consistent with formula for $W\sub{AB}$ because we also know that $\vec F\sub{BA}=-\vec F\sub{AB}$.
+One exception is when A and B move different distances, perhaps because they are sliding against each other.  In this case some of the energy is going into something else, usually heat.
+
+%\chapter{Work: Mechanical Energy Transfer}
+%
+%We can use the formulas for kinetic energy and momentum to get $P = \vec F \dotp \vec v$ (which seems to get time involved in a totally unnecessary way), but that requires taking a derivative.  I could start with $dW=\vec F\dotp d\vec x$.  As with all of my stuff with $d$, the math to back up this approach is differential forms, with $d$ being the exterior derivative.  However, for the junior high version I don't have any other integrals, so I probably just need to stick with either $W=Fd$ or $W=\vec F \dotp \Delta \vec r$.  I have no idea how to get that from my energy and momentum formulas.
+%
+%Since I am doing vectors in the momentum section, it might be nice to round out vector algebra with the dot product.
+%
+%\subsection{The Vector Dot Product}
+%I may have to teach the dot product before this.
+%
+%\subsection{Work}
+%$W = \vec F \dotp \Delta \vec r$ % (Integrals of Vectors)
+%
+%Work out the gravity example, explain the spring example.
+%
+%\subsection{Using Force for Power}
+%$P = \vec F \dotp \vec v$% or
+
+
+
+\section{Power}%: $\Delta E = Pt$
+%Now we enter the exciting wold of derivatives.  We didn't mention that velocity is a derivative so this is our first exposure.  This is a good place to do it though.  We can introduce $\Delta E$, and then go to  the limit of really short times.  This should be done with enough care to teach derivatives to students who have not been exposed before.  It will avoid the issues surrounding the fact that some functions do not have derivatives at some points.  I'm not sure why even I care about that.
+The rate at which energy flows into or out of a system is called the power.  A 60W lightbulb converts 60J of electricity to 60J of light and heat every second.
+
+We learned in the introduction that rates are found by dividing the change in a quantity by the time it took.  Let's divide the conservation of energy equation by the time between the start and end, $\Delta t = t\sub{start}-t\sub{end}$.
+\startformula
+	H\si + W + Q = H\sf
+\stopformula
+
+  The total power going into a system minus the total power coming out gives the rate of change in the energy of the system.
+\startformula[power]
+	P\sub{in} - P\sub{out} = \frac{\Delta H}{\Delta t}
+\stopformula
+Where $\Delta t$ is the amount of time over which the power is flowing.  This is just another statement of conservation of energy, but written in terms of rates.
+%Here we get some great problems that are often beyond a typical introductory physics course.  For example, we can find the power that can be generated by a water wheel under a waterfall of a given height and flow.  These will be hard and students must be prepared with care so that they aren't doing the "per unit time" thing if it can be avoided.
+
+%\section{Rates}
+%I could introduce rates in the introduction to conservation laws (cookies per day).  But I think it is best to wait until here, when they will have don't some problems and gotten the conservation of mass concept down pretty well.  I could also wait on rates until after we have done energy and momentum, but that seems pretty late and it breaks up the organization by topic into organization by math.  At some point I need to give a good description of speed.  Clearly that is needed for kinetic energy, but perhaps it should be described along side volume, area and density in the introduction.
+
+%Sometimes we don't want to just compare the starting and ending states, we want to talk about how fast something is happening, or the rate at which it happens.
+
+%\startformula
+%	R\sub{change} = \frac{M\sub{end}-M\sub{start}}{t}
+%\stopformula
+
+%Example: a steam engine needs to produce a certain volume of steam at a some pressure to run.  How fast will it consume water (I'll just give the steam density).
+
+%\section{Review}
+
+%Last week we learned the integral form of the conservation of energy equation.
+%\startformula
+%	E(t_1)+ \int_{t_1}^{t_2} \! P\sub{in} \, dt -  \int_{t_1}^{t_2} \! P\sub{out} \, dt = E(t_2)
+%\stopformula
+%Another useful form can be found by taking the derivative with respect to $t_2$
+%\begin{align}
+%	\tfrac {d}{dt_2}\left(E(t_1)
+%		+ \int_{t_1}^{t_2} \! P\sub{in} \, dt
+%		-  \int_{t_1}^{t_2} \! P\sub{out} \, dt \right)
+%	\NC = \frac {d}{dt_2} E(t_2) \NR
+%	P\sub{in} (t_2)-  P\sub{out}(t_2)
+%	\NC = \frac {d}{dt_2} E(t_2)
+%\end{align}
+%Since there is only one time in the final equation, we can write
+%\startformula
+%	\frac {d}{dt} E(t) = P\sub{in} (t)-  P\sub{out}(t)
+%\stopformula
+%This is the instantaneous form of the conservation of energy equation, which says that the rate at which the system's energy is changing is equal to the rate at which energy is being added minus the rate at which energy is being taken out.  We can get back to the integral form by integrating the instantaneous form.
+
+%You may remember that there were actually two integrals that we could use for the energy added and taken out, the above integral of Power with respect to time, and an integral of force over distance.  We can equate these two forms and take a derivative to get another useful relation.  Here I will use the total power, $P = P\sub{in} - P\sub{out}$.
+
+%\begin{align}
+%	\int_{t_1}^{t_2} \! P \, dt
+%		\NC =  \int_{\vec{x}_1}^{\vec{x}_2} \! \vec{F} \dotp d\vec{x} \NR
+%	\tfrac {d}{dt_2} \int_{t_1}^{t_2} \! P \, dt
+%		\NC = \tfrac {d}{dt_2} \int_{\vec{x}_1}^{\vec{x}_2} \! \vec{F} \dotp d\vec{s} \NR
+%	P(t_2) \NC = \tfrac {d\vec{x}_2}{dt_2} \dotp \tfrac {d}{d\vec{x}_2}
+%		\int_{\vec{x}_1}^{\vec{x}_2} \! \vec{F} \dotp d\vec{s} \NR
+%	\NC = \vec{v} \dotp \vec{F}
+%\end{align}
+
+
+\section{Constant Force}
+%\setchapterfolder{Ch15}
+
+
+%Potentials are more fundamental than the fields or the forces. 
+%
+%This chapter should mirror the previous chapter, but with the addition of the potentials. Start by giving $E$ as a function of $m$, $\vec{p}$ and the fields. Then give $v$ as a function of those and the fields.
+%
+%Some discussion of what is in and what is out in an energy calculation. Before we had just the energy (rest plus kinetic). Now we potential. Many problems can be done with either work or potential, so that should be shown.
+%
+
+
+
+%\section{The rate of momentum change is the net force}
+%\highlightbox{
+%%\startformula
+%%	\vec F\sub{net} = \frac{\Delta\vec p}{\Delta t}
+%%\stopformula
+%\begin{gather}
+%	\vec F\sub{net} = \frac{\Delta\vec p}{\Delta t} \NR
+%	\vec p_1 = \vec p_0 + \vec F\sub{net}\Delta t
+%%	E\sub{f} \NC = \vec E\sub{i} + \vec{F}\sub{net}\dotp\Delta\vec{r}
+%\end{gather}
+%}%\end{shaded}
+%
+
+Let us return again to the dawn of the scientific revolution to confront the  most direct objection to Galileo's heliocentric cosmology: Earth does not \emph{seem} to be moving. In his \booktitle{Dialogue Concerning Two World Systems}, Galileo quotes the most compelling form of this argument, made by Aristotle.
+
+
+\startblockquote
+	As the strongest reason, everyone produces the one from heavy bodies, which when falling down from on high move in a straight line perpendicular to Earth's surface. This is regarded as an unanswerable argument that Earth is motionless. For, if it were in a state of diurnal rotation, and a rock were dropped from the top of a tower, then during the time taken by the rock in its fall, the tower (being carried by Earth's turning), would advance many hundreds of cubits toward the east and the rock should hit the ground that distance away from the tower's base. \autocite{p.~215}{Galileo1632}
+\stopblockquote
+
+Recall that Earth's size was known (roughly), so the tower's proposed speed was  about $460\units{m/s}$ toward the east, an amazing speed! %(See Example \ref{}.) refer to example problem in circular motion section
+A rock dropped from a $50\units{m}$ tower (roughly the height of the Leaning Tower of Pisa), would take about $3.2\units{s}$ to reach the ground.%(Example \ref{})
+In that time the tower would move $1500\units{m}$ to the east. If Aristotle's reasoning is correct, the rock should hit the ground $1.5\units{km}$ to the west of the tower's base. 
+
+Rather than following Galileo's brilliant and lengthy refutation, we will confront Aristotle's argument using conservation of momentum and the mathematical language of vectors.%, which will greatly reduce our effort.
+The momentum of the rock is changed by the force of gravity.
+\startformula
+	\vec{p}\sf = \vec{p}\si + \vec{F}\Delta t
+\stopformula
+The force in this case is the force of gravity, which is directed downwards and has magnitude $mg$.
+\startformula
+	\vec{F} = \coordinates{0,-mg,0}
+\stopformula
+
+The constant force of gravity changes the rock's momentum. However, we have learned that the $y$-component of the force will only affect the $y$-component of the momentum. Since the force has no $x$-component, the momentum's $x$-component is unchanged by the force.
+
+If Earth's surface were stationary, as Aristotle believed, the a rock at held at the top of the tower would have no horizontal momentum, $p\sub{i$x$}=0$. When released, it continues to have no horizontal momentum, falling directly downward and landing at the base of the tower. Since this is what does happen, we seem to have strong evidence for Aristotle's view.
+
+However, if the tower is moving, due to Earth's rotation, then the rock held at the top of the tower would have significant horizontal momentum in order to move along with the tower, $p\sub{i$x$}=mv\sub{tower}$. When released that stone would keep this horizontal momentum, falling toward the ground but simultaneously moving horizontally along with the tower. As rock falls, the tower moves $1.5\units{km}$ to the east, and the rock also travels exactly the same distance, striking the ground right at the base of the tower, exactly as we expect.
+
+Galileo argued that the horizontal and vertical motion were separate motions, having no effect on each other. In modern language we refer to them as different components of the momentum. Galileo return's to this idea in \booktitle{Two New Sciences}, where he provides a mathematical description of projectile motion, which composed of both horizontal and vertical motion under the constant force of gravity.
+
+ 
+
+\startformula
+	p\sub{f$x$} = p\sub{i$x$} + F_x\Delta t
+\stopformula
+Since the $x$-component of the gravitational force is zero, we find that the $x$-component of the momentum is constant: $p\sub{f$x$} = p\sub{i$x$}$.
+
+
+In a collision, the change in momentum is usually abrupt. The forces between the colliding objects can be enormous, but it acts for a very short time. In this chapter we will consider the opposite extreme: constant forces which, while often smaller in magnitude, are relentless in their action.
+
+Gravity is the classic example. Pulling on objects constantly, gravity is almost impossible to escape. “What goes up, must come down,” due to the persistence of the gravitational force. Of course, since entering the space age, we have generated a long list of objects that have gone up without coming down. Some are in orbit around Earth, others in orbit around the sun or other planets. A few are leaving the solar system entirely. But these are the exceptions that prove the rule. These runaways are only able to escape because Earth's gravity becomes weaker far away. 
+
+\subject{Notes}
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+ 
+%\subject{Bibliography}
+%        \placelistofpublications
+
+
+\stopchapter
+\stoptext
+\stopcomponent
+
+\section{Problems}
+
+Here are some problems inspired by the tzero, a high performance electric car made by AC Propulsion.
+\begin{questions}
+
+\problem The tzero has a mass of 1000kg and can accelerate from zero to 30m/sec in 4sec.  If it accelerates at constant power, what is the power?
+
+\problem At maximum power, how long will it take to accelerate to 30m/sec while towing a 500kg trailer?
+
+\problem Once going at 30 m/sec, the breaks are used to stop.  They provide a stopping force that is 80\% of the weight of the car.  What is the stopping distance?  (No trailer, anymore.)
+
+\problem If the tzero is stopped instead by a big spring with spring constant 2N/m, what is the stopping distance?
+
+\problem  If the tzero is stopped by costing up a $30^\circ$ slope, what is the stopping distance?
+
+\problem  What is the stopping distance if it uses both the spring and the breaks?
+
+\problem The tzero accelerates at full power for 10sec.  Then, seeing the grand canyon only 50m ahead, the driver slams on the breaks.  Does he stop in time?  If not, how fast is he going when he hits the canyon floor 75m below?
+
+\problem The tzero is, for unknown reasons, towing the 500kg trailer with a 50m tow rope.  Although moving slowly, it again inexplicably falls off a high cliff.  Ignoring friction, how fast is the trailer going when it is pulled over the edge by the falling tzero.
+
+\problem
+Lifting this book from the floor to the table takes about 10 J of energy.  How much energy would it take to lift the book to a high shelf?
+
+\problem
+Lifting this book from the floor to the table takes about 10 J of energy.  How much energy would it take to lift two books onto the table?
+
+\problem
+Lifting this book from the floor to the table takes about 10 J of energy.  How much energy would it take to lift the book onto the table if we are on the moon where gravity is one sixth as strong?
+
+\problem
+What are the units of energy (J)?
+
+\problem
+What are the units of $mc^2$ if $c$ is the speed of light?
+
+\problem
+How much energy do I give my 20 kg son, Eric, when I put him on my shoulders (about 1.5 m up)?
+
+\problem
+How high would I have to lift a 1000 kg car for it to have a gravitational potential energy of $1.8 \sci{6} \units{J}$?
+
+\problem
+A 40 kg person is jogging at 3 m/sec.  What is his kinetic energy?
+
+\problem
+A car has a kinetic energy of $1.8 \sci{6} \units{J}$ at a speed of 60 m/sec.  What is it's mass?
+
+\problem
+A baseball and a tennis ball are traveling with the same kinetic energy.  
+If the baseball weighs twice as much, then what is the speed of the tennis ball?
+
+\problem
+Two objects of different masses are dropped from the Tower of Pisa.  Which is going faster when it gets to the ground?
+
+\problem
+At the park two kids climb to the top of a frictionless slide.  One child slides down, but the other child falls off when he gets to the top.  Which child[ gets to the ground first?
+
+\problem
+At the park two kids climb to the top of a frictionless slide.  One child slides down, but the other child falls off when he gets to the top.  Which child is going faster at the bottom?
+
+\problem
+A giant sling-shot has a spring constant of 4 N/m.  How far does it have to be stretched to store 200 J of energy?
+
+\problem
+A physicist used a large spring in his garage to stop his car.  The spring he bought will stop his car in 2m.  He buys an SUV which is twice as massive as his car, though he drives it into the garage at the same speed.  How many springs will he need to stop the SUV in the same distance?
+
+\problem
+The physicist of the last problem gives his car to his daughter, who enters the garage twice as fast.  How many springs will she need to stop in the same distance?
+
+% Here there should be a problem like the next, but with the velocity right after launch.
+
+\problem
+A spring is used to launch a ball to a height h.  If the spring were compressed twice as much how high would the ball go?
+
+% The sling shot problems go here
+
+\problem
+A kitchen scale has a spring constant of $10^4 \units{N/m}$.  A 4 kg turkey is set on it, without compressing the spring, and then released.  How far does the scale go down before it stops?
+
+\problem
+How fast is the turkey going when it passes the halfway point?  This time use $m$, $k$ and $g$.
+
+\problem
+A kitchen scale has a spring constant of $10^4 \units{N/m}$.  A 4 kg turkey is dropped on it from a height of 6 mm.  How far does the scale go down before it stops?
+
+\problem
+My 20 kg son can climb 2 m in 4 sec.  What is the power he puts into climbing?
+
+\problem
+The elevator in my building rises at 3 m/sec when filled to capacity (1000 kg).  What is the power of the motor?  The counterweight is 500 kg.
+
+\problem
+A car accelerates with constant power.  After 9 sec it has reached 30 km/sec.  Much longer will it take to reach 60 km/sec?
+
+\problem
+A miller finds a waterfall with a flow of 10 kg/sec and a drop of 2 m.  He builds a water wheel.  How much power does he get?
+\end{questions}
+
+
+\stopchapter
+\stoptext
+\stopcomponent
+
+
+% Templates: 
+
+% Epigraph
+\placefigure[margin,none]{}{\small
+	\startalignment[flushleft]
+	\stopalignment
+	\startalignment[flushright]
+	{\it }\\
+	{\sc }\\
+	--
+	\stopalignment
+}
+
+% Margin image
+\placefigure[margin][] % Location, Label
+{} % Caption
+{\externalfigure[chapter03/][width=144pt]} % File
+
+% Margin Figure
+\placefigure[margin][] % location
+{}	% caption text
+{\starttikzpicture	% tikz code
+\stoptikzpicture}
+
+% Aligned equation
+\startformula\startmathalignment
+\stopmathalignment\stopformula
+
+% Aligned Equations
+\startformula\startmathalignment[m=2,distance=2em]
+\stopmathalignment\stopformula
