@@ -1,0 +1,72 @@
+% !TEX TS-program = ConTeXt Suite
+% !TEX useOldSyncParser
+\startcomponent c_chapter01
+\project project_world
+\product prd_volume01
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+\starttext
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title=Constrained Motion, reference=ch:Constraints]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Problems with constraints require adding unknown reaction forces to the equations of motion, one force per constraint. The constraint equations provide enough information to solve for these reaction forces when finding the motion from Hamilton's equations.
+Hamilton's equations with these external reaction forces are
+\startformula
+	d\eta^\alpha = \frac{\partial H}{\partial \varpi_\alpha}\,dt
+	\qquad
+	d\varpi_\alpha = \left( - \frac{\partial H}{\partial \eta^\alpha} + F_\alpha\right)\,dt.
+\stopformula
+There are $m$ coordinates $\eta^\alpha$ and $m$ canonical momenta $\varpi_\alpha$ ($\alpha \in \{1\dots m\}$). The constraints are maintained by the reaction force $F$, which has components $F_\alpha$.
+
+Common constraints, like rolling, involve velocities as well as position. Rolling constraints are linear in velocities, so consider $n$ constraints of the form
+\startformula
+	e^\mu_\alpha \dot\eta^\alpha = 0,
+\stopformula
+where $\mu \in \{1\dots n\}$. For rolling constraints the $e^\mu_\alpha$ themselves depend only on positions, not momenta or velocities, but this restriction is not necessary for what follows.
+
+The constraint force is unknown, but we know it does no work on the system. Therefore the power delivered to the system by the constraint force is zero for any velocity consistent with the constraints.
+\startformula
+	F_\alpha\dot\eta^\alpha = 0
+\stopformula
+This can be achieved by setting
+\startformula
+	F_\alpha = \lambda_\mu e^\mu_\alpha
+\stopformula
+With $n$ unknown multipliers $\lambda_\mu$.
+With this external reaction force, Hamilton's equations become
+\startformula
+	d\eta^\alpha = \frac{\partial H}{\partial \varpi_\alpha}\,dt
+	\qquad
+	d\varpi_\alpha = \left( - \frac{\partial H}{\partial \eta^\alpha} + \lambda_\mu e^\mu_\alpha \right)\,dt
+\stopformula
+The final result of all of this is $2m$ Hamilton's Equations and the $n$ constraint equations. These can be used to solve for the $m$ coordinates, $m$ momenta, and $n$ multipliers. For rolling constraints there is no velocity dependence in Hamilton's equations. The reaction force maintaining all of the constraints has components
+\startformula
+	F_{\alpha} = \lambda_\mu e^\mu_\alpha.
+\stopformula
+Frequently, only the positions are constrained explicitly. (These are called holonomic constraints.) The velocities are constrained only as a consequence of the position constraints
+\startformula
+	f^\mu = 0,
+\stopformula
+where each $f_\mu$ depends only on position. These constraints can be put in the form above by taking their time derivatives.
+\startformula
+	\frac{d}{dt}f^\mu = \frac{\partial f^\mu}{\partial\eta^\alpha}\dot\eta^\alpha = 0
+\stopformula
+This is the a constraint linear in velocity with
+\startformula
+	e^\mu_\alpha = \frac{\partial f^\mu}{\partial\eta^\alpha}
+\stopformula
+Hamilton's equations with holonomic constraints become
+\startformula
+	d\eta^\alpha = \frac{\partial H}{\partial \varpi_\alpha}\,dt
+	\qquad
+	d\varpi_\alpha = \left( - \frac{\partial H}{\partial \eta^\alpha} + \lambda^\mu \frac{\partial f_\mu}{\partial\eta^\alpha}\right)\,dt
+\stopformula
+This is the common result for constrained motion. See, for example, José and Saletan, in \booktitle{Classical Dynamics} (pp. 115-6) which discusses nonholonomic constraints as well. I have only seen these methods use in the Lagrangian formulation, but the Hamiltonian formulation is a natural extension. There is no obstacle to mixing holonomic and nonholonomic constraints.
+
+The geometric story appears to be this. The $e^\mu_\alpha$ are differential forms on the configuration space, and the constraint equations require that the velocity vectors give zero when contracted with these forms.  The reaction force is also a differential form, a scalar multiple of the $e^\mu_\alpha$. If the differential form can be written as the differential of a scalar function, $e = df$, then constraints are holonomic.
+
+\stoptext
+\stopcomponent

@@ -5,12 +5,17 @@
 \usemodule[tikz]			% TikZ module for diagrams
 \usepgflibrary[shapes.misc]	% Node shapes for ConTeXt and pure pgf
 \usemodule[pgfplots]			% PGFPlots module for graphs
-\pgfplotsset{compat=1.16}		% Required to get new any features that could cause compatibility issues.
-\usetikzlibrary{arrows.meta,backgrounds}
-\usetikzlibrary{decorations.text}
-\usetikzlibrary{decorations.markings}
-\usetikzlibrary {angles,quotes}
-\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.17}		% Required to get new any features that could cause compatibility issues.
+\usetikzlibrary[arrows.meta,backgrounds]
+\usetikzlibrary[decorations.text]
+\usetikzlibrary[decorations.markings]
+\usetikzlibrary[angles,quotes]
+\usetikzlibrary[math]
+\usepgfplotslibrary[groupplots] % groupplot has unconventional commands in ConTeXt, fixed below
+\unexpanded\def\startgroupplot{\groupplot}
+\unexpanded\def\stopgroupplot{\endgroupplot}
+
+\usepgfplotslibrary[fillbetween]
 \usetikzlibrary[pgfplots.polar]
 
 \tikzset{>/.tip=Latex} % The tip drawn by -> will be the LaTeX tip.
@@ -79,6 +84,19 @@
 	minor x tick num=4,
 	axis x line=bottom,
 	tick align=outside,
+	x axis line style={-}
+}}
+\pgfplotsset{big diagram cart track/.style={
+	%\fill [black!10] (0,0) rectangle (13.6,-.15);
+	%footnotesize,
+	x={1mm},y={1mm},
+	xlabel={$x$ (cm)},
+	xmin=-1,xmax=151,
+	ymin=-10,ymax=35,
+	hide y axis,
+	minor x tick num=4,
+	axis x line=bottom,
+	tick align = outside,
 	x axis line style={-}
 }}
 \tikzset{
