@@ -1,0 +1,33 @@
+% !TEX TS-program = ConTeXt Suite
+\startproduct prd_volume02
+\project project_world
+
+\def\volNo{II}
+\def\volDir{volume02}
+\def\volSubtitle{Seconds, Subtitles and Sublimation}
+
+\component common/titlepage
+\startfrontmatter
+	\component common/contents
+\stopfrontmatter
+\setupuserpagenumber[number=1]
+\startbodymatter
+	\component \volDir/chapter01
+	\component \volDir/chapter02
+	\component \volDir/chapter03
+	\component \volDir/chapter04
+	\component \volDir/chapter05
+	\component \volDir/chapter06
+	\component \volDir/chapter07
+	\component \volDir/chapter08
+\stopbodymatter
+
+%\startappendices
+%\stopappendices
+
+\startbackmatter
+	\component common/bibliography
+	\component common/index
+\stopbackmatter
+
+\stopproduct

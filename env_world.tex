@@ -94,7 +94,7 @@
 	numberstyle=scxx, textstyle=tfc,
 ]
 % Versals for chapter openers
-\usemodule[lettrine] % HR: is this necessary? probably outdated (LMTX?)
+\usemodule[lettrine]
 
 % Section heads
 \setuphead[section][
@@ -113,7 +113,7 @@
 \setupheadertexts[margin][][\hfill\pagenumber][\pagenumber \hfill][] % HR: does \hfill work here at all?
 
 % Indenting
-\setupindenting[yes,medium] % HR: not "next"?
+\setupindenting[yes,medium]
 
 % Emphasis
 % HR: setup changed, use highlights, not just defines
@@ -140,7 +140,7 @@
 
 % Citations and Bibliography
 \usebtxdefinitions[apa] % Use APS or APA style Bibliography
-\usebtxdataset[BookBib.bib]
+\usebtxdataset[common/BookBib.bib]
 \define[2]\autocite{\endnote{\cite[righttext={{#1}}][#2]}}%\autocite[p.~123]{Leibniz1695}
 \define[1]\FNN{{\addff{normnum}#1.}} % footnote number
 \setupnote[endnote][
