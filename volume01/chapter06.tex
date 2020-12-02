@@ -13,7 +13,9 @@
 
 \placefigure[margin,none]{}{\small
 	\startalignment[flushleft]
-The theoretical development of the laws of motion of bodies is a problem of such interest and importance, that it has engaged the attention of all the most eminent mathematicians, since the invention of dynamics as a mathematical science by {\sc Galileo}, and especially since the wonderful extension which was given to that science by {\sc Newton}. Among the successors of those illustrious men, {\sc Lagrange} has perhaps done more than any other analyst, to give extent and harmony to such deductive researches, by showing that the most varied consequences respecting the motions of systems of bodies may be derived from one radical formula; the beauty of the method so suiting the dignity of the results, as to make of his great work a kind of scientific poem. But the science of force, or of power acting by law in space and time, has undergone already another revolution, and has become already more dynamic, by having almost dismissed the conceptions of solidity and cohesion, and those other material ties, or geometrically imaginably conditions, which {\sc Lagrange} so happily reasoned on, and by tending more and more to resolve all connexions and actions of bodies into attractions and repulsions of points: and while the science is advancing thus in one direction by the improvement of physical views, it may advance in another direction also by the invention of mathematical methods. And the method proposed in the present essay, for the deductive study of the motions of attracting or repelling systems, will perhaps be received with indulgence, as an attempt to assist in carrying forward so high an inquiry.%\autocite[p.48]{Galileo1610}
+The theoretical development of the laws of motion of bodies is a problem of such interest and importance, that it has engaged the attention of all the most eminent mathematicians, since the invention of dynamics as a mathematical science by {\sc Galileo}, and especially since the wonderful extension which was given to that science by {\sc Newton}. Among the successors of those illustrious men, {\sc Lagrange} has perhaps done more than any other analyst, to give extent and harmony to such deductive researches, by showing that the most varied consequences respecting the motions of systems of bodies may be derived from one radical formula; the beauty of the method so suiting the dignity of the results, as to make of his great work a kind of scientific poem\dots.
+%But the science of force, or of power acting by law in space and time, has undergone already another revolution, and has become already more dynamic, by having almost dismissed the conceptions of solidity and cohesion, and those other material ties, or geometrically imaginably conditions, which {\sc Lagrange} so happily reasoned on, and by tending more and more to resolve all connexions and actions of bodies into attractions and repulsions of points: and while the science is advancing thus in one direction by the improvement of physical views, it may advance in another direction also by the invention of mathematical methods.
+And the method proposed in the present essay, for the deductive study of the motions of attracting or repelling systems, will perhaps be received with indulgence, as an attempt to assist in carrying forward so high an inquiry.%\autocite[p.48]{Galileo1610}
 	\stopalignment
 	\startalignment[flushright]
 	{\it On A General Method In Dynamics}\\
@@ -28,11 +30,235 @@ Engineers developed and applied methods specific to specialized applications wit
 
 Physicists largely ignored the engines, focusing their attention on abstract problems in pure mechanics and developing more general methods that could be applied to a huge range of problems – planetary motion, spinning tops, and  complicated jointed pendulums. These problems had little practical value, but they inspired rapid advances in applied mathematics, starting with the work of the great mathematician Leonhard Euler (who was also a close friend of Danial Bernoulli).  
 
+\startbuffer[TikZ:RigidPendulumPath1]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\draw [help lines, xstep=8, ystep=.34] (-4,0) grid (4.6,8.2); % Background grid
+%	\draw (-4.3,-0.5) rectangle (4.3,4.5); % Border
+	% h axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0)
+				node[left]{
+					\pgfmathparse{
+						-10+10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,-4pt);
+			},
+		}
+	] (-4,0) -- (-4,8);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1mm with {
+				\draw (0,0) -- (0,-2pt);	
+			},
+		}
+	] (-4,0) --node[sloped,above=5mm]{$h$ (cm)} (-4,8);
+	% U axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 6.8mm with {
+				\draw (0,0)
+				node[right]{
+					\pgfmathparse{
+						0.1*(-1+\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						})
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,4pt);
+			},
+		}
+	] (4.6,0) -- (4.6, 8.164);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3.4mm with {
+				\draw (0,0) -- (0,2pt);	
+			},
+		}
+	] (4.6,0) --node[sloped,below=6mm]{$U$ (J)} (4.6, 8.164);
+	\fill (0,4) circle[radius=.4mm]; % Pivot
+%	\node at (0,0) [above left]{B}; % Bottom
+%	\draw (0,-0.2) -- (0,4.2); % Central vertical
+%	\node at (-3.2,1.6) [above=2mm]{C}; % Left
+%	\node at (3.2,1.6) [above=1mm]{D}; % Right
+%	\fill (0,2) circle[radius=.4mm]node[left]{E}; % 2nd nail
+%	\fill (0,1) circle[radius=.4mm]node[left]{F}; % 3nd nail
+%	\node at (1.833,1.6) [above=1mm]{G}; % Right
+%	\node at (0.98,1.6) [above=1mm]{I}; % Right
+%	\draw (-4.0,1.6) -- (4.0,1.6); % horizontal at max height
+	% Pendulum path
+%	\draw[] (0,0) arc[start angle=270, end angle=336.4, radius=2cm];
+%	\draw[] (0,0) arc[start angle=270, end angle=371.5, radius=1cm];
+	% Positive on the right
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0) -- (0,-4pt)
+				node[below,transform shape]{
+					\pgfmathparse{
+						-10+10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				};
+			},
+		}
+	] (0,0) arc[start angle=-90, end angle=150, radius=4cm];
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1mm with {
+				\draw (0,0) -- (0,-2pt);	
+			},
+		}
+	] (0,0) arc[start angle=-90, end angle=150, radius=4cm];
+	% Negative on the left
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0) -- (0,4pt)
+				node[below, transform shape, rotate=180]{
+					\pgfmathparse{
+						10-10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				};
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1mm with {
+				\draw (0,0) -- (0,2pt);	
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
+	\node at (0,0) [below=5mm]{$s$ (cm)};
+	% Pendulum
+	\draw[thick] (0,4) --node[sloped,above]{$40\units{cm}$} (0,0); % String
+	\draw[ball color=white] (0,0) circle[radius=2mm]; % Ball , opacity=.5
+	\fill (0,0) circle[radius=.4mm]; % CoM
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[top][fig:RigidPendulumPath1] % location
+{Galileo's pendulum with the position $s$ shown along the ball's curved path.}	 % caption text
+{\noindent\typesetbuffer[TikZ:RigidPendulumPath1]} % figure contents
+
+\startbuffer[TikZ:RigidPendulumGraphU]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\startaxis[
+			scale only axis,
+			x={1mm},y={68mm},
+			xmin=-24, xmax=134,
+			minor x tick num=1,
+			xlabel=$s$ (cm),
+			%axis x line=none,
+			%axis y line*=right,
+			ymin=-0.05, ymax=1.2,
+			minor y tick num=3,
+			ylabel=Energy (J),
+			grid=both
+		]
+		\addplot[thick, domain=-24:134] {0.588*(1-cos(deg(x/40)))}node[above left, pos=.4]{$U$};
+		\addplot[thick, domain=-24:134] {0.588*2}node[below, pos=.6]{Tangent at maximum $U$};
+		\addplot[thick, domain=-24:134] {0}node[above, pos=.5]{Tangent at minimum $U$};
+		%\addplot[thick, domain=0:75] {0.2205*(1-cos(deg(x/15))};
+%		\draw[thin](-37,0) --node[pos=.7, below, sloped]{Release Position} (-37,.7);
+%		\addplot[thick, red, domain=-37:37] {0.235}node[above, pos=.3]{$H$};
+%		\addplot[thick, red, domain=-37:37] {0.235-0.588*(1-cos(deg(x/40))}node[below right, pos=.6]{$K$};
+%		\addplot[thick, red, domain=0:23] {0.22-0.2205*(1-cos(deg(x/15))};
+%	\draw[red, thin](37,0) --node[pos=.7, above, sloped]{Turning Point} (37,.7);
+	\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RigidPendulumGraphU] % location
+{An energy graph showing the ball's gravitational potential energy as a function of position $s$ along the curved path.}	% caption text
+{\vskip27pt\hbox{\starttikzpicture
+	\draw[white] (0,0)-- ++(5,0); % Sky to make height better
+\stoptikzpicture}}
+
+\placewidefloat[bottom,none]
+{This is its caption I need to fix.}
+{\hbox{\noindent\typesetbuffer[TikZ:RigidPendulumGraphU]}} % figure contents
+
+
+
+
+\startbuffer[TikZ:CartSlopeSpring]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startaxis[
+	big diagram cart track,
+	xmin=-54,xmax=54,
+	ymin=0,
+	ymax=50,
+	%axis x line=center,
+	style={rotate=5.7},
+	clip=false
+]
+\pic[rotate=5.7] at (6,0){cart};
+%\pic[rotate=5.7] at (15,0){block};
+%\fill [black!10, on layer={axis background}] (-1,0) rectangle (151,-1.5);
+%\pic at (49,0){block};
+\draw[decorate,decoration={coil,segment length=5pt}] (-50,2.5) --node[above=3pt] {$k$} (0,2.5);
+%\draw[decorate,decoration={coil,segment length=6pt}] (151,2.5) -- (52,2.5);
+\draw (-50,0) -- (-50,6);
+\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[bottom][fig:CartSlopeSpring] % location
+{Galileo's pendulum with the position $s$ shown along the ball's curved path.}	 % caption text
+{\noindent\typesetbuffer[TikZ:CartSlopeSpring]} % figure contents
+
+
+
 
 Lagrange’s equation connects forces to potential energy. If an apple's gravitational potential energy decreases when the apple goes down, then there is a gravitational force pushing the apple down. If a spring's potential energy increases when it is stretched, then the spring exerts a force pulling back towards its unstretched length. If the gravitational potential energy of a planet is lower when it is closer to the sun, then there is a gravitational force pulling the planet towards the sun. In fact, the equation gives the magnitude as well as the direction of the force. Using Leibniz's notation, Lagrange’s equation is
 \highlightbox{
 \startformula[eq:Hamilton2]
-	F = -\frac{dU}{dx}
+	F = -\frac{\partial U}{\partial x}
 \stopformula
 }
 The force can easily be found on an energy vs.~position graph. 
@@ -299,6 +525,19 @@ Hamilton wrote two ground breaking papers on mechanics, \booktitle{On A General 
 The formulation of these equations was very abstract, but their application is incredibly practical because the energy is relatively easy to determine. The total kinetic energy can be calculated from the parts' momentums. The potential energy can be calculated from the parts' positions. We will not need Hamilton's first equation because for all of the systems we have considered it gives the same formula for the velocities.
 \startformula
 	dx = \frac{\partial H}{\partial p} dt
+	\qquad
+	dx_1 = \frac{\partial H}{\partial p_1} dt
+\stopformula
+\startformula\startmathalignment
+\NC	\partial W	\NC= F_x\,\partial x + F_y\,\partial y + F_z\,\partial z	\NR
+\NC	-\partial U	\NC= F_x\,\partial x + F_y\,\partial y + F_z\,\partial z	\NR
+\stopmathalignment\stopformula
+\startformula
+	F_x = -\frac{\partial U}{\partial x}
+	\qquad
+	F_y = -\frac{\partial U}{\partial y}
+	\qquad
+	F_z = -\frac{\partial U}{\partial z}
 \stopformula
 This agrees with Newton's formula for momentum. I will return to Hamilton's first equation at the end of the chapter.
 

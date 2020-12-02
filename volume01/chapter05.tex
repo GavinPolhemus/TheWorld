@@ -13,7 +13,7 @@
 
 \placefigure[margin,none]{}{\small
 	\startalignment[flushleft]
-At this point it may be suitable to admonish – since to many anything new is suspect – that I conceived the whole Theory in my mind, wrote the treatise, communicated most of it privately among friends, even sketched some things in the presence of the Society, before I undertook any experiment,\dots at last the experiments were made before friends and they agreed with the Theory as much as I myself could barely hope.%\autocite{p.4}{DBernoulli1968}}
+At this point it may be suitable to admonish – since to many anything new is suspect – that I conceived the whole Theory in my mind, wrote the treatise, communicated most of it privately among friends, even sketched some things in the presence of the Society, before I undertook any experiment,\dots at last the experiments were made before friends and they agreed with the Theory as much as I myself could barely hope.\autocite{p.4}{DBernoulli1968}
 	\stopalignment
 	\startalignment[flushright]
 	{\it Hydrodynamics}\\
@@ -45,7 +45,7 @@ At this point it may be suitable to admonish – since to many anything new is s
 \stopbuffer
 
 \placefigure[margin][fig:InterruptedPendulum1] % Location, Label
-{Galileo's pendulum consists of a ball at B hanging from a nail at A by a thread at .}	 % caption text
+{Galileo's pendulum consists of a ball at B hanging from a nail at A by a thread.}	 % caption text
 {\noindent\typesetbuffer[TikZ:InterruptedPendulum1]} % Redrawn, reversed Galileo diagram
 % {\externalfigure[chapter05/GalileoInturuptedPendulum][width=144pt]} % Original from Galileo
 
@@ -592,7 +592,7 @@ During the descent and assent the pendulum's energy is split between gravitation
 			ylabel=Energy (J),
 			grid=both
 		]
-		\addplot[thick, domain=-50:50] {0.588*(1-cos(deg(x/40))}node[above right,pos=.1]{$U$};
+		\addplot[thick, domain=-50:50] {0.588*(1-cos(deg(x/40)))}node[above right,pos=.1]{$U$};
 		%\addplot[thick, domain=0:75] {0.2205*(1-cos(deg(x/15))};
 %		\draw[thin](-37,0) --node[pos=.7, below, sloped]{Release Position} (-37,.7);
 %		\addplot[thick, red, domain=-37:37] {0.235}node[above, pos=.3]{$H$};
@@ -779,7 +779,7 @@ Galileo began his experiment by moving the pendulum from the equilibrium positio
 		\draw[thin](-37,0) --node[pos=.6, below, sloped]{Release Position} (-37,.7);
 %	\ifprintanswers
 		\addplot[thick, domain=-37:37] {0.235}node[above, pos=.25]{$H$};
-		\addplot[thick, domain=-37:37] {0.235-0.588*(1-cos(deg(x/40))}node[below right, pos=.25]{$K$};
+		\addplot[thick, domain=-37:37] {0.235-0.588*(1-cos(deg(x/40)))}node[below right, pos=.25]{$K$};
 %		\addplot[thick, red, domain=0:23] {0.22-0.2205*(1-cos(deg(x/15))};
 	\draw[thin](37,0) --node[pos=.6, above, sloped]{Turning Point} (37,.7);
 %	\fi
