@@ -3,6 +3,8 @@
 
 cd ~/workspace/world
 
+# for TEX in volume01/*.tex; do echo $TEX; texcheck $TEX; done
+
 if [ "$TEXROOT" == "" ]; then
 	#source ~/context/tex/setuptex ~/context/tex
 	#setuplmtx
