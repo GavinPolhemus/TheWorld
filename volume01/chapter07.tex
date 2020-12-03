@@ -5,7 +5,6 @@
 \product prd_volume01
 
 \setupsynctex[state=start,method=max] % "method=max" or "min"
-\starttext
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startchapter[title=Rotation, reference=ch:Rotation]
@@ -19,7 +18,7 @@
 \startformula
 	\mu_i = m_i\left\lvert\frac{d\vec{x}}{d\xi}\right\rvert^2
 \stopformula
-to the generalized reduced mass $\mu$.]
+to the generalized reduced mass \m{\mu}.]
 
 
 
@@ -32,7 +31,7 @@ to the generalized reduced mass $\mu$.]
 	\Gamma = \frac{dL}{dt}
 \stopformula
 \section{More Work}
-$dW= \vec \Gamma \dotp d\theta$
+\m{dW= \vec \Gamma \dotp d\theta}
 
 
 \subject{Notes}
@@ -43,7 +42,6 @@ $dW= \vec \Gamma \dotp d\theta$
 %        \placelistofpublications
 
 \stopchapter
-\stoptext
 \stopcomponent
 
 \placetextfloat[top][fig:KeplerTerestrial]
@@ -58,7 +56,7 @@ $dW= \vec \Gamma \dotp d\theta$
 	hide x axis,
 	ymax = 2.5,
 	scale only axis=true, width={10cm},
-  	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
+  	% ylabel={Distance from Sun \m{r} (\m{\sci{9}\units{m}})},
  ]
   	\node [name path=Sun] at (0,0) {\Sun};
     \addplot [ % Mercury

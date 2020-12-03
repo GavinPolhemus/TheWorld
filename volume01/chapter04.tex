@@ -5,7 +5,6 @@
 \product prd_volume01
 
 \setupsynctex[state=start,method=max] % "method=max" or "min"
-\starttext
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startchapter[title=Vis Viva,reference=ch:VisViva]
@@ -52,12 +51,12 @@ You must early on accustom your mind to think, and to be self-sufficient. You wi
     {\vskip9pt\small%\hbox{
 	\starttabulate[|l|c|c|c|]
 \FL[2]%\toprule
-\NC			\NC $m\abs{v}$	\		\NC $mv$ 			\NC $mv^2$		\NR
+\NC			\NC \m{m\abs{v}}	\		\NC \m{mv} 			\NC \m{mv^2}		\NR
 \HL
-\NC Left Ball	\NC $0$				\NC $0$				\NC $0$			\NR
-\NC Right Ball	\NC $0$				\NC $0$				\NC $0$			\NR
+\NC Left Ball	\NC \m{0}				\NC \m{0}				\NC \m{0}			\NR
+\NC Right Ball	\NC \m{0}				\NC \m{0}				\NC \m{0}			\NR
 \HL
-\NC Total		\NC $0$				\NC $0$				\NC $0$			\NR
+\NC Total		\NC \m{0}				\NC \m{0}				\NC \m{0}			\NR
 \LL[2]%\bottomrule
     \stoptabulate}
 
@@ -66,17 +65,17 @@ Both moving cannon balls have momentum, but one's momentum is positive while the
 \placetable
     [margin]
     [T:firedballs]
-    {Cannon balls fired directly towards each other have no total quantity of motion, according to Newton.  Descartes and Leibniz both say there is motion, but calculate different amounts (using $m=40\units{kg}$ and $v=\pm50\units{m/s}$).}
+    {Cannon balls fired directly towards each other have no total quantity of motion, according to Newton.  Descartes and Leibniz both say there is motion, but calculate different amounts (using \m{m=40\units{kg}} and \m{v=\pm50\units{m/s}}).}
     {\vskip18pt\small%\hbox{
 	\starttabulate[|l|c|c|c|]
 \FL[2]%\toprule
-\NC		\NC $m\abs{v}$	\	\NC $mv$ 			\NC $mv^2$			\NR
-\NC		\NC $\unit{kg\.m/s}$	\NC $\unit{kg\.m/s}$		\NC $\unit{kg\.m^2\!/s^2}$	\NR
+\NC		\NC \m{m\abs{v}}	\	\NC \m{mv} 			\NC \m{mv^2}			\NR
+\NC		\NC \m{\unit{kg\.m/s}}	\NC \m{\unit{kg\.m/s}}		\NC \m{\unit{kg\.m^2\!/s^2}}	\NR
 \HL
-\NC Left	\NC \ $2000$		\NC $\phantom{-}2000$	\NC $1.0\sci{5}$		\NR
-\NC Right	\NC \ $2000$		\NC $-2000$			\NC $1.0\sci{5}$		\NR
+\NC Left	\NC \ \m{2000}		\NC \m{\phantom{-}2000}	\NC \m{1.0\sci{5}}		\NR
+\NC Right	\NC \ \m{2000}		\NC \m{-2000}			\NC \m{1.0\sci{5}}		\NR
 \HL
-\NC Total	\NC $4000$		\NC $\phantom{-200}0$	\NC $2.0\sci{5}$		\NR
+\NC Total	\NC \m{4000}		\NC \m{\phantom{-200}0}	\NC \m{2.0\sci{5}}		\NR
 \LL[2]%\bottomrule
     \stoptabulate}
 
@@ -126,12 +125,12 @@ Like Newton, Leibniz sought inspiration in the laws of collision demonstrated to
 	Huygens, who illuminated our age with his excellent discoveries, seems to be the first person I know of to have arrived at the pure and clear truth on this matter.... %, and the first to have freed this subject from paralogisms through certain laws he once published.
 	Wren, Wallis, and Mariotte, gentlemen excellent in these studies, though, granted, in different ways, all obtained virtually the same rules.\autocite{123}{Leibniz1695}%\footnote{\cite[righttext={ p.\nbsp 123}][Leibniz1695]}
 \stopblockquote
-Contrary to Newton, Leibniz adopted Huygen's conserved quantity $mv^2$ as the replacement for Descartes's quantity of motion. Huygens's $mv^2$ is positive for any motion in any direction.
-Two cannon balls sitting in the field will have a total $mv^2$ equal to zero, as all agree they must  (\in{table}[T:restingballs]).
-The two cannon balls fired straight at each other will have tremendous total $mv^2$, as Leibniz thought they must due to their motion (\in{table}[T:firedballs]).
+Contrary to Newton, Leibniz adopted Huygen's conserved quantity \m{mv^2} as the replacement for Descartes's quantity of motion. Huygens's \m{mv^2} is positive for any motion in any direction.
+Two cannon balls sitting in the field will have a total \m{mv^2} equal to zero, as all agree they must  (\in{table}[T:restingballs]).
+The two cannon balls fired straight at each other will have tremendous total \m{mv^2}, as Leibniz thought they must due to their motion (\in{table}[T:firedballs]).
 
-Leibniz viewed $mv^2$ as the true measure of motion and called it the \visviva, or \quote{living force.} He elevated conservation of \visviva\ to the level of a universal law, claiming that it was conserved not only in elastic collisions, as Huygens had shown, but in all interactions.
-Leibniz first proposed the universal conservation law for $mv^2$ in 1686, the year before Newton published \booktitle{Principia}. Leibniz made \visviva\ one of the cornerstones of his comprehensive philosophy of the world, encompassing logic, physics, ethics, and even theology.
+Leibniz viewed \m{mv^2} as the true measure of motion and called it the \visviva, or \quote{living force.} He elevated conservation of \visviva\ to the level of a universal law, claiming that it was conserved not only in elastic collisions, as Huygens had shown, but in all interactions.
+Leibniz first proposed the universal conservation law for \m{mv^2} in 1686, the year before Newton published \booktitle{Principia}. Leibniz made \visviva\ one of the cornerstones of his comprehensive philosophy of the world, encompassing logic, physics, ethics, and even theology.
 
 %Following the publication of Newton's \booktitle{Principia},
 Leibniz accepted  momentum as a conserved measure of motion and attempted to address the confusion among the Cartesians who mistakenly conflated Descartes's quantity of motion and Newton's momentum %(described at the end of \in{Chapter}[ch:Momentum]). Since the term \quote{momentum} had not appeared, Leibniz referred to Newton's momentum as the quantity of progress, distinguishing it from Descartes's quantity of motion.
@@ -147,7 +146,7 @@ Thus if there are only two bodies, one of which proceeds in [a] direction\dots% 
 and the other in a contrary direction, from the quantity of motion of the first must be subtracted that of the second, and the remainder will be the total momentum. Now it will be found that the total momentum is conserved, or that there is as much momentum in the same direction before or after the impact. But it is also plain that this conservation does not correspond to that which is demanded of something absolute. For it may happen that the velocity, quantity of motion, and \visviva\ being very considerable, their momentum is null. This occurs when the two opposed bodies have their quantities of motion equal. In such case, according to the sense we have just given, there is no total momentum at all.\autocite{658. \quote{Quantity of progress} and \quote{progress} changed to \quote{momentum.} \quote{Force} changed to \textit{\quote{vis viva.}}}{Leibniz1691}
 \stopblockquote
 
-Leibniz did not suggest that momentum should be abandoned, but that the \visviva\ should also be considered. Let us look at the specific collision that Newton used as an example in his explanation of the conservation of momentum, shown in \in{figure}[fig:NewtonsExampleElastic]. In that one dimensional collision an object $A$ with a mass of $3$ and a velocity of $2$ was overtaken by a smaller object $B$ with a mass of $1$ and a speed of $10$. Newton found the total initial momentum was $6+10=16$. The total momentum was conserved in the collision, but Newton explained that this conservation could be achieved many different ways depending on how much momentum was transferred from ball $B$ to ball $A$ in the collision. Transferring $5$ of momentum would produce a final momentum of $15+1=16$. Transferring $8$ of momentum would produce a final momentum of $18-2=16$. Both of these outcomes, and many others, obey the law of conservation of momentum.
+Leibniz did not suggest that momentum should be abandoned, but that the \visviva\ should also be considered. Let us look at the specific collision that Newton used as an example in his explanation of the conservation of momentum, shown in \in{figure}[fig:NewtonsExampleElastic]. In that one dimensional collision an object \m{A} with a mass of \m{3} and a velocity of \m{2} was overtaken by a smaller object \m{B} with a mass of \m{1} and a speed of \m{10}. Newton found the total initial momentum was \m{6+10=16}. The total momentum was conserved in the collision, but Newton explained that this conservation could be achieved many different ways depending on how much momentum was transferred from ball \m{B} to ball \m{A} in the collision. Transferring \m{5} of momentum would produce a final momentum of \m{15+1=16}. Transferring \m{8} of momentum would produce a final momentum of \m{18-2=16}. Both of these outcomes, and many others, obey the law of conservation of momentum.
 
 \startbuffer[TikZ:fig:NewtonsExampleElastic]
 \environment env_physics
@@ -173,8 +172,8 @@ Leibniz did not suggest that momentum should be abandoned, but that the \visviva
 	\coordinate (A) at (30,249);
 	\pic (first) at (B) [rotate=-4.68] {small pendulum=100};
 	\pic (second) at (A) [rotate=-0.935] {pendulum=100};
-	\path (6,6) node[above right]{$B$};
-	\path (24,6) node[above left]{$A$};
+	\path (6,6) node[above right]{\m{B}};
+	\path (24,6) node[above left]{\m{A}};
     \stopaxis\\
 	\startaxis[
 		margin cart track,
@@ -190,8 +189,8 @@ Leibniz did not suggest that momentum should be abandoned, but that the \visviva
 	\fill [on layer={axis background}] (-0.5,0) rectangle (49.5,-1.5)[opacity=.1];
 	\coordinate (B) at (25,249);
 	\coordinate (A) at (30,249);
-	\pic (third) at (B) {small pendulum=100}node[below right]{$B$};
-	\pic (forth) at (A) {pendulum=100}node[below right]{$B$};
+	\pic (third) at (B) {small pendulum=100}node[below right]{\m{B}};
+	\pic (forth) at (A) {pendulum=100}node[below right]{\m{B}};
     \stopaxis\\
 	\startaxis[
 		margin cart track,
@@ -228,11 +227,11 @@ Leibniz did not suggest that momentum should be abandoned, but that the \visviva
 		footnotesize,
 		width=2.13in,%\marginparwidth,
 		y={1mm},%x={2mm},
-		xlabel={$t$ (s)},
+		xlabel={\m{t} (s)},
 		xmin=0, xmax=1.57,
 		xtick={0,0.5,1.0,1.5},
 		minor x tick num=4,
-		ylabel={$x$ (cm)},
+		ylabel={\m{x} (cm)},
 	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
 		ymin=0, ymax=50,
 		minor y tick num=4,
@@ -247,8 +246,8 @@ Leibniz did not suggest that momentum should be abandoned, but that the \visviva
 		\addplot[thick,smooth,domain=0.785:1.57,samples=101]{30-12*cos(2*deg(x))};
 		\startscope[opacity=.3,transparency group]
 		\fill[opacity=.3](0,5) circle[radius=.4mm];
-		\draw[opacity=.3, shade, ball color = white] (0,5) circle[radius=2mm]node[above right=1mm]{$B$};
-		\draw[opacity=.3, shade, ball color = white] (0,26) circle[radius=3mm]node[below right=1mm]{$A$};
+		\draw[opacity=.3, shade, ball color = white] (0,5) circle[radius=2mm]node[above right=1mm]{\m{B}};
+		\draw[opacity=.3, shade, ball color = white] (0,26) circle[radius=3mm]node[below right=1mm]{\m{A}};
 		\fill[opacity=.3](0,26) circle[radius=.4mm];
 %		\draw  [semithick](-.4,-4) -- (-.4,52);
 %		\draw  [semithick](.4,-4) -- (.4,52);
@@ -279,8 +278,8 @@ Perhaps Leibniz's \visviva\ can help us make a more specific prediction for this
 
 \section{Kinetic energy}
 
-Modern calculations do not use \visviva, but instead use \keyterm{kinetic energy}, which is half of the \visviva. The symbol for kinetic energy is $K$.
-%Leibniz's \visviva\ is correct, but many calculations will be easier if we use the \keyterm{kinetic energy}, represented by the symbol $K$, which is half of the \visviva.
+Modern calculations do not use \visviva, but instead use \keyterm{kinetic energy}, which is half of the \visviva. The symbol for kinetic energy is \m{K}.
+%Leibniz's \visviva\ is correct, but many calculations will be easier if we use the \keyterm{kinetic energy}, represented by the symbol \m{K}, which is half of the \visviva.
 %\highlightbox{%
 \startformula[eq:1DK]
 	K = \half mv^2
@@ -296,33 +295,33 @@ The factor of one-half is of no consequence for Leibniz. If his \visviva\ quanti
 \FL[2]%\toprule
 \NC			\NC Momentum 	\NC Kinetic Energy	\NR
 \HL
-\NC Ball A		\NC $6$			\NC $6$		\NR
-\NC Ball B		\NC $10$			\NC $50$		\NR
+\NC Ball A		\NC \m{6}			\NC \m{6}		\NR
+\NC Ball B		\NC \m{10}			\NC \m{50}		\NR
 \HL
-\NC Total		\NC $16$			\NC $56$		\NR
+\NC Total		\NC \m{16}			\NC \m{56}		\NR
 \LL[2]%\bottomrule
     \stoptabulate}
 
-In Newton's collision example, the kinetic energy of ball $A$ would be
+In Newton's collision example, the kinetic energy of ball \m{A} would be
 \startformula
 K=\half mv^2 = \half\cdot3\cdot2^2 = 6,
 \stopformula
-and the kinetic energy of object $B$ would be
+and the kinetic energy of object \m{B} would be
 \startformula
 K=\half mv^2 = \half\cdot1\cdot10^2 = 50,
 \stopformula
-for a total initial kinetic energy of $K\si=56$. The initial values of momentum, and kinetic energy for this collision are recorded in \in{table}[T:NewtonCollisionBefore].
+for a total initial kinetic energy of \m{K\si=56}. The initial values of momentum, and kinetic energy for this collision are recorded in \in{table}[T:NewtonCollisionBefore].
 
-Let us make a similar table showing the values after the collision. We are going to consider both of the outcomes mentioned above. First, we consider the case with the larger momentum transfer, where ball $A$'s final momentum is $18$ and ball $B$'s is $-2$. Ball $A$'s final velocity is found from its momentum.
+Let us make a similar table showing the values after the collision. We are going to consider both of the outcomes mentioned above. First, we consider the case with the larger momentum transfer, where ball \m{A}'s final momentum is \m{18} and ball \m{B}'s is \m{-2}. Ball \m{A}'s final velocity is found from its momentum.
 	\startformula\startmathalignment
 		\NC p	\NC= mv \NR
 		\NC v	\NC= \frac{p}{m} = \frac{18}{3}=6
 	\stopmathalignment \stopformula
-Ball $A$'s kinetic energy can then be found.
+Ball \m{A}'s kinetic energy can then be found.
 	\startformula
 	K	= \half mv^2 = \half\cdot3\cdot6^2=54
 	\stopformula
-A similar calculation gives Ball $B$'s kinetic energy. Confirm the values in \in{table}[T:NewtonCollisionAfter4], which show that \emph{both} the momentum and the kinetic energy are conserved in this case. When ball $B$ transferred $8$ of momentum to ball $A$, it also transferred $48$ of kinetic energy, keeping both totals the same.
+A similar calculation gives Ball \m{B}'s kinetic energy. Confirm the values in \in{table}[T:NewtonCollisionAfter4], which show that \emph{both} the momentum and the kinetic energy are conserved in this case. When ball \m{B} transferred \m{8} of momentum to ball \m{A}, it also transferred \m{48} of kinetic energy, keeping both totals the same.
 
 
 \placetable
@@ -334,10 +333,10 @@ A similar calculation gives Ball $B$'s kinetic energy. Confirm the values in \in
 \FL[2]%\toprule
 \NC			\NC Momentum 	\NC Kinetic Energy	\NR
 \HL
-\NC Ball A		\NC $18$				\NC $54$		\NR
-\NC Ball B		\NC $-2$				\NC $2$		\NR
+\NC Ball A		\NC \m{18}				\NC \m{54}		\NR
+\NC Ball B		\NC \m{-2}				\NC \m{2}		\NR
 \HL
-\NC Total		\NC $16$				\NC $56$		\NR
+\NC Total		\NC \m{16}				\NC \m{56}		\NR
 \LL[2]%\bottomrule
     \stoptabulate}
 
@@ -349,20 +348,20 @@ Leibniz describes what happens during an elastic collision.
 	{\externalfigure[chapter04/LeibnizCollision][width=144pt]}
 
 \startblockquote
-	If bodies A and B collide as in figure \in[fig:LeibnizCollision], and come from $\mathrm{A}_1$, and $\mathrm{B}_1$, to the place $\mathrm{A}_2$, $\mathrm{B}_2$, where they collide, they will, little by little, be compressed there, just like two inflated balls, and approach one another more and more, continually increasing the internal pressure. By that very circumstance the motion itself is weakened, the \visviva\ having been
+	If bodies A and B collide as in figure \in[fig:LeibnizCollision], and come from \m{\mathrm{A}_1}, and \m{\mathrm{B}_1}, to the place \m{\mathrm{A}_2}, \m{\mathrm{B}_2}, where they collide, they will, little by little, be compressed there, just like two inflated balls, and approach one another more and more, continually increasing the internal pressure. By that very circumstance the motion itself is weakened, the \visviva\ having been
 transformed into their elasticity, until they are altogether at rest. Then, finally, restoring themselves through their elasticity, they rebound from one another; having started a retrograde motion from rest, a motion that continually increases, in the end they move
-apart, having regained the same speed with which they originally approached one another, but directed oppositely, and they return to $\mathrm{A}_3$, and $\mathrm{B}_3$, which coincide with the places $\mathrm{A}_1$, and $\mathrm{B}_1$, if the bodies are assumed to be of the same size and the same velocity.\autocite{132. \quote{Figure 7} changed to figure \in[fig:LeibnizCollision]. \quote{Force} changed to \textit{\quote{vis viva.}}}{Leibniz1695}%
+apart, having regained the same speed with which they originally approached one another, but directed oppositely, and they return to \m{\mathrm{A}_3}, and \m{\mathrm{B}_3}, which coincide with the places \m{\mathrm{A}_1}, and \m{\mathrm{B}_1}, if the bodies are assumed to be of the same size and the same velocity.\autocite{132. \quote{Figure 7} changed to figure \in[fig:LeibnizCollision]. \quote{Force} changed to \textit{\quote{vis viva.}}}{Leibniz1695}%
 %
-%	If the bodies A and B [figure \in[fig:LeibnizCollision]] meet and come from $A_1$, $B_1$ into the place of concourse $A_2$, $B_2$, that there they are
-%gradually compressed like two inflated balls, and more and more approach each other in turn by the continually increased pressure; that, moreover, by this thing the motion itself is weakened, the force itself of the effort being carried over into the elasticities (elastra) of the bodies, until at length they are reduced to rest; but then at length the elasticity of the bodies restoring them, they themselves rebound from each other in turn with a retrograde motion begun again from rest and continually increasing; at length with the same velocity with which they approached each other, regained but turned in the opposite direction, they recede in turn from each other and return into the positions $A_3$, $B_3$ which coincide with the positions $A_1$, $B_1$, if the bodies are supposed equal and of equal velocity.
+%	If the bodies A and B [figure \in[fig:LeibnizCollision]] meet and come from \m{A_1}, \m{B_1} into the place of concourse \m{A_2}, \m{B_2}, that there they are
+%gradually compressed like two inflated balls, and more and more approach each other in turn by the continually increased pressure; that, moreover, by this thing the motion itself is weakened, the force itself of the effort being carried over into the elasticities (elastra) of the bodies, until at length they are reduced to rest; but then at length the elasticity of the bodies restoring them, they themselves rebound from each other in turn with a retrograde motion begun again from rest and continually increasing; at length with the same velocity with which they approached each other, regained but turned in the opposite direction, they recede in turn from each other and return into the positions \m{A_3}, \m{B_3} which coincide with the positions \m{A_1}, \m{B_1}, if the bodies are supposed equal and of equal velocity.
 %	[New Understanding p. 686]
 \stopblockquote
-In Leibniz's example, the speeds are the same after the collision as before, so the total kinetic energy also remains the same. In many elastic collisions each object does not retain the same velocity; one speeds up and one slows down, as in Newton's example. However, Huygens demonstrated the total $mv^2$ remains the same in all perfectly elastic collisions. Therefore, the total kinetic energy also remains the same.
+In Leibniz's example, the speeds are the same after the collision as before, so the total kinetic energy also remains the same. In many elastic collisions each object does not retain the same velocity; one speeds up and one slows down, as in Newton's example. However, Huygens demonstrated the total \m{mv^2} remains the same in all perfectly elastic collisions. Therefore, the total kinetic energy also remains the same.
 
 However, most collisions are not perfectly elastic, and some kinetic energy is lost. In these \keyterm{inelastic} collisions the final total kinetic energy is less than the initial kinetic energy.
-The effects of the inelastic collision can be seen by looking again at Newton's example. In the case where ball $B$ only transfers $4$ of momentum to ball $A$, both balls are a little more sluggish after the collision due to the loss of kinetic energy, as shown in figures~\in[fig:NewtonsExampleInelastic] and \in[fig:PendulumCollisionGraph4]. (Compare to the bounces in fig.~\in[fig:NewtonsExampleElastic] and fig.~\in[fig:PendulumCollisionGraph3].) The kinetic energy lost in the collision can calculated by using the balls' final momentums to find their velocities and then their kinetic energies. The intermediate step of finding the velocity is going to get tedious quickly, so it is worth finding the direct relationship between kinetic energy and momentum.
+The effects of the inelastic collision can be seen by looking again at Newton's example. In the case where ball \m{B} only transfers \m{4} of momentum to ball \m{A}, both balls are a little more sluggish after the collision due to the loss of kinetic energy, as shown in figures~\in[fig:NewtonsExampleInelastic] and \in[fig:PendulumCollisionGraph4]. (Compare to the bounces in fig.~\in[fig:NewtonsExampleElastic] and fig.~\in[fig:PendulumCollisionGraph3].) The kinetic energy lost in the collision can calculated by using the balls' final momentums to find their velocities and then their kinetic energies. The intermediate step of finding the velocity is going to get tedious quickly, so it is worth finding the direct relationship between kinetic energy and momentum.
 %To get the greatest benefit from these two ideas it is helpful to relate momentum and kinetic energy directly.
-This is accomplished by replacing the velocity with momentum in the kinetic energy formula. Since $v= p/m$, this gives
+This is accomplished by replacing the velocity with momentum in the kinetic energy formula. Since \m{v= p/m}, this gives
 
 
 \startbuffer[TikZ:NewtonsExampleInelastic]
@@ -389,8 +388,8 @@ This is accomplished by replacing the velocity with momentum in the kinetic ener
 	\coordinate (A) at (30,249);
 	\pic (first) at (B) [rotate=-4.68] {small pendulum=100};
 	\pic (second) at (A) [rotate=-0.935] {pendulum=100};
-	\path (6,6) node[above right]{$B$};
-	\path (24,6) node[above left]{$A$};
+	\path (6,6) node[above right]{\m{B}};
+	\path (24,6) node[above left]{\m{A}};
     \stopaxis\\
 	\startaxis[
 		margin cart track,
@@ -444,11 +443,11 @@ This is accomplished by replacing the velocity with momentum in the kinetic ener
 		footnotesize,
 		width=2.13in,%\marginparwidth,
 		y={1mm},%x={2mm},
-		xlabel={$t$ (s)},
+		xlabel={\m{t} (s)},
 		xmin=0, xmax=1.57,
 		xtick={0,0.5,1.0,1.5},
 		minor x tick num=4,
-		ylabel={$x$ (cm)},
+		ylabel={\m{x} (cm)},
 	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
 		ymin=0, ymax=50,
 		minor y tick num=4,
@@ -463,8 +462,8 @@ This is accomplished by replacing the velocity with momentum in the kinetic ener
 		\addplot[thick,smooth,domain=0.785:1.57,samples=101]{30-10*cos(2*deg(x))};
 		\startscope[opacity=.3,transparency group]
 		\fill[opacity=.3](0,5) circle[radius=.4mm];
-		\draw[opacity=.3, shade, ball color = white] (0,5) circle[radius=2mm]node[above right=1mm]{$B$};
-		\draw[opacity=.3, shade, ball color = white] (0,26) circle[radius=3mm]node[below right=1mm]{$A$};
+		\draw[opacity=.3, shade, ball color = white] (0,5) circle[radius=2mm]node[above right=1mm]{\m{B}};
+		\draw[opacity=.3, shade, ball color = white] (0,26) circle[radius=3mm]node[below right=1mm]{\m{A}};
 		\fill[opacity=.3](0,26) circle[radius=.4mm];
 %		\draw  [semithick](-.4,-4) -- (-.4,52);
 %		\draw  [semithick](.4,-4) -- (.4,52);
@@ -504,7 +503,7 @@ A little simplification gives the useful relationship
 Because momentum and kinetic energy are central concepts in mechanics, this relation between them is extremely useful. There are a couple of things to notice about this formula.
 First, momentum and kinetic energy are closely related. If an object is not moving, then its momentum and kinetic energy are both zero. If it is moving, then neither is zero.
 Second, momentum is directional, but kinetic energy is not. The sign of the momentum tells which direction the momentum is pointing. The kinetic energy is always positive, independent of the direction.
-A object moving in the positive direction with a momentum of $10\units{kg\.m/s}$ has the same kinetic energy as a cart moving the negative direction with a momentum of $-10\units{kg\.m/s}$.
+A object moving in the positive direction with a momentum of \m{10\units{kg\.m/s}} has the same kinetic energy as a cart moving the negative direction with a momentum of \m{-10\units{kg\.m/s}}.
 
 \placetable
     [margin]
@@ -515,14 +514,14 @@ A object moving in the positive direction with a momentum of $10\units{kg\.m/s}$
 \FL[2]%\toprule
 \NC			\NC Momentum		\NC Kinetic Energy	\NR
 \HL
-\NC Ball A		\NC $15$			\NC $37\onehalf$	\NR
-\NC Ball B		\NC $1$			\NC $\onehalf$		\NR
+\NC Ball A		\NC \m{15}			\NC \m{37\onehalf}	\NR
+\NC Ball B		\NC \m{1}			\NC \m{\onehalf}		\NR
 \HL
-\NC Total		\NC $16$			\NC $38$			\NR
+\NC Total		\NC \m{16}			\NC \m{38}			\NR
 \LL[2]%\bottomrule
     \stoptabulate}
 
-Returning to Newton’s collision, all $A$'s kinetic energy after the inelastic collision can be easily found with the new kinetic energy formula.
+Returning to Newton’s collision, all \m{A}'s kinetic energy after the inelastic collision can be easily found with the new kinetic energy formula.
 \startformula
 	K = \frac{p^2}{2m} = \frac{15^2}{2\cdot3} = 37\onehalf
 \stopformula
@@ -565,16 +564,16 @@ The total momentum -- due only to the atoms shared, nonrandom motion -- is visib
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:NewtonTotalInelastic]
-	In Newton's collision example, one possible result is ball $B$ sticking to ball $A$ when they collide. In this case, what is their final velocity and how much kinetic energy is lost?
+	In Newton's collision example, one possible result is ball \m{B} sticking to ball \m{A} when they collide. In this case, what is their final velocity and how much kinetic energy is lost?
 
 \startsolution
-After the collision, since ball $B$ sticks to ball $A$, they can be treated as a single object with a total mass $M = m_A + m_B =4$. Momentum is conserved, and we already know that the total momentum before the collision is 16.
+After the collision, since ball \m{B} sticks to ball \m{A}, they can be treated as a single object with a total mass \m{M = m_A + m_B =4}. Momentum is conserved, and we already know that the total momentum before the collision is 16.
 	\startformula\startmathalignment
 		\NC p\si + \cancel{F\Delta t}	\NC = p\sf		\NR
 		\NC 16					\NC = Mv\sf	\NR
 		\NC v\sf					\NC = \frac{16}{M} = \frac{16}{4} = 4		\NR
 	\stopmathalignment \stopformula
-Even though the collision is totally inelastic, we were able to use conservation of momentum to find the final velocity $v\sf=4$. The resulting collision is shown in figures~\in[fig:NewtonTotalInelastic] and \in[fig:PendulumCollisionGraph5].
+Even though the collision is totally inelastic, we were able to use conservation of momentum to find the final velocity \m{v\sf=4}. The resulting collision is shown in figures~\in[fig:NewtonTotalInelastic] and \in[fig:PendulumCollisionGraph5].
 
 The final kinetic energy can be calculated from either the final velocity or the final momentum. We use the final momentum.
 \startformula
@@ -582,7 +581,7 @@ The final kinetic energy can be calculated from either the final velocity or the
 		= \frac{16^2}{2\cdot4}
 		= 32
 \stopformula
-The final kinetic energy is much less than the initial kinetic energy of 56. The kinetic energy lost is $K\si - K\sf = 56 - 32 = 24$. According to Leibniz, this kinetic energy is not lost to the universe but has gone into the balls' constituent parts.
+The final kinetic energy is much less than the initial kinetic energy of 56. The kinetic energy lost is \m{K\si - K\sf = 56 - 32 = 24}. According to Leibniz, this kinetic energy is not lost to the universe but has gone into the balls' constituent parts.
 \stopsolution
 
 
@@ -610,8 +609,8 @@ The final kinetic energy is much less than the initial kinetic energy of 56. The
 	\coordinate (A) at (30,249);
 	\pic (first) at (B) [rotate=-4.68] {small pendulum=100};
 	\pic (second) at (A) [rotate=-0.935] {pendulum=100};
-	\path (6,6) node[above right]{$B$};
-	\path (24,6) node[above left]{$A$};
+	\path (6,6) node[above right]{\m{B}};
+	\path (24,6) node[above left]{\m{A}};
     \stopaxis\\
 	\startaxis[
 		margin cart track,
@@ -627,8 +626,8 @@ The final kinetic energy is much less than the initial kinetic energy of 56. The
 	\fill [on layer={axis background}] (-0.5,0) rectangle (49.5,-1.5)[opacity=.1];
 	\coordinate (B) at (25,249);
 	\coordinate (A) at (30,249);
-	\pic (third) at (B) {small pendulum=100}node[below right]{$B$};
-	\pic (forth) at (A) {pendulum=100}node[below right]{$B$};
+	\pic (third) at (B) {small pendulum=100}node[below right]{\m{B}};
+	\pic (forth) at (A) {pendulum=100}node[below right]{\m{B}};
     \stopaxis\\
 	\startaxis[
 		margin cart track,
@@ -665,11 +664,11 @@ The final kinetic energy is much less than the initial kinetic energy of 56. The
 		footnotesize,
 		width=2.13in,%\marginparwidth,
 		y={1mm},%x={2mm},
-		xlabel={$t$ (s)},
+		xlabel={\m{t} (s)},
 		xmin=0, xmax=1.57,
 		xtick={0,0.5,1.0,1.5},
 		minor x tick num=4,
-		ylabel={$x$ (cm)},
+		ylabel={\m{x} (cm)},
 	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
 		ymin=0, ymax=50,
 		minor y tick num=4,
@@ -684,8 +683,8 @@ The final kinetic energy is much less than the initial kinetic energy of 56. The
 		\addplot[thick,smooth,domain=0.785:1.57,samples=101]{30-8*cos(2*deg(x))};
 		\startscope[opacity=.3,transparency group]
 		\fill[opacity=.3](0,5) circle[radius=.4mm];
-		\draw[opacity=.3, shade, ball color = white] (0,5) circle[radius=2mm]node[above right=1mm]{$B$};
-		\draw[opacity=.3, shade, ball color = white] (0,26) circle[radius=3mm]node[below right=1mm]{$A$};
+		\draw[opacity=.3, shade, ball color = white] (0,5) circle[radius=2mm]node[above right=1mm]{\m{B}};
+		\draw[opacity=.3, shade, ball color = white] (0,26) circle[radius=3mm]node[below right=1mm]{\m{A}};
 		\fill[opacity=.3](0,26) circle[radius=.4mm];
 %		\draw  [semithick](-.4,-4) -- (-.4,52);
 %		\draw  [semithick](.4,-4) -- (.4,52);
@@ -729,9 +728,9 @@ Some scientists did not take sides purely out of loyalty, but instead approached
 
 The Dutch scientist Willem ’s Gravesande designed experiments to compare impacts of different objects traveling at different speeds. %]
 He did this first by dropping balls into clay. He worked with a set of balls identical in size but different in mass, shown in figures \in[fig:GravesandeDrop] and \in[fig:GravesandeDropSpheres]. When any of these balls was dropped onto the clay it would land with an inelastic thud.
-’s Gravesande measured the size of the dent left in the clay to determine the impact's effect. If a light, fast ball left the same size dent as a heavy, slow ball, then the two balls had produced the same effect. He thought the effect would be determined by the ball's momentum $mv$, so that if the heavy ball's mass is double the light ball's mass, then the light ball's velocity would have to be double the heavy ball's velocity to make the same size dent. If the heavy ball was four times the mass of the light ball, then the light ball would need to be traveling four times as fast to produce the same effect.
+’s Gravesande measured the size of the dent left in the clay to determine the impact's effect. If a light, fast ball left the same size dent as a heavy, slow ball, then the two balls had produced the same effect. He thought the effect would be determined by the ball's momentum \m{mv}, so that if the heavy ball's mass is double the light ball's mass, then the light ball's velocity would have to be double the heavy ball's velocity to make the same size dent. If the heavy ball was four times the mass of the light ball, then the light ball would need to be traveling four times as fast to produce the same effect.
 
-When ’s Gravesande performed this experiment, the results surprised him. His experiments showed that if the heavy ball's mass was four times the lighter ball's mass, then the lighter ball would need to move only twice as fast to produce the same dent. This is  predicted by Leibniz's formula $mv^2$. After confirming this for many different ratios of mass, ’s Gravesande concluded that he had been mistaken. He adopted \visviva\ as a measure of motion, and enthusiastically shared the discovery. His contribution arrived as the \visviva\ debate was at its peak in the 1720s.
+When ’s Gravesande performed this experiment, the results surprised him. His experiments showed that if the heavy ball's mass was four times the lighter ball's mass, then the lighter ball would need to move only twice as fast to produce the same dent. This is  predicted by Leibniz's formula \m{mv^2}. After confirming this for many different ratios of mass, ’s Gravesande concluded that he had been mistaken. He adopted \visviva\ as a measure of motion, and enthusiastically shared the discovery. His contribution arrived as the \visviva\ debate was at its peak in the 1720s.
 
 %\startblockquote
 %	The 1720s saw the height of the argument in the English, French, and Dutch learned journals. In 1722, two articles in the \booktitle{Journal litt\'eraire} described Willem ’s Gravesande's version of an experiment with copper and ceramic balls---bodies of different masses---falling into a clay-filled tray. He compared the depression they made as a way of quantifying the \quote{force} of one body colliding with another and confirming Leibniz's concept.\autocite{185}{Zinsser2006}
@@ -752,14 +751,14 @@ I am sure you have done quite a bit of physical work and have some sense of what
 	W = F\Delta x
 \stopformula
 The argument for the work formula is straight forward. Sliding the refrigerator two meters requires twice as much work as sliding it one meter, because first you slide it one meter, and then you slide it one meter again, doing the same amount of work twice. Therefore, the work is proportional to the distance.
-Sliding two refrigerators one meter requires twice as much work as sliding a single refrigerator one meter. If you slide the refrigerators one at a time, the work is twice as much because you do the work of sliding one refrigerator twice. If you push them one meter at the \emph{same} time, then you must push with twice as much force. Pushing with this double force accomplishes double the work in only one meter. Therefore, the work is proportional to the force. We conclude, $W = F\Delta x$. This argument was made many times by engineers and scientists during the \visviva\ debate, although I am not sure who argued it first.
+Sliding two refrigerators one meter requires twice as much work as sliding a single refrigerator one meter. If you slide the refrigerators one at a time, the work is twice as much because you do the work of sliding one refrigerator twice. If you push them one meter at the \emph{same} time, then you must push with twice as much force. Pushing with this double force accomplishes double the work in only one meter. Therefore, the work is proportional to the force. We conclude, \m{W = F\Delta x}. This argument was made many times by engineers and scientists during the \visviva\ debate, although I am not sure who argued it first.
 %During the \visviva\ debate, this was called effort, or the effect of the \visviva. We will use the current term: work.
 
 What if you decide to push the refrigerator in the negative direction? To make the refrigerator move in the negative direction you will have to apply a negative force. This will cause a negative displacement. Since the force and the displacement are both negative, the work will be positive. No matter which way you push the refrigerator, you will need to do positive work!
 
 While you are pushing the refrigerator in the positive direction, friction with the floor is opposing the motion by pushing in the negative direction. While the force exerted by the friction is negative, the displacement is still positive, so the work done by friction is negative. The refrigerator gets some kinetic energy due to the positive work that you do pushing it, but that kinetic energy is quickly lost due to the negative work done by friction.
 
-Since work is force times displacement, the {\sc si} units for work are $\unit{N\.m}$. These units are so common that they have been given their own name – \keyterm{joules}. The symbol for a joule is J (not to be confused with the symbol for impulse, $J$). % and it is related to the other standard SI units by the definition
+Since work is force times displacement, the {\sc si} units for work are \m{\unit{N\.m}}. These units are so common that they have been given their own name – \keyterm{joules}. The symbol for a joule is J (not to be confused with the symbol for impulse, \m{J}). % and it is related to the other standard SI units by the definition
 \startformula
 	1\units{J}=1\units{N\.m}
 \stopformula
@@ -767,7 +766,7 @@ The following example shows how work is calculated, including the unit conversio
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:BlockW]
-	The block slides $16.0\units{cm}$ along the track against a friction force of $-0.30\units{N}$ (The force is negative, opposing the block's positive motion). What is the work done by the block?
+	The block slides \m{16.0\units{cm}} along the track against a friction force of \m{-0.30\units{N}} (The force is negative, opposing the block's positive motion). What is the work done by the block?
 \startbuffer[TikZ:BlockW]
 \environment env_physics
 \environment env_TikZ
@@ -782,7 +781,7 @@ The following example shows how work is calculated, including the unit conversio
 	]
 		\pic at (10,0) {block}[opacity=.4];
 		\pic at (26,0) {block};
-   		\draw[-{Straight Barb}, thick] (10,2.5) --node[pos=.5,above=2.5mm]{$\Delta x=16.0\units{cm}$}(26,2.5);
+   		\draw[-{Straight Barb}, thick] (10,2.5) --node[pos=.5,above=2.5mm]{\m{\Delta x=16.0\units{cm}}}(26,2.5);
     \stopaxis
 \stoptikzpicture
 \stopTEXpage
@@ -793,7 +792,7 @@ The following example shows how work is calculated, including the unit conversio
 {\noindent\typesetbuffer[TikZ:BlockW]} % figure contents
 
 \startsolution
-The work done by the block is found using the work formula, but take care to use the correct force between the block and the track. The work done by the block is calculated using the force \emph{of} the block, but we are given the force \emph{on} the block. Newton's third law tells us that the force of the block on the track is equal and opposite to the force of the track on the block. Therefore, we will calculate the work using $F=0.30\units{N}$ for the force of the block on the track.
+The work done by the block is found using the work formula, but take care to use the correct force between the block and the track. The work done by the block is calculated using the force \emph{of} the block, but we are given the force \emph{on} the block. Newton's third law tells us that the force of the block on the track is equal and opposite to the force of the track on the block. Therefore, we will calculate the work using \m{F=0.30\units{N}} for the force of the block on the track.
 %	\startformula\startmathalignment
 %		\NC W	\NC = F\Delta x \NR
 %		\NC		\NC = (0.30\units{N})(16.0\units{cm})	\NR
@@ -807,12 +806,12 @@ The work done by the block is found using the work formula, but take care to use
 		= 0.048\units{N\.m}
 		= \answer{0.048\units{J}}
 \stopformula
-	The work done by the sliding block is $0.048\units{J}$ or $4.8\sci{-2}\units{J}$.
+	The work done by the sliding block is \m{0.048\units{J}} or \m{4.8\sci{-2}\units{J}}.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-’s Gravesande's experiment provides a good example of positive and negative work being done in the $y$-direction. A dropped ball is pulled downward by the gravitational force. The downward force is negative, and the downward displacement is also negative, so work done by the gravitational force is positive, increasing the ball's kinetic energy.
+’s Gravesande's experiment provides a good example of positive and negative work being done in the \m{y}-direction. A dropped ball is pulled downward by the gravitational force. The downward force is negative, and the downward displacement is also negative, so work done by the gravitational force is positive, increasing the ball's kinetic energy.
 
 When the ball hits the clay, the clay exerts an upwards force much greater than the gravitational force. The ball continues down a bit, making a dent in the clay, so there is a small negative displacement even as the clay is exerting a large positive force. The work done by the clay is the product of the positive force and the negative displacement, so it is negative. The negative work done by the clay eliminates the ball's kinetic energy, brining it to a stop.
 
@@ -822,21 +821,21 @@ When the ball hits the clay, the clay exerts an upwards force much greater than 
 
 Engineers' work and physicists' \visviva\ were first linked by Daniel Bernoulli, son of the Swiss \visviva\ advocate Johann Bernoulli, mentioned earlier. D.~Bernoulli had undertaken a detailed study of fluid motion, and in the process he recognized that \visviva\ (or kinetic energy) is not the only type of energy. I am not going to list the other types of energy now – D.~Bernoulli will assist us with that in the next chapter. Here it is sufficient to know that there are other types of energy and only the total energy is conserved. D. Bernoulli used his conservation of energy principal to great effect in his groundbreaking  \booktitle{Hydrodynamica}, published in 1738.
 
-The symbol for total energy is $H$.%, honoring William Rowan Hamilton, who we will meet in \in{Chapter}[ch:1Ddynamics].
-The conservation law for total energy $H$ looks very similar to the conservation law for momentum.
+The symbol for total energy is \m{H}.%, honoring William Rowan Hamilton, who we will meet in \in{Chapter}[ch:1Ddynamics].
+The conservation law for total energy \m{H} looks very similar to the conservation law for momentum.
 %\highlightbox{
 \startformula[eq:1DEconserve]
 	H\si + W + Q = H\sf %\sub{net} + Q\sub{net}
 \stopformula
 %}%\end{shaded}
-Energy can be added or removed from a system through work $W$ done by outside forces.
+Energy can be added or removed from a system through work \m{W} done by outside forces.
 A person pushing a cart does positive work, increasing the cart's kinetic energy. Friction resists the cart's motion, doing negative work and decreasing the cart's kinetic energy.
 
-Energy can also be added as heat $Q$ by cooking the cart over a fire, which increases the random, microscopic energy of the cart's atoms and molecules. D. Bernoulli had some deep insights into how $Q$ related to the motion of the microscopic parts, but he did not manage to calculate $Q$. That part of the project became one of the greatest challenges for physicists during the nineteenth century. We will return to it in Volume II. Until then we will faithfully include $Q$ when writing the conservation of energy equation, but immediately cross it out because the heat transfer $Q$ is zero in mechanics problems. In mechanics, any change in a system's total energy is due to an outside force doing work on the system.
+Energy can also be added as heat \m{Q} by cooking the cart over a fire, which increases the random, microscopic energy of the cart's atoms and molecules. D. Bernoulli had some deep insights into how \m{Q} related to the motion of the microscopic parts, but he did not manage to calculate \m{Q}. That part of the project became one of the greatest challenges for physicists during the nineteenth century. We will return to it in Volume II. Until then we will faithfully include \m{Q} when writing the conservation of energy equation, but immediately cross it out because the heat transfer \m{Q} is zero in mechanics problems. In mechanics, any change in a system's total energy is due to an outside force doing work on the system.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:BlockSlideK]
-The cart and block, together weighing $550\units{g}$, slide in the positive direction against a force of friction equal to $-0.40\units{N}$. Initially, they have a velocity of $2.5\units{m/s}$. How far will they slide before coming to rest?
+The cart and block, together weighing \m{550\units{g}}, slide in the positive direction against a force of friction equal to \m{-0.40\units{N}}. Initially, they have a velocity of \m{2.5\units{m/s}}. How far will they slide before coming to rest?
 \startbuffer[TikZ:BlockSlideK]
 \environment env_physics
 \environment env_TikZ
@@ -853,13 +852,13 @@ The cart and block, together weighing $550\units{g}$, slide in the positive dire
 	%\pic at (40,0) {cart};
 	\pic at (10,0) {cart};
 	\pic at (19,0) {block};
-	\draw[->, thick] (10,2.5) --node[above=2.5mm]{$v=2.5\units{m/s}$} (35,2.5);
-    %\draw[->, thick] (16,7.5) -- (20,7.5);% node[above=2.5mm]{$p=mv$}
+	\draw[->, thick] (10,2.5) --node[above=2.5mm]{\m{v=2.5\units{m/s}}} (35,2.5);
+    %\draw[->, thick] (16,7.5) -- (20,7.5);% node[above=2.5mm]{\m{p=mv}}
 		% Legend
    		\addlegendimage{
 	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
  		};
-		\addlegendentry{$=50\units{cm/s}$}
+		\addlegendentry{\m{=50\units{cm/s}}}
     \stopaxis
 \stoptikzpicture
 \stopTEXpage
@@ -873,21 +872,21 @@ The cart and block, together weighing $550\units{g}$, slide in the positive dire
 	\startformula[eq:1DEconserve]
 		H\si + W + \cancel{Q} = H\sf
 	\stopformula
-	The only contribution to the initial total energy $H\si$ is the cart and block's kinetic energy $K\si = \half mv^2$, where $m$ is the total mass of the cart and block.
+	The only contribution to the initial total energy \m{H\si} is the cart and block's kinetic energy \m{K\si = \half mv^2}, where \m{m} is the total mass of the cart and block.
 \startformula
 	H\si	= K\si
 		= \half mv^2
 		= \half (550\units{g})(2.5\units{m/s})^2
 		= 1.72\units{kg\.m^2/s^2}
 \stopformula
-The units are quite a mess, but they clean up nicely using the fact that $1\units{N} = 1\units{kg\.m/s^2}$. Putting this in with care gives.
+The units are quite a mess, but they clean up nicely using the fact that \m{1\units{N} = 1\units{kg\.m/s^2}}. Putting this in with care gives.
 \startformula
 	K\si = 1.72\units{N\.m}
 		= 1.72\units{J}
 \stopformula
 The units of kinetic energy are joules, just like work!
 
-The work $W$ done on the cart and block by the force of friction is $F\Delta x$, where $F$ is the force on the block, not the force exerted by the block on the track. The force on the block is negative, so the work done on the block will be negative, decreasing the total energy. In fact, it decreases the total energy to zero ($H\sf=0$) because the cart and block stop.
+The work \m{W} done on the cart and block by the force of friction is \m{F\Delta x}, where \m{F} is the force on the block, not the force exerted by the block on the track. The force on the block is negative, so the work done on the block will be negative, decreasing the total energy. In fact, it decreases the total energy to zero (\m{H\sf=0}) because the cart and block stop.
 
 Put these into the conservation of energy equation and solve for the displacement.
 \startformula\startmathalignment
@@ -898,7 +897,7 @@ Put these into the conservation of energy equation and solve for the displacemen
 			= \frac{1.72\units{\ucan{N}\.m}}{-0.30\,\ucan{N}}
 			= 5.7\units{m}
 \stopmathalignment \stopformula
-This cart and block start quickly with a small force resisting their motion, so they are able to slide a considerable distance, $5.7\units{m}$, before coming to a stop.
+This cart and block start quickly with a small force resisting their motion, so they are able to slide a considerable distance, \m{5.7\units{m}}, before coming to a stop.
 \stopsolution\stopexample
 
 \startbuffer[TikZ:BlockSlideK]
@@ -912,7 +911,7 @@ This cart and block start quickly with a small force resisting their motion, so 
 		footnotesize,
 		width=2.20in,%\marginparwidth,
 		y={1cm}, %x={2mm},
-		xlabel={$x$ (m)},
+		xlabel={\m{x} (m)},
 		xmin=0, xmax=10,
 		%xtick={-1,0,...,3},
 		minor x tick num=3,
@@ -926,7 +925,7 @@ This cart and block start quickly with a small force resisting their motion, so 
 		clip mode=individual,
 		]
 	  	\addplot[thick, samples=121, domain=0:10,]
-		    {1.72-(0.2)*x}node[above right,pos=.4] {$H=K$}
+		    {1.72-(0.2)*x}node[above right,pos=.4] {\m{H=K}}
 		;
 	\stopaxis
 \stoptikzpicture
@@ -938,7 +937,7 @@ This cart and block start quickly with a small force resisting their motion, so 
 {\noindent\typesetbuffer[TikZ:BlockSlideK]} % figure contents
 
 \noindent
-The plot in \in{figure}[fig:BlockSlideK] shows the energy of the block as a function of position while the block is slowing to a stop. The block starts out with $1.72\units{J}$ of energy, and loses that energy as it slides to the right. Because the negative work done by friction is proportional to the distance, the energy decreases in proportion to the distance. The slope is equal to the force, $-0.20\units{N}$.
+The plot in \in{figure}[fig:BlockSlideK] shows the energy of the block as a function of position while the block is slowing to a stop. The block starts out with \m{1.72\units{J}} of energy, and loses that energy as it slides to the right. Because the negative work done by friction is proportional to the distance, the energy decreases in proportion to the distance. The slope is equal to the force, \m{-0.20\units{N}}.
 
 In the example we saw that kinetic energy has the same {\sc si} units as work. In fact, the {\sc si} units for all types of energy, work and heat are joules. The following conversions are useful.
 \startformula
@@ -948,7 +947,7 @@ Energy will come in many different forms, which many different formulas, but the
 
 \section{Kinetic energy and work in three dimensions}
 
-Energy is not directional, so all types of energy are represented by scalars, not by vectors. Kinetic energy depends on an object's speed, but not its direction. When working in two or three dimensions, $v$, is the speed.
+Energy is not directional, so all types of energy are represented by scalars, not by vectors. Kinetic energy depends on an object's speed, but not its direction. When working in two or three dimensions, \m{v}, is the speed.
 \startformula
 v = \sqrt{v_x^2+v_y^2+v_z^2},
 \stopformula
@@ -970,9 +969,9 @@ where the individual contributions are
 	K_y = \half mv_y^2 = \frac{p_y^2}{2m},\qquad
 	K_z = \half mv_z^2 = \frac{p_z^2}{2m}.
 \stopformula
-Each contribution to the kinetic energy represents the energy required to give the object momentum in the corresponding direction. $K_x$ is the energy required to give the object momentum $p_x$ in the $x$-direction, while $K_y$ is the additional energy required to give the object momentum $p_y$ in the $y$-direction, and likewise for $K_z$.
+Each contribution to the kinetic energy represents the energy required to give the object momentum in the corresponding direction. \m{K_x} is the energy required to give the object momentum \m{p_x} in the \m{x}-direction, while \m{K_y} is the additional energy required to give the object momentum \m{p_y} in the \m{y}-direction, and likewise for \m{K_z}.
 
-The contributions to the kinetic energy are \emph{not} components of a kinetic energy vector. It is useful to divide up the kinetic energy into three contributions, but I fear that you may be tempted to treat these as components of a vector. Do not do it! You will never have reason to write the vector $\vec K = \components{K_x,K_y,K_z}$, because kinetic energy is not a vector. Instead write $K= K_x + K_y + K_z$ to get a number. For a vector, like momentum, you would never add the components, $p=p_x+p_y+p_z$, because the result is a number, not the vector. Instead write $\vec{p}=\components{p_x,p_y,p_z}$.
+The contributions to the kinetic energy are \emph{not} components of a kinetic energy vector. It is useful to divide up the kinetic energy into three contributions, but I fear that you may be tempted to treat these as components of a vector. Do not do it! You will never have reason to write the vector \m{\vec K = \components{K_x,K_y,K_z}}, because kinetic energy is not a vector. Instead write \m{K= K_x + K_y + K_z} to get a number. For a vector, like momentum, you would never add the components, \m{p=p_x+p_y+p_z}, because the result is a number, not the vector. Instead write \m{\vec{p}=\components{p_x,p_y,p_z}}.
 
 The work formula in three dimensions is also a total of the work in each direction.
 \startformula
@@ -983,7 +982,7 @@ We have already discussed how force in the same direction as the displacement do
 If I push on the back of a rolling cart I do positive work, increasing its kinetic energy. If I push backwards on the front of a rolling cart I do negative work, decreasing its kinetic energy. If I push on the side of a rolling cart, so that I neither speed it up nor slow it down, then I do no work on the cart.
 
 \startexample
-You are pushing a refrigerator with a force of $\components{25,10}\unit{N}$. Your friend is also pushing, but in another direction.  When you both finish pushing, the refrigerator’s displacement is $\Delta x=5.0\units{m}$ and $\Delta y=-3.0\units{m}$.  What is the work that you do on the refrigerator?
+You are pushing a refrigerator with a force of \m{\components{25,10}\unit{N}}. Your friend is also pushing, but in another direction.  When you both finish pushing, the refrigerator’s displacement is \m{\Delta x=5.0\units{m}} and \m{\Delta y=-3.0\units{m}}.  What is the work that you do on the refrigerator?
 
 \startsolution
 We don’t need your friend’s force to find the work you do. Your force is enough.
@@ -993,7 +992,7 @@ We don’t need your friend’s force to find the work you do. Your force is eno
 \NC		\NC= 125\units{N\.m} - 30\units{N\.m} \NR
 \NC		\NC= \answer{95\units{J}}
 \stopmathalignment\stopformula
-You do $95\units{J}$ of work on the refrigerator. There is no way to know from this information if your friend is working at all.
+You do \m{95\units{J}} of work on the refrigerator. There is no way to know from this information if your friend is working at all.
 \stopsolution
 \stopexample
 
@@ -1063,20 +1062,20 @@ He provides an example in which “two Globes joined by a slender Rod, revolve a
 \startblockquote
 the Sum of the Motions of the two Globes, as often as the Globes are in the right Line described by their common Center of Gravity, will be bigger than the Sum of their Motions, when they are in a Line perpendicular to that right Line. By this Instance it appears that Motion may be got or lost.
 \stopblockquote
-Du Châtelet confirms this with specific masses and velocities. She gives a mass $m=1$ to each of the globes, which she calls body A and body B. She sets the rod spinning such that the bodies move with speeds $v=1$ about the center, while that center moves with a speed $v=1$ to the right. She first considers the moment when the rod is perpendicular to the line. At this moment body B’s velocity due to the spinning is in the same direction as the rod’s central motion, so the velocities add to give a velocity with magnitude $v\sub{B} = 2$. Body A’s velocity due to the spinning is exactly opposite the rod’s central velocity, so the velocities add to give a velocity with magnitude $v\sub{A}=0$. The total quantity of motion is then
+Du Châtelet confirms this with specific masses and velocities. She gives a mass \m{m=1} to each of the globes, which she calls body A and body B. She sets the rod spinning such that the bodies move with speeds \m{v=1} about the center, while that center moves with a speed \m{v=1} to the right. She first considers the moment when the rod is perpendicular to the line. At this moment body B’s velocity due to the spinning is in the same direction as the rod’s central motion, so the velocities add to give a velocity with magnitude \m{v\sub{B} = 2}. Body A’s velocity due to the spinning is exactly opposite the rod’s central velocity, so the velocities add to give a velocity with magnitude \m{v\sub{A}=0}. The total quantity of motion is then
 \startformula
 mv\sub{B}+mv\sub{A} = 1\cdot 2 + 1\cdot 0 = 2
 \stopformula
-She then considers the moment when the rod aligns with the line. At this moment body B’s velocity due to the spinning is upwards, perpendicular to the rod’s central velocity, so the velocities add (using the tip-to-tail method) to give a velocity with magnitude $v\sub{A}=\sqrt 2$. Similarly, body A’s velocity due to the rod’s rotation is downward, giving body A a speed $v\sub{A}=\sqrt 2$. The total quantity of motion is then
+She then considers the moment when the rod aligns with the line. At this moment body B’s velocity due to the spinning is upwards, perpendicular to the rod’s central velocity, so the velocities add (using the tip-to-tail method) to give a velocity with magnitude \m{v\sub{A}=\sqrt 2}. Similarly, body A’s velocity due to the rod’s rotation is downward, giving body A a speed \m{v\sub{A}=\sqrt 2}. The total quantity of motion is then
 \startformula
 mv\sub{B}+mv\sub{A} = 1\cdot \sqrt 2 + 1\cdot \sqrt 2 = 2 \sqrt 2
 \stopformula
-Clearly, the quantity of motion is not constant in this example. However, the total momentum $\vec p = \vec p\sub{B} + \vec p\sub{B}$ is constant, always to the right with a magnitude $p = 2$. What about the \visviva?
+Clearly, the quantity of motion is not constant in this example. However, the total momentum \m{\vec p = \vec p\sub{B} + \vec p\sub{B}} is constant, always to the right with a magnitude \m{p = 2}. What about the \visviva?
 The following example gives us a clue.
 
 %%%%%%%% EXAMPLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:NewtonGlobes]
-Find the total kinetic energy of Newton’s connected globes when the connecting rod is perpendicular to the center’s line of motion and when the rod is aligned with the center’s line of motion. Use Du Châtelet’s masses and speeds (with units). Each globe has a mass of $1\units{kg}$. The speeds are $1\units{m/s}$ due to the rotation about the center of mass and $1\units{m/s}$ due to the center of mass’s motion.
+Find the total kinetic energy of Newton’s connected globes when the connecting rod is perpendicular to the center’s line of motion and when the rod is aligned with the center’s line of motion. Use Du Châtelet’s masses and speeds (with units). Each globe has a mass of \m{1\units{kg}}. The speeds are \m{1\units{m/s}} due to the rotation about the center of mass and \m{1\units{m/s}} due to the center of mass’s motion.
 \startsolution
 When the rod is perpendicular to the center’s line of motion the, total kinetic energy is
 \startformula \startmathalignment
@@ -1090,7 +1089,7 @@ When the rod is aligned with the center’s line of motion, the kinetic energy i
 \startformula
 K = \half(1\units{kg})(\sqrt{2}\units{m/s})^2 + \half(1\units{kg})(\sqrt{2}\units{m/s})^2 = 2\units{J}.
 \stopformula
-The kinetic energy is the same for both orientations, $K=2\units{J}$ in both cases. With some additional work is it possible to show that the energy remains constant for all orientations.
+The kinetic energy is the same for both orientations, \m{K=2\units{J}} in both cases. With some additional work is it possible to show that the energy remains constant for all orientations.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1106,7 +1105,7 @@ Any velocities, any masses, and any rigid shape will have a constant kinetic ene
 
 
 \section{Angular motion and rotational kinetic energy}
-While freely moving objects travel along straight lines, interactions cause and abundance of circular motions, from the orbits that dominate the solar system down to the everyday rotations of tops, wheels and even Earth itself. So far, we have studied circular motions using the same tools we use for linear motions, $\vec p = m\vec v$ for momentum and $K = \half mv^2$ for kinetic energy. For orbits $\vec v$ was the instantaneous velocity of the orbiting planet or moon. For the connected globes in Newton’s Query 31, $\vec v$ was the velocity of each globe, found by adding the velocities due to rotation and central motion.
+While freely moving objects travel along straight lines, interactions cause and abundance of circular motions, from the orbits that dominate the solar system down to the everyday rotations of tops, wheels and even Earth itself. So far, we have studied circular motions using the same tools we use for linear motions, \m{\vec p = m\vec v} for momentum and \m{K = \half mv^2} for kinetic energy. For orbits \m{\vec v} was the instantaneous velocity of the orbiting planet or moon. For the connected globes in Newton’s Query 31, \m{\vec v} was the velocity of each globe, found by adding the velocities due to rotation and central motion.
 
 \startbuffer[TikZ:rolling]
 \environment env_physics
@@ -1154,7 +1153,7 @@ While freely moving objects travel along straight lines, interactions cause and 
 
 Unfortunately, we are about to run into serious trouble because nearly all rotating objects have parts that are moving with many different velocities. Parts near the center of rotation complete small circles while parts far away  complete much larger circles in the same time. Figure~\in[fig:rolling] shows a typical example – a rolling disk. Parts near the top move faster, while parts near the ground are slower. Parts on the leading side are moving down toward the ground, while parts on the trailing side are moving upward. If you are skilled with vector calculus then you know just what to do, and you can skip the rest of this section. If you don’t have those skills, you will need some tools to handle momentum and energy in common situations like rolling. Specifically, we need a method for finding the total momentum and total kinetic energy of an object that is rotating and possibly moving at the same time.
 
-The trick for momentum is quite simple: ignore the rotation and look only at the motion of the center. The total momentum of the wheel in figure~\in[fig:rolling] is $\vec p = m\vec v$, where $m$ is the wheel’s mass and $\vec v$ is the velocity of the wheel’s center, shown in figure~\in[fig:rollingcenter]. The rotation contributes nothing to the total momentum.
+The trick for momentum is quite simple: ignore the rotation and look only at the motion of the center. The total momentum of the wheel in figure~\in[fig:rolling] is \m{\vec p = m\vec v}, where \m{m} is the wheel’s mass and \m{\vec v} is the velocity of the wheel’s center, shown in figure~\in[fig:rollingcenter]. The rotation contributes nothing to the total momentum.
 
 \startbuffer[TikZ:rollingcenter]
 \environment env_physics
@@ -1167,19 +1166,19 @@ The trick for momentum is quite simple: ignore the rotation and look only at the
 	\fill [black!10] (0,0) rectangle (5,-.15);
 		\draw[fill=black!10] (2,1.6) circle[radius=1.6];
 		\fill(2,1.6) circle[radius=.4mm];
-		\draw[->,thick](2,1.6) --node[above]{$v$} ++(2,0);
+		\draw[->,thick](2,1.6) --node[above]{\m{v}} ++(2,0);
 		\draw[thin] (0,0)--(5,0);
 \stoptikzpicture
 \stopTEXpage
 \stopbuffer
 
 \placefigure[margin][fig:rollingcenter] % location
-{The rolling disk's total momentum depends only on the velocity $v$ of the disk's center.}	% caption
+{The rolling disk's total momentum depends only on the velocity \m{v} of the disk's center.}	% caption
 {\noindent\typesetbuffer[TikZ:rollingcenter]} % figure contents
 
 Newton’s example with the connected globes illustrates how this trick works. The rotation contributes to the velocity of each globe, but the contributions are exactly equal and opposite. If the rotation is increasing the velocity of one globe, it is decreasing the velocity of the other. If it is giving an upward component to the velocity of one globe it is giving a downward component to the velocity of the other.  These equal and opposite contributions cancel in the calculation of the total momentum. The situation is the same for any symmetrical object – like a disk, ball, or rod – where the rotation’s contribution to a part on one side is canceled by an equal and opposite contribution to an identical part on the oposite side. For example, every part of a wheel has a matching part on the opposite side, ensuring the cancelation.
 
-If the object is not symmetrical we force the issue by finding a point where the cancelation happens anyway. The simplest case, and the only case you need to be able to do on you own, is two unequal globes connected by a rigid rod. In the spirit of Du Châtelet, we will consider simple masses $m\sub{A} = 3\units{kg}$ and $m\sub{B} = 1\units{kg}$, shown in figure~\in[fig:spinning31]. Rotation about the rod’s midpoint gives equal and opposite contributions to the globe’s velocities, but not equal and opposite contributions to their momenta. The contribution to the heavy globe’s momentum will be three times larger than the contribution to the lighter globe’s momentum, so these contributions will not cancel in the calculation of the total momentum.
+If the object is not symmetrical we force the issue by finding a point where the cancelation happens anyway. The simplest case, and the only case you need to be able to do on you own, is two unequal globes connected by a rigid rod. In the spirit of Du Châtelet, we will consider simple masses \m{m\sub{A} = 3\units{kg}} and \m{m\sub{B} = 1\units{kg}}, shown in figure~\in[fig:spinning31]. Rotation about the rod’s midpoint gives equal and opposite contributions to the globe’s velocities, but not equal and opposite contributions to their momenta. The contribution to the heavy globe’s momentum will be three times larger than the contribution to the lighter globe’s momentum, so these contributions will not cancel in the calculation of the total momentum.
 
 \startbuffer[TikZ:spinning31]
 \environment env_physics
@@ -1199,8 +1198,8 @@ If the object is not symmetrical we force the issue by finding a point where the
 		\draw[-{Straight Barb[scale length=.5]}] ({\T+198}:1.6cm)
 			arc [start angle={\T+198}, end angle={\T+180}, radius=1.6cm];
 	}
-	\draw[->, thick](0,1.6) --node[above]{$p_A$} ++(1.8,0);
-	\draw[->, thick](0,-1.6) --node[below]{$p_B$} ++(-0.6,0);
+	\draw[->, thick](0,1.6) --node[above]{\m{p_A}} ++(1.8,0);
+	\draw[->, thick](0,-1.6) --node[below]{\m{p_B}} ++(-0.6,0);
 \stoptikzpicture
 \stopTEXpage
 \stopbuffer
@@ -1227,8 +1226,8 @@ If the object is not symmetrical we force the issue by finding a point where the
 		\draw[-{Straight Barb[scale length=.5]}] ({\T+198}:0.8cm)
 			arc [start angle={\T+198}, end angle={\T+180}, radius=0.8cm];
 	}
-	\draw[->, thick](0,0.8) --node[above]{$p_A$} ++(0.9,0);
-	\draw[->, thick](0,-2.4) --node[below]{$p_B$} ++(-0.9,0);
+	\draw[->, thick](0,0.8) --node[above]{\m{p_A}} ++(0.9,0);
+	\draw[->, thick](0,-2.4) --node[below]{\m{p_B}} ++(-0.9,0);
 \stoptikzpicture
 \stopTEXpage
 \stopbuffer
@@ -1239,11 +1238,11 @@ If the object is not symmetrical we force the issue by finding a point where the
 
 Let’s abandon the midpoint and instead rotate about a point that is closer to the heavy globe, as shown in figure~\in[fig:spinning31CoM]. Then the rotation will make a smaller contribution to the heavy globe’s velocity while making a larger contribution to the lighter globe’s velocity. If we pick the point so that the contributions to the velocities are in the ratio of one-to-three, then multiplying by the masses, which are in the ratio of three-to-one, will give the equal and opposite contributions to the momentum. This point is the \emph{center of mass.} Every object has a center of mass, a point about which any rotation will produce no momentum. The larger the difference in the masses, the farther the center of mass is shifted toward the heavier mass.
 
-Finding the center of mass for a more complicated object is difficult, but always possible. Every object has a center of mass. Every object’s total momentum is $\vec p = m \vec v$ where $m$ is the object’s mass and $\vec v$ is the velocity of its center of mass. The total momentum always obeys conservation of momentum,
+Finding the center of mass for a more complicated object is difficult, but always possible. Every object has a center of mass. Every object’s total momentum is \m{\vec p = m \vec v} where \m{m} is the object’s mass and \m{\vec v} is the velocity of its center of mass. The total momentum always obeys conservation of momentum,
 \startformula
 	\vec p\si + \vec F\sn\Delta t = \vec p\sf,
 \stopformula
-where $\vec F\sn$ is the total of all external forces acting on any part of the object. The rotation can be totally ignored in the momentum calculation.
+where \m{\vec F\sn} is the total of all external forces acting on any part of the object. The rotation can be totally ignored in the momentum calculation.
 
 The rotation cannot be ignored in the calculation of the total kinetic energy. The rotation’s contribution to the kinetic energies of different parts never cancel out. Rotation always increases the total kinetic energy. Even so, there is a trick that makes the calculation rather direct: simply add the kinetic energy due to the rotation to the kinetic energy of the center of mass to find the total kinetic energy.
 \startformula
@@ -1251,29 +1250,29 @@ The rotation cannot be ignored in the calculation of the total kinetic energy. T
 \stopformula
 The kinetic energy of the center of mass and the kinetic energy due to rotation about the center of mass make totally independent contributions to the total kinetic energy. This is another special property of the center of mass.
 
-The center of mass’s kinetic energy can be found using the center of mass’s velocity $\vec v$ or the total momentum $\vec p$.
+The center of mass’s kinetic energy can be found using the center of mass’s velocity \m{\vec v} or the total momentum \m{\vec p}.
 \startformula
 	K\sub{CoM} = \half mv^2 = \frac{p^2}{2m},
 \stopformula
-where $m$ is the total mass, $v$ is the center of mass’s speed, and $p$ is the magnitude of the total momentum. The formula using the magnitude of the total momentum is especially convenient because you don’t need to know anything about where the center of mass is or how it is moving.
+where \m{m} is the total mass, \m{v} is the center of mass’s speed, and \m{p} is the magnitude of the total momentum. The formula using the magnitude of the total momentum is especially convenient because you don’t need to know anything about where the center of mass is or how it is moving.
 %%%%%%%% EXAMPLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:NewtonGlobes]
-Find the center of mass’s kinetic energy for Newton’s connected globes. Use Du Châtelet’s masses and speeds (with units). Each globe has a mass of $1\units{kg}$. The globes’ velocities get a $1\units{m/s}$ contribution from the rotation about the center of mass and a $1\units{m/s}$ contribution from the center of mass’s motion.
+Find the center of mass’s kinetic energy for Newton’s connected globes. Use Du Châtelet’s masses and speeds (with units). Each globe has a mass of \m{1\units{kg}}. The globes’ velocities get a \m{1\units{m/s}} contribution from the rotation about the center of mass and a \m{1\units{m/s}} contribution from the center of mass’s motion.
 \startsolution
-When finding the center of mass’s kinetic energy, the motion due to rotation can be ignored. We only need the speed due to the center of mass’s motion, which is $v = 1\units{m/s}$.
+When finding the center of mass’s kinetic energy, the motion due to rotation can be ignored. We only need the speed due to the center of mass’s motion, which is \m{v = 1\units{m/s}}.
 \startformula
 K = \half mv^2 = \half(2\units{kg})(1\units{m/s})^2 = 1\units{J}.
 \stopformula
-Here I used the total mass $m = 2\units{kg}$ to compute the center of mass’s kinetic energy.
+Here I used the total mass \m{m = 2\units{kg}} to compute the center of mass’s kinetic energy.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The only challenge remaining is to find the kinetic energy due to the rotation about the center of mass. This requires adding all of the parts’ kinetic energies, using their speeds due to the rotation. For Newton’s connected globes, the speeds are the same, making this fairly simple.
 %%%%%%%% EXAMPLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:NewtonGlobes]
-Find total kinetic energy of Newton’s connected globes using the center of mass’s kinetic energy and the kinetic energy due to the rotation. Use Du Châtelet’s masses and speeds (with units). Each globe has a mass of $1\units{kg}$. The globes’ velocities get a $1\units{m/s}$ contribution from the rotation about the center of mass and a $1\units{m/s}$ contribution from the center of mass’s motion.
+Find total kinetic energy of Newton’s connected globes using the center of mass’s kinetic energy and the kinetic energy due to the rotation. Use Du Châtelet’s masses and speeds (with units). Each globe has a mass of \m{1\units{kg}}. The globes’ velocities get a \m{1\units{m/s}} contribution from the rotation about the center of mass and a \m{1\units{m/s}} contribution from the center of mass’s motion.
 \startsolution
-We found the center of mass’s kinetic energy in the previous example, but we still need to find the kinetic energy due to the rotation. The rotation contributes a velocity of magnitude $v = 1\units{m/s}$ to each of the globes. Here we use the mass of each globe, $m=1\units{kg}$, to find the individual kinetic energies and then add to find the rotational kinetic energy of the connected pair.
+We found the center of mass’s kinetic energy in the previous example, but we still need to find the kinetic energy due to the rotation. The rotation contributes a velocity of magnitude \m{v = 1\units{m/s}} to each of the globes. Here we use the mass of each globe, \m{m=1\units{kg}}, to find the individual kinetic energies and then add to find the rotational kinetic energy of the connected pair.
 \startformula\startmathalignment
 \NC K\sub{rot} \NC = \half mv^2 + \half mv^2 \NR
 \NC		\NC= \half(1\units{kg})(1\units{m/s})^2 + \half(1\units{kg})(1\units{m/s})^2 \NR
@@ -1286,30 +1285,30 @@ Find the total kinetic energy by adding this rotational kinetic energy to the ce
 		= 1\units{J} + 1\units{J}
 		= 2\units{J}
 \stopformula
-The total kinetic energy is $2\units{J}$.
+The total kinetic energy is \m{2\units{J}}.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The total kinetic energy calculated using $K = K\sub{CoM} + K\sub{rot}$ in this example matches the total energy calculated in example~\in[ex:NewtonGlobes] when we used the method $K = K\sub{A} + K\sub{B}$. This is a good sign!
+The total kinetic energy calculated using \m{K = K\sub{CoM} + K\sub{rot}} in this example matches the total energy calculated in example~\in[ex:NewtonGlobes] when we used the method \m{K = K\sub{A} + K\sub{B}}. This is a good sign!
 These two methods should give the same answer, but there is an important difference in the calculation. In example~\in[ex:NewtonGlobes] we found the total kinetic energy in two specific orientations where each globe’s velocity was easy to determine. Other orientations are significantly more challenging. The total kinetic energy was the same in the two orientations, but the kinetic energy of each globe changed from one orientation to the other.
 
-The method above, using $K = K\sub{CoM} + K\sub{rot}$, avoided all of these complications because the center of mass kinetic energy $K\sub{CoM}$ and the kinetic energy due to rotation $K\sub{rot}$ are both independent of the orientation. We find them once, and they stay the same throughout the motion.
+The method above, using \m{K = K\sub{CoM} + K\sub{rot}}, avoided all of these complications because the center of mass kinetic energy \m{K\sub{CoM}} and the kinetic energy due to rotation \m{K\sub{rot}} are both independent of the orientation. We find them once, and they stay the same throughout the motion.
 
-Finding $K\sub{rot}$ for more complicated shapes is, of course, more complicated. The object’s different parts move at different speed depending on their distance from the center of mass. This not only complicates the calculation, it also creates a dilemma about how to quantify the speed of rotation: With so many speeds to chose from, which best describes the speed of rotation? The best solution is to ignore the individual parts and look at the rate at which the object’s orientation is changing. This rate is called the angular velocity, represented by $\omega$ (omega), it is the rate at which the orientation angle $\theta$ (theta) is changing.
+Finding \m{K\sub{rot}} for more complicated shapes is, of course, more complicated. The object’s different parts move at different speed depending on their distance from the center of mass. This not only complicates the calculation, it also creates a dilemma about how to quantify the speed of rotation: With so many speeds to chose from, which best describes the speed of rotation? The best solution is to ignore the individual parts and look at the rate at which the object’s orientation is changing. This rate is called the angular velocity, represented by \m{\omega} (omega), it is the rate at which the orientation angle \m{\theta} (theta) is changing.
 \startformula
 	\omega = \frac{\Delta \theta}{\Delta t}
 \stopformula
-Although the parts have different velocities, they all share the same angular velocity, moving through the same angular displacement $\Delta \theta$ in the same duration $\Delta t$. Angular velocity is directional, its sign indicating whether the object is rotating in the direction of increasing or decreasing angle.
+Although the parts have different velocities, they all share the same angular velocity, moving through the same angular displacement \m{\Delta \theta} in the same duration \m{\Delta t}. Angular velocity is directional, its sign indicating whether the object is rotating in the direction of increasing or decreasing angle.
 
-The angular displacement $\Delta \theta$ can be measured in different units. We will use cycles, degrees, and radians. They are related by
+The angular displacement \m{\Delta \theta} can be measured in different units. We will use cycles, degrees, and radians. They are related by
 \startformula
 	1\units{cyc} = 360\degree= 2\pi\units{rad}
 \stopformula
-Degrees have been a common choice, for physicists and astronomers as well as for non-specialists. Cycles are also common. In fact, you used cycles when studying the circular motion of planets and moons. The number of cycles $N$ is the very large angular displacement $\Delta \theta$ written in units of cycles, $N = \Delta \theta$. Likewise, frequency is angular velocity written in units of cycles per second.
+Degrees have been a common choice, for physicists and astronomers as well as for non-specialists. Cycles are also common. In fact, you used cycles when studying the circular motion of planets and moons. The number of cycles \m{N} is the very large angular displacement \m{\Delta \theta} written in units of cycles, \m{N = \Delta \theta}. Likewise, frequency is angular velocity written in units of cycles per second.
 \startformula
 	f = \frac{N}{\Delta t} = \frac{\Delta \theta}{\Delta t} = \omega
 \stopformula
-The only things new in angular displacement and angular velocity are the symbols and flexibility with units. By tradition, $N$ and $f$ always use cycles while $\theta$ and $\omega$ can use any angular units.
+The only things new in angular displacement and angular velocity are the symbols and flexibility with units. By tradition, \m{N} and \m{f} always use cycles while \m{\theta} and \m{\omega} can use any angular units.
 
 Degrees are familiar and cycles are sensible, but I want to introduce you to your new best friend: radians. You probably recognize radians from a math class, but it is possible you didn’t really hit it off. In physics you will work with radians, and it is going to be great. Radians will help you work through difficult issues with angular units, but not in a demanding way like other units. If you need angular units, radian will cheerfully jump in to help. If you want to do something with other units, radians will stay out of your way.
 
@@ -1321,29 +1320,29 @@ Degrees are familiar and cycles are sensible, but I want to introduce you to you
 \startTEXpage
 \def\angles{72,54,...,-90}
 \starttikzpicture% tikz code
-\draw (5,0) coordinate (A) --node[below]{$r$} (0,0) coordinate (B) -- (4,3) coordinate (C)
-pic ["$\theta$", draw, angle eccentricity=1.4] {angle}
-pic ["$s$", draw, angle radius=5cm, angle eccentricity=1.05] {angle};
+\draw (5,0) coordinate (A) --node[below]{\m{r}} (0,0) coordinate (B) -- (4,3) coordinate (C)
+pic ["\m{\theta}", draw, angle eccentricity=1.4] {angle}
+pic ["\m{s}", draw, angle radius=5cm, angle eccentricity=1.05] {angle};
 \stoptikzpicture
 \stopTEXpage
 \stopbuffer
 
 \placefigure[margin][fig:radians] % location
-{The angle $\theta$ in radians is defined as ratio of the arc length $s$ to the radius $r$.}	% caption
+{The angle \m{\theta} in radians is defined as ratio of the arc length \m{s} to the radius \m{r}.}	% caption
 {\noindent\typesetbuffer[TikZ:radians]} % figure contents
 
 
-Radians are able to do this because an angle’s measure in radians is defined by a ratio. Draw an arc inside any angle, as in figure~\in[fig:radians], and the ratio of the arc length $s$ to the radius $r$ is the angle $\theta$ in radians.
+Radians are able to do this because an angle’s measure in radians is defined by a ratio. Draw an arc inside any angle, as in figure~\in[fig:radians], and the ratio of the arc length \m{s} to the radius \m{r} is the angle \m{\theta} in radians.
 \startformula
 	\theta = \frac{s}{r}
 \stopformula
-Of course, $s$ and $r$ are both lengths and should have the same units, so the units on the right cancel out. However, you need angular units for $\theta$ on the left. Radians cheerfully step in to provide the units. You don’t have to do anything else.
+Of course, \m{s} and \m{r} are both lengths and should have the same units, so the units on the right cancel out. However, you need angular units for \m{\theta} on the left. Radians cheerfully step in to provide the units. You don’t have to do anything else.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:RadiansLatitude]
-Latitude and longitude are measured in degrees. Latitude goes from $0\degree$ at the equator to $90\unit{\degree N}$ at the North Pole (and $90\unit{\degree S}$ at the South Pole). Florence is $4870\units{km}$ north of the equator. What is Florence’s latitude? (Earth’s radius is $6370\units{km}$.)
+Latitude and longitude are measured in degrees. Latitude goes from \m{0\degree} at the equator to \m{90\unit{\degree N}} at the North Pole (and \m{90\unit{\degree S}} at the South Pole). Florence is \m{4870\units{km}} north of the equator. What is Florence’s latitude? (Earth’s radius is \m{6370\units{km}}.)
 \startsolution
-Using Earth’s radius for $r$, we can find the angle, which is the latitude.
+Using Earth’s radius for \m{r}, we can find the angle, which is the latitude.
 \startformula
 	\theta = \frac{s}{r} = \frac{4870\units{km}}{6370\units{km}} = 0.765
 \stopformula
@@ -1351,16 +1350,16 @@ We have a number, but no units. This is where radians step in to help. Any time 
 \startformula
 	\theta = 0.765\units{rad} = 0.765\units{rad}\left(\frac{360\degree}{2\pi\units{rad}}\right) = 43.8\degree
 \stopformula
-Florence’s latitude is $43.8\unit{\degree N}$. Thanks, radians!
+Florence’s latitude is \m{43.8\unit{\degree N}}. Thanks, radians!
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 When you don’t need angular units anymore, radians will step out gracefully.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:RadiansEratosthenes]
-On a summer bicycle tour of Egypt you decide to reproduce Eratosthenes’ measurement of Earth’s radius (see p.\at[fig:EarthRadius]). Eratosthenes measured the shadow in Alexandria to be one fiftieth of a circle, or $0.020\units{cyc}$. (On the trip, you confirm that this measurement is good to two significant figures.)  After carefully calibrating your odometer you measure the distance between Alexandria and the well in Syene to be $800\units{km}$, or $8.0\sci{5}\units{m}$. Based on your measurements, what is Earth’s radius?
+On a summer bicycle tour of Egypt you decide to reproduce Eratosthenes’ measurement of Earth’s radius (see p.\at[fig:EarthRadius]). Eratosthenes measured the shadow in Alexandria to be one fiftieth of a circle, or \m{0.020\units{cyc}}. (On the trip, you confirm that this measurement is good to two significant figures.)  After carefully calibrating your odometer you measure the distance between Alexandria and the well in Syene to be \m{800\units{km}}, or \m{8.0\sci{5}\units{m}}. Based on your measurements, what is Earth’s radius?
 \startsolution
-You have the arclength $s$ and the angle $\theta$. Solve for $r$ and plug in your measurements.
+You have the arclength \m{s} and the angle \m{\theta}. Solve for \m{r} and plug in your measurements.
 \startformula\startmathalignment
 \NC	\theta	\NC = \frac{s}{r}	\NR
 \NC	r		\NC = \frac{s}{\theta}
@@ -1371,17 +1370,17 @@ We have not made a mistake, but the units don’t make any sense. The cycles are
 \startformula
 	r = 40\,000\units{km/cyc}\left(\frac{1\units{cyc}}{2\pi\units{rad}}\right) = 6400\units{km/rad} = 6400\units{km}
 \stopformula
-Since we only need kilometers for our units, radians just disappeared. You found Earth’s radius to be $6400\units{km}$, a good match with the more precise value of $6370\units{km}$. Farewell, radians!
+Since we only need kilometers for our units, radians just disappeared. You found Earth’s radius to be \m{6400\units{km}}, a good match with the more precise value of \m{6370\units{km}}. Farewell, radians!
 \stopsolution
 \stopexample
 
-Whenever you need angular units, put in radians. If you need $1/\unit{rad}$ or $\unit{rad^2}$, put it in. Afterwards, convert to other angular units if you need to. If you have angular units you don’t need, convert them to radians and let them disappear. No other unit works like this. There when you need them, gone when you don’t, radians are the best!
+Whenever you need angular units, put in radians. If you need \m{1/\unit{rad}} or \m{\unit{rad^2}}, put it in. Afterwards, convert to other angular units if you need to. If you have angular units you don’t need, convert them to radians and let them disappear. No other unit works like this. There when you need them, gone when you don’t, radians are the best!
 
-With the help of our new friend radians, we can relate a rotating object’s many velocities to its one angular velocity $\omega$. Consider a part that is distance $r$ from the center of mass, so that it travels along a circle of radius $r$ around the center of mass as the object rotates. When the object rotates though an angular displacement of $\Delta\theta$ the part moves along the circle a distance $s = r\Delta\theta$. The part’s speed is therefore,
+With the help of our new friend radians, we can relate a rotating object’s many velocities to its one angular velocity \m{\omega}. Consider a part that is distance \m{r} from the center of mass, so that it travels along a circle of radius \m{r} around the center of mass as the object rotates. When the object rotates though an angular displacement of \m{\Delta\theta} the part moves along the circle a distance \m{s = r\Delta\theta}. The part’s speed is therefore,
 \startformula
 	v = \frac{s}{\Delta t} = \frac{r\Delta\theta}{\Delta t} = r\frac{\Delta\theta}{\Delta t} = r\omega.
 \stopformula
-The {\sc si} units for $v$ on the left are $\unit{m/s}$. The units on the right should be converted to $\unit{m\.rad/s}$ which turn into $\unit{m/s}$ when the radians disappear.
+The {\sc si} units for \m{v} on the left are \m{\unit{m/s}}. The units on the right should be converted to \m{\unit{m\.rad/s}} which turn into \m{\unit{m/s}} when the radians disappear.
 
 Knowing the part’s speed allows us to calculate that part’s rotational kinetic energy. Adding these together for all of the parts gives the object’s rotational kinetic energy.
 
@@ -1389,7 +1388,7 @@ This rotational kinetic energy can be added to the center of mass’s kinetic en
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:spinning31CoMv]
-Two globes, with masses $m\sub{A} = 3.0\units{kg}$ and $m\sub{B} = 1.0\units{kg}$, are connected by a light, rigid, $1.0\units{m}$ long, as shown. The whole thing is moving with a speed of $1.0\units{m/s}$ while it rotates with an angular velocity of $2.0\units{rad/s}$. Find the magnitude of the total momentum and find the total kinetic energy.
+Two globes, with masses \m{m\sub{A} = 3.0\units{kg}} and \m{m\sub{B} = 1.0\units{kg}}, are connected by a light, rigid, \m{1.0\units{m}} long, as shown. The whole thing is moving with a speed of \m{1.0\units{m/s}} while it rotates with an angular velocity of \m{2.0\units{rad/s}}. Find the magnitude of the total momentum and find the total kinetic energy.
 \startbuffer[TikZ:spinning31CoMv]
 \environment env_physics
 \environment env_TikZ
@@ -1408,9 +1407,9 @@ Two globes, with masses $m\sub{A} = 3.0\units{kg}$ and $m\sub{B} = 1.0\units{kg}
 		\draw[-{Straight Barb[scale length=.5]}] ({\T+198}:0.8cm)
 			arc [start angle={\T+198}, end angle={\T+180}, radius=0.8cm];
 	}
-	\draw[->, thick](0,0) --node[above]{$v$} ++(1.5,0);
+	\draw[->, thick](0,0) --node[above]{\m{v}} ++(1.5,0);
 		\path ({tan(57.3)},1) coordinate (A) -- (0,0) coordinate (B) -- ({-tan(57.3)},1) coordinate (C)
-pic [draw, <-, thick, angle eccentricity=1.2, "$\omega$", angle radius=12mm] {angle};
+pic [draw, <-, thick, angle eccentricity=1.2, "\m{\omega}", angle radius=12mm] {angle};
 \stoptikzpicture
 \stopTEXpage
 \stopbuffer
@@ -1420,7 +1419,7 @@ pic [draw, <-, thick, angle eccentricity=1.2, "$\omega$", angle radius=12mm] {an
 {\noindent\typesetbuffer[TikZ:spinning31CoMv]} % figure contents
 
 \startsolution
-The total momentum is $\vec p = m\vec v$. The rotation has no effect.
+The total momentum is \m{\vec p = m\vec v}. The rotation has no effect.
 \startformula
 	p = mv = 4.0\units{kg}\cdot 1.0\units{m/s} = 4.0\units{kg\.m/s}.
 \stopformula
@@ -1428,14 +1427,14 @@ The center of mass’s kinetic energy is
 \startformula
 	K\sub{CoM} = \frac{p^2}{2m} = \frac{(4.0\units{kg\.m/s})^2}{2(4.0\units{kg})} = 2.0\units{J}.
 \stopformula
-The rotational kinetic energy is the hard part. First, we must find this object’s center of mass, since that will be the center of rotation. The masses are in the ratio of three-to-one, so the distances $r\sub{A}$ and $r\sub{B}$ must be in the ratio of one-to-three. For a $1.0\units{m}$ rod this is achieved by $r\sub{A} = 0.25\units{m}$ and $r\sub{B} = 0.75\units{m}$. These distances allow us to find the individual globes’ speeds due to the rotation using $v = r\omega$. The rotational kinetic energy is
+The rotational kinetic energy is the hard part. First, we must find this object’s center of mass, since that will be the center of rotation. The masses are in the ratio of three-to-one, so the distances \m{r\sub{A}} and \m{r\sub{B}} must be in the ratio of one-to-three. For a \m{1.0\units{m}} rod this is achieved by \m{r\sub{A} = 0.25\units{m}} and \m{r\sub{B} = 0.75\units{m}}. These distances allow us to find the individual globes’ speeds due to the rotation using \m{v = r\omega}. The rotational kinetic energy is
 \startformula\startmathalignment
 \NC 	K\sub{rot}	\NC = \half m\sub{A}v\sub{A}^2	+ \half m\sub{B}v\sub{B}^2	\NR
 \NC 			\NC = \half m\sub{A}r\sub{A}^2\omega^2 + \half m\sub{B}r\sub{B}^2\omega^2	\NR
 \NC 			\NC = \half \left(m\sub{A}r\sub{A}^2 + m\sub{B}r\sub{B}^2\right)\omega^2		\NR
 \NC 			\NC = \half I\omega^2		\NR
 \stopmathalignment\stopformula
-where $I = \left(m\sub{A}r\sub{A}^2 + m\sub{B}r\sub{B}^2\right)$. Next we calculate $I$ and put that value in the simple formula for $K\sub{rot}= \half I\omega^2$ above.
+where \m{I = \left(m\sub{A}r\sub{A}^2 + m\sub{B}r\sub{B}^2\right)}. Next we calculate \m{I} and put that value in the simple formula for \m{K\sub{rot}= \half I\omega^2} above.
 \startformula\startmathalignment
 \NC	I	\NC = m\sub{A}r\sub{A}^2 + m\sub{B}r\sub{B}^2						\NR
 \NC 		\NC = (3.0\units{kg^2})(0.12\units{m})^2 + (3.0\units{kg^2})(0.12\units{m})^2	\NR
@@ -1451,7 +1450,7 @@ Finally, we add the center of mass kinetic energy to the rotational kinetic ener
 \startformula
 K = K\sub{CoM} + K\sub{rot} = 2.0\units{J} + 1.5\units{J} = 3.5\units{J}
 \stopformula
-The magnitude of the total momentum is $4.0\units{kg\.m/s}$ and the total kinetic energy is $3.5\units{J}$.
+The magnitude of the total momentum is \m{4.0\units{kg\.m/s}} and the total kinetic energy is \m{3.5\units{J}}.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1460,7 +1459,7 @@ In the middle of the above example we found a simple formula for the rotational 
 \startformula
 	K\sub{rot} = \half I\omega^2
 \stopformula
-This formula works for all shapes. The rotational kinetic energy is a sum of $\onehalf mv^2$ for all of the parts. The parts have different masses and distances from the center of mass, but they all share the same angular velocity. No matter how many parts the object has, the angular velocity $\omega$ will factor out of the sum (as will the half). This leaves the total $mr^2$, which is called the \emph{moment of inertia.} The moment of inertial depends only on how the object is built – the masses and distances – not on how it is moving. The moments of inertia for common spinning shapes are shown in table~\in[T:MoIShapes].
+This formula works for all shapes. The rotational kinetic energy is a sum of \m{\onehalf mv^2} for all of the parts. The parts have different masses and distances from the center of mass, but they all share the same angular velocity. No matter how many parts the object has, the angular velocity \m{\omega} will factor out of the sum (as will the half). This leaves the total \m{mr^2}, which is called the \emph{moment of inertia.} The moment of inertial depends only on how the object is built – the masses and distances – not on how it is moving. The moments of inertia for common spinning shapes are shown in table~\in[T:MoIShapes].
 
 To quickly review: An object's total momentum is the momentum of its center of mass. An object's total kinetic energy is the sum of the kinetic energy of its center of mass and its rotational kinetic energy.
 \startformula
@@ -1477,10 +1476,10 @@ To quickly review: An object's total momentum is the momentum of its center of m
 \FL[2]%\toprule
 %\NC 	Shape		\NC  Moment of Inertia	\NR
 %\HL
-\NC 	Thin Hoop \NC  $I = mR^2$	\NR
-\NC 	Solid Disk \NC  $I=\half mR^2$	\NR
-%\NC 	Hollow Sphere \NC  $I=\half mR^2$	\NR
-\NC 	Solid Ball \NC  $I=\textfrac{2}{5}mR^2$	\NR
+\NC 	Thin Hoop \NC  \m{I = mR^2}	\NR
+\NC 	Solid Disk \NC  \m{I=\half mR^2}	\NR
+%\NC 	Hollow Sphere \NC  \m{I=\half mR^2}	\NR
+\NC 	Solid Ball \NC  \m{I=\textfrac{2}{5}mR^2}	\NR
 \LL[2]%\bottomrule
 \stoptabulate}
 
@@ -1497,16 +1496,16 @@ To quickly review: An object's total momentum is the momentum of its center of m
 	\fill [black!10] (0,0) rectangle (5,-.15);
 		\draw[fill=black!10] (2,1.6) circle[radius=1.6];
 		\fill(2,1.6) circle[radius=.4mm];
-		\draw[->, thick](2,1.6) --node[above]{$v$} ++(2,0);
+		\draw[->, thick](2,1.6) --node[above]{\m{v}} ++(2,0);
 		\path ({2+tan(35.8)},2.6) coordinate (A) -- (2,1.6) coordinate (B) -- ({2-tan(35.8)},2.6) coordinate (C)
-pic [draw, <-, thick, angle eccentricity=1.2, "$\omega$", angle radius=8mm] {angle};
+pic [draw, <-, thick, angle eccentricity=1.2, "\m{\omega}", angle radius=8mm] {angle};
 		\draw[thin] (0,0)--(5,0);
 \stoptikzpicture
 \stopTEXpage
 \stopbuffer
 
 \placefigure[margin][fig:rollingomega] % location
-{The rolling disk's total kinetic energy depends on the velocity $v$ of the disk's center and the rotational velocity $\omega$. Because it is rolling, these are related by $v=R\omega$.}	% caption
+{The rolling disk's total kinetic energy depends on the velocity \m{v} of the disk's center and the rotational velocity \m{\omega}. Because it is rolling, these are related by \m{v=R\omega}.}	% caption
 {\noindent\typesetbuffer[TikZ:rollingomega]} % figure contents
 
 \startformula
@@ -1515,7 +1514,7 @@ pic [draw, <-, thick, angle eccentricity=1.2, "$\omega$", angle radius=8mm] {ang
 		= \textfrac{1}{2} \left(\textfrac{1}{2} mR^2\right)\omega^2
 		= \textfrac{1}{4} m(R\omega)^2.
 \stopformula
-As the disk rolls, the point in contact with the ground does not slide – it is the one point on the disk that is not moving. For an object of radius $R$ the center of mass velocity and angular velocity are linked by the rolling constraint:
+As the disk rolls, the point in contact with the ground does not slide – it is the one point on the disk that is not moving. For an object of radius \m{R} the center of mass velocity and angular velocity are linked by the rolling constraint:
 \startformula
 	v = R\omega.
 \stopformula
@@ -1530,11 +1529,11 @@ The rolling disk's total kinetic energy is
 		= \textfrac{1}{2}mv^2 + \textfrac{1}{4}mv^2
 		= \textfrac{3}{4}mv^2.
 \stopformula
-A rolling object's total kinetic energy is always larger than $\onehalf mv^2$, but how much larger depends on the object's shape. An objects with the mass far from the center, like a hoop, will have a larger moment of inertia $I$ and will have more kinetic energy when rolling. An object with the mass distributed more towards the axis of rotation will have a smaller moment of inertia, and a smaller total kinetic energy when rolling, as seen in the next example.
+A rolling object's total kinetic energy is always larger than \m{\onehalf mv^2}, but how much larger depends on the object's shape. An objects with the mass far from the center, like a hoop, will have a larger moment of inertia \m{I} and will have more kinetic energy when rolling. An object with the mass distributed more towards the axis of rotation will have a smaller moment of inertia, and a smaller total kinetic energy when rolling, as seen in the next example.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:RollingCannonBall]
-A $40\units{kg}$ cannon ball is rolling on a smooth surface at a speed of $2.0\units{m/s}$, as shown in figure~\in[fig:RollingCannonBall]. What is its total kinetic energy?
+A \m{40\units{kg}} cannon ball is rolling on a smooth surface at a speed of \m{2.0\units{m/s}}, as shown in figure~\in[fig:RollingCannonBall]. What is its total kinetic energy?
 \startbuffer[TikZ:RollingCannonBall]
 \environment env_physics
 \environment env_TikZ
@@ -1546,9 +1545,9 @@ A $40\units{kg}$ cannon ball is rolling on a smooth surface at a speed of $2.0\u
 	\fill [black!10] (0,0) rectangle (5,-.15);
 		\draw[shade, ball color=black!50] (2,1) circle[radius=1];
 		\fill(2,1) circle[radius=.4mm];
-		\draw[->, thick](2,1) --node[above, pos=0.7]{$v$} ++(2,0);
+		\draw[->, thick](2,1) --node[above, pos=0.7]{\m{v}} ++(2,0);
 		\path ({2+tan(57.3)},2) coordinate (A) -- (2,1) coordinate (B) -- ({2-tan(57.3)},2) coordinate (C)
-pic [draw, <-, thick, angle eccentricity=1.2, "$\omega$", angle radius=12mm] {angle};
+pic [draw, <-, thick, angle eccentricity=1.2, "\m{\omega}", angle radius=12mm] {angle};
 		\draw[thin] (0,0)--(5,0);
 \stoptikzpicture
 \stopTEXpage
@@ -1558,7 +1557,7 @@ pic [draw, <-, thick, angle eccentricity=1.2, "$\omega$", angle radius=12mm] {an
 {The rolling cannon ball in example~\in[ex:RollingCannonBall].}	% caption
 {\noindent\typesetbuffer[TikZ:RollingCannonBall]} % figure contents
 \startsolution
-We find the rotational kinetic energy first, using the moment of inertia for a solid ball and the rolling constraint, $v=R\omega$.
+We find the rotational kinetic energy first, using the moment of inertia for a solid ball and the rolling constraint, \m{v=R\omega}.
 \startformula
 	K\sub{rot}
 		= \textfrac{1}{2} I\omega^2
@@ -1580,7 +1579,7 @@ This formula is true for any rolling solid ball. Plugging in the mass and speed 
 		= 110\units{kg\.m^2/s^2}
 		= 110\units{J}.
 \stopformula
-The total kinetic energy is $110\units{J}$.
+The total kinetic energy is \m{110\units{J}}.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1591,15 +1590,15 @@ In addition to arguments using Newtonian physics, Du Châtelet's revival of \vis
 %Du Châtlet's arguments must have confounded the Cartesians terribly. They viewed themselves as Newton's defenders, but challenging her arguments for Leibniz's \visviva\ would mean abandoning Newton as well!
 Fifty-three years after Newton's \booktitle{Principia}, this reckoning was long overdue.
 
-%We can see how Du Châtelet's Newtonian arguments work by looking again at the case of the cart pushing the block. The goal of this calculation is to find the work work done by the cart and block when they start with initial velocity $v\si$. We may find that work is proportoinal to their quantity of motion ($m\abs{v}$), their \visviva\ ($mv^2$), or something else entirely. A clear result should resolve the \visviva\ debate, at least for this case. I warn you that this discussion is the most advanced so far in this book. You may need to read it several times. I recommend ignoring all of the minus signs initially. Then, when you feel you understand the course of the argument, read it again paying attention to the valuable directional information provided by these signs.
+%We can see how Du Châtelet's Newtonian arguments work by looking again at the case of the cart pushing the block. The goal of this calculation is to find the work work done by the cart and block when they start with initial velocity \m{v\si}. We may find that work is proportoinal to their quantity of motion (\m{m\abs{v}}), their \visviva\ (\m{mv^2}), or something else entirely. A clear result should resolve the \visviva\ debate, at least for this case. I warn you that this discussion is the most advanced so far in this book. You may need to read it several times. I recommend ignoring all of the minus signs initially. Then, when you feel you understand the course of the argument, read it again paying attention to the valuable directional information provided by these signs.
 %
-%To calculate the work done during the slide we need the force exerted by the block on the track and the displacement of the block and cart from the beginning of the slide until the end. We do not know the force, but we can calculate the displacement $\Delta x$. We will start with displacement and hope for the best.
+%To calculate the work done during the slide we need the force exerted by the block on the track and the displacement of the block and cart from the beginning of the slide until the end. We do not know the force, but we can calculate the displacement \m{\Delta x}. We will start with displacement and hope for the best.
 %
-%The final displacement at the end of the slide is the product of average velocity $v\sub{ave.}$ during the slide and the duration of the slide $\Delta t$.
+%The final displacement at the end of the slide is the product of average velocity \m{v\sub{ave.}} during the slide and the duration of the slide \m{\Delta t}.
 %\startformula
 %	\Delta x = v\sub{ave.} \Delta t % = v\sub{ave.}\frac{mv\si}{F}
 %\stopformula
-%Since the cart and block slow uniformly from their initial velocity to a complete stop, their \emph{average} velocity during this time is half of the initial velocity, $v\sub{ave.} = \half v\si$.
+%Since the cart and block slow uniformly from their initial velocity to a complete stop, their \emph{average} velocity during this time is half of the initial velocity, \m{v\sub{ave.} = \half v\si}.
 %\startformula
 %	\Delta x = \half v\si \Delta t
 %\stopformula
@@ -1616,13 +1615,13 @@ Fifty-three years after Newton's \booktitle{Principia}, this reckoning was long 
 %%\startformula
 %%	\Delta t = \frac{p\si}{F} = \frac{mv\si}{F}
 %%\stopformula
-%%Recall when we studied this problem in Chapter \in[ch:Momentum], we chose the velocity to be in the positive direction, so the momentum is positive as well. We also chose $F$ to be the force that the block exerts on the track, so that it is also positive.
+%%Recall when we studied this problem in Chapter \in[ch:Momentum], we chose the velocity to be in the positive direction, so the momentum is positive as well. We also chose \m{F} to be the force that the block exerts on the track, so that it is also positive.
 %
 %This change in time can now be used to find the displacement as the block slows to a stop.
 %\startformula
 %	\Delta x = \half v\si \left(-\frac{mv\si}{F}\right) = -\frac{mv\si^2}{2F}
 %\stopformula
-%Here we see that the displacement $\Delta x$ is proportional to the \visviva, not the momentum $mv$. (The minus sign ensures the displacement and the force are in opposite directions, as they should be.) This displacement similar to the effect that ’s Gravesande saw when he dropped balls into clay, also confirming \visviva\ rather than momentum as the correct predictor of the motion's effect.
+%Here we see that the displacement \m{\Delta x} is proportional to the \visviva, not the momentum \m{mv}. (The minus sign ensures the displacement and the force are in opposite directions, as they should be.) This displacement similar to the effect that ’s Gravesande saw when he dropped balls into clay, also confirming \visviva\ rather than momentum as the correct predictor of the motion's effect.
 %
 %
 %%, just as we saw in the data for the cart pushing the block. In fact, we can use the slope of the line on the graph to determine the force.
@@ -1630,19 +1629,19 @@ Fifty-three years after Newton's \booktitle{Principia}, this reckoning was long 
 %%	\text{slope}=\frac{\text{rise}}{\text{run}}= \frac{mv^2}{\Delta x} = 2F \\
 %%	F = \half \text{slope}
 %%\end{gather*}
-%%The force $F$ is half of the slope of the best fit line through the points on the graph of $mv^2$ vs.\ $\Delta x$.
+%%The force \m{F} is half of the slope of the best fit line through the points on the graph of \m{mv^2} vs.\ \m{\Delta x}.
 %
 %%’s Gravesande originally measured the impact craters in the clay because their size revealed how much work was done by the impacting sphere, work that came from the sphere's \visviva. We measured the displacement of the sliding block because it likewise revealed the work done by the block. Since we have calculated the relationship between the block's displacement and the \visviva, we can finish making the connection by finding the work done.
-%Finally, we can use this displacement to find the work done by the block. Since $F$ is the force \emph{on} the block, the work done \emph{by} the block will be $W = -F\Delta x$. This work will be positive because the force on the block $F$ is opposite the displacement $\Delta x$.
+%Finally, we can use this displacement to find the work done by the block. Since \m{F} is the force \emph{on} the block, the work done \emph{by} the block will be \m{W = -F\Delta x}. This work will be positive because the force on the block \m{F} is opposite the displacement \m{\Delta x}.
 %\startformula
 %	W = -F\Delta x = -\cancel{F}\left(-\frac{mv\si^2}{2\cancel{F}}\right) = \half mv^2
 %\stopformula
 %%The force cancels out!
 %The work done by the sliding block is half of the system's initial \visviva. Stated the other way, \visviva\ is a measure of the work that can be done, which each unit of work requiring two units of \visviva. Leibniz is correct, as show by the careful use of Newtonian physics!
 %
-%The cancelation of the force $F$ deserves a bit more comment. If the force is big, then the cart and block only slide a short distance. If the force is small, then they slide farther, doing the same amount of work over a larger distance. The work done depends only on the initial \visviva\ of the cart and block. The force determines the distance over which that work is done.
+%The cancelation of the force \m{F} deserves a bit more comment. If the force is big, then the cart and block only slide a short distance. If the force is small, then they slide farther, doing the same amount of work over a larger distance. The work done depends only on the initial \visviva\ of the cart and block. The force determines the distance over which that work is done.
 
-%Today we always use half of the \visviva, $\half mv^2$, which is called the kinetic energy. The work $W$ done by the cart and block is equal to their initial kinetic energy $\half mv^2$. I will have more to say about kinetic energy in a moment. First, I wish to finish the story of Emily Du Châtelet and the \visviva\ debate.
+%Today we always use half of the \visviva, \m{\half mv^2}, which is called the kinetic energy. The work \m{W} done by the cart and block is equal to their initial kinetic energy \m{\half mv^2}. I will have more to say about kinetic energy in a moment. First, I wish to finish the story of Emily Du Châtelet and the \visviva\ debate.
 
 Du Châtelet immediately faced two attacks. Even before \booktitle{Foundations} was published, her former tutor, Samuel König, falsely claimed the work was his and that Du Châtelet had simply taken his dictation to produce \booktitle{Foundations}. %König expected his claim was taken seriously because few intellectuals of the time could not imagine a woman producing a work of such sophistication.
 Historian Judith P.\ Zinsser describes the second challenge faced by Du Châtelet.
@@ -1662,7 +1661,7 @@ Newton was already widely revered. Du Châtelet's \booktitle{Foundations of Phys
 
 Du Châtelet continued to contribute to the physics community by producing a complete translation of Newton's \booktitle{Principia} into French. In addition to translating the text, she translated all of the mathematics from Newton's geometric calculus to Leibniz's more powerful algebraic notation, making the text much more useful. In addition she provided a commentary and updated all of the astronomical data and calculations. This work contributed greatly to the advancement of physics on the continent, but was largely ignored in England where Newton was so revered that all of the universities stubbornly continued using his cumbersome geometric methods.
 
-On the continent, energy continued to play a central roll in the advancing physics, as we will see, and it continues to be central today. High-energy experiments done in the twentieth century revealed that the formula $K=\onehalf mv^2$ is not correct for speeds close to the speed of light ($3\sci{8}\units{m/s}$), just like the formula for momentum. Also like the formula for momentum, this kinetic energy formula is \emph{extremely} accurate for lower speeds (anything less than $10^7\units{m/s}$). For higher speeds we will need the updated formulas in Volume II.
+On the continent, energy continued to play a central roll in the advancing physics, as we will see, and it continues to be central today. High-energy experiments done in the twentieth century revealed that the formula \m{K=\onehalf mv^2} is not correct for speeds close to the speed of light (\m{3\sci{8}\units{m/s}}), just like the formula for momentum. Also like the formula for momentum, this kinetic energy formula is \emph{extremely} accurate for lower speeds (anything less than \m{10^7\units{m/s}}). For higher speeds we will need the updated formulas in Volume II.
 
 Conservation of energy in its many forms is a bit more complicated that Leibniz's original idea for conservation of \visviva, but added complexity also makes energy extremely useful. Food, fuel, and batteries all contain energy stored in other forms that can be converted into kinetic energy.
 
@@ -1680,7 +1679,6 @@ The conservation laws for momentum and energy have survived every experimental t
 %\stopitemize
 
 \stopchapter
-\stoptext
 \stopcomponent
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1716,7 +1714,7 @@ Templates
 \NC L_{\text{high}} \NC= \frac{1}{2}L_{\text{low}} \NR
 \stopmathalignment \stopformula
 
-Text $\text{Text}$.Text
+Text \m{\text{Text}}.Text
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Section Title}
@@ -1729,7 +1727,7 @@ Text.
 \NC f_{\text{high}} \NC= 2\,f_{\text{low}} = 2(27.5\units{Hz}) = 55\units{Hz} \NR
 \stopmathalignment \stopformula
 
-The frequency of A$_1$ is $55\units{Hz}$.
+The frequency of A\m{_1} is \m{55\units{Hz}}.
 \bigskip
 
 % Margin image
@@ -1763,15 +1761,15 @@ The frequency of A$_1$ is $55\units{Hz}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:cartK]
-	The block slides $16.0\units{cm}$ along the track against a friction force of $-0.50\units{N}$ (The force is negative, opposing the block's positive motion). What is the work done by the block?
+	The block slides \m{16.0\units{cm}} along the track against a friction force of \m{-0.50\units{N}} (The force is negative, opposing the block's positive motion). What is the work done by the block?
 \startsolution
-The work done by the block is found using the work formula, but take care to use the correct force between the block and the track. The work done by the block is calculated using the force \emph{of} the block, but we are given the force \emph{on} the block. Newton's third law tells us that the force of the block on the track is equal and opposite to the force of the track on the block. Therefore, we will calculate the work using $F=0.50\units{N}$ for the force of the block on the track.
+The work done by the block is found using the work formula, but take care to use the correct force between the block and the track. The work done by the block is calculated using the force \emph{of} the block, but we are given the force \emph{on} the block. Newton's third law tells us that the force of the block on the track is equal and opposite to the force of the track on the block. Therefore, we will calculate the work using \m{F=0.50\units{N}} for the force of the block on the track.
 	\startformula\startmathalignment
 		\NC W	\NC = F\Delta x \NR
 		\NC		\NC = (0.50\units{N})(16.0\units{cm}) \NR
 		\NC		\NC = \answer{8.0\units{N\.cm}}
 	\stopmathalignment \stopformula
-	The work done by the sliding block is $8.0\units{N\.cm}$ or $0.080\units{N\.m}$.
+	The work done by the sliding block is \m{8.0\units{N\.cm}} or \m{0.080\units{N\.m}}.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

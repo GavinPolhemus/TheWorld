@@ -5,8 +5,6 @@
 \product prd_volume01
 
 \setupsynctex[state=start,method=max] % "method=max" or "min"
-\starttext
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startchapter[title=Four Paths,reference=ch:Music]
@@ -78,7 +76,7 @@ Not every pair in this pipe collection produces consonant pitches. The three pai
 	\draw[opacity=.5] plot ({-cos(\x)/10 + 0.75},{\x/20});
 	\draw[thin] (.25,4.5) -- (.45,4.5);
 	\draw[thin] (.25,-4.5) -- (.45,-4.5);
-	\draw [thin,<->](.32, 4.5) -- node[fill=black!10,inner sep=2pt]{$L$}  (.32, -4.5);
+	\draw [thin,<->](.32, 4.5) -- node[fill=black!10,inner sep=2pt]{\m{L}}  (.32, -4.5);
 	% Second monochord
 	\draw[fill=black!10] (1.75,4.75) rectangle (3.25,-4.75); % Box
 	\draw (2.25,4.5)--(2.75,4.5); % Top bridge
@@ -89,7 +87,7 @@ Not every pair in this pipe collection produces consonant pitches. The three pai
 	\draw[thin] (2,-4.5) -- (2.2,-4.5);
 	\draw[opacity=.5] plot ({cos(\x)/10 + 2.5},{\x/30-1.5});
 	\draw[opacity=.5] plot ({-cos(\x)/10 + 2.5},{\x/30-1.5});
-	\draw [thin,<->](2.07, 1.5) -- node[fill=black!10,inner sep=2pt]{$\tfrac{2}{3}L$}  (2.07, -4.5);
+	\draw [thin,<->](2.07, 1.5) -- node[fill=black!10,inner sep=2pt]{\m{L}}  (2.07, -4.5);
 	\draw[fill=white] (2.5,1.5) circle[radius=.1]; % Finger placement
 	% Third monochord
 	\draw[fill=black!10] (3.5,4.75) rectangle (5,-4.75); % Box
@@ -102,7 +100,7 @@ Not every pair in this pipe collection produces consonant pitches. The three pai
 	% Dimension of vibrating string
 	\draw[thin] (3.75,0) -- (4.1,0);
 	\draw[thin] (3.75,-4.5) -- (3.95,-4.5);
-	\draw [thin,<->](3.82, 0) -- node[fill=black!10,inner sep=2pt]{$\tfrac{1}{2}L$}  (3.82, -4.5);
+	\draw [thin,<->](3.82, 0) -- node[fill=black!10,inner sep=2pt]{\m{L}}  (3.82, -4.5);
 	\draw[fill=white] (4.25,0) circle[radius=.1]; % Finger placement
 \stoptikzpicture
 }
@@ -132,8 +130,8 @@ Galilei’s challenge was quickly met by the realization that the ratios must be
 	\draw[opacity=.5] (.75,4.5)--(.75,-4.5);
 	\draw[opacity=.5] plot ({cos(\x)/4 + 0.75},{\x/20});
 	\draw[opacity=.5] plot ({-cos(\x)/4 + 0.75},{\x/20});
-	\draw [thin,->](.15, 0)--(0.5, 0) node[above left]{$A$};
-	\draw [thin,->](1.1, 0)--(0.75, 0); %node[left]{$A$};
+	\draw [thin,->](.15, 0)--(0.5, 0) node[above left]{\m{L}};
+	\draw [thin,->](1.1, 0)--(0.75, 0); %node[left]{\m{L}};
 	\stoptikzpicture}%
 }
 
@@ -141,7 +139,7 @@ All sounds, musical or not, are produced by something vibrating.  When the motio
 
 A plucked string vibrates to produce a clear pitch.  The motion is too fast to follow with your eyes, but you can see the blurring of the string caused by its rapid vibrations.  The string's vibration has two characteristics important to both physicists and musicians: amplitude and frequency.
 
-The size of the vibrations is called the \keyterm{amplitude}, and is represented by the symbol $A$.  Amplitude is the distance that the string moves to either side of the center, as shown in Figure~\in[fig:stringamp].  The total width of the strings' motion is twice the amplitude, or $2A$.  For stringed instruments, the amplitude of typical vibrations is a few millimeters or less.  The vibration's amplitude determines the sound's volume.
+The size of the vibrations is called the \keyterm{amplitude}, and is represented by the symbol \m{L}.  Amplitude is the distance that the string moves to either side of the center, as shown in Figure~\in[fig:stringamp].  The total width of the strings' motion is twice the amplitude, or \m{L}.  For stringed instruments, the amplitude of typical vibrations is a few millimeters or less.  The vibration's amplitude determines the sound's volume.
 
 \keyterm{Frequency} is a measure of how quickly the string's motion is repeated.  Each repetition is called a \keyterm{cycle}, so frequency is measured in cycles per second.  The long, heavy strings in a grand piano vibrate with a frequency of a few dozen cycles per second, producing low pitches.  The shortest strings' frequencies are thousands of cycles per second, producing high pitches.
 The unit of measure for frequency is \keyterm{hertz}, abbreviated as Hz.
@@ -149,10 +147,10 @@ The unit of measure for frequency is \keyterm{hertz}, abbreviated as Hz.
 \startformula
 1\units{Hz} = 1\units{cyc/s}
 \stopformula
-Humans can hear a huge range of frequencies, from about from $5\units{Hz}$ up to $20{,}000\units{Hz}$.  The highest frequencies are only audible to young people.
+Humans can hear a huge range of frequencies, from about from \m{L} up to \m{L}.  The highest frequencies are only audible to young people.
 
 Many details of an instrument’s construction affect its sound by influencing the way it vibrates. Galilei’s experiments taught us that properties of the instruments, like length and tension, may affect the frequency of vibration in surprising ways.
-The frequency produced by a string or pipe is inversely proportional to the length, so a simple three-to-two ratio in lengths will produce a consonant two-to-three ratio of frequencies, as the Pythagoreans knew. However, the frequency produced by a string is proportional to the square root of the string’s tension. A simple two-to-three ratio of tensions produces a dissonant $\sqrt 2$-to-$\sqrt 3$ ratio of frequencies. A four-to-nine ratio of tensions produces a consonant two-to-three ratio of frequencies. One of our goals in studying the physics of motion will be understanding these surprising relationships.
+The frequency produced by a string or pipe is inversely proportional to the length, so a simple three-to-two ratio in lengths will produce a consonant two-to-three ratio of frequencies, as the Pythagoreans knew. However, the frequency produced by a string is proportional to the square root of the string’s tension. A simple two-to-three ratio of tensions produces a dissonant \m{L}-to-\m{L} ratio of frequencies. A four-to-nine ratio of tensions produces a consonant two-to-three ratio of frequencies. One of our goals in studying the physics of motion will be understanding these surprising relationships.
 
 \placefigure[margin][fig:GrandPiano]{A grand piano has strings spanning several octaves, with long, low strings on the left and shorter, higher strings on the right.} {\externalfigure[chapter01/piano-top][width=144pt]}
 
@@ -169,14 +167,14 @@ The change in frequency represented by an arrow is called an \keyterm{interval.}
 
 \placefigure[margin][fig:PythagoreanPipesArrows]{The frequencies of Pythagoras and Philolaus’s pipes, with arrows showing the simple frequency multipliers relating consonant pitches. Arrows that are the same length show the same frequency multiplier.} {\externalfigure[chapter01/PythagoreanPipesArrows]}%[width=144pt]}
 
-The grand piano spans over seven octaves, from the low A with a frequency $27.5\units{Hz}$ to the high C at $4186\units{Hz}$.  (This A has nothing to do with the amplitude $A$.  Notice that the name of the pitch is upright, while the symbol for amplitude is italic.)
+The grand piano spans over seven octaves, from the low A with a frequency \m{L} to the high C at \m{L}.  (This A has nothing to do with the amplitude \m{L}.  Notice that the name of the pitch is upright, while the symbol for amplitude is italic.)
 If the strings were identical thickness and tension, the lengths would double seven times going from the highest C to the lowest C – making the longest string 128 times longer than the shortest! For the very lowest pitches, the strings are thicker and looser, which also makes them lower, so they don’t have to be quite so long. Even so, the exponential increase in string length going down the keyboard is quite obvious in the concert grand piano in figure \in[fig:GrandPiano], which is nine feet long. Large organs have pipes that are even longer to produce their lowest pitches.
 
 \placefigure[margin][fig:PythagoreanPipesOct]{One octave of Pythagoras and Philolaus’s pipes, with arrows showing the intervals within the octave. The largest interval is the octave  from the low C to the high C. The small, dissonant interval from F to G is a whole step.} {\externalfigure[chapter01/PythagoreanPipesOct]}%[width=144pt]}
 
 As we investigate simple frequency ratios in music, it is sufficient to look at a single octave. Frequencies and intervals for one octave of Pythagoras and Philolaus’ pipes are shown in figure \in[fig:PythagoreanPipesOct]. Frequencies in each higher octave can be found by doubling the frequencies in the lower octave. Likewise, frequencies in each lower octave can be found by halving the frequencies in the higher octave. In this way every pitch will be consonant with the pitch an octave above or below.
 
-%To calculate the lengths, we need these relationships in mathematical language.  Let us use $L\sub{low}$ to represent length of a string that plays a particular low pitch, and $L\sub{high}$ to represent length of a string that plays a pitch one octave higher.  We can then say the ratio of $L\sub{low}$ to $L\sub{high}$ is the ratio of two-to-one.  Written in an equation, the octave ratio is
+%To calculate the lengths, we need these relationships in mathematical language.  Let us use \m{L} to represent length of a string that plays a particular low pitch, and \m{L} to represent length of a string that plays a pitch one octave higher.  We can then say the ratio of \m{L} to \m{L} is the ratio of two-to-one.  Written in an equation, the octave ratio is
 %
 %\startformula
 %\frac{L\sub{low}}{L\sub{high}} \NC= \frac{2}{1}
@@ -186,23 +184,23 @@ As we investigate simple frequency ratios in music, it is sufficient to look at 
 %
 %	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\startexample[ex:organ]
-%You wish to build a pipe organ. The largest pipe that you can use is $8\units{ft}$ long. Find the length of pipe that will play one octave higher than the largest pipe.
+%You wish to build a pipe organ. The largest pipe that you can use is \m{L} long. Find the length of pipe that will play one octave higher than the largest pipe.
 %\startsolution
-%Start by writing the relationship for the octave, and then use algebra to solve for the length of the higher pitched pipe, $L\sub{high}$.  It is good practice to solve with variables first and then to plug in numbers.
+%Start by writing the relationship for the octave, and then use algebra to solve for the length of the higher pitched pipe, \m{L}.  It is good practice to solve with variables first and then to plug in numbers.
 %\startformula
 %\frac{L\sub{low}}{L\sub{high}} = \frac{2}{1}
 %\stopformula
-%Multiply both sides of the equation by $L\sub{high}$ to get it out of the denominator.
+%Multiply both sides of the equation by \m{L} to get it out of the denominator.
 %\startformula
 %\cancel{L\sub{high}}\frac{L\sub{low}}{\cancel{L\sub{high}}} = \frac{2}{1}L\sub{high}
 %\stopformula
-%To isolate $L\sub{high}$, divide both sides of the equation by $2$.
+%To isolate \m{L}, divide both sides of the equation by \m{L}.
 %\blank%[small]
 %\startformula
 %\frac{L\sub{low}}{2} = \frac{\cancel{2}}{\cancel{2}}L\sub{high}
 %\stopformula
 %
-%Having solved with variables, we insert eight feet for the length $L\sub{low}$.
+%Having solved with variables, we insert eight feet for the length \m{L}.
 %
 %\startformula
 %L\sub{high} = \frac{L\sub{low}}{2} = \frac{8\units{ft}}{2} = 4\units{ft}
@@ -225,26 +223,26 @@ The ancient Greeks produced several solutions. We will look at just one of them,
 The C major scale starts on C and ends an a higher C. Greeks’ procedure for selecting pitches between these two Cs naturally produces a set of eight pitches. We say this scale covers one octave because it contains these eight pitches.
 Several representations of the C major scale are shown in figure \in[fig:TinyPiano] – a keyboard, notes on a staff, and two common naming conventions. I will use letter names. The other representations are there to aid anyone familiar with them. You do not need to learn them to understand this chapter or work the problems. If you have access to a keyboard or know how to play the notes on another instrument, you can produce some of the consonant and dissonant combinations yourself. However, since modern tuning is slightly different, you will not hear all of the effects. In this chapter we will look at three versions of the C major scale, including the modern tuning. By the end of the chapter you should  understand what you can do on your modern instrument. If you can alter the tuning of your instrument, then you can experiment with the ancient scales as well.
 
-Above the keyboard in figure \in[fig:TinyPiano] are lines showing the relative lengths that will produce the pitches. These lengths could be strings or pipes. For example, they could be one octave’s worth of strings in a grand piano, as in figure \in[fig:GrandPiano]. The first length, producing the low C, and the last length, producing the high C, are in the ratio of two-to-one. Galilei taught us that it is not the ratios of lengths that matter, but the ratios of frequencies. We already have frequencies for both Cs, F, and G, and the intervals connecting them in figure \in[fig:PythagoreanPipesOct]. The exact frequencies are not as important as the ratios, so only the ratios (as frequency multipliers) are shown if figure \in[fig:TinyPiano]. The $9/8$ ratio from F to G is taken directly from Pythagoras and Philolaus’ pipes.
+Above the keyboard in figure \in[fig:TinyPiano] are lines showing the relative lengths that will produce the pitches. These lengths could be strings or pipes. For example, they could be one octave’s worth of strings in a grand piano, as in figure \in[fig:GrandPiano]. The first length, producing the low C, and the last length, producing the high C, are in the ratio of two-to-one. Galilei taught us that it is not the ratios of lengths that matter, but the ratios of frequencies. We already have frequencies for both Cs, F, and G, and the intervals connecting them in figure \in[fig:PythagoreanPipesOct]. The exact frequencies are not as important as the ratios, so only the ratios (as frequency multipliers) are shown if figure \in[fig:TinyPiano]. The \m{L} ratio from F to G is taken directly from Pythagoras and Philolaus’ pipes.
 This interval is commonly called a \keyterm{whole step.}  The whole steps are obvious on the keyboard because there is always a black key in the middle of a whole step. (The black keys are sharps and flats. There were many arguments about the exact ratios for the sharps and flats, which we will avoid.)
 
 The Pythagoreans used the whole step to find the remaining four notes of the C major scale. They used it twice on the left, moving up from C to D and then D to E. (Notice the black keys in these whole steps.) This leaves a small, dissonant interval between E and F called a \keyterm{half step}. They also used the whole step twice twice on the right, moving up from G to D and A to B, again leaving a dissonant half step between B and C. The half steps were small enough that the Pythagoreans did not subdivide them in this scale, so there is no black key in the half steps.
 
 \placefigure[margin][fig:TinyPiano8th5th]{An octave divided into a perfect fifth and a perfect fourth.} {\externalfigure[chapter01/TinyPiano8th5th][width=144pt]}
 
-None of the larger intervals ($4/3$, $3/2$, and $2$) are shown in figure \in[fig:TinyPiano] – there are just too many. However, every interval can be found using the whole steps and half steps once we have mastered some musical math with intervals. Our first calculation will use the intervals shown in figure \in[fig:TinyPiano8th5th], taken directly from Pythagoras and Philolaus’ pipes.
+None of the larger intervals (\m{L}, \m{L}, and \m{L}) are shown in figure \in[fig:TinyPiano] – there are just too many. However, every interval can be found using the whole steps and half steps once we have mastered some musical math with intervals. Our first calculation will use the intervals shown in figure \in[fig:TinyPiano8th5th], taken directly from Pythagoras and Philolaus’ pipes.
 
 The first bit of interval math is counting.
 Intervals are named according to the number of pitches they encompass. An octave encompasses all eight pitches shown in figure \in[fig:TinyPiano8th5th]. The fifth encompasses C–D–E–F–G, five pitches. The fourth encompasses four. (A whole step is sometimes called a second, since it encompasses two adjacent pitches.)
 
-The ratio relating the low C to G is $3/2$, so they are consonant pitches. Since the pitches are consonant, this interval is called a \keyterm{perfect fifth}. The perfect fifth always corresponds to the ratio $3/2$. The ratio relating the G and the high C is $4/3$. This interval is also consonant and is called a \keyterm{perfect fourth.} The perfect fourth always corresponds to the fraction $4/3$.
+The ratio relating the low C to G is \m{L}, so they are consonant pitches. Since the pitches are consonant, this interval is called a \keyterm{perfect fifth}. The perfect fifth always corresponds to the ratio \m{L}. The ratio relating the G and the high C is \m{L}. This interval is also consonant and is called a \keyterm{perfect fourth.} The perfect fourth always corresponds to the fraction \m{L}.
 
-The next bit of musical math is some multiplication. Notice what happens to the frequencies going from low C to G to high C. From G to C the frequency is multiplied by $3/2$. From G to C the frequency is multiplied again, this time by $4/3$. Going up from C to G to C multiplies frequency by $3/2$ and then by $4/3$ which is $\threehalves \times \fourthirds = 2$, an octave! Add intervals by multiplying their ratios, as shown in figure \in[fig:TinyPiano8th5th]. The full calculation then looks like this:
+The next bit of musical math is some multiplication. Notice what happens to the frequencies going from low C to G to high C. From G to C the frequency is multiplied by \m{L}. From G to C the frequency is multiplied again, this time by \m{L}. Going up from C to G to C multiplies frequency by \m{L} and then by \m{L} which is \m{L}, an octave! Add intervals by multiplying their ratios, as shown in figure \in[fig:TinyPiano8th5th]. The full calculation then looks like this:
 \startformula
 	\text{perfect 5th} + \text{perfect 4th} = \frac{3}{2} \times \frac{4}{3} = 2 = \text{octave}
 \stopformula
 
-It is somewhat surprising that a fifth plus a fourth is an octave, since $5 + 4 \neq 8$.
+It is somewhat surprising that a fifth plus a fourth is an octave, since \m{L}.
 This brings us to the last bit of musical math, which is some addition. Start the fifth on the low C, as shown in figure \in[fig:TinyPiano8th5th], and write five pitches: C–D–E–F–G. Then start the fourth on G and write four pitches: G–A–B–C. Together, these encompass eight pitches, from C to C. The fifth encompasses five pitches, but it only takes four steps to get from the first pitch to the fifth. The fourth only requires three steps. The octave is seven steps. The number of steps is always one less than the number of pitches. The calculation to add intervals can therefore be done like this:
 \startformula
 	\text{5th} + \text{4th} = 4\units{steps} + 3\units{steps} = 7\units{steps} = \text{octave}
@@ -272,7 +270,7 @@ This musical multiplication can be used to find any interval from the whole step
 What is the interval from D to A in the Pythagorean system?
 \placefigure[margin][fig:TinyPianoPyEx]{The Pythagorean scale with the interval sought in example \in[ex:TinyPianoPyEx].} {\externalfigure[chapter01/TinyPianoPyEx][width=144pt]}
 \startsolution
-The interval is shown along with the Pythagorean steps in figure \in[fig:TinyPianoPyEx]. The interval encompasses D–E–F–G–A, so it is a fifth. To determine if it is a perfect fifth, we must add the four steps by multiplying their ratios. Using figure \in[fig:TinyPianoPyEx], the step from D to E is $9/8$, from E to F is $256/243$, etc.
+The interval is shown along with the Pythagorean steps in figure \in[fig:TinyPianoPyEx]. The interval encompasses D–E–F–G–A, so it is a fifth. To determine if it is a perfect fifth, we must add the four steps by multiplying their ratios. Using figure \in[fig:TinyPianoPyEx], the step from D to E is \m{L}, from E to F is \m{L}, etc.
 \startformula
 	\frac{9}{8} \times \frac{256}{243} \times \frac{9}{8} \times \frac{9}{8}
 		= \frac{3^2}{2^3} \times \frac{2^8}{3^5} \times \frac{3^2}{2^3} \times \frac{3^2}{2^3}
@@ -344,7 +342,7 @@ As Europe emerged into the Renaissance, musicians became more adventurous and be
 \placefigure[margin][fig:TinyPianoCompleteEq]{The equal tempered tuning is built from twelfth roots two.} {\externalfigure[chapter01/TinyPianoCompleteEq][width=144pt]}
 
 One of Zarlino’s most accomplished students was the musician Vincenzo Galilei, who we have already met. In addition to preforming the experiments with strings, Galilei proposed a radical alternative to just intonation.
-Following a suggestion of Aristoxenus, Galilei divided the octave into twelve identical half steps. Galilei calculated that each half step would change the frequency by a factor of $\sqrt[12]{2}$. This method, called \keyterm{equal temperament,} is shown in figure \in[fig:TinyPianoCompleteEq]. All of the sharps and flats fit naturally into equal temperament.
+Following a suggestion of Aristoxenus, Galilei divided the octave into twelve identical half steps. Galilei calculated that each half step would change the frequency by a factor of \m{L}. This method, called \keyterm{equal temperament,} is shown in figure \in[fig:TinyPianoCompleteEq]. All of the sharps and flats fit naturally into equal temperament.
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:TinyPianoPyEx]
@@ -359,7 +357,7 @@ Two half steps make a whole step. We add the half steps by multiplying their rat
 		= 2^{\onesixth}
 		= \sqrt[6]{2}
 \stopformula
-The equal tempered whole step is $\sqrt[6]{2}$.
+The equal tempered whole step is \m{L}.
 \stopsolution
 \stopexample
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -374,7 +372,7 @@ The perfect fifth is three whole steps and one half step, which is a total of se
 		= 2^{\seventwelfths}
 		\approx 1.498
 \stopformula
-The equal tempered perfect fifth is $2^{\seventwelfths}$. This is not a simple fraction, but it is very close to $3/2$, the ratio of a just perfect fifth. The equal tempered perfect fifth sounds perfect to most listeners.
+The equal tempered perfect fifth is \m{L}. This is not a simple fraction, but it is very close to \m{L}, the ratio of a just perfect fifth. The equal tempered perfect fifth sounds perfect to most listeners.
 \stopsolution
 \stopexample
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -393,11 +391,11 @@ Ensuring that instruments can play together requires choosing specific frequenci
 
 In this section we will look more closely at how these frequencies are determined from the instruments pitch producing vibrations. Then we will calculate the specific frequencies of the modern equal tempered scale.
 
-Audible frequencies are difficult to measure because the vibrations that produce audible sound are extremely fast. Even the lowest audible frequencies are many cycles per second. Marin Mersenne, in the generation after Galilei, was one of the first to carefully study the motions responsible for music. He determined the frequencies of audible pitches indirectly. First, he used a very long string vibrating at an inaudible $4\units{Hz}$, which was slow enough for him to measure. Then he increased the frequency by octaves until it was audible. Knowing that the frequency doubled with each octave allowed him to determine the audible frequency.
+Audible frequencies are difficult to measure because the vibrations that produce audible sound are extremely fast. Even the lowest audible frequencies are many cycles per second. Marin Mersenne, in the generation after Galilei, was one of the first to carefully study the motions responsible for music. He determined the frequencies of audible pitches indirectly. First, he used a very long string vibrating at an inaudible \m{L}, which was slow enough for him to measure. Then he increased the frequency by octaves until it was audible. Knowing that the frequency doubled with each octave allowed him to determine the audible frequency.
 
 Over the years more direct mechanical and eventually electronic methods were developed. Today frequencies can be measured with tremendous accuracy due to the availability of high precision clocks and optical measurement techniques.
 
-Whether the vibration is fast or slow, the most accurate way to find a vibration's frequency is by timing a large number of cycles. The number of cycles is represented by $N$, and total time, or \keyterm{duration}, by $\Delta t$. The frequency is the number of cycles divided by the duration of those cycles.
+Whether the vibration is fast or slow, the most accurate way to find a vibration's frequency is by timing a large number of cycles. The number of cycles is represented by \m{L}, and total time, or \keyterm{duration}, by \m{L}. The frequency is the number of cycles divided by the duration of those cycles.
 
 \startformula
 f = \frac{N}{\Delta t}
@@ -407,10 +405,10 @@ This will give the frequency in cycles per second, or hertz, the usual unit of f
 
 	%%%%%%%%%%%%%%%% EXAMPLE 1.3 %%%%%%%%%%%%%%%%
 \startexample[ex:frequency]
-	To determine the frequency of a violin string, you record the plucking of the string with a high-speed video camera.  Watching it in slow motion, you see the string plucked at $3.25\units{s}$ into the video and count $55$ cycles before ending at $3.50\units{s}$.  What is the frequency of the string's vibration?
+	To determine the frequency of a violin string, you record the plucking of the string with a high-speed video camera.  Watching it in slow motion, you see the string plucked at \m{L} into the video and count \m{L} cycles before ending at \m{L}.  What is the frequency of the string's vibration?
 
 \startsolution
-	The duration is $\Delta t = t\sf - t\si = 3.50\units{s}-3.25\units{s}= 0.25\units{s}$.  The frequency is:
+	The duration is \m{L}.  The frequency is:
 
 	\startformula
 		f = \frac{N}{\Delta t}
@@ -418,26 +416,26 @@ This will give the frequency in cycles per second, or hertz, the usual unit of f
 			= 220\units{cyc/s}
 			= \answer{220\units{Hz}}.
 	\stopformula
-	Include cycles for the units of $N$ to get the correct units in your answer!
+	Include cycles for the units of \m{L} to get the correct units in your answer!
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The greek letter $\Delta$ (delta) represents difference or change.  In this case, $\Delta t$ is the difference in time between when you start counting the cycles and when you stop.  For example, if you start timing when your timer says $15\units{s}$ and stop when the timer says $45\units{s}$, then the duration is $\Delta t = 30\units{s}$.  The formula for duration is
+The greek letter \m{L} (delta) represents difference or change.  In this case, \m{L} is the difference in time between when you start counting the cycles and when you stop.  For example, if you start timing when your timer says \m{L} and stop when the timer says \m{L}, then the duration is \m{L}.  The formula for duration is
 
 \startformula
 \Delta t = t\sf - t\si,
 \stopformula
 
-where $t\si$ is the initial time and $t\sf$ is the final time.  The subscripts \quote{i} and \quote{f} will be used frequently to represent initial and final values.  Note that final time comes first in the formula, and the initial time comes last.  This order, final minus initial, always gives a positive duration.
+where \m{L} is the initial time and \m{L} is the final time.  The subscripts \quote{i} and \quote{f} will be used frequently to represent initial and final values.  Note that final time comes first in the formula, and the initial time comes last.  This order, final minus initial, always gives a positive duration.
 
 %\stopsection
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Frequency relations}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The time required to complete one cycle is called the \keyterm{period}, represented by $T$.
-The period can be related to the frequency using the frequency formula with the duration of one cycle being the period $T$.  This gives the extremely useful \keyterm{frequency relations}:
+The time required to complete one cycle is called the \keyterm{period}, represented by \m{L}.
+The period can be related to the frequency using the frequency formula with the duration of one cycle being the period \m{L}.  This gives the extremely useful \keyterm{frequency relations}:
 
 \startformula
 	f = \frac{N}{\Delta t} = \frac{1\units{cyc}}{T}
@@ -447,7 +445,7 @@ Short periods correspond to high frequencies. Longer periods correspond to lower
 
 	%%%%%%%%%%%%%%%% EXAMPLE 1.6 %%%%%%%%%%%%%%%%
 \startexample[ex:period]
-	A piano string vibrates with a frequency of $220.0\units{Hz}$.  What is this vibration’s period?
+	A piano string vibrates with a frequency of \m{L}.  What is this vibration’s period?
 \startsolution
 	Use the frequency relations, crossing out the part we don't need.
 
@@ -455,7 +453,7 @@ Short periods correspond to high frequencies. Longer periods correspond to lower
 		f = \cancel{\frac{N}{\Delta t}} = \frac{1\units{cyc}}{T}
 	\stopformula
 
-	To solve for the period, multiply both sides by $T\!/\!f$.
+	To solve for the period, multiply both sides by \m{L}.
 
 	\startformula \startmathalignment
 	\NC \frac{T}{\cancel{f}}\cancel{f} \NC= \frac{1\units{cyc}}{\cancel{T}}\frac{\cancel{T}}{f}	\NR
@@ -471,38 +469,38 @@ Short periods correspond to high frequencies. Longer periods correspond to lower
 			= \answer{4.545\units{ms}}
 	\stopformula
 
-	The string has a period of $4.45\sci{-3}\units{s}$.%, as shown in Figure~\in[fig:vibrationgraph].
+	The string has a period of \m{L}.%, as shown in Figure~\in[fig:vibrationgraph].
 \stopsolution
 \stopexample
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The standard pitches of the modern equal tempered scale are based on a middle A with a frequency of $440\units{Hz}$. Higher As’ frequencies are found by doubling; lower As’ frequencies are found by halving. The different As are distinguished by subscripts. The middle A is A$_4$. Higher As have higher subscripts.
+The standard pitches of the modern equal tempered scale are based on a middle A with a frequency of \m{L}. Higher As’ frequencies are found by doubling; lower As’ frequencies are found by halving. The different As are distinguished by subscripts. The middle A is A\m{L}. Higher As have higher subscripts.
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:FreqA5]
-What is the frequency of A$_5$?
+What is the frequency of A\m{L}?
 \startsolution
-A$_5$ is one octave above A$_4$. We will use $f_4$ and $f_5$ for the frequencies of A$_4$ and A$_5$.
+A\m{L} is one octave above A\m{L}. We will use \m{L} and \m{L} for the frequencies of A\m{L} and A\m{L}.
 \startformula
 	f_5 = 2 f_4
 		= 2\cdot 440\units{Hz}
 		= 880\units{Hz}
 \stopformula
-A$_5$\!’s frequency is $880\units{Hz}$.
+A\m{L}\!’s frequency is \m{L}.
 \stopsolution
 \stopexample
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:FreqA5]
-What is the frequency of A$_0$, the lowest note on a grand piano?
+What is the frequency of A\m{L}, the lowest note on a grand piano?
 \startsolution
-A$_0$ is four octaves below A$_4$.
+A\m{L} is four octaves below A\m{L}.
 \startformula
 	f_0 = \frac{f_4}{2^4}
 		= \frac{440\units{Hz}}{16}
 		= 27.5\units{Hz}
 \stopformula
-A$_5$\!’s frequency is $880\units{Hz}$.
+A\m{L}\!’s frequency is \m{L}.
 \stopsolution
 \stopexample
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -510,41 +508,41 @@ A$_5$\!’s frequency is $880\units{Hz}$.
 Frequencies of other notes can be found by using the ratios of equal temperament. The number subscripts are helpful for distinguishing the notes in different octaves. Each numbered octave starts with C, not A, so the sequence of notes with subscripts is
 
 \startblockquote
-\dots B$_3$\quad C$_4$ D$_4$ E$_4$ F$_4$ G$_4$ A$_4$ B$_4$\quad C$_5$ D$_5$ E$_5$ F$_5$ G$_5$ A$_5$ B$_5$\quad C$_6$\dots
+\dots B\m{L}\quad C\m{L} D\m{L} E\m{L} F\m{L} G\m{L} A\m{L} B\m{L}\quad C\m{L} D\m{L} E\m{L} F\m{L} G\m{L} A\m{L} B\m{L}\quad C\m{L}\dots
 \stopblockquote
 
-The notes on a grand piano range from A$_0$ to C$_8$.
+The notes on a grand piano range from A\m{L} to C\m{L}.
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:FreqC4]
-What is the frequency of C$_4$, also known as middle C?
+What is the frequency of C\m{L}, also known as middle C?
 \startsolution
-C$_4$ is nine half steps below A$_4$. In equal temperament, moving down a half step divides the frequency by $\sqrt[12]{2}$.
+C\m{L} is nine half steps below A\m{L}. In equal temperament, moving down a half step divides the frequency by \m{L}.
 \startformula
 	f_C = \frac{f_A}{\left(\!\sqrt[12]{2}\,\right)^9}
 		= \frac{440\units{Hz}}{1.6818}
 		= 261.63\units{Hz}
 \stopformula
-Middle C’s frequency is $261.63\units{Hz}$.
+Middle C’s frequency is \m{L}.
 \stopsolution
 \stopexample
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:FreqC8]
-What is the frequency of C$_8$, the highest note on a grand piano?
+What is the frequency of C\m{L}, the highest note on a grand piano?
 \startsolution
-C$_8$ is three octaves and three half steps above A$_4$.
+C\m{L} is three octaves and three half steps above A\m{L}.
 \startformula
 	f_C = 2^3\left(\!{\sqrt[12]{2}\,}\right)^3\!\! f_A
 		= 8 \times 1.1892 \times 440\units{Hz}
 		= 4186.0\units{Hz}
 \stopformula
-C$_8$\!’s frequency is $4186.0\units{Hz}$.
+C\m{L}\!’s frequency is \m{L}.
 \stopsolution
 \stopexample
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The success of equal temperament eliminated the Pythagorean simple ratios from music, yet it also represents a great triumph of for the Pythagorean’s mathematical model. The equal tempered tuning succeeds because it produces frequency ratios that are very close to Pythagoras and Ptolemy’s simple ratios. Table \in[T:Intervals] shows the ratios as decimal numbers for just intonation and equal temperament. The worst match is the minor third, which is off by less than one percent. The perfect fifth is off by approximately $0.1\%$. These tiny differences are hardly noticeable.
+The success of equal temperament eliminated the Pythagorean simple ratios from music, yet it also represents a great triumph of for the Pythagorean’s mathematical model. The equal tempered tuning succeeds because it produces frequency ratios that are very close to Pythagoras and Ptolemy’s simple ratios. Table \in[T:Intervals] shows the ratios as decimal numbers for just intonation and equal temperament. The worst match is the minor third, which is off by less than one percent. The perfect fifth is off by approximately \m{L}. These tiny differences are hardly noticeable.
 
 \placetable[margin][T:Intervals] % Label
     {Consonant intervals of Just intonation and equal temperament.} % Caption
@@ -552,15 +550,15 @@ The success of equal temperament eliminated the Pythagorean simple ratios from m
 \FL[2]%\toprule
 \NC Interval		\NC Just						\NC Equal							\NR
 \HL
-\NC Octave		\NC $2$						\NC $2$							\NR
-\NC Perfect 5th		\NC $3/2 = 1.5\phantom{3\dots}$	\NC $2^{\seventwelfths} \approx 1.498$	\NR
-\NC Perfect 4th		\NC $4/3 = 1.33\dots$			\NC $2^{\fivetwelfths} \approx 1.335$	\NR
-\NC Major 3rd		\NC $5/4 = 1.25\phantom{\dots}$	\NC $2^{\onethird}\, \approx 1.260$		\NR
-\NC Minor 3rd		\NC $6/5 = 1.2\phantom{3\dots}$	\NC $2^{\onequarter}\, \approx 1.189$	\NR
+\NC Octave		\NC \m{L}						\NC \m{L}							\NR
+\NC Perfect 5th		\NC \m{L}	\NC \m{L}	\NR
+\NC Perfect 4th		\NC \m{L}			\NC \m{L}	\NR
+\NC Major 3rd		\NC \m{L}	\NC \m{L}		\NR
+\NC Minor 3rd		\NC \m{L}	\NC \m{L}	\NR
 \LL[2]%\bottomrule
 \stoptabulate}
 
-Equal temperament divides the octave into twelve equal parts – rather than say eight or thirteen – because twelve comes so close to producing the simple ratios. Imagine a friend tells you they are building a piano with eight equally spaced pitches per octave. This seems like a natural thing to do to an octave, but you could calculate the intervals to see if any are close to the important simple ratios ($3/2$, $4/3$, $5/4$, and  $6/5$). You would discover that this piano will not to produce any intervals close to $3/2$, $4/3$, or $5/4$. The sound of this piano is going to be extremely jarring!
+Equal temperament divides the octave into twelve equal parts – rather than say eight or thirteen – because twelve comes so close to producing the simple ratios. Imagine a friend tells you they are building a piano with eight equally spaced pitches per octave. This seems like a natural thing to do to an octave, but you could calculate the intervals to see if any are close to the important simple ratios (\m{L}, \m{L}, \m{L}, and  \m{L}). You would discover that this piano will not to produce any intervals close to \m{L}, \m{L}, or \m{L}. The sound of this piano is going to be extremely jarring!
 
 Twelve is not the only number that works. Five is not bad, and is called a pentatonic scale. Nineteen actually works quite well and instruments using an equal tempered nineteen step scale were built and used in performance. One appears in Zarlino’s book (figure \in[fig:Zarlino19detail]). Twelve produces the best perfect fifth of any of these, and has never faced a serious threat from other equal tempered divisions of the octave.
 
@@ -618,7 +616,7 @@ These motions inspired ancient Greeks to try several completely different models
 \placetextfloat[top][fig:CopernicanSystem]{The heliocentric model in \booktitle{De Revolutionibus Orbium Coelestium,} 1543. In this model the distant stars are immobile. Planets orbit the sun, with inner planets orbiting more quickly than outer planets. The moon is the one exception, orbiting Earth (\emph{Terra} in the diagram) rather than the sun (\emph{Sol.}).} {\externalfigure[chapter01/Copernican_heliocentrism_theory_diagram][width=\textwidth]}
 
 The most daring modification was proposed by Aristarchus in the third century {\sc bc}. He allowed Earth to join the other planets orbiting the Sun, as shown in figure \in[fig:CopernicanSystem]. This is the \keyterm{heliocentric model}. (\quotation{Helio-} means Sun.) In this model Earth moves in two ways. It rotates around its own axis, completing one rotation every day, and it orbits the sun, completing one revolution every year. All of the other known planets – Mercury, Venus, Mars, Jupiter, and Saturn – also orbit the sun. (Since all of these planets appeared as tiny dots in the sky, no one knew if they were rotating. We now know that they all rotate.)
-In the heliocentric model, the moon does not orbit the sun like the other planets do; it orbits Earth, completing one revolution each lunar month (about $29$ days).
+In the heliocentric model, the moon does not orbit the sun like the other planets do; it orbits Earth, completing one revolution each lunar month (about \m{L} days).
 The heliocentric model became widely known among astronomers, but it was not widely accepted. One reason was the moon's exceptional behavior. Why would everything revolve around the central sun, except for the moon?
 
 About this time, Eratosthenes measured Earth's size –  an incredible achievement.
@@ -645,7 +643,7 @@ mark=between positions 1cm and 3cm step 1.55cm with {\arrow{stealth}}}] (\x,17)-
 \draw[<->,postaction={decorate, decoration={markings,
 mark=at position .5 with {\node[above=2pt, fill=white, inner sep=2pt, transform shape]{5000 stadia};}}}] (0,15.11) arc [start angle=90, end angle = 82.8, radius=15.11cm]; % distance
 \draw[very thick] (82.8:14.96) -- (82.8:15.96) ; % Post
-\draw[<->,rounded corners] (2.03,15.13) -| (2.33,7) node[fill=black!10,inner sep=2pt]{$\tfrac{1}{50}$ of a circle} |- (.52,3.972);
+\draw[<->,rounded corners] (2.03,15.13) -| (2.33,7) node[fill=black!10,inner sep=2pt]{\m{L} of a circle} |- (.52,3.972);
 \draw[->,postaction={decorate, decoration={markings,
 mark=at position .5 with {\node[above=2pt, fill=white, inner sep=2pt, transform shape]{North};}}}] (81:15.46) arc [start angle=81, end angle = 77.4, radius=15.46cm]; % North
 \fill (0,0) circle[radius=1pt] node[right]{Earth's Center}; % Vertical radius
@@ -654,8 +652,8 @@ mark=at position .5 with {\node[above=2pt, fill=white, inner sep=2pt, transform 
 
 Measuring the angle was the easy part. Measuring the distance from Alexandria to the well was more difficult.
 Eratosthenes may have measure the distance by making the trip himself, or he may have used distance measurements made by others.
-Either way, he found the distance to be about $5{,}000$ stadia, or about $900\units{km}$. Multiplying by $50$, he estimated Earth's circumference to be about about $250{,}000$ stadia, or about $45{,}000\units{km}$.
-Earth's circumference is now known to be $40{,}000\units{km}$ (or $4.00\sci{7}\units{m}$). Eratosthenes's estimate is about $12\%$ larger than the correct value, impressively accurate considering the difficulty of the measurement.
+Either way, he found the distance to be about \m{L} stadia, or about \m{L}. Multiplying by \m{L}, he estimated Earth's circumference to be about about \m{L} stadia, or about \m{L}.
+Earth's circumference is now known to be \m{L} (or \m{L}). Eratosthenes's estimate is about \m{L} larger than the correct value, impressively accurate considering the difficulty of the measurement.
 %If you measure the circumference around Earth’s equator, you get the 40,075 km figure I mentioned, But if you measure it from pole to pole, you get 40,007 km. [http://www.universetoday.com/26461/circumference-of-the-earth/]
 
 Astronomical measurements improved significantly over the next few centuries, providing accurate distances for the Sun and Moon, and good estimates for the planets. Unfortunately, none of the models provided accurate predictions for the motions of the planets. Even in the heliocentric model planets strayed significantly from their proposed circular paths about the Sun. Accounting for these wanderings added tremendous complexity to the models.
@@ -743,12 +741,12 @@ Galileo's  discovery of Jupiter's moons removed one of the primary objections to
 %\section{Period of orbits and rotations}
 
 When Galileo says that Jupiter completes an orbit \quotation{in the period of twelve years,} he is using \quotation{period} just as it was used for vibrations in Chapter \in[ch:Music]. Period\index{period} is still the time required for one \keyterm{cycle}.
-In the case of the vibrating string, a cycle is one complete back-and-forth motion. In the case of an orbit, like Galileo describes, a cycle is one complete revolution of the orbiting object around the central object. In the case of rotation, a cycle is one complete rotation about the axis. The period of Earth's rotation about its axis is $T=1\units{day}$. %In the case of an orbit, a cycle is one complete revolution about the orbit's center.
-The period of Earth's revolution around the sun is $T=1\units{year}=365.24\units{days}$. %In all cases the period is the time required to complete a cycle.
-Musical vibrations have periods of hundredths or thousandths of a second. Orbits can have periods of days, years, decades or longer. The same symbol $T$ represents periods of any duration.
+In the case of the vibrating string, a cycle is one complete back-and-forth motion. In the case of an orbit, like Galileo describes, a cycle is one complete revolution of the orbiting object around the central object. In the case of rotation, a cycle is one complete rotation about the axis. The period of Earth's rotation about its axis is \m{L}. %In the case of an orbit, a cycle is one complete revolution about the orbit's center.
+The period of Earth's revolution around the sun is \m{L}. %In all cases the period is the time required to complete a cycle.
+Musical vibrations have periods of hundredths or thousandths of a second. Orbits can have periods of days, years, decades or longer. The same symbol \m{L} represents periods of any duration.
 
 \section{Period relations}
-The orbits of planets can be described by their frequencies rather than their periods. For example, Mercury orbits the sun with a period $T=88.0$ days. The frequency can be found using the frequency relations from Chapter \in[ch:Music]. We could find the frequency in Hertz, but since the period is months long, let us find the frequency in cycles per year.
+The orbits of planets can be described by their frequencies rather than their periods. For example, Mercury orbits the sun with a period \m{L} days. The frequency can be found using the frequency relations from Chapter \in[ch:Music]. We could find the frequency in Hertz, but since the period is months long, let us find the frequency in cycles per year.
 \startformula
 	f = \frac{1\units{cyc}}{T}	%\\
 		= \frac{1\units{cyc}}{88.0\ucan{d}}
@@ -787,7 +785,7 @@ Since period is the more common measure in astronomy, it is useful to solve the 
 \startformula
 	T = \frac{1\units{cyc}\cdot \Delta t}{N} = \frac{1\units{cyc}}{f}
 \stopformula
-As with frequency, the most accurate way to measure the period is to measure the duration on many cycles and then divide by the number of cycles, as shown in the first fraction in the period relations. The factor $1\units{cyc}$ in the numerator is there to cancel the units of $N$ (also cycles) so that the period is in seconds or years or any other time unit.
+As with frequency, the most accurate way to measure the period is to measure the duration on many cycles and then divide by the number of cycles, as shown in the first fraction in the period relations. The factor \m{L} in the numerator is there to cancel the units of \m{L} (also cycles) so that the period is in seconds or years or any other time unit.
 
 \booktitle{The Sidereal Messenger}, published in March of 1610, made Galileo a celebrity. In April, the grand duke of Tuscany, Cosimo II de' Medici, appointed Galileo to be his \quotation{Philosopher and Chief Mathematician.} Galileo quit his job at the University of Padua and moved to Florence where he refined his telescopes and studied the heavens in greater detail. He continued to write about his observations in letters and books.
 
@@ -806,7 +804,7 @@ As with frequency, the most accurate way to measure the period is to measure the
 A circular orbit's radius is measured from the orbit's center of the orbit, just as amplitude is measured from the oscillating motion's central point.
 Planets and moons following circular orbits travel with a constant speed.
 %\footnote{This footnote is only for savvy readers screaming \quotation{but the \emph{direction}!} Newton, in 1687, taught us that changes in the velocity's direction are just as important as changes in the magnitude. In Newton's view, the velocity \emph{is not} constant along a circular path because the direction changing. Lagrange responded, in 1790, that we can bend our coordinates to match our situation, and then consider velocities along the bent coordinates. After bending the coordinates to follow the circle, the velocity \emph{is} constant. Lagrange's trick is both practical and powerful. We will take full advantage of it. The two methods are compared in Chapter \in[ch:Orbits].}
-The speed can be calculated using \quotation{distance over duration.} During one cycle the distance is the circumference of the orbit, $2\pi R$, and the duration is the period $T$.
+The speed can be calculated using \quotation{distance over duration.} During one cycle the distance is the circumference of the orbit, \m{L}, and the duration is the period \m{L}.
 %\highlightbox{
 \startformula[eq:vT]\pagereference[eq:vT]
 	\text{speed} = \frac{2\pi R}{T}.
@@ -815,7 +813,7 @@ The speed can be calculated using \quotation{distance over duration.} During one
 %We have measured the displacement along the circular path.%, even though the planet returns to its original position after one orbit.
 
 \startexample[ex:EarthSurfaceSpeed]
-Earth completes one full rotation every day, so a person near the equator will travel Earth's circumference each day. The tower in Florence is almost halfway between the equator and the North Pole, so each day the tower completes a somewhat smaller circle, with a radius of $4600\units{km}$. What is the speed of tower due to Earth's rotation?
+Earth completes one full rotation every day, so a person near the equator will travel Earth's circumference each day. The tower in Florence is almost halfway between the equator and the North Pole, so each day the tower completes a somewhat smaller circle, with a radius of \m{L}. What is the speed of tower due to Earth's rotation?
 \startsolution
 The formula for the speed of circular motion will provide the answer, with the help of several unit conversions.
 \startformula\startmathalignment
@@ -829,13 +827,13 @@ The formula for the speed of circular motion will provide the answer, with the h
 				%\quad \text{or}\quad
 				%\answer{460\units{m/s}}
 \stopmathalignment\stopformula
-	The tower's speed is $330\units{m/s}$ in the direction of Earth's rotation (west to east). That is fast!
+	The tower's speed is \m{L} in the direction of Earth's rotation (west to east). That is fast!
 \stopsolution
 \stopexample
 
 %\question
 %What is Earth's speed in its orbit about the sun?
-%\begin{solution} Earth's distance from the sun is $1.50\sci{11}\units{m}$.
+%\begin{solution} Earth's distance from the sun is \m{L}.
 %	\begin{align*}
 %		\abs{v} &= \frac{2\pi R}{T}		\\
 %			&= \frac{2\pi\cdot1.50\sci{11}\units{m}}{365\units{\ucan{days}}}
@@ -846,7 +844,7 @@ The formula for the speed of circular motion will provide the answer, with the h
 %				\quad \text{or}\quad
 %				\answer{30.\units{km/s}}
 %	\end{align*}
-%	$30.\units{km/s}$ is very fast!
+%	\m{L} is very fast!
 %\end{solution}
 
 
@@ -908,7 +906,7 @@ In 1609, one year before Galileo’s \booktitle{Sidereal Messenger}, Johannes Ke
 %\startcolumns[n=2, tolerance=verytolerant]
 \startitemize[n,packed]
 \question
-Find the frequency of the pitch one octave above middle A ($440\units{Hz}$).  What is the period of this higher pitch? %(Here \quote{A} is the name of the pitch.  It has nothing to do with the vibration's amplitude, $A$.)
+Find the frequency of the pitch one octave above middle A (\m{L}).  What is the period of this higher pitch? %(Here \quote{A} is the name of the pitch.  It has nothing to do with the vibration's amplitude, \m{L}.)
 \blank
 
 \question
@@ -919,33 +917,33 @@ Find the frequency of the pitch one perfect fifth below middle A.
 
 \question Starting with the duration formula and working only with variables\nowhitespace
 \startitemize[a,joinedup]%,packed]
-\item solve for $t_{\rm f}$,
-\item solve for $t_{\rm i}$.
+\item solve for \m{L},
+\item solve for \m{L}.
 \stopitemize
 \blank
 
 \question Starting with the frequency formula and working only with variables
 \startitemize[a,packed,joinedup]
-\item solve for $N$,
-\item solve for $\Delta t$.
+\item solve for \m{L},
+\item solve for \m{L}.
 \stopitemize
 \blank
 
 \question
-How many cycles will the middle A ($440\units{Hz}$) string oscillate in $2.5\units{s}$?
+How many cycles will the middle A (\m{L}) string oscillate in \m{L}?
 \blank
 
 \question
-How long will it take for the  D string with a frequency of $293\units{Hz}$ to oscillate one thousand times?
+How long will it take for the  D string with a frequency of \m{L} to oscillate one thousand times?
 \blank
 %\question
-%What is the frequency of C$_0$? What is its period?
+%What is the frequency of C\m{L}? What is its period?
 %\blank
 
 \question Starting with the frequency relations and working only with variables
 \startitemize[a,packed]
-\item find $T$ in terms of $f$,
-\item find $T$ in terms of $N$ and $\Delta t$.
+\item find \m{L} in terms of \m{L},
+\item find \m{L} in terms of \m{L} and \m{L}.
 \stopitemize
 \blank[big]
 
@@ -982,7 +980,7 @@ How long will it take for the  D string with a frequency of $293\units{Hz}$ to o
 %	\startformula
 %T = \frac{1\units{cyc}\cdot\Delta t}{N}
 %\stopformula
-%First, find $\Delta t$.
+%First, find \m{L}.
 %\startformula
 %	\Delta t = t\sf - t\si = 2017 - 1610 = 407\units{yr}
 %\stopformula
@@ -999,7 +997,7 @@ How long will it take for the  D string with a frequency of $293\units{Hz}$ to o
 
 \question The Cassini spacecraft journey to Saturn began with its launch on October 15, 1997. Cassini orbited Saturn, studying the planet, its many moons, and its amazing rings until September 15, 2017. How long was Cassini's mission in Saturn's years? Saturn's orbit takes 29.5 Earth years.
 
-\question Earth's Moon orbits Earth with a frequency of $13.4\units{cyc/yr}$. What is the moon's orbital period in days?
+\question Earth's Moon orbits Earth with a frequency of \m{L}. What is the moon's orbital period in days?
 %\begin{solution}[3in]
 %\begin{align*}
 %	T &= \frac{1\units{cyc}}{f}	\\
@@ -1011,12 +1009,12 @@ How long will it take for the  D string with a frequency of $293\units{Hz}$ to o
 %\end{solution}
 
 
-\question In 1967, Jocelyn Bell Burnell and Antony Hewish discovered a star that flashed brightly every $1.33\units{s}$. Eventually, pulsing stars like this became known as pulsars. Pulsars are rapidly spinning neutron stars which shine bright beams of light out of their magnetic poles. We see a flash every time one of the spinning pulsar's beams points in our direction. What is this pulsar's frequency?
+\question In 1967, Jocelyn Bell Burnell and Antony Hewish discovered a star that flashed brightly every \m{L}. Eventually, pulsing stars like this became known as pulsars. Pulsars are rapidly spinning neutron stars which shine bright beams of light out of their magnetic poles. We see a flash every time one of the spinning pulsar's beams points in our direction. What is this pulsar's frequency?
 
-\question In 1968 another pulsar was discovered in the nearby Crab Nebula with a period of only $33\units{ms}$. What is this pulsar's frequency?
+\question In 1968 another pulsar was discovered in the nearby Crab Nebula with a period of only \m{L}. What is this pulsar's frequency?
 
 \question On August 17, 2017, an extremely sensitive device known as {\sc ligo} (Laser Interferometer
-Gravitational-Wave Observatory) detected a tiny vibration of space-time. These vibrations were gravitational waves from a pair of orbiting neutron stars which revealed the stars' orbital frequency to be $20\units{Hz}$. What was the orbital period of these two stars? (This ferocious dance did not last long. Over the next thirty seconds the neutron stars spiraled into each other, producing an enormous explosion. The merged stars then collapsed to form a black hole. Luckily, this violent event happened very, very far from us.)
+Gravitational-Wave Observatory) detected a tiny vibration of space-time. These vibrations were gravitational waves from a pair of orbiting neutron stars which revealed the stars' orbital frequency to be \m{L}. What was the orbital period of these two stars? (This ferocious dance did not last long. Over the next thirty seconds the neutron stars spiraled into each other, producing an enormous explosion. The merged stars then collapsed to form a black hole. Luckily, this violent event happened very, very far from us.)
 
 \stopitemize
 %\stopcolumns
@@ -1035,5 +1033,4 @@ Gravitational-Wave Observatory) detected a tiny vibration of space-time. These v
 %\setupheadertexts[text][section][][][chapter]
 %\setupheadertexts[margin][][\hfill\pagenumber][\pagenumber \hfill][]
 
-\stoptext
 \stopcomponent

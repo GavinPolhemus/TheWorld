@@ -6,7 +6,7 @@
 \define[1]\unit{{%
 	\def\.{\!\cdot\!}% In LaTeX this was proceeded by \protect
 	\ifmmode{\rm#1}
-	\else{$\rm\,#1$}
+	\else{\m{\rm\,#1}}
 	\fi%
 }}
 \define[1]\units{\,\unit{#1}}

@@ -49,10 +49,10 @@
 \define[1]\cancel{
 	\ifmmode
 		\mathchoice
-		{\tikz[baseline] \node[cancel]{$\displaystyle #1$};}
-		{\tikz[baseline] \node[cancel]{$\textstyle #1$};}
-		{\tikz[baseline] \node[cancel]{$\scriptstyle #1$};}
-		{\tikz[baseline] \node[cancel]{$\scriptscriptstyle #1$};}
+		{\tikz[baseline] \node[cancel]{\m{\displaystyle #1}};}
+		{\tikz[baseline] \node[cancel]{\m{\textstyle #1}};}
+		{\tikz[baseline] \node[cancel]{\m{\scriptstyle #1}};}
+		{\tikz[baseline] \node[cancel]{\m{\scriptscriptstyle #1}};}
 	\else
     	\tikz[baseline] \node[cancel]{#1};
 	\fi
@@ -60,10 +60,10 @@
 \define[1]\ucan{
 	\ifmmode
 		\mathchoice
-		{\tikz[baseline] \node[cancel]{$\rm \displaystyle #1$};}
-		{\tikz[baseline] \node[cancel]{$\rm \textstyle #1$};}
-		{\tikz[baseline] \node[cancel]{$\rm \scriptstyle #1$};}
-		{\tikz[baseline] \node[cancel]{$\rm \scriptscriptstyle #1$};}
+		{\tikz[baseline] \node[cancel]{\m{\rm \displaystyle #1}};}
+		{\tikz[baseline] \node[cancel]{\m{\rm \textstyle #1}};}
+		{\tikz[baseline] \node[cancel]{\m{\rm \scriptstyle #1}};}
+		{\tikz[baseline] \node[cancel]{\m{\rm \scriptscriptstyle #1}};}
 	\else
     	\tikz[baseline] \node[cancel]{#1};
 	\fi
@@ -76,7 +76,7 @@
 	footnotesize,
 	%width=\marginparwidth, scale only axis,
 	x={1mm},y={1mm},
-	xlabel={$x$ (cm)},
+	xlabel={\m{x} (cm)},
 	xmin=-0.5,xmax=49.5,
 	ymin=0,ymax=6.1,
 	hide y axis,
@@ -90,7 +90,7 @@
 	%\fill [black!10] (0,0) rectangle (13.6,-.15);
 	%footnotesize,
 	x={1mm},y={1mm},
-	xlabel={$x$ (cm)},
+	xlabel={\m{x} (cm)},
 	xmin=-1,xmax=151,
 	ymin=-10,ymax=35,
 	hide y axis,
