@@ -94,7 +94,13 @@
 	numberstyle=scxx, textstyle=tfc,
 ]
 % Versals for chapter openers
-\usemodule[lettrine]
+%\usemodule[lettrine]
+\setupinitial[
+	distance=-1em,
+	n=2,
+	hoffset=1em,
+	%before={}
+]
 
 % Section heads
 \setuphead[section][

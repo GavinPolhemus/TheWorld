@@ -24,11 +24,11 @@ And the method proposed in the present essay, for the deductive study of the mot
 	\stopalignment
 }
 
-\lettrine{I}{n \booktitle{Hydrodynamica} and his other works,} Daniel Bernoulli applied sharp physical insights to practical problems – pipes, fountains, pumps, and other useful machines. Everyone else was going in other directions.
+\placeinitial{I}\scaps{n \booktitle{Hydrodynamica} and his other works,} Daniel Bernoulli applied sharp physical insights to practical problems – pipes, fountains, pumps, and other useful machines. Everyone else was going in other directions.
 
 Engineers developed and applied methods specific to specialized applications without looking for broadly applicable physical principles. This approach was incredibly successful, the engineers launched the industrial revolution with their practical methods, creating powerful working engines decades before physicists could explain them.
 
-Physicists largely ignored the engines, focusing their attention on abstract problems in pure mechanics and developing more general methods that could be applied to a huge range of problems – planetary motion, spinning tops, and  complicated jointed pendulums. These problems had little practical value, but they inspired rapid advances in applied mathematics, starting with the work of the great mathematician Leonhard Euler (who was also a close friend of Danial Bernoulli).  
+Physicists largely ignored the engines, focusing their attention on abstract problems in pure mechanics and developing more general methods that could be applied to a huge range of problems – planetary motion, spinning tops, and  complicated jointed pendulums. These problems had little practical value, but they inspired rapid advances in applied mathematics, starting with the work of the great mathematician Leonhard Euler (who was also a close friend of Danial Bernoulli).
 
 \startbuffer[TikZ:RigidPendulumPath1]
 \environment env_physics
@@ -62,7 +62,7 @@ Physicists largely ignored the engines, focusing their attention on abstract pro
 		decoration={
 			markings, % Main marks
 			mark=between positions 0 and 1 step 1mm with {
-				\draw (0,0) -- (0,-2pt);	
+				\draw (0,0) -- (0,-2pt);
 			},
 		}
 	] (-4,0) --node[sloped,above=5mm]{$h$ (cm)} (-4,8);
@@ -89,7 +89,7 @@ Physicists largely ignored the engines, focusing their attention on abstract pro
 		decoration={
 			markings, % Main marks
 			mark=between positions 0 and 1 step 3.4mm with {
-				\draw (0,0) -- (0,2pt);	
+				\draw (0,0) -- (0,2pt);
 			},
 		}
 	] (4.6,0) --node[sloped,below=6mm]{$U$ (J)} (4.6, 8.164);
@@ -129,7 +129,7 @@ Physicists largely ignored the engines, focusing their attention on abstract pro
 		decoration={
 			markings, % Main marks
 			mark=between positions 0 and 1 step 1mm with {
-				\draw (0,0) -- (0,-2pt);	
+				\draw (0,0) -- (0,-2pt);
 			},
 		}
 	] (0,0) arc[start angle=-90, end angle=150, radius=4cm];
@@ -156,7 +156,7 @@ Physicists largely ignored the engines, focusing their attention on abstract pro
 		decoration={
 			markings, % Main marks
 			mark=between positions 0 and 1 step 1mm with {
-				\draw (0,0) -- (0,2pt);	
+				\draw (0,0) -- (0,2pt);
 			},
 		}
 	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
@@ -261,7 +261,7 @@ Lagrange’s equation connects forces to potential energy. If an apple's gravita
 	F = -\frac{\partial U}{\partial x}
 \stopformula
 }
-The force can easily be found on an energy vs.~position graph. 
+The force can easily be found on an energy vs.~position graph.
 \startformula[eq:Laplace]
 	F = -\frac{\text{tangent's $\Delta U$}}{\text{tangent's $\Delta x$}}
 \stopformula
@@ -291,7 +291,7 @@ The force can easily be found on an energy vs.~position graph.
 
 Force is directional, so forces will be represented by vectors. Gravitational force is downwards. We will use $y$ as our vertical component in most cases, so force is in the negative $y$ direction.
 \startformula
-	\vec F\sub{g} = \components{0, -mg , 0} 
+	\vec F\sub{g} = \components{0, -mg , 0}
 \stopformula
 
 \placefigure[margin][fig:BoxEarthGravU] % location
@@ -405,25 +405,25 @@ Compare this to the formula derived in Section \ref{sec:freefall}. Aside from th
 To find the velocity rather than just the speed, we will use conservation of momentum. Rather than working with the full vector notation, we will find it helpful to break the equation into three component equations.
 \startformula\startmathalignment[m=3,distance=2em]
 \NC	\NC \NC 	\vec{p}\sf \NC = \vec{p}\si + \vec{F}\Delta t	\NR[1.5ex]
-\NC	p\sub{f,$x$} \NC = p\sub{i,$x$} + \cancel{F_x\Delta t}	\NC 
-	p\sub{f,$y$} \NC = \cancel{p\sub{i,$y$}} + F_y\Delta t	\NC 
+\NC	p\sub{f,$x$} \NC = p\sub{i,$x$} + \cancel{F_x\Delta t}	\NC
+	p\sub{f,$y$} \NC = \cancel{p\sub{i,$y$}} + F_y\Delta t	\NC
 	p\sub{f,$z$} \NC = \cancel{p\sub{i,$z$}} + \cancel{F_z\Delta t}	\NR
-\NC	p\sub{f,$x$} \NC = p\sub{i,$x$}	\NC 
-	p\sub{f,$y$} \NC = -mg\Delta t	\NC 
+\NC	p\sub{f,$x$} \NC = p\sub{i,$x$}	\NC
+	p\sub{f,$y$} \NC = -mg\Delta t	\NC
 	p\sub{f,$z$} \NC = 0
 \stopmathalignment\stopformula
 Since the force is entirely in the $y$ direction, the $x$ and $z$ components of the force are zero. Force is required to change momentum, so the $x$ and $z$ components of the momentum do not change, meaning $x$ and $z$ components of the velocity are also constant.
 \startformula\startmathalignment[m=2,distance=2em]
 %	\NC \NC 	\vec{p}\sf \NC = \vec{p}\si + \vec{F}\Delta t	\NR
-\NC	p\sub{f,$x$} \NC = p\sub{i,$x$} 	\NC 
-%	p\sub{f,$y$} \NC = p\sub{i,$y$} + F_y\Delta t	\NC 
+\NC	p\sub{f,$x$} \NC = p\sub{i,$x$} 	\NC
+%	p\sub{f,$y$} \NC = p\sub{i,$y$} + F_y\Delta t	\NC
 	p\sub{f,$z$} \NC = 0	\NR
-\NC	mv\sub{f,$x$} \NC = mv\sub{i,$x$} 	\NC 
-%	mv\sub{f,$y$} \NC = mv\sub{i,$y$} + F_y\Delta t	\NC 
+\NC	mv\sub{f,$x$} \NC = mv\sub{i,$x$} 	\NC
+%	mv\sub{f,$y$} \NC = mv\sub{i,$y$} + F_y\Delta t	\NC
 	mv\sub{f,$z$} \NC = 0	\NR
-\NC	v\sub{f,$x$} \NC = v\si 	\NC 
-%	v\sub{f,$y$} \NC = v\sub{i,$y$} + F_y\Delta t	\NC 
-	v\sub{f,$z$} \NC = 0	
+\NC	v\sub{f,$x$} \NC = v\si 	\NC
+%	v\sub{f,$y$} \NC = v\sub{i,$y$} + F_y\Delta t	\NC
+	v\sub{f,$z$} \NC = 0
 \stopmathalignment\stopformula
 That is two components of the final velocity. What about the $y$ component of the final velocity? Since the $y$ component of the force is not zero, we have to actually calculate the final $y$ component of momentum using the force of gravity and the time of the fall. Unfortunately, we don't know the time of the fall; we only know the height.
 
@@ -441,7 +441,7 @@ This is our first example of a very common problem when working in more than one
 \stopmathalignment\stopformula
 This looks like a bit of a mess, but it simplifies rapidly. The $x$ component of the momentum is constant, so the $x$ piece of the kinetic energy is also constant.
 \startformula
-	K\sub{f,x} = \frac{p\sub{f,x}^2}{2m} = \frac{p\sub{i,x}^2}{2m} = K\sub{i,x}	
+	K\sub{f,x} = \frac{p\sub{f,x}^2}{2m} = \frac{p\sub{i,x}^2}{2m} = K\sub{i,x}
 \stopformula
 This part of the kinetic energy just cancels between the two sides.
 \startformula\startmathalignment[m=2,distance=2em]
@@ -451,7 +451,7 @@ This part of the kinetic energy just cancels between the two sides.
 \NC	v\sub{f,y} \NC = \pm\sqrt{2gh}			\NC \NC \text{solve for $v\sub{f,y}$}\NR
 \NC	v\sub{f,y} \NC = -\sqrt{2gh}			\NC \NC \text{negative as it hits the ground}
 \stopmathalignment\stopformula
-Now we have all three components of the final velocity. 
+Now we have all three components of the final velocity.
 
 Next we can find the time of the fall by returning to the $y$ component of the conservation of momentum formula. That component could not help us find $v\sub{f,y}$ because we did not have $\Delta t$, but now we can use it to find $\Delta t$ since we have $v\sub{f,y}$.
 \startformula\startmathalignment[m=2,distance=2em]
@@ -510,7 +510,7 @@ Finally, we find the displacement in the $x$ direction using the position update
 
 Joseph-Louis Lagrange's work on mechanics culminated in his book \booktitle{Analytique mechanique}, published in 1788. Lagrange's work is so abstract that the book contains no diagrams and no physical arguments, only pure mathematics of idealized, general mechanical systems. For those fluent in the new mathematical methods of French analysis, Lagrange's approach to mechanics is profound and beautiful. I will not attempt to explain a single word of it here.
 
-While the physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring French mathematical revolution transforming physics.  
+While the physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring French mathematical revolution transforming physics.
 They remained paralyzed by a fanatic devotion to Newton's cumbersome, geometric methods and continued to hold a grudge over the Leibniz's calculus and \visviva. This problem persisted until 1812, when a group of young undergraduate students at Cambridge started the Analytical Society, partly as a joke, to study the methods of French analysis. They learned to solve problems using the continental notation and even translated a few important French books and papers into English. The club met for a few years and essentially disappeared after its members graduated and left Cambridge in 1817.
 
 That probably would have been the end of this little revolt, except that one of the members, George Peacock, was appointed in 1817 to write questions for the rigorous Mathematical Tripos exam taken by all third year mathematics students at Cambridge. He audaciously wrote his questions using the continental notation, which caused a bit of a stir among the faculty, but constrained by tradition, or perhaps simply too lazy to write the questions themselves, they did not interfere. Peacock was asked to write questions again in 1819, and students recognized this as a complete surrender by the Newtonian faculty. From there the adoption of continental notation and methods in England was quite swift. Newton remained a revered figure, but his  150 year old dispute against Leibniz finally passed into history. %Cannell p. 38
@@ -684,7 +684,7 @@ Where $\Delta t$ is the amount of time over which the power is flowing.  This is
 %\setchapterfolder{Ch15}
 
 
-%Potentials are more fundamental than the fields or the forces. 
+%Potentials are more fundamental than the fields or the forces.
 %
 %This chapter should mirror the previous chapter, but with the addition of the potentials. Start by giving $E$ as a function of $m$, $\vec{p}$ and the fields. Then give $v$ as a function of those and the fields.
 %
@@ -715,7 +715,7 @@ Let us return again to the dawn of the scientific revolution to confront the  mo
 
 Recall that Earth's size was known (roughly), so the tower's proposed speed was  about $460\units{m/s}$ toward the east, an amazing speed! %(See Example \ref{}.) refer to example problem in circular motion section
 A rock dropped from a $50\units{m}$ tower (roughly the height of the Leaning Tower of Pisa), would take about $3.2\units{s}$ to reach the ground.%(Example \ref{})
-In that time the tower would move $1500\units{m}$ to the east. If Aristotle's reasoning is correct, the rock should hit the ground $1.5\units{km}$ to the west of the tower's base. 
+In that time the tower would move $1500\units{m}$ to the east. If Aristotle's reasoning is correct, the rock should hit the ground $1.5\units{km}$ to the west of the tower's base.
 
 Rather than following Galileo's brilliant and lengthy refutation, we will confront Aristotle's argument using conservation of momentum and the mathematical language of vectors.%, which will greatly reduce our effort.
 The momentum of the rock is changed by the force of gravity.
@@ -735,7 +735,7 @@ However, if the tower is moving, due to Earth's rotation, then the rock held at 
 
 Galileo argued that the horizontal and vertical motion were separate motions, having no effect on each other. In modern language we refer to them as different components of the momentum. Galileo return's to this idea in \booktitle{Two New Sciences}, where he provides a mathematical description of projectile motion, which composed of both horizontal and vertical motion under the constant force of gravity.
 
- 
+
 
 \startformula
 	p\sub{f$x$} = p\sub{i$x$} + F_x\Delta t
@@ -745,12 +745,12 @@ Since the $x$-component of the gravitational force is zero, we find that the $x$
 
 In a collision, the change in momentum is usually abrupt. The forces between the colliding objects can be enormous, but it acts for a very short time. In this chapter we will consider the opposite extreme: constant forces which, while often smaller in magnitude, are relentless in their action.
 
-Gravity is the classic example. Pulling on objects constantly, gravity is almost impossible to escape. “What goes up, must come down,” due to the persistence of the gravitational force. Of course, since entering the space age, we have generated a long list of objects that have gone up without coming down. Some are in orbit around Earth, others in orbit around the sun or other planets. A few are leaving the solar system entirely. But these are the exceptions that prove the rule. These runaways are only able to escape because Earth's gravity becomes weaker far away. 
+Gravity is the classic example. Pulling on objects constantly, gravity is almost impossible to escape. “What goes up, must come down,” due to the persistence of the gravitational force. Of course, since entering the space age, we have generated a long list of objects that have gone up without coming down. Some are in orbit around Earth, others in orbit around the sun or other planets. A few are leaving the solar system entirely. But these are the exceptions that prove the rule. These runaways are only able to escape because Earth's gravity becomes weaker far away.
 
 \subject{Notes}
 %\placefootnotes[criterium=chapter]
 \placenotes[endnote][criterium=chapter]
- 
+
 %\subject{Bibliography}
 %        \placelistofpublications
 
@@ -808,7 +808,7 @@ A 40 kg person is jogging at 3 m/sec.  What is his kinetic energy?
 A car has a kinetic energy of $1.8 \sci{6} \units{J}$ at a speed of 60 m/sec.  What is it's mass?
 
 \problem
-A baseball and a tennis ball are traveling with the same kinetic energy.  
+A baseball and a tennis ball are traveling with the same kinetic energy.
 If the baseball weighs twice as much, then what is the speed of the tennis ball?
 
 \problem
@@ -864,7 +864,7 @@ A miller finds a waterfall with a flow of 10 kg/sec and a drop of 2 m.  He build
 \stopcomponent
 
 
-% Templates: 
+% Templates:
 
 % Epigraph
 \placefigure[margin,none]{}{\small
