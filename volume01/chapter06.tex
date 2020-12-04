@@ -7,7 +7,7 @@
 \setupsynctex[state=start,method=max] % "method=max" or "min"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startchapter[title=Hamilton's Equations,reference=ch:Hamilton]
+\startchapter[title=Hamilton’s Equations,reference=ch:Hamilton]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \placefigure[margin,none]{}{\small
@@ -169,7 +169,7 @@ Physicists largely ignored the engines, focusing their attention on abstract pro
 \stopbuffer
 
 \placetextfloat[top][fig:RigidPendulumPath1] % location
-{Galileo's pendulum with the position \m{s} shown along the ball's curved path.}	 % caption text
+{Galileo’s pendulum with the position \m{s} shown along the ball’s curved path.}	 % caption text
 {\noindent\typesetbuffer[TikZ:RigidPendulumPath1]} % figure contents
 
 \startbuffer[TikZ:RigidPendulumGraphU]
@@ -207,7 +207,7 @@ Physicists largely ignored the engines, focusing their attention on abstract pro
 \stopbuffer
 
 \placefigure[margin][fig:RigidPendulumGraphU] % location
-{An energy graph showing the ball's gravitational potential energy as a function of position \m{s} along the curved path.}	% caption text
+{An energy graph showing the ball’s gravitational potential energy as a function of position \m{s} along the curved path.}	% caption text
 {\vskip27pt\hbox{\starttikzpicture
 	\draw[white] (0,0)-- ++(5,0); % Sky to make height better
 \stoptikzpicture}}
@@ -248,13 +248,13 @@ Physicists largely ignored the engines, focusing their attention on abstract pro
 \stopbuffer
 
 \placetextfloat[bottom][fig:CartSlopeSpring] % location
-{Galileo's pendulum with the position \m{s} shown along the ball's curved path.}	 % caption text
+{Galileo’s pendulum with the position \m{s} shown along the ball’s curved path.}	 % caption text
 {\noindent\typesetbuffer[TikZ:CartSlopeSpring]} % figure contents
 
 
 
 
-Lagrange’s equation connects forces to potential energy. If an apple's gravitational potential energy decreases when the apple goes down, then there is a gravitational force pushing the apple down. If a spring's potential energy increases when it is stretched, then the spring exerts a force pulling back towards its unstretched length. If the gravitational potential energy of a planet is lower when it is closer to the sun, then there is a gravitational force pulling the planet towards the sun. In fact, the equation gives the magnitude as well as the direction of the force. Using Leibniz's notation, Lagrange’s equation is
+Lagrange’s equation connects forces to potential energy. If an apple’s gravitational potential energy decreases when the apple goes down, then there is a gravitational force pushing the apple down. If a spring’s potential energy increases when it is stretched, then the spring exerts a force pulling back towards its unstretched length. If the gravitational potential energy of a planet is lower when it is closer to the sun, then there is a gravitational force pulling the planet towards the sun. In fact, the equation gives the magnitude as well as the direction of the force. Using Leibniz’s notation, Lagrange’s equation is
 \highlightbox{
 \startformula[eq:Hamilton2]
 	F = -\frac{\partial U}{\partial x}
@@ -262,7 +262,7 @@ Lagrange’s equation connects forces to potential energy. If an apple's gravita
 }
 The force can easily be found on an energy vs.~position graph.
 \startformula[eq:Laplace]
-	F = -\frac{\text{tangent's \m{\Delta U}}}{\text{tangent's \m{\Delta x}}}
+	F = -\frac{\text{tangent’s \m{\Delta U}}}{\text{tangent’s \m{\Delta x}}}
 \stopformula
 
 \section{Gravitational Force}
@@ -347,12 +347,12 @@ where \m{g = 9.8\units{N/kg}} and the \m{y} direction is upwards. From the equat
 
 Knowing the height of the drop, \m{h}, and the speed of the cart, \m{v\si}, there are several questions we might hope to answer.
 \startitemize[1,packed,broad]
-\startitem What is the cart's speed, \m{\vabs{\vec{v}_{\text{f}}}}, when it hits the ground. \stopitem
-\startitem What is the cart's velocity, \m{\vec{v}_{\text{f}}}, when it hits the ground. \stopitem
+\startitem What is the cart’s speed, \m{\vabs{\vec{v}_{\text{f}}}}, when it hits the ground. \stopitem
+\startitem What is the cart’s velocity, \m{\vec{v}_{\text{f}}}, when it hits the ground. \stopitem
 \startitem How long will it take for the cart to reach the ground (\m{\Delta t}). \stopitem
 \startitem How far away from the table with the cart hit the ground (\m{\Delta x}). \stopitem
 \stopitemize
-We have three basic equations that will be useful: the conservation equations for energy and momentum and the position update formula. Let's see what each of these can tell us about the motion of the cart.
+We have three basic equations that will be useful: the conservation equations for energy and momentum and the position update formula. Let’s see what each of these can tell us about the motion of the cart.
 
 \placefigure[margin][] % location
 {The path of a cart going off of a cliff.}	% caption text
@@ -390,7 +390,7 @@ We have three basic equations that will be useful: the conservation equations fo
 \startformula\startmathalignment[m=2,distance=2em]
 \stopmathalignment\stopformula
 
-Starting with conservation of energy, we will consider the cart's kinetic energy, \m{K}, and gravitational potential energy, \m{U}.
+Starting with conservation of energy, we will consider the cart’s kinetic energy, \m{K}, and gravitational potential energy, \m{U}.
 \startformula\startmathalignment[m=2,distance=2em]
 \NC	E\sf \NC = E\si + \cancel{W} + \cancel{Q}	\NC \NC \text{no outside work or heat}\NR
 \NC	K\sf + \cancel{U\sf} \NC = K\si + U\si		\NC \NC \text{set \m{U=0} at the floor}\NR
@@ -424,7 +424,7 @@ Since the force is entirely in the \m{y} direction, the \m{x} and \m{z} componen
 %	v\sub{f,\m{y}} \NC = v\sub{i,\m{y}} + F_y\Delta t	\NC
 	v\sub{f,\m{z}} \NC = 0
 \stopmathalignment\stopformula
-That is two components of the final velocity. What about the \m{y} component of the final velocity? Since the \m{y} component of the force is not zero, we have to actually calculate the final \m{y} component of momentum using the force of gravity and the time of the fall. Unfortunately, we don't know the time of the fall; we only know the height.
+That is two components of the final velocity. What about the \m{y} component of the final velocity? Since the \m{y} component of the force is not zero, we have to actually calculate the final \m{y} component of momentum using the force of gravity and the time of the fall. Unfortunately, we don’t know the time of the fall; we only know the height.
 
 This is our first example of a very common problem when working in more than one dimension. Often the coordinates can be chosen so that motion in some of the directions is completely simple (like the constant momentum in the \m{x} and \m{z} directions), but something interesting is happening in the remaining direction. The trick is to return to conservation of energy, and use the simple motion to better understand the more complicated motion.
 
@@ -507,21 +507,21 @@ Finally, we find the displacement in the \m{x} direction using the position upda
 
 
 
-Joseph-Louis Lagrange's work on mechanics culminated in his book \booktitle{Analytique mechanique}, published in 1788. Lagrange's work is so abstract that the book contains no diagrams and no physical arguments, only pure mathematics of idealized, general mechanical systems. For those fluent in the new mathematical methods of French analysis, Lagrange's approach to mechanics is profound and beautiful. I will not attempt to explain a single word of it here.
+Joseph-Louis Lagrange’s work on mechanics culminated in his book \booktitle{Analytique mechanique}, published in 1788. Lagrange’s work is so abstract that the book contains no diagrams and no physical arguments, only pure mathematics of idealized, general mechanical systems. For those fluent in the new mathematical methods of French analysis, Lagrange’s approach to mechanics is profound and beautiful. I will not attempt to explain a single word of it here.
 
 While the physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring French mathematical revolution transforming physics.
-They remained paralyzed by a fanatic devotion to Newton's cumbersome, geometric methods and continued to hold a grudge over the Leibniz's calculus and \visviva. This problem persisted until 1812, when a group of young undergraduate students at Cambridge started the Analytical Society, partly as a joke, to study the methods of French analysis. They learned to solve problems using the continental notation and even translated a few important French books and papers into English. The club met for a few years and essentially disappeared after its members graduated and left Cambridge in 1817.
+They remained paralyzed by a fanatic devotion to Newton’s cumbersome, geometric methods and continued to hold a grudge over the Leibniz’s calculus and \visviva. This problem persisted until 1812, when a group of young undergraduate students at Cambridge started the Analytical Society, partly as a joke, to study the methods of French analysis. They learned to solve problems using the continental notation and even translated a few important French books and papers into English. The club met for a few years and essentially disappeared after its members graduated and left Cambridge in 1817.
 
 That probably would have been the end of this little revolt, except that one of the members, George Peacock, was appointed in 1817 to write questions for the rigorous Mathematical Tripos exam taken by all third year mathematics students at Cambridge. He audaciously wrote his questions using the continental notation, which caused a bit of a stir among the faculty, but constrained by tradition, or perhaps simply too lazy to write the questions themselves, they did not interfere. Peacock was asked to write questions again in 1819, and students recognized this as a complete surrender by the Newtonian faculty. From there the adoption of continental notation and methods in England was quite swift. Newton remained a revered figure, but his  150 year old dispute against Leibniz finally passed into history. %Cannell p. 38
 
-The United Kingdom began producing great physicists. Among the first was William Rowan Hamilton. Hamilton was a genius, gifted in languages and mathematics. He learned Hebrew, Latin, and Greek from early childhood. At the age of 15 he read Newton's \booktitle{Principia}, and a two years later the great French work \booktitle{M\'echanique c\'eleste}, by Pierre-Simon Laplace.%Cannell p. 39
+The United Kingdom began producing great physicists. Among the first was William Rowan Hamilton. Hamilton was a genius, gifted in languages and mathematics. He learned Hebrew, Latin, and Greek from early childhood. At the age of 15 he read Newton’s \booktitle{Principia}, and a two years later the great French work \booktitle{M\'echanique c\'eleste}, by Pierre-Simon Laplace.%Cannell p. 39
 
 In 1823, at the age of 18, Hamilton entered Trinity College Dublin.
 Trinity College had adopted the continental notation in 1812, a bit ahead of Cambridge, and used the French textbooks in mathematics and physics courses. Hamilton embraced the abstract approach. He earned top marks in all of his courses and won many awards, which propelled him to a position as head of the Dunsink Observatory, near Dublin. Although the observatory provided ample opportunity for practical astronomy, Hamilton continued to focus on more theoretical interests, first in optics and then in mechanics.
 
-Hamilton wrote two ground breaking papers on mechanics, \booktitle{On A General Method In Dynamics} in 1834 and \booktitle{Second Essay On A General Method In Dynamics} in 1835. In these he refined Lagrange's abstract approach, producing a pair of equations, now known as Hamilton's equations, that could be applied to any physical system, no matter how complicated. Both of these equations start with the total energy of the system. The first equation gives the velocities of the system's parts. The second gives the forces on the parts. If we know every part's starting position and momentum, then Hamilton's equations the velocities needed to compute new position and the forces required to calculate new momentums, all from knowing the system's energy!
+Hamilton wrote two ground breaking papers on mechanics, \booktitle{On A General Method In Dynamics} in 1834 and \booktitle{Second Essay On A General Method In Dynamics} in 1835. In these he refined Lagrange’s abstract approach, producing a pair of equations, now known as Hamilton’s equations, that could be applied to any physical system, no matter how complicated. Both of these equations start with the total energy of the system. The first equation gives the velocities of the system’s parts. The second gives the forces on the parts. If we know every part’s starting position and momentum, then Hamilton’s equations the velocities needed to compute new position and the forces required to calculate new momentums, all from knowing the system’s energy!
 
-The formulation of these equations was very abstract, but their application is incredibly practical because the energy is relatively easy to determine. The total kinetic energy can be calculated from the parts' momentums. The potential energy can be calculated from the parts' positions. We will not need Hamilton's first equation because for all of the systems we have considered it gives the same formula for the velocities.
+The formulation of these equations was very abstract, but their application is incredibly practical because the energy is relatively easy to determine. The total kinetic energy can be calculated from the parts’ momentums. The potential energy can be calculated from the parts’ positions. We will not need Hamilton’s first equation because for all of the systems we have considered it gives the same formula for the velocities.
 \startformula
 	dx = \frac{\partial H}{\partial p} dt
 	\qquad
@@ -538,9 +538,9 @@ The formulation of these equations was very abstract, but their application is i
 	\qquad
 	F_z = -\frac{\partial U}{\partial z}
 \stopformula
-This agrees with Newton's formula for momentum. I will return to Hamilton's first equation at the end of the chapter.
+This agrees with Newton’s formula for momentum. I will return to Hamilton’s first equation at the end of the chapter.
 
-Hamilton's second equation provides tremendous new information. It says that the system’s change in momentum \m{d\varpi} is determined by the directional derivatives of the system’s total energy \m{H}, which is now called the Hamiltonian. Using Leibniz's notation, Hamilton's second equation is
+Hamilton’s second equation provides tremendous new information. It says that the system’s change in momentum \m{d\varpi} is determined by the directional derivatives of the system’s total energy \m{H}, which is now called the Hamiltonian. Using Leibniz’s notation, Hamilton’s second equation is
 \highlightbox{
 \startformula[eq:Hamilton2]
 	dp = -\frac{\partial H}{\partial x} dt
@@ -548,9 +548,9 @@ Hamilton's second equation provides tremendous new information. It says that the
 }
 
 
-\section{Hamilton's First Equation for Photons}
+\section{Hamilton’s First Equation for Photons}
 When introducing the formulas for momentum (\m{p=mv}) and kinetic energy (\m{K=p^2/2m}), I mentioned that these formulas will need to be replaced when we discuss particles traveling close to the speed of light.
-Hamilton's first equation does not tell us what the new formulas will be, but it does tell us how to get the new momentum formula once we have the new kinetic energy formula. For photons, particles of light, this is method is quite simple. A photon's kinetic energy is proportional its momentum by
+Hamilton’s first equation does not tell us what the new formulas will be, but it does tell us how to get the new momentum formula once we have the new kinetic energy formula. For photons, particles of light, this is method is quite simple. A photon’s kinetic energy is proportional its momentum by
 \startformula
 	K=\abs{p}c
 \stopformula
@@ -563,7 +563,7 @@ where \m{c=3.00\sci{8}\units{m/s}} is the speed of light. The kinetic energy of 
 \stopformula
 You feel the warming energy of the photons, but you are not pushed by their momentum.
 
-Hamilton's first equation says that the photon's velocity is determined from the total energy
+Hamilton’s first equation says that the photon’s velocity is determined from the total energy
 \startformula[eq:Hamilton1]
 	v = \frac{\partial H}{\partial p}
 \stopformula
@@ -601,7 +601,7 @@ One exception is when A and B move different distances, perhaps because they are
 
 %\chapter{Work: Mechanical Energy Transfer}
 %
-%We can use the formulas for kinetic energy and momentum to get \m{P = \vec F \dotp \vec v} (which seems to get time involved in a totally unnecessary way), but that requires taking a derivative.  I could start with \m{dW=\vec F\dotp d\vec x}.  As with all of my stuff with \m{d}, the math to back up this approach is differential forms, with \m{d} being the exterior derivative.  However, for the junior high version I don't have any other integrals, so I probably just need to stick with either \m{W=Fd} or \m{W=\vec F \dotp \Delta \vec r}.  I have no idea how to get that from my energy and momentum formulas.
+%We can use the formulas for kinetic energy and momentum to get \m{P = \vec F \dotp \vec v} (which seems to get time involved in a totally unnecessary way), but that requires taking a derivative.  I could start with \m{dW=\vec F\dotp d\vec x}.  As with all of my stuff with \m{d}, the math to back up this approach is differential forms, with \m{d} being the exterior derivative.  However, for the junior high version I don’t have any other integrals, so I probably just need to stick with either \m{W=Fd} or \m{W=\vec F \dotp \Delta \vec r}.  I have no idea how to get that from my energy and momentum formulas.
 %
 %Since I am doing vectors in the momentum section, it might be nice to round out vector algebra with the dot product.
 %
@@ -619,10 +619,10 @@ One exception is when A and B move different distances, perhaps because they are
 
 
 \section{Power}%: \m{\Delta E = Pt}
-%Now we enter the exciting wold of derivatives.  We didn't mention that velocity is a derivative so this is our first exposure.  This is a good place to do it though.  We can introduce \m{\Delta E}, and then go to  the limit of really short times.  This should be done with enough care to teach derivatives to students who have not been exposed before.  It will avoid the issues surrounding the fact that some functions do not have derivatives at some points.  I'm not sure why even I care about that.
+%Now we enter the exciting wold of derivatives.  We didn’t mention that velocity is a derivative so this is our first exposure.  This is a good place to do it though.  We can introduce \m{\Delta E}, and then go to  the limit of really short times.  This should be done with enough care to teach derivatives to students who have not been exposed before.  It will avoid the issues surrounding the fact that some functions do not have derivatives at some points.  I'm not sure why even I care about that.
 The rate at which energy flows into or out of a system is called the power.  A 60W lightbulb converts 60J of electricity to 60J of light and heat every second.
 
-We learned in the introduction that rates are found by dividing the change in a quantity by the time it took.  Let's divide the conservation of energy equation by the time between the start and end, \m{\Delta t = t\sub{start}-t\sub{end}}.
+We learned in the introduction that rates are found by dividing the change in a quantity by the time it took.  Let’s divide the conservation of energy equation by the time between the start and end, \m{\Delta t = t\sub{start}-t\sub{end}}.
 \startformula
 	H\si + W + Q = H\sf
 \stopformula
@@ -632,12 +632,12 @@ We learned in the introduction that rates are found by dividing the change in a 
 	P\sub{in} - P\sub{out} = \frac{\Delta H}{\Delta t}
 \stopformula
 Where \m{\Delta t} is the amount of time over which the power is flowing.  This is just another statement of conservation of energy, but written in terms of rates.
-%Here we get some great problems that are often beyond a typical introductory physics course.  For example, we can find the power that can be generated by a water wheel under a waterfall of a given height and flow.  These will be hard and students must be prepared with care so that they aren't doing the "per unit time" thing if it can be avoided.
+%Here we get some great problems that are often beyond a typical introductory physics course.  For example, we can find the power that can be generated by a water wheel under a waterfall of a given height and flow.  These will be hard and students must be prepared with care so that they aren’t doing the "per unit time" thing if it can be avoided.
 
 %\section{Rates}
-%I could introduce rates in the introduction to conservation laws (cookies per day).  But I think it is best to wait until here, when they will have don't some problems and gotten the conservation of mass concept down pretty well.  I could also wait on rates until after we have done energy and momentum, but that seems pretty late and it breaks up the organization by topic into organization by math.  At some point I need to give a good description of speed.  Clearly that is needed for kinetic energy, but perhaps it should be described along side volume, area and density in the introduction.
+%I could introduce rates in the introduction to conservation laws (cookies per day).  But I think it is best to wait until here, when they will have don’t some problems and gotten the conservation of mass concept down pretty well.  I could also wait on rates until after we have done energy and momentum, but that seems pretty late and it breaks up the organization by topic into organization by math.  At some point I need to give a good description of speed.  Clearly that is needed for kinetic energy, but perhaps it should be described along side volume, area and density in the introduction.
 
-%Sometimes we don't want to just compare the starting and ending states, we want to talk about how fast something is happening, or the rate at which it happens.
+%Sometimes we don’t want to just compare the starting and ending states, we want to talk about how fast something is happening, or the rate at which it happens.
 
 %\startformula
 %	R\sub{change} = \frac{M\sub{end}-M\sub{start}}{t}
@@ -664,7 +664,7 @@ Where \m{\Delta t} is the amount of time over which the power is flowing.  This 
 %\startformula
 %	\frac {d}{dt} E(t) = P\sub{in} (t)-  P\sub{out}(t)
 %\stopformula
-%This is the instantaneous form of the conservation of energy equation, which says that the rate at which the system's energy is changing is equal to the rate at which energy is being added minus the rate at which energy is being taken out.  We can get back to the integral form by integrating the instantaneous form.
+%This is the instantaneous form of the conservation of energy equation, which says that the rate at which the system’s energy is changing is equal to the rate at which energy is being added minus the rate at which energy is being taken out.  We can get back to the integral form by integrating the instantaneous form.
 
 %You may remember that there were actually two integrals that we could use for the energy added and taken out, the above integral of Power with respect to time, and an integral of force over distance.  We can equate these two forms and take a derivative to get another useful relation.  Here I will use the total power, \m{P = P\sub{in} - P\sub{out}}.
 
@@ -705,18 +705,18 @@ Where \m{\Delta t} is the amount of time over which the power is flowing.  This 
 %}%\end{shaded}
 %
 
-Let us return again to the dawn of the scientific revolution to confront the  most direct objection to Galileo's heliocentric cosmology: Earth does not \emph{seem} to be moving. In his \booktitle{Dialogue Concerning Two World Systems}, Galileo quotes the most compelling form of this argument, made by Aristotle.
+Let us return again to the dawn of the scientific revolution to confront the  most direct objection to Galileo’s heliocentric cosmology: Earth does not \emph{seem} to be moving. In his \booktitle{Dialogue Concerning Two World Systems}, Galileo quotes the most compelling form of this argument, made by Aristotle.
 
 
 \startblockquote
-	As the strongest reason, everyone produces the one from heavy bodies, which when falling down from on high move in a straight line perpendicular to Earth's surface. This is regarded as an unanswerable argument that Earth is motionless. For, if it were in a state of diurnal rotation, and a rock were dropped from the top of a tower, then during the time taken by the rock in its fall, the tower (being carried by Earth's turning), would advance many hundreds of cubits toward the east and the rock should hit the ground that distance away from the tower's base. \autocite{p.~215}{Galileo1632}
+	As the strongest reason, everyone produces the one from heavy bodies, which when falling down from on high move in a straight line perpendicular to Earth’s surface. This is regarded as an unanswerable argument that Earth is motionless. For, if it were in a state of diurnal rotation, and a rock were dropped from the top of a tower, then during the time taken by the rock in its fall, the tower (being carried by Earth’s turning), would advance many hundreds of cubits toward the east and the rock should hit the ground that distance away from the tower’s base. \autocite{p.~215}{Galileo1632}
 \stopblockquote
 
-Recall that Earth's size was known (roughly), so the tower's proposed speed was  about \m{460\units{m/s}} toward the east, an amazing speed! %(See Example \ref{}.) refer to example problem in circular motion section
+Recall that Earth’s size was known (roughly), so the tower’s proposed speed was  about \m{460\units{m/s}} toward the east, an amazing speed! %(See Example \ref{}.) refer to example problem in circular motion section
 A rock dropped from a \m{50\units{m}} tower (roughly the height of the Leaning Tower of Pisa), would take about \m{3.2\units{s}} to reach the ground.%(Example \ref{})
-In that time the tower would move \m{1500\units{m}} to the east. If Aristotle's reasoning is correct, the rock should hit the ground \m{1.5\units{km}} to the west of the tower's base.
+In that time the tower would move \m{1500\units{m}} to the east. If Aristotle’s reasoning is correct, the rock should hit the ground \m{1.5\units{km}} to the west of the tower’s base.
 
-Rather than following Galileo's brilliant and lengthy refutation, we will confront Aristotle's argument using conservation of momentum and the mathematical language of vectors.%, which will greatly reduce our effort.
+Rather than following Galileo’s brilliant and lengthy refutation, we will confront Aristotle’s argument using conservation of momentum and the mathematical language of vectors.%, which will greatly reduce our effort.
 The momentum of the rock is changed by the force of gravity.
 \startformula
 	\vec{p}\sf = \vec{p}\si + \vec{F}\Delta t
@@ -726,13 +726,13 @@ The force in this case is the force of gravity, which is directed downwards and 
 	\vec{F} = \coordinates{0,-mg,0}
 \stopformula
 
-The constant force of gravity changes the rock's momentum. However, we have learned that the \m{y}-component of the force will only affect the \m{y}-component of the momentum. Since the force has no \m{x}-component, the momentum's \m{x}-component is unchanged by the force.
+The constant force of gravity changes the rock’s momentum. However, we have learned that the \m{y}-component of the force will only affect the \m{y}-component of the momentum. Since the force has no \m{x}-component, the momentum’s \m{x}-component is unchanged by the force.
 
-If Earth's surface were stationary, as Aristotle believed, the a rock at held at the top of the tower would have no horizontal momentum, \m{p\sub{i}x$$=0}. When released, it continues to have no horizontal momentum, falling directly downward and landing at the base of the tower. Since this is what does happen, we seem to have strong evidence for Aristotle's view.
+If Earth’s surface were stationary, as Aristotle believed, the a rock at held at the top of the tower would have no horizontal momentum, \m{p\sub{i}x$$=0}. When released, it continues to have no horizontal momentum, falling directly downward and landing at the base of the tower. Since this is what does happen, we seem to have strong evidence for Aristotle’s view.
 
-However, if the tower is moving, due to Earth's rotation, then the rock held at the top of the tower would have significant horizontal momentum in order to move along with the tower, \m{p\sub{i}x$$=mv\sub{tower}}. When released that stone would keep this horizontal momentum, falling toward the ground but simultaneously moving horizontally along with the tower. As rock falls, the tower moves \m{1.5\units{km}} to the east, and the rock also travels exactly the same distance, striking the ground right at the base of the tower, exactly as we expect.
+However, if the tower is moving, due to Earth’s rotation, then the rock held at the top of the tower would have significant horizontal momentum in order to move along with the tower, \m{p\sub{i}x$$=mv\sub{tower}}. When released that stone would keep this horizontal momentum, falling toward the ground but simultaneously moving horizontally along with the tower. As rock falls, the tower moves \m{1.5\units{km}} to the east, and the rock also travels exactly the same distance, striking the ground right at the base of the tower, exactly as we expect.
 
-Galileo argued that the horizontal and vertical motion were separate motions, having no effect on each other. In modern language we refer to them as different components of the momentum. Galileo return's to this idea in \booktitle{Two New Sciences}, where he provides a mathematical description of projectile motion, which composed of both horizontal and vertical motion under the constant force of gravity.
+Galileo argued that the horizontal and vertical motion were separate motions, having no effect on each other. In modern language we refer to them as different components of the momentum. Galileo return’s to this idea in \booktitle{Two New Sciences}, where he provides a mathematical description of projectile motion, which composed of both horizontal and vertical motion under the constant force of gravity.
 
 
 
@@ -744,7 +744,7 @@ Since the \m{x}-component of the gravitational force is zero, we find that the \
 
 In a collision, the change in momentum is usually abrupt. The forces between the colliding objects can be enormous, but it acts for a very short time. In this chapter we will consider the opposite extreme: constant forces which, while often smaller in magnitude, are relentless in their action.
 
-Gravity is the classic example. Pulling on objects constantly, gravity is almost impossible to escape. “What goes up, must come down,” due to the persistence of the gravitational force. Of course, since entering the space age, we have generated a long list of objects that have gone up without coming down. Some are in orbit around Earth, others in orbit around the sun or other planets. A few are leaving the solar system entirely. But these are the exceptions that prove the rule. These runaways are only able to escape because Earth's gravity becomes weaker far away.
+Gravity is the classic example. Pulling on objects constantly, gravity is almost impossible to escape. \quotation{What goes up, must come down,} due to the persistence of the gravitational force. Of course, since entering the space age, we have generated a long list of objects that have gone up without coming down. Some are in orbit around Earth, others in orbit around the sun or other planets. A few are leaving the solar system entirely. But these are the exceptions that prove the rule. These runaways are only able to escape because Earth’s gravity becomes weaker far away.
 
 \subject{Notes}
 %\placefootnotes[criterium=chapter]
@@ -803,7 +803,7 @@ How high would I have to lift a 1000 kg car for it to have a gravitational poten
 A 40 kg person is jogging at \m{3 \units{m/sec}}.  What is his kinetic energy?
 
 \problem
-A car has a kinetic energy of \m{1.8 \sci{6} \units{J}} at a speed of 60 m/sec.  What is it's mass?
+A car has a kinetic energy of \m{1.8 \sci{6} \units{J}} at a speed of 60 m/sec.  What is it’s mass?
 
 \problem
 A baseball and a tennis ball are traveling with the same kinetic energy.

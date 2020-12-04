@@ -12,8 +12,8 @@
 \startchapter[title=Constrained Motion, reference=ch:Constraints]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Problems with constraints require adding unknown reaction forces to the equations of motion, one force per constraint. The constraint equations provide enough information to solve for these reaction forces when finding the motion from Hamilton's equations.
-Hamilton's equations with these external reaction forces are
+Problems with constraints require adding unknown reaction forces to the equations of motion, one force per constraint. The constraint equations provide enough information to solve for these reaction forces when finding the motion from Hamilton’s equations.
+Hamilton’s equations with these external reaction forces are
 \startformula
 	d\eta^\alpha = \frac{\partial H}{\partial \varpi_\alpha}\,dt
 	\qquad
@@ -36,13 +36,13 @@ This can be achieved by setting
 	F_\alpha = \lambda_\mu e^\mu_\alpha
 \stopformula
 With \m{n} unknown multipliers \m{\lambda_\mu}.
-With this external reaction force, Hamilton's equations become
+With this external reaction force, Hamilton’s equations become
 \startformula
 	d\eta^\alpha = \frac{\partial H}{\partial \varpi_\alpha}\,dt
 	\qquad
 	d\varpi_\alpha = \left( - \frac{\partial H}{\partial \eta^\alpha} + \lambda_\mu e^\mu_\alpha \right)\,dt
 \stopformula
-The final result of all of this is \m{2m} Hamilton's Equations and the \m{n} constraint equations. These can be used to solve for the \m{m} coordinates, \m{m} momenta, and \m{n} multipliers. For rolling constraints there is no velocity dependence in Hamilton's equations. The reaction force maintaining all of the constraints has components
+The final result of all of this is \m{2m} Hamilton’s Equations and the \m{n} constraint equations. These can be used to solve for the \m{m} coordinates, \m{m} momenta, and \m{n} multipliers. For rolling constraints there is no velocity dependence in Hamilton’s equations. The reaction force maintaining all of the constraints has components
 \startformula
 	F_{\alpha} = \lambda_\mu e^\mu_\alpha.
 \stopformula
@@ -58,7 +58,7 @@ This is the a constraint linear in velocity with
 \startformula
 	e^\mu_\alpha = \frac{\partial f^\mu}{\partial\eta^\alpha}
 \stopformula
-Hamilton's equations with holonomic constraints become
+Hamilton’s equations with holonomic constraints become
 \startformula
 	d\eta^\alpha = \frac{\partial H}{\partial \varpi_\alpha}\,dt
 	\qquad
