@@ -96,11 +96,12 @@
 % Versals for chapter openers
 %\usemodule[lettrine]
 \setupinitial[
-	distance=-1em,
+	distance=-1em, % text from initial (initial size)
 	n=2,
-	hoffset=1em,
+	hoffset=1em, % initial, initial size, positive is left
 	%before={}
 ]
+\define[2]\Initial{\noindentation\placeinitial{#1}\scaps{#2}}
 
 % Section heads
 \setuphead[section][
