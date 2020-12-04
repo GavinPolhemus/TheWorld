@@ -31,4 +31,4 @@ COPYDIR="~/Documents/Kunden/Polhemus/TheWorld/"
 #if [ ! -d $COPYDIR ]; then
 #	COPYDIR="~/Seafile/Meine Bibliothek/TheWorld"
 #fi
-context prd_volume${VOL} --result=${RESULTFILE} --mode=$MODE --autopdf=auto && cp ${RESULTFILE}.pdf $COPYDIR
+context prd_volume${VOL} --luatex --result=${RESULTFILE} --mode=$MODE --autopdf=auto && cp ${RESULTFILE}.pdf $COPYDIR
