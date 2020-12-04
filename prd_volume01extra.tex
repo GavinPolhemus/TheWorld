@@ -1,0 +1,26 @@
+% !TEX TS-program = ConTeXt Suite
+\startproduct prd_volume01extra
+\project project_world
+
+\def\volNo{I extra}
+\def\volDir{volume01extra}
+\def\volSubtitle{Music, Motion, and Mechanics}
+
+\component \volDir/titlepage
+\startfrontmatter
+	\component common/contents
+\stopfrontmatter
+\setupuserpagenumber[number=1]
+\startbodymatter
+	\component \volDir/Constraints
+\stopbodymatter
+
+%\startappendices
+%\stopappendices
+
+\startbackmatter
+%	\component common/bibliography % doesn’t work with latest LMTX
+%	\component common/index
+\stopbackmatter
+
+\stopproduct

@@ -1,0 +1,34 @@
+% !TEX TS-program = ConTeXt Suite
+\startproduct prd_volume00
+\project project_world
+
+\def\volNo{0}
+\def\volDir{volume01}
+\def\volSubtitle{Test}
+
+%\component common/titlepage
+\startfrontmatter
+%	\component common/contents
+\stopfrontmatter
+\setupuserpagenumber[number=1]
+\startbodymatter
+	\component \volDir/test
+	% \component \volDir/chapter01
+	% \component \volDir/chapter02
+	% \component \volDir/chapter03
+	% \component \volDir/chapter04
+	% \component \volDir/chapter05
+	% \component \volDir/chapter06
+	% \component \volDir/chapter07
+	% \component \volDir/chapter08
+\stopbodymatter
+
+%\startappendices
+%\stopappendices
+
+\startbackmatter
+%	\component common/bibliography % doesn’t work with latest LMTX
+%	\component common/index
+\stopbackmatter
+
+\stopproduct
