@@ -6,8 +6,11 @@
 *.bak
 *.bak.tex
 m_k_i_v_*
-*.pdf
-*.png
+/*.pdf
+volume01/*.pdf
+volume01extra/*.pdf
+volume02/*.pdf
+/*.png
 *.pgf
 *.synctex
 /tmp/
