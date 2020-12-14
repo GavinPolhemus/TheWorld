@@ -287,20 +287,20 @@ Modern calculations do not use \visviva, but instead use \keyterm{kinetic energy
 %}
 The factor of one-half is of no consequence for Leibniz. If his \visviva\ quantifies the \quote{absolute} motion of the system, then one-half of the \visviva\ will work just as well. Since we will use kinetic energy later, it is best to get in the habit of including the factor of one-half.
 
-\placetable
-    [margin]
-    [T:NewtonCollisionBefore]
-    {The momentum and kinetic energy before Newton’s example collision.}
-    {\small\starttabulate[|l|c|c|c|]
-\FL[2]%\toprule
-\NC			\NC Momentum 	\NC Kinetic Energy	\NR
-\HL
-\NC Ball A		\NC \m{6}			\NC \m{6}		\NR
-\NC Ball B		\NC \m{10}			\NC \m{50}		\NR
-\HL
-\NC Total		\NC \m{16}			\NC \m{56}		\NR
-\LL[2]%\bottomrule
-    \stoptabulate}
+\placetable[margin][T:NewtonCollisionBefore]
+{The momentum and kinetic energy before Newton’s example collision.}
+{\small
+	\starttabulate[|l|c|c|c|]
+		\FL[2]%\toprule
+		\NC			\NC Momentum 	\NC Kinetic Energy	\NR
+		\HL
+		\NC Ball A		\NC \m{6}			\NC \m{6}		\NR
+		\NC Ball B		\NC \m{10}			\NC \m{50}		\NR
+		\HL
+		\NC Total		\NC \m{16}			\NC \m{56}		\NR
+		\LL[2]%\bottomrule
+	\stoptabulate
+}
 
 In Newton’s collision example, the kinetic energy of ball \m{A} would be
 \startformula
@@ -343,18 +343,18 @@ A similar calculation gives Ball \m{B}’s kinetic energy. Confirm the values in
 
 If the collision has a really good bounce, the kinetic energy after the collision will be the same as the kinetic energy before, and the collision is called \keyterm{elastic}.
 Leibniz describes what happens during an elastic collision.
-\placefigure[margin][fig:LeibnizCollision]
-	{Leibniz describes how two colliding objects are deformed during a collision, from \booktitle{A Specimen of Dynamics}.\autocite{}{Newton1726}}
-	{\externalfigure[chapter04/LeibnizCollision][width=144pt]}
+\placefigure[margin][fig:LeibnizCollision]{
+	Leibniz describes how two colliding objects are deformed during a collision, from \booktitle{A Specimen of Dynamics}.\autocite{}{Newton1726}
+}{\externalfigure[chapter04/LeibnizCollision][width=144pt]}
 
 \startblockquote
 	If bodies A and B collide as in figure \in[fig:LeibnizCollision], and come from \m{\mathrm{A}_1}, and \m{\mathrm{B}_1}, to the place \m{\mathrm{A}_2}, \m{\mathrm{B}_2}, where they collide, they will, little by little, be compressed there, just like two inflated balls, and approach one another more and more, continually increasing the internal pressure. By that very circumstance the motion itself is weakened, the \visviva\ having been
-transformed into their elasticity, until they are altogether at rest. Then, finally, restoring themselves through their elasticity, they rebound from one another; having started a retrograde motion from rest, a motion that continually increases, in the end they move
-apart, having regained the same speed with which they originally approached one another, but directed oppositely, and they return to \m{\mathrm{A}_3}, and \m{\mathrm{B}_3}, which coincide with the places \m{\mathrm{A}_1}, and \m{\mathrm{B}_1}, if the bodies are assumed to be of the same size and the same velocity.\autocite{132. \quote{Figure 7} changed to figure \in[fig:LeibnizCollision]. \quote{Force} changed to \textit{\quote{vis viva.}}}{Leibniz1695}%
-%
-%	If the bodies A and B [figure \in[fig:LeibnizCollision]] meet and come from \m{A_1}, \m{B_1} into the place of concourse \m{A_2}, \m{B_2}, that there they are
-%gradually compressed like two inflated balls, and more and more approach each other in turn by the continually increased pressure; that, moreover, by this thing the motion itself is weakened, the force itself of the effort being carried over into the elasticities (elastra) of the bodies, until at length they are reduced to rest; but then at length the elasticity of the bodies restoring them, they themselves rebound from each other in turn with a retrograde motion begun again from rest and continually increasing; at length with the same velocity with which they approached each other, regained but turned in the opposite direction, they recede in turn from each other and return into the positions \m{A_3}, \m{B_3} which coincide with the positions \m{A_1}, \m{B_1}, if the bodies are supposed equal and of equal velocity.
-%	[New Understanding p. 686]
+	transformed into their elasticity, until they are altogether at rest. Then, finally, restoring themselves through their elasticity, they rebound from one another; having started a retrograde motion from rest, a motion that continually increases, in the end they move
+	apart, having regained the same speed with which they originally approached one another, but directed oppositely, and they return to \m{\mathrm{A}_3}, and \m{\mathrm{B}_3}, which coincide with the places \m{\mathrm{A}_1}, and \m{\mathrm{B}_1}, if the bodies are assumed to be of the same size and the same velocity.\autocite{132. \quote{Figure 7} changed to figure \in[fig:LeibnizCollision]. \quote{Force} changed to \textit{\quote{vis viva.}}}{Leibniz1695}%
+	%
+	%	If the bodies A and B [figure \in[fig:LeibnizCollision]] meet and come from \m{A_1}, \m{B_1} into the place of concourse \m{A_2}, \m{B_2}, that there they are
+	%gradually compressed like two inflated balls, and more and more approach each other in turn by the continually increased pressure; that, moreover, by this thing the motion itself is weakened, the force itself of the effort being carried over into the elasticities (elastra) of the bodies, until at length they are reduced to rest; but then at length the elasticity of the bodies restoring them, they themselves rebound from each other in turn with a retrograde motion begun again from rest and continually increasing; at length with the same velocity with which they approached each other, regained but turned in the opposite direction, they recede in turn from each other and return into the positions \m{A_3}, \m{B_3} which coincide with the positions \m{A_1}, \m{B_1}, if the bodies are supposed equal and of equal velocity.
+	%	[New Understanding p. 686]
 \stopblockquote
 In Leibniz’s example, the speeds are the same after the collision as before, so the total kinetic energy also remains the same. In many elastic collisions each object does not retain the same velocity; one speeds up and one slows down, as in Newton’s example. However, Huygens demonstrated the total \m{mv^2} remains the same in all perfectly elastic collisions. Therefore, the total kinetic energy also remains the same.
 
