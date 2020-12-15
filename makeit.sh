@@ -1,5 +1,8 @@
 #!/bin/bash
 # TODO: make paths relative
+# GP: My paths are below
+# Repository folder: ~/TheWorld/
+# LMTX folder: ~/context-osx-64
 
 cd ~/workspace/world
 
