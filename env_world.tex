@@ -1,4 +1,3 @@
-% !TEX TS-program = ConTeXt Suite
 % !TEX root = volume01/prd_volume01.tex
 \startenvironment env_world
 % where \product and \component look for TeX input files
@@ -8,18 +7,8 @@
 
 % Fonts
 %
-% The method sent by Minion Math
-% \definefontfamily [mainfont] [rm][Libertinus Serif]% Libertinus for Text %[Minion Pro] % Minion Pro for Text
-% \definefontfamily [mainfont] [math][Libertinus Math]% Libertinus for Math % [Minion Math] % Minion Math for Math
-% \definefallbackfamily[mainfont][math][Cambria Math] % Script missing in MinionMath
-%                      [range={uppercasescript, lowercasescript}]
-% \definefallbackfamily[mainfont][math][Latin Modern Math] % Fraktur missing in MinionMath
-%                      [range={uppercasefraktur, lowercasefraktur}]
-\setupbodyfont [libertinus,11pt]% [mainfont,11pt] % Also possible, and free
-% Methods using typecripts from ConTeXt
-%\usetypescriptfile[type-adobe]
-%\usetypescript[minion]
-%\setoldstyle % Old style numerals in text
+\setupbodyfont [libertinus,11pt]%
+% Old style numerals in text
 \definefontfeature[default][default][
 	pnum=yes, % proportial numbers
 	onum=yes, % oldstyle numbers
@@ -61,24 +50,24 @@
 	[\textwidth+\rightmarginwidth+\rightmargindistance]
 
 %
-% PDF features (HR)
+% PDF features (HR) GP: This produced bold figure and table refs, so I turned it off.
 %
-\startnotmode[print]
-\setupinteraction[state=start,color=,contrastcolor=,]
-\placebookmarks[chapter,section,subsection][chapter]
-\enabledirectives[references.bookmarks.preroll]
-\setupinteractionscreen[
-  option={doublesided,bookmark},
-  width=fit,height=max,
-]
-\stopnotmode
-\startmode[print]
-\setupinteraction[state=stop]
-\setupbackend[
-  format=PDF/X-4,
-  intent={Coated FOGRA39 (ISO 12647-2:2004)}, % European print standard; use SWOP?
-]
-\stopmode
+%\startnotmode[print]
+%\setupinteraction[state=start,color=,contrastcolor=,]
+%\placebookmarks[chapter,section,subsection][chapter]
+%\enabledirectives[references.bookmarks.preroll]
+%\setupinteractionscreen[
+%  option={doublesided,bookmark},
+%  width=fit,height=max,
+%]
+%\stopnotmode
+%\startmode[print]
+%\setupinteraction[state=stop]
+%\setupbackend[
+%  format=PDF/X-4,
+%  intent={Coated FOGRA39 (ISO 12647-2:2004)}, % European print standard; use SWOP?
+%]
+%\stopmode
 
 
 %
@@ -93,15 +82,16 @@
 	indentnext=no,
 	numberstyle=scxx, textstyle=tfc,
 ]
-% Versals for chapter openers
-%\usemodule[lettrine]
+% Versals for chapter openers:
+\usemodule[lettrine] % GP: I turned this back on until initials are working correctly.
 \setupinitial[
 	distance=-1em, % text from initial (initial size)
 	n=2,
-	hoffset=1em, % initial, initial size, positive is left
+	% hoffset=1em, % initial, initial size, positive is left
 	%before={}
 ]
-\define[2]\Initial{\noindentation\placeinitial{#1}\scaps{#2}}
+%\define[2]\Initial{\noindentation\placeinitial{#1}\scaps{#2}}
+\define[2]\Initial{\lettrine{#1}{#2}} % GP: Using this until initials work.
 
 % Section heads
 \setuphead[section][
@@ -117,13 +107,13 @@
 \defineconversionset[bodypart:pagenumber][][numbers]
 %\defineconversionset[appendix:pagenumber][][Characters]
 \setupheadertexts[text][section][][][chapter]
-\setupheadertexts[margin][][\hfill\pagenumber][\pagenumber \hfill][] % HR: does \hfill work here at all?
+\setupheadertexts[margin][][\hfill\pagenumber][\pagenumber \hfill][] % HR: does \hfill work here at all? GP: It seems to.
 
 % Indenting
 \setupindenting[yes,medium]
 
 % Emphasis
-% HR: setup changed, use highlights, not just defines
+% HR: setup changed, use highlights, not just defines. GP: Great.
 \setupbodyfontenvironment[default][em=italicface]
 \definehighlight[emph][style={\em}]
 \definehighlight[textit][style=italicface]
@@ -133,7 +123,7 @@
 \define\Visviva{\emph{Vis viva}}
 
 % References within text
-% HR: do you need to be LaTeX compatible?
+% HR: do you need to be LaTeX compatible? GP: No. I prefer to use ConTeXt commands
 \define[1]\ref{\in[#1]}
 \define[1]\pageref{\at[#1]}
 
@@ -153,7 +143,7 @@
 \setupnote[endnote][
 	location=text,
 	%textcommand=\FNN, % footnote marker in text
-	%symbolcommand={\#1.}, % HR: does this work at all?
+	%symbolcommand={\#1.}, % HR: does this work at all? GP: I don't think so.
 ] % Endnotes are used for citations
 \setupnotation[endnote][numbercommand=\FNN] % footnote number in list
 \setupbtx [apa:cite][alternative=authoryears] %
@@ -251,7 +241,7 @@
 ]
 
 % Text Fractions
-% HR: this might be easier with OpenType features
+% HR: this might be easier with OpenType features. GP: I'm almost certain it would be.
 
 % numerator
 \define\fracone{\getnamedglyphdirect{libertinus}{onesuperior}} % 1
@@ -286,22 +276,6 @@
 \define\fivetwelfths{\text{\fracfive\twelfths}} % 5/12
 \define\seventwelfths{\text{\fracseven\twelfths}} % 7/12
 \define\fifteensixteenths{\text{\fracfifteen\sixteenths}} % 15/16
-
-%% Fractions in Minion
-%\define\half{{\textstyle\frac{1}{2}}}
-%% /denominator
-%\define\halves{\textfraction\getnamedglyphdirect{minion}{two.denominator}} % /2
-%\define\quarters{\textfraction\getnamedglyphdirect{minion}{four.denominator}} % /4
-%% numerator
-%\define\fracthree{\getnamedglyphdirect{minion}{three.numerator}}
-%\define\fracfive{\getnamedglyphdirect{minion}{five.numerator}}
-%\define\fracnine{\getnamedglyphdirect{minion}{nine.numerator}}
-%\define\fracsixteen{\getnamedglyphdirect{minion}{one.numerator}\getnamedglyphdirect{minion}{six.numerator}} % 16
-%% numerator/denominator
-%\define\fivequarter{\text{\fracfive\quarters}} % 5/4
-%\define\sixteenquarter{\text{\fracsixteen\quarters}} % 16/4
-%\define\ninequarter{\text{\fracnine\quarters}} % 9/4
-%\define\threehalf{\text{\fracthree\halves}} %  3/2
 
 % Index
 \define[1]\keyterm{{\em #1}\index{#1}} % See "Context Excursion"
