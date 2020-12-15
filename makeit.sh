@@ -1,25 +1,30 @@
 #!/bin/bash
-# TODO: make paths relative
-# GP: My paths are below
-# Repository folder: ~/TheWorld/
-# LMTX folder: ~/context-osx-64
 
-cd ~/workspace/world
-
-# for TEX in volume01/*.tex; do echo $TEX; texcheck $TEX; done
-
-if [ "$TEXROOT" == "" ]; then
-	#source ~/context/tex/setuptex ~/context/tex
-	#setuplmtx
-	echo TEXROOT not set!
-	exit 1
+if [ "$USER" == "hraban" ]; then
+	# Hraban’s settings
+	cd ~/workspace/world
+	TEXROOT=~/lmtx
+	COPYDIR="~/Documents/Kunden/Polhemus/TheWorld/"
+	# COPYDIR="~/Seafile/Meine Bibliothek/TheWorld/"
+else
+	# Gavin’s settings
+	cd ~/TheWorld/
+	TEXROOT=~/context-osx-64
+	COPYDIR=./
 fi
+PATH=$TEXROOT/bin:$PATH
 
 VOL=$1
 MODE=$2
 
 if [ "$VOL" == "" ]; then
 	VOL=01
+fi
+
+if [ "$MODE" == "check" ]; then
+	echo "Checking source files, no compilation."
+	for TEX in volume$VOL/*.tex; do echo $TEX; mtxrun --autogenerate --script check $TEX; done
+	exit
 fi
 
 if [ "$MODE" == "" ]; then
@@ -30,8 +35,5 @@ ISODATE=`date +"%Y-%m-%d"`
 
 RESULT=TheWorld
 RESULTFILE=${RESULT}_${ISODATE}
-COPYDIR="~/Documents/Kunden/Polhemus/TheWorld/"
-#if [ ! -d $COPYDIR ]; then
-#	COPYDIR="~/Seafile/Meine Bibliothek/TheWorld"
-#fi
+# use MkIV mode: --luatex
 context prd_volume${VOL} --luatex --result=${RESULTFILE} --mode=$MODE --autopdf=auto && cp ${RESULTFILE}.pdf $COPYDIR
