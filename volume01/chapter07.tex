@@ -33,15 +33,6 @@ to the generalized reduced mass \m{\mu}.]
 \m{dW= \vec \Gamma \dotp d\theta}
 
 
-\subject{Notes}
-%\placefootnotes[criterium=chapter]
-\placenotes[endnote][criterium=chapter]
-
-%\subject{Bibliography}
-%        \placelistofpublications
-
-\stopchapter
-\stopcomponent
 
 \placetextfloat[top][fig:KeplerTerestrial]
 {The orbits of the inner planets. These are the also called the terrestrial or rocky planets. The orbits of Mercury and Mars are off-center. Although their orbits appear nearly circular, they are actually ellipses, with the sun at one focus of the ellipse.}	% caption text
@@ -83,7 +74,7 @@ to the generalized reduced mass \m{\mu}.]
         samples=600,
     ]
         {1.496/(1+0.0167*cos(x-102.93))}
-    node[pos=0.25] {\Terra}
+    node[pos=0.25] {\Earth}
     ;
     \addplot [ % Mars
     	name path=Mars,
@@ -102,8 +93,17 @@ to the generalized reduced mass \m{\mu}.]
 \stoppolaraxis
 \stoptikzpicture}
 
-%\stopchapter
-%\stopcomponent
+\subject{Notes}
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+
+%\subject{Bibliography}
+%        \placelistofpublications
+
+
+
+\stopchapter
+\stopcomponent
 
 % Templates:
 
@@ -117,7 +117,6 @@ to the generalized reduced mass \m{\mu}.]
 	–
 	\stopalignment
 }
-
 
 % Margin image
 \placefigure[margin][] % Location, Label
