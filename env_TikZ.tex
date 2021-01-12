@@ -15,6 +15,41 @@
 \unexpanded\def\stopgroupplot{\endgroupplot}
 
 \usepgfplotslibrary[fillbetween]
+\unprotect
+\def\pgfplotsdefineaxistype{\pgfutil@ifnextchar[{\pgfplotsdefineaxistype@}{\pgfplotsdefineaxistype@[cart]}}%
+\def\pgfplotsdefineaxistype@[#1]#2#3{%
+	\expandafter\def\csname pgfplots@axistype@#2\endcsname{%
+		\pgfkeyssetvalue{/pgfplots/@expected axis cs}{#1}%
+		#3%
+	}%
+	\expandafter\def\csname pgfplots@environment@#2axis\endcsname{%
+		\pgfutil@ifnextchar[%
+			{\csname pgfplots@environment@#2axis@\endcsname}%
+			{\csname pgfplots@environment@#2axis@\endcsname[]}%
+	}%
+	\expandafter\long\expandafter\def\csname pgfplots@environment@#2axis@\endcsname[##1]{%
+		\axis[%
+			##1,%
+			data cs=#1,%  assume that coordinates provided by \addplot are in the correct coordsystem
+			axis type=#2% active the correct axis type
+		]%
+	}%
+	\expandafter\def\csname endpgfplots@environment@#2axis\endcsname{\endaxis}%
+	\edef\pgfplots@glob@TMPc{\expandafter\noexpand\csname #2axis\endcsname\expandafter\noexpand\csname pgfplots@environment@#2axis\endcsname}%
+	\expandafter
+	\tikzaddtikzonlycommandshortcutlet\pgfplots@glob@TMPc
+	%
+	\edef\pgfplots@glob@TMPc{\expandafter\noexpand\csname end#2axis\endcsname\expandafter\noexpand\csname endpgfplots@environment@#2axis\endcsname}%
+	\expandafter
+	\tikzaddtikzonlycommandshortcutlet\pgfplots@glob@TMPc
+	%
+	% ConTeXt compatibility:
+	\t@pgfplots@toka=\expandafter{\csname #2axis\endcsname}%
+	\t@pgfplots@tokb=\expandafter{\csname end#2axis\endcsname}%
+	\expandafter\edef\csname start#2axis\endcsname{\the\t@pgfplots@toka}%
+	\expandafter\edef\csname stop#2axis\endcsname{\the\t@pgfplots@tokb}%
+}%
+\protect
 \usetikzlibrary[pgfplots.polar]
 
 \tikzset{>/.tip=Latex} % The tip drawn by -> will be the LaTeX tip.

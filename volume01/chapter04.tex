@@ -106,7 +106,7 @@ Both moving cannon balls have momentum, but one’s momentum is positive while t
 
 \placefigure[margin][fig:firedballs] % location
 {Two cannon balls fired directly at one another have lots of motion\dots or none.}	% caption text
-{\vskip27pt\hbox{\starttikzpicture
+{\vskip10pt\hbox{\starttikzpicture
 	\draw[white] (0,0)-- ++(5,0); % Sky to make height better
 \stoptikzpicture}}
 
@@ -349,7 +349,7 @@ Leibniz describes what happens during an elastic collision.
 \startblockquote
 	If bodies A and B collide as in figure \in[fig:LeibnizCollision], and come from \m{\mathrm{A}_1}, and \m{\mathrm{B}_1}, to the place \m{\mathrm{A}_2}, \m{\mathrm{B}_2}, where they collide, they will, little by little, be compressed there, just like two inflated balls, and approach one another more and more, continually increasing the internal pressure. By that very circumstance the motion itself is weakened, the \visviva\ having been
 	transformed into their elasticity, until they are altogether at rest. Then, finally, restoring themselves through their elasticity, they rebound from one another; having started a retrograde motion from rest, a motion that continually increases, in the end they move
-	apart, having regained the same speed with which they originally approached one another, but directed oppositely, and they return to \m{\mathrm{A}_3}, and \m{\mathrm{B}_3}, which coincide with the places \m{\mathrm{A}_1}, and \m{\mathrm{B}_1}, if the bodies are assumed to be of the same size and the same velocity.\autocite{132. \quote{Figure 7} changed to figure \in[fig:LeibnizCollision]. \quote{Force} changed to \textit{\quote{vis viva.}}}{Leibniz1695}%
+	apart, having regained the same speed with which they originally approached one another, but directed oppositely, and they return to \m{\mathrm{A}_3}, and \m{\mathrm{B}_3}, which coincide with the places \m{\mathrm{A}_1}, and \m{\mathrm{B}_1}, if the bodies are assumed to be of the same size and the same velocity.\autocite{132. \quote{Figure 7} changed to \quote{\in{figure}[fig:LeibnizCollision].} \quote{Force} changed to \textit{\quote{vis viva.}}}{Leibniz1695}%
 	%
 	%	If the bodies A and B [figure \in[fig:LeibnizCollision]] meet and come from \m{A_1}, \m{B_1} into the place of concourse \m{A_2}, \m{B_2}, that there they are
 	%gradually compressed like two inflated balls, and more and more approach each other in turn by the continually increased pressure; that, moreover, by this thing the motion itself is weakened, the force itself of the effort being carried over into the elasticities (elastra) of the bodies, until at length they are reduced to rest; but then at length the elasticity of the bodies restoring them, they themselves rebound from each other in turn with a retrograde motion begun again from rest and continually increasing; at length with the same velocity with which they approached each other, regained but turned in the opposite direction, they recede in turn from each other and return into the positions \m{A_3}, \m{B_3} which coincide with the positions \m{A_1}, \m{B_1}, if the bodies are supposed equal and of equal velocity.
@@ -488,10 +488,9 @@ This is accomplished by replacing the velocity with momentum in the kinetic ener
 {The position vs.~time graph for Newton’s less elastic collision.}	% caption text
 {\noindent\typesetbuffer[TikZ:PendulumCollisionGraph4]} % figure contents
 
-\startformula\startmathalignment
-	\NC K	\NC = \half mv^2	\NR
-	\NC		\NC = \half m \left(\frac{p}{m}\right)^2. %= \frac{p^2}{2m}
-\stopmathalignment \stopformula
+\startformula
+	K = \half mv^2 = \half m \left(\frac{p}{m}\right)^2. %= \frac{p^2}{2m}
+\stopformula
 A little simplification gives the useful relationship
 \highlightbox{
 \startformula[eq:1DKp]
@@ -499,10 +498,10 @@ A little simplification gives the useful relationship
 \stopformula
 }%\end{shaded}
 %Momentum requires energy\index{energy}.
-Because momentum and kinetic energy are central concepts in mechanics, this relation between them is extremely useful. There are a couple of things to notice about this formula.
+Because momentum and kinetic energy are central concepts in mechanics, this relationship is extremely useful. There are a couple of things to notice about this formula.
 First, momentum and kinetic energy are closely related. If an object is not moving, then its momentum and kinetic energy are both zero. If it is moving, then neither is zero.
-Second, momentum is directional, but kinetic energy is not. The sign of the momentum tells which direction the momentum is pointing. The kinetic energy is always positive, independent of the direction.
-A object moving in the positive direction with a momentum of \m{10\units{kg\.m/s}} has the same kinetic energy as a cart moving the negative direction with a momentum of \m{-10\units{kg\.m/s}}.
+Second, momentum is directional, but kinetic energy is not. The momentum's sign indicates the momentum's direction. The kinetic energy is always positive, independent of the direction.
+An object moving in the positive direction with a momentum of \m{10\units{kg\.m/s}} has the same kinetic energy as it would moving the negative direction with a momentum of \m{-10\units{kg\.m/s}}.
 
 \placetable
     [margin]
@@ -520,7 +519,7 @@ A object moving in the positive direction with a momentum of \m{10\units{kg\.m/s
 \LL[2]%\bottomrule
     \stoptabulate}
 
-Returning to Newton’s collision, all \m{A}’s kinetic energy after the inelastic collision can be easily found with the new kinetic energy formula.
+Returning to Newton’s collision, \m{A}’s kinetic energy after the inelastic collision can be easily found with the new kinetic energy formula.
 \startformula
 	K = \frac{p^2}{2m} = \frac{15^2}{2\cdot3} = 37\onehalf
 \stopformula
@@ -757,7 +756,7 @@ What if you decide to push the refrigerator in the negative direction? To make t
 
 While you are pushing the refrigerator in the positive direction, friction with the floor is opposing the motion by pushing in the negative direction. While the force exerted by the friction is negative, the displacement is still positive, so the work done by friction is negative. The refrigerator gets some kinetic energy due to the positive work that you do pushing it, but that kinetic energy is quickly lost due to the negative work done by friction.
 
-Since work is force times displacement, the \scaps{si} units for work are \m{\unit{N\.m}}. These units are so common that they have been given their own name – \keyterm{joules}. The symbol for a joule is J (not to be confused with the symbol for impulse, \m{J}). % and it is related to the other standard SI units by the definition
+Since work is force times displacement, the \scaps{si} units for work are \m{\unit{N\.m}}. These units are so common that they have been given their own name – \keyterm{joules}. The symbol for a joule is J (not to be confused with the symbol for impulse, \m{J} ). % and it is related to the other standard SI units by the definition
 \startformula
 	1\units{J}=1\units{N\.m}
 \stopformula
@@ -812,7 +811,7 @@ The work done by the block is found using the work formula, but take care to use
 
 ’s Gravesande’s experiment provides a good example of positive and negative work being done in the \m{y}-direction. A dropped ball is pulled downward by the gravitational force. The downward force is negative, and the downward displacement is also negative, so work done by the gravitational force is positive, increasing the ball’s kinetic energy.
 
-When the ball hits the clay, the clay exerts an upwards force much greater than the gravitational force. The ball continues down a bit, making a dent in the clay, so there is a small negative displacement even as the clay is exerting a large positive force. The work done by the clay is the product of the positive force and the negative displacement, so it is negative. The negative work done by the clay eliminates the ball’s kinetic energy, brining it to a stop.
+When the ball hits the clay, the clay exerts an upwards force much greater than the gravitational force. The ball continues down a bit, making a dent in the clay, so there is a small negative displacement even as the clay is exerting a large positive force. The work done on the ball as it stops is the product of the positive force and the negative displacement. This negative work on the ball eliminates it's kinetic energy, brining it to a stop.
 
 %The size of the dent in the clay was proportional to the work done by the ball during the impact. Dents are harder to measure than displacements, but the idea is the same. His data showed that the work done was proportional to the \visviva, not the momentum.
 
@@ -820,7 +819,7 @@ When the ball hits the clay, the clay exerts an upwards force much greater than 
 
 Engineers’ work and physicists’ \visviva\ were first linked by Daniel Bernoulli, son of the Swiss \visviva\ advocate Johann Bernoulli, mentioned earlier. D.~Bernoulli had undertaken a detailed study of fluid motion, and in the process he recognized that \visviva\ (or kinetic energy) is not the only type of energy. I am not going to list the other types of energy now – D.~Bernoulli will assist us with that in the next chapter. Here it is sufficient to know that there are other types of energy and only the total energy is conserved. D. Bernoulli used his conservation of energy principal to great effect in his groundbreaking  \booktitle{Hydrodynamica}, published in 1738.
 
-The symbol for total energy is \m{H}.%, honoring William Rowan Hamilton, who we will meet in \in{Chapter}[ch:1Ddynamics].
+The symbol for total energy is \m{H}. %, honoring William Rowan Hamilton, who we will meet in \in{Chapter}[ch:1Ddynamics].
 The conservation law for total energy \m{H} looks very similar to the conservation law for momentum.
 %\highlightbox{
 \startformula[eq:1DEconserve]
@@ -831,6 +830,8 @@ Energy can be added or removed from a system through work \m{W} done by outside 
 A person pushing a cart does positive work, increasing the cart’s kinetic energy. Friction resists the cart’s motion, doing negative work and decreasing the cart’s kinetic energy.
 
 Energy can also be added as heat \m{Q} by cooking the cart over a fire, which increases the random, microscopic energy of the cart’s atoms and molecules. D. Bernoulli had some deep insights into how \m{Q} related to the motion of the microscopic parts, but he did not manage to calculate \m{Q}. That part of the project became one of the greatest challenges for physicists during the nineteenth century. We will return to it in Volume II. Until then we will faithfully include \m{Q} when writing the conservation of energy equation, but immediately cross it out because the heat transfer \m{Q} is zero in mechanics problems. In mechanics, any change in a system’s total energy is due to an outside force doing work on the system.
+
+%Leibniz’s did not know that the balls’ temperature is a measure of the microscopic random motion – higher temperature indicating greater microscopic \visviva. The loss of the balls’ \visviva\ to the microscopic parts causes an increase in temperature, but the increase is extremely small, far too small for seventeenth century experimenters to measure. The idea that the temperature is connected to microscopic \visviva\ appeared several times in the decades that followed, but was not widely accepted until the middle of the nineteenth century. We will return to this idea in Volume II.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:BlockSlideK]
@@ -938,11 +939,11 @@ This cart and block start quickly with a small force resisting their motion, so 
 \noindent
 The plot in \in{figure}[fig:BlockSlideK] shows the energy of the block as a function of position while the block is slowing to a stop. The block starts out with \m{1.72\units{J}} of energy, and loses that energy as it slides to the right. Because the negative work done by friction is proportional to the distance, the energy decreases in proportion to the distance. The slope is equal to the force, \m{-0.20\units{N}}.
 
-In the example we saw that kinetic energy has the same \scaps{si} units as work. In fact, the \scaps{si} units for all types of energy, work and heat are joules. The following conversions are useful.
+In the example we saw that kinetic energy has the same \scaps{si} units as work. In fact, the \scaps{si} units for all types of energy, work, and heat are joules. The following conversions are useful.
 \startformula
 	1\units{J} = 1\units{N\.m} = 1\units{kg\.m^2/s^2}
 \stopformula
-Energy will come in many different forms, which many different formulas, but the units can always be converted to joules.
+Energy will come in many different forms, with many different formulas, but the units can always be converted to joules.
 
 \section{Kinetic energy and work in three dimensions}
 
@@ -996,7 +997,7 @@ You do \m{95\units{J}} of work on the refrigerator. There is no way to know from
 \stopexample
 
 \section{Vis viva revived}
-Leibnitz’s \visviva\ was given new life by the extremely clever French noblewoman Emilie Du Châtelet. %, who investigated both sides of the debate in great depth.
+Leibnitz’s \visviva\ was given new life by a bold genius, Emilie Du Châtelet. %, who investigated both sides of the debate in great depth.
 Emilie was born in 1706. Her wealthy father used his connections in the court of King Louis XIV to arrange Emilie’s marriage to a high ranking military officer with a distinguished noble linage. The couple did not know each other before their wedding, but they knew the benefits of their union. At the age of eighteen, she became a noblewoman, Madame la marquise Du Châtelet. Her husband, twelve years older, gained financial resources and connections to advance his military carer. Shortly after the birth of their third child in 1733, Emilie Du Châtelet took an interest in mathematics and geometry, reading many books and hiring an excellent tutor. She met the famous playwright Voltaire that same year and began collaborating with him intimately on many projects, including the study of Newtonian Physics.
 
 In 1740, at the age of thirty four, Du Châtelet wrote a physics book, \booktitle{Institutions de Physique} or \booktitle{Foundations of Physics}. She had been unable to find an introductory physics text for her son, so she wrote \booktitle{Foundations} for him. She explained Newtonian mechanics with great clarity and conviction. No reader could doubt her mastery and enthusiasm for Newton’s theory of motion.
@@ -1007,9 +1008,9 @@ In the final chapter, Du Châtelet explains \visviva. She reminds her son of \qu
 \stopblockquote
 Even as she refuted the Cartesian position, her mastery of Newtonian physics was on full display. In many  examples she first used Newtonian physics to predict what would happen. She then showed, based on this Newtonian analysis, that \visviva\ was also conserved, but Descartes’ quantity of motion was not.
 
-As her final argument of this type, Du Châtelet calls on the authority of Isaac Newton himself! In the forth and final edition of \booktitle{Opticks}, published in 1730, Newton includes an essay on forces in nature. This famous essay became know by its unhelpful title: \booktitle{Query 31}. In it, he argues that the quantity of motion is \emph{not} conserved.
+As her final argument of this type, Du Châtelet calls on the authority of Isaac Newton himself! In the forth and final edition of \booktitle{Opticks}, published in 1730, Newton included an essay on forces in nature. This famous essay became know by its unhelpful title: \booktitle{Query 31}. In it, Newton argues that the quantity of motion is \emph{not} conserved.
 \quotation{For from the various Composition of two Motions, ’tis very certain that there is not always the same quantity of Motion in the World.}
-He provides an example in which \quotation{two Globes joined by a slender Rod, revolve about their common Center of Gravity with an uniform Motion, while that Center moves on uniformly in a right Line\dots,} as shown in figure~\in[fig:spinningmoving]. (The center of gravity is an idea we will return to later in this chapter. We will call it the center of mass.) These combined motions, once they are started, will continue uniformly without any external forces. In this situation,
+He provides an example in which \quotation{two Globes joined by a slender Rod, revolve about their common Center of Gravity with an uniform Motion, while that Center moves on uniformly in a right Line\dots,} as shown in \in{figure}[fig:spinningmoving].\autocite{373}{Newton1730} (The center of gravity is an idea we will return to later in this chapter. We will call it the center of mass.) These combined motions, once they are started, will continue uniformly without any external forces. In this situation,
 \startbuffer[TikZ:spinning]
 \environment env_physics
 \environment env_TikZ
@@ -1043,33 +1044,106 @@ He provides an example in which \quotation{two Globes joined by a slender Rod, r
 \setupbodyfont [libertinus,11pt]
 \setoldstyle % Old style numerals in text
 \startTEXpage
-\def\angles{72,54,...,-90}
+\def\angles{522,504,...,-90}
 \starttikzpicture% tikz code
-	\clip (-2.5,-1.75) rectangle (2.5,1.75);% Clipping Rectangle
+	\clip (-14,-1.75) rectangle (2.5,1.75);% Clipping Rectangle
 	\foreach \T in \angles {% Dumbbells
 		\draw[-{Straight Barb[scale length=.5]}] ({-3.14*(\T+18)/120},0) -- ({-3.14*\T/120},0)pic[{}
-		-{},rotate={\T},opacity={.5-(\T/180)}]{dumbbell};
+		-{},rotate={\T},opacity={.5-(\T/1200)}]{dumbbell};
 	}
 \stoptikzpicture
 \stopTEXpage
 \stopbuffer
 
+%\placefigure[margin][fig:spinningmoving] % location
+%{As the joined globes revolve, their center moves uniformly in a straight line.}	% caption text
+%{\noindent\typesetbuffer[TikZ:spinningmoving]} % figure contents
+
 \placefigure[margin][fig:spinningmoving] % location
 {As the joined globes revolve, their center moves uniformly in a straight line.}	% caption text
-{\noindent\typesetbuffer[TikZ:spinningmoving]} % figure contents
+{\vskip4.4in\hbox{\starttikzpicture
+	\draw[white] (0,0)-- ++(5,0); % Sky to make height better
+\stoptikzpicture}}
+
+\placewidefloat[bottom,none]
+{This is its caption I need to fix.}
+{\hbox{\noindent\typesetbuffer[TikZ:spinningmoving]}} % figure contents
+
 
 \startblockquote
-the Sum of the Motions of the two Globes, as often as the Globes are in the right Line described by their common Center of Gravity, will be bigger than the Sum of their Motions, when they are in a Line perpendicular to that right Line. By this Instance it appears that Motion may be got or lost.
+the Sum of the Motions of the two Globes, as often as the Globes are in the right Line described by their common Center of Gravity, will be bigger than the Sum of their Motions, when they are in a Line perpendicular to that right Line. By this Instance it appears that Motion may be got or lost.\autocite{373}{Newton1730}
 \stopblockquote
-Du Châtelet confirms this with specific masses and velocities. She gives a mass \m{m=1} to each of the globes, which she calls body A and body B. She sets the rod spinning such that the bodies move with speeds \m{v=1} about the center, while that center moves with a speed \m{v=1} to the right. She first considers the moment when the rod is perpendicular to the line. At this moment body B’s velocity due to the spinning is in the same direction as the rod’s central motion, so the velocities add to give a velocity with magnitude \m{v\sub{B} = 2}. Body A’s velocity due to the spinning is exactly opposite the rod’s central velocity, so the velocities add to give a velocity with magnitude \m{v\sub{A}=0}. The total quantity of motion is then
+Du Châtelet confirms this with specific masses and velocities. She gives a mass \m{m=1} to each globe. She sets the rod spinning such that the globes move with speeds \m{v=1} about the center, while that center moves with a speed \m{v=1} to the right. She first considers the moment when the rod is perpendicular to the line, as in \in{figure}[fig:spinningmovingperpendicular]. At this moment globe B’s velocity due to the spinning is in the same direction as the rod’s central motion, so the velocities add to give a speed \m{v\sub{B} = 2}. Globe A’s velocity due to the spinning is exactly opposite the rod’s central velocity, so the velocities add to give a speed \m{v\sub{A}=0}. The total quantity of motion is then
+\startbuffer[TikZ:spinningmovingperpendicular]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage
+\def\angles{72,54,...,-90}
+\starttikzpicture% tikz code
+	\clip (-2.5,-2.1) rectangle (2.5,2);% Clipping Rectangle
+	\foreach \T in \angles {% Dumbbells
+		\draw[-{Straight Barb[scale length=.5]}] ({-3.14*(\T+18)/120},0) -- ({-3.14*\T/120},0)pic[{}
+		-{},rotate={\T+90},opacity={.1}]{dumbbell};
+	}
+	\pic[at={(0,0)},rotate={90}]{dumbbell};
+	\draw[->, thick](0,1.5) --node[above]{\m{v_B=2}} ++(2,0);
+	\draw(0,-1.5)node[below=1mm]{\m{v_A=0}};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+\placefigure[margin][fig:spinningmovingperpendicular] % location
+{The globes' velocities when the rod is perpendicular to the line of motion.}	% caption text
+{\noindent\typesetbuffer[TikZ:spinningmovingperpendicular]} % figure contents
 \startformula
 mv\sub{B}+mv\sub{A} = 1\cdot 2 + 1\cdot 0 = 2
 \stopformula
-She then considers the moment when the rod aligns with the line. At this moment body B’s velocity due to the spinning is upwards, perpendicular to the rod’s central velocity, so the velocities add (using the tip-to-tail method) to give a velocity with magnitude \m{v\sub{A}=\sqrt 2}. Similarly, body A’s velocity due to the rod’s rotation is downward, giving body A a speed \m{v\sub{A}=\sqrt 2}. The total quantity of motion is then
+\startbuffer[TikZ:spinningmovingperparallel]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage
+\def\angles{72,54,...,-90}
+\starttikzpicture% tikz code
+	\clip (-2.5,-2.1) rectangle (2.5,2);% Clipping Rectangle
+	\foreach \T in \angles {% Dumbbells
+		\draw[-{Straight Barb[scale length=.5]}] ({-3.14*(\T+18)/120},0) -- ({-3.14*\T/120},0)pic[{}
+		-{},rotate={\T+180},opacity={.1}]{dumbbell};
+	}
+	\pic[at={(0,0)},rotate={180}]{dumbbell};
+	\draw[->, thick](-1.5,0) --node[above left]{\m{v_B=\sqrt{2}}} ++(1,1);
+	\draw[->, thick](1.5,0) --node[below left]{\m{v_A=\sqrt{2}}} ++(1,-1);
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+\placefigure[margin][fig:spinningmovingperparallel] % location
+{The globes' velocities when the rod is aligned with the line of motion.}	% caption text
+{\noindent\typesetbuffer[TikZ:spinningmovingperparallel]} % figure contents
+She then considers the moment when the rod aligns with the line, as in \in{figure}[fig:spinningmovingperparallel]. At this moment B’s velocity due to the spinning is upwards, perpendicular to the rod’s central velocity, so the velocities add (using the tip-to-tail method) to give a speed \m{v\sub{A}=\sqrt 2}. Similarly, A’s velocity due to the rod’s rotation is downward, giving body A a speed \m{v\sub{A}=\sqrt 2}. The total quantity of motion is then
 \startformula
 mv\sub{B}+mv\sub{A} = 1\cdot \sqrt 2 + 1\cdot \sqrt 2 = 2 \sqrt 2
 \stopformula
-Clearly, the quantity of motion is not constant in this example. However, the total momentum \m{\vec p = \vec p\sub{B} + \vec p\sub{B}} is constant, always to the right with a magnitude \m{p = 2}. What about the \visviva?
+\startbuffer[TikZ:spinningmovingmomentum]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage
+\def\angles{72,54,...,-90}
+\starttikzpicture% tikz code
+	\clip (-2.5,-.5) rectangle (2.5,1.1);% Clipping Rectangle
+	\draw[->, thick](-1,0) --node[above left]{\m{p_B=\sqrt{2}}} ++(1,1);
+	\draw[->, thick](0,1) --node[above right]{\m{p_A=\sqrt{2}}} ++(1,-1);
+	\draw[->, thick](-1,0) --node[below]{\m{p=2}} ++(2,0);
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+\placefigure[margin][fig:spinningmovingmomentum] % location
+{The globes' momentum when the rod is aligned with the line of motion.}	% caption text
+{\noindent\typesetbuffer[TikZ:spinningmovingmomentum]} % figure contents
+This quantity of motion is bigger than the quantity of motion in the perpendicular orientation, just as Newton said. Clearly, the quantity of motion is not constant as the globes spin. However, the total momentum \m{\vec p = \vec p\sub{B} + \vec p\sub{B}} is constant, always to the right with a magnitude \m{p = 2}, as shown \in{figure}[fig:spinningmovingmomentum]. What about the \visviva?
 The following example gives us a clue.
 
 %%%%%%%% EXAMPLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1080,15 +1154,15 @@ When the rod is perpendicular to the center’s line of motion the, total kineti
 \startformula \startmathalignment
 \NC K	\NC = K\sub{A} + K\sub{B} 				\NR
 \NC		\NC = \half mv\sub{A}^2 + \half mv\sub{B}^2	\NR
-\NC		\NC = \half(1\units{kg})(0\units{m/s})^2 + \half(1\units{kg})(2\units{m/s})^2	\NR
+\NC		\NC = \half(1\units{kg})\left(0\units{m/s}\right)^2 + \half(1\units{kg})\left(2\units{m/s}\right)^2	\NR
 \NC		\NC = 0\units{J} + 2\units{J}	\NR
 \NC		\NC = 2\units{J}	.\NR
 \stopmathalignment \stopformula
 When the rod is aligned with the center’s line of motion, the kinetic energy is
 \startformula
-K = \half(1\units{kg})(\sqrt{2}\units{m/s})^2 + \half(1\units{kg})(\sqrt{2}\units{m/s})^2 = 2\units{J}.
+K = \half(1\units{kg})\left(\sqrt{2}\units{m/s}\right)^2 + \half(1\units{kg})\left(\sqrt{2}\units{m/s}\right)^2 = 2\units{J}.
 \stopformula
-The kinetic energy is the same for both orientations, \m{K=2\units{J}} in both cases. With some additional work is it possible to show that the energy remains constant for all orientations.
+The kinetic energy is the same for both orientations, \m{K=2\units{J}}. With some additional work is it possible to show that the energy remains constant for all orientations.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1096,15 +1170,16 @@ Du Châtelet computed the \visviva, which is double the kinetic energy, and reac
 \startblockquote
 It is easy to prove that the \visviva\ always remains the same, although the quantity of motion varies.\autocite{188}{DuChatelet1740}
 \stopblockquote
-You would be wise to wonder if Newton’s example or Du Châtelet’s choice of values are somehow special. Perhaps the symmetry of two masses or the match between the rotational and linear speeds causes the kinetic energy to balance in some way, keeping it constant. In fact, this case is not special.
+You would be wise to wonder if Newton’s example or Du Châtelet’s choice of values are somehow special. Perhaps the symmetry of two masses or the match between the rotational and linear speeds causes the kinetic energy to balance in some way, keeping it constant. In fact, this example is not special.
 \startblockquote
-In all cases, and especially in that which I have just cited from M. Newton, the \visviva\ stay invariable. \autocite{p.~199}{DuChatelet1740}
+In all cases, and especially in that which I have just cited from M. Newton, the \visviva\ stay invariable. \autocite{199}{DuChatelet1740}
 \stopblockquote
 Any velocities, any masses, and any rigid shape will have a constant kinetic energy unless external forces act on the object to change its energy. If the masses are different or if the shape is asymmetrical then the center of mass is not necessarily in the geometric center, but the object still rotates naturally about its center of mass and kinetic energy is constant. (We will learn more about theses situations near the end of the chapter when we look more closely and rotational motion.) Du Châtelet knew these complicated cases worked as well, but the simple example above made her point quite clearly.
 
 
 \section{Angular motion and rotational kinetic energy}
-While freely moving objects travel along straight lines, interactions cause and abundance of circular motions, from the orbits that dominate the solar system down to the everyday rotations of tops, wheels and even Earth itself. So far, we have studied circular motions using the same tools we use for linear motions, \m{\vec p = m\vec v} for momentum and \m{K = \half mv^2} for kinetic energy. For orbits \m{\vec v} was the instantaneous velocity of the orbiting planet or moon. For the connected globes in Newton’s Query 31, \m{\vec v} was the velocity of each globe, found by adding the velocities due to rotation and central motion.
+While freely moving objects travel along straight lines, interactions cause an abundance of circular motions, from the orbits that dominate the solar system down to the everyday rotations of tops, wheels and even Earth itself. So far, we have studied circular motions using the same tools we use for linear motions, \m{\vec p = m\vec v} for momentum and \m{K = \half mv^2} for kinetic energy.
+%For orbits \m{\vec v} was the instantaneous velocity of the orbiting planet or moon. For the connected globes in Newton’s Query 31, \m{\vec v} was the velocity of each globe, found by adding the velocities due to rotation and central motion.
 
 \startbuffer[TikZ:rolling]
 \environment env_physics
@@ -1175,9 +1250,9 @@ The trick for momentum is quite simple: ignore the rotation and look only at the
 {The rolling disk’s total momentum depends only on the velocity \m{v} of the disk’s center.}	% caption
 {\noindent\typesetbuffer[TikZ:rollingcenter]} % figure contents
 
-Newton’s example with the connected globes illustrates how this trick works. The rotation contributes to the velocity of each globe, but the contributions are exactly equal and opposite. If the rotation is increasing the velocity of one globe, it is decreasing the velocity of the other. If it is giving an upward component to the velocity of one globe it is giving a downward component to the velocity of the other.  These equal and opposite contributions cancel in the calculation of the total momentum. The situation is the same for any symmetrical object – like a disk, ball, or rod – where the rotation’s contribution to a part on one side is canceled by an equal and opposite contribution to an identical part on the oposite side. For example, every part of a wheel has a matching part on the opposite side, ensuring the cancelation.
+Newton’s example with the connected globes illustrates how this trick works. The rotation contributes to each globe's velocity, but the contributions are exactly equal and opposite. If the rotation increases one globe's velocity, it decreases or reverses the other's. If it gives an upward component one globe's velocity it gives a downward component to the other's.  These equal and opposite contributions cancel in the total momentum. The situation is the same for any symmetrical object – like a disk, ball, or rod – where every bit of momentum on one side is canceled by an equal and opposite momentum on the opposite side. For example, every part of a wheel has a matching part on the opposite side, ensuring their momenta cancel.
 
-If the object is not symmetrical we force the issue by finding a point where the cancelation happens anyway. The simplest case, and the only case you need to be able to do on you own, is two unequal globes connected by a rigid rod. In the spirit of Du Châtelet, we will consider simple masses \m{m\sub{A} = 3\units{kg}} and \m{m\sub{B} = 1\units{kg}}, shown in figure~\in[fig:spinning31]. Rotation about the rod’s midpoint gives equal and opposite contributions to the globe’s velocities, but not equal and opposite contributions to their momenta. The contribution to the heavy globe’s momentum will be three times larger than the contribution to the lighter globe’s momentum, so these contributions will not cancel in the calculation of the total momentum.
+If the object is not symmetrical we force the issue by finding a point where the cancelation happens anyway. The simplest asymmetric case, and the only case you need to be able to do on you own, is two unequal globes connected by a rigid rod. In the spirit of Du Châtelet, we will consider simple masses \m{m\sub{A} = 3\units{kg}} and \m{m\sub{B} = 1\units{kg}}, shown in \in{figure}[fig:spinning31]. Rotation about the rod’s midpoint gives equal and opposite velocities to the globes, but not equal and opposite momenta. The the heavy globe's momentum will be three times larger than the  lighter globe’s. These will not cancel in the total momentum.
 
 \startbuffer[TikZ:spinning31]
 \environment env_physics
@@ -1235,19 +1310,19 @@ If the object is not symmetrical we force the issue by finding a point where the
 {Two globes of different masses joined by a slender rod revolve about their center of mass. The smaller globes has a greater speed than the larger mass, but the globes’ momentums have the same magnitude. The total momentum is zero.}	% caption
 {\noindent\typesetbuffer[TikZ:spinning31CoM]} % figure contents
 
-Let’s abandon the midpoint and instead rotate about a point that is closer to the heavy globe, as shown in figure~\in[fig:spinning31CoM]. Then the rotation will make a smaller contribution to the heavy globe’s velocity while making a larger contribution to the lighter globe’s velocity. If we pick the point so that the contributions to the velocities are in the ratio of one-to-three, then multiplying by the masses, which are in the ratio of three-to-one, will give the equal and opposite contributions to the momentum. This point is the \emph{center of mass.} Every object has a center of mass, a point about which any rotation will produce no momentum. The larger the difference in the masses, the farther the center of mass is shifted toward the heavier mass.
+Let’s abandon the midpoint and instead rotate about a point that is closer to the heavy globe, as shown in figure~\in[fig:spinning31CoM]. This rotation gives a smaller velocity to the heavy globe while giving a larger velocity to the lighter globe. If we pick the point so that the velocities are in the ratio of one-to-three, then multiplying by the masses, which are in the ratio of three-to-one, will give the globes equal and opposite the momenta. This special rotation point is the \emph{center of mass.} Every object has a center of mass, a point about which any rotation will produce no momentum. The larger the difference in the masses, the farther the center of mass is shifted toward the heavier mass.
 
-Finding the center of mass for a more complicated object is difficult, but always possible. Every object has a center of mass. Every object’s total momentum is \m{\vec p = m \vec v} where \m{m} is the object’s mass and \m{\vec v} is the velocity of its center of mass. The total momentum always obeys conservation of momentum,
+Every object has a center of mass, and will spin about this center without any net momentum. Every object’s total momentum is \m{\vec p = m \vec v} where \m{m} is the object’s mass and \m{\vec v} is the velocity of its center of mass. The total momentum always obeys conservation of momentum,
 \startformula
 	\vec p\si + \vec F\sn\Delta t = \vec p\sf,
 \stopformula
-where \m{\vec F\sn} is the total of all external forces acting on any part of the object. The rotation can be totally ignored in the momentum calculation.
+where \m{\vec F\sn} is the total of all external forces acting on any part of the object. The rotation can be totally ignored in momentum calculations.
 
-The rotation cannot be ignored in the calculation of the total kinetic energy. The rotation’s contribution to the kinetic energies of different parts never cancel out. Rotation always increases the total kinetic energy. Even so, there is a trick that makes the calculation rather direct: simply add the kinetic energy due to the rotation to the kinetic energy of the center of mass to find the total kinetic energy.
+The rotation cannot be ignored in kinetic energy calculations. Rotation always increases the total kinetic energy. Even so, there is a trick that makes the calculation rather direct: simply add the kinetic energy due to the rotation to the kinetic energy of the center of mass to find the total kinetic energy.
 \startformula
 	K = K\sub{CoM} + K\sub{rot}
 \stopformula
-The kinetic energy of the center of mass and the kinetic energy due to rotation about the center of mass make totally independent contributions to the total kinetic energy. This is another special property of the center of mass.
+The kinetic energy of the center of mass and the kinetic energy due to rotation about the center of mass make independent contributions to the total kinetic energy. This is another special property of the center of mass.
 
 The center of mass’s kinetic energy can be found using the center of mass’s velocity \m{\vec v} or the total momentum \m{\vec p}.
 \startformula
@@ -1289,25 +1364,45 @@ The total kinetic energy is \m{2\units{J}}.
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The total kinetic energy calculated using \m{K = K\sub{CoM} + K\sub{rot}} in this example matches the total energy calculated in example~\in[ex:NewtonGlobes] when we used the method \m{K = K\sub{A} + K\sub{B}}. This is a good sign!
-These two methods should give the same answer, but there is an important difference in the calculation. In example~\in[ex:NewtonGlobes] we found the total kinetic energy in two specific orientations where each globe’s velocity was easy to determine. Other orientations are significantly more challenging. The total kinetic energy was the same in the two orientations, but the kinetic energy of each globe changed from one orientation to the other.
+These two methods should give the same answer, but there is an important difference in the calculation. In \in{example}[ex:NewtonGlobes], we found the total kinetic energy in two specific orientations. Other orientations are significantly challenging.
+However, using \m{K = K\sub{CoM} + K\sub{rot}}, the center of mass kinetic energy \m{K\sub{CoM}} and the kinetic energy due to rotation \m{K\sub{rot}} are both independent of the orientation. We find them once, and they stay the same throughout the motion, confirming Du Châtelet's assertion that the \visviva\ always remains the same.
 
-The method above, using \m{K = K\sub{CoM} + K\sub{rot}}, avoided all of these complications because the center of mass kinetic energy \m{K\sub{CoM}} and the kinetic energy due to rotation \m{K\sub{rot}} are both independent of the orientation. We find them once, and they stay the same throughout the motion.
+
+In addition to the Newtonian arguments, Du Châtelet cited specific experiments, like ’s Gravesande’s, providing further evidence for momentum and \visviva\ – and evidence against Descartes’ quantity of motion. Du Châtelet understood the difference between Newton’s successful momentum and Descartes’ failed quantity of motion, and she drove a wedge between the two as she defended \visviva.
+%Du Châtlet’s arguments must have confounded the Cartesians terribly. They viewed themselves as Newton’s defenders, but challenging her arguments for Leibniz’s \visviva\ would mean abandoning Newton as well!
+Fifty-three years after Newton’s \booktitle{Principia}, this reckoning was long overdue.
+
+
+Du Châtelet immediately faced two attacks. Even before \booktitle{Foundations} was published, her former tutor, Samuel König, falsely claimed the work was his and that Du Châtelet had simply taken his dictation to produce \booktitle{Foundations}. %König expected his claim was taken seriously because few intellectuals of the time could not imagine a woman producing a work of such sophistication.
+Historian Judith P.\ Zinsser describes the second challenge faced by Du Châtelet.
+\startblockquote
+	The second attack in the spring of 1741 came from Dortous de Mairan, newly appointed the secretary of the Academy of Sciences. Initially, he had thanked Du Châtelet for having sent him a copy of her book. Reading her final chapter, the explicit attack on his work, must have been an unwelcome surprise. Angered by the veiled sarcasm in which she had presented his views, he saw himself as the champion, not only of the Cartesian formula he had defended in 1728 against Bernoulli but also the Academy of Sciences, now challenged by a young noblewoman. He quickly formulated a pamphlet that he distributed throughout the Republic of Letters that portrayed Du Châtelet as a silly coquette, seduced by Leibnizian ideas when she should have accepted those of men wiser and better than she. Du Châtelet surprised him again, however, and answered his pamphlet point by point in a style contemporaries acknowledged was his equal in wit and daring. Probably at the insistence of his friends, Dortous de Mairan let the matter drop.\autocite{107--108}{Zinsser2009}
+\stopblockquote
+
+Du Châtelet composed her detailed response in only three weeks, demonstrating her brilliance and thereby removing any doubt that she was the true author of \booktitle{Foundations of Physics}.
+
+\startblockquote
+	The controversy, and the approval and acclaim for the \booktitle{Foundations} from mathematicians and physicists in England, France and Germany\dots secured Du Châtelet’s reputation as a member of the elite, intellectual world of the Republic of Letters.\autocite{108}{Zinsser2009}
+\stopblockquote
+
+
+Newton was already widely revered. Du Châtelet’s \booktitle{Foundations of Physics} made his physics widely understood. \booktitle{Foundations} cured the persistent confusion underlying the \visviva\ controversy and spread Leibniz’s insight to many who had dismissed him.
 
 Finding \m{K\sub{rot}} for more complicated shapes is, of course, more complicated. The object’s different parts move at different speed depending on their distance from the center of mass. This not only complicates the calculation, it also creates a dilemma about how to quantify the speed of rotation: With so many speeds to chose from, which best describes the speed of rotation? The best solution is to ignore the individual parts and look at the rate at which the object’s orientation is changing. This rate is called the angular velocity, represented by \m{\omega} (omega), it is the rate at which the orientation angle \m{\theta} (theta) is changing.
 \startformula
 	\omega = \frac{\Delta \theta}{\Delta t}
 \stopformula
-Although the parts have different velocities, they all share the same angular velocity, moving through the same angular displacement \m{\Delta \theta} in the same duration \m{\Delta t}. Angular velocity is directional, its sign indicating whether the object is rotating in the direction of increasing or decreasing angle.
+Although the parts have different velocities, they all share the same angular velocity, moving through the same angular displacement \m{\Delta \theta} in the same duration \m{\Delta t}. Angular velocity is directional, its sign indicating whether the object is rotating in the direction of increasing or decreasing angle. We will usually follow the mathematicians' tradition of using positive for counter-clockwise motion and negative for clockwise.
 
-The angular displacement \m{\Delta \theta} can be measured in different units. We will use cycles, degrees, and radians. They are related by
+The angular displacement \m{\Delta \theta} can be measured in cycles, degrees, or radians. These angular units are related by
 \startformula
-	1\units{cyc} = 360\degree= 2\pi\units{rad}
+	1\units{cyc} = 360\degree= 2\pi\units{rad}.
 \stopformula
-Degrees have been a common choice, for physicists and astronomers as well as for non-specialists. Cycles are also common. In fact, you used cycles when studying the circular motion of planets and moons. The number of cycles \m{N} is the very large angular displacement \m{\Delta \theta} written in units of cycles, \m{N = \Delta \theta}. Likewise, frequency is angular velocity written in units of cycles per second.
+Degrees have been a common choice for physicists and astronomers as well as for non-specialists. Cycles are also common. In fact, you used cycles when studying the circular motion of planets and moons. The number of cycles \m{N} is the very large angular displacement \m{\Delta \theta} written in units of cycles, \m{N = \Delta \theta}. Likewise, frequency is angular velocity written in units of cycles per second.
 \startformula
 	f = \frac{N}{\Delta t} = \frac{\Delta \theta}{\Delta t} = \omega
 \stopformula
-The only things new in angular displacement and angular velocity are the symbols and flexibility with units. By tradition, \m{N} and \m{f} always use cycles while \m{\theta} and \m{\omega} can use any angular units.
+The only things new in angular displacement and angular velocity are the symbols and flexibility with units. By tradition, \m{N} and \m{f} always use cycles, while \m{\theta} and \m{\omega} can use any angular units.
 
 Degrees are familiar and cycles are sensible, but I want to introduce you to your new best friend: radians. You probably recognize radians from a math class, but it is possible you didn’t really hit it off. In physics you will work with radians, and it is going to be great. Radians will help you work through difficult issues with angular units, but not in a demanding way like other units. If you need angular units, radian will cheerfully jump in to help. If you want to do something with other units, radians will stay out of your way.
 
@@ -1335,19 +1430,43 @@ Radians are able to do this because an angle’s measure in radians is defined b
 \startformula
 	\theta = \frac{s}{r}
 \stopformula
-Of course, \m{s} and \m{r} are both lengths and should have the same units, so the units on the right cancel out. However, you need angular units for \m{\theta} on the left. Radians cheerfully step in to provide the units. You don’t have to do anything else.
+Of course, \m{s} and \m{r} are both lengths and should have the same units, so the units on the right cancel out. However, you need angular units for \m{\theta} on the left. Radians cheerfully step in to provide the units. You don’t have to do anything else, but if you wish to convert to other angular units, you can.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:RadiansLatitude]
-Latitude and longitude are measured in degrees. Latitude goes from \m{0\degree} at the equator to \m{90\unit{\degree N}} at the North Pole (and \m{90\unit{\degree S}} at the South Pole). Florence is \m{4870\units{km}} north of the equator. What is Florence’s latitude? (Earth’s radius is \m{6370\units{km}}.)
+Latitude and longitude are measured in degrees. Latitude goes from \m{0\degree} at the equator to \m{90\unit{\degree N}} at the North Pole (and \m{90\unit{\degree S}} at the South Pole). Florence is \m{4870\units{km}} north of the equator, as shown in \in{figure}[fig:RadiansLatitude]. What is Florence’s latitude? (Earth’s radius is \m{6370\units{km}}.)
+\startbuffer[TikZ:RadiansLatitude]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage
+\def\angles{72,54,...,-90}
+\starttikzpicture% tikz code
+\draw[fill=black!10] (0,0) circle[radius=2.5cm];
+\filldraw (0,2.5) circle[radius=.8pt]node[above]{North Pole};
+\filldraw (0,-2.5) circle[radius=.8pt]node[below]{South Pole};
+\filldraw (43.8:2.5) coordinate (C) circle[radius=1pt]node[left=1.5mm]{Florence};
+\draw (-2.5,0) --node[below]{Equator} (2.5,0);
+\draw (2.5,0) coordinate (A) -- (0,0) coordinate (B) --node[right=1.5mm]{\m{r}} (C)
+pic ["\m{\theta}", draw, angle eccentricity=1.4] {angle}
+pic ["\m{s}", draw, angle radius=2.5cm, angle eccentricity=1.09] {angle};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RadiansLatitude] % location
+{Florence's latitude is the angle \m{\theta}.}	% caption
+{\noindent\typesetbuffer[TikZ:RadiansLatitude]} % figure contents
+
 \startsolution
 Using Earth’s radius for \m{r}, we can find the angle, which is the latitude.
 \startformula
 	\theta = \frac{s}{r} = \frac{4870\units{km}}{6370\units{km}} = 0.765
 \stopformula
-We have a number, but no units. This is where radians step in to help. Any time you want angular units, just put in radians and continue with unit conversions if necessary.
+We have a number, but no units. This is where radians step in to help. Put in radians and continue with the unit conversion.
 \startformula
-	\theta = 0.765\units{rad} = 0.765\units{rad}\left(\frac{360\degree}{2\pi\units{rad}}\right) = 43.8\degree
+	\theta = 0.765 = 0.765\units{rad} = 0.765\units{rad}\left(\frac{360\degree}{2\pi\units{rad}}\right) = 43.8\degree
 \stopformula
 Florence’s latitude is \m{43.8\unit{\degree N}}. Thanks, radians!
 \stopsolution
@@ -1357,6 +1476,31 @@ When you don’t need angular units anymore, radians will step out gracefully.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:RadiansEratosthenes]
 On a summer bicycle tour of Egypt you decide to reproduce Eratosthenes’ measurement of Earth’s radius (see p.\at[fig:EarthRadius]). Eratosthenes measured the shadow in Alexandria to be one fiftieth of a circle, or \m{0.020\units{cyc}}. (On the trip, you confirm that this measurement is good to two significant figures.)  After carefully calibrating your odometer you measure the distance between Alexandria and the well in Syene to be \m{800\units{km}}, or \m{8.0\sci{5}\units{m}}. Based on your measurements, what is Earth’s radius?
+\startbuffer[TikZ:RadiansEratosthenes]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage
+\def\angles{72,54,...,-90}
+\starttikzpicture% tikz code
+\clip (-1.5,-3) rectangle (3.5,3);% Clipping Rectangle
+\draw[fill=black!10] (0,0) circle[radius=2.5cm];
+\filldraw (0,2.5) circle[radius=.8pt]node[above]{North Pole};
+\filldraw (0,-2.5) circle[radius=.8pt]node[below]{South Pole};
+\filldraw (31.2:2.5) coordinate (C) circle[radius=1pt]node[left=1.5mm, yshift=1mm]{Alexandria};
+\filldraw (23.44:2.5) coordinate (A) circle[radius=1pt]node[right=1.4mm, yshift=-1mm]{Syene};
+\draw (-2.5,0) --node[below]{Equator} (2.5,0);
+\draw (A) --node[below right,pos=.4]{\m{r}} (0,0) coordinate (B) --node[pos=.3, above]{\m{\theta}} (C)
+pic [draw, angle radius=1cm, angle eccentricity=1.1] {angle}
+pic ["\m{s}", draw, angle radius=2.5cm, angle eccentricity=1.09] {angle};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RadiansEratosthenes] % location
+{Measuring Earth's diameter on your bike tour of Egypt.}	% caption
+{\noindent\typesetbuffer[TikZ:RadiansEratosthenes]} % figure contents
 \startsolution
 You have the arclength \m{s} and the angle \m{\theta}. Solve for \m{r} and plug in your measurements.
 \startformula\startmathalignment
@@ -1365,7 +1509,7 @@ You have the arclength \m{s} and the angle \m{\theta}. Solve for \m{r} and plug 
 				= \frac{800\units{km}}{0.020\units{cyc}}
 				= 40\,000\units{km/cyc}	\NR
 \stopmathalignment\stopformula
-We have not made a mistake, but the units don’t make any sense. The cycles are not welcome. Let’s convert to our friend radians and see what happens.
+We have not made a mistake, but the units don’t make any sense. Cycles are not welcome. Let’s convert to our friend, radians.
 \startformula
 	r = 40\,000\units{km/cyc}\left(\frac{1\units{cyc}}{2\pi\units{rad}}\right) = 6400\units{km/rad} = 6400\units{km}
 \stopformula
@@ -1379,7 +1523,7 @@ With the help of our new friend radians, we can relate a rotating object’s man
 \startformula
 	v = \frac{s}{\Delta t} = \frac{r\Delta\theta}{\Delta t} = r\frac{\Delta\theta}{\Delta t} = r\omega.
 \stopformula
-The \scaps{si} units for \m{v} on the left are \m{\unit{m/s}}. The units on the right should be converted to \m{\unit{m\.rad/s}} which turn into \m{\unit{m/s}} when the radians disappear.
+The \scaps{si} units for \m{v} on the left are \m{\unit{m/s}}. The units on the right should be converted to \m{\unit{m\.rad/s}} which turn into \m{\unit{m/s}} when the radians disappear. The units match, as they must.
 
 Knowing the part’s speed allows us to calculate that part’s rotational kinetic energy. Adding these together for all of the parts gives the object’s rotational kinetic energy.
 
@@ -1387,7 +1531,7 @@ This rotational kinetic energy can be added to the center of mass’s kinetic en
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:spinning31CoMv]
-Two globes, with masses \m{m\sub{A} = 3.0\units{kg}} and \m{m\sub{B} = 1.0\units{kg}}, are connected by a light, rigid, \m{1.0\units{m}} long, as shown. The whole thing is moving with a speed of \m{1.0\units{m/s}} while it rotates with an angular velocity of \m{2.0\units{rad/s}}. Find the magnitude of the total momentum and find the total kinetic energy.
+Two globes, with masses \m{m\sub{A} = 3.0\units{kg}} and \m{m\sub{B} = 1.0\units{kg}}, are connected by a light, rigid, \m{1.0\units{m}} rod, as shown. The whole thing is moving with a speed of \m{1.0\units{m/s}} while it rotates with an angular velocity of \m{2.0\units{rad/s}}. Find the magnitude of the total momentum and find the total kinetic energy.
 \startbuffer[TikZ:spinning31CoMv]
 \environment env_physics
 \environment env_TikZ
@@ -1428,14 +1572,14 @@ The center of mass’s kinetic energy is
 \stopformula
 The rotational kinetic energy is the hard part. First, we must find this object’s center of mass, since that will be the center of rotation. The masses are in the ratio of three-to-one, so the distances \m{r\sub{A}} and \m{r\sub{B}} must be in the ratio of one-to-three. For a \m{1.0\units{m}} rod this is achieved by \m{r\sub{A} = 0.25\units{m}} and \m{r\sub{B} = 0.75\units{m}}. These distances allow us to find the individual globes’ speeds due to the rotation using \m{v = r\omega}. The rotational kinetic energy is
 \startformula\startmathalignment
-\NC 	K\sub{rot}	\NC = \half m\sub{A}v\sub{A}^2	+ \half m\sub{B}v\sub{B}^2	\NR
-\NC 			\NC = \half m\sub{A}r\sub{A}^2\omega^2 + \half m\sub{B}r\sub{B}^2\omega^2	\NR
-\NC 			\NC = \half \left(m\sub{A}r\sub{A}^2 + m\sub{B}r\sub{B}^2\right)\omega^2		\NR
+\NC 	K\sub{rot}	\NC = \half m\sub{A}^{} v\sub{A}^2	+ \half m\sub{B}^{} v\sub{B}^2	\NR
+\NC 			\NC = \half m\sub{A}^{} r\sub{A}^2\omega^2 + \half m\sub{B}^{} r\sub{B}^2\omega^2	\NR
+\NC 			\NC = \half \left(m\sub{A}^{} r\sub{A}^2 + m\sub{B}^{} r\sub{B}^2\right)\omega^2		\NR
 \NC 			\NC = \half I\omega^2		\NR
 \stopmathalignment\stopformula
-where \m{I = \left(m\sub{A}r\sub{A}^2 + m\sub{B}r\sub{B}^2\right)}. Next we calculate \m{I} and put that value in the simple formula for \m{K\sub{rot}= \half I\omega^2} above.
+where \m{I = \left(m\sub{A}^{}r\sub{A}^2 + m\sub{B}^{}r\sub{B}^2\right)}. Next we calculate \m{I} and put that value in the simple formula for \m{K\sub{rot}= \half I\omega^2} above.
 \startformula\startmathalignment
-\NC	I	\NC = m\sub{A}r\sub{A}^2 + m\sub{B}r\sub{B}^2						\NR
+\NC	I	\NC = m\sub{A}^{}r\sub{A}^2 + m\sub{B}^{}r\sub{B}^2						\NR
 \NC 		\NC = (3.0\units{kg^2})(0.12\units{m})^2 + (3.0\units{kg^2})(0.12\units{m})^2	\NR
 \NC 		\NC = 0.75\units{kg^2\.m^2}										\NR
 \stopmathalignment\stopformula
@@ -1458,13 +1602,13 @@ In the middle of the above example we found a simple formula for the rotational 
 \startformula
 	K\sub{rot} = \half I\omega^2
 \stopformula
-This formula works for all shapes. The rotational kinetic energy is a sum of \m{\onehalf mv^2} for all of the parts. The parts have different masses and distances from the center of mass, but they all share the same angular velocity. No matter how many parts the object has, the angular velocity \m{\omega} will factor out of the sum (as will the half). This leaves the total \m{mr^2}, which is called the \emph{moment of inertia.} The moment of inertial depends only on how the object is built – the masses and distances – not on how it is moving. The moments of inertia for common spinning shapes are shown in table~\in[T:MoIShapes].
+This formula works for all shapes. The rotational kinetic energy is a sum of \m{\onehalf mv^2} for all of the parts. The parts have different masses and distances from the center of mass, but they all share the same angular velocity. No matter how many parts the object has, the angular velocity \m{\omega} will factor out of the sum (as will the half). This leaves the total \m{mr^2}, which is called the \emph{moment of inertia.} The moment of inertial depends only on how the object is built – the masses and distances – not on how it is moving. The moments of inertia for some common spinning shapes are shown in table~\in[T:MoIShapes].
 
-To quickly review: An object’s total momentum is the momentum of its center of mass. An object’s total kinetic energy is the sum of the kinetic energy of its center of mass and its rotational kinetic energy.
+To quickly review: An object’s total momentum is the momentum of its center of mass, \m{\vec p = m\vec v}. An object’s total kinetic energy is the sum of the kinetic energy of its center of mass and its rotational kinetic energy.
 \startformula
 	K = K\sub{CoM} + K\sub{rot}
 	\qquad
-	K\sub{CoM}  = \half mv^2
+	K\sub{CoM}  = \half mv^2 = \frac{p^2}{2m}
 	\qquad
 	K\sub{rot} = \half I\omega^2
 \stopformula
@@ -1482,7 +1626,7 @@ To quickly review: An object’s total momentum is the momentum of its center of
 \LL[2]%\bottomrule
 \stoptabulate}
 
-\noindent We will conclude this section by returning to the rolling disk first shown in figure~\in[fig:rolling]. To find the rolling disk’s kinetic energy we do not need to find the many different velocities of its various parts. We only need to look at its center of mass motion and its rotational motion, shown in figure~\in[fig:rollingomega]. Considering the rotational motion first,
+\noindent We will conclude this section by returning to the rolling disk first shown in figure~\in[fig:rolling]. To find the rolling disk’s kinetic energy we do not need to find the many different velocities of its various parts. We only need to look at its center of mass motion and its rotational motion, shown in figure~\in[fig:rollingomega]. First, consider the rotational motion, using the moment of inertia for a disk \m{I=\onehalf\,mR^2}.
 
 \startbuffer[TikZ:rollingomega]
 \environment env_physics
@@ -1513,7 +1657,7 @@ pic [draw, <-, thick, angle eccentricity=1.2, "\m{\omega}", angle radius=8mm] {a
 		= \textfrac{1}{2} \left(\textfrac{1}{2} mR^2\right)\omega^2
 		= \textfrac{1}{4} m(R\omega)^2.
 \stopformula
-As the disk rolls, the point in contact with the ground does not slide – it is the one point on the disk that is not moving. For an object of radius \m{R} the center of mass velocity and angular velocity are linked by the rolling constraint:
+As the disk rolls, the point in contact with the ground does not slide – it is the one point on the disk that is not moving. For a rolling object of radius \m{R} the center of mass velocity and angular velocity are linked by the rolling constraint:
 \startformula
 	v = R\omega.
 \stopformula
@@ -1585,9 +1729,41 @@ The total kinetic energy is \m{110\units{J}}.
 
 \section{Vis viva’s legacy}
 
-In addition to arguments using Newtonian physics, Du Châtelet’s revival of \visviva in \booktitle{Foundations} cited specific experiments, like ’s Gravesande’s, providing further evidence for momentum and \visviva, and evidence against Descartes’ quantity of motion. Du Châtelet understood the difference between Newton’s successful momentum and Descartes’ failed quantity of motion, and she drove a wedge between the two as she defended \visviva.
-%Du Châtlet’s arguments must have confounded the Cartesians terribly. They viewed themselves as Newton’s defenders, but challenging her arguments for Leibniz’s \visviva\ would mean abandoning Newton as well!
-Fifty-three years after Newton’s \booktitle{Principia}, this reckoning was long overdue.
+Du Châtelet continued to contribute to the physics community by producing a complete translation of Newton’s \booktitle{Principia} into French. In addition to translating the text, she translated all of the mathematics from Newton’s geometric calculus to Leibniz’s more powerful algebraic notation, making the text much more useful. In addition she provided a commentary and updated all of the astronomical data and calculations. This monumental intellectuall achievement was also a physical feat, as she worked seventeen hours a day – while pregnant – to complete what she called \quotation{my Newton.} Genius, nobility, wealth, and fame could not reduce the perils of pregnancy for a woman in the eighteenth century. At the age of 42, she feared that her work would be left unfinished if she let it slip past her due date.
+
+She was working after midnight when she went into labor. The birth was relatively easy. She retired to bed for a few days but continued to work, completing corrections on the printer's proofs and then sending all of her working papers  to the royal librarian. Then, on the sixth day, she developed a sudden headache and had trouble breathing. Perhaps a blood clot, formed during her time in bed, had broken free and lodged in her lungs. The royal physician and the most prominent doctors of the region were called, but they could offer only opiates for some relief. She died that night, September 10, 1749.
+
+Du Chatlâtet's translation and comentary contributed greatly to the advancement of physics on the continent, but was largely ignored in England where Newton was so revered that all of the universities stubbornly continued using his cumbersome geometric methods.
+
+On the continent, energy continued to play a central roll in the advancing physics, as we will see, and it continues to be central today. High-energy experiments done in the twentieth century revealed that the formula \m{K=\onehalf mv^2} is not correct for speeds close to the speed of light (\m{3\sci{8}\units{m/s}}), just like the formula for momentum. Also like the formula for momentum, this kinetic energy formula is \emph{extremely} accurate for lower speeds (anything less than \m{10^7\units{m/s}}). For higher speeds we will need the updated formulas in Volume II.
+
+Conservation of energy in its many forms is a bit more complicated that Leibniz’s original idea for conservation of \visviva, but added complexity also makes energy extremely useful. Food, fuel, and batteries all contain energy stored in other forms that can be converted into kinetic energy.
+
+The conservation laws for momentum and energy have survived every experimental test and are thought to be among the most fundamental laws of nature. They can be used in every situation, from the interactions of quarks inside a proton to the stretching of space and time over the vast scales of the cosmos. Learn them and use them. They are treasures.
+
+\subject{Notes}
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+
+%\subject{Notes I want}
+%\startitemize[n, packed]
+%\item Galileo.
+%\item Newton.
+%\item Du Châtelet.
+%\stopitemize
+
+\blank[.5in]
+\startblockquote\it
+Lastly, let us think of fostering a taste for study, a taste which makes our happiness depend only on ourselves. Let us preserve ourselves from ambition, and, above all, let us be certain of what we want to be; let us choose for ourselves our path in life, and let us try to strew that path with flowers.\\
+	\rightaligned{\it Discourse on Happiness}
+	\rightaligned{\sc Emilie Du Châtelet}
+	%\rightaligned{1706–1749}}
+\stopblockquote
+
+\stopchapter
+\stopcomponent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %We can see how Du Châtelet’s Newtonian arguments work by looking again at the case of the cart pushing the block. The goal of this calculation is to find the work work done by the cart and block when they start with initial velocity \m{v\si}. We may find that work is proportoinal to their quantity of motion (\m{m\abs{v}}), their \visviva\ (\m{mv^2}), or something else entirely. A clear result should resolve the \visviva\ debate, at least for this case. I warn you that this discussion is the most advanced so far in this book. You may need to read it several times. I recommend ignoring all of the minus signs initially. Then, when you feel you understand the course of the argument, read it again paying attention to the valuable directional information provided by these signs.
 %
@@ -1641,47 +1817,6 @@ Fifty-three years after Newton’s \booktitle{Principia}, this reckoning was lon
 %The cancelation of the force \m{F} deserves a bit more comment. If the force is big, then the cart and block only slide a short distance. If the force is small, then they slide farther, doing the same amount of work over a larger distance. The work done depends only on the initial \visviva\ of the cart and block. The force determines the distance over which that work is done.
 
 %Today we always use half of the \visviva, \m{\half mv^2}, which is called the kinetic energy. The work \m{W} done by the cart and block is equal to their initial kinetic energy \m{\half mv^2}. I will have more to say about kinetic energy in a moment. First, I wish to finish the story of Emily Du Châtelet and the \visviva\ debate.
-
-Du Châtelet immediately faced two attacks. Even before \booktitle{Foundations} was published, her former tutor, Samuel König, falsely claimed the work was his and that Du Châtelet had simply taken his dictation to produce \booktitle{Foundations}. %König expected his claim was taken seriously because few intellectuals of the time could not imagine a woman producing a work of such sophistication.
-Historian Judith P.\ Zinsser describes the second challenge faced by Du Châtelet.
-\startblockquote
-	The second attack in the spring of 1741 came from Dortous de Mairan, newly appointed the secretary of the Academy of Sciences. Initially, he had thanked Du Châtelet for having sent him a copy of her book. Reading her final chapter, the explicit attack on his work, must have been an unwelcome surprise. Angered by the veiled sarcasm in which she had presented his views, he saw himself as the champion, not only of the Cartesian formula he had defended in 1728 against Bernoulli but also the Academy of Sciences, now challenged by a young noblewoman. He quickly formulated a pamphlet that he distributed throughout the Republic of Letters that portrayed Du Châtelet as a silly coquette, seduced by Leibnizian ideas when she should have accepted those of men wiser and better than she. Du Châtelet surprised him again, however, and answered his pamphlet point by point in a style contemporaries acknowledged was his equal in wit and daring. Probably at the insistence of his friends, Dortous de Mairan let the matter drop.\autocite{107--108}{Zinsser2009}
-\stopblockquote
-
-Du Châtelet composed her detailed response in only three weeks, demonstrating her brilliance and thereby removing any doubt that she was the true author of \booktitle{Foundations of Physics}.
-
-\startblockquote
-	The controversy, and the approval and acclaim for the \booktitle{Foundations} from mathematicians and physicists in England, France and Germany\dots secured Du Châtelet’s reputation as a member of the elite, intellectual world of the Republic of Letters.\autocite{108}{Zinsser2009}
-\stopblockquote
-
-%Leibniz’s did not know that the balls’ temperature is a measure of the microscopic random motion – higher temperature indicating greater microscopic \visviva. The loss of the balls’ \visviva\ to the microscopic parts causes an increase in temperature, but the increase is extremely small, far too small for seventeenth century experimenters to measure. The idea that the temperature is connected to microscopic \visviva\ appeared several times in the decades that followed, but was not widely accepted until the middle of the nineteenth century. We will return to this idea in Volume II.
-
-Newton was already widely revered. Du Châtelet’s \booktitle{Foundations of Physics} made his physics widely understood. \booktitle{Foundations} cured the persistent confusion underlying the \visviva\ controversy and spread Leibniz’s insight to many who had dismissed him.
-
-Du Châtelet continued to contribute to the physics community by producing a complete translation of Newton’s \booktitle{Principia} into French. In addition to translating the text, she translated all of the mathematics from Newton’s geometric calculus to Leibniz’s more powerful algebraic notation, making the text much more useful. In addition she provided a commentary and updated all of the astronomical data and calculations. This work contributed greatly to the advancement of physics on the continent, but was largely ignored in England where Newton was so revered that all of the universities stubbornly continued using his cumbersome geometric methods.
-
-On the continent, energy continued to play a central roll in the advancing physics, as we will see, and it continues to be central today. High-energy experiments done in the twentieth century revealed that the formula \m{K=\onehalf mv^2} is not correct for speeds close to the speed of light (\m{3\sci{8}\units{m/s}}), just like the formula for momentum. Also like the formula for momentum, this kinetic energy formula is \emph{extremely} accurate for lower speeds (anything less than \m{10^7\units{m/s}}). For higher speeds we will need the updated formulas in Volume II.
-
-Conservation of energy in its many forms is a bit more complicated that Leibniz’s original idea for conservation of \visviva, but added complexity also makes energy extremely useful. Food, fuel, and batteries all contain energy stored in other forms that can be converted into kinetic energy.
-
-The conservation laws for momentum and energy have survived every experimental test and are thought to be among the most fundamental laws of nature. They can be used in every situation, from the interactions of quarks inside a proton to the stretching of space and time over the vast scales of the cosmos. Learn them and use them. They are treasures.
-
-\subject{Notes}
-%\placefootnotes[criterium=chapter]
-\placenotes[endnote][criterium=chapter]
-
-%\subject{Notes I want}
-%\startitemize[n, packed]
-%\item Galileo.
-%\item Newton.
-%\item Du Châtelet.
-%\stopitemize
-
-\stopchapter
-\stopcomponent
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
