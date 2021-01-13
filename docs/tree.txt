@@ -1,0 +1,58 @@
+.
+├── common : common files for all volumes
+│   ├── BookBib.bib : bibliography database
+│   ├── bibliography.tex : chapter/appendix bibliography
+│   ├── contents.tex : “chapter” table of contents
+│   ├── index.tex : chapter/appendix index
+│   └── titlepage.tex : title page (inner title)
+├── env_TikZ.tex : environment, TikZ (graphics) settings
+├── env_physics.tex : environment, physics setup (units, symbols)
+├── env_world.tex : environment, general setup
+├── makeit.sh : build script (adapt your settings)
+├── my_patches.tex : temporary patches for ConTeXt bugs
+├── prd_volume00.tex : product (main file) volume 0 (for testing)
+├── prd_volume01.tex : product (main file) volume 1
+├── prd_volume01extra.tex : volume 1 extras
+├── prd_volume02.tex : volume 2
+├── project_world.tex : project (list of products and environments)
+├── volume01 : files for volume 1
+│   ├── chapter01 : images for chapter 1
+│   │   ├── 1600px-Lunar_eclipse_of_2017_August_7.jpg
+│   │   ├── ...
+│   │   └── ptolemaicsystem.png
+│   ├── chapter01.tex : chapter 1 text
+│   ├── chapter02 : images for chapter 2
+│   ├── chapter02.tex : chapter 2 text
+│   ├── chapter03 : images for chapter 3
+│   │   ├── ...
+│   │   └── horse.png
+│   ├── chapter03.tex : chapter 3 text
+│   ├── chapter04 : images for chapter 4
+│   │   └── ...
+│   ├── chapter04.tex
+│   ├── chapter05
+│   ├── chapter05.tex
+│   ├── chapter06
+│   ├── chapter06.tex
+│   ├── chapter07
+│   ├── chapter07.tex
+│   ├── chapter08
+│   ├── chapter08.tex
+│   └── test.tex
+├── volume01extra
+│   ├── Constraints.tex
+│   ├── prd_ExtraMaterial01.tex
+│   └── titlepage.tex
+└── volume02 : same structure as for volume 1
+    ├── bibliography.tex
+    ├── chapter01
+    ├── chapter02
+    ├── chapter03
+    ├── chapter04
+    ├── chapter05
+    ├── chapter06
+    ├── chapter07
+    ├── chapter08
+    ├── contents.tex
+    ├── index.tex
+    └── titlepage.tex
