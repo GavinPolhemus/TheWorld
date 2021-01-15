@@ -83,15 +83,15 @@
 	numberstyle=scxx, textstyle=tfc,
 ]
 % Versals for chapter openers:
-\usemodule[lettrine] % GP: I turned this back on until initials are working correctly.
+%\usemodule[lettrine] % GP: I turned this back on until initials are working correctly.
 \setupinitial[
 	distance=-1em, % text from initial (initial size)
 	n=2,
-	% hoffset=1em, % initial, initial size, positive is left
+	hoffset=1em, % initial, initial size, positive is left
 	%before={}
 ]
-%\define[2]\Initial{\noindentation\placeinitial{#1}\scaps{#2}}
-\define[2]\Initial{\lettrine{#1}{#2}} % GP: Using this until initials work.
+\define[2]\Initial{\noindentation\placeinitial{#1}\scaps{#2}}
+%\define[2]\Initial{\lettrine{#1}{#2}} % GP: Using this until initials work.
 
 % Section heads
 \setuphead[section][
