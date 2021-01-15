@@ -85,12 +85,13 @@
 % Versals for chapter openers:
 %\usemodule[lettrine] % GP: I turned this back on until initials are working correctly.
 \setupinitial[
-	distance=-1em, % text from initial (initial size)
+	%distance=-1em, % text from initial (initial size)
 	n=2,
-	hoffset=1em, % initial, initial size, positive is left
-	%before={}
+	hoffset=0.05em, % initial, initial size, positive is left
+	font=Serif*default at 27pt,
+	before={\blank[none,disable,back]},
 ]
-\define[2]\Initial{\noindentation\placeinitial{#1}\scaps{#2}}
+\define[2]\Initial{\noindentation\placeinitial{#1}\strut\hskip-0.33em\scaps{#2}}
 %\define[2]\Initial{\lettrine{#1}{#2}} % GP: Using this until initials work.
 
 % Section heads
