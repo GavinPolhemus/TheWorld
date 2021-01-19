@@ -26,7 +26,7 @@ By convention sweet and by convention bitter, by convention hot, by convention c
 \Initial{D}{emocritus speculated} that everything is made of small, indivisible units he called \quotation{atoms.} 
 He was correct, but the project of identifying and classifying these indivisible units got off to a slow start. Atoms were initially thought to be like tiny rocks whose shapes determined their properties. For example, a substance that stings when it is touched might be made of atoms covered in sharp spikes. These models provided interesting explanations, but no testable predictions about how substances interact.
 
-\section{Elements of chemistry}
+%\section{Elements of chemistry}
 
 % CERN has a helpful timeline at:\\ http://teachers.web.cern.ch/teachers/archiv/HST2003/publish/standard\%20model/History/index.htm
 
@@ -36,7 +36,7 @@ By the late nineteenth century, chemists had identified several dozen elements a
 \placetable
     [margin]
     [T:Mendeleev]
-    {The first periodic table of the elements, 1871}
+    {The first periodic table of the elements, 1871.}
     {\vskip9pt%\hbox{
 	\starttabulate[|l|c|c|c|c|c|c|]
 \FL[2]%\toprule
@@ -115,7 +115,7 @@ Within these evacuated tubes current can travel much farther than most sparks in
 \draw[ultra thick, darkgray, rounded corners] (0.25,0.75) rectangle (5,-0.75); % Tube
 \draw[ultra thick] (1,0.25) -- (1,-0.25)node[below]{Cathode}; %Cathode
 \draw[thick] (1,0) -- (0,0) -- (0,-1.25) -- (0.75,-1.25) -- (0.75,-1.5)node[below]{-};
-\draw[ultra thick, fill=darkgray] (1.5,-0.26) rectangle node[above=2.5mm]{Anode} (2,0.26); % Anode
+\draw[ultra thick, fill=darkgray] (1.625,-0.26) rectangle node[above=2.5mm]{Anode} (1.875,0.26); % Anode
 \draw[thick] (1.75,-0.26) -- (1.75,-1.5)node[below]{+};
 \draw[thick] (0.25,-1.5) rectangle node{High Voltage} (2.25,-2.5); % Power supply
 \stoptikzpicture
@@ -188,12 +188,12 @@ Twentieth century televisions are direct descendants of the nineteenth century c
 Cathode rays provided a new way for physicists to study extremely small pieces of matter. Similar beams with ever increasing energy have been become the primary tool in the search for the fundamental pieces of matter. Understanding these beams requires a little knowledge about electrical energy and one of the units used to measure energy, the \keyterm{electron-volt} or \m{\unit{eV}}. 
 
 The concept behind the electron-volt is quite simple. 
-Batteries store electrical energy which can be used to run electrical devices. The energy is retrieved by allowing electrons to flow through a circuit from one end of the battery to the other. The voltage of the battery is a measure of how much energy is provided by each electron flowing through the circuit. A nine-volt battery, for example, provides nine electron volts ($9\units{eV}$) of energy for every electron that makes the journey. An electron volt is a very small amount of energy, about the amount of energy released in the reaction of a single molecule in the battery. Electron volts are related to our other unit of energy, the joule.
+Batteries store electrical energy which can be used to run electrical devices. The energy is retrieved by allowing electrons to flow through a circuit from the negative end of the battery, through the device, and back to the battery's positive end. The voltage of the battery is a measure of how much energy is provided by each electron flowing through the circuit. A nine-volt battery, for example, provides nine electron volts ($9\units{eV}$) of energy for every electron that makes the journey. An electron volt is a very small amount of energy, about the amount of energy released by a single molecule in the battery. Electron volts are related to our other unit of energy, the joule.
 \startformula
 	1\units{eV} = 1.60\sci{-19}\units{J}
 \stopformula
 
-A typical nine-volt battery has about $10^{22}$ electrons stored that can make the journey through the circuit, so the battery can provide about $9\sci{22}\units{eV}$ of energy, which is a significant amount of energy of energy.
+A typical nine-volt battery has about $10^{22}$ electrons stored that can make the journey through a circuit, so the battery can provide about $9\sci{22}\units{eV}$ of energy, which is a significant amount of energy of energy.
 \startformula
 	9\sci{22}\units{\ucan{eV}}
 		\left(\frac{1.60\sci{-19}\units{J}}{1\units{\ucan{eV}}}\right)
@@ -214,7 +214,7 @@ A \m{5.0\units{kV}} power supply delivers \m{5.0\units{keV}} of energy to each e
 		\left(\frac{1.60\sci{-19}\units{J}}{1\units{\ucan{eV}}}\right)
 			= 8.0\sci{-16}\units{J}
 \stopformula
-Once the electrons pass the anode they no longer feel much force and will continue with \m{5.0\units{keV}} of kinetic energy until they run into something.
+Once the electron passes the anode it no longer feels much force and will continue with \m{5.0\units{keV}} of kinetic energy until it runs into something.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -224,7 +224,11 @@ Once the electrons pass the anode they no longer feel much force and will contin
 You decide to make a cathode ray whose electrons are going 5.0\% of the speed of light (\m{c=3.00\sci{8}\units{m/s}}). You build a tube that has no air in it, so that the electrons will not be slowed by collisions with air molecules. What voltage do you need from your power supply?
 
 \startsolution
-Five percent of the speed of light is \m{v = 1.50\sci{7}\units{m/s}}. This is very fast, but still slow enough that we can use the usual kinetic energy formula, \m{K=\onehalf\, mv^2}, where the mass of an electron is \m{m = 9.11\sci{-31}\units{kg}}. The electron's kinetic energy must be 
+Five percent of the speed of light is
+\startformula
+	v = 0.05 c = 0.05(3.00\sci{8}\units{m/s}) = 1.50\sci{7}\units{m/s}.
+\stopformula
+This is very fast, but still slow enough that we can use the usual kinetic energy formula, \m{K=\onehalf\, mv^2}, where the mass of an electron is \m{m = 9.11\sci{-31}\units{kg}}. The electron's kinetic energy must be 
 \startformula
 	K = \tfrac{1}{2}mv^2 = (9.11\sci{-31}\units{kg})(1.50\sci{7}\units{m/s})^2 = 1.02\sci{-16}\units{J}
 \stopformula
@@ -233,14 +237,14 @@ Convert this to electron volts.
 	K = 4.10\sci{-14}\units{\ucan{J}}\left(\frac{1\units{eV}}{1.60\sci{-19}\units{\ucan{J}}}\right)
 		= 640\units{eV}
 \stopformula
-All of the energy provided by the power supply is going to the electron's kinetic energy, so the power supply must provide 640\units{eV} to each electron. The power supply's voltage, therefore, must be \m{640\units{V}}.  Kilovolt power supplies easily get electrons up to a significant fraction of the speed of light! 
+All of the energy provided by the power supply is going to the electron's kinetic energy, so the power supply must provide \m{640\units{eV}} to each electron. The power supply's voltage, therefore, must be \m{640\units{V}}.  Kilovolt power supplies easily get electrons up to a significant fraction of the speed of light! 
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:CathodeForce]
-While carefully connecting a \m{640\units{V}} power supply to your cathode ray tube, you wonder what the average force is on each electron as it is accelerated up to 10\% of the speed of light. The distance from the cathode to the anode is \m{3.0\units{cm}}. What is the average force?
+While carefully connecting a \m{640\units{V}} power supply to your cathode ray tube, you wonder what the average force is on each electron as it is accelerated up to 5.0\% of the speed of light. The distance from the cathode to the anode is \m{3.0\units{cm}}. What is the average force?
 
 \startsolution
 We have not learned anything about how the power supply gives energy to the electrons (that is the next section) so we will not include the power supply or any potential energy in the system. The system will just be a single electron's kinetic energy, which is increased by work done on the electron by the mysterious power supply to the kinetic energy we found in \in{example}[ex:CathodeVelocity] above.
@@ -265,9 +269,15 @@ This is the same force, \m{2.1\sci{4}\units{eV/m} = 3.4\sci{-15}\units{N}}. Some
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Electrical Potential}
+\section{Electrical potential and energy}
 
-\startbuffer[TikZ:BlockSlideK]
+The power supply does not give kinetic energy directly to the electrons. Instead, it gives the electrons potential energy. Since like charges repel, negatively changed electrons are pushed away from the negatively charged cathode.
+Every time the power supply pushes an electron onto the cathode it stores potential energy, much like compressing a spring. Since opposite charges attract, electrons are pulled towards the positively charged anode. Every time the power supply pulls an electron away from the anode it stores potential energy, much like stretching a spring.
+
+This potential energy is stored in the \emph{electrical potential.} The electrical potential is a field that exists everywhere. At any location the electrical potential can be positive, negative, or zero. It is mostly zero, but electric charges alter the electrical potential. Positive charges produce a region of positive potential, while negative charges create a region of negative potential. 
+
+
+\startbuffer[TikZ:CathodeRayGraphs]
 \environment env_physics
 \environment env_TikZ
 \setupbodyfont [libertinus,11pt]
@@ -276,58 +286,157 @@ This is the same force, \m{2.1\sci{4}\units{eV/m} = 3.4\sci{-15}\units{N}}. Some
 \starttikzpicture% tikz code
 	\startaxis[
 		footnotesize,
-		width=2.20in,%\marginparwidth,
-		y={1cm}, %x={2mm},
-		xlabel={\m{x} (m)},
-		xmin=0, xmax=10,
+		name=potential plot,
+		width=2.0in,%\marginparwidth,
+		y={0.005cm}, x={1cm},
+		xlabel={\m{x} (cm)},
+		xmin=0, xmax=3,
 		%xtick={-1,0,...,3},
 		minor x tick num=3,
-		ylabel={Energy (J)},
+		xticklabel pos=upper,
+   		ylabel={Electrical Potential (V)},
 	  	every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
-		ymin=0, ymax=2.5,
+		ymin=-400, ymax=400,
 		minor y tick num=4,
 	   	extra y ticks={0},
 	   	extra y tick labels=\empty,
    		extra y tick style={grid=major},
 		clip mode=individual,
 		]
-	  	\addplot[thick, samples=121, domain=0:10,]
-		    {1.72-(0.2)*x}node[above right,pos=.7] {\m{U}}
-		;
-	  	\addplot[thick, samples=121, domain=0:10,]
-		    {(0.2)*x}node[above left,pos=.3] {\m{K}}
-		;
-	  	\addplot[thick, samples=121, domain=0:10,]
-		    {1.72}node[above,pos=.5] {\m{H=U+K}}
+	  	\addplot[thick, samples=121, domain=0:3,]
+		    {-320+(213)*x}
 		;
 	\stopaxis
+	\startaxis[
+		name=energy plot,
+		at={(potential plot.below south west)},yshift=-2.25cm,
+		anchor=north west,
+		footnotesize,
+		width=2.0in,%\marginparwidth,
+		y={0.005cm}, x={1cm},
+		xlabel={\m{x} (cm)},
+		xmin=0, xmax=3,
+		%xtick={-1,0,...,3},
+		minor x tick num=3,
+		ylabel={Energy (eV)},
+	  	every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
+		ymin=-400, ymax=700,
+		minor y tick num=4,
+	   	extra y ticks={0},
+	   	extra y tick labels=\empty,
+   		extra y tick style={grid=major},
+		clip mode=individual,
+		]
+	  	\addplot[thick, samples=121, domain=0:3,]
+		    {320-(213)*x}node[above right,pos=.4] {\m{U}}
+		;
+	  	\addplot[thick, samples=121, domain=0:3,]
+		    {(213)*x}node[above left,pos=.7] {\m{K}}
+		;
+	  	\addplot[thick, samples=2, domain=0:3,]
+		    {320}node[above,pos=0.25] {\m{H=U+K}}
+		;
+	\stopaxis
+	\draw[ultra thick, darkgray, rounded corners, fill=gray] (potential plot.below south west) ++(-0.75,0) rectangle ++(7cm,-2cm); % Tube
+	\fill[white] (potential plot.below south west) ++(0,-0.5) rectangle node{Cathode Ray} ++(6cm,-1); % Beam
+	%\draw[ultra thick, darkgray, rounded corners] (0.25,0.75) rectangle (5,-0.75); % Tube
+	\draw[ultra thick] (potential plot.below south west) ++(0,-0.5) -- ++(0,-1)node[below]{Cathode}; %Cathode
+	\draw[thick] (potential plot.below south west) ++(0,-1) --node[below]{-} ++(-1,0);
+		\fill(potential plot.below south west) ++(1.5,-1) circle[radius=.4mm]node[above]{\m{e}} ;
+	\draw[thick,->] (potential plot.below south west) ++(1.5,-1) --node[below]{\m{F}} ++(1,0);
+	\draw[ultra thick, fill=darkgray] (potential plot.below south east) ++(0,-0.48) rectangle node[above=0.52cm]{Anode} ++(0.5,-1.04); % Anode
+	\draw[thick] (potential plot.below south east) ++(0.25,-1.5) --node[left]{+} ++(0,-0.6);
 \stoptikzpicture
 \stopTEXpage
 \stopbuffer
 
-\placefigure[margin][fig:BlockSlideK]
-{The block’s energy as a function of position for \in{example}[ex:BlockSlideK].}
-{\noindent\typesetbuffer[TikZ:BlockSlideK]} % figure contents
+\placefigure[margin][fig:CathodeRayGraphs]
+{Above the cathode ray tube is the electrical potential in the \m{3\units{cm}} gap between the cathode and anode when they are attached to a \m{640\units{V}} power supply. Below is the energy graph for an electron accelerating from the cathode towards the anode.}
+{\noindent\typesetbuffer[TikZ:CathodeRayGraphs]} % figure contents
 
+The top graph in \in{figure}[fig:CathodeRayGraphs] shows the electrical potential produced by the charged cathode and anode in a cathode ray tube. Near the negatively charged cathode the electrical potential is negative. Near the positively charged anode the electrical potential is positive. In the middle the effects cancel and the electrical potential is zero.
 
-The \emph{electrical potential}, $V$, is a field that exists everywhere. At any location the electrical potential can be positive, negative, or zero. It is mostly zero, but electric charges alter the electrical potential. Positive charges produce a region of positive potential, while negative charges create a region of negative potential. Electrical potential obeys the superposition principle (just like waves), so that the potential at any location is the sum of the contributions coming from all of the charges in the area.
+Electrical potential is measured in volts. In \in{figure}[fig:CathodeRayGraphs], negative charge has been added to the cathode until its electrical potential is \m{-320\units{V}}. Negative charge has been removed from the anode until its electrical potential is \m{320\units{V}}. The potential difference is therefor \m{640\units{V}}, just like \in{examples}[ex:CathodeVelocity] and \in[ex:CathodeForce] above.
+
+The symbol for electrical potential is \m{V}, which looks very similar to the symbol \m{\unit{V}} for volts. Be careful not to confuse them! In \in{figure}[fig:CathodeRayGraphs] the cathode's potential is \m{V=-320\units{V}}, the anode's is \m{V=320\units{V}}, and the potential difference is \m{\Delta V=640\units{V}}.
+
+% Electrical potential obeys the superposition principle (just like waves), so that the potential at any location is the sum of the contributions coming from all of the charges in the area.
 
 \emph{Electrical potential energy} is energy stored in the electrical potential.
 Notice that electrical potential and electrical potential energy are two distinct things.
-While the general mathematical formula for this energy is quite daunting, we will be interested only in situations where the answer is quite simple.
+%While the general mathematical formula for this energy is quite daunting, we will be interested only in situations where the answer is quite simple.
 When a charge $q$ is placed at a location where the potential is $V$, the electrical potential energy is
 \startformula
 	U = qV
 \stopformula
-The potential $V$ is the potential produced by any other charges, not including the charge $q$. The charge $q$ can never get away from its own contribution to the electrical potential, so that energy is not convertible to other forms and we just leave it out. (Leaving it out also avoids some mathematical headaches.)
+An electron's charge is \m{q=-1\units{e}}, where an \keyterm{elementary unit of charge} is represented by the symbol \m{\unit{e}}. This symbol can be a little confusing because it looks like the symbol for an electron, which is \m{e}. Be careful not to confuse them! The charge on an \m{e} is \m{-1\units{e}}.
 
-The charge $q$ can be positive or negative, and the potential $V$ produced by other charges can also be positive or negative, so the potential energy $U$ can be positive or negative. Objects that have no charge are neutral, $q = 0$, so they do not have electrical potential energy. Similarly, a charge $q$ in a region where the electrical potential is zero also has no potential energy. While the electrical potential field exists everywhere, we sometimes say that a region has no electrical potential. This actually means that the value of the electrical potential is zero in that region.
+The energy graph in \in{figure}[fig:CathodeRayGraphs] shows the potential energy of an electron anywhere between the cathode and the anode. At the cathode, where the electron beam starts, an electron's electrical potential energy is
+\startformula
+	U = qV = (-1\units{e})(-320\units{V}) = 320\units{eV}.
+\stopformula
+At the anode the electron's potential energy is
+\startformula
+	U = qV = (-1\units{e})(320\units{V}) = -320\units{eV}.
+\stopformula
+Since an electron's charge is negative, its electrical potential energy \m{U} is highest where the electrical potential \m{V} is most negative. As an electron accelerates from the cathode its potential energy \m{U} decreases and its kinetic energy \m{K} increases. If the electron does not lose any energy in collisions, all of its lost potential energy will become kinetic energy. The energy graph in \in{figure}[fig:CathodeRayGraphs] shows the kinetic energy increasing from \m{K=0\units{eV}} at the cathode up to \m{K=640\units{eV}} at the anode, with the total energy \m{H=U+K=320\units{eV}} staying constant for the entire journey.
 
-Armed with the formula for electrical potential energy, we have all of the tools we need to explain the well known facts that \emph{opposite charges attract} while \emph{like charges repel}. First, find the electric potential due to one charge. Next, find the potential energy when the second charge is added. Finally, use Hamilton's equation to find the force. For opposite charges the force on the second charge will be toward the first charge. For like charges the force on the second will be away from the first. The method can be reversed to find the force on the first charge, which will give an equal and opposite force, in agreement with Newton's Third Law.
+With the formula for electrical potential energy, we can include potential energy when using energy conservation to solve problems. Including the potential energy in the system is almost always the best choice.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:CathodeK]
+A cathode ray tube is powered by a \m{5.0\units{kV}} power supply which raises the potential of the anode to \m{2.5\units{kV}} and lowers the potential of the cathode to \m{-2.5\units{kV}}. If an electron makes the trip from cathode to anode without running into anything, what will its kinetic energy be when it passes the anode?
 
-The forces determined from the electric potential are enough to determine the motion of the charges, which can be done with a computer simulation or, in simple cases, with calculus.
+\startsolution
+Start with conservation of energy, including the electron's electrical potential energy.
+\startformula\startmathalignment
+\NC	H\si + \cancel{W} + \cancel{Q}	\NC = H\sf			\NR
+\NC	U\si + \cancel{K\si}				\NC = U\sf + K\sf	\NR
+\NC	qV\si + \cancel{K\si}				\NC = qV\sf + K\sf	\NR
+\NC	K\sf								\NC = q(V\si - V\sf)
+\stopmathalignment\stopformula
+The final kinetic energy depends on the electron's charge and the electrical potential difference provided by the power supply.
+\startformula
+K\sf	 = (-1\units{e})(-2.5\units{kV} - 2.5\units{kV})
+	= (-1\units{e})(-5.0\units{kV})
+	= 5.0\units{keV}
+\stopformula
+The electro passes the anode with kinetic energy \m{K=5.0\units{keV}}.
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Particles in Electric Fields}
+Knowing the electron's electrical potential energy allows us to calculate the force on the electron using Hamilton's equation. The force shown in \in{figure}[fig:CathodeRayGraphs] is
+\startformula
+	F = -\frac{\Delta U}{\Delta x}
+		= - \frac{-320\units{eV} - 320\units{eV}}{3.0\units{cm}}
+		= - \frac{-640\units{eV}}{3.0\sci{-2}\units{m}}
+		= 2.1\sci{4}\units{eV/m},
+\stopformula
+which agrees with the result in \in{example}[ex:CathodeForce].
+%The potential $V$ is the potential produced by any other charges, not including the charge $q$. The charge $q$ can never get away from its own contribution to the electrical potential, so that energy is not convertible to other forms and we just leave it out. %(Leaving it out also avoids some mathematical headaches.)
+
+%The charge $q$ can be positive or negative, and the potential $V$ produced by other charges can also be positive or negative, so the potential energy $U$ can be positive or negative. Objects that have no charge are neutral, $q = 0$, so they never have electrical potential energy. A charge $q$ in a region where the electrical potential is zero also has no potential energy. While the electrical potential field exists everywhere, we sometimes say that a region has no electrical potential. This actually means that the value of the electrical potential is zero in that region.
+
+Armed with the formula for electrical potential energy, we have all of the tools we need to explain the well known facts that \emph{opposite charges attract} while \emph{like charges repel}. First, consider two positive charges. Each creates a small region of positive potential. When you try to put the charges close together, each positive charge enters the positive potential of the other. This gives them positive potential energy which increases as they get closer. Hamilton taught us that the force is always towards lower potential energy, so there will be a force pushing the two positive charges apart. Two positive charges repel.
+
+Two negative charges each produce a small region of negative potential. Putting these negative charges into each others' negative potential gives them positive potential energy which increases as they get closer. They will feel a force pushing them apart, towards lower potential energy. Two negative charges repel.
+
+If the charges are opposite, then putting them close together puts the positive charge in the other's negative potential and the negative charge in the other's positive potential. The resulting potential energy is negative, getting more negative as they get closer together. Opposite charges will feel a force towards this more negative, lower potential energy. Opposite charges attract.
+
+These forces between charges are responsible for all of the contact forces you experience in your everyday life. The forces between your feet and the floor, between a book and the table it sits on, and the force of wind on your face are all due to the electrical potentials of electrons and protons interacting. Gravitation is the only force you encounter which is not electrical.
+
+%find the electric potential due to one charge. Next, find the potential energy when the second charge is added. Finally, use Hamilton's equation to find the force. For opposite charges the force on the second charge will be toward the first charge. For like charges the force on the second will be away from the first. The method can be reversed to find the force on the first charge, which will give an equal and opposite force, in agreement with Newton's Third Law.
+
+%The forces determined from the electric potential are enough to determine the motion of the charges, which can be done with a computer simulation or, in simple cases, with calculus.
+
+\section{Electric field and force}
+\startformula
+	F = -\frac{\Delta U}{\Delta x}
+		= - \frac{qV\sf - qV\si}{\Delta x}
+		= - q\frac{V\sf - V\si}{\Delta x}
+		= - q\frac{\Delta V}{\Delta x}
+\stopformula
+
 Finding the electric force on a charge $q$ is easy with the \emph{electric field}, denoted by $\vec E$.
 \startformula
 	\vec F = q\vec E
@@ -356,7 +465,7 @@ The electric field, like the electric potential, obeys the superposition princip
 
 Historically, all of the steps above were discovered in reverse order. The force law between charges was discovered by Charles Coulomb in 1785, and is called Coulomb's law. The electric field was described by Michael Faraday in his \textit{Experimental Researches in Electricity,} begun in 1831. The derivation of the electrical field from the electric potential was given by James Clerk Maxwell in \textit{A Dynamical Theory of the Electromagnetic Field,} published in 1865.
 
-\section{Magnetic field and magnetic force}
+\section{Magnetic field and force}
 The magnetic field, like the electric field, is a vector field that exists everywhere. The value of the magnetic field can be zero, but this is actually  rare. Earth is not electrically charged, so it does not produce an electric field, but Earth does produce a huge magnetic field which extends far out into space. This magnetic field is produced by electric currents deep in Earth's molten core, powered by convection currents and Earth's rotation. This magnetic field protects Earth from the dangerous solar wind, a wind of fast charged particles coming at us constantly from the Sun.
 
 Mars, being somewhat smaller than Earth, cooled more quickly after the formation of the solar system, so it no longer has a molten core and therefore has lost its magnetic field, exposing it to the solar wind. The solar wind gradually blew Mars's atmosphere away, making it a rather inhospitable place. Most planets, as well as the Sun, have significant magnetic fields.
