@@ -337,13 +337,13 @@ This potential energy is stored in the \emph{electrical potential.} The electric
 		    {320}node[above,pos=0.25] {\m{H=U+K}}
 		;
 	\stopaxis
-	\draw[ultra thick, darkgray, rounded corners, fill=gray] (potential plot.below south west) ++(-0.75,0) rectangle ++(7cm,-2cm); % Tube
+	\draw[ultra thick, darkgray, rounded corners, fill=black!30] (potential plot.below south west) ++(-0.75,0) rectangle ++(7cm,-2cm); % Tube
 	\fill[white] (potential plot.below south west) ++(0,-0.5) rectangle node{Cathode Ray} ++(6cm,-1); % Beam
 	%\draw[ultra thick, darkgray, rounded corners] (0.25,0.75) rectangle (5,-0.75); % Tube
 	\draw[ultra thick] (potential plot.below south west) ++(0,-0.5) -- ++(0,-1)node[below]{Cathode}; %Cathode
 	\draw[thick] (potential plot.below south west) ++(0,-1) --node[below]{-} ++(-1,0);
 		\fill(potential plot.below south west) ++(1.5,-1) circle[radius=.4mm]node[above]{\m{e}} ;
-	\draw[thick,->] (potential plot.below south west) ++(1.5,-1) --node[below]{\m{F}} ++(1,0);
+	\draw[thick,->] (potential plot.below south west) ++(1.5,-1) --node[below]{\m{\vec F}} ++(1,0);
 	\draw[ultra thick, fill=darkgray] (potential plot.below south east) ++(0,-0.48) rectangle node[above=0.52cm]{Anode} ++(0.5,-1.04); % Anode
 	\draw[thick] (potential plot.below south east) ++(0.25,-1.5) --node[left]{+} ++(0,-0.6);
 \stoptikzpicture
@@ -400,19 +400,20 @@ K\sf	 = (-1\units{e})(-2.5\units{kV} - 2.5\units{kV})
 	= (-1\units{e})(-5.0\units{kV})
 	= 5.0\units{keV}
 \stopformula
-The electro passes the anode with kinetic energy \m{K=5.0\units{keV}}.
+The electron passes the anode with kinetic energy \m{K=5.0\units{keV}}.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Knowing the electron's electrical potential energy allows us to calculate the force on the electron using Hamilton's equation. The force shown in \in{figure}[fig:CathodeRayGraphs] is
+\pagereference[eq:HamiltonsElectricForce]
 \startformula
 	F = -\frac{\Delta U}{\Delta x}
 		= - \frac{-320\units{eV} - 320\units{eV}}{3.0\units{cm}}
 		= - \frac{-640\units{eV}}{3.0\sci{-2}\units{m}}
 		= 2.1\sci{4}\units{eV/m},
 \stopformula
-which agrees with the result in \in{example}[ex:CathodeForce].
+which agrees with the result in \in{example}[ex:CathodeForce], where the force was found using work. Using Hamilton's equation is usually a better choice.
 %The potential $V$ is the potential produced by any other charges, not including the charge $q$. The charge $q$ can never get away from its own contribution to the electrical potential, so that energy is not convertible to other forms and we just leave it out. %(Leaving it out also avoids some mathematical headaches.)
 
 %The charge $q$ can be positive or negative, and the potential $V$ produced by other charges can also be positive or negative, so the potential energy $U$ can be positive or negative. Objects that have no charge are neutral, $q = 0$, so they never have electrical potential energy. A charge $q$ in a region where the electrical potential is zero also has no potential energy. While the electrical potential field exists everywhere, we sometimes say that a region has no electrical potential. This actually means that the value of the electrical potential is zero in that region.
@@ -430,20 +431,141 @@ These forces between charges are responsible for all of the contact forces you e
 %The forces determined from the electric potential are enough to determine the motion of the charges, which can be done with a computer simulation or, in simple cases, with calculus.
 
 \section{Electric field and force}
+
+The electrical potential only exerts a force on charges if the potential has a slope. This slope is called the \keyterm{electric field.} The electric field provides a useful short-cut for calculating electrical forces. Here is how it works.
+
+Consider a charge \m{q} in a potential, like the electron in between the cathode and anode shown in \in{figure}[fig:CathodeRayFieldGraph]. The force on the charge is given by Hamilton's equation, which can be separated into two factors: the charge $q$ and the slope of the electric potential.
 \startformula
 	F = -\frac{\Delta U}{\Delta x}
 		= - \frac{qV\sf - qV\si}{\Delta x}
-		= - q\frac{V\sf - V\si}{\Delta x}
-		= - q\frac{\Delta V}{\Delta x}
+		= q\left(-\frac{V\sf - V\si}{\Delta x}\right)
+		= q\left(-\frac{\Delta V}{\Delta x}\right)
 \stopformula
-
-Finding the electric force on a charge $q$ is easy with the \emph{electric field}, denoted by $\vec E$.
+The last factor on the right is the electric field.
+\startformula
+	E = -\frac{\Delta V}{\Delta x}
+\stopformula
+The electric field always points in the direction of decreasing electrical potential. 
+Finding the electric field from the electrical potential can be difficult, but often the field is given.
+Once you have the electric field, electric force formula is a simple multiplication.
 \startformula
 	\vec F = q\vec E
 \stopformula
+In many situations calculating the electric field eliminates the need for an energy graph or energy calculations.
+
+%The electric field is a directional, vector quantity, like force. For the cathode ray tube shown in \in{figure}[fig:CathodeRayFieldGraph], all motion is along a single direction, 
+
+\startbuffer[TikZ:CathodeRayFieldGraph]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small%
+\starttikzpicture% tikz code
+	\startaxis[
+		footnotesize,
+		name=potential plot,
+		width=2.0in,%\marginparwidth,
+		y={0.005cm}, x={1cm},
+		xlabel={\m{x} (cm)},
+		xmin=0, xmax=3,
+		%xtick={-1,0,...,3},
+		minor x tick num=3,
+		xticklabel pos=upper,
+   		ylabel={Electrical Potential (V)},
+	  	every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
+		ymin=-400, ymax=400,
+		minor y tick num=4,
+	   	extra y ticks={0},
+	   	extra y tick labels=\empty,
+   		extra y tick style={grid=major},
+		clip mode=individual,
+		]
+	  	\addplot[thick, samples=121, domain=0:3,]
+		    {-320+(213)*x}
+		;
+	\stopaxis
+%	\startaxis[
+%		name=energy plot,
+%		at={(potential plot.below south west)},yshift=-2.25cm,
+%		anchor=north west,
+%		footnotesize,
+%		width=2.0in,%\marginparwidth,
+%		y={0.005cm}, x={1cm},
+%		xlabel={\m{x} (cm)},
+%		xmin=0, xmax=3,
+%		%xtick={-1,0,...,3},
+%		minor x tick num=3,
+%		ylabel={Energy (eV)},
+%	  	every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
+%		ymin=-400, ymax=700,
+%		minor y tick num=4,
+%	   	extra y ticks={0},
+%	   	extra y tick labels=\empty,
+%   		extra y tick style={grid=major},
+%		clip mode=individual,
+%		]
+%	  	\addplot[thick, samples=121, domain=0:3,]
+%		    {320-(213)*x}node[above right,pos=.4] {\m{U}}
+%		;
+%	  	\addplot[thick, samples=121, domain=0:3,]
+%		    {(213)*x}node[above left,pos=.7] {\m{K}}
+%		;
+%	  	\addplot[thick, samples=2, domain=0:3,]
+%		    {320}node[above,pos=0.25] {\m{H=U+K}}
+%		;
+%	\stopaxis
+	\clip (potential plot.below south west) ++ (-1,0.1 )rectangle ++(5.08cm,-2.2cm);
+	\draw[ultra thick, darkgray, rounded corners, fill=black!30] (potential plot.below south west) ++(-0.75,0) rectangle ++(7cm,-2cm); % Tube
+	\fill[white] (potential plot.below south west) ++(0,-0.5) rectangle node{Cathode Ray} ++(6cm,-1); % Beam
+	%\draw[ultra thick, darkgray, rounded corners] (0.25,0.75) rectangle (5,-0.75); % Tube
+	\draw[ultra thick] (potential plot.below south west) ++(0,-0.5) -- ++(0,-1)node[below]{Cathode}; %Cathode
+	\draw[thick] (potential plot.below south west) ++(0,-1) --node[below]{-} ++(-1,0);
+		\fill(potential plot.below south west) ++(1.5,-1) circle[radius=.4mm]node[above]{\m{e}} ;
+	\draw[thick,->] (potential plot.below south west) ++(1.5,-1) --node[below]{\m{\vec F}} ++(1,0);
+	\draw[thick,->] (potential plot.below south west) ++(1.5,-1) --node[below]{\m{\vec E}} ++(-1,0);
+	\draw[ultra thick, fill=darkgray] (potential plot.below south east) ++(0,-0.48) rectangle node[above=0.52cm]{Anode} ++(0.5,-1.04); % Anode
+	\draw[thick] (potential plot.below south east) ++(0.25,-1.5) --node[left]{+} ++(0,-0.6);
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:CathodeRayFieldGraph]
+{Above the cathode ray tube is the electrical potential in the \m{3\units{cm}} gap between the cathode and anode when they are attached to a \m{640\units{V}} power supply. The electric field \m{\vec{E}} in the gap is a vector pointing in the direction of decreasing potential, with a magnitude equal to the potential's slope. This force on the electron is \m{\vec F = q\vec E}.}
+{\noindent\typesetbuffer[TikZ:CathodeRayFieldGraph]} % figure contents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:CathodeField]
+A \m{640\units{V}} power supply is connected to a cathode ray tube, producing the potential plotted on the graph in \in{figure}[fig:CathodeRayFieldGraph]. Find the electric field between the cathode and anode, and the force exerted on an electron by this field.
+
+\startsolution
+First, find the electric field from the slope of the electrical potential. This calculation is almost identical to the force calculation at the end of the last section (\at{p.}[eq:HamiltonsElectricForce]), but take care with signs.
+\startformula
+	E = -\frac{\Delta V}{\Delta x}
+		= - \frac{320\units{V} - (-320\units{V})}{3.0\units{cm}}
+		% = - \frac{640\units{V}}{3.0\sci{-2}\units{m}}
+		= -2.1\sci{4}\units{V/m},
+\stopformula
+The electric field is negative, which means it points to the left in the diagram. To the left is the direction of decreasing electrical potential.
+
+Now find the force on the electron, which has charge \m{q=-1\units{e}}.
+\startformula
+	\vec F = q\vec E
+		= (-1 \units{e})(-2.1\sci{4}\units{V/m},)
+		= 2.1\sci{4}\units{eV/m}.
+\stopformula
+This force is positive, which means it points to the right in the diagram, opposite the electric field.
+
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This force agrees with the results in \in{example}[ex:CathodeForce] and at on \at{p.}[eq:HamiltonsElectricForce].
+
+
 The electric field is a vector field which exists everywhere in space. (The electric field vector could be the zero vector if there are no charges around.) A charge placed where the electric field is not zero will feel a force. A positive charge feels a force is in the direction of the electric field, while a negative charge feels a force in the opposite direction. A neutral particle does not feel any force from electric fields.
 
-The electric field is computed from the electric potential; it is not independent. The electric field vector points in the direction of decreasing electric potential. The electric field's magnitude is the magnitude of electric potential's slope in that direction. The vector's individual components are the potential's slope in the coordinate directions.
+The electric field vector's individual components are the potential's slope in the coordinate directions.
 \startformula
 	E_x = -\frac{\Delta V}{\Delta x}	\qquad
 	E_y = -\frac{\Delta V}{\Delta y}	\qquad
@@ -451,87 +573,198 @@ The electric field is computed from the electric potential; it is not independen
 \stopformula
 Since the electric potential is measured in volts, the electric field is in volts per meter.
 
-These equations for the electric field due to the electric potential look very much like Hamilton's equations for the force due to potential energy, including the minus signs. That is no coincidence! The similarity is the reason the electric field is so useful. The electric field gives another – often more convenient – route for finding the force on a charge.
+%These equations for the electric field due to the electric potential look very much like Hamilton's equations for the force due to potential energy, including the minus signs. That is no coincidence! The similarity is the reason the electric field is so useful. The electric field gives another – often more convenient – route for finding the force on a charge.
+%
+%The first route for finding the force on a charge $q$, which you already learned, is to start with the electric potential, multiply by $q$ to get the potential energy, and then find the slope to get the force. The second method is to start with the potential, find the slope to get the electric field, and then multiply by $q$ to get the force. Either method gives the same force.
+%
+%The hard step in either method is finding the slope, which can require calculus or drawing tangent lines on graphs. Using the electric field gets that step out of the way. The remaining steps – finding the field's direction and multiplying by the other charge – do not require sophisticated mathematics. 
 
-The first route for finding the force on a charge $q$, which you already learned, is to start with the electric potential, multiply by $q$ to get the potential energy, and then find the slope to get the force. The second method is to start with the potential, find the slope to get the electric field, and then multiply by $q$ to get the force. Either method gives the same force.
+The cathode ray experiment in \in{figure}[fig:CathodeDeflection] shows a common example of how electric force is used to deflect a cathode ray. The plates near the center are charged so that the top plate has a lower potential while the bottom plate has a higher potential. This produces an electric field between the plates directed upwards – towards lower potential. The upwards electric field produces a downwards electric force on the negatively charged electrons, deflecting the beam downwards.
 
-The hard step in either method is finding the slope, which can require calculus or drawing tangent lines on graphs. Using the electric field gets that step out of the way. The remaining steps – finding the field's direction and multiplying by the other charge – do not require sophisticated mathematics. 
+\startbuffer[TikZ:CathodeDeflection]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small%
+\starttikzpicture% tikz code
+	%\clip (-1,0.1 )rectangle ++(5.08cm,-2.2cm);
+	\draw[ultra thick, darkgray, rounded corners, fill=black!30] (-0.75,1) rectangle ++(16.25cm,-2cm); % Tube
+	\fill[white] (0,0.5) rectangle ++(3.25cm,-1); % Beam
+	\draw[ultra thick, white] (0,0) -- ++(5.5cm,0) parabola ++(5,-0.1) -- ++(5,-0.2); % Beam
+	\draw[ultra thick, darkgray, rounded corners] (-0.75,1) rectangle ++(16.25cm,-2cm); % Tube
+	\draw[ultra thick] (0,0.5) -- ++(0,-1)node[below]{Cathode}; %Cathode
+	\draw[thick] (0,0) --node[below]{-} ++(-1,0);
+%		\fill (1.5,0) circle[radius=.4mm]node[above]{\m{e}} ;
+%	\draw[thick,->] (1.5,0) --node[below]{\m{\vec F}} ++(1,0);
+	\draw[ultra thick, fill=darkgray] (3,0.52) rectangle node[above=0.52cm]{Anode} ++(0.5,-1.04); % Anode
+	\draw[thick] (3.25,-0.5) --node[left]{+} ++(0,-0.6);
+	\draw[ultra thick] (5.5,0.5) -- ++(5,0); %Top plate
+	\draw[thick] (8,0.5) --node[below left]{-} ++(0,0.75);
+	\draw[ultra thick] (5.5,-0.5) -- ++(5,0); % bottom plate
+	\draw[thick] (8,-0.5) --node[above left]{+} ++(0,-0.75);
+		\fill (8,-0.025) circle[radius=.4mm]node[above]{\m{e}} ;
+	\draw[thick,->] (8,-0.025) --node[right]{\m{\vec F}} ++(0,-0.4);
+	\draw[->] (5.75,-0.4) --node[left]{\m{\vec E}} ++(0,0.8);
+	\draw[->] (6.65,-0.4) -- ++(0,0.8);
+	\draw[->] (7.55,-0.4) -- ++(0,0.8);
+	\draw[->] (8.45,-0.4) -- ++(0,0.8);
+	\draw[->] (9.35,-0.4) -- ++(0,0.8);
+	\draw[->] (10.25,-0.4) -- ++(0,0.8);
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:CathodeDeflection] % location
+{A cathode ray deflected by an electric field between two charged plates. The anode has a small hole so the cathode ray makes a thin beam. The beam is deflected by the electric field between the two charged plates}	% caption text
+{\vskip5.75in\hbox{\starttikzpicture
+	\draw[white] (0,0)-- ++(5,0); % Sky to make height better
+\stoptikzpicture}}
+
+\placewidefloat[bottom,none]
+{This is its caption I need to fix.}
+{\hbox{\noindent\typesetbuffer[TikZ:CathodeDeflection]}} % figure contents
 
 The direction of the electric field is always towards lower potential. A positive charge creates a region of positive potential, with the highest potential close to the charge, so \emph{the electric field points away from a positive charge,} toward the lower potential far away. A negative charge creates a region of negative potential, with the most negative potential close to the charge, so the \emph{the electric field points toward a negative charge,}  toward the nearby lower potential. In both cases the electric field has the greatest magnitude close to the charge, where the potential is changing most rapidly with distance. Far from the charge, where the potential is inching towards zero, the magnitude of the electric field is small.
 
 The electric field gives another explanation for why like charges repel and opposite charges attract. For example, a positive charge produces an electric field that points away from it. Another positive charge will feel a force in the direction of this field, so the second positive charge is repelled by the first. If the second charge is negative, it will feel a force opposite the electric field and be attracted to the positive charge. Take a moment to determine the direction of the force that a negative particle would exert on another charge, either positive or negative.
 
-The electric field, like the electric potential, obeys the superposition principle, but the electric field vectors must be added \emph{as vectors} which makes the addition more complicated than it is for the electric potential. A charge does not feel its own electric field, only the total field produced by all other charges.
+%The electric field, like the electric potential, obeys the superposition principle, but the electric field vectors must be added \emph{as vectors} which makes the addition more complicated than it is for the electric potential. A charge does not feel its own electric field, only the total field produced by all other charges.
 
-Historically, all of the steps above were discovered in reverse order. The force law between charges was discovered by Charles Coulomb in 1785, and is called Coulomb's law. The electric field was described by Michael Faraday in his \textit{Experimental Researches in Electricity,} begun in 1831. The derivation of the electrical field from the electric potential was given by James Clerk Maxwell in \textit{A Dynamical Theory of the Electromagnetic Field,} published in 1865.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\startexample[ex:CathodeDeflection]
+%A \m{640\units{V}} power supply is connected to a cathode ray tube, producing the potential plotted on the graph in \in{figure}[fig:CathodeRayFieldGraph]. Find the electric field between the cathode and anode, and the force exerted on an electron by this field.
+%
+%\startsolution
+%First, find the electric field from the slope of the electrical potential. This calculation is almost identical to the force calculation at the end of the last section (\at{p.}[eq:HamiltonsElectricForce]), but take care with signs.
+%\startformula
+%	E = -\frac{\Delta V}{\Delta x}
+%		= - \frac{320\units{V} - (-320\units{V})}{3.0\units{cm}}
+%		% = - \frac{640\units{V}}{3.0\sci{-2}\units{m}}
+%		= -2.1\sci{4}\units{V/m},
+%\stopformula
+%The electric field is negative, which means it points to the left in the diagram. To the left is the direction of decreasing electrical potential.
+%
+%Now find the force on the electron, which has charge \m{q=-1\units{e}}.
+%\startformula
+%	\vec F = q\vec E
+%		= (-1 \units{e})(-2.1\sci{4}\units{V/m},)
+%		= 2.1\sci{4}\units{eV/m}.
+%\stopformula
+%This force is positive, which means it points to the right in the diagram, opposite the electric field.
+%
+%\stopsolution
+%\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Historically, the electrical potential, electric field, and electric force were discovered in reverse order. The force law between charges was discovered by Charles Coulomb in 1785, and is called Coulomb's law. The electric field was described by Michael Faraday in his \textit{Experimental Researches in Electricity,} begun in 1831. The derivation of the electrical field from the electric potential was given by James Clerk Maxwell in \textit{A Dynamical Theory of the Electromagnetic Field,} published in 1865.
 
 \section{Magnetic field and force}
 The magnetic field, like the electric field, is a vector field that exists everywhere. The value of the magnetic field can be zero, but this is actually  rare. Earth is not electrically charged, so it does not produce an electric field, but Earth does produce a huge magnetic field which extends far out into space. This magnetic field is produced by electric currents deep in Earth's molten core, powered by convection currents and Earth's rotation. This magnetic field protects Earth from the dangerous solar wind, a wind of fast charged particles coming at us constantly from the Sun.
 
-Mars, being somewhat smaller than Earth, cooled more quickly after the formation of the solar system, so it no longer has a molten core and therefore has lost its magnetic field, exposing it to the solar wind. The solar wind gradually blew Mars's atmosphere away, making it a rather inhospitable place. Most planets, as well as the Sun, have significant magnetic fields.
+Mars, being somewhat smaller than Earth, cooled more quickly after the formation of the solar system, so it no longer has a molten core and therefore has lost its magnetic field, exposing it to the solar wind. The solar wind gradually blew Mars's atmosphere away, making it a rather inhospitable place. Magnetic fields are very important!
 
-Like the electric field, the magnetic field exerts a force on charged particles, but only on changed particles that are moving. The direction of the magnetic force is \emph{perpendicular} to the direction of the field and also \emph{perpendicular} to the particle's direction of motion. This is described by a vector cross product.
+The magnetic field exerts a force on charged particles, but only on changed particles that are moving. The direction of the magnetic force is \emph{perpendicular} to the direction of the field and also \emph{perpendicular} to the particle's direction of motion. This is described by a vector cross product.
 \startformula
 	\vec{F} = q\vec{v} \times \vec{B}
 \stopformula
-The magnitude of a cross product is the area of the little parallelogram made by the two vectors, in this case the vector $q\vec{v}$ and the vector $\vec{B}$.
-If the charged particle is moving perpendicular to the magnetic field's direction, then the vectors $q\vec{v}$ and $\vec{B}$ are perpendicular, forming a rectangle with area $qvB$. If the particle is traveling along the magnetic field, then vector $q\vec{v}$ and $\vec{B}$ are parallel (either pointing in exactly the same direction, or in exactly opposite directions), the parallelogram collapses, and the area is zero. In general, the vectors $q\vec{v}$ and $\vec{B}$ make some angle $\theta$ and the magnitude of the field is 
+In this book we will only consider situations where the magnetic field is perpendicular to the charged particle's velocity. In this case the magnitude of the magnetic force is simply
 \startformula
-	F = \abs{q}vB\sin{\theta}
+	F = qvB.
 \stopformula
-Again, for motion perpendicular to the field the angle between $q\vec{v}$ and $\vec{B}$ is $90\degree$ and $F=\abs{q}vB$. For motion parallel to the field the angle is $0\degree$ or $180\degree$ and $F=0$.
+%The magnitude of a cross product is the area of the little parallelogram made by the two vectors, in this case the vector $q\vec{v}$ and the vector $\vec{B}$.
+%If the charged particle is moving perpendicular to the magnetic field's direction, then the vectors $q\vec{v}$ and $\vec{B}$ are perpendicular, forming a rectangle with area $qvB$. If the particle is traveling along the magnetic field, then vector $q\vec{v}$ and $\vec{B}$ are parallel (either pointing in exactly the same direction, or in exactly opposite directions), the parallelogram collapses, and the area is zero. In general, the vectors $q\vec{v}$ and $\vec{B}$ make some angle $\theta$ and the magnitude of the field is 
+%\startformula
+%	F = \abs{q}vB\sin{\theta}
+%\stopformula
+%Again, for motion perpendicular to the field the angle between $q\vec{v}$ and $\vec{B}$ is $90\degree$ and $F=\abs{q}vB$. For motion parallel to the field the angle is $0\degree$ or $180\degree$ and $F=0$.
 
-The direction of the magnetic field is determined using the right hand rule. This is a fully three dimensional exercise, so you will need to train with an experienced right-hand-rule practitioner to avoid sign errors and potential injury. The three vectors in the magnetic force formula are assigned to different fingers on your right hand. The vector $q\vec{v}$ is assigned to your index finger, as if you are firing the charge like an imaginary bullet out of your straight, extended finger. However, if $q$ is negative then you need to point your index finger in the direction \emph{opposite} the velocity vector $\vec{v}$, keeping it extended and straight while reversing your entire hand.
+\startbuffer[TikZ:RightHandOut]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage
+\starttikzpicture% tikz code
+	\pic[rotate=0]{RightHandOut};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
 
-The magnetic field vectors are assigned to your remaining fingers – lots of fingers for the lots of magnetic field vectors. These fingers are not extended and should bend naturally in the direction of the magnetic field. If the magnetic field is in the direction of $q\vec{v}$, so that all four fingers are extended, or if the magnetic field is opposite $q\vec{v}$ so that the three field fingers bend back into the palm of the hand, then the force is \emph{zero.}
+\placefigure[margin][fig:RightHandOut] % location
+{The right-hand rule for a magnetic field \m{\vec B} coming out of the page (dots). The magnetic force \m{\vec F} (thumb) is perpendicular to the electrical current \m{q\vec v} (pointer finger) and the magnetic field \m{\vec B} (little fingers)}	% caption
+{\noindent\typesetbuffer[TikZ:RightHandOut]} % figure contents
+
+\startbuffer[TikZ:RightHandIn]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage
+\starttikzpicture% tikz code
+	\pic[rotate=0]{RightHandIn};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RightHandIn] % location
+{The right-hand rule for a magnetic field \m{\vec B} going into the page (crosses). The magnetic force \m{\vec F} (thumb) is perpendicular to the electrical current \m{q\vec v} (pointer finger) and the magnetic field \m{\vec B} (little fingers)}	% caption
+{\noindent\typesetbuffer[TikZ:RightHandIn]} % figure contents
+
+\noindent
+The direction of the magnetic force is determined by the right-hand rule, shown in \in{figures}[fig:RightHandOut] for magnetic fields out of the page and in figure \in{figure}[fig:RightHandIn] for magnetic fields into the page. The three vectors in the magnetic force formula are assigned to different fingers on your right-hand. The vector $q\vec{v}$ is assigned to your index finger, as if you are firing the charge like an imaginary bullet out of your straight, extended finger. However, if $q$ is negative then you need to point your index finger in the direction \emph{opposite} the velocity vector $\vec{v}$, keeping it extended and straight while reversing your entire hand. The direction of \m{q\vec v} is the direction of the \keyterm{electrical current} due to the charge's movement.
+
+The magnetic field vectors are assigned to your remaining fingers – lots of fingers for the lots of magnetic field vectors. These fingers are not extended and should bend naturally in the direction of the magnetic field. %If the magnetic field is in the direction of $q\vec{v}$, so that all four fingers are extended, or if the magnetic field is opposite $q\vec{v}$ so that the three field fingers bend back into the palm of the hand, then the force is \emph{zero.}
 
 If the index finger and the remaining fingers produce some angel between $0\degree$ and $180\degree$, then the thumb, the most forceful of fingers, shows the direction of the force. The thumb should be extended and straight, perpendicular to both the extended index finger and the remaining bent fingers.
+
+The right-hand rule can be used when the velocity and magnetic field are pointing in any direction, not just the directions I have described. For more complicated situations, the right-hand rule is a fully three dimensional exercise. You should train with an experienced right-hand rule practitioner to avoid sign errors and injury.
 
 %\section{Orbits in a Magnetic Field}
 Gravitational forces are responsible for the orbits of celestial objects – moons obit planets, planets orbit stars, and stars orbit galaxies. Electrical forces are responsible for the orbits of electrons around the nucleus of an atom. In both cases the field, gravitational or electrical, is produced by an object at the center which causes an attractive force holding the smaller object in orbit.
 
-Magnetic orbits are totally different because they have \emph{nothing} at the center. This is possible because the magnetic force is perpendicular to the particle's motion, changing the particle's direction, but not its speed. As the particle's path bends, the direction of the force also changes, staying always perpendicular to the particle's velocity. This changing force will curve the particle's path around into a circle or a helix.
+Magnetic orbits are totally different because they have \emph{nothing} at the center. This is possible because the magnetic force is perpendicular to the particle's motion, changing the particle's direction, but not its speed. As the particle's path bends, the direction of the force also changes, staying always perpendicular to the particle's velocity. This changing force will curve the particle's path around into a circle (or a helix in more complicated situations).
 
 Circular magnetic orbits are used to keep particles orbiting in circular particle colliders. Charged particles in the solar wind follow tight helical orbits that follow Earth's magnetic field to the poles, where the particles crash into the atmosphere producing northern and southern lights.
 
 %\section{Magnetic Potential?}
-The electric potential and the electric field are both very useful. The electric potential is especially useful when you want to understand the energy in the system, while the electric field is especially convenient when you want to understand the electric forces. We have learned about the magnetic field, which is convenient when we want to understand the magnetic forces. (The magnetic field is not quite as convenient as the electric field because of the cross product and the right hand rule, but it works.) Surely, you are now anxious to learn about the magnetic potential for situations where you want to study magnetic potential energy.
+The electric potential and the electric field are both very useful. The electric potential is especially useful when you want to understand the energy in the system, while the electric field is especially convenient when you want to understand the electric forces. We have learned about the magnetic field, which is convenient when we want to understand the magnetic forces. (The magnetic field is not quite as convenient as the electric field because of the cross product and the right-hand rule, but it works.) Surely, you are now anxious to learn about the magnetic potential for situations where you want to study magnetic potential energy.
 
 Unfortunately, I have bad news. The magnetic potential is quite complicated. It is actually a \emph{vector} potential. This is related to the fact the magnetic force involves the velocity, which is also a vector. The magnetic potential energy involves the charge, the magnetic vector potential, and the velocity vector, which makes it complicated. The real killer, however, is  the magnetic vector potential's contribution to a magnetic potential momentum! The formula is not complicated, but working with the potential momentum requires extreme mental discipline.
 
 Fortunately, I have good news, too. Because the magnetic force is perpendicular to the charge's motion, magnetic forces never do any work! Magnetic potential energy only interacts with the kinetic energy of changes and currents though electric forces, which can do work. While I recommend learning vector calculus so you can contemplate the supreme beauty of the magnetic vector potential, you won't actually need the magnetic vector potential for any problems in introductory physics. Use the \emph{electric} force, the magnetic force will not work!\footnote{Kenobi, Obi-Wan. Private communication.}
 
-\section{Discovery of the first sub-atomic particle}
+%\section{Discovery of the first sub-atomic particle}
+%
+%Cathode rays can be deflected by magnetic or electric fields. In 1897,
+%J.~J.~Thompson performed a clever experiment where the magnetic and electric deflections would cancel out. The strengths of the electric and magnetic field that produced the cancelation could then be used to determine the velocity and mass of the electrons in the rays. %(This calculation is one that you will do after learning more about the forces exerted by electric and magnetic fields.)
+%
+%\placetable
+%    [margin]
+%    [T:Mendeleev]
+%    {The electron is lighter than any element and does not fit among the elements in the periodic table, 1897}
+%    {\vskip9pt%\hbox{
+%	\starttabulate[|l|c|c|c|c|c|c|]
+%\FL[2]%\toprule
+%\NC	 	\NC 	\NC 	\NC e	\NC 	\NC 	\NC 	\NR
+%\HL
+%\NC	 H	\NC 	\NC 	\NC 	\NC 	\NC 	\NC 	\NR
+%\NC Li	\NC Be	\NC B	\NC C	\NC N	\NC O	\NC F	\NR
+%\NC Na	\NC Mg	\NC Al	\NC Si	\NC P	\NC S	\NC Cl	\NR
+%\NC K	\NC Ca	\NC .	\NC .	\NC .	\NC .	\NC .	\NR
+%\LL[2]%\bottomrule
+%    \stoptabulate}
+%
+%
+%%The electrons were much lighter than the lightest atomic ions. Further investigation revealed that these particles were also present in two other phenomena: the photoelectric effect, where electrons are knocked out of a metal by light, and beta-rays, which are given off by some radioactive materials. %(more about beta-rays in a moment).
+%%Soon it was understood that electric current through wires was accomplished by the movement of electrons through the metal.
+%
+%Electrons are far too light to be one of the elements, and they do not fit the pattern of the periodic table. These new particles provided our first glimpse into the world within the atom.  % and they do not participate in chemical reactions like elements either.
+%
+%% We will return to the photoelectric effect soon, but first let us look at what radioactivity was revealing about the elements.
 
-Cathode rays can be deflected by magnetic or electric fields. In 1897,
-J.~J.~Thompson performed a clever experiment where the magnetic and electric deflections would cancel out. The strengths of the electric and magnetic field that produced the cancelation could then be used to determine the velocity and mass of the electrons in the rays. %(This calculation is one that you will do after learning more about the forces exerted by electric and magnetic fields.)
 
-\placetable
-    [margin]
-    [T:Mendeleev]
-    {The electron is lighter than any element and does not fit among the elements in the periodic table, 1897}
-    {\vskip9pt%\hbox{
-	\starttabulate[|l|c|c|c|c|c|c|]
-\FL[2]%\toprule
-\NC	 	\NC 	\NC 	\NC e	\NC 	\NC 	\NC 	\NR
-\HL
-\NC	 H	\NC 	\NC 	\NC 	\NC 	\NC 	\NC 	\NR
-\NC Li	\NC Be	\NC B	\NC C	\NC N	\NC O	\NC F	\NR
-\NC Na	\NC Mg	\NC Al	\NC Si	\NC P	\NC S	\NC Cl	\NR
-\NC K	\NC Ca	\NC .	\NC .	\NC .	\NC .	\NC .	\NR
-\LL[2]%\bottomrule
-    \stoptabulate}
-
-
-%The electrons were much lighter than the lightest atomic ions. Further investigation revealed that these particles were also present in two other phenomena: the photoelectric effect, where electrons are knocked out of a metal by light, and beta-rays, which are given off by some radioactive materials. %(more about beta-rays in a moment).
-%Soon it was understood that electric current through wires was accomplished by the movement of electrons through the metal.
-
-Electrons are far too light to be one of the elements, and they do not fit the pattern of the periodic table. These new particles provided our first glimpse into the world within the atom.  % and they do not participate in chemical reactions like elements either.
-
-% We will return to the photoelectric effect soon, but first let us look at what radioactivity was revealing about the elements.
-
-
-\subject{Notes}
+%\subject{Notes}
 %\placefootnotes[criterium=chapter]
 \placenotes[endnote][criterium=chapter]
 

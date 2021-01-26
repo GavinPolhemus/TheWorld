@@ -208,5 +208,45 @@
 		\stopscope
 	}
 }
+\tikzset{
+	RightHandOut/.pic={
+		\draw[thick] (-.2cm,0)
+			-- (-0.2cm,1.2cm) arc [start angle=180, end angle=0, radius=0.2cm]
+			-- (0.2,-1.0) -- (1.2,-1.0) arc [start angle=90, end angle=-90, radius=0.2cm]
+			-- (-1.0,-1.4) arc [start angle=-90, end angle=-180, radius=0.4cm]
+			-- (-1.4,0) ;
+		\draw[thick] (0.2,-1.0) arc [start angle=0, end angle=135, x radius=0.6cm, y radius=0.4cm];
+		\draw[thick] (-0.4cm,0) circle[radius=0.2cm];
+		\draw[thick] (-0.8cm,0) circle[radius=0.2cm];
+		\draw[thick] (-1.2cm,0) circle[radius=0.2cm];
+		\node at (0.4cm,-1.2cm) {\small\m{\vec F}};
+		\draw[thick,->] (0.7cm,-1.2cm) -- (1.3cm,-1.2cm);
+		\node at (0,0.1cm) {\small\m{q\vec v}};
+		\draw[thick,->] (0,0.4cm) -- (0,1.3cm);
+		\node at (-0.7cm,-0.4cm) {\small\m{\vec B}};
+		\node at (-0.4cm,0) {\small•};
+		\node at (-0.8cm,0) {\small•};
+		\node at (-1.2cm,0) {\small•};
+	}
+}
+\tikzset{
+	RightHandIn/.pic={
+		\draw[thick] (.2cm,0)
+			-- (0.2cm,1.2cm) arc [start angle=0, end angle=180, radius=0.2cm]
+			-- (-0.2,-1.0) -- (-1.2,-1.0) arc [start angle=90, end angle=270, radius=0.2cm]
+			-- (1.0,-1.4) arc [start angle=-90, end angle=0, radius=0.4cm]
+			-- (1.4,0) arc [start angle=0, end angle=180, radius=0.2cm]
+			arc [start angle=0, end angle=180, radius=0.2cm]
+			arc [start angle=0, end angle=180, radius=0.2cm];
+		\node at (-0.4cm,-1.2cm) {\small\m{\vec F}};
+		\draw[thick,->] (-0.7cm,-1.2cm) -- (-1.3cm,-1.2cm);
+		\node at (0,0.1cm) {\small\m{q\vec v}};
+		\draw[thick,->] (0,0.4cm) -- (0,1.3cm);
+		\node at (0.7cm,-0.4cm) {\small\m{\vec B}};
+		\node at (0.4cm,0) {\small\times};
+		\node at (0.8cm,0) {\small\times};
+		\node at (1.2cm,0) {\small\times};
+	}
+}
 
 \stopenvironment
