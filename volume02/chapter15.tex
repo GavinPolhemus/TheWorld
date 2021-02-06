@@ -1,0 +1,102 @@
+% !TEX useOldSyncParser
+\startcomponent c_chapter08
+\project project_world
+\product prd_volume01
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title={Middle Model}, reference=ch:MiddleModel]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\placefigure[margin,none]{}{\small
+	\startalignment[flushleft]
+By convention sweet and by convention bitter, by convention hot, by convention cold, by convention color; but in reality atoms and void.%\autocite{p.46}{Helmholtz1857}
+	\stopalignment
+	\startalignment[flushright]
+	%{\it On the Physiological Causes\\
+	%	of Harmony in Music}\\
+	{\sc Democritus}\\
+	c.460 -- c.370 \scaps{BCE}
+	\stopalignment
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Potential and field of a point charge}
+The potential in the vicinity of a single point charge $q\sub{c}$ is
+\startformula
+	V = k\sub{C}\frac{q\sub{c}}{r}
+\stopformula
+where $r$ is the distance from the central point charge $q\sub{c}$. The constant in front is \emph{Coulomb's constant}.
+\startformula
+	k\sub{C} = 1.44\sci{-9}\units{V\.m/e}
+\stopformula
+This equation will get you started finding energies and forces between charged particles.
+
+The first route for finding the force on a charge $q$, which you already learned, is to start with the electric potential, multiply by $q$ to get the potential energy, and then find the slope to get the force. The second method is to start with the potential, find the slope to get the electric field, and then multiply by $q$ to get the force. Either method gives the same force.
+
+% Some of this (below) is a duplicate of material in Ch 9! %%%%%%%%%%%
+
+The hard step in either method is finding the slope, which can require calculus or drawing tangent lines on graphs. Using the electric field gets that step out of the way. You have already seen the formula for the potential due to a point charge. With some calculus the charge's electric field can be found. The resulting magnitude of the the electric field is
+\startformula
+	\|\vec E\| = k\sub{C}\frac{\abs{q\sub{c}}}{r^2}
+\stopformula
+The calculus is done! The remaining steps – finding the field's direction and multiplying by the other charge – do not require sophisticated mathematics. 
+
+The direction of the electric field is always towards lower potential. A positive charge creates a region of positive potential, with the highest potential close to the charge, so \emph{the electric field points away from a positive charge,} toward the lower potential far away. A negative charge creates a region of negative potential, with the most negative potential close to the charge, so the \emph{the electric field points toward a negative charge,}  toward the nearby lower potential. In both cases the electric field has the greatest magnitude close to the charge, where the potential is changing most rapidly with distance. Far from the charge, where the potential is inching towards zero, the magnitude of the electric field is small.
+
+The electric field gives another explanation for why like charges repel and opposite charges attract. For example, a positive charge produces an electric field that points away from it. Another positive charge will feel a force in the direction of this field, so the second positive charge is repelled by the first. If the second charge is negative, it will feel a force opposite the electric field and be attracted to the positive charge. Take a moment to determine the direction of the force that a negative particle would exert on another charge, either positive or negative.
+
+The electric field, like the electric potential, obeys the superposition principle, but the electric field vectors must be added \emph{as vectors} which makes the addition more complicated than it is for the electric potential. A charge does not feel its own electric field, only the total field produced by all other charges.
+
+Historically, all of the steps above were discovered in reverse order. The force law between charges was discovered by Charles Coulomb in 1785, and is called Coulomb's law. The electric field was described by Michael Faraday in his \textit{Experimental Researches in Electricity,} begun in 1831. The derivation of the electrical field from the electric potential was given by James Clerk Maxwell in \textit{A Dynamical Theory of the Electromagnetic Field,} published in 1865.
+
+% Some of this (below) is a duplicate of material in Ch 9! %%%%%%%%%%%
+
+\subject{Notes}
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+
+%\subject{Bibliography}
+%        \placelistofpublications
+
+\stopchapter
+\stopcomponent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%$6.241509\sci{18}$ electrons is \emph{negative} one Coulomb. One Coulomb of charge from a one volt battery gives one joule of energy. How many electron volts are in one joule? Converting the other way, one electron volt is how many joules? How many electron volts of energy would be produced by one mole of electrons going through a potential difference on one volt. How many joules? Calories too?
+
+
+% Templates:
+
+% Margin image
+\placefigure[margin][] % Location, Label
+{} % Caption
+{\externalfigure[chapter03/][width=144pt]} % File
+
+% Margin Figure
+\startbuffer[TikZ:NAME]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:NAME] % Location, Label
+{}	 % caption text
+{\noindent\typesetbuffer[TikZ:NAME]}
+
+% Aligned equation
+\startformula\startmathalignment
+\stopmathalignment\stopformula
+
+% Aligned Equations
+\startformula\startmathalignment[m=2,distance=2em]
+\stopmathalignment\stopformula
