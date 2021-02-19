@@ -6,29 +6,226 @@
 \setupsynctex[state=start,method=max] % "method=max" or "min"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startchapter[title={The Motion Called Heat}, reference=ch:Heat]
+\startchapter[title={The Energy Called Heat}, reference=ch:Heat]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\placefigure[margin,none]{}{\small
-	\startalignment[flushleft]
-By convention sweet and by convention bitter, by convention hot, by convention cold, by convention color; but in reality atoms and void.%\autocite{p.46}{Helmholtz1857}
-	\stopalignment
-	\startalignment[flushright]
-	%{\it On the Physiological Causes\\
-	%	of Harmony in Music}\\
-	{\sc Democritus}\\
-	c.460 -- c.370 \scaps{BCE}
-	\stopalignment
-}
+%\placefigure[margin,none]{}{\small
+%	\startalignment[flushleft]
+%By convention sweet and by convention bitter, by convention hot, by convention cold, by convention color; but in reality atoms and void.%\autocite{p.46}{Helmholtz1857}
+%	\stopalignment
+%	\startalignment[flushright]
+%	%{\it On the Physiological Causes\\
+%	%	of Harmony in Music}\\
+%	{\sc Democritus}\\
+%	c.460 -- c.370 \scaps{BCE}
+%	\stopalignment
+%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\Initial{D}{emocritus speculated} that everything is made of small, indivisible units he called \quotation{atoms.} 
-He was correct, but the project of identifying and classifying these indivisible units got off to a slow start. 
+\Initial{W}{hen Thomas Newcomen} and his partner John Calley built the first piston steam engine 1712, there was not a physicist alive who could have explained how it worked. Newcomen and Calley built the engine to pump water out of a mine at the Conygree Coalworks in central England. At the time, there were no powered machines working in the mines – all work was done by laborers and horses. The mine did have a sort of steam pump that used condensing steam to suck ground water out of the mine, preventing the mine from flooding. However, this steam pump was not working and Newcomen was called to fix it. The fix he devised, shown in \in{figure}[fig:NewcomenAtmospheric], was actually an entirely new design. \in{Figure}[fig:NewcomenAtmospheric] shows his new engine in its resting position. On the left is a simple pump driven by a large weight. When the weight is lifted, water flows into the bottom of the pump, deep in the mine (not shown). When the heavy weight is lowered, it forces water up a pipe to the surface. Then the weight must be lifted again. 
+
+\placefigure[margin][fig:NewcomenAtmospheric]{Newcomen engine from \booktitle{Practical physics for secondary schools. Fundamental principles and applications to daily life,} by Newton Henry Black and Harvey Nathaniel Davis, publ. 1913 by Macmillan and Company, p.~219} {\externalfigure[chapter11/NewcomenAtmospheric][width=\rightmarginwidth]}
+
+Lifting the weight is the job of the engine on the right. Water in the boiler \m{A} is heated by a fire below. When the valves \m{V} and \m{V''} are opened (with valve \m{V'} closed), steam rises into the cylinder \m{B} forcing any air out through the valve \m{V''}.
+
+Once the cylinder is filled entirely with steam, the cylinder is sealed by closing valves \m{V} and \m{V''}. Then the valve \m{V'} is opened briefly, allowing cold water from the tank \m{C} to spray into the cylinder, as shown in \in{figure}[fig:NewcomenAtmospheric]. This spray cools the cylinder and the steam, causing the steam to condense into liquid water again. All of the steam condenses into a tiny volume of water, which collects with the sprayed water at the bottom of the cylinder. No air is allowed back into the cylinder, and all of the steam has condensed, so the cylinder is almost empty, with near vacuum above the small pool of  water at the bottom.
+
+Outside the cylinder is the atmosphere, pushing in from all sides. Most importantly, the atmosphere pushes down on the movable piston which forms the top of the cylinder in \in{figure}[fig:NewcomenAtmospheric]. The downward pressure \m{P} produces a huge downward force \m{F} on the piston.
+\startformula
+	F = PA,
+\stopformula
+where \m{A} is the piston's area. (In this chapter we will use \m{P} for pressure, not power.) The {\sc si} unit for pressure is a pascal, defined by
+\startformula
+	1\units{Pa} = 1\units{N/m^2}.
+\stopformula
+%Atmospheric pressure is about \m{P\sub{atm} = 101\units{kPa} = 1.01\sci{5}\units{Pa}}, but it varies significantly with altitude and weather.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:NewcomenForce]
+A working replica of Newcomen's engine operates at a museum near the site of Newcomen's original. The piston's radius is \m{26\units{cm}}. What is the force exerted on the piston by the atmosphere?
+
+\startsolution
+The piston's area is \m{A= \pi r^2 = \pi(0.26m)^2 = 0.212\units{m^2}}. The force is
+\startformula\startmathalignment
+\NC F	\NC = PA												\NR
+\NC		\NC = (1.01\sci{5}\units{Pa})(0.212\units{m^2})				\NR
+\NC		\NC = (1.01\sci{5}\units{N/\ucan{m^2}})(0.212\,\ucan{m^2})	\NR
+\NC		\NC = 21\,000\units{N}.
+\stopmathalignment\stopformula
+This downward force acting on the right side of \in{figure}[fig:NewcomenAtmospheric] is enough to lift a weight of over \m{2000\units{kg}} on the left.
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The atmosphere's pressure drives the piston downward. This downward motion is the engine's power stroke. It pulls down on the chain at \m{D} in \in{figure}[fig:NewcomenAtmospheric], rocking the large lever \m{FED} around the pivot \m{E}. That lifts the chain at \m{F}, raising the large weight.
+
+Once the weight is lifted, the valve \m{V} is opened, allowing the water to flow down into the boiler. Hot steam from the boiler fills the cylinder \m{B} again, allowing the piston to rise and the weight to fall.
+The whole process is then be repeated, spraying cold water into the cylinder to condense the steam for the power stroke. (Since the cylinder is filling with steam directly from the boiler, valve \m{V''} does not need to be opened each cycle.)
+
+Newcomen's design included mechanisms that used the motion of the top beam to open and close the valves automatically at precisely the right times in the cycle. (These mechanisms are not shown in the diagrams.) This allowed the engine to operate continuously, performing each cycle in about five seconds and doing as much work as a team of several horses or dozens of men. Many mines upgraded to Newcomen's reliable and powerful engine. Dozens were installed in Britain and eventually in other parts of Europe.
+
+The engines could be built in a variety of sizes, depending on the mine's needs. Engineers developed the concepts of work and power to quantify their engines' productivity, so they could build the right size engine.
 
 
-\section{The kind of motion we call heat}
+\startbuffer[TikZ:NewcomenPower]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle \small% Old style numerals in text
+\startTEXpage
+\starttikzpicture% tikz code
+% left cylinder
+\draw[thick,fill=black!30] (-2.5,7.5)-- ++(0,-7.5) -- ++(2,0) -- ++(0,7.5) -- ++(-.1,0) -- ++(0,-7.4) -- ++(-1.8,0) -- ++(0,7.4) -- cycle;
+\fill[black!30] (-1.7,-0.5) rectangle ++(0.4,0.5);
+\draw[thick,] (-1.7,-0.5)-- ++(0,0.5) -- ++(0.4,0) -- ++(0,-0.5);
+\node at (-1.5,3.5){\m{V\si}};
+% right cylinder
+\draw[thick,fill=black!30] (0.5,7.5)-- ++(0,-7.5) -- ++(2,0) -- ++(0,7.5) -- ++(-.1,0) -- ++(0,-7.4) -- ++(-1.8,0) -- ++(0,7.4) -- cycle;
+\fill[black!30] (1.3,-0.5) rectangle ++(0.4,0.5);
+\draw[thick,] (1.3,-0.5)-- ++(0,0.5) -- ++(0.4,0) -- ++(0,-0.5);
+\node at (1.5,0.5){\m{V\sf}};
+% left piston
+\draw[thick,fill=black!30] (-2.4,7) rectangle ++(1.8,0.2);
+\fill[black!30] (-1.6,8.2) rectangle ++(0.2,-1);
+\draw[thick,] (-1.6,8.2)-- ++(0,-1) -- ++(0.2,0) -- ++(0,1);
+\node at (-1,7.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+\node at (-2,7.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+% right piston
+\draw[thick,fill=black!30] (0.6,1) rectangle ++(1.8,.2);
+\fill[black!30] (1.4,8.2) rectangle ++(0.2,-7);
+\draw[thick,] (1.4,8.2)-- ++(0,-7) -- ++(0.2,0) -- ++(0,7);
+\node at (1,1.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+\node at (2,1.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+% y coordinate axis
+\draw[thick,->] (0,0) -- (0,7.9)node[above]{\m{y}};
+\draw[] (.45,1) -- ++(-0.5,0)node[left]{\m{y\sf}};
+\draw[] (-.45,7) -- ++(0.5,0)node[right]{\m{y\si}};
+\draw[] (.05,0.1) -- ++(-0.1,0)node[left]{\m{0}};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
 
+\placefigure[margin][fig:NewcomenPower] % location, label
+{The downward power stroke of Newcomen's atmospheric engine is driven by atmospheric pressure pushing down on the piston.} % caption text
+{\noindent\typesetbuffer[TikZ:NewcomenPower]} % figure contents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:NewcomenPower]
+The replica of Newcomen's engine in \in{example}[ex:NewcomenForce] has a piston that travels approximately 1.8\units{m} inside the cylinder, shown in \in{figure}[fig:NewcomenPower]. Like Newcomen's original, it operates at a rate of one cycle every five seconds. Find the work done by the atmosphere on the engine and the average power.
+
+\startsolution
+The work can be calculated using the force form \in{example}[ex:NewcomenForce] and a displacement of 1.8\units{m}.
+\startformula
+W = F\Delta y
+	= (21\,000\sci{4}\units{N})(1.8\units{m})	
+	= 38\,000\units{J}.
+\stopformula
+The force and displacement are in the same direction, so the work is positive. In \in{figure}[fig:NewcomenPower] they are both pointed in the negative direction, so we also could have written both as negative. The answer would be the same.
+
+Power is the rate at which the work is done.
+\startformula
+	\frac{W}{\Delta t} = \frac{38\,000\units{J}.}{5\units{s}} = 7500\units{W}
+\stopformula
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+While we used the piston's area and displacement to calculate the work, all that is actually needed is the pressure and the cylinder's change in volume. The volume of the cylinder in \in{figure}[fig:NewcomenPower] is \m{V = Ay}, where \m{A} is the piston's area and \m{y} is its height. Taking care with signs, we should write the downward force as \m{F=-PA}, since pressure and area are positive, but the force is in the negative direction.
+\startformula
+	W = F \Delta y = -P A(y\sf - y\si) = -P(Ay\sf - Ay\si) = -P(V\sf - V\si) = -P\Delta V
+\stopformula
+The negative sign deserves some explanation. During the engine's downward power stroke, the volume inside the cylinder is decreasing, so \m{\Delta V} is negative. The pressure is positive, so the work formula \m{W= -P\Delta V} will give positive work for the downward power stroke, as it should.
+
+Work was a new concept to physicists in the eighteenth century – remember, the \visviva\ debate was raging at this time – but the ideas behind the engine's forceful power stroke were well understood. Atmospheric pressure, force, and displacement were all basic physics knowledge at that time.
+
+The upward stroke was where physicists would have started struggling. The piston is lifted by the heavy weight, but this is only possible because steam is allowed into the cylinder, as shown in \in{figure}[fig:NewcomenSteam]. The steam, also at atmospheric pressure, pushes up on the bottom of the piston, balancing the downward force of the outside atmosphere so the piston can rise. The steam is clearly doing work as it lifts the piston against the downward force of the atmosphere, but where does the steam get the energy? Clearly, the energy is from the fire, but it is not obvious how the energy of the fire turns into work done on the piston.
+
+\startbuffer[TikZ:NewcomenSteam]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle \small% Old style numerals in text
+\startTEXpage
+\starttikzpicture% tikz code
+% left cylinder
+\draw[thick,fill=black!30] (-2.5,7.5)-- ++(0,-7.5) -- ++(2,0) -- ++(0,7.5) -- ++(-.1,0) -- ++(0,-7.4) -- ++(-1.8,0) -- ++(0,7.4) -- cycle;
+\fill[black!30] (-1.7,-0.5) rectangle ++(0.4,0.5);
+\draw[thick,] (-1.7,-0.5)-- ++(0,0.5) -- ++(0.4,0) -- ++(0,-0.5);
+\node at (-1.5,0.5){\m{V\si}};
+% right cylinder
+\draw[thick,fill=black!30] (0.5,7.5)-- ++(0,-7.5) -- ++(2,0) -- ++(0,7.5) -- ++(-.1,0) -- ++(0,-7.4) -- ++(-1.8,0) -- ++(0,7.4) -- cycle;
+\fill[black!30] (1.3,-0.5) rectangle ++(0.4,0.5);
+\draw[thick,] (1.3,-0.5)-- ++(0,0.5) -- ++(0.4,0) -- ++(0,-0.5);
+\node at (1.5,3.5){\m{V\sf}};
+% right piston
+\draw[thick,fill=black!30] (0.6,7) rectangle ++(1.8,0.2);
+\fill[black!30] (1.4,8.2) rectangle ++(0.2,-1);
+\draw[thick,] (1.4,8.2)-- ++(0,-1) -- ++(0.2,0) -- ++(0,1);
+\node at (1,7.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+\node at (2,7.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+\node at (1,7) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=90]{\m{P}};
+\node at (2,7) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=90]{\m{P}};
+% left piston
+\draw[thick,fill=black!30] (-2.4,1) rectangle ++(1.8,.2);
+\fill[black!30] (-1.6,8.2) rectangle ++(0.2,-7);
+\draw[thick,] (-1.6,8.2)-- ++(0,-7) -- ++(0.2,0) -- ++(0,7);
+\node at (-1,1.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+\node at (-2,1.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+\node at (-1,1) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=90]{\m{P}};
+\node at (-2,1) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=90]{\m{P}};
+% y coordinate axis
+\draw[thick,->] (0,0) -- (0,7.9)node[above]{\m{y}};
+\draw[] (.45,7) -- ++(-0.5,0)node[left]{\m{y\sf}};
+\draw[] (-.45,1) -- ++(0.5,0)node[right]{\m{y\si}};
+\draw[] (.05,0.1) -- ++(-0.1,0)node[left]{\m{0}};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:NewcomenSteam] % location, label
+{Steam entering the cylinder provides an upwards force on the piston. It is then lifted by the heavy weight on the left  of \in{figure}[fig:NewcomenAtmospheric].} % caption text
+{\noindent\typesetbuffer[TikZ:NewcomenSteam]} % figure contents
+
+\placefigure[margin][fig:DBernoulliGas]{Daniel Bernoulli's description of a gas. The gas molecules are not packed together. Still, their frequent collisions with the piston hold the piston and weight aloft.} {\externalfigure[chapter11/DBernoulliGas][width=\rightmarginwidth]}
+
+Daniel Bernoulli's \booktitle{Hydrodynamica} appeared in 1838. In this great work, he brought together physicists' \visviva, engineers' work, and his own ideas about potential energy. He also offered an insightful and correct model of a gas like steam. He described the gas as being made of many tiny parts, now called molecules, that bounce around furiously – ricocheting off of the containers walls and off of each other, as shown in \in{figure}[fig:DBernoulliGas]. In this model, the tiny molecules are spread throughout the container, but they occupy very little of the space. It looks as if the piston and the weight at the top of \in{figure}[fig:DBernoulliGas] will fall, packing the molecules together at the bottom of the cylinder. Bernoulli realized that if the molecules are traveling fast enough, their repeated impacts on the bottom of the piston will provide enough tiny impulses to keep the piston from falling. This became known as the kinetic theory of gasses because it is the molecule's motion that causes the pressure against the sides of the container. The molecules' sizes and shapes are of little consequence.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:DBernoulliWork]
+Daniel Bernoulli's container in \in{figure}[fig:DBernoulliGas] is surrounded by vacuum, so only the force of the weight on the piston is pushing downward against the upward pressure of the gas. 
+has determined that the pressure starts a fire under his container shown in \in{figure}[fig:DBernoulliGas]. This causes the molecules to move more quickly. That means even more frequent and forceful collisions between the gas molecules and the piston. The piston will begin to rise. At it rises, the molecules will become more spread out and the frequency of the collisions will decrease. The piston will rise gradually, always to the point where the effect of the more forceful collisions is balanced by the decreasing frequency so that the pressure supporting the piston and weight remain constant.
+
+The replica of Newcomen's engine in \in{example}[ex:NewcomenForce] has a piston that travels approximately 1.8\units{m} inside the cylinder, shown in \in{figure}[fig:NewcomenPower]. Like Newcomen's original, it operates at a rate of one cycle every five seconds. Find the work done by the atmosphere on the engine and the average power.
+
+\startsolution
+The work can be calculated using the force form \in{example}[ex:NewcomenForce] and a displacement of 1.8\units{m}.
+\startformula
+W = F\Delta y
+	= (21\,000\sci{4}\units{N})(1.8\units{m})	
+	= 38\,000\units{J}.
+\stopformula
+The force and displacement are in the same direction, so the work is positive. In \in{figure}[fig:NewcomenPower] they are both pointed in the negative direction, so we also could have written both as negative. The answer would be the same.
+
+Power is the rate at which the work is done.
+\startformula
+	\frac{W}{\Delta t} = \frac{38\,000\units{J}.}{5\units{s}} = 7500\units{W}
+\stopformula
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Bernoulli took several important steps in developing this model, but this part of \booktitle{Hydrodynamica} was largely ignored for a century. Physicists were not interested in engines, and engineers were not reading physics treatises. Steam engines and many mistaken models of heat spread widely into the early nineteenth century.
+
+\section{Energy and Temperature in solids}
+
+\startformula
+	E\sub{therm} = 3nRT
+\stopformula
+
+\section{The motion which we call heat}
 
 \section{Boltzmann: On the Nature of Gas Molecules}
 It is an interesting fact that thermal energy tends to spread out equally into every accessible place. The average amount of energy stored in each place is proportional to the temperature, and is given by the formula \m{½\,\kB T}. Boltzmann's constant, kB, is the same in all situations. It is defined as exactly.
