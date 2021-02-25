@@ -199,7 +199,7 @@ By the early nineteenth century physicists noticed the industrial revolution hap
 
 In 1819 at the École Polytechnique in Paris, Pierre Dulong and Alexis Petit were measuring the heat capacities of solid elements when the noticed a surprising chemistry connection. The energy required to raise the temperature of many solid elements was proportional to the amount of substance measured in moles! Moles were a fairly new idea, and the molar masses of many elements were not yet known. (In fact, a great many elements had not yet been identified.) This relationship became known as the Delong-Petit Law. In modern notation it says that the energy in random thermal motions \m{E\sth} is proportional to the temperature \m{T} and the number of moles \m{n}.
 \startformula
-	E\sub{therm} = 3nRT
+	E\sth = 3nRT
 \stopformula
 The constant \m{R = 8.314\units{J/mol\.K}}. This law works especially well for the many elements that are metals, and it explains why lighter metals have a higher heat capacity than heavier metals. Lighter metals have more moles in the same mass, so they hold more thermal energy.
 
@@ -255,158 +255,165 @@ Rudolf Clausius finally made the connection between energy, heat, and work. His 
 \startformula
 	H\si + W + Q = H\sf
 \stopformula
-This equation is often called the \keyterm{First Law of Thermodynamics}, especially when used in problems involving thermal energy and heat, but it is the same conservation of energy equation that you already know. The full equation is especially important for studying gasses, where heat and work both affect the energy.
+This equation is often called the \keyterm{First Law of Thermodynamics}, especially when used in problems involving thermal energy and heat, but it is the conservation of energy law you already know. The full equation is especially important for studying gasses, where heat and work both affect the energy.
 
-Carnot also provided the first full accounting of the kinetic theory of gasses proposed by Daniel Bernoulli over a century earlier. Clausius' paper "On The Nature of the Motion We Call Heat" connects pressure and temperature with the microscopic kinetic energy of gas molecules in a container like the one drawn by Bernoulli.
+Clausius also provided the first full accounting of the kinetic theory of gasses proposed by Daniel Bernoulli over a century earlier. Clausius' paper \booktitle{On The Nature of the Motion We Call Heat} connects pressure and temperature with the microscopic kinetic energy of gas molecules in a container like the one drawn by Bernoulli (show again in \in{fig.}[fig:DBernoulliGas2]). Clausius followed Bernoulli's suggestion that the pressure exerted by the gas is due to the many impulses delivered by fast-moving gas molecules colliding with the container. It is worth understanding his argument. (I am giving the argument using velocity components, rather than speed and direction as Clausius did. This is avoids the trigonometry and calculus required for his argument.)
 
+\placefigure[margin][fig:DBernoulliGas2]{Rudolf Clausius used Daniel Bernoulli's vision of a gas (above) to find the molecules' average kinetic energy. The volume of gas is \m{V=hA}, where \m{h} is the hight of the gas and \m{A} is the area of the movable lid.} {\externalfigure[chapter11/DBernoulliGas][width=\rightmarginwidth]}
 
-I have simplified Clausius’ argument in this section by using a single component, \m{v_x}, where he used speed and angle. This simplification avoids the trigonometry and calculus required in his method. He looks at the horizontal motion of a single molecule and analyzes how it will impact one side of the container.
+The total impulse delivered to the container's movable lid by these collision is the product of the impulse delivered in each collision, the number of collisions per molecule, and the total number of molecules. Let us consider each of these factors before multiplying them together.
+
+A particle approaching the lid with a positive velocity \m{v_y} will bounce off the lid with the opposite, negative velocity \m{-v_y}. The change in the molecule's momentum is therefore \m{\Delta p_y = -2mv_y}. This is the downward impulse that the lid delivers to the molecule. The lid receives an equal and opposite upward impulse \m{J=2mv_y}. This is the first factor in the product. (The molecule's velocity may also have horizontal components \m{v_x} and \m{v_z}. These do not reverse when the molecule bounces off the lid, and they do not contribute any upward impulse to the lid.)
+
+To find the number of collisions per molecule, Clausius imagined molecules so small that they never collide with each other, only bouncing off of the container. In this case, the number of collisions is the total vertical distance traveled by molecule, \m{v_y\Delta t}, divided by the length of a single round trip for the top of the container to the bottom and back to the top, \m{2h}. The second factor in our product is therefore \m{v_y\Delta t/2h}. (The molecules actually collide with each other frequently, but those collisions do not diminish the average number of collisions between molecules and the lid.)
+
+The third and final factor in our product is the number of molecules \m{N}. 
+Writing the total impulse delivered to the lid as \m{F\Delta t}, the product is
+\startformula
+	F\Delta t = 2mv_y \cdot \frac{v_y \Delta t}{2h} \cdot N.
+\stopformula
+This can be simplified significantly using the facts that force is pressure times area (\m{F=PA}), volume is base area times height (\m{V=Ah}), and the \m{y} part of the molecule's kinetic energy is \m{K_y = \onehalf mv_y^2}. 
+\startformula\startmathalignment
+\NC	PA\Delta t	\NC = 2 \cdot \frac{mv_y^2}{2}\cdot\frac{\Delta t}{h}\cdot N	\NR
+\NC	PAh	\NC = 2N \cdot \half mv_y^2	\NR
+\NC	PV	\NC = 2N K_y.	\NR
+\stopmathalignment\stopformula
+Every molecule does not have exactly the same kinetic energy; \m{K_y} is each molecule's average kinetic energy due to its motion in the \m{y}-direction. Each molecule's average kinetic energies due to motions in the \m{x} and \m{z}-directions are the same.
+
+The above relation between pressure, volume, the number of molecules, and their kinetic energy had been worked out over a century earlier by D.~Bernoulli. Clausius' derivation was a bit more rigorous than Bernoulli's, but Clausius big advantage over Bernoulli was the ideal gas law, \m{PV = nRT}, including the ability to compute the number of moles \m{n}, absolute temperature \m{T}, and the gas constant \m{R=8.314\units{J/mol\.K}}, all of which were found after Bernoulli's time. This allowed Clausius to replace \m{PV} in the equation above with \m{nRT}, giving a relationship between temperature and the molecules' kinetic energy.
+\startformula\startmathalignment
+\NC	nRT		\NC = 2N K_y	\NR
+\NC	N K_y	\NC = \half nRT	\NR
+\stopmathalignment\stopformula
+This is starting to look like the Dulong-Petit Law, with energy on the left proportional to temperature on the right. However, here the energy is only the \m{y}-part of the kinetic energy. The total translational kinetic energy \m{K\sub{trans}} of all \m{N} molecules is
+\startformula
+	K\sub{trans} = N(K_x+K_y+K_z) = 3NK_y = \frac{3}{2}nRT.
+\stopformula
+Clausius tells us that experiments had shown the actual thermal energy in a gas is approximately
+\startformula
+	E\sth \approx 2.4\,nRT.
+\stopformula
+Of course, experimental coeficient \m{2.4} is not the same the theoretical coefficient \m{3/2}, but this is not a problem. Clausius was well aware that the total thermal energy may include kinetic energy due to other types of motion – rotational kinetic energy or energy of vibrations within the molecule – which would make \m{E\sth} greater than \m{K\sub{trans}}, which is what we see.
+
+We now have three very similar formulas for thermal energy in terms of temperature.
 \startblockquote
-...during the unit of time, each molecule will strike the side under consideration just as often as during that time it can, by following its peculiar direction, travel from the side in question to the other and back again. Let \m{h} be the distance between the left and right sides; then
-\startformula
-	\frac{v_x}{2h}
-\stopformula
-the number of impulses given to the side, \m{v_x} being the velocity of the molecule.
-Hence if \m{n} represents the whole number of molecules, the number of shocks imparted by them will be
-\startformula
-	\frac{nv_x}{2h}
-\stopformula
-The \m{y} and \m{z} components of the velocity will not be affected by the shock, and will not enter into consideration in determining its intensity; the \m{x} component, however, will be changed by the shock into an equal velocity in the opposite direction. The action of the side upon the molecule, therefore, consists in depriving it in one direction of the velocity \m{v_x}, and of imparting to it a velocity of \m{-v_x} in the opposite direction. Hence the quantity of motion imparted to the molecule will be
-\startformula
-	2mv_x\,,
-\stopformula
-where m is the mass of the molecule.
-Applying this to all molecules, we obtain during the unit of time, \m{nv_x/2h} times the same action, hence the quantity of motion imparted by the side to all the molecules which strike against it during the unit of time to be
-\startformula
-	\frac{nmv_x^2}{h}\,.
-\stopformula
-Let us now conceive the side to be capable of moving freely; then in order that it may not recede before the shocks of the molecules, it must be acted upon on the other side by a counter force, which latter may in fact be regarded as continuous, in consequence of the great number of shocks and the feebleness of each. The intensity of this force must be such as to enable it, during the unit of time, to generate the quantity of motion represented by the above expression. Since all forces, however, are measured by the quantity of motion they can produce in the unit of time, the above expression at once represents this force as well as the pressure exerted by the gas, the latter being equilibrated by the former.
-
-If \m{A} be the superficial area of the side and \m{P} the pressure on the unit of surface, then
-\startformula
-	P=\frac{nmv_x^2}{Ah}\,.
-\stopformula
-The product \m{Ah} here involved gives the volume of the vessel or gas; hence representing the same by \m{V}, we have
-\startformula
-	P=\frac{nmv_x^2}{V}\,.
-\stopformula
+\startalignment[flushright]% or center
+\starttabulate[|l|l|c|]
+\NC Dulong-Petit Law					\NC solid elements	\NC \m{E\sth = 3nRT}				\NR
+\NC Clausius kinetic theory\quad\strut	\NC ideal gas		\NC \m{K\sub{trans} = \frac{3}{2}nRT}		\NR
+\NC Experiments						\NC common gasses	\NC \m{E\sth \approx 2.4\,nRT}	\NR
+\stoptabulate
+\stopalignment
 \stopblockquote
-The mean squared velocities in the y-direction and z-direction will be equal, on average, to the mean squared velocity in the \m{x}-direction. Therefore,
-\startformula
-	v^2 = v_x^2 + v_y^2 + v_z^2 = 3v_x^2\,.
-\stopformula
-This is the form given by Clausius’ in his paper.
-
-\startblockquote
-If we write the last equation in the form
-\startformula
-	\tfrac{3}{2} PV=\frac{nmv^2}{2}\,,
-\stopformula
-the right-hand side then denotes the \visviva of the translational motion of the molecules. But, according to Mariotte's and Gay-Lussac's laws,
-\startformula
-	PV = T \cdot \text{const.} ,
-\stopformula
-where \m{T} is the absolute temperature; hence
-\startformula
-	\frac{nmv^2}{2}=T\cdot\text{const.}\,;
-\stopformula
-and, as before stated, the vis viva of the translational motion is proportional to the absolute temperature.
-18. We may now make an interesting application of the above equations by determining the velocity v with which the several molecules of gas move.
-The product nm represents the mass of the whole given quantity of gas, whose mass we will call \m{M}. Then g being the force of gravity,
-\startformula
-	nm = M ;
-\stopformula
-and we deduce
-\startformula
-	v^2=\frac{3PV}{M}\,.
-\stopformula
-To determine \m{v}, we use the density \m{ρ = M/V} of the gas under consideration. Then
-\startformula
-	v=\sqrt{\frac{3P}{\rho}}\,.
-\stopformula
-
-As particular cases, we obtain the following numbers corresponding to the temperature of melting ice and a pressure of 1 atmosphere – 101360 newtons of force per square metre:
-	for oxygen: \m{461 m/s},
-	for nitrogen: \m{492 m/s},
-	for hydrogen: \m{1844 m/s}.
-These numbers are the mean velocities which, for the totality of molecules, give the same vis viva as would their actual velocities. At the same time, however, it is possible that the actual velocities of the several molecules differ materially from their mean value.
-\stopblockquote
-%3In accordance with a practice lately become general, and with what I have myself done in former memoirs, I call the semi-product of the mass into the square of the velocity the vis viva, because it is only with this definition of the notion that we can, without the addition of a coefficient, equate the expressions representing a quantity of work and the increase or decrease of vis viva which corresponds to the same.
-
+In all cases, the energy is proportional to the temperature and the number of moles (or the number of molecules).  The only difference is the coefficient on the right, which seems to be related to the state, \m{3} for solids and approximately \m{2.4} for common gasses. This is not surprising, since the molecules in a solid will likely have different motions than molecules in a gas.
 
 \section{Boltzmann's equipartition theorem}
 
-Ludwig Boltzmann: On the Nature of Gas Molecules
-It is an interesting fact that thermal energy tends to spread out equally into every accessible place. The average amount of energy stored in each place is proportional to the temperature, and is given by the formula \m{½\,\kB T}. Boltzmann's constant, kB, is the same in all situations. It is defined as exactly.
+In 1860, the brilliant physicist James Clerk Maxwell decided to determine the coefficient in the \m{E\sth} formula for common gasses by carefully accounting for all the types of motion available to the molecule. It was a disaster.
+
+Maxwell derived one very important result in his first attempt: every possible type of motion contains the same amount of kinetic energy. (He called each possible type of motion a \quotation{degree of freedom.}) For a gas molecule, the energy in one degree of freedom – motion in the \m{y}-direction – the average kinetic energy was found by Clausius
 \startformula
-	\kB = 1.380649\sci{-23}\units{ J/K}
+	N K_y = \half nRT
 \stopformula
-You should think of \m{\kB } as a conversion from kelvins to joules. Kelvins are just another unit for measuring average energy. A kelvin is a very tiny amount of energy!
+For Maxwell's analysis of the motions of individual molecules, it is helpful to simplify this formula by recalling that number of molecules is the number of moles times Avogadro's Number, i.~e. \m{N=n\NA}.
+\startformula\startmathalignment
+\NC	n\NA K_y	\NC = \half nRT	\NR
+\NC K_y	\NC = \frac{1}{2} \left(\frac{R}{\NA}\right)T	\NR
+\stopmathalignment\stopformula
+The average energy in \m{K_y} will actually be the average energy in each degree of freedom in the gas. Avogadro's Number is huge (\m{\NA=6.02\sci{23}\unit{/mol}}), so this formula gives a tiny average energy in each degree of freedom. Only when there are many molecules will these add up to a significant total energy.
+Since every degree of freedom has the same average energy, the all that remained for Maxwell was to count the number of degrees of freedom.
 
-The molecule in the cylinder has three places for energy, \m{K_x = ½ mv_x^2}, \m{K_y = ½ mv_y^2}, and \m{K_z = ½ mv_z^2}. If the  temperature of the gas is \m{T}, then the molecule with have \m{½\,\kB T} of energy in each of these places. Add more molecules and there are more places for the energy, three places per molecule. Even though \m{½\,\kB T} is a very small amount of energy, a large number of molecules can store a significant amount of energy. Be careful with hot things!
-
-7.	What is \m{PV} if there are \m{N} molecules with an average vertical kinetic energy \m{K_y = ½\,\kB T} per molecule? \m{T} is the temperature of the gas.
-The pressure will be \m{N} times greater, so the new \m{PV} is
+The simplest possibility is that the molecule's only degrees of freedom are translations in the \m{x}, \m{y}, and \m{z}-directions, which gives Clausius' total \m{K\sub{trans}}, which we already saw was too small. Maxwell therefore considered the possibility that the molecule have some rigid shape and can rotate about the three coordinate axes. These three types of rotation provide another three degrees of freedom, for a total of \m{3+3=6} degrees of freedom per molecule. The total thermal energy in the gas would be
 \startformula
-PV = 2NKy = NkBT
+	E\sth = N 6 \cdot \frac{1}{2} \left(\frac{R}{\NA}\right)T
+		= n\NA 3 \left(\frac{R}{\NA}\right)T
+		= 3nRT
+		\qquad\text{(wrong)}
 \stopformula
+This looks like the Dulong-Petit Law for solids, not the thermal energy in a common gas. Maxwell admitted that this attempt was a failure.
 
-8.	What is \m{PV} if there are \m{n} moles of gas in the cylinder? Use the definition \m{R=\NA\kB} where \m{\NA} is Avogadro’s number and \m{R} is the gas constant, both of which you remember fondly from chemistry. Also recall \m{N = n\NA}. Your result should look familiar.
+The next advance came ten years later, in 1971, when Ludwig Boltzmann discovered that thermal energy also goes into potential energy, not just kinetic energy. If the atoms are held together by forces similar to a spring, which is plausible, then every spring will also contain an average potential energy equal to the average kinetic energy in each degree of freedom. This is called the \keyterm{equipartition theorem}, because it says that the energy is divided (partitioned) equally among all of the degrees of freedom and springs, on average. To find the total energy requires counting the degrees of freedom plus the number of springs.
+
+Maxwell tried again. Common gasses are made of two atoms: \chemical{N_2}, \chemical{O_2}, \chemical{H_2}, \chemical{NO}, etc. If the atoms are connected by a spring, then each atom has three degrees of freedom for its motion, plus one spring, for a total of \m{3+3+1=7} places to put energy in each molecule. The total thermal energy in the gas would be
 \startformula
-PV = nNAkBT = nRT
+	E\sth = N 7 \cdot \frac{1}{2} \left(\frac{R}{\NA}\right)T
+		= n\NA \frac{7}{2} \left(\frac{R}{\NA}\right)T
+		= \frac{7}{2}nRT
+		\qquad\text{(wrong)}
 \stopformula
-\startformula
-PV = nRT
-\stopformula
-
-9.	At temperature \m{T}, what is the total energy in the gas. Assume that the molecules' kinetic energy is the only energy in the gas. (For simple, monoatomic gasses this is an excellent assumption.) Call the total energy \m{U}, even though it is actually kinetic energy. Everyone uses \m{U} for the internal energy of the gas.
-The total energy in the gas is \m{N} times the Kinetic energy of a single atom
-\startformula
-U = NK = N(K_x + K_y + K_z) = N(½\,\kB T + ½\,\kB T + ½\,\kB T ) = (3/2)N\kB T = (3/2)RT,
-\stopformula
-
-n this activity you will use Boltzmann's insight to find the amount of energy required to heat 63.55 g of copper from 20°C to 100°C. (Why 63.55 g? Because working with four significant figures builds character.)
-Boltzmann tells us that the energy in every available spot is ½kBT, where kB = 1.381×10-23 J/K. You need to find out how many spots there are in 63.55 g of copper.	
-The number of spots can be found with a simple model of copper. Imagine that the copper atoms are arranged is a simple cubic lattice, and that each atom is connected to its immediate neighbors by springs. Every atom is connected to the atom on its left and its right, in front and in back, above and below. The atoms can bounce around a bit, but they are always pushed back towards their home position by the springs.
-
-1.	Some of the thermal energy is stored in the bouncing kinetic energy of the copper atoms. There are three types of kinetic energy for each atom. List the three symbols for these.
-
-
-
-
-2.	For a lattice containing a large number of copper atoms, how many springs are there per atom? (Hint: There are not six springs per atom!) Explain, with a picture if you like.
-
-
-
-3.	How many thermal energy spots are there per atom?
-
-
-
-4.	Find the thermal energy per atom for copper at room temperature (20°C = 293 K).
-
-
-
-5.	Find the thermal energy per atom for copper at 100°C = 373 K.
-6.	How much heat must be added to 63.55 g of copper to heat it from room temperature to 100°C.
-
-
-
-
-
-
-
-
-
-
-
-7.	What is the specific heat capacity of copper in  J/g °C? (For comparison, the specific heat capacity of water is 4.2 J/g °C.)
-
-
+This is even worse than the previous attempt! Most concerning, Maxwell saw a disturbing pattern. In 1875, he sounded the alarm.
 \startblockquote
-For all simple solids with the exception of carbon, [boron], and silicon the product \m{M\Gamma} is not very different from 6; it is between 5.22 and 6.9. The values obtained for \m{h} are between 1.78 and 2.34. On average, then, the total heat supplied is twice as great as that to increase the mean living force, half of which is used for work, if the forces acting on an atom are proportional to the removal of it from its position of rest. For solids, this is likely to be the case with some approximation. If one wanted to use the latter formula, one could insert the theoretical value \m{Ap /\rho T} for \m{\gamma'-\gamma}. The result is a similar one. 
-From the composite solid bodies, which obey Neumann's law, it must be assumed that each of its atoms really has three kinds of mobility.
-For simple or compound bodies, however, which deviate significantly from Dulong-Petit or Neumann's laws, it could perhaps be assumed that two or more atoms are so firmly connected that the number of types of mobility of the system they form is smaller than the three-fold number of its atoms. [p.108-9]
+Now, every additional variable [degree of freedom] introduces an additional amount of capacity for internal motion\dots. Every additional variable, therefore, increases the heat capacity\dots. So does any capacity which the molecule may have for storing up energy in the potential form. But the calculated heat capacity is already too great when we suppose the molecule to consist of two atoms only. Hence every additional degree of complexity which we attribute to the molecule can only increase the difficulty of reconciling the observed with the calculated value of the  heat capacity.  %[Maxwell 1875, \emph{specific heat} replaced with emph{heat capacity}. p.433]
+	
+I have now put before you what I consider to be the greatest difficulty yet encountered by the molecular theory.
 \stopblockquote
+
+Maxwell's admonition led to two breakthroughs – one experimental and one theoretical. Experimentalists, wishing to minimize the confounding degrees of freedom, turned their attention to monoatomic gasses. Not many were know in 1875, since none of the noble gasses had been discovered. Mercury vapor, which consists of individual mercury atoms, was found to have a thermal energy 
+\startformula
+	E\sth = \frac{3}{2}nRT.
+		\qquad\text{(monoatomic gas)}
+\stopformula
+This is exactly what is predicted for an atom that only has three degrees of freedom – no spinning, vibrating, or springs.
+This was an important success for the equipartition theorem and for molecular theory, although a rather simple success.
+
+The theoretical advance came again from Boltzmann, this time in his important 1876 paper \booktitle{On the Nature of Gas Molecules}. After recalling the success of Mercury vapor with three degrees of freedom, he continues carefully.
+\startblockquote
+It is now obvious to consider the case that a molecule consists of two firmly connected [atoms]. Such a molecule would have five degrees of freedom; the three coordinates of its center of gravity and two variables that determine the direction of its central line\dots. 
+\stopblockquote
+Maxwell had over counted. Only two angles are needed to describe the direction of the central line, giving two rotational degrees of freedom. Along with the three degrees of freedom for the molecules position, this gives \m{3+2=5} degrees of freedom for each molecule, leading to
+\startformula
+	E\sth = \frac{5}{2}nRT.
+		\qquad\text{(rigid diatomic or linear gas molecule)}
+\stopformula
+Compared to the experimental coefficient of \m{2.4}, Boltzmann concludes that his predicted coefficient of \m{5/2} is
+\startblockquote
+\dots a value which dos not deviate too far from that experimentally found for air and most other simple gasses. The same value would be obtained if a molecule consisted of any series of firmly connected [atoms] which lie in a straight line.
+\stopblockquote
+Carbon dioxide, which has the linear structure O–C–O, is an example of a linear molecule with five degrees of freedom.
+\startblockquote
+On the other hand, if [the] atoms are not in a straight line or more generally if the molecule is any rigid shape which is not [linear] then the number of degrees of freedom is six\dots.
+\stopblockquote
+This leads to the thermal energy that Maxwell had mistakenly applied to all molecular gasses.
+\startformula
+	E\sth = 3nRT.
+		\qquad\text{(rigid nonlinear gas molecule)}
+\stopformula
+\quotation{This relation\dots has also been observed for some gasses}
+Another important success. It is remarkable that we can learn about the shape of a gas molecule by carefully measuring the heat capacity of the gas. The shape of the molecule – linear or nonlinear – determines the number of degrees of freedom, and therefore determines how much thermal energy each molecule will hold!
+
+Finally, having explained the nature of gas molecules, Boltzmann turned his attention to the elemental solids described by the Delong-Petit Law half a century earlier. In the solid, an atom can move slightly in all three directions, but it cannot move far. It has three degrees of freedom, but it is also pushed back toward its equilibrium positions by the spring-like forces exerted along each direction by neighboring atoms. These forces act effectively as three springs, one along each degree of freedom, restoring the atom to its proper place. Three degrees of freedom and three springs give \m{3+3=6} spots to put energy for each atom, leading to the Dulong-Petit Law.
+\startformula
+	E\sth = 3nRT.
+		\qquad\text{(elemental solid)}
+\stopformula
+Boltzmann's 1876 paper was a tremendous triumph for his equipartition theorem and for molecular theory.
+
+
+\section{Boltzmann's constant}
+In 1876, Avogadro's number was not known. At the beginning of the twentieth century, when the value was found to be \m{\NA = 6.02\sci{23}\unit{/mol}}, the quantity \m{R/\NA} became known as Boltzmann's constant.
+\startformula
+	\kB = \frac{R}{\NA} =  1.381\sci{-23}\units{ J/K}
+\stopformula
+According to Boltzmann's equipartition theorem, the average amount of energy stored in each place (degree of freedom or spring) is proportional to the temperature, and is given by the formula \m{½\,\kB T}. 
+
+You should think of \m{\kB} as a conversion from kelvins to joules. Kelvins are just another unit for measuring average energy. Specifically, a kelvin is a measure of the energy in each place. A kelvin is a very tiny amount of energy, because at a temperature of \m{1\units{K}} the energy in each place is extremely tiny. Even at room temperature \m{T = 298\units{K}} the energy in each place is tiny. It is only the energy of many, many molecules that is significant.
+
+In 2019, the Standard International units were updated to make Boltzmann's constant the definition of temperature, and Boltzmann's constant was assigned the exact value
+\startformula
+	\kB =  1.380649\sci{-23}\units{ J/K}.
+		\qquad\text{(exact)}
+\stopformula
+Likewise, Avogadro's number was made the definition of a mole, with the defined value 
+\startformula
+	\NA =  6.02214076\sci{-23}\unit{ /mol}.
+		\qquad\text{(exact)}
+\stopformula
+This leads to an exact value for the Gas constant \m{R}.
+\startformula
+	R = \kB\NA = 8.31446261815324\unit{ J/mol\.K}
+		\qquad\text{(exact)}
+\stopformula
+Usually, these exact values are not needed for calculations. What is important to remember is that \emph{temperature is a measure of energy.}
 
 %\subject{Notes}
 %\placefootnotes[criterium=chapter]
