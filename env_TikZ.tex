@@ -249,5 +249,36 @@
 		\node at (1.2cm,0) {\small\times};
 	}
 }
+\tikzset{
+	argyleruler/.pic={
+		\startscope[transparency group]
+		\filldraw  [fill=black!30, semithick]
+			(0mm,0mm) rectangle (20mm,10mm);
+		\foreach \x in {0,10}{
+			\fill [black!20](\x mm,5mm) -- ++(5mm,5mm) -- ++(5mm,-5mm) -- ++(-5mm,-5mm) --cycle;
+			\draw [white, thick](\x mm,0mm) -- ++(10mm,10mm);
+			\draw [white, thick](\x mm,10mm) -- ++(10mm,-10mm);
+		}
+		\foreach \x in {1,2,...,19}{
+			\draw (\x mm,0mm) -- ++(0mm,.5mm);
+			\draw (\x mm,10mm) -- ++(0mm,-.5mm);
+		}
+		\foreach \x in {10,20}{
+			\draw (\x mm,0mm) -- ++(0mm,1mm);
+			\draw (\x mm,10mm) -- ++(0mm,-1mm);
+		}
+		\draw [semithick]
+			(0mm,0mm) rectangle (20mm,10mm);
+		\stopscope
+	}
+}
+
+
+\tikzset{
+	clock/.pic={
+		\draw[fill=white] (0,0) circle[radius=1.6mm];
+		\draw (0,0.12) -- ++(0,-.12) -- ++(30:.09);
+	}
+}
 
 \stopenvironment
