@@ -1,0 +1,2334 @@
+% !TEX useOldSyncParser
+\startcomponent c_chapter02
+\project project_world
+\product prd_volume01
+
+\doifmode{*product}{\setupexternalfigures[directory={chapter02/images}]}
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title=A New Science of Motion, reference=ch:Motion]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\placefigure[margin,none]{}{\small
+	\startalignment[flushleft]
+	And, what I consider more important, this will open the doors to a vast and most excellent science, of which my work is merely the beginning; then other minds more acute than mine will explore its remote corners.		\stopalignment
+	\startalignment[flushright]
+	{\it Two New Sciences}\\
+	{\sc Galileo Galilei}\\
+	1564–1642
+	\stopalignment
+}
+
+\Initial{G}{alileo’s many astronomical observations}, made with the aid of his telescopes, provided direct evidence for the heliocentric universe. However, these observations could not address the most compelling argument \emph{against} the heliocentric model:
+% objection to Galileo’s heliocentric cosmology:
+Earth does not \emph{seem} to be moving. A person on a galloping horse could never be convinced that the horse is standing still; the evidence of motion is overwhelming. The rider can see that she is moving, feel the motion, even hear the wind. If Earth is spinning and moving – and in the heliocentric model it spins and moves with tremendous speed – how could  that motion go unnoticed by everyone on Earth?
+
+Luckily, Galileo knew a few things about motion. Before his adventure with the telescope, Galileo had studied motion carefully, probably more carefully than anyone before him, using the same methods as his father. Galileo quantified all of his ideas about motion in terms of distances traveled and the time elapsed. He then developed methods for accurately measuring time. Finally, he subjected all of his ideas to experimental tests, refining his ideas and methods based on the results.
+
+He did not publish his new science of motion at the time, but he retained his notes. His model of motion, refined through many experimental tests, explained why Earth seems motionless even though it is rotating and and moving in orbit about the sun. In 1632, Galileo published a detailed discussion of his observations and their implications in the book \booktitle{Dialogue on the Two Chief World Systems, Ptolemaic and Copernican.}
+The dialogue is between the characters Salviati and Simplicio.
+Salviati is named after Galileo’s sharp witted friend, Filippo Salviati, who died many years before Galileo’s homage in \booktitle{Two World Systems}. Simplicio represents another of Galileo’s and Filippo Salviati’s friends, an Aristotelian philosopher who, according to Galileo, \quotation{seemed to have no greater obstacle to the understanding of the truth than the fame he had acquired in Aristotelian interpretation.} \autocite{p.~192}{Galileo1632}
+Rather than using the friend’s name, Galileo named his character Simplicio after the great sixth century Aristotelian commentator, Simplicius.
+You may notice that the commentator’s Italian name, Simplicio, sounds like \quotation{simpleton.} In Italian the name and the insult are identical. In \booktitle{Two World Systems}, Salviati and Simplicio discuss the most compelling experimental evidence for a motionless Earth, made by Aristotle.
+
+\startblockquote
+	{\sc Salv.} As the strongest reason, everyone produces the one from heavy bodies, which when falling down from on high move in a straight line perpendicular to the earth’s surface. This is regarded as an unanswerable argument that the earth is motionless. For, if it were in a state of diurnal [\ie~daily] rotation, and a rock were dropped from the top of a tower, then during the time taken by the rock in its fall, the tower (being carried by the earth’s turning), would advance many hundreds of cubits toward the east and the rock should hit the ground that distance away from the tower’s base. \autocite{p.~215}{Galileo1632}
+\stopblockquote
+
+A rock naturally falls downward, towards the Earth’s center, as shown in figure \in[fig:RockDropGeocentric]. This natural downward motion can be blocked by an obstacle, like the ground or a table, or even reversed by a person lifting the rock. However, as soon the obstacle or outside force is removed the natural downward motion resumes. These facts, solemnly stated by Aristotle and gleefully confirmed by toddlers everywhere, demand that the rock falls straight down.
+
+\placefigure[margin][fig:RockDropGeocentric]{A rock dropped from a tower falls directly downward, landing at the tower’s base. The rock is shown at approximately one second intervals.}{
+	\noindent\starttikzpicture
+		\draw[shade, ball color = gray] (1.75,10.2) circle[radius=.1cm][opacity=.2];
+		\draw[shade, ball color = gray] (1.75,9.575) circle[radius=.1cm][opacity=.4];
+		\draw[shade, ball color = gray] (1.75,7.7) circle[radius=.1cm][opacity=.6];
+		\draw[shade, ball color = gray] (1.75,4.575) circle[radius=.1cm][opacity=.8];
+		\draw[shade, ball color = gray] (1.75,.2) circle[radius=.1cm];
+		\draw[fill=black!10,thin] (2,.15)--(2,9.65)--(1.9,9.85)--(1.9,10.15)--(3.8,10.15)--(3.8,9.85)--(3.7,9.65)--(3.7,.15);
+		\draw[fill=black!50] (3,0.15) rectangle (3.12,.4);
+		\fill [black!10] (0,0) rectangle (5,.15);
+		\draw[thin] (0,.15)--(5,.15);
+	\stoptikzpicture
+}
+
+\placefigure[margin][fig:RockDropAristotle] % location
+{As the rock falls, the tower is carried far to the east by Earth’s rotation. If the rock fall directly downward it will land far to the west of the tower’s base. (This diagram is drawn to scale, showing the large distance traveled by the tower.}	% caption text
+{\vskip1.25in\hbox{\noindent\starttikzpicture
+	\draw[white] (0,0)-- ++(5,2); % Sky to make height better
+\stoptikzpicture}}
+
+\placewidefloat
+  [bottom,none]
+  {This is its caption I need to fix.}
+{\hbox{\noindent\starttikzpicture	% tikz code
+		\draw[shade, ball color = gray] (.4,1.155) circle[radius=.02cm][opacity=.2];
+		\draw[shade, ball color = gray] (.4,1.0925) circle[radius=.02cm][opacity=.4];
+		\draw[shade, ball color = gray] (.4,.905) circle[radius=.02cm][opacity=.6];
+		\draw[shade, ball color = gray] (.4,.5925) circle[radius=.02cm][opacity=.8];
+		\draw[shade, ball color = gray] (.4,.155) circle[radius=.02cm];
+		\draw[fill=white!90!black,thin] (.45,.15)--(.45,1.1)--(.44,1.12)--(.44,1.15)--(.63,1.15)--(.63,1.12)--(.62,1.1)--(.62,.15)[opacity=.2];
+		\draw[fill=white!90!black,thin] (4.35,.15)--(4.35,1.1)--(4.34,1.12)--(4.34,1.15)--(4.53,1.15)--(4.53,1.12)--(4.52,1.1)--(4.52,.15)[opacity=.4];
+		\draw[fill=white!90!black,thin] (8.25,.15)--(8.25,1.1)--(8.24,1.12)--(8.24,1.15)--(8.43,1.15)--(8.43,1.12)--(8.42,1.1)--(8.42,.15)[opacity=.6];
+		\draw[fill=white!90!black,thin] (12.15,.15)--(12.15,1.1)--(12.14,1.12)--(12.14,1.15)--(12.33,1.15)--(12.33,1.12)--(12.32,1.1)--(12.32,.15)[opacity=.8];
+		\draw[fill=white!90!black,thin] (16.05,.15)--(16.05,1.1)--(16.04,1.12)--(16.04,1.15)--(16.23,1.15)--(16.23,1.12)--(16.22,1.1)--(16.22,.15);
+		\fill[white!90!black] (16.6,0)--(0,0)--(0,.15)--(16.6,.15);
+		\draw[thin] (0,.15)--(16.6,.15);
+		\draw[thin,-{Straight Barb}] (.4,1.155)--(.4,.155);%node[rotate=-90, below]{Rock}
+		\draw[thin,-{Straight Barb}] (.535,.65)--(16.135,.65);%node[above=.5]{Tower’s eastward motion}
+\stoptikzpicture}}
+
+Regarding the motion of the tower, recall that Earth’s size was known even in Aristotle’s time. If Earth makes a full rotation every day, a tower in Greece or Italy would be carried by Earth’s rotation at an amazing \m{330\units{m/s}} toward the east (Example \in[ex:EarthSurfaceSpeed] in the previous chapter).
+A rock dropped from the \m{85\units{m}} tower in Florence would take about \m{4.2\units{s}} to reach the ground. %(Example \in[])
+In that time the tower would move \m{1400\units{m}} to the east, as shown in figure \in[fig:RockDropAristotle]. If Aristotle’s reasoning were correct, the rock would hit the ground \m{1.4\units{km}} to the west of the tower’s base.
+
+Of course, the rock does not land far to the west. It lands right at the tower’s base.
+Galileo’s explanation rests on his most profound insight into motion: objects continue moving without any external force propelling them. Continued motion is completely natural; only \emph{change} in motion requires an outside force.
+Galileo shared this insight first in his \booktitle{Two World Systems}. \quotation{So, tell me,} Salviati inquires,
+\startblockquote
+	\dots suppose you had a plane surface very polished like a mirror and made of a hard material like steel; suppose it was not parallel to the horizon but somewhat inclined; and suppose that on it you place a perfectly spherical ball made of a heavy and very hard material like bronze, for example; what do you think it would do when released? [figure \in[fig:ballinclinestart]]
+\stopblockquote
+
+\noindent Simplicio answers,
+\startblockquote
+	%{\sc Simp.}
+	\dots I am sure that it would spontaneously move downward along the incline. [figure \in[fig:ballinclinedown]]
+
+	{\sc Salv.} \dots Now how long would the ball’s motion last, and what speed would it have? Notice that I am referring to a perfectly round ball and a fastidiously polished plane, in order to remove all external and accidental impediments; similarly, I want you to disregard the impediment offered by the air through its resistance to being parted, and any other accidental obstacles there may be.
+
+	{\sc Simp.} I understand everything very well. As for your question, I answer that the ball would continue to move ad infinitum, as far as the inclination of the plane extends; that it would move with continuously accelerated motion, for such is the nature of falling bodies, which \quotation{acquire strength as they keep going}; and that the greater the inclination, the greater would be the speed.
+
+	{\sc Salv.} However, if someone wanted to have the ball move upward along the same surface, do you think it would move that way?
+
+	{\sc Simp.} Not spontaneously; but it would if dragged along or thrown by force.
+
+	{\sc Salv.} So, if it were propelled by some impetus forcibly impressed on it, what would its motion be and how long would it last?\textreference{SalvImpetus}
+
+	{\sc Simp.} Its motion would keep on being continuously reduced and retarded, due to its being against nature; and it would last more or less depending on the greater or smaller impulse and on the steeper or gentler inclination. [figure \in[fig:ballinclineup]]
+
+	{\sc Salv.} Therefore, I think that up to now you have explained to me the following properties of a body moving along a plane in two different directions: when descending on an inclined plane, the heavy body is spontaneously and continuously accelerated, and it requires the use of force to keep it at rest; on the other hand, in an ascending path a force is needed to make it move that way (as well as to keep it at rest), and the motion impressed on it is continuously diminishing, so that eventually it is annihilated. You also say that in both cases there is a difference stemming from the greater or smaller inclination of the plane; so that a greater inclination leads to a greater downward speed, but on an upward path the same body thrust by the same force moves a greater distance when the inclination is less.
+	%[Finocchiaro, p.229-231]
+%\stopblockquote
+%\startblockquote
+	%{\sc Salv.}
+	Now tell me what would happen to the same body on a surface that is not inclined.
+
+	{\sc Simp.} Here I must think a little before I answer. Since there is no downward slope, there cannot be a natural tendancy to move; since there is no upward slope, there cannot be a resistance to being moved; thus, the body would  be indifferent to motion, and have neither a propensity nor a resistance to it; I think, therefore, that it should remain there naturally at rest\dots. [figure \in[fig:ballrest]]
+\stopblockquote
+\placefigure[margin][fig:ballinclinestart] % location
+{A ball on an incline, as in Salviati’s question.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+		\draw[thick] (5,0)--(0,1);
+		\fill[white!90!black] (5,0)--(5,0)--(0,1)--(0,0);
+		\draw[shade, ball color = white] (.3,1.25) circle[radius=.3cm];
+\stoptikzpicture}
+\placefigure[margin][fig:ballinclinedown] % location
+{The ball spontaneously rolls down the incline with continuously accelerated motion.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\draw[thick] (5,0)--(0,1);
+		\fill[white!90!black] (5,0)--(5,0)--(0,1)--(0,0);
+		\draw[shade, ball color = white] (.3,1.25) circle[radius=.3cm][opacity=.2];
+		\draw[shade, ball color = white] (4.8,.35) circle[radius=.3cm];
+		\draw[shade, ball color = white] (1,1.13) circle[radius=.3cm][opacity=.4];
+		\draw[shade, ball color = white] (2.4,.85) circle[radius=.3cm][opacity=.6];
+\stoptikzpicture}
+\placefigure[margin][fig:ballinclineup] % location, label
+{The ball, propelled by some impetus impressed upon it, rolls up the incline with its motion continuously reduced.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+		\draw[thick] (5,0)--(0,1);
+		\fill[white!90!black] (5,0)--(5,0)--(0,1)--(0,0);
+		\draw[shade, ball color = white] (.3,1.25) circle[radius=.3cm];
+		\draw[shade, ball color = white] (4.8,.35) circle[radius=.3cm][opacity=.2];
+		\draw[shade, ball color = white] (1,1.13) circle[radius=.3cm][opacity=.6];
+		\draw[shade, ball color = white] (2.4,.85) circle[radius=.3cm][opacity=.4];
+\stoptikzpicture}%
+\placefigure[margin][fig:ballrest] % location, label
+{The ball on a horizontal surface remains naturally at rest, if it is placed there motionless.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+		\fill[white!90!black] (5,0)--(0,0)--(0,.15)--(5,.15);
+		\draw[shade, ball color = white] (.3,.45) circle[radius=.3cm];
+		\draw[thick] (0,.15)--(5,.15);
+\stoptikzpicture}%
+\placefigure[margin][fig:ballroll] % location, label
+{A ball on the horizontal plane, given some impetus in some direction, rolls with uniform motion, neither accelerating nor slowing.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+		\fill[white!90!black] (5,0)--(0,0)--(0,.15)--(5,.15);
+		\draw[shade, ball color = white] (.3,.45) circle[radius=.3cm][opacity=.2];
+		\draw[shade, ball color = white] (1.7,.45) circle[radius=.3cm][opacity=.4];
+		\draw[shade, ball color = white] (3.3,.45) circle[radius=.3cm][opacity=.6];
+		\draw[shade, ball color = white] (4.7,.45) circle[radius=.3cm];
+		\draw[thin] (0,.15)--(5,.15);
+\stoptikzpicture}%
+\startblockquote
+	{\sc Salv.} I think so, if one were to place it there motionless; but if it were given an impetus in some direction, what would happen?
+
+	{\sc Simp.} It would move in that direction. [figure \in[fig:ballroll]]
+
+	{\sc Salv.} But with what sort of motion? A continuously accelerated one, as on a downward slope, or a progressively retarded one, as on an upward slope?
+
+	{\sc Simp.} I see no cause for acceleration or retardation since there is neither descent nor ascent.
+
+	{\sc Salv.} Yes. But if there is no cause for retardation, still less is there cause for rest. So, how long do you think the moving body would remain in motion?
+
+	{\sc Simp.} As long as the extension of that surface which is sloping neither upward nor downward.
+
+	{\sc Salv.} Therefore, if such a surface were endless, the motion on it would likewise be endless, namely, perpetual?
+
+	{\sc Simp.} I think so, as long as the moving body was made of durable material.
+
+	{\sc Salv.} This has already been supposed, for we have already said that all accidental and external impediments should be removed, and in this regard the body’s fragility is one of the accidental impediments.
+	\autocite{pp.~229--231}{Galileo1632}
+\stopblockquote
+Salviati has convinced Simplicio that an object in motion will stay in motion unless it is acted on by an external force.
+
+To understand how Galileo used this insight to solve the problem of the falling rock, it is necessary for us to develop some mathematical language for discussing the various motions in the problem. First, we will describe uniform motion, like the horizontal motion of the tower or the ball rolling on the level surface. Then, we will describe accelerated motion, like the motion of the falling rock or the ball rolling on an inclined surface. Finally, Salviati and Simplicio will put these pieces together to explain why the rock dropped from the tower lands at the tower’s base. The basic elements of Galileo’s mathematical model are position, displacement, and velocity.
+
+\section{Position and displacement}
+
+\placefigure[margin][fig:levelrollingball] % location, label
+{A meter stick, marked in centimeters, is used to determine the position of the ball as it rolls. The ball’s position is shown at one second intervals.}	% caption text
+{\noindent\hbox{\starttikzpicture	% tikz code
+	\fill [black!10] (0,0) rectangle (5,-.15);
+	\startaxis[margin cart track]
+		\draw[shade, ball color = white] (7,3) circle[radius=3][opacity=.2];
+		\fill(7,3) circle[radius=.4mm][opacity=.2];
+		\draw[shade, ball color = white] (19,3) circle[radius=3][opacity=.4];
+		\fill(19,3) circle[radius=.4mm][opacity=.4];
+		\draw[shade, ball color = white] (31,3) circle[radius=3][opacity=.6];
+		\fill(31,3) circle[radius=.4mm][opacity=.6];
+		\draw[shade, ball color = white] (43,3) circle[radius=3];
+		\fill(43,3) circle[radius=.4mm];
+%		\pic at (7,0) {cart};
+%		\pic at (40,0) {block};
+    \stopaxis
+\stoptikzpicture}}%
+
+A meter stick has been placed below the rolling ball in figure \in[fig:levelrollingball].
+%The marks start with \m{0\units{cm}} at one end and go to \m{45\units{cm}} at the other.
+The marks on the meter stick allow us to identify the ball’s position, represented by the variable \m{x}.
+%\footnote{This track has zero at one end and only positive numbers, so the address is a measurement of how far the cart is from the \quotation{zero} end of the track. It would be perfectly acceptable for the track to have zero in the middle with positive numbers on one side and negative on the other. In that case positive addresses would give the distance to one side of track’s center, while negative numbers would give the distances on the other side. If my track extended in both directions to the horizon, I would certainly want to put zero near where I was working and measure distances from there.}
+These positions, measured at the ball’s center, are listed in table \in[T:levelroll]. The graph in figure \in[fig:LevelRollGraph], shows the ball’s position as a function of time. Notice that the axes of graph are not labeled \m{x} and \m{y} as they typically are in math class. Here the horizontal axis is the time \m{t}, and the vertical axis is the position \m{x}
+
+\placetable[margin][T:levelroll] % Label
+    {The rolling ball’s positions listed at one second intervals.} % Caption
+    {\vskip9pt\small\starttabulate[|c|c|]
+\FL[2]%\toprule
+\NC Time (\m{t})		\NC Position (\m{x})				\NR
+\HL
+\NC \m{0.0\units{s}}	\NC \m{\phantom{0}7\units{cm}}	\NR
+\NC \m{1.0\units{s}}	\NC \m{18\units{cm}}				\NR
+\NC \m{2.0\units{s}}	\NC \m{31\units{cm}}				\NR
+\NC \m{3.0\units{s}}	\NC \m{43\units{cm}}				\NR
+\LL[2]%\bottomrule
+\stoptabulate}
+
+\placefigure[margin][fig:LevelRollGraph] % location, label
+{A graph of the ball’s position as a function of time.
+ A top view of the rolling ball is shown at each second.}	% caption text
+{\small\hbox{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		width=2.20in,%\marginparwidth,
+		y={1mm},%x={1cm},
+		xlabel={\m{t} (s)},
+		xmin=-0, xmax=3,
+		xtick={0,1,...,3},
+		minor x tick num=9,
+		ylabel={\m{x} (cm)},
+		ymin=0, ymax=50,
+		minor y tick num=4,
+		%trim axis left
+		clip mode=individual
+		]
+		%\startscope[opacity=.3, transparency group] % Don’t know why this didn’t work
+		\draw[opacity=.3, shade, ball color = white] (0,7) circle[radius=3mm];
+		\fill[opacity=.3](0,7) circle[radius=.4mm];
+		\draw  [opacity=.3, semithick](-.4,-4) -- (-.4,52);
+		\draw  [opacity=.3, semithick](.4,-4) -- (.4,52);
+		\draw[opacity=.3, shade, ball color = white] (1,19) circle[radius=3mm];
+		\fill[opacity=.3](1,19) circle[radius=.4mm];
+		\draw  [opacity=.3, semithick](.6,-4) -- (.6,52);
+		\draw  [opacity=.3, semithick](1.4,-4) -- (1.4,52);
+		\draw[opacity=.3, shade, ball color = white] (2,31) circle[radius=3mm];
+		\fill[opacity=.3](2,31) circle[radius=.4mm];
+		\draw  [opacity=.3, semithick](1.6,-4) -- (1.6,52);
+		\draw  [opacity=.3, semithick](2.4,-4) -- (2.4,52);
+		\draw[opacity=.3, shade, ball color = white] (3,43) circle[radius=3mm];
+		\fill[opacity=.3](3,43) circle[radius=.4mm];
+		\draw  [opacity=.3, semithick](2.6,-4) -- (2.6,52);
+		\draw  [opacity=.3, semithick](3.4,-4) -- (3.4,52);
+		%\stopscope
+		\addplot[thick,domain=-0.5:3.5,samples=2]{7+12*x};
+	\stopaxis
+\stoptikzpicture}}
+
+The diagram, table, and graph all present the same information about the ball’s motion. Diagrams are especially easy to understand, and you should frequently sketch diagrams to add clarity to your solutions. The table is especially useful when collecting significant amounts of data in laboratory investigations.
+The diagram and the table give locations at a few specific times, but the graph shows the location of the ball at every moment.
+We will frequently use the detailed information in position vs.\ time graphs  to understand motion.
+
+\startexample[ex:cartblockgraphexample]
+	Use the graph in figure \in[fig:LevelRollGraph] to find the position of the ball at time \m{t=2.50\units{s}}.
+\startsolution
+First, draw a vertical line at \m{t=2.50\units{s}}. (I have removed the background illustrations.)
+Where the vertical line intersects the graph, I have drawn a dot. Through this point draw a horizontal line
+
+\centeraligned{
+\starttikzpicture
+	\startaxis[
+		footnotesize,
+		width=2.20in,
+		y={1mm}, %x={1cm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=3,
+		xtick={0,1,...,3},
+		minor x tick num=9,
+		ylabel={\m{x} (cm)},
+		ymin=0, ymax=50,
+		ytick distance=5,
+		minor y tick num=4,
+		]
+		%\addplot[thick,domain=-0.5:2,samples=2]{40};
+		%\addplot[thick,domain=2:3,samples=21]{44-4*(x-3)^2};
+		%\addplot[thick,domain=3:3.5,samples=2]{44};
+		%\addplot[thick,domain=-0.5:0,samples=2]{7};
+		\addplot[thick,domain=0:3,samples=2]{7+12*x};
+		%\addplot[thick,domain=2:3,samples=21]{35-4*(x-3)^2};
+		%\addplot[thick,domain=3:3.5,samples=2]{35};
+		\fill(2.5,37) circle[radius=.4mm];
+		\draw [thin] (2.5, 0) --node[above, rotate=90, pos=.4]{\m{t=2.50\units{s}}} (2.5, 50);
+		%\draw [thin] (3.5, 34) --node[above, pos= .6]{\m{x=34.0\units{cm}}} (-0.5,34);
+	\stopaxis
+\stoptikzpicture
+\quad
+\starttikzpicture
+	\startaxis[
+		footnotesize,
+		width=2.20in,
+		y={1mm}, %x={1cm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=3,
+		xtick={0,1,...,3},
+		minor x tick num=9,
+		ylabel={\m{x} (cm)},
+		ymin=0, ymax=50,
+		ytick distance=5,
+		minor y tick num=4,
+		]
+		%\addplot[thick,domain=-0.5:2,samples=2]{40};
+		%\addplot[thick,domain=2:3,samples=21]{44-4*(x-3)^2};
+		%\addplot[thick,domain=3:3.5,samples=2]{44};
+		%\addplot[thick,domain=-0.5:0,samples=2]{7};
+		\addplot[thick,domain=0:3,samples=2]{7+12*x};
+		%\addplot[thick,domain=2:3,samples=21]{35-4*(x-3)^2};
+		%\addplot[thick,domain=3:3.5,samples=2]{35};
+		\draw [thin] (2.5, 0) --node[above, rotate=90, pos=.4]{\m{t=2.50\units{s}}} (2.5, 50);
+		\fill(2.5,37) circle[radius=.4mm];
+		\draw [thin] (3.5, 37) --node[above, pos= .6]{\m{x=37.0\units{cm}}} (-0.5,37);
+		%\draw [thin] (3.5, 38) --node[above=-1mm, pos= .6, rotate=22]{tangent} (-0.5,22);
+	\stopaxis
+\stoptikzpicture
+}
+At \m{t=2.50\units{s}} the ball’s position is \m{37.0\units{cm}}.
+\stopsolution
+\stopexample
+
+A \keyterm{displacement} is a change in position. In figure \in[fig:BallLevelArows], the ball’s displacements are shown as arrows extending from the ball’s position at one time to its position at a later time. The displacement’s length must be the actual distance moved by the ball. When the ball moves \m{12\units{cm}} to the right, the displacement should be \m{12\units{cm}} long, extending from center to center, and pointing to the right.
+
+Like position, displacement can be quantified. %The number needs to give not only this distance moved by the object, but also the direction.
+Our meter stick has numbers increasing to the right, so we will use positive displacements to describe motions to the right and negative displacements to describe motions to the left. For example, a movement of \m{12\units{cm}} to the right will be represented by a displacement of \m{12\units{cm}}, while a movement of \m{12\units{cm}} to the left will be represented by a displacement of \m{-12\units{cm}}.
+
+\placefigure[margin][fig:BallLevelArows] % location, label
+{Displacements are represented by vectors that show both the direction and distance of movement.}	% caption text
+{\noindent \m{t=0\units{s}} to \m{t=1\units{s}}\\
+\starttikzpicture[baseline]%
+	\fill [black!10] (0,0) rectangle (5,-.15);
+	\startaxis[margin cart track,	xlabel={}]
+		\draw[shade, ball color = white] (7,3) circle[radius=3][opacity=.4];
+		\fill(7,3) circle[radius=.4mm][opacity=.4];
+		\draw[shade, ball color = white] (19,3) circle[radius=3];
+		\fill(19,3) circle[radius=.4mm];
+    \draw[-{Straight Barb}, thick] (7,3) -- (19,3);
+    \stopaxis
+\stoptikzpicture\\
+\noindent \m{t=1\units{s}} to \m{t=2\units{s}}\\
+\starttikzpicture[baseline]%
+	\fill [black!10] (0,0) rectangle (5,-.15);
+	\startaxis[margin cart track,	xlabel={}]
+		\draw[shade, ball color = white] (19,3) circle[radius=3][opacity=.4];
+		\fill(19,3) circle[radius=.4mm][opacity=.4];
+		\draw[shade, ball color = white] (31,3) circle[radius=3];
+		\fill(31,3) circle[radius=.4mm];
+    \draw[-{Straight Barb}, thick] (19,3) -- (31,3);
+    \stopaxis
+\stoptikzpicture\\
+\noindent \m{t=2\units{s}} to \m{t=3\units{s}}\\
+\starttikzpicture[baseline]%
+	\fill [black!10] (0,0) rectangle (5,-.15);
+	\startaxis[margin cart track,	xlabel={}]
+		\draw[shade, ball color = white] (31,3) circle[radius=3][opacity=.4];
+		\fill(31,3) circle[radius=.4mm][opacity=.4];
+		\draw[shade, ball color = white] (43,3) circle[radius=3];
+		\fill(43,3) circle[radius=.4mm];
+    \draw[-{Straight Barb}, thick] (31,3) -- (43,3);
+    \stopaxis
+\stoptikzpicture%
+}
+
+Displacement is calculated by taking the difference between the final position, \m{x\sub{f}}, and the initial position, \m{x\sub{i}}.
+\highlightbox{
+\startformula
+	\Delta x = x\sub{f} - x\sub{i} %\label{eq:1Ddisp}
+\stopformula
+}
+Notice the order: \emph{final minus initial}. Use this order even if it produces a negative answer. The negative sign indicates that the motion is toward lower numbers.%, while positive displacements are reserved for motions towards larger numbers.
+%In this way the displacement tells us not only how far the block moves, but also the direction that the block moves.
+
+%\begin{margintable}
+%%\sidepar{\strut\\[-\baselineskip]
+%\tabcolsep = 0in
+%\begin{tabular*}{\marginparwidth}{@{\extracolsep\fill}ccccc@{}}
+%\toprule
+%%Time \NC Position of Cart \NC Position of Block \\
+%%\m{t} (s) \NC \m{x\sub{c}} (cm) \NC \m{x\sub{b}} (cm) \NC \m{\Delta x\sub{c}} (cm) \\
+%\m{t} \NC \m{x\sub{c}} \NC \m{\Delta x\sub{c}}  \NC \m{x\sub{b}} \NC \m{\Delta x\sub{b}} \\
+%\midrule
+%\m{0\units{s}} \NC  \m{\phantom{0}7\units{cm}} \NC \NC \m{40\units{cm}}   \\[-1.4ex]
+%  \NC    \NC \m{12\units{cm}} \NC \NC \m{0\units{cm}} \\[-1.4ex]
+%\m{1\units{s}} \NC \m{19\units{cm}} \NC \NC \m{40\units{cm}}   \\[-1.4ex]
+%  \NC    \NC \m{12\units{cm}} \NC \NC \m{0\units{cm}} \\[-1.4ex]
+%\m{2\units{s}} \NC \m{31\units{cm}} \NC \NC \m{40\units{cm}}   \\[-1.4ex]
+%  \NC    \NC \m{\phantom{0}4\units{cm}} \NC \NC \m{4\units{cm}} \\[-1.4ex]
+%\m{3\units{s}} \NC \m{35\units{cm}} \NC \NC \m{44\units{cm}}   \\
+%\bottomrule
+%\end{tabular*}
+%\caption[Positions and displacements]{Displacements of the cart and block.}\label{T:CartBlockDisplacemnts}
+%\end{margintable}
+\startexample[ex:BlockDisp]
+	A block is moved from the \m{3.0\units{cm}} position to the \m{12.0\units{cm}} position. What is the block’s displacement due to this move?
+\startsolution The initial position is \m{3.0\units{cm}}, so \m{x\sub{i} = 3.0\units{cm}}. Likewise, \m{x\sub{f} = 12.0\units{cm}}. Use these values in the displacement formula.
+\startformula\startmathalignment[m=2,distance=2em]%Notice distance=2em
+	\NC \Delta x \NC = x\sub{f} - x\sub{i}
+				\NC \NC \text{Start with the displacement formula.} \NR
+	\NC 	\NC = 12.0\units{cm} - 3.0\units{cm}
+				\NC \NC \text{Plug in values with units.} \NR
+	\NC 	\NC = \answer{9.0\units{cm}}
+				\NC \NC \text{Calculate the answer.}
+\stopmathalignment\stopformula
+	The block’s displacement is \m{9.0\units{cm}}, as shown in figure \in[fig:BlockDisp].
+\stopsolution
+\stopexample
+
+\placefigure[margin][fig:BlockDisp] % location, label
+{The displacement of the block in Example
+\in[ex:BlockDisp] is 9.0 cm to the right.}	% caption text
+{\noindent\starttikzpicture[baseline]%
+	\fill [black!10] (0,0) rectangle (5,-.15);
+	\startaxis[margin cart track,ymax=10]
+		\pic at (3,0) {block}[opacity=.4];
+		\pic at (12,0) {block};
+   		\draw[-{Straight Barb}, thick] (3,2.5) --node[pos=.8,above=2.5mm]{\m{\Delta x=9.0\units{cm}}} (12,2.5);
+   	\stopaxis
+\stoptikzpicture}
+
+\startexample[ex:CartDisp]
+	A cart is rolling on a track while a student times it with a stopwatch.
+	When the stopwatch displays \m{1.0\units{s}}, the cart is at position \m{40.0\units{cm}}. When the stopwatch shows \m{3.0\units{s}}, the cart is at position \m{16.0\units{cm}}.
+	 What is the cart’s displacement over those two seconds?
+\startsolution
+	The cart’s initial and final positions are \m{x\sub{i} = 40.0\units{cm}} and \m{x\sub{f} = 16.0\units{cm}}.
+Although the final position is smaller than the initial position, we use the same formula.
+\startformula\startmathalignment
+	\NC	\Delta x 	\NC = x\sub{f} - x\sub{i}				\NR
+	\NC			\NC = 16.0\units{cm} - 40.0\units{cm}	\NR
+	\NC			\NC = \answer{-24.0\units{cm}}
+\stopmathalignment\stopformula
+The block’s displacement is \m{-24.0\units{cm}}, as shown in figure \in[fig:CartDisp].
+The displacement is negative because the cart is moving in the negative direction, from a higher numbered position to a lower numbered position.
+\stopsolution
+\stopexample
+
+\placefigure[margin][fig:CartDisp] % location, label
+{The displacement of the cart in Example
+\in[ex:CartDisp] is \m{-24.0\units{cm}}.}	% caption text
+{\noindent\starttikzpicture[baseline]%
+	\fill [black!10] (0,0) rectangle (5,-.15);
+	\startaxis[margin cart track,ymax=10]
+	\pic at (40,0) {cart}[opacity=.4];
+	\pic at (16,0) {cart};
+    \draw[-{Straight Barb}, thick] (40,2.5) --node[above=2.5mm]{\m{\Delta x=-24.0\units{cm}}} (16,2.5);
+    \stopaxis
+\stoptikzpicture}
+
+\noindent
+%We have seen displacements before, primarily in Chapter \in[ch:Music]. For vibrations the displacement was always the change in position measured from the central position.
+%The distance between the starting point and the ending point is the absolute value of the displacement, \m{\abs{\Delta x}}.
+The distance traveled by the object, called the \keyterm{path length}, is represented by \m{s}. The path does not have to be straight; it could go back and forth, like the curving letter \m{s}. (Straight lengths, like the length of a rod, are often represented by the straight letter \m{l}.)
+If the object’s path is straight then \m{s=\abs{\Delta x}}, but if the path is bent the distance traveled will be longer.%, \m{s>\abs{\Delta x}}.
+%The absolute value of the displacement is the \keyterm{distance}, which is always positive. The symbol for distance is simply \m{\abs{\Delta x}}.
+%\highlightbox{
+\startformula
+	s \geq \abs{\Delta x}
+\stopformula
+The shortest path between two points is a straight line, and the length of that path is \m{\abs{\Delta x}}.
+%}
+%Taking the absolute value removes the information about the
+
+%The distance traveled does not tell us anything about the direction of travel. In Example \in[ex:CartDisp], the distance traveled by the cart is
+%\startformula
+%	\abs{\Delta x} = \abs{-24.0\units{cm}} = 24.0\units{cm}.
+%\stopformula
+
+The greatest power of physics is not in explaining the physical world, but in making predictions. Often these predictions relate to changes, such as changes in position.
+If we know where the cart starts, \m{x\sub{i}}, and know its displacement, \m{\Delta x}, we can predict its final position, \m{x\sub{f}}. Start with the displacement formula and solve for \m{x\sub{f}}.
+\startformula
+\startmathalignment[m=2,distance=2em]%Notice distance=2em
+	\NC	\Delta x	\NC= x\sub{f} - x\sub{i}	\NC	\NC	\text{Displacement formula.}	 \NR
+	\NC	 x\sub{i} + \Delta x \NC= x\sub{f} - \cancel{x\sub{i}} + \cancel{x\sub{i}}
+									\NC	\NC \text{Add \m{x\sub{i}} to both sides.}\NR
+	\NC	 x\sub{i} + \Delta x \NC= x\sub{f}	\NC	\NC \text{Initial plus change is final.}
+\stopmathalignment
+\stopformula
+The initial position plus the displacement gives the final position. Notice  that the sign of the displacement is necessary to get the correct final position. If the cart starts at \m{20\units{cm}} and %moves a \emph{distance} of \m{5\units{cm}} it could end up at \m{25\units{cm}}, \m{15\units{cm}} or (by changing direction) anywhere in between. If the \emph{displacement} is
+is displaced \m{5\units{cm}} then it moves in the positive direction and will end at \m{25\units{cm}}. A displacement of \m{-5\units{cm}} would move the cart form \m{20\units{cm}} to \m{15\units{cm}}. %Many important physics laws have the form \quotation{initial plus change is final.}
+(When we have mathematical models for more interesting systems, we will make more interesting predictions!)
+
+\section{Uniform motion and constant velocity}
+% Could actually use a Galileo quote here. It would be from the Uniform Motion section of Day III in \booktitle{Two New Sciences.} This is missing from Finocchiaro.
+Galileo observed that an object moving without impediment, like the ball on the horizontal plane, will continue to move.  During such uniform motion the object’s displacement is proportional to the motion’s duration.  Over a short time the object will have a small displacement, but over a longer time the object will have a proportionally larger displacement.
+The constant ratio of \m{\Delta x} to \m{\Delta t} is the \keyterm{velocity}.
+\highlightbox{
+\startformula
+	v = \frac{\Delta x}{\Delta t}
+		= \frac{x\sub{f}-x\sub{i}}{t\sub{f}-t\sub{i}}
+%	\label{eq:1Dv}
+\stopformula
+}%\end{shaded}
+We will remember velocity as \quotation{displacement over duration.}
+Outside forces can change an object’s velocity, but as long as it moves freely the velocity will be constant.
+
+%We will always calculate the amount of time elapsed \m{\Delta t} as a positive number by subtracting the initial time \m{t\si} from the final time \m{t\sf}.  (The equations still work when going backwards in time, but it gets confusing.)
+\startexample
+	Students make a video of a cart rolling on a track. Watching the video they see at \m{t=1.00\units{s}} the cart’s position is \m{40.0\units{cm}} and at \m{t=1.10\units{s}} the cart’s position is \m{16.0\units{cm}}.
+	 What is the velocity of the cart over those two seconds?
+	% KK In example 3.4, It might be helpful for students to see the same table format you used earlier in table 3.1.
+\startsolution A table helps organize the numbers from the question.
+\startformula\startmathalignment[m=2,distance=2em]%Notice distance=2em
+	\NC	t\sub{i} \NC= 1.00\units{s} \NC x\sub{i} \NC= 40.0\units{cm} \NR
+	\NC	t\sub{f} \NC= 1.10\units{s} \NC x\sub{f} \NC= 16.0\units{cm}
+\stopmathalignment\stopformula
+	Use these values in the velocity formula.
+\startformula\startmathalignment[m=2,distance=2em]%Notice distance=2em
+	\NC	v = \frac{\Delta x}{\Delta t} \NC= \frac{x\sub{f} - x\sub{i}}{t\sub{f}-t\sub{i}} \NC\NC
+			\text{Velocity formula}\NR
+	\NC		\NC= \frac{16.0\units{cm} - 40.0\units{cm}}{1.10\units{s}-1.00\units{s}} \NC\NC
+			\text{Plug in values with units}\NR
+	\NC		\NC= \frac{-24.0\,\ucan{cm}}{0.10\units{s}}\left(\frac{1\units{m}}{100\,\ucan{cm}}\right) \NC\NC
+			\text{Calculate and convert}\NR
+	\NC		\NC= \answer{-2.4\units{m/s}} \NC\NC
+			%\text{Answer in a box}
+\stopmathalignment\stopformula
+The velocity of the cart is \m{-24\units{cm/s}}, negative because the cart is moving in the negative direction, as shown in figure \in[fig:CartVel].
+\stopsolution
+\stopexample
+\placefigure[margin][fig:CartVel] % location, label
+{The velocity of the cart in Example
+\in[ex:CartDisp] is shown as a vector. While displacements are always drawn to the same scale as the drawing, velocity vectors must have their own scale, like the one above the figure.}	% caption text
+{\noindent\starttikzpicture[baseline]%
+	\fill [black!10] (0,0) rectangle (5,-.15);
+	\startaxis[
+		margin cart track,
+		legend style={draw=none},
+		ymax=17,
+		]
+	\pic at (35,0) {cart};
+    \draw[thick,->] (35,2.5) --node[above=2.5mm]{\m{v=-2.4\units{m/s}}} ++(-12,0);
+	  	\addlegendimage{
+	  		legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
+ 		};
+		\addlegendentry{\m{=1\units{m/s}}}
+    \stopaxis
+\stoptikzpicture}
+
+\noindent
+Velocity is a \keyterm{vector}. All vectors are represented by straight arrows like the one in figure \in[fig:CartVel]. Vectors have a direction, which is obviously the arrow’s direction, and a \keyterm{magnitude}, which is represented by the arrow’s length. Diagrams must have a scale for converting the arrow’s length to the vector’s magnitude, as in figure \in[fig:CartVel].
+
+The magnitude of velocity \m{v} is the absolute value \m{\abs{v}}, which is the \keyterm{speed}. Speed is always positive for a moving object, independent of the motion’s direction. The familiar formula for constant speed is \quotation{distance over time.} In our language speed is actually \quotation{distance over duration,} where the distance is the path length. (For uniform motion the path is straight, so \m{s=\abs{\Delta x}}.)
+\startformula
+	\abs{v} = \frac{s}{\Delta t} = \frac{\abs{\Delta x}}{\Delta t}
+\stopformula
+Both distance and duration are always positive, so the formula always gives a positive speed.
+
+%Speed is the quantity shown on a car’s speedometer. The speedometer shows a positive value when you drive to school and still shows a positive value when you drive home. A velocimeter would have to give a positive value when traveling one direction, and a negative value when traveling the other way.
+
+With an initial position and a constant velocity, you can easily predict an object’s position at a later time. First, use the velocity formula to find the displacement.
+\startformula\startmathalignment[m=2,distance=2em]%Notice distance=2em
+	\NC	v		\NC = \frac{\Delta x}{\Delta t}	\NC\NC \text{Velocity formula}	\NR
+	\NC	v\Delta t	\NC = \frac{\Delta x}{\cancel{\Delta t}}\cancel{\Delta t}	\NC\NC \text{Multiply both sides by duration.}		\NR
+	\NC	\Delta x	\NC = v\Delta t		\NC\NC \text{Reverse to get displacement on the left.}
+%\label{eq:DxvDt}
+\stopmathalignment\stopformula
+The displacement is the velocity multiplied by the duration. The direction of the velocity determines the direction of the displacement. If the velocity is negative, the displacement will be in the negative direction; if the velocity is positive, the displacement will be in the positive direction.
+
+Then, add the displacement to the initial position to find the final position.
+\highlightbox{
+\startformula
+	x\si + v \Delta t = x\sf %\tag*{\txx Position update formula}
+	%\label{eq:1Dxup}
+\stopformula
+}%\end{shaded}
+This is the extremely useful \keyterm{position update formula} for uniform motion.
+
+\placefigure[margin][fig:CartUpdateEx] % location, label
+{The initial position and constant velocity of the cart in Example
+\in[ex:CartUpdate].}	% caption text
+{\noindent\starttikzpicture[baseline]%
+	\fill [black!10] (0,0) rectangle (5,-.15);
+	\startaxis[
+		margin cart track,
+		legend style={draw=none},
+		ymax=17,
+		]
+	\pic at (40,0) {cart};
+    \draw[thick,->] (40,2.5) --node[above=2.5mm]{\m{v=-1.8\units{m/s}}} ++(-9,0);
+	  	\addlegendimage{
+	  		legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
+ 		};
+		\addlegendentry{\m{=1\units{cm/s}}}
+    \stopaxis
+\stoptikzpicture}
+
+\startexample[ex:CartUpdate]
+The cart rolls along the track with a constant velocity of \m{1.8\units{m/s}}. It passes the \m{40\units{m}} mark on the track at \m{t=1.00\units{s}}, as shown in figure \in[fig:CartUpdateEx]. If it continues to roll at a constant velocity, what will its position be at \m{t= 1.10\units{s}}?
+\startsolution
+The motion’s duration is \m{\Delta t = t\sf - t\si = 1.10\units{s}-1.00\units{s} = 0.10\units{s}}.
+Use this duration in the position update formula.
+\startformula\startmathalignment
+	\NC	x\si + v\Delta t
+		\NC= 40\units{cm} + (-1.8\units{m/s})(1.10\units{s}-1.00\units{s})		\NR
+	\NC	\NC= 40\units{cm} + (-1.8\units{m/\ucan{s}})(0.10\units{\ucan{s}})		\NR
+	\NC	\NC= 40\units{cm} - 0.18\,\ucan{m}\left(\frac{100\units{cm}}{1\,\ucan{m}}\right)		\NR
+	\NC	\NC= 40\units{cm} - 18\units{cm}		\NR
+	\NC	\NC= \answer{22\units{cm}}
+\stopmathalignment\stopformula
+The final position is \m{22\units{cm}}, as shown in figure \in[fig:CartUpdateFinal].
+\stopsolution
+\stopexample
+
+\placefigure[margin][fig:CartUpdateFinal] % location, label
+{The displacement of the cart in Example
+\in[ex:CartUpdate] is \m{-8.0\units{cm}}, taking it to a final position of \m{32\units{cm}}.}	% caption text
+{\noindent\starttikzpicture[baseline]%
+	\fill [black!10] (0,0) rectangle (5,-.15);
+	\startaxis[margin cart track,ymax=10]
+	\pic at (40,0) {cart}[opacity=.4];
+	\pic at (22,0) {cart};
+    \draw[-{Straight Barb}, thick] (40,2.5) --node[above=2.5mm]{\m{\Delta x=-18\units{cm}}} (22,2.5);
+    \stopaxis
+\stoptikzpicture}
+
+\noindent
+Since we will often use position vs.~time graphs to show objects’ motion, we will  often get the object’s velocity from these graphs. The position vs.~time graph for uniform motion is always a straight line, like the graph for the rolling ball in figure \in[fig:ConstVelocity] (reproduced from fig.~\in[fig:LevelRollGraph]). The \quotation{rise} and \quotation{run} are shown by arrows on the graph.
+The \quotation{rise} on the graph is the displacement of the ball, \m{\Delta x}, on the vertical axis. The \quotation{run} is the duration, \m{\Delta t}, on the horizontal axis. Velocity is \quotation{displacement over time} which is the slope, \quotation{rise over run,} of the graph.
+\startformula
+	v = \frac{\Delta x}{\Delta t}
+		= \frac{\text{rise}}{\text{run}}
+		= \text{slope}
+\stopformula
+Keep in mind that the displacement \m{\Delta x} can be either positive or negative. If the graph is sloped downwards, then \m{\Delta x} is negative and the velocity is negative. The \quotation{rise} arrow should point down if the displacement is negative.
+\placefigure[margin][fig:ConstVelocity] % location, label
+{Velocity is the slope of the position vs.\ time graph. Both \m{\Delta x} and \m{\Delta t} are drawn as vectors to emphasize that they are directional. \m{\Delta x} can be positive or negative, depending on the direction. We will always draw \m{\Delta t} pointing towards the future.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={1mm},%x={1cm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=3,
+		xtick={-1,0,...,3},
+		minor x tick num=9,
+		ylabel={\m{x} (cm)},
+		ymin=0, ymax=50,
+		minor y tick num=4,
+		clip mode=individual,
+		]
+%		\addplot[thick,domain=-0.5:2,samples=2]{40};
+%		\addplot[thick,domain=2:3,samples=21]{44-4*(x-3)^2};
+%		\addplot[thick,domain=3:3.5,samples=2]{44};
+		%\addplot[thick,domain=-0.75:0,samples=2]{7};
+		\addplot[thick,domain=0:3,samples=2]{7+12*x};
+		%\addplot[thick,domain=2:3,samples=21]{35-4*(x-3)^2};
+		%\addplot[thick,domain=3:3.5,samples=2]{35};
+		\draw [-{Straight Barb[scale length=1.5]}, thick](0, 43) --node[below]{\m{\text{run}=\Delta t}} (3,43);
+		\draw [-{Straight Barb}, thick](0,7) --node[below,pos=.55,rotate=90]{\m{\text{rise}=\Delta x}} (0, 43);
+		\fill(0,7) circle[radius=.4mm];
+		\fill(3,43) circle[radius=.4mm];
+	\stopaxis
+\stoptikzpicture}%
+
+%We have been using algebra as our mathematical language, expressing the relationships between quantities as equations. There are no equations in Galileo’s scientific works, instead there are geometric constructions. His geometric methods are amazing, but not as practical as algebraic methods developed later. The description of the relationship between position, time and velocity that is contained in a equations (\in[eq:1Dv]) and (\in[eq:1Dxup]) above requires six pages of definitions, axioms, theorems, and proofs in Galileo’s \booktitle{Two New Sciences}.
+
+\startexample[ex:velocityEx]
+	Find the ball’s velocity from the graph in figure \in[fig:ConstVelocity].
+\placefigure[margin][fig:velocityEx] % location, label
+{\rm Finding the velocity for Exercise \in[ex:velocityEx].}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={1mm},%x={1cm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=3,
+		xtick={-1,0,...,3},
+		minor x tick num=9,
+		ylabel={\m{x} (cm)},
+		ymin=0, ymax=50,
+		minor y tick num=4,
+		clip mode=individual,
+		]
+%		\addplot[thick,domain=-0.5:2,samples=2]{40};
+%		\addplot[thick,domain=2:3,samples=21]{44-4*(x-3)^2};
+%		\addplot[thick,domain=3:3.5,samples=2]{44};
+		%\addplot[thick,domain=-0.75:0,samples=2]{7};
+		\addplot[thick,domain=0:3,samples=2]{7+12*x};
+		%\addplot[thick,domain=2:3,samples=21]{35-4*(x-3)^2};
+		%\addplot[thick,domain=3:3.5,samples=2]{35};
+%		\draw [thin](2,0) -- (2, 40);
+%		\draw [thin](0,0) -- (0, 40);
+		%\draw [thin] (2.5, 0) -- (2.5, 40); %node[above, rotate=90]{\m{t=2.50\units{s}}}
+		\fill(0,7) circle[radius=.5mm]node[right=2mm]{(\m{0\units{s}}, \m{7\units{cm}})};
+		\fill(3,43) circle[radius=.5mm]node[left=2mm]{(\m{3\units{s}}, \m{43\units{cm}})};
+%		\draw [thin] (-.75, 31) -- (2.5,31); %node[above, pos= .6]{\m{x=31.0\units{cm}}}
+%		\draw [thin] (-.75, 7) -- (2.5,7); %node[above, pos= .6]{\m{x=31.0\units{cm}}}
+%		\draw [->, thick](-0.5, 49) --node[below]{\m{\text{run}=\Delta t}} (3.5,49);
+%		\draw [->, thick](-0.5,1) --node[below,pos=.55,rotate=90]{\m{\text{rise}=\Delta x}} (-0.5, 49);
+	\stopaxis
+\stoptikzpicture}
+\startsolution The velocity is constant, so we will use the velocity formula for uniform motion. On the graph in figure \in[fig:velocityEx] I added coordinates for the points where the line reaches the border. I included units because they help ensure that the values go into the right part of the velocity formula.
+\startformula%\label{eq:vTangent}
+	v = \frac{\Delta x}{\Delta t}
+		= \frac{43\units{cm}-7\units{cm}}{3\units{s}-0\units{s}}
+		= \frac{36\units{cm}}{3.0\units{s}}
+		= \answer{12.0\units{cm/s}}
+\stopformula
+The ball’s velocity is \m{12.0\units{cm/s}}.
+\stopsolution%
+\stopexample
+
+When calculating the velocity from the graph, avoid the common mistake of counting graph squares. This often works in math classes but it will not work here. For example, seeing a graph go up four squares and over five you may conclude the velocity is \m{v=\fourfifths= 0.8}. This is not correct – it does not even have the correct units! You must use the values on the \m{x}-axis and \m{t}-axis to do the calculation. Those will give the correct slope with the correct units.
+Many students learn in math class that the slope is \m{\frac{y_2-y_1}{x_2-x_1}}. This formula should not be used in physics because \m{x} and \m{y} are rarely the horizontal and vertical coordinates. In the graphs above the coordinates are \m{t} and \m{x}, where \m{x} is the \emph{vertical} coordinate rather than the horizontal one. Remember \quotation{rise over run} and use the graph’s axes to determine the correct values and units.
+
+We will often set \m{t\si = 0} to simplify calculations. In this case we use \m{x_0} to represent the position at \m{t=0}. The position at any time \m{t} is represented simply by \m{x}. With this notation the position update formula is
+\startformula
+	x_0 + vt = x.
+\stopformula
+You might not recognize it immediately, but this is the equation for a straight line. To see it, reverse the equation and compare it to the usual equation for a straight line: \m{y=mx+b}.
+\placefigure[margin][fig:linearmath] % location, label
+{The function \m{y=mx + b} as you might see it in math class.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		axis lines=middle,
+		axis line style={->},
+		y={1mm},%x={1cm},
+		xlabel={\m{x}},
+		xmin=0, xmax=3,
+		xtick=\empty,
+		ylabel={\m{y}},
+		ymin=0, ymax=50,
+		ytick=\empty,
+		ytick pos=left,
+		extra y ticks={7},
+		extra y tick labels={\m{b}},
+		clip mode=individual,
+		]
+		\addplot[thick,domain=0:3,samples=2]{7+12*x}
+		node[pos=.5, above, sloped]{\m{\text{slope}=m}}
+		;
+	\stopaxis
+\stoptikzpicture}
+\placefigure[margin][fig:linearposition] % location, label
+{The position vs.~time graph \m{x=x_0 + vt} for initial position \m{x_0} and constant velocity \m{v}.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={1mm},%x={1cm},
+		xlabel={\m{t}},
+		xmin=0, xmax=3,
+		xtick={0},
+		ylabel={\m{x}},
+		ymin=0, ymax=50,
+		ytick={0},
+		ytick pos=left,
+		extra y ticks={7},
+		extra y tick labels={\m{x_0}},
+		clip mode=individual,
+		]
+		\addplot[thick,domain=0:3,samples=2]{7+12*x}
+		node[pos=.5, above, sloped]{\m{\text{slope}=v}}
+		;
+	\stopaxis
+\stoptikzpicture}
+
+Since uniform motion give the equation for a straight line, we say that \m{x} is a linear function of \m{t} when the motion is uniform.
+
+So far, we have considered motion along a straight path. Position can also be measured along a curved path. Displacement and distance, velocity and speed along the curved path are all calculated using the same formulas as along straight paths. %In practice, curved tracks do not work quite as well due to increased friction.
+%The path can be almost any shape, but in practice the paths are usually straight or circular.
+Circular paths are especially important.
+
+% Exercises
+\section{Circular motion}
+
+Galileo’s \booktitle{Two World Systems} is not primarily concerned with the motion of objects on Earth, but with the circular motions of the Solar System – of Earth and the other planets around the sun, of the moon around Earth, and of Jupiter’s moons around Jupiter. Even the tower is carried along a circular path around Earth’s axis, completing one cycle every day.
+Salviati and Simplicio’s discussion of the rolling ball leads them to consider such circular motion.
+
+\placefigure[margin][fig:SailEarth]
+{A ball rolls and a ship sails with uniform velocity on the idealized smooth surface of Earth’s land and oceans. Remaining a constant distance from Earth’s center, their motion is neither accelerated nor diminished by the force of gravity.}
+{\externalfigure[earth][width=144pt]}
+\startblockquote
+	{\sc Salv.} Now, tell me, what do you think is the reason why that ball moves spontaneously on the downward path and not without force on the upward one?
+
+	{\sc Simp.} Because the tendency of heavy bodies is to move toward the center of the earth, only by force do they move upward away from it; and by moving down on an inclined surface one gets closer to the center, and by moving up one gets further away.
+
+	{\sc Salv.} Therefore, a surface sloping neither downward nor upward would have to be equidistant from the center at all of its points. But are there any such surfaces in the world?
+
+	{\sc Simp.} There is no lack of them: one is the surface of our terrestrial globe, if it were smoothed out, and not rough and mountainous, as it is; another is the surface of the water when it is calm and tranquil.
+
+	{\sc Salv.} Therefore, a ship moving in a calm sea is a body going over a surface that slopes neither downward nor upward, and so it has the tendency to move endlessly and uniformly with the impulse once acquired if all accidental and external obstacles are removed.\autocite{pp.~231--232}{Galileo1632}
+%
+	%{\sc Simp.} It seems that it must be so.
+\stopblockquote
+Galileo saw circular motion and straight motion as equally natural – both would continue endlessly unless an outside force acted to end the motion
+%A straight road on Earth is actually bent slightly downwards along Earth’s spherical surface. Far larger circles are traced out by the moon as it orbits Earth and the planets as they orbit the sun.
+%The motions along these circles is easily expressed in terms of the radius and period of the orbits.
+%Galileo and his readers knew that while \booktitle{Two New Sciences} only used examples on Earth, the same insights applied to the circular paths of objects in the solar system.
+
+%[The Assayer, 1623]
+
+
+% Text image
+\placetextfloat[bottom][fig:DialogueSolarSystem]{Galileo’s schematic map of the solar system, with Jupiter’s moons, from \booktitle{Dialogue on the Two Chief World Systems, Ptolemaic and Copernican}.\autocite{p.~238}{Galileo1632}} {\externalfigure[DialogueSolarSystem][width=\textwidth]}
+
+Planets and moons in Galileo’s heliocentric model all follow circular paths at constant velocity, as shown in figure \in[fig:DialogueSolarSystem]. Planets circle the Sun, while moons circle Earth and Jupiter. Galileo was well aware that circular orbits do not match precise measurements of the planets’ motions, but those measurements were not his interest. Galileo intended his model to explain the new observations made with his telescope.
+
+% Margin image
+\placefigure[margin][fig:Phases]{Galileo’s drawings show Venus’s phases and changes in apparent size. (\booktitle{The Assayer,} 1623])} {\externalfigure[VenusPhases][width=144pt]}
+
+The telescope revealed some planets going through phases, like the phases of the moon, as well as changing significantly in apparent size as they approach Earth and then recede during their orbits around the Sun. Galileo presented these observations earlier (figure \in[fig:Phases]), but in the \booktitle{Two World Systems} he uses them to make a compelling case for a heliocentric model. Since establishing Earth’s motion around the Sun was his goal, refining the model with orbits’ exact sizes and shapes would have been a counterproductive distraction.
+
+As we saw in Chapter \in[ch:Music], the speed along a circular path can be calculated using \quotation{distance over duration,} distance is the circumference and the duration is the period. Using the new notation introduced in this chapter, the speed of an object in uniform circular motion is
+%\highlightbox{
+\startformula[eq:vT]
+	\abs{v} %= \frac {\abs{\Delta x}}{\Delta t}
+		= \frac{s}{\Delta t}
+		= \frac{2\pi R}{T}.
+\stopformula
+%}
+%We have measured the distance along the circular path, even though the planet returns to its original position after one orbit.
+
+\section{Angles, angular velocity, and radians}
+We will usually follow the mathematicians' tradition of using positive for counter-clockwise motion and negative for clockwise.
+
+The angular displacement \m{\Delta \theta} can be measured in cycles, degrees, or radians. These angular units are related by
+\startformula
+	1\units{cyc} = 360\degree= 2\pi\units{rad}.
+\stopformula
+Degrees have been a common choice for physicists and astronomers as well as for non-specialists. Cycles are also common. In fact, you used cycles when studying the circular motion of planets and moons. The number of cycles \m{N} is the very large angular displacement \m{\Delta \theta} written in units of cycles, \m{N = \Delta \theta}. 
+
+
+Degrees are familiar and cycles are sensible, but I want to introduce you to your new best friend: radians. You probably recognize radians from a math class, but it is possible you didn’t really hit it off. In physics you will work with radians, and it is going to be great. Radians will help you work through difficult issues with angular units, but not in a demanding way like other units. If you need angular units, radian will cheerfully jump in to help. If you want to do something with other units, radians will stay out of your way.
+
+\startbuffer[TikZ:radians]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage
+\def\angles{72,54,...,-90}
+\starttikzpicture% tikz code
+\draw (5,0) coordinate (A) --node[below]{\m{r}} (0,0) coordinate (B) -- (4,3) coordinate (C)
+pic ["\m{\theta}", draw, angle eccentricity=1.4] {angle}
+pic ["\m{s}", draw, angle radius=5cm, angle eccentricity=1.05] {angle};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:radians] % location
+{The angle \m{\theta} in radians is defined as ratio of the arc length \m{s} to the radius \m{r}.}	% caption
+{\noindent\typesetbuffer[TikZ:radians]} % figure contents
+
+
+Radians are able to do this because an angle’s measure in radians is defined by a ratio. Draw an arc inside any angle, as in figure~\in[fig:radians], and the ratio of the arc length \m{s} to the radius \m{r} is the angle \m{\theta} in radians.
+\startformula
+	\theta = \frac{s}{r}
+\stopformula
+Of course, \m{s} and \m{r} are both lengths and should have the same units, so the units on the right cancel out. However, you need angular units for \m{\theta} on the left. Radians cheerfully step in to provide the units. You don’t have to do anything else, but if you wish to convert to other angular units, you can.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:RadiansLatitude]
+Latitude and longitude are measured in degrees. Latitude goes from \m{0\degree} at the equator to \m{90\unit{\degree N}} at the North Pole (and \m{90\unit{\degree S}} at the South Pole). Florence is \m{4870\units{km}} north of the equator, as shown in \in{figure}[fig:RadiansLatitude]. What is Florence’s latitude? (Earth’s radius is \m{6370\units{km}}.)
+\startbuffer[TikZ:RadiansLatitude]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage
+\def\angles{72,54,...,-90}
+\starttikzpicture% tikz code
+\draw[fill=black!10] (0,0) circle[radius=2.5cm];
+\filldraw (0,2.5) circle[radius=.8pt]node[above]{North Pole};
+\filldraw (0,-2.5) circle[radius=.8pt]node[below]{South Pole};
+\filldraw (43.8:2.5) coordinate (C) circle[radius=1pt]node[left=1.5mm]{Florence};
+\draw (-2.5,0) --node[below]{Equator} (2.5,0);
+\draw (2.5,0) coordinate (A) -- (0,0) coordinate (B) --node[right=1.5mm]{\m{r}} (C)
+pic ["\m{\theta}", draw, angle eccentricity=1.4] {angle}
+pic ["\m{s}", draw, angle radius=2.5cm, angle eccentricity=1.09] {angle};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RadiansLatitude] % location
+{Florence's latitude is the angle \m{\theta}.}	% caption
+{\noindent\typesetbuffer[TikZ:RadiansLatitude]} % figure contents
+
+\startsolution
+Using Earth’s radius for \m{r}, we can find the angle, which is the latitude.
+\startformula
+	\theta = \frac{s}{r} = \frac{4870\units{km}}{6370\units{km}} = 0.765
+\stopformula
+We have a number, but no units. This is where radians step in to help. Put in radians and continue with the unit conversion.
+\startformula
+	\theta = 0.765 = 0.765\units{rad} = 0.765\units{rad}\left(\frac{360\degree}{2\pi\units{rad}}\right) = 43.8\degree
+\stopformula
+Florence’s latitude is \m{43.8\unit{\degree N}}. Thanks, radians!
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+When you don’t need angular units anymore, radians will step out gracefully.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:RadiansEratosthenes]
+On a summer bicycle tour of Egypt you decide to reproduce Eratosthenes’ measurement of Earth’s radius (see p.\at[fig:EarthRadius]). Eratosthenes measured the shadow in Alexandria to be one fiftieth of a circle, or \m{0.020\units{cyc}}. (On the trip, you confirm that this measurement is good to two significant figures.)  After carefully calibrating your odometer you measure the distance between Alexandria and the well in Syene to be \m{800\units{km}}, or \m{8.0\sci{5}\units{m}}. Based on your measurements, what is Earth’s radius?
+\startbuffer[TikZ:RadiansEratosthenes]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage
+\def\angles{72,54,...,-90}
+\starttikzpicture% tikz code
+\clip (-1.5,-3) rectangle (3.5,3);% Clipping Rectangle
+\draw[fill=black!10] (0,0) circle[radius=2.5cm];
+\filldraw (0,2.5) circle[radius=.8pt]node[above]{North Pole};
+\filldraw (0,-2.5) circle[radius=.8pt]node[below]{South Pole};
+\filldraw (31.2:2.5) coordinate (C) circle[radius=1pt]node[left=1.5mm, yshift=1mm]{Alexandria};
+\filldraw (23.44:2.5) coordinate (A) circle[radius=1pt]node[right=1.4mm, yshift=-1mm]{Syene};
+\draw (-2.5,0) --node[below]{Equator} (2.5,0);
+\draw (A) --node[below right,pos=.4]{\m{r}} (0,0) coordinate (B) --node[pos=.3, above]{\m{\theta}} (C)
+pic [draw, angle radius=1cm, angle eccentricity=1.1] {angle}
+pic ["\m{s}", draw, angle radius=2.5cm, angle eccentricity=1.09] {angle};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RadiansEratosthenes] % location
+{Measuring Earth's diameter on your bike tour of Egypt.}	% caption
+{\noindent\typesetbuffer[TikZ:RadiansEratosthenes]} % figure contents
+\startsolution
+You have the arclength \m{s} and the angle \m{\theta}. Solve for \m{r} and plug in your measurements.
+\startformula\startmathalignment
+\NC	\theta	\NC = \frac{s}{r}	\NR
+\NC	r		\NC = \frac{s}{\theta}
+				= \frac{800\units{km}}{0.020\units{cyc}}
+				= 40\,000\units{km/cyc}	\NR
+\stopmathalignment\stopformula
+We have not made a mistake, but the units don’t make any sense. Cycles are not welcome. Let’s convert to our friend, radians.
+\startformula
+	r = 40\,000\units{km/cyc}\left(\frac{1\units{cyc}}{2\pi\units{rad}}\right) = 6400\units{km/rad} = 6400\units{km}
+\stopformula
+Since we only need kilometers for our units, radians just disappeared. You found Earth’s radius to be \m{6400\units{km}}, a good match with the more precise value of \m{6370\units{km}}. Farewell, radians!
+\stopsolution
+\stopexample
+
+Whenever you need angular units, put in radians. If you need \m{1/\unit{rad}} or \m{\unit{rad^2}}, put it in. Afterwards, convert to other angular units if you need to. If you have angular units you don’t need, convert them to radians and let them disappear. No other unit works like this. There when you need them, gone when you don’t, radians are the best!
+
+This rate is called the angular velocity, represented by \m{\omega} (omega), it is the rate at which the orientation angle \m{\theta} (theta) is changing.
+\startformula
+	\omega = \frac{\Delta \theta}{\Delta t}
+\stopformula
+Although the parts have different velocities, they all share the same angular velocity, moving through the same angular displacement \m{\Delta \theta} in the same duration \m{\Delta t}. Angular velocity is directional, its sign indicating whether the object is rotating in the direction of increasing or decreasing angle. 
+
+Likewise, frequency is angular velocity written in units of cycles per second.
+\startformula
+	f = \frac{N}{\Delta t} = \frac{\Delta \theta}{\Delta t} = \omega
+\stopformula
+The only things new in angular displacement and angular velocity are the symbols and flexibility with units. By tradition, \m{N} and \m{f} always use cycles, while \m{\theta} and \m{\omega} can use any angular units.
+
+With the help of our new friend radians, we can relate a rotating object’s many velocities to its one angular velocity \m{\omega}. Consider a part that is distance \m{r} from the center of mass, so that it travels along a circle of radius \m{r} around the center of mass as the object rotates. When the object rotates though an angular displacement of \m{\Delta\theta} the part moves along the circle a distance \m{s = r\Delta\theta}. The part’s speed is therefore,
+\startformula
+	v = \frac{s}{\Delta t} = \frac{r\Delta\theta}{\Delta t} = r\frac{\Delta\theta}{\Delta t} = r\omega.
+\stopformula
+The \scaps{si} units for \m{v} on the left are \m{\unit{m/s}}. The units on the right should be converted to \m{\unit{m\.rad/s}} which turn into \m{\unit{m/s}} when the radians disappear. The units match, as they must.
+
+
+\section[sec:AccMotion]{Accelerated motion and instantaneous velocity}
+
+Everything you have learned about uniform motion can be adapted to situations where the velocity is changing, like the rock dropped from the tower or the ball on the incline, shown in figure \in[fig:inclineacceleratingball]. Since the velocity is changing from one instant to the next, we must adjust the velocity formula to calculate the \keyterm{instantaneous velocity}, the velocity at a particular instant.
+
+\placefigure[margin][fig:inclineacceleratingball] % location, label
+{The ball rolls down an incline with ever increasing speed. The ball’s position is shown every \m{0.30\units{s}}.}	% caption text
+{\noindent\starttikzpicture[baseline]%
+%	\fill [black!10] (0,0) rectangle (5,-.15);
+	\startaxis[margin cart track,
+		ymax=6.1,
+		style={rotate=-08.21},%-16.6},%
+		clip=false,
+		]
+		\draw[shade, ball color = white] (3,3) circle[radius=3][opacity=.2];
+		\fill(3,3) circle[radius=.4mm][opacity=.2];
+		\fill[color = white] (7.5,3) circle[radius=3];
+		\draw[shade, ball color = white] (7.5,3) circle[radius=3][opacity=.4];
+		\fill(7.5,3) circle[radius=.4mm][opacity=.4];
+		\draw[shade, ball color = white] (21,3) circle[radius=3][opacity=.6];
+		\fill(21,3) circle[radius=.4mm][opacity=.6];
+		\draw[shade, ball color = white] (43.5,3) circle[radius=3];
+		\fill(43.5,3) circle[radius=.4mm];
+%		\pic at (7,0) {cart};
+%		\pic at (40,0) {block};
+\fill [on layer={axis background}] (-0.5,0) rectangle (49.5,-1.5)[opacity=.1];
+    \stopaxis
+\stoptikzpicture}%
+
+As Galileo explained, changing velocity is always caused by an outside force. In Galileo’s examples, the outside force is gravity, which exerts a constant, downward force.
+Galileo was able to analyze constant force motion using some very clever geometric tricks. We will skip the geometric methods and use algebraic methods instead.
+
+\placetable[margin][T:inclineroll] % Label
+    {The rolling ball’s positions listed at one second intervals.} % Caption
+    {\vskip9pt\small\starttabulate[|c|c|]
+\FL[2]%\toprule
+\NC Time (\m{t})		\NC Position (\m{x})				\NR
+\HL
+\NC \m{0.0\units{s}}	\NC \m{\phantom{0}3.0\units{cm}}	\NR
+\NC \m{0.3\units{s}}	\NC \m{\phantom{0}7.5\units{cm}}				\NR
+\NC \m{0.6\units{s}}	\NC \m{21.0\units{cm}}				\NR
+\NC \m{0.9\units{s}}	\NC \m{43.5\units{cm}}				\NR
+\LL[2]%\bottomrule
+\stoptabulate}
+
+These algebraic methods weren’t developed until the late seventeenth century, when Isaac Newton and Gottfried Leibniz invented calculus to deal with changing velocities and other issues in mechanics. Newton’s calculus was built on the Galileo’s geometric methods. Leibniz’s calculus, based on algebra, proved more practical. I encourage you to learn Leibniz’s calculus, but in the meantime there are two practical tricks we will adopt for finding instantaneous velocity.
+
+The first trick is to choose initial and final times very close together, so that the velocity is \emph{almost} constant for the duration. This is illustrated on the ball’s accelerated motion graph in figure \in[fig:BallRollsDown]. To find the instantaneous velocity at \m{t=0.50\units{s}}, we chose points just before and after that time for our initial and final measurements. The curve between the points has a nearly constant slope, so finding the slope with those points will give a good estimate of the instantaneous velocity at \m{0.50\units{s}}.
+
+\placefigure[margin][fig:BallRollsDown] % location, label
+{The velocity starts small (small slope) and becomes large (large slope). The small rise, \m{dx}, and run, \m{dt}, can be used to accurately estimate the velocity at \m{t=0.50\units{s}}.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={1mm},%x={1cm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=1,
+		%xtick={0,0.2,...,1},
+		xtick distance=0.2,
+		minor x tick num=3,
+		ylabel={\m{x} (cm)},
+		%ytick={30,31,...,37},
+		ymin=0, ymax=50,
+		minor y tick num=4,
+		clip mode=individual
+		]
+		%\startscope[opacity=.3, transparency group] % Don’t know why this didn’t work
+		\draw[opacity=.3, shade, ball color = white] (0,3) circle[radius=3mm];
+		\fill[opacity=.3](0,3) circle[radius=.4mm];
+		\draw  [opacity=.3, semithick]({-.4/3},-4) -- ({-.4/3},52);
+		\draw  [opacity=.3, semithick]({.4/3},-4) -- ({.4/3},52);
+		\draw[opacity=.3, shade, ball color = white] (0.3,7.5) circle[radius=3mm];
+		\fill[opacity=.3](0.3,7.5) circle[radius=.4mm];
+		\draw  [opacity=.3, semithick]({.3-.4/3},-4) -- ({.3-.4/3},52);
+		\draw  [opacity=.3, semithick]({.3+.4/3},-4) -- ({.3+.4/3},52);
+		\draw[opacity=.3, shade, ball color = white] (0.6,21) circle[radius=3mm];
+		\fill[opacity=.3](0.6,21) circle[radius=.4mm];
+		\draw  [opacity=.3, semithick]({.6-.4/3},-4) -- ({.6-.4/3},52);
+		\draw  [opacity=.3, semithick]({.6+.4/3},-4) -- ({.6+.4/3},52);
+		\draw[opacity=.3, shade, ball color = white] (0.9,43.5) circle[radius=3mm];
+		\fill[opacity=.3](0.9,43.5) circle[radius=.4mm];
+		\draw  [opacity=.3, semithick]({.9-.4/3},-4) -- ({.9-.4/3},52);
+		\draw  [opacity=.3, semithick]({.9+.4/3},-4) -- ({.9+.4/3},52);
+		%\stopscope
+		%\addplot[thick,domain=-0.5:2,samples=2]{7+12*x};
+		\addplot[thick,domain=0:1,samples=51]{3+(50*x^2)};
+		%\addplot[thick,domain=3:3.5,samples=2]{35};
+		\draw [very thin](0.5,0) -- (0.5, 15.5);
+		%\draw [thin](2,32) -- (3, 36);
+		\fill(0.5,15.5) circle[radius=.4mm];
+		\draw [-{Straight Barb[scale length=1.3]}, thick](0.45, 18) --node[above]{\m{dt}} (0.55,18);
+		\draw [-{Straight Barb}, thick](0.45,13) --node[left]{\m{dx}} (0.45, 18);
+		%\draw [->, thick](2,36) --node[below]{run} (3,36);
+		%\draw [->, thick](2,32) --node[right]{rise} (2,36);
+	\stopaxis
+\stoptikzpicture}%
+
+Leibniz introduced a neat notation for these small triangles, replacing the big \m{\Delta} with a small \m{d} to remind us to replace the big triangle with a small one, as shown in figure \in[fig:BallRollsDown]. Using Leibniz’s notation, the instantaneous velocity is
+\startformula
+	v = \frac{dx}{dt}.
+\stopformula
+
+How small is small enough? It depends. You will usually want an answer that is correct to two or three significant figures, which means the slope should not change more than a few percent between the initial and final time. If the triangle has no visible curvature on the hypotenuse, then it is probably small enough. The triangle in in figure \in[fig:BallRollsDown] appears to be small enough. Use this method when you have precise positions at specific times, like you would find in a data table.
+
+%[I think it is worth using \m{dx} and \m{dt} to remind them that these are small.]
+
+
+The second trick uses a \keyterm{tangent}, which is a straight line passing through a point on the curve in exactly the same direction that the curve passes through that point, as in figure \in[fig:velocityTangent].
+Leibniz’s little triangle is similar to
+the triangle made by the tangent, so the ratio \m{dx/dt} is equal to the tangent’s \m{\Delta x/\Delta t}.
+%The slope of the tangent is gives the velocity of the cart at the point where the tangent touches the cart’s graph.
+\placefigure[margin][fig:velocityTangent] % location, label
+{The ball’s velocity at time \m{t=0.50\units{s}} is the slope of the tangent drawn at that time.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={1mm},%x={1cm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=1,
+		%xtick={0,0.2,...,1},
+		xtick distance=0.2,
+		minor x tick num=3,
+		ylabel={\m{x} (cm)},
+		%ytick={30,31,...,37},
+		ymin=0, ymax=50,
+		minor y tick num=4,
+		clip mode=individual
+		]
+		%\addplot[thick,domain=-0.5:2,samples=2]{7+12*x};
+		\addplot[thick,domain=0:1,samples=51]{3+(50*x^2)};
+		%\addplot[thick,domain=3:3.5,samples=2]{35};
+		\draw [very thin](0.5,0) -- (0.5, 15.5);
+		\draw [thin](0.19,0) --node[sloped, below]{tangent at \m{t=0.50\units{s}}} (1, 40.5);
+		\fill(0.5,15.5) circle[radius=.4mm];
+		\draw [-{Straight Barb[scale length=1.3]}, thick](0.45, 18) --node[above]{\m{dt}} (0.55,18);
+		\draw [-{Straight Barb}, thick](0.45,13) --node[left]{\m{dx}} (0.45, 18);
+		\draw [-{Straight Barb[scale length=1.3]}, thick](0.19,40.5) --node[above]{tangent’s \m{\Delta t}} (1,40.5);
+		\draw [-{Straight Barb}, thick](0.19,0) --node[sloped, above]{tangent’s \m{\Delta x}} (0.19,40.5);
+	\stopaxis
+\stoptikzpicture}
+\highlightbox{
+\startformula[eq:vTangent]
+	v = \frac{dx}{dt}
+		= \frac{\text{tangent’s \m{\Delta x}}}{\text{tangent’s \m{\Delta t}}}
+		%= \text{slope}
+\stopformula
+}
+The tangent’s \m{\Delta x} and \m{\Delta t} should be found using the points where the tangent reaches the boundary of the graph. This will give the most accurate value for the instantaneous velocity. Use this method when finding velocity from a graph.
+
+%tangents drawn at different points along the curve will have different slopes, giving the different velocities at each of the points.
+%	\caption[Velocity from tangent]{
+%	The velocity at time \m{t_1} is the slope of the tangent drawn through the position at \m{t_1}. The velocity at \m{t_2} is less because the slope of the tangent at \m{t_2} is less. The object is slowing down.
+%	}
+
+\startexample[ex:velocityTangentEx]
+	Use the graph in figure \in[fig:BallRollsDown] to find the velocity of the ball at time \m{t=0.50\units{s}}. \startsolution The most accurate method in this case is to draw a tangent. First, use a straight edge and the tick marks at the top and bottom of the graph to find the vertical line at \m{t=0.50\units{s}}. I have marked the point where this line intersects the graph with a dot. (I have also removed the \m{dx} and \m{dt} vectors, which we do not need.)
+
+Then draw a tangent through this point in the same direction as the graph goes through the point. Do this carefully! A slight error in the direction will cause a significant error in the slope calculation. Write the coordinates of the points where the tangent reaches the boundary of the graph.
+Finally, use the coordinates to calculate the velocity.
+\startformula\startmathalignment%\label{eq:vTangent}
+\NC	v	\NC = \frac{\text{tangent’s \m{\Delta x}}}{\text{tangent’s \m{\Delta t}}}\NR
+\NC		\NC = \frac{40.5\units{cm}-0.0\units{cm}}{1.00\units{s}-0.19\units{s}}	\NR
+\NC		\NC = \frac{40.5\units{cm}}{0.81\units{s}}	\NR
+\NC		\NC = \answer{50.\units{cm/s}}
+		%= \text{slope}
+\stopmathalignment\stopformula
+At \m{t=0.50\units{s}}, the ball’s velocity is \m{50.\units{cm/s}}.
+\stopsolution
+\placefigure[margin][fig:velocityTangentEx] % location, label
+{\rm Finding the velocity for Example \in[ex:velocityTangentEx].}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={1mm},%x={1cm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=1,
+		%xtick={0,0.2,...,1},
+		xtick distance=0.2,
+		minor x tick num=3,
+		ylabel={\m{x} (cm)},
+		%ytick={30,31,...,37},
+		ymin=0, ymax=50,
+		minor y tick num=4,
+		clip mode=individual
+		]
+		%\addplot[thick,domain=-0.5:2,samples=2]{7+12*x};
+		\addplot[thick,domain=0:1,samples=51]{3+(50*x^2)};
+		%\addplot[thick,domain=3:3.5,samples=2]{35};
+		\draw [very thin](0.5,0) --node[rotate=90, above]{\m{t=0.50\units{s}}} (0.5, 50);
+		\fill(0.5,15.5) circle[radius=.4mm];
+		\fill(0.19,0) circle[radius=.6mm]node[fill=white,above right=1mm, xshift=3mm]{(\m{0.19\units{s}}, \m{0.0\units{cm}})};
+		\fill(1,40.5) circle[radius=.6mm]node[fill=white,left=1mm]{(\m{1.00\units{s}}, \m{40.5\units{cm}})};
+		\draw [thin](0.19,0) -- (1, 40.5);
+		%\draw [->, thick](0.45, 18) --node[above]{\m{dt}} (0.55,18);
+		%\draw [->, thick](0.45,13) --node[left]{\m{dx}} (0.45, 18);
+		%\draw [->, thick](0.19,40.5) --node[above]{run} (1,40.5);
+		%\draw [->, thick](0.19,0) --node[rotate=90,above]{rise} (0.19,40.5);
+	\stopaxis
+\stoptikzpicture}
+\stopexample
+
+\placefigure[margin][fig:RockDropGraph] % location, label
+{The rock’s vertical position as it falls from the tower.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={0.5mm},%x={1cm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=5,
+		%xtick={0,0.2,...,1},
+		xtick distance=1,
+		minor x tick num=9,
+		ylabel={\m{y} (m)},
+		%ytick={30,31,...,37},
+		ymin=0, ymax=100,
+		ytick distance=10,
+		minor y tick num=9,
+		clip mode=individual
+		]
+		%\addplot[thick,domain=-0.5:2,samples=2]{7+12*x};
+		\addplot[thick,domain=0:4.165,samples=51]{85-(4.9*x^2)};
+		%\addplot[thick,domain=3:3.5,samples=2]{35};
+		%\draw [very thin](0.5,0) -- (0.5, 15.5);
+		%\draw [thin](2.082,100) -- (4.165, 0);
+		%\fill(4.165,0) circle[radius=.4mm];
+		%\draw [->, thick](0.45, 18) --node[above]{\m{dt}} (0.55,18);
+		%\draw [->, thick](0.45,13) --node[left]{\m{dx}} (0.45, 18);
+		%\draw [->, thick](2.082,0) --node[above]{run} (4.165,0);
+		%\draw [->, thick](2.082,100) --node[rotate=-90,pos=.6,above]{rise} (2.082,0);
+	\stopaxis
+\stoptikzpicture}
+
+\startexample[ex:RockDrop] A rock is dropped from the \m{85\units{m}} tall tower in Florence. The vertical position of the rock, represented by the variable \m{y}, is shown as a function of time in figure \in[fig:RockDropGraph]. Estimate the velocity of the rock just before it strikes the ground.
+
+\startsolution
+	As in the previous example, the most accurate method is to draw a tangent, this time through the point where the graph reaches \m{y=0} at the bottom boundary. Drawing the tangent here is tricky! Draw the tangent so it hits the point from the same direction as the curve, as shown it figure \in[fig:RockDropEx].
+Next, find the coordinates where the tangent meets the boundary.
+Finally, use the coordinates to find the velocity.
+\startformula\startmathalignment%\label{eq:vTangent}
+\NC	v	\NC = \frac{\text{tangent’s \m{\Delta x}}}{\text{tangent’s \m{\Delta t}}}\NR
+\NC		\NC = \frac{0\units{m}-100\units{m}}{4.2\units{s}-2.1\units{s}}	\NR
+\NC		\NC = \frac{-100\units{m}}{2.1\units{s}}	\NR
+\NC		\NC = \answer{-48\units{m/s}}
+		%= \text{slope}
+\stopmathalignment\stopformula
+The rock strikes the ground with a velocity of \m{-48\units{m/s}}, negative because it is going down.
+\stopsolution
+\stopexample
+\placefigure[margin][fig:RockDropEx] % location, label
+{Finding the rock’s final velocity for Exercise \in[ex:RockDrop].}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={0.5mm},%x={1cm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=5,
+		%xtick={0,0.2,...,1},
+		xtick distance=1,
+		minor x tick num=9,
+		ylabel={\m{y} (m)},
+		%ytick={30,31,...,37},
+		ymin=0, ymax=100,
+		ytick distance=10,
+		minor y tick num=9,
+		clip mode=individual
+		]
+		%\addplot[thick,domain=-0.5:2,samples=2]{7+12*x};
+		\addplot[thick, domain=0:4.165,samples=51]{85-(4.9*x^2)};
+		%\addplot[thick, domain=3:3.5,samples=2]{35};
+		%\draw [very thin](0.5,0) -- (0.5, 15.5);
+		\draw [thin](2.082,100) -- (4.165, 0);
+		\fill(4.165,0) circle[radius=.4mm];
+		%\draw [->, thick](0.45, 18) --node[above]{\m{dt}} (0.55,18);
+		%\draw [->, thick](0.45,13) --node[left]{\m{dx}} (0.45, 18);
+		%\draw [->, thick](2.082,0) --node[above]{run} (4.165,0);
+		%\draw [->, thick](2.082,100) --node[rotate=-90,pos=.6,above]{rise} (2.082,0);
+		%\fill(0.19,0) circle[radius=.6mm];
+		\fill(4.165,0) circle[radius=.6mm]node[above left, xshift=-1mm]{(\m{4.2\units{s}}, \m{0\units{m}})};
+		\fill(2.082,100) circle[radius=.6mm]node[below right, xshift=1mm]{(\m{2.1\units{s}}, \m{100\units{m}})};
+	\stopaxis
+\stoptikzpicture}
+
+\section{Compound motion}
+
+Let us return now to the puzzle of the falling rock. We know that the rock is accelerated downward by gravity and lands at the base of the tower. Salviati and Simplicio are considering whether these observations are compatible with a rotating Earth.
+
+\startblockquote
+	{\sc Salv.} But if by chance the terrestrial globe were rotating and consequently were also carrying the tower along with it, and if the falling rock were still seen to graze the edge of the tower, what would its motion have to be?
+
+	{\sc Simp.} In that case one would rather have to speak of \quotation{its motions}; for there would be one that would take it from above downward, and it would have to have another in order to follow the course of the tower.
+
+	{\sc Salv.} Therefore, its motion would be a compound of two, namely, one with which it grazes the edge of the tower, and another one with which it follows the tower; the result of this compound would be that the rock would no longer describe a simple straight and perpendicular line, but rather and inclined, and perhaps not straight, one.
+
+	{\sc Simp.} I am not sure about its not being straight; but I understand well that it would have to be inclined and different from the straight perpendicular one it would describe on a motionless earth.\autocite{pp.~223-224}{Galileo1632}
+\stopblockquote
+
+
+\placewidefloat
+  [top,none]
+  {This is its caption I need to fix.}
+{\hbox{\noindent\starttikzpicture	% tikz code
+		\draw[shade, ball color = gray] (.4,1.155) circle[radius=.02cm][opacity=.2];
+		\draw[shade, ball color = gray] (4.3,1.0925) circle[radius=.02cm][opacity=.4];
+		\draw[shade, ball color = gray] (8.2,.905) circle[radius=.02cm][opacity=.6];
+		\draw[shade, ball color = gray] (12.1,.5925) circle[radius=.02cm][opacity=.8];
+		\draw[shade, ball color = gray] (16,.155) circle[radius=.02cm];
+		\draw[fill=white!90!black,thin] (.45,.15)--(.45,1.1)--(.44,1.12)--(.44,1.15)--(.63,1.15)--(.63,1.12)--(.62,1.1)--(.62,.15)[opacity=.2];
+		\draw[fill=white!90!black,thin] (4.35,.15)--(4.35,1.1)--(4.34,1.12)--(4.34,1.15)--(4.53,1.15)--(4.53,1.12)--(4.52,1.1)--(4.52,.15)[opacity=.4];
+		\draw[fill=white!90!black,thin] (8.25,.15)--(8.25,1.1)--(8.24,1.12)--(8.24,1.15)--(8.43,1.15)--(8.43,1.12)--(8.42,1.1)--(8.42,.15)[opacity=.6];
+		\draw[fill=white!90!black,thin] (12.15,.15)--(12.15,1.1)--(12.14,1.12)--(12.14,1.15)--(12.33,1.15)--(12.33,1.12)--(12.32,1.1)--(12.32,.15)[opacity=.8];
+		\draw[fill=white!90!black,thin] (16.05,.15)--(16.05,1.1)--(16.04,1.12)--(16.04,1.15)--(16.23,1.15)--(16.23,1.12)--(16.22,1.1)--(16.22,.15);
+		\fill[white!90!black] (16.6,0)--(0,0)--(0,.15)--(16.6,.15);
+		\draw[thin] (0,.15)--(16.6,.15);
+		\draw[thin,-{Straight Barb}] (.4,1.155) parabola (16,.155);%node[rotate=-90, below]{Rock}
+		%\draw[thin,->] (.535,.65)--(16.135,.65);%node[above=.5]{Tower’s eastward motion}
+\stoptikzpicture}}
+
+\placefigure[margin][fig:RockDropGalileo] % location
+{As the rock falls, its eastward motion keeps it close to the tower. Gravity pulls the rock toward Earth’s center, bending the rock’s path downward without decreasing its eastward motion. The rock lands at the tower’s base.}	% caption text
+{\vskip36pt\hbox{\noindent\starttikzpicture
+	\draw[white] (0,0)-- ++(5,0.2); % Sky to make height better
+\stoptikzpicture}}
+
+Is this compound motion to be expected? It is! Before the rock is released it is carried eastward, along with the tower, by Earth’s rotation. After the rock is released the only force on the rock is gravity, pulling directly towards Earth’s center and causing the rock to fall. Gravity has no effect on the rock’s horizontal motion, so even as the rock falls it continues to the east, along with the tower, and lands at the tower’s base, as shown in figure \in[fig:RockDropGalileo].
+
+\startblockquote
+	{\sc Salv.} First, it is clear that these two motions (namely, the circular around the center and the straight toward the center) are neither contrary nor incompatible nor destructive of each other; for the moving body has no repugnance toward such motion; you yourself already granted that its repugnance is to motion which takes it farther from the center, so it follows necessarily that the moving body has neither repugnance nor propensity to motion that takes it neither farther from nor closer to the center, and consequently there is no reason for any decrease in the power impressed on it\dots . %Moreover, the cause of motion is not a single one, which might diminish on account of the new action; instead there are to distinct causes, of which
+	Gravity attends only to drawing the body toward the center, and the impressed power to leading it around the center\dots .%; therefore, there is no reason for an impediment.
+	\autocite{p.~233}{Galileo1632}
+\stopblockquote
+By \quotation{power impressed} Galileo means the motion that the object already possesses, which keeps it moving with the tower. %In Chapter \in[ch:Momentum] we will identify this quantity of motion for straight paths, and in Chapter \in[ch:Rotation] we will adapt the idea for circular paths like the one described here. While Galileo had the right idea, a full formulation required almost two centuries of refinement.
+
+Having solved the puzzle of the falling rock, Galileo adapted the argument  to \emph{all} of the experiments which seemed to prove a motionless Earth – experiments with objects thrown upwards or cannon balls fired towards the various points of the compass. In all cases the objects in the experiment move along with Earth before the experiment begins. This shared motion is undetectable because all of the forces in the experiment – the throws, the cannons, gravity – only cause changes in the objects’ motions. But these changes are exactly what they would have been if everything had initially been at rest. There is no indication of the shared motion. Only the \emph{relative} motion can be seen or measured.
+
+The necessity of studying the relative motion, revealed by Galileo, became known as \keyterm{Galilean relativity}. While not as well known as its twentieth-century descendants, Einstein’s special and general relativity, Galilean relativity resolved the conflict between Earth’s apparent motionlessness and the direct astronomical evidence for Earth’s rapid motion – both its daily rotation and its annual revolution around the sun.
+
+%[Experimental tests: Dropping the rock from the top of a mast on a moving ship. Dropping something in a car, bus, or plane.]
+
+Galileo’s \booktitle{Two World Systems} and earlier writings on the heliocentric model caught the disapproving attention of the Catholic church in Rome. Pope Urban VIII quickly blocked the sale of the book and initiated an investigation. Galileo was brought to trial before the Roman Inquisition, a department of the Catholic Church responsible for defending Catholic doctrine, faith, and morals. Galileo was convicted of heresy for two beliefs: his scientific conclusion that Earth moves around the sun and his theological view that the Church’s interpretation of Holy Scripture is not the final word on matters of science. (The Catholic Church today does not consider either of these to be heresy.)
+Galileo’s \booktitle{Two World Systems} was banned and he was forced to read an abjuration renouncing his views.
+Galileo’s sentence of indefinite imprisonment was commuted to house arrest at his home near Florence.
+
+Although banned, Galileo’s compelling and entertaining case for the Copernican system spread quickly. His \booktitle{Two World Systems} and other works were translated into Latin and widely distributed  beyond the reach of the Roman Catholic Church. Johannes Kepler’s books on the heliocentric model were also circulating at that time. The heliocentric view quickly became accepted by nearly all astronomers in Europe.
+
+By the end of 1633, Galileo had returned to his villa near Florence where he would spend his remaining years under house arrest.
+No longer allowed to write or speak about the heliocentric universe, he resumed his early work on engineering and motion. % that he had started as a professor at the Universities of Pisa and Padua.
+He published a book on these topics, \booktitle{Discourses and Mathematical Demonstrations Relating to Two New Sciences}, in 1638. \booktitle{Two New Sciences} launched a revolution in physics every bit as profound as the revolution in cosmology. %In fact, his work on motion applied to the motion of planets and moons in the solar system, even though he does not mention these objects in \booktitle{Two New Sciences}.
+
+%In \booktitle{Two New Sciences}, Galileo describes the motion of objects on Earth, but he recognized that the same insights could be applied to the circular paths of objects in the solar system. In fact, the topic of uniform motion is discussed in his \booktitle{Dialogue on the Two Chief World Systems} as well.
+
+In \booktitle{Two New Sciences}, Galileo describes \quotation{a new science of motion,} giving more detail and mathematical rigor to the insights originally described in \booktitle{Two World Systems}. Compound motion, like that of the rock dropped from the tower, appears again in \booktitle{Two New Sciences}.% the character Salviati describes projectile motion.%, which is composed of both horizontal and vertical motion under the constant force of gravity.
+\startblockquote
+	{\sc Salv.} Imagine any particle projected along a horizontal plane without friction. Then we know, from what has been more fully explained in the preceding pages, that this particle will move along this same plane with a motion that is uniform and perpetual, provided the plane has no limits. But if the plan is limited and elevated, then the moving particle, which we imagine to be a heavy body, will on passing over the edge of the plane acquire, in addition to its previous uniform and enduring motion, a downward propensity due to its own weight; and so the resulting motion, which I call projection, is compounded of one that is uniform and horizontal and another that is downward and naturally accelerated.\autocite{p.~357}{Galileo1638}
+\stopblockquote
+\placefigure[margin][fig:BallOffTable] % location, label
+{A ball rolls off of a table. It maintains its horizontal motion even as it accelerates downwards.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		%width=2.20in, scale only axis,
+		x={1mm},y={1mm},
+		xlabel={\m{x} (cm)},
+		xmin=0,xmax=39.5,
+		ylabel={\m{y} (cm)},
+		ymin=0,ymax=45,
+		minor x tick num=4,
+		axis x line=bottom,
+		minor y tick num=4,
+		axis y line=left,
+		tick align=outside,
+		x axis line style={-},
+		y axis line style={-},
+		clip = false,
+		]
+		%\fill(10,19) circle[radius=.4mm]node[below]{\m{\scriptstyle\coordinates{1.0,1.9}\unit{cm}}};
+		%\fill(9,13) circle[radius=.4mm]node[below]{\m{\scriptstyle\coordinates{9,13}\unit{cm}}};
+		%\draw[shade, ball color = white] (-10,47) circle[radius=3][opacity=.2];
+		%\fill(-10,47) circle[radius=.4mm][opacity=.2];
+		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
+		\fill(0,48) circle[radius=.4mm][opacity=.2];
+		%\fill[color = white] (7.5,3) circle[radius=3];
+		\draw[shade, ball color = white] (12,43.1) circle[radius=3][opacity=.4];
+		\fill(12,43.1) circle[radius=.4mm][opacity=.4];
+		\draw[shade, ball color = white] (24,28.4) circle[radius=3][opacity=.6];
+		\fill(24,28.4) circle[radius=.4mm][opacity=.6];
+		\draw[shade, ball color = white] (36,3.9) circle[radius=3];
+		\fill(36,3.9) circle[radius=.4mm];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (39.5,-1.5)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (0,45)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,45) rectangle (-7.5,43.5)[opacity=.1];
+		\draw[thin] (-2,45)--(0,45);
+		\draw[thin] (-7.5,45)--(-5.5,45);
+		%\draw[ultra thin] (0,48)parabola(30,3.9);
+		%\draw[ultra thin] (0,48)--(-7,48);
+	\stopaxis
+\stoptikzpicture}
+
+\noindent
+A ball rolling off of the elevated plane displays projectile motion in figure \in[fig:BallOffTable]. Two meter sticks, one horizontal and one vertical, measure the ball’s horizontal and vertical positions as it falls. %Salviati does not give the height of the elevated plane or the speed of the particle. I placed the elevated plane \m{45\units{cm}} above the ground and gave the ball an initial velocity of \m{1.20\units{m/s}}.
+
+\placetable[margin][T:BallOffTable] % Label
+    {The ball’s position as it falls.} % Caption
+    {\vskip9pt\small\starttabulate[|c|c|c|]
+\FL[2]%\toprule
+%\NC Time		\NC \multicolumn{2}{c}{Position}	\NR
+%\cline{2-3}
+\NC \m{t} 			\NC \m{x}	\NC \m{y}				\NR
+%\NC (s) 			\NC (cm)						\NR
+\HL
+\NC \m{0.00\units{s}}	\NC \m{\phantom{0}0.0\units{cm}}	\NC \m{48.0\units{cm}}		\NR
+\NC \m{0.10\units{s}}	\NC \m{12.0\units{cm}}		\NC \m{43.0\units{cm}}				\NR
+\NC \m{0.20\units{s}}	\NC \m{24.0\units{cm}}		\NC \m{28.0\units{cm}}				\NR
+\NC \m{0.30\units{s}}	\NC \m{36.0\units{cm}}		\NC \m{\phantom{0}4.0\units{cm}}	\NR
+\LL[2]%\bottomrule
+\stoptabulate}
+
+The mathematical description of the ball’s compound motion is very similar to our earlier description of one dimensional motion, but now there are two positions, horizontal and vertical, rather than one. The ball’s horizontal position, represented by \m{x}, and the vertical position, \m{y}, are shown in table \in[T:BallOffTable], starting at \m{t=0.00\units{s}} when the ball reaches the edge of the elevated plane. The two positions \m{x} and \m{y} are called \keyterm{coordinates}. Check that the coordinates listed in table \in[T:BallOffTable] match the positions shown in figure \in[fig:BallOffTable].
+
+Coordinates are often written as a pair, \m{\coordinates{x,y}}. From the table we see that at \m{t=0.10\units{s}} the ball’s coordinates are \m{\coordinates{12.0\units{cm},43.0\units{cm}}}. If the coordinates have the same units, the units may be placed outside the parentheses. For example, at \m{t=0.20\units{s}} the ball’s coordinates are \m{\coordinates{24.0,28.0}\unit{cm}}.
+
+%\fig{PointsOnGrid}
+\placefigure[margin][fig:BallOffTableDisplacement] % location, label
+{The horizontal displacement is \m{\Delta x=12\unit{cm}} for each step. The vertical displacements, \m{\Delta y}, become increasingly negative.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		%width=2.20in, scale only axis,
+		x={1mm},y={1mm},
+		xlabel={\m{x} (cm)},
+		xmin=0,xmax=39.5,
+		ylabel={\m{y} (cm)},
+		ymin=0,ymax=45,
+		minor x tick num=4,
+		axis x line=bottom,
+		minor y tick num=4,
+		axis y line=left,
+		tick align=outside,
+		x axis line style={-},
+		y axis line style={-},
+		clip = false,
+		]
+		%\fill(10,19) circle[radius=.4mm]node[below]{\m{\scriptstyle\coordinates{1.0,1.9}\unit{cm}}};
+		%\fill(9,13) circle[radius=.4mm]node[below]{\m{\scriptstyle\coordinates{9,13}\unit{cm}}};
+		%\draw[shade, ball color = white] (-10,47) circle[radius=3][opacity=.2];
+		%\fill(-10,47) circle[radius=.4mm][opacity=.2];
+		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
+		\fill(0,48) circle[radius=.4mm][opacity=.2];
+		%\fill[color = white] (7.5,3) circle[radius=3];
+		\draw[shade, ball color = white] (12,43.1) circle[radius=3][opacity=.4];
+		\fill(12,43.1) circle[radius=.4mm][opacity=.4];
+		\draw[shade, ball color = white] (24,28.4) circle[radius=3][opacity=.6];
+		\fill(24,28.4) circle[radius=.4mm][opacity=.6];
+		\draw[shade, ball color = white] (36,3.9) circle[radius=3];
+		\fill(36,3.9) circle[radius=.4mm];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (39.5,-1.5)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (0,45)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,45) rectangle (-7.5,43.5)[opacity=.1];
+		\draw[thin] (-2,45)--(0,45);
+		\draw[thin] (-7.5,45)--(-5.5,45);
+		% 0s - .1s
+	    \addplot[samples=11, domain=0:0.1,
+  		no markers, thick,
+ 		variable=\t,
+		-{Straight Barb[scale length=.8]},
+   		]
+    	({120*t}, {48-490*t^2});
+		\draw[semithick,densely dotted,-{Straight Barb[scale width=0.5]}] (0,48) --node[above,pos=.6]{\m{\scriptstyle12\units{cm}}} (12,48);
+		\draw[semithick,densely dotted,-{Straight Barb[scale width=0.5]}] (12,48) --node[right,pos=.2]{\m{\scriptstyle-5\units{cm}}} (12,43.1);
+		% .1s - .2s
+	    \addplot[samples=11, domain=0.1:0.2,
+  		no markers, thick,
+ 		variable=\t,
+		-{Straight Barb[scale length=0.5]},
+   		]
+    	({120*t}, {48-490*t^2});
+		\draw[semithick,densely dotted,-{Straight Barb[scale width=0.5]}] (12,43.1) --node[below=-1pt,pos=.65]{\m{\scriptstyle12\units{cm}}} (24,43.1);
+		\draw[semithick,densely dotted,-{Straight Barb[scale width=0.5]}] (24,43.1) --node[right,pos=.45]{\m{\scriptstyle-15\units{cm}}} (24,28.4);
+   		% .2s - .3s
+	    \addplot[samples=11, domain=0.2:0.3,
+  		no markers, thick,
+ 		variable=\t,
+		-{Straight Barb[scale length=.8]},
+   		]
+    	({120*t}, {48-490*t^2});
+		\draw[semithick,densely dotted,-{Straight Barb[scale width=0.5]}] (24,28.4) --node[below,pos=.6]{\m{\scriptstyle12\units{cm}}} (36,28.4);
+		\draw[semithick,densely dotted,-{Straight Barb[scale width=0.5,scale length=1.5]}] (36,28.4) --node[fill=white,left]{\m{\scriptstyle-24\units{cm}}} (36,3.9);
+	\stopaxis
+\stoptikzpicture}%
+
+Figure \in[fig:BallOffTableDisplacement] shows the ball’s displacement from \m{t=0.10\units{s}} to \m{t=0.20\units{s}}. During that time the ball moves horizontally from
+ \m{x\si=12\units{cm}} to \m{x\sf=24\units{cm}}. The change in the \m{x} coordinate is therefore
+\startformula
+	\Delta x = x\sf - x\si = 24.0\units{cm} - 12.0\units{cm} = 12.0\units{cm}.
+\stopformula
+Similarly, the change in the \m{y} coordinate is
+\startformula
+	\Delta y = y\sf - y\si = 28.0\units{cm} - 43.0\units{cm} = -15.0\units{cm}.
+\stopformula
+
+The ball’s horizontal and vertical displacements can be used to find the ball’s horizontal and vertical velocities, {\txx \m{v_x}} and \m{v_y}. %(No subscript is necessary when the motion is restricted to only one dimension.)
+Each velocity is computed exactly as in one dimension. The ball’s horizontal motion is uniform, so we use the constant velocity formula to find \m{v_x}.
+
+\startexample[ex:BallOffTableVelx] Find ball’s horizontal velocity, \m{v_x}.
+\startsolution
+	We will use \m{t\si=0.00} and \m{t\sf=0.30}. The horizontal velocity is constant, so any pair of times would give the same answer, but using the earliest and latest available times gives the most precise answer.
+	\startformula
+	v_x = \frac{\Delta x}{\Delta t}
+		%= \frac{x\sf - x\si}{t\sf - t\si}
+		= \frac{36\units{cm}-12\units{cm}}{0.30\units{s}-0.10\units{s}}
+		= \frac{24\ucan{cm}}{0.20\units{s}}
+				\left(\frac{1\units{m}}{100\ucan{cm}}\right)
+		= 1.2\units{m/s}
+	\stopformula
+%	\startformula\startmathalignment
+%	v_x \NC= \frac{\Delta x}{\Delta t} 	\NR
+%		\NC= \frac{x\sf - x\si}{t\sf - t\si} 		\NR
+%		\NC= \frac{36\units{cm}-12\units{cm}}{0.30\units{s}-0.10\units{s}}		\NR
+%		\NC= \frac{24\ucan{cm}}{0.20\units{s}}
+%				\left(\frac{1\units{m}}{100\ucan{cm}}\right)		\NR
+%		\NC= 1.2\units{m/s}
+%	\stopmathalignment\stopformula
+The horizontal velocity is \m{1.2\units{m/s}}.
+\stopsolution
+\stopexample
+
+The vertical motion of the ball is accelerated. To find the vertical velocity at a specific time we should use one of the instantaneous velocity methods, either by using very small changes in \m{t} and \m{y} or by computing the slope of the tangent. Unfortunately, we do not have enough information in the table or on the diagram to execute either of these methods. The times listed in the table are far enough apart that the velocity is changing significantly with each step, so the changes are not small. The tangent needs to be drawn on the position vs.~time graph, but figure \in[fig:BallOffTable] shows only position, not time. If we drew a tangent on figure \in[fig:BallOffTable], its slope would \emph{not} be the velocity.
+
+In spite of these limitations, we can make a good approximation of the velocity by choosing the initial and final times judiciously.
+
+\startexample[ex:BallOffTableVely] Estimate the ball’s vertical velocity at \m{t=0.20\units{s}}.
+\startsolution
+	The best choice of times, from our limited options, is \m{t\si=0.10\units{s}} and \m{t\sf=0.30\units{s}}, equally preceding and following the target time.
+	\startformula
+		v_y = \frac{\Delta y}{\Delta t}
+			%= \frac{y\sf - y\si}{t\sf - t\si}
+			= \frac{4\units{cm} - 43\units{cm}}{0.30\units{s} - 0.10\units{s}}
+			= \frac{-39\ucan{cm}}{0.20\units{s}}
+					\left(\frac{1\units{m}}{100\ucan{cm}}\right)
+			= -2.0\units{m/s}
+	\stopformula
+The vertical velocity at \m{t=0.2\units{s}} is approximately \m{-2.4\units{m/s}}.
+\stopsolution
+\stopexample
+
+\section{Vectors}
+The horizontal and vertical velocities, \m{v_x} and \m{v_y}, are the \keyterm{components} of the velocity vector, whose symbol is \m{\vec{v}}. The velocity vector is often written as a pair of components,
+\startformula
+	\vec v = \components{v_x,v_y}.
+\stopformula
+The little arrow on \m{\vec{v}} indicates that it is a vector with multiple components. Notice the angle brackets used for the velocity vector. A position’s coordinates are in parenthesis, while a vector’s components are in angle brackets. %We will encounter more vectors soon.
+
+\startexample[ex:BallOffTableVel] Estimate the ball’s velocity at \m{t=0.20\units{s}}.
+\startsolution
+	The velocity’s components were found in Examples \in[ex:BallOffTableVelx] and \in[ex:BallOffTableVely].	\startformula
+		\vec{v} = \components{v_x,v_y} = \components{1.2\units{m/s},-2.0\units{m/s}}
+	\stopformula
+	The ball’s velocity at \m{t=0.2\units{s}} is approximately \m{\components{1,2,-2.4}\unit{m/s}}.
+\stopsolution
+\stopexample
+
+When the motion is confined to only one dimension there is no need to distinguish between the vector and its one component – they are the same! In more than one dimension we need to distinguish the vector \m{\vec{v}} from its components \m{v_x} and \m{v_y}. In this case, a \m{v} without any decoration is ambiguous. A \m{v} with multiple decorations, like \m{\vec {v}_x}, is nonsense.
+
+\placefigure[margin][fig:BallOffTableVelComp] % location, label
+{The velocity’s components at \m{0.20\units{s}}. The horizontal component is the same at all times, while the vertical component, starting from zero, becomes increasingly negative.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		%width=2.20in, scale only axis,
+		x={1mm},y={1mm},
+		xlabel={\m{x} (cm)},
+		xmin=0,xmax=39.5,
+		ylabel={\m{y} (cm)},
+		ymin=0,ymax=45,
+		minor x tick num=4,
+		axis x line=bottom,
+		minor y tick num=4,
+		axis y line=left,
+		tick align=outside,
+		x axis line style={-},
+		y axis line style={-},
+		clip = false,
+		legend style={draw=none,at={(1,1)},anchor=south east,yshift = 1ex},
+		]
+		%\fill(10,19) circle[radius=.4mm]node[below]{\m{\scriptstyle\coordinates{1.0,1.9}\unit{cm}}};
+		%\fill(9,13) circle[radius=.4mm]node[below]{\m{\scriptstyle\coordinates{9,13}\unit{cm}}};
+		%\draw[shade, ball color = white] (-10,47) circle[radius=3][opacity=.2];
+		%\fill(-10,47) circle[radius=.4mm][opacity=.2];
+		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
+		\fill(0,48) circle[radius=.4mm][opacity=.2];
+		%\fill[color = white] (7.5,3) circle[radius=3];
+		\draw[shade, ball color = white] (12,43.1) circle[radius=3][opacity=.4];
+		\fill(12,43.1) circle[radius=.4mm][opacity=.4];
+		\draw[shade, ball color = white] (24,28.4) circle[radius=3][opacity=.6];
+		\fill(24,28.4) circle[radius=.4mm][opacity=.6];
+		\draw[shade, ball color = white] (36,3.9) circle[radius=3];
+		\fill(36,3.9) circle[radius=.4mm];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (39.5,-1.5)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (0,45)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,45) rectangle (-7.5,43.5)[opacity=.1];
+		\draw[thin] (-2,45)--(0,45);
+		\draw[thin] (-7.5,45)--(-5.5,45);
+		% Velocity at t=0s
+   		\draw[thick,->] (0,48) -- (6,48);%node[above right,pos=.3]{\m{\scriptstyle1.2\units{m/s}}}
+		% Velocity at .1s
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (12,43.1) --(12,38.1);%node[right]{\m{\scriptstyle-1.0\units{m/s}}}
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (12,38.1) -- (18,38.1);%node[above right,pos=.3]{\m{\scriptstyle1.2\units{m/s}}}
+		\draw[thin] (12,40.1) -- (14,40.1)-- (14,38.1);
+   		\draw[thick,->] (12,43.1) -- (18,38.1);%node[below left]{\m{\scriptstyle\components{1.2,-2.0}\unit{m/s}}}
+   		% Velocity at .2s
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (24,28.4) --node[left,pos=.55]{\m{\scriptstyle-2.0\units{m/s}}} (24,18.42);
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (24,18.42) --node[below]{\m{\scriptstyle1.2\units{m/s}}} (30,18.42);
+		\draw[thin] (24,20.42) -- (26,20.42)-- (26,18.42);
+   		\draw[thick,->] (24,28.4) -- (30,18.42);%node[below left]{\m{\scriptstyle\components{1.2,-2.0}\unit{m/s}}}
+   		% Velocity at .3s
+		%\startpgfinterruptboundingbox
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (36,3.9) --(36,-10.8);%node[left=-1em,fill=white,pos=.7]{\m{\scriptstyle-2.9\units{m/s}}}
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (36,-10.8) --(42,-10.8);%node[below]{\m{\scriptstyle1.2\units{m/s}}}
+		\draw[thin] (36,-8.8) -- (38,-8.8)-- (38,-10.8);
+   		\draw[thick,->] (36,3.9) -- (42,-10.8);%node[below left]
+		%\stoppgfinterruptboundingbox
+		% Legend
+   		\addlegendimage{
+	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
+ 		};
+		\addlegendentry{\m{=1\units{m/s}}}
+	\stopaxis
+\stoptikzpicture}%The velocity vector is made from the components.
+
+The velocity’s components \m{v_x} and \m{v_y} are used to draw the velocity vector in figure \in[fig:BallOffTableVelComp]. The rightward and downward components, drawn to scale, combine to produce the velocity that is down and to the right. The vector representing the velocity is straight, pointing in the direction of the velocity of the velocity at the instant \m{t=0.20\units{s}}. The vector does not curve along the path.
+
+Speed is the magnitude of the velocity vector, represented by \m{\vabs{\vec v}}. Since the velocity vector is the hypotenuse of the right triangle in figure \in[fig:BallOffTableVelComp], its magnitude can be found using the Pythagorean theorem.
+%\highlightbox{
+\startformula
+	\vabs{\vec v} = \sqrt{v_x^2+v_y^2}.
+\stopformula
+%}%\end{shaded}
+In this formula for speed, the double bars indicate this is not a simple absolute value – it is a vector’s magnitude, which must be computed by squaring the components, adding those squares, and taking the square root of the sum. The magnitude of any vector can be found this way.% Or calculating the components’ squares’ sum’s square root.
+
+\startexample[ex:BallFallSpeed] Estimate the ball’s speed at \m{t=0.20\units{s}}.
+\startsolution
+Speed is the magnitude of the velocity vector \m{\components{1,2,-2.4}\unit{m/s}}, found in the Exercises above.
+\startformula
+\startmathalignment
+\NC	\vabs{\vec v}	\NC= \sqrt{v_x^2+v_y^2}	\NR
+\NC				\NC= \sqrt{(1.2\units{m/s})^2 + (-2.0\units{m/s})^2}	\NR
+\NC				\NC= \sqrt{1.44\units{m^2\!/s^2} + 4.0\units{m^2\!/s^2}}	\NR
+\NC				\NC= \sqrt{5.44\units{m^2\!/s^2}}	\NR
+\NC				\NC= 2.3\units{m/s}
+\stopmathalignment
+\stopformula
+The speed at \m{t=0.20\units{s}} is approximately \m{2.3\units{m/s}}, as shown in figure \in[fig:BallOffTableVelMag].
+\stopsolution
+\stopexample
+\placefigure[margin][fig:BallOffTableVelMag] % location, label
+{The velocity vectors are shown for each position. The magnitude of the vectors is the speed. The speed at \m{0.20\units{s}} is \m{2.3\units{m/s}}, calculated in Example \in[ex:BallFallSpeed]}	% caption text
+{\noindent\starttikzpicture	% tikz code
+%[-1in]
+	\startaxis[
+		footnotesize,
+		%width=2.20in, scale only axis,
+		x={1mm},y={1mm},
+		xlabel={\m{x} (cm)},
+		xmin=0,xmax=39.5,
+		ylabel={\m{y} (cm)},
+		ymin=0,ymax=45,
+		minor x tick num=4,
+		axis x line=bottom,
+		minor y tick num=4,
+		axis y line=left,
+		tick align=outside,
+		x axis line style={-},
+		y axis line style={-},
+		clip = false,
+		legend style={draw=none,at={(1,1)},anchor=south east},
+		]
+		%\fill(10,19) circle[radius=.4mm]node[below]{\m{\scriptstyle\coordinates{1.0,1.9}\unit{cm}}};
+		%\fill(9,13) circle[radius=.4mm]node[below]{\m{\scriptstyle\coordinates{9,13}\unit{cm}}};
+		%\draw[shade, ball color = white] (-10,47) circle[radius=3][opacity=.2];
+		%\fill(-10,47) circle[radius=.4mm][opacity=.2];
+		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
+		\fill(0,48) circle[radius=.4mm][opacity=.2];
+		%\fill[color = white] (7.5,3) circle[radius=3];
+		\draw[shade, ball color = white] (12,43.1) circle[radius=3][opacity=.4];
+		\fill(12,43.1) circle[radius=.4mm][opacity=.4];
+		\draw[shade, ball color = white] (24,28.4) circle[radius=3][opacity=.6];
+		\fill(24,28.4) circle[radius=.4mm][opacity=.6];
+		\draw[shade, ball color = white] (36,3.9) circle[radius=3];
+		\fill(36,3.9) circle[radius=.4mm];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (39.5,-1.5)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (0,45)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,45) rectangle (-7.5,43.5)[opacity=.1];
+		\draw[thin] (-2,45)--(0,45);
+		\draw[thin] (-7.5,45)--(-5.5,45);
+		% Velocity at t=0s
+   		\draw[thick,->] (0,48) --node[above right,pos=.3]{\m{\scriptstyle1.2\units{m/s}}} (6,48);
+		% Velocity at .1s
+   		\draw[thick,->] (12,43.1) --node[above right]{\m{\scriptstyle1.5\units{m/s}}} (18,38.1);
+   		% Velocity at .2s
+    	\draw[thick,->] (24,28.4) --node[above right,pos=.6]{\m{\scriptstyle2.3\units{m/s}}} (30,18.42);
+   		% Velocity at .3s
+		%\startpgfinterruptboundingbox
+   		\draw[thick,->] (36,3.9) --node[left, pos=.75]{\m{\scriptstyle3.2\units{m/s}}} (42,-10.8);
+		%\stoppgfinterruptboundingbox
+	  	\addlegendimage{
+	  		legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
+ 		};
+		\addlegendentry{\m{=1\units{m/s}}}
+	\stopaxis
+\stoptikzpicture}
+
+\noindent
+Sometimes vectors are labeled using only their length, as in figure \in[fig:BallOffTableVelMag], rather than their components.
+
+There are three important things to notice about the speed calculation. First, calculating a vector’s magnitude in two dimensions is more complicated than calculating in one dimension, where the magnitude is simply the absolute value.
+Second, the units should be treated carefully. When a component is squared, the answer’s units are squared units: \m{(-2.0\units{m/s})^2 = 4.0\units{m^2\!/s^2}}. The parenthesis are needed to show that both the number and the units are squared. When the square root is taken in the last step, the units get un-squared, giving units of \m{\unit{m/s}} again in the final answer. Third, the components can be negative, but their squares are always positive. The sum is always a sum of these positive squares. The magnitude is therefore always positive.
+
+Actually, there is one, and only one, vector with a magnitude of zero. It is called the zero vector and it is written \m{\vec{0}=\components{0,0}}. The zero vector has no direction, since its length is zero, so it is drawn simply as a dot, not an arrow.
+
+Figure \in[fig:BallOffTablePath] shows the entire path of the ball, rather than just showing the ball’s position at a few times. The path is drawn as a sequence of tiny displacement arrows, each showing the ball’s displacement during \m{0.01\units{s}}. As the ball approaches the edge of the elevated plane, the arrows are very short because the ball does not travel far during each \m{0.01\units{s}}. As the ball falls the speed increases and the arrows get proportionally longer.
+
+\placefigure[margin][fig:BallOffTablePath] % location, label
+{Small displacements trace the ball’s path. The length of these displacements is the small distance \m{ds} that the ball travels in the short time \m{dt = 0.01\units{s}}. The small distances get larger as the ball falls and its speed increases.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		%width=2.20in, scale only axis,
+		x={1mm},y={1mm},
+		xlabel={\m{x} (cm)},
+		xmin=0,xmax=39.5,
+		ylabel={\m{y} (cm)},
+		ymin=0,ymax=45,
+		minor x tick num=4,
+		axis x line=bottom,
+		minor y tick num=4,
+		axis y line=left,
+		tick align=outside,
+		x axis line style={-},
+		y axis line style={-},
+		clip = false,
+		legend style={draw=none,at={(1,1)},anchor=south east},
+		]
+		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
+		\fill(0,48) circle[radius=.4mm][opacity=.2];
+		\draw[shade, ball color = white] (12,43.1) circle[radius=3][opacity=.2];
+		\fill(12,43.1) circle[radius=.4mm][opacity=.2];
+		\draw[shade, ball color = white] (24,28.4) circle[radius=3][opacity=.2];
+		\fill(24,28.4) circle[radius=.4mm][opacity=.2];
+  		\node[coordinate, pin distance=0pt, pin=30:{\m{\scriptstyle ds}}] at (24.6,27.4) {};
+		\draw[shade, ball color = white] (36,3.9) circle[radius=3][opacity=.2];
+		\fill(36,3.9) circle[radius=.4mm][opacity=.2];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (39.5,-1.5)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (0,45)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,45) rectangle (-7.5,43.5)[opacity=.1];
+		\draw[thin] (-2,45)--(0,45);
+		\draw[thin] (-7.5,45)--(-5.5,45);
+%	  	\addlegendimage{
+%	  		legend image code/.code={\draw[thick,|-|](0cm,0cm)--(0.5cm,0cm);}
+% 		};
+%		\addlegendentry{\m{=1\units{m/s}}};
+	  	\addlegendimage{empty legend};
+		\addlegendentry{\m{dt=0.01\units{s}}}
+  \foreach \T in {-0.06,-0.05,...,-0.01}{
+    \addplot[samples=2, domain={\T}:{\T+0.01},
+	no markers,
+	variable=\t,
+	-{Straight Barb[scale length=.5]},
+	]
+	({120*t}, {48});
+  }
+  \foreach \T in {0,0.01,...,0.29}{
+    \addplot[samples=2, domain={\T}:{\T+0.01},
+  	no markers,
+ 	variable=\t,
+	-{Straight Barb[scale length=.5]},
+    ]
+    ({120*t}, {48-490*t^2});
+  }
+  	% \draw[thick,->] (24,28.4) --node[above right]{\m{\scriptstyle2.3\units{m/s}}} (30,18.42);
+	\stopaxis
+\stoptikzpicture}%
+
+Using Leibniz’s notation, these short times are \m{dt} and the short distances are \m{ds}. (Recall that \m{s} is path length, so \m{ds} is the small distance added to the path.) Based on figure \in[fig:BallOffTablePath], the lengths do not change much from one displacement to the next, so the \m{ds} and \m{dt} are small enough to determine the instantaneous speed using \quotation{distance over duration.}
+\startformula
+	\vabs{\vec{v}} = \frac{ds}{dt}
+\stopformula
+
+\startexample[ex:BallOffTablePathSpeed] Using figure \in[fig:BallOffTablePath], find the ball’s speed at \m{t=0.20\units{s}}. Add the velocity vector to the diagram.
+\startsolution
+	The arrows around \m{t=0.20\units{s}} are about \m{2.3\units{mm}} long. (It is helpful to measure the total length of several arrows centered at \m{t=0.02\units{s}} to get an average.) Since the diagram is drawn at one-tenth scale, these arrows represent a distance of \m{ds=2.3\units{cm}}. The speed, \quotation{distance over duration,} is
+\startformula
+	\vabs{\vec{v}} = \frac{ds}{dt}
+		= \frac{2.3\units{cm}}{0.01\units{s}}
+		= 2.3\units{m/s}.
+\stopformula
+The velocity vector on the diagram must point in the direction of motion, which is tangent to the path. Draw the tangent lightly, and then make a bold arrow whose length represents \m{2.3\units{m/s}}. Since the scale is \m{5\units{mm}=1\units{m/s}}, that would be an arrow \m{1.15\units{cm}} long, as shown in figure \in[fig:BallOffTablePathSpeed].
+\stopsolution
+\stopexample
+\placefigure[margin][fig:BallOffTablePathSpeed] % location, label
+{Velocity vectors are tangent to the path. The speed is determined by the length of the displacement vectors, as in Example \in[ex:BallOffTablePathSpeed].}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		%width=2.20in, scale only axis,
+		x={1mm},y={1mm},
+		xlabel={\m{x} (cm)},
+		xmin=0,xmax=39.5,
+		ylabel={\m{y} (cm)},
+		ymin=0,ymax=45,
+		minor x tick num=4,
+		axis x line=bottom,
+		minor y tick num=4,
+		axis y line=left,
+		tick align=outside,
+		x axis line style={-},
+		y axis line style={-},
+		clip = false,
+		legend style={draw=none,at={(1,1)},anchor=south east},
+		]
+		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
+		\fill(0,48) circle[radius=.4mm];%[opacity=.2];
+		\draw[shade, ball color = white] (12,43.1) circle[radius=3][opacity=.2];
+		\fill(12,43.1) circle[radius=.4mm];%[opacity=.2];
+		\draw[shade, ball color = white] (24,28.4) circle[radius=3][opacity=.2];
+		\fill(24,28.4) circle[radius=.4mm];%[opacity=.2];
+		\draw[shade, ball color = white] (36,3.9) circle[radius=3][opacity=.2];
+		\fill(36,3.9) circle[radius=.4mm];%[opacity=.2];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (39.5,-1.5)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (0,45)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,45) rectangle (-7.5,43.5)[opacity=.1];
+		\draw[thin] (-2,45)--(0,45);
+		\draw[thin] (-7.5,45)--(-5.5,45);
+	  	\addlegendimage{
+	  		legend image code/.code={\draw[thick,|-|](0cm,0cm)--(0.5cm,0cm);}
+ 		};
+		\addlegendentry{\m{=1\units{m/s}}};
+	  	\addlegendimage{empty legend};
+		\addlegendentry{\m{\!\!\!\!\!\!\!dt=0.01\units{s}}}
+  \foreach \T in {-0.06,-0.05,...,-0.01}{
+    \addplot[samples=2, domain={\T}:{\T+0.01},
+	no markers,
+	variable=\t,
+	-{Straight Barb[scale length=.5]},
+	]
+	({120*t}, {48});
+  }
+  \foreach \T in {0,0.01,...,0.29}{
+    \addplot[samples=2, domain={\T}:{\T+0.01},
+  	no markers,
+ 	variable=\t,
+	-{Straight Barb[scale length=.5]},
+    ]
+    ({120*t}, {48-490*t^2});
+  }
+		% Velocity at t=0s
+   		\draw[thick,->] (0,48) --node[above right,pos=.3]{\m{\scriptstyle1.2\units{m/s}}} (6,48);
+		% Velocity at .1s
+   		\draw[thick,->] (12,43.1) --node[above right]{\m{\scriptstyle1.5\units{m/s}}} (18,38.1);%
+   		% Velocity at .2s
+    	\draw[thick,->] (24,28.4) --node[above right]{\m{\scriptstyle2.3\units{m/s}}} (30,18.42);
+   		% Velocity at .3s
+		%\startpgfinterruptboundingbox
+   		\draw[thick,->] (36,3.9) --node[left, pos=.75]{\m{\scriptstyle3.2\units{m/s}}} (42,-10.8);
+		%\stoppgfinterruptboundingbox
+	\stopaxis
+\stoptikzpicture}%
+
+\noindent
+The velocity vectors are always straight and tangent to the path, pointing in the direction of motion. If the small displacements are shown along the path, the speed can be determined. Thus, the velocity vector can be drawn with the correct direction and magnitude, as shown in figure \in[fig:BallOffTablePathSpeed].
+
+% During the first half of this duration, the ball is falling more slowly than it is at \m{t=0.20\units{s}}. During the second half it is falling faster. These two effects
+
+Acceleration complicates our efforts to predict and object’s future position. The position update formulas, \m{x\si + v_x\Delta t = x\sf} and \m{y\si + v_y\Delta t = y\sf}, only work if the velocity remains constant throughout the duration \m{\Delta t}. However, we can still succeed by focusing on a short duration \m{dt} during which the velocity changes very little. During this short duration the coordinates change by small amounts
+\startformula
+dx = v_x\,dt	\qquad	dy = v_y\,dt
+\stopformula
+If we know the velocity at each time, even if the velocity is changing, we can break the time into many brief steps. We then proceed through these steps, updating the position each step by adding the small changes calculated above. If the steps are small enough this process can be quite accurate, and also quite tedious.
+
+\startexample
+Find the ball’s position at \m{t=0.21\units{s}}.
+\startsolution
+This is just after \m{t=0.20\units{s}}, when the position is \m{\coordinates{24,28}\unit{cm}}. This is a small enough time that the velocity will not change significantly, so we are going to use a single short time step \m{dt = 0.01\units{s}}. The small changes in position are
+\startformula\startmathalignment[m=2,distance=2em]
+\NC dx	\NC = v_x\,dt		\NC dy	\NC = v_y\,dt	\NR
+\NC		\NC = (1.2\units{m/\ucan{s}})(0.01\,\ucan{s})
+						\NC		\NC = (-2.0\units{m/\ucan{s}})(0.01\,\ucan{s})	\NR
+\NC		\NC = 1.2\units{cm}	\NC		\NC = -2.0\units{cm}
+\stopmathalignment\stopformula
+Then update the coordinates.
+\startformula\startmathalignment[m=2,distance=2em]
+\NC x	\NC = 24\units{cm} + 1.2\units{cm}
+						\NC y	\NC = 28\units{cm} - 2.0\units{cm}	\NR
+\NC		\NC = 25\units{cm}	\NC		\NC = 26\units{cm}				\NR
+\stopmathalignment\stopformula
+The position at \m{t=0.21\units{s}} is \m{\coordinates{25,26}\unit{cm}}.
+\stopsolution
+\stopexample
+
+Computers are able to perform these update calculations quickly and accurately for many tiny steps.  Computer simulations using this repeated update method are especially valuable in situations where experiments are difficult, like collisions between galaxies. Simulations have become the third pillar of physics research, alongside experiments and theory. Simulations must also predict the objects’ velocities, a challenge that we will begin to address with Newton’s laws in the next chapter.
+
+Galileo did not use vectors in his work, because vectors were not developed until the nineteenth century! They are so incredibly helpful that we will use them every chance we get, allowing us to do things that Galileo, Newton, and Leibnitz could not.
+
+\section[sec:SHO]{Simple harmonic motion}
+Galileo’s \booktitle{Two New Sciences} describes one more type of motion that will be extremely useful in the coming chapters – the motion of a \keyterm{pendulum}, made by hanging a ball on the end of a length of string (fig. \in[fig:Pendulum]). When the ball swings, it oscillates along an arc. Galileo discovered that the period of a pendulum is surprisingly consistent. In \booktitle{Two New Sciences}, Salviati describes the experiment.
+
+\placefigure[margin][fig:Pendulum] % location, label
+{Galileo’s pendulum swings from \m{x=5\units{cm}}, through its equilibrium point at \m{x=25\units{cm}}, to \m{x=45\units{cm}}. The oscillation’s amplitude is \m{A=20\units{cm}}.}	% caption text
+{\noindent\starttikzpicture[baseline]%
+	\startaxis[
+		margin cart track,
+		axis x line* = middle,
+		ymin=-1.5, ymax = 100,
+		footnotesize, %clip=false,
+	]
+	\fill [on layer={axis background}] (-0.5,0) rectangle (49.5,-1.5)[opacity=.1];
+	\coordinate (P) at (25,249);
+	\pic (first) at (P) [rotate=-4.68] {pendulum=16};%-11.48
+	\pic (second) at (P) [rotate=-4.06] {pendulum=30};%-9.94
+	\pic (third) at (P) [rotate=-2.34]{pendulum=44};%-5.74
+	\pic (forth) at (P) {pendulum=58};
+	\pic (fifth) at (P) [rotate=2.34] {pendulum=72};
+	\pic (sixth) at (P) [rotate=4.06] {pendulum=86};
+	\pic (seventh) at (P) [rotate=4.68] {pendulum=100};
+    \stopaxis
+    %\draw[thick,->] (third-center) -- (forth-center);
+\stoptikzpicture}
+
+\placefigure[margin][fig:PendulumLeadCork] % location, label
+{The position vs.~time graphs for the lead pendulum and the cork pendulum show oscillations with the same period, about \m{2.5\units{s}}.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\matrix{
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={1mm},%x={2mm},
+		%xlabel={\m{t} (s)},
+		xmin=0, xmax=20,
+		xticklabels=\empty,
+		minor x tick num=4,
+		ylabel={\m{x} (cm)},
+	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
+		ymin=10, ymax=40,
+		minor y tick num=4,
+	   	extra y ticks={25},
+	   	extra y tick labels=\empty,
+   		extra y tick style={grid=major},
+		clip mode=individual,
+		]
+		\node[below left] at (axis description cs:1,1) {Lead};
+		\addplot[thick,smooth,domain=0:20,samples=801]{25+10*cos(2*deg(x))};
+  		\draw [{<[scale=0.7]}-{>[scale=0.7]}](3.14, 37) -- node[fill=white,inner sep=1pt]{\m{T}}  (6.29, 37);
+  		\draw [](3.14, 35) -- (3.14, 38);
+  		\draw [](6.29, 35) -- (6.29, 38);
+	\stopaxis\\
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={1mm},%x={2mm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=20,
+		%xtick={-1,0,...,3},
+		minor x tick num=4,
+		ylabel={\m{x} (cm)},
+	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
+		ymin=10, ymax=40,
+		minor y tick num=4,
+	   	extra y ticks={25},
+	   	extra y tick labels=\empty,
+   		extra y tick style={grid=major},
+		clip mode=individual,
+		]
+		\addplot[thick,smooth,domain=0:20,samples=801]{25+10*cos(2*deg(x))};
+		\node[below left] at (axis description cs:1,1) {Cork};
+  		\draw [{<[scale=0.7]}-{>[scale=0.7]}](3.14, 37) -- node[fill=white,inner sep=1pt]{\m{T}}  (6.29, 37);
+  		\draw [](3.14, 35) -- (3.14, 38);
+  		\draw [](6.29, 35) -- (6.29, 38);
+	\stopaxis\\
+	};
+\stoptikzpicture}%
+\startblockquote
+	I took two balls, one of lead and one of cork, the former more than a hundred times heaver than the latter, and suspended them by means of two equal fine threads, each four or five cubits long. %\footnote{About 2.5 meters or about 8 feet.}
+	Pulling each ball aside from the perpendicular, I let them go at the same instant, and they, falling along the circumferences of circles having these equal strings for radii, passed beyond the perpendicular and returned along the same path. This free oscillation repeated a hundred times showed clearly that the heavy ball maintains so nearly the period of the light ball that neither in a hundred swings nor even in a thousand will the former anticipate the latter by as much as a single moment, so perfectly do they keep step.\autocite{p.~307}{Galileo1638}
+\stopblockquote
+
+Galileo also noted that the pendulum’s period does not depend on the size of the arc through which the pendulum swings. A pendulum, like the one described above, will swing with the same period whether it swings a centimeter in each direction, or 20 centimeters. Galileo thought the period remains the same even if the ball is released from a point nearly as high as the pivot, but he was wrong about this. Very large swings do take slightly longer. The period is that same for all amplitudes that are considerably smaller than the length of the string.
+Mechanical clocks use pendulums because the pendulum’s period is consistent over a range of amplitudes. The most accurate pendulum clocks use a long pendulum that swings through a small angle, since small angles give the most accurate period.
+
+The central point of the motion is called the \keyterm{equilibrium point}. If the pendulum is not swinging, then it is motionless at the equilibrium point. %When the pendulum is set in motion, the initial displacement is measured from the equilibrium point.
+Figures \in[fig:PendulumLeadCork] and \in[fig:PendulumLargeSmallA] show the motion for some of Galileo’s experiments, all of which have the same period. %These graphs look like the graphs of displacement vs.~time for the musical vibrations in Chapter \in[ch:Music]. The difference is the size of the amplitudes and the length of the periods.
+
+The oscillating motion of a pendulum is called \keyterm{simple harmonic motion}, and anything that moves in this manner is called a \keyterm{simple harmonic oscillator}. Simple harmonic oscillators are  common. The musical strings and pipes in Chapter \in[ch:Music] were all simple harmonic oscillators, with frequencies much higher than a pendulum’s. Like the pendulum,
+good musical instruments oscillate with the same frequency, producing the same pitch, whether played quietly (small amplitude) or loudly (large amplitude). However, playing the instrument extremely loudly, with an amplitude that threatens to damage the instrument, can distort the sound by changing the frequency. %All simple harmonic oscillators share the property that the frequency (and period) of their oscillations are unaffected by the oscillations’ amplitude, provided that the amplitude is not too large.
+
+Simple harmonic motion is accelerated motion. When the pendulum is released, it speeds up as it approaches the center, slows down on the other side, stops momentarily, and then begins accelerating back toward the center. %The highest speed is at the equilibrium point.
+%(The amplitude is the distance from the equilibrium point to either of the turning points.)
+On the position vs.~time graph, the changing velocity can be seen as the changing slope.
+%At the turning points, the highest and lowest points on the graph, a tangent would be horizontal, with zero slope and therefore zero velocity.
+The steepest slope, and therefore highest speed, occurs when the pendulum passes through the equilibrium point. This maximum speed can be found using a tangent drawn through the point where the graph has the greatest positive slope. Figure \in[fig:vmax] has been expanded to show one period. If drawn carefully, the tangent hits the boundaries of the graph a distance of \m{\pi A} from the equilibrium point. The maximum speed can be calculated from those values with the formula for instantaneous velocity.
+\startformula[eq:vmaxT]\pagereference[eq:vmaxT]
+	\abs{v}\sub{max} %= \frac{dx}{dt}
+		= \frac{\text{tangent’s \m{\Delta x}}}{\text{tangent’s \m{\Delta t}}}
+		= \frac{2\pi A}{T}
+\stopformula
+\placefigure[margin][fig:PendulumLargeSmallA] % location, label
+{The pendulum’s period is the same for large and small amplitudes.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\matrix{
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={1mm},%x={2mm},
+		%xlabel={\m{t} (s)},
+		xmin=0, xmax=20,
+		xticklabels=\empty,
+		minor x tick num=4,
+		ylabel={\m{x} (cm)},
+	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
+		ymin=15, ymax=35,
+		minor y tick num=4,
+	   	extra y ticks={25},
+	   	extra y tick labels=\empty,
+   		extra y tick style={grid=major},
+		clip mode=individual,
+		]
+		\addplot[thick,smooth,domain=0:20,samples=801]{25+5*cos(2*deg(x))};
+		\node[below left] at (axis description cs:1,1) {\m{A=5\units{cm}}};
+  		\draw [{<[scale=0.7]}-{>[scale=0.7]}](3.14, 32) -- node[fill=white,inner sep=1pt]{\m{T}}  (6.29, 32);
+  		\draw [](3.14, 30) -- (3.14, 33);
+  		\draw [](6.29, 30) -- (6.29, 33);
+	\stopaxis\\
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={1mm}, %x={2mm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=20,
+		%xtick={-1,0,...,3},
+		minor x tick num=4,
+		ylabel={\m{x} (cm)},
+	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
+		ymin=5, ymax=45,
+		minor y tick num=4,
+	   	extra y ticks={25},
+	   	extra y tick labels=\empty,
+   		extra y tick style={grid=major},
+		clip mode=individual,
+		]
+		\addplot[thick,smooth,domain=0:20,samples=801]{25+15*cos(2*deg(x))};
+		\node[below left] at (axis description cs:1,1) {\m{A=15\units{cm}}};
+  		\draw [{<[scale=0.7]}-{>[scale=0.7]}](3.14, 42) -- node[fill=white,inner sep=1pt]{\m{T}}  (6.29, 42);
+  		\draw [](3.14, 40) -- (3.14, 43);
+  		\draw [](6.29, 40) -- (6.29, 43);
+	\stopaxis\\
+	};
+\stoptikzpicture}%
+
+\placefigure[margin][fig:vmax] % location, label
+{A \m{2.45\units{m}} long pendulum has the convenient period of \m{T=3.14\units{s}}. One period is shown.
+	The pendulum’s maximum velocity is the slope of the tangent through the steepest point on the graph.}	% caption text
+{\noindent\starttikzpicture	% tikz code
+	\startaxis[
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={1mm},%x={2mm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=3.14,
+		%xticklabels=\empty,
+		minor x tick num=4,
+		ylabel={\m{x} (cm)},
+	  	every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90, anchor=center},
+		ymin=-10, ymax=60,
+		minor y tick num=4,
+	   	extra y ticks={25},
+	   	extra y tick labels=\empty,
+   		extra y tick style={grid=major},
+		clip mode=individual,
+		]
+		\addplot[thick, smooth, domain=0:3.14,samples=101]{25-10*sin(2*deg(x))};
+		\draw [->, thick](0,{25+31.42}) --node[below, pos=.45]{$\text{tangent’s $\Delta t$} = T$} (3.14,{25+31.42});
+		\draw [->, thick](0,{25-31.42}) --node[below, pos=.6, xshift=2.5pt, fill=white, sloped]{$\text{tangent’s $\Delta x$} = 2\pi A$} (0,{25+31.42});
+  		\draw [<->](2.356, 25) -- node[fill=white, inner sep=2pt]{\m{A}}  (2.356, 35);
+  		\draw [<->](0.785, 25) -- node[fill=white, inner sep=2pt]{\m{A}}  (0.785, 15);
+  		\draw [<->](0.55, 25) -- node[fill=white, inner sep=2pt, pos=.45]{\m{\pi A}}  (0.55, -6.416);
+  		\draw [middlegray](0, -6.416) -- (0.6, -6.416);
+  		\draw [<->](2.749, 25) -- node[fill=white, inner sep=2pt]{\m{\pi A}}  (2.749, 56.416);
+		\draw [thin](0,{25-31.42}) -- (3.14, {25+31.42});
+		\fill(1.57,25) circle[radius=.4mm];
+	\stopaxis
+\stoptikzpicture}
+
+
+%\placefigure[margin][] % location, label
+%{}	% caption text
+%{\noindent\starttikzpicture	% tikz code
+%[-1.5in]
+%\hspace{-1.5mm}\starttikzpicture
+%\startaxis
+% [footnotesize, width={\marginparwidth+7mm}, height=7cm,
+%   xlabel={time},
+%   xmin=-180, xmax=180,
+%   xtick=\empty,
+%   ylabel={displacement},
+%   every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
+%   ymin=-28, ymax=28,
+%   ytick={-25.13,-8,8,25.13},
+%   yticklabels={\m{\hspace{-4pt}-\pi A},\m{-A},\m{A},\m{\pi A}},
+%   extra y ticks={0},
+%   extra y tick style={grid=major},
+%   extra y tick labels={\m{0}},
+%clip mode=individual
+% ]
+% \addplot[
+%   thick,
+%   domain=-180:180,
+%   samples=201
+%  ]
+%  {8*sin(x)}%+sin(deg(2*x))+sin(deg(4*x))/2}
+%  ;
+%  %\draw [<->](-180, 9) -- node[fill=white,inner sep=2pt]{\m{T}}  (180, 9);
+%  %\draw [](1.57, 8) -- (1.57, 10);
+%  %\draw [](7.85, 8) -- (7.85, 10);
+%  \draw [<->](90, 0) -- node[fill=white,inner sep=2pt]{\m{A}}  (90, 8);
+%		\draw [thin](-180,-25.13) -- (180, 25.13);
+%		\fill(0,0) circle[radius=.4mm];
+%		\draw [->, thick](-180,25.13) --node[below]{\m{\text{run}=T}} (180,25.13);
+%		\draw [->, thick](-180,-25.13) --node[below, fill=white, rotate=90]{\m{\text{rise}=2\pi A}} (-180,25.13);
+%\stopaxis
+%\stoptikzpicture
+%	\caption[Maximum velocity of oscillation]{
+%	The maximum velocity of an oscillating object is the slope of the tangent through the steepest point on the graph.
+%	}
+%	\label{fig:vmax}
+%\stoptikzpicture}
+
+\noindent While we have discussed the motion of a pendulum, this maximum speed formula works for any simple harmonic oscillator.
+%The mamximum speed of and simple harmonic motion is
+%
+%%\highlightbox{
+%\startformula
+%	\abs{v}\sub{max} = \frac{2\pi A}{T}.
+%\stopformula
+%%}
+%A larger amplitude requires a larger maximum velocity because the object must cover a greater distance between \m{x=A} and \m{x=-A} in the same time. A larger period allows for a smaller maximum velocity because the object has more time to cover the same distance.
+
+%In oscillating motion, the velocity is constantly changing. It is zero briefly at each end of the motion, where \m{x=A} or \m{x=-A}. At those point the object stops momentarily as it changes direction to return to the center. The minimum velocity is the negative of the maximum velocity. This occurs when the object is moving through the center with the maximum speed, but in the negative direction.
+%\startformula
+%	v\sub{min} = -v\sub{max} = -\frac{2\pi A}{T}
+%	\label{eq:vminT}
+%\stopformula
+
+\startexample[ex:PendulumMaxVel]
+We reproduce Galileo’s pendulum using a length of \m{2.45\units{m}}, which has the convenient period \m{T=3.14\units{s}}. We then set the pendulum in motion with an amplitude \m{A=10.0\units{cm}}, as shown in figure \in[fig:vmax].
+What is the pendulum’s maximum speed?
+	\startsolution
+	Use the maximum speed formula for simple harmonic motion.
+\startformula
+\startmathalignment
+\NC	\abs{v}\sub{max}	\NC= \frac{2\pi A}{T}	\NR
+\NC					\NC= \frac{2\cancel{\pi} (10.0\units{cm})}{\cancel{3.14}\units{s}}	\NR
+%\NC				\NC= \frac{6.28\sci{-3}\units{m})}{2.27\sci{-3}\units{s}}	\NR
+\NC					\NC= \answer{20.0\units{cm/s}}
+\stopmathalignment
+\stopformula
+The pendulum’s maximum velocity is \m{20.0\units{m/s}}.
+\stopsolution
+\stopexample
+
+\noindent In this example we could used the tangent drawn in figure \in[fig:vmax]. Notice that the tangent’s \m{\Delta x} is
+\startformula
+	\text{tangent’s \m{\Delta x}} = 56.4\units{cm} - (-6.4\units{cm})
+		= 62.8\units{cm},
+\stopformula
+which is equal to
+\startformula
+	2\pi A = 2\pi\cdot 10.0\units{cm} = 62.8\units{cm}.
+\stopformula
+Putting this into the instantaneous velocity formula gives the same result of \m{\abs{v}\sub{max} = 20.0\units{cm/s}}.
+%The points where the curve makes its steepest descent (at \m{x=0}) are just as steep as the points of steepest assent (also at \m{x=0}), but the slope at the descending points is negative rather than positive, again showing that \m{v\sub{min} = - v\sub{max}}.
+
+For a simple pendulum like Galileo’s, calculating the maximum speed of the balls is simple, but there is one potential pitfall to avoid. Since the ball swings along an arc whose radius is the string’s length, you may be tempted to use the speed formula for circular motion (p.~\at[eq:vT]) with the string’s length for the radius \m{R}. This would be a mistake.
+The motion of the pendulum is simple harmonic, not uniform circular. Always use maximum speed formula for simple harmonic motion to determine the maximum speed of a swinging pendulum.
+
+The discoveries in \booktitle{Two New Sciences} – illustrated with projectiles, inclines, and pendulums – apply equally to planets, moons and comets. %Galileo did not mention these, but his readers certainly knew that, without mentioning the heavens, he always wrote about the heavens.
+Because of its universality, Galileo’s new science of motion was his most profound work, the foundation for all physics that followed.
+
+Galileo remained active in research and mentored students at his villa until his death in 1642 at the age of 77. By that time his views on cosmology and physics were becoming widely accepted in the scientific community across Europe. %When Newton presented his three laws of motion, he credited Galileo as the inspiration for two of those laws.
+As he hoped, other minds – inspired by his writing – did explore the remote corners of his new science of motion, finding many surprises.
+
+Following Galileo, many natural philosophers sought to quantify the amount of motion in an object. Several interesting ideas emerged, leading to a decades-long feud known as the \visviva\ debate.
+These ideas, the debate, and the unexpected resolution are the subjects of the next two chapters.
+
+\subject{Notes}
+\blank
+\startcolumns
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+
+%\subject{Bibliography}
+%        \placelistofpublications
+
+\stopcolumns
+
+\page
+
+%%%%%%%%%%%%%%%% EXERCISES %%%%%%%%%%%%%%%%
+\startsubject[title=Exercises]
+%\setuplayout[
+%	leftmargin=36pt, % 1/2 in
+%	leftmargindistance=9pt, % 3/8 in
+%	width=477pt, % 4 1/4 in
+%	rightmargindistance=9pt, % 3/8 in
+%	rightmargin=36pt,  % 2 in
+%]
+%\setupheadertexts[text][section][\pagenumber][\pagenumber][chapter]
+%\setupheadertexts[margin][][][][]
+%
+%\blank
+%\startcolumns[n=2, tolerance=verytolerant]
+\startitemize[n]
+
+%\question The moon completes one revolution around Earth in 29.3 days. Find the speed of the moon in its orbit around Earth.
+
+\question The inner two moons of Jupiter, Io and Europa, are in a 1:2 resonance, which means that the ratio of Io’s period to Europa’s period is one-to-two. Europa’s orbital period is 3.55 days. What is Io’s orbital period?
+%\startsolution[3in]
+%\startformula\startmathalignment
+%	\frac{T\sub{E}}{T\sub{I}} \NC= \frac{2}{1}	\NR
+%	T\sub{I} \NC= \half T\sub{E}	\NR
+%		\NC= \half 3.55\units{d}	\NR
+%		\NC= \answer{1.78\units{d}}
+%\stopmathalignment\stopformula
+%\stopsolution
+
+\question Jupiters second and third moons, Europa and Ganymede, are also in a 1:2 resonance. What is the Ganymede’s orbital period?
+%\startsolution[3in]
+%\startformula\startmathalignment
+%	\frac{T\sub{E}}{T\sub{I}} \NC= \frac{2}{1}	\NR
+%	T\sub{I} \NC= \half T\sub{E}	\NR
+%		\NC= \half 3.55\units{d}	\NR
+%		\NC= \answer{1.78\units{d}}
+%\stopmathalignment\stopformula
+%\stopsolution
+
+
+\question Galileo published \textit{The Starry Messenger} in 1610. The Galileo spacecraft, which studied Jupiter and its moons up close, became the first craft to orbit Jupiter in 1995. How many orbits did Jupiter make between these two events? Jupiter orbits the sun once every 11.86 years.
+
+\question The Galileo spacecraft was launched on October 18, 1989. Its successful mission as the first man-made satellite of Jupiter ended on September 21, 2003 with an intentional crash into Jupiter’s atmosphere. Find the length of the Galileo mission in Jovian years.
+
+%\question Saturn orbits the sun once every 29.5 years. How many orbits has it made since Galileo published \textit{The Starry Messenger} in 1610?
+%\startsolution[3in]
+%	\startformula
+%T = \frac{1\units{cyc}\cdot\Delta t}{N}
+%\stopformula
+%First, find \m{\Delta t}.
+%\startformula
+%	\Delta t = t\sf - t\si = 2017 - 1610 = 407\units{yr}
+%\stopformula
+%Then we can find the number of cycles (or orbits).
+%	\startformula\startmathalignment
+%		T \NC= \frac{1\units{cyc}\cdot\Delta t}{N}	\NR
+%		N \NC= \frac{1\units{cyc}\cdot\Delta t}{T}	\NR
+%			\NC= \frac{1\units{cyc}\cdot(407\units{\ucan{yr}})}{29.5\units{\ucan{yr}}}	\NR
+%			\NC = \answer{13.8\units{cyc}}
+%				\quad\text{\emph{or}}\quad
+%				\answer{13.8\units{orbits}}
+%	\stopmathalignment\stopformula
+%\stopsolution
+
+\question The Cassini spacecraft journey to Saturn began with its launch on October 15, 1997. Cassini orbited Saturn, studying the planet, its many moons, and its amazing rings until September 15, 2017. How long was Cassini’s mission in Saturn’s years? Saturn’s orbit takes 29.5 Earth years.
+
+\question Earth’s Moon orbits Earth with a frequency of \m{13.4\units{cyc/yr}}. What is the moon’s orbital period in days?
+%\startsolution[3in]
+%\startformula\startmathalignment
+%	T \NC= \frac{1\units{cyc}}{f}	\NR
+%		\NC= \frac{1\units{cyc}}{13.4\units{cyc/yr}}	\NR
+%		\NC= 0.0746\units{\ucan{yr}}\left(\frac{365\units{d}}	{1\units{yr}}\right)	\NR
+%		\NC= \answer{27.2\units{d}}
+%\stopmathalignment\stopformula
+%Accept answer in years is question does not specify days (2017).
+%\stopsolution
+
+
+\question In 1967, Jocelyn Bell Burnell and Antony Hewish discovered a star that flashed brightly every \m{1.33\units{s}}. Eventually, pulsing stars like this became known as pulsars. Pulsars are rapidly spinning neutron stars which shine bright beams of light out of their magnetic poles. We see a flash every time one of the spinning pulsar’s beams points in our direction. What is this pulsar’s frequency?
+
+\question In 1968 another pulsar was discovered in the nearby Crab Nebula with a period of only \m{33\units{ms}}. What is this pulsar’s frequency?
+
+\question On August 17, 2017, an extremely sensitive device known as \scaps{ligo} (Laser Interferometer
+Gravitational-Wave Observatory) detected a tiny vibration of space-time. These vibrations were gravitational waves from a pair of orbiting neutron stars which revealed the stars’ orbital frequency to be \m{20\units{Hz}}. What was the orbital period of these two stars? (This ferocious dance did not last long. Over the next thirty seconds the neutron stars spiraled into each other, producing an enormous explosion. The merged stars then collapsed to form a black hole. Luckily, this violent event happened very, very far from us.)
+
+\stopitemize
+%\stopcolumns
+\stopsubject
+
+\stopchapter
+%\page
+%
+%\setuplayout[
+%	leftmargin=36pt, % 1/2 in
+%	leftmargindistance=9pt, % 3/8 in
+%	width=306pt, % 4 1/4 in
+%	rightmargindistance=27pt, % 3/8 in
+%	rightmargin=144pt,  % 2 in
+%]
+%\setupheadertexts[text][section][][][chapter]
+%\setupheadertexts[margin][][\hfill\pagenumber][\pagenumber \hfill][]
+
+\stopcomponent
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subject{Templates}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\startblockquote
+%	Huygens, who illuminated our age with his excellent discoveries, seems to be the first person I know of to have arrived at the pure and clear truth on this matter.... Wren, Wallis, and Mariotte, gentlemen excellent in these studies, though, granted, in different ways, all obtained virtually the same rules.\autocite{p.~123}{Leibniz1695}
+%\stopblockquote
+%
+%
+%% Margin image
+%\placefigure[margin][fig:MoonSurface]{The moon’s hills and valleys are clearly visible in Galileo’s original watercolors.} {\externalfigure[MoonPhases6][width=144pt]}
+%
+%% Margin diagram
+%\placefigure[margin][fig:MoonOribit] % location \NC reference
+%{Diagram caption}	% caption text
+%{\hbox{\noindent\starttikzpicture	% tikz code
+%	\draw (-1.5,0) -- (1.5,0);
+%	\draw (0,-1.5) -- (0,1.5);
+%\stoptikzpicture}}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Section Title}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	%%%%%%%%%%%%%%%% EXAMPLE 1.6 %%%%%%%%%%%%%%%%
+%\startexample[ex:period]
+%	A\m{_3}’s frequency is \m{220.0\units{Hz}}.  What is A\m{_3}’s period?
+%\startsolution
+%	Use the frequency relations, crossing out the part we don’t need.
+%\stopsolution
+%\stopexample
+%
+%
+%Text.
+%
+%% textwidth figure
+%\placefigure {Caption for textwidth figure.} {\externalfigure[Dummy][width=\textwidth]}
+%
+%% pagewidth figure. Horizontal position needs to be fixed.
+%\placefigure {Caption for pagewidth figure.} {\externalfigure[Dummy][width=377pt]}
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%End of ConTeXt code
+%Start of LaTeX code to move
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

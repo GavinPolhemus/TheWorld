@@ -1,0 +1,940 @@
+% !TEX useOldSyncParser
+\startcomponent c_chapter01
+\project project_world
+\product prd_volume02
+
+\doifmode{*product}{\setupexternalfigures[directory={chapter13/images}]}
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title={Space and Time}, reference=ch:Relatiity]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\placefigure[margin,none]{}{\small
+	\startalignment[flushleft]
+I had wasted time almost a year in fruitless considerations\dots. Unexpectedly a friend of mine in Bern then helped me. That was a very beautiful day when I visited him and began to talk with him as follows: \quotation{I have recently had a question which was difficult for me to understand. So I came here today to bring with me a battle on the question.} Trying a lot of discussions with him I could suddenly comprehend the matter. Next day I visited him again and said to him without greeting: \quotation{Thank you. I've completely solved the problem.} My solution was really for the very concept of time, that is, that time is not absolutely defined but there is an inseparable connection between time and the signal velocity. With this conception, the foregoing extraordinary difficulty could be thoroughly solved. Five weeks after my recognition of this, the present theory of relativity was completed.%\autocite{p.139}{Pais SiTL, Kyoto address}
+	\stopalignment
+	\startalignment[flushright]
+	%{\it On the Physiological Causes\\
+	%	of Harmony in Music}\\
+	{\sc Albert Eintein}\\
+	1879 – 1955
+	\stopalignment
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Initial{O}{n September 21, 1908,} Hermann Minkowski addressed the 80th Assembly of German Natural Scientists and Physicians.
+\startblockquote
+The views of space and time which I wish to lay before you have sprung from the soil of experimental physics, and therein lies their strength. They are radical. Henceforth space by itself, and time by itself, are doomed to fade away into mere shadows, and only a kind of union of the two will preserve an independent reality. % Pais SiTL p. 152
+\stopblockquote
+
+Minkowski's radical view of space and time grew from Einstein's new theory of relativity, published in 1905. A few scientists, including Planck and Minkowski, quickly recognized the power of Einstein's ideas, but many scientists either did not notice or took a wait-and-see approach to the emerging revolution. Minkowski's lecture brought Einstein's revolution to the forefront.
+
+Minkowski's union of space and time is commonly called space-time, but Minkowski called it simply \quotation{the \emph{world.}} Minkowski did not offer new forces or laws to govern this world. He did not offer new objects or fields to inhabit the world. %In short, he did not offer a new physics or a new astronomy. 
+He went straight to the foundation, offering a new \emph{geometry} of the world.
+
+This geometry is not complicated. It is built on three surprising but simple facts.
+\startitemize[KR]
+	\item We live in \emph{four} dimensions. The fourth dimension is time. Vectors become \keyterm{four-vectors}, which have four components. If \m{\bi A} is a four-vector, then
+	\startformula
+		{\bi A} = \components{A_t, A_x, A_y, A_z}.
+	\stopformula
+	(We use bold for four-vectors. The time component is listed first.)
+	\item The units used for measuring distance and time are related.
+	\startformula
+		1\units{s} \approx 3.00\sci{8}\units{m}
+	\stopformula
+	This conversion is essential for calculations in four dimensions.
+	\item The magnitude of any four-vector \m{A} is found using \keyterm{Minkowski's formula}.
+	\startformula
+		\vabs{\fourvec{A}} = \sqrt{A_t^2 − A_x^2 − A_y^2 − A_z^2},
+	\stopformula
+	Minkowski's formula looks like the Pythagorean Theorem extended to four dimensions, but notice the three minus signs on the three spacial components!
+\stopitemize
+\noindent
+We will go through these facts, looking at their meaning and consequences, to understand Minkowski's new geometry of the world.
+
+Minkowski's first fact gives us a fresh view of position vs.\ time graphs. These graphs are actually maps of space-time, showing the time dimension. \in{Figure}[fig:WorldLines] is an example of a position vs. time graph which we can read as a space-time map. \in{Figure}[fig:WorldLines] shows the positions of two objects, labeled A and B. Each object traces out a path in space-time. These paths are the objects' \keyterm{world-lines}. Object A's world-line shows A's constant velocity motion in the positive \m{x}-direction. Object B's world-line shows accelerated motion in the negative \m{x}-direction. 
+
+\startbuffer[TikZ:WorldLines]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle \small% Old style numerals in text
+\startTEXpage
+\starttikzpicture
+	\startaxis[
+		footnotesize,
+		width=2.13in,%\marginparwidth,
+		y={1cm},%x={2mm},
+		xlabel={\m{t} (s)},
+		xmin=0, xmax=180,
+		xtick=\empty,
+	   	extra x ticks={120},
+	   	extra x tick labels={\m{t\sub{P}}},
+   		extra x tick style={grid=major},
+		ylabel={\m{x} (m)},
+		ymin=-1.5, ymax=1.5,
+		ytick=\empty,
+	   	extra y ticks={-0.5},
+	   	extra y tick labels={\m{x\sub{P}}},
+   		extra y tick style={grid=major},
+		]
+		\addplot[thick,smooth,domain=0:180,samples=101]{cos(x))}node[above right, pos=.2]{B};
+		\addplot[thick,smooth,domain=0:180,samples=2]{-1+x/240}node[below right, pos=.2]{A};
+		\fill (120,-0.5) circle[radius=.4mm] node[above, xshift=1.4mm]{P};
+	\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:WorldLines] % location, label
+{A space-time map showing the world-lines of two objects, A and B. The two world-lines cross at the event P at coordinates \m{t\sub{p}} and \m{x\sub{P}}.} % caption text
+{\noindent\typesetbuffer[TikZ:WorldLines]} % figure contents
+
+Points in space time are called \keyterm{events.} An event occurs at a specific time and place. In \in{figure}[fig:WorldLines], objects A and B pass each other at the event labeled P, where their world-lines cross. This event occurs at time \m{t\sub{P}} and at position \m{x\sub{P}}, the coordinates of event P.
+
+Minkowski's second fact gives us a conversion factor so we can measure space and time with the same units. Minkowski called this \quotation{the mystic formula} because it relates two seemingly unrelatable units. As we will see, the numerical value in the mystical formula is related to the speed of light. As mystical as it appears, this formula is used as a simple factor for unit conversions.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:ClassDuration]
+What is the duration of your physics class in meters?
+\startsolution
+At the school where I taught physics, the typical class period was \m{45} minutes long – which always seemed short to me. Finding the duration in meters is a simple exercise in unit conversion.
+\startformula
+	\Delta t = 45\,\ucan{min}\left(\frac{60\,\ucan{s}}{1\,\ucan{min}}\right)\left(\frac{3.00\sci{8}\units{m}}{1\,\ucan{s}}\right)
+		= 8.1\sci{11}\units{m}
+\stopformula
+Some students said class was long. They must have meant long in meters!
+In \m{45} minutes light travels \m{8.1\sci{11}\units{m}}, about the distance to Jupiter.
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:ClassDuration]
+Find your height in seconds.
+\startsolution
+I am \m{6} feet tall. Convert feet to meters and meters to seconds. (Use \m{1\units{m} = 3.28\units{ft}}.)
+\startformula
+	h = 6\,\ucan{ft}\left(\frac{1\,\ucan{m}}{3.28\,\ucan{ft}}\right)\left(\frac{1\units{s}}{3.00\sci{8}\,\ucan{m}}\right)
+		= 6.1\sci{-9}\units{s}
+		= 6.1\units{ns}
+\stopformula
+This is the time it takes light to travel \m{6} feet – not very long!
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+For geometry, it is essential to use the same the same units in all directions.
+In space-time we can convert the time measurements to meters or convert the distance measurements to seconds. Usually, we do everything with time units. 
+This is common in astronomy, where a standard unit for distance is a light-year, the distance light travels in one year.
+We will drop the \quotation{light} prefix. Light travels one year of distance in one year of time. Light travels one second of distance in one second of time. A second is a short time, but a long distance – approximately the distance to the moon.
+
+Minkowski's unit conversion also simplifies the units of velocity. Velocity is displacement over time. When we use the same units for both, velocity is left with no units at all!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:RunSpeed]
+Convert the speed \m{5.00\units{m/s}} (a fast run) to a unitless speed.
+\startsolution
+\startformula
+	5.00\units{m/s} = (5.00\units{m/s})\left(\frac{1\units{s}}{3.00\sci{8}\units{m}}\right) = 1.67 \sci{-8}
+\stopformula
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+That last number is very small. This makes sense. Seconds are short times but very large distances.  To have a speed of \m{1} you would have to travel a distance of one second in only one second of time.  That would be very fast.  However, that is exactly what light does. Light has a speed of \m{1}, which is equal to \m{3.00\sci{8}\units{m/s}}.  This is called \quotation{the speed of light,} but it is actually the speed of anything that has no mass, as we will see later.  No object can have a speed greater than \m{1}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:BetaSpeed]
+A fast electron is timed using two precisely synchronized clocks, as shown in \in{figure}[fig:BetaSpeed]. The electron travels a distance of  \m{6.0\units{ns}} (which is \m{1.8\units{m}}) in just \m{10.0\units{ns}}. Compute the electron's unitless speed.
+\startbuffer[TikZ:BetaSpeed]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture[scale=3]% tikz code
+	% x axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			pre length = 0.6mm,
+			markings, % Main marks
+			mark=between positions 0 and 1 step 2.999mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (-0.32,0) --node[below=2mm]{\m{x} (ns)}node[above=1mm]{\m{\Delta x = 6\units{ns}}} (1.32,0);
+	\draw [black!20] (0.2,0)node[black, below]{\m{x\si}} -- ++(0,0.35); % Starting line
+	\pic at (0.2,0.1)  {clock};
+	\draw [black!20] (0.8,0)node[black, below]{\m{x\sf}} -- ++(0,0.35); % Finish line
+	\pic at (0.8,0.1)  {clock};
+	\draw [->] (0.08,0.25) --node[above]{\m{\Delta t = 10\units{ns}}} ++(0.84,0); % Arrow
+	\fill (0.08,0.25) circle[radius=.14mm] node[above]{\m{e}}; % electron
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:BetaSpeed] % location, label
+{Two precisely synchronized clocks are used to find the speed of a fast electron. The marks on the \m{x}-axis are separated by \m{1\units{ns}}, which is \m{30\units{cm}}. The distance between the clocks is \m{6.0\units{ns}}, which is \m{1.8\units{m}}. The electron travels that distance in \m{10.0\units{ns}}.} % caption text
+{\noindent\typesetbuffer[TikZ:BetaSpeed]} % figure contents
+\startsolution
+The calculation is simple, but also study the space-time diagram, shown in \in{figure}[fig:BetaGraph], to see how the events unfold. The diagram is drawn to scale (1:100), with the same scale for the space and time directions. The electron passes the first clock at event {\tf i} and the second at event {\tf f}. Each clock records the time when the electron passes, and these times are compared to find the duration \m{\Delta t = t\sf - t\si = 10.0\units{ns}}. The electron's velocity is the slope of its world-line.
+\startformula
+	v = \frac{\Delta x}{\Delta t}
+		= \frac{6.0\units{ns}}{10.0\units{ns}}
+		= 0.60
+\stopformula
+The electron is traveling at a speed of \m{0.60}, which can also be stated as \m{60\%} of the speed of light, or \m{1.8\sci{8}\units{m/s}}.
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\startbuffer[TikZ:BetaGraph]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture[scale=3]% tikz code
+	%\draw [black!20, xstep=1.5, ystep=0.1] (0,0.2) grid (1.4,0.8); % Background grid
+	% x axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (0,0) --node[sloped,above=3mm]{\m{x} (ns)} (0,1);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (1.4,1) -- (1.4,0);
+	%\path (0,0.2) node[left]{\m{x\si}};
+	\draw [
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (0,0.2)node[black, left=1mm]{\m{x\si}} -- ++(1.4,0); % Starting line
+	\pic at (0,0.8)  {clock};
+	\draw [black!20,
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (0,0.8)node[black, left=1mm]{\m{x\sf}} -- ++(1.4,0); % Finish line
+	\pic at (0,0.8)  {clock};
+	% t axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (0,0) --node[sloped,below]{\m{t} (ns)} (1.4, 0);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (0,1) -- (1.4,1);
+	% Stationary Clock
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Minor marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (0,0.2) --node[below]{\m{\Delta t = 10\units{ns}}} ++(1.4,0);
+	\pic at (0,0.2)  {clock};
+	% Electron
+	\draw[->] (0,0.08) --node[above, sloped]{\m{v = 0.6}} ++(1.4,0.84);
+	\fill (0,0.08) circle[radius=.14mm] node[left]{\m{e}}; % electron
+	% Ruler
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Minor marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (1.2,0.2) --node[below, sloped]{\m{\Delta x = 6\units{ns}}} ++(0,0.6);
+	\fill (0.2,0.2) circle[radius=.14mm] node[above]{i};
+	\fill (1.2,0.8) circle[radius=.14mm] node[above]{f};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:BetaGraph] % location, label
+{A space-time map showing the world-lines of the two synchronized clocks and the fast electron in \in{example}[ex:BetaSpeed]. The \quotation{tick, tick, tick,\dots} of the clocks is show as tick marks on the clocks' world-lines. These clocks tick once every nanosecond. The electron's velocity is the slope of its world-line. The vertical line showing \m{\Delta x} is not a world-line; it is simply the distance between the two clocks, measured with the \m{x}-axis ruler shown in \in{figure}[fig:BetaSpeed].} % caption text
+{\noindent\typesetbuffer[TikZ:BetaGraph]} % figure contents
+
+\noindent
+In many ways, Minkowski's space-time is simpler than the position vs.\ time graph. All of the directions can be drawn to the same scale, and calculating velocities is especially easy since the units cancel.
+
+Einstein first emphasized the importance of using synchronized clocks when considering very high speeds. He discovered his theory of relativity by considering how the clocks are synchronized in moving reference frames. We will focus on Minkowski's simpler geometric formulation, but Einstein presents a very readable account of his revolutionary ideas in the first sections of his famous 1905 paper. Do not be intimidated by the title, \booktitle{On the Electrodynamics of Moving Bodies.} Electrodynamics is only in the second half of the paper. Relativity is in the first half.
+
+\section{Minkowski's magnitude formula}
+Now that we are working in the right number of dimensions, with consistent units in all directions, we can start doing some real geometry. We will, of course, be using vectors. Vector addition and scalar multiplication in four dimensions is just like in three dimensions. Finding magnitudes is a bit different.
+Recall that in three dimensions the magnitude of a vector \m{\,\vec{\!A\!}\,} is
+\startformula
+	\vabs{\,\vec{\!A\!}\,} = \sqrt{A_x^2 + A_y^2 + A_z^2},
+\stopformula
+which is the three-dimensional Pythagorean formula.
+We find magnitudes in four dimensions using Minkowski's magnitude formula in his third fact above.
+\startformula
+	\vabs{\fourvec{A}} = \sqrt{A_t^2 − A_x^2 − A_y^2 − A_z^2},
+\stopformula
+Minkowski's formula is related to the Pythagorean formula, but the space components have minus signs while the time component has a positive sign. This is what makes time different from space! You know time and space are different. That difference is due to the different signs in Minkowski's formula.
+
+Look again at the space-time diagram in \in{figure}[fig:BetaGraph], where \m{\Delta t}, \m{\Delta x}, and the electron make a right triangle. The triangle's base, \m{\Delta t}, is measured with a clock. The triangle's height, \m{\Delta x}, is measured with a ruler (shown in \in{figure}[fig:BetaSpeed]). What should we use to measure the hypotenuse connecting events i and f? If the events are separated by more time than space, as they are in \in{figure}[fig:BetaGraph], we should measure the separation with a clock moving along the straight world-line from one event to the other. The clock's velocity might be very large, but since \m{\Delta t} is greater than \m{\abs{\Delta x}}, the speed will be less than 1, and the clock will not exceed the speed of light. This time is called the \keyterm{proper time} between the events and is represented by \m{\tau} (Greek letter tau).
+
+\startbuffer[TikZ:ThrowingClocks]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture[scale=3]% tikz code
+	% x axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			pre length = 0.6mm,
+			markings, % Main marks
+			mark=between positions 0 and 1 step 2.999mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (-0.32,0) --node[below=2mm]{\m{x} (ns)}node[above=1mm]{\m{\Delta x = 6\units{ns}}} (1.32,0);
+	\draw [black!20] (0.2,0)node[black, below]{\m{x\si}} -- ++(0,0.35); % Starting line
+	\pic at (0.2,0.1)  {clock}; % node[above right]{tick, tick,\dots}
+	\draw [black!20] (0.8,0)node[black, below]{\m{x\sf}} -- ++(0,0.35); % Finish line
+	\pic at (0.8,0.1)  {clock};
+	\draw [->] (0.08,0.25) --node[above]{\m{v = 0.6}} ++(0.84,0); % Arrow
+	\pic at (0.08,0.25)  {clock};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:ThrowingClocks] % location, label
+{An experiment with three clocks, two stationary and one moving very fast in the \m{x}-direction.} % caption text
+{\noindent\typesetbuffer[TikZ:ThrowingClocks]} % figure contents
+
+
+\startbuffer[TikZ:ThrowingClocksGraph]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture[scale=3]% tikz code
+	%\draw [black!20, xstep=1.5, ystep=0.1] (0,0.2) grid (1.4,0.8); % Background grid
+	% x axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (0,0) --node[sloped,above=3mm]{\m{x} (ns)} (0,1);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (1.4,1) -- (1.4,0);
+	% t axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (0,0) --node[sloped,below]{\m{t} (ns)} (1.4, 0);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (0,1) -- (1.4,1);
+	% Stationary clocks
+	\draw [
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (0,0.2)node[black, left=1mm]{\m{x\si}} --node[below]{\m{\Delta t = 10\units{ns}}} ++(1.4,0); % Starting line
+	\pic at (0,0.2)  {clock};
+	\draw [black!20,
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (0,0.8)node[black, left=1mm]{\m{x\sf}} -- ++(1.4,0); % Finish line
+	\pic at (0,0.8)  {clock};
+	% Moving Clock
+	\draw[
+		postaction={decorate},
+		decoration={
+			pre length = 2.6mm,
+			markings, % Minor marks
+			mark=between positions 0 and 1 step 4.36mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (0,0.08) --node[above, sloped]{\m{\tau = 8\units{ns}}}node[below, sloped]{\m{v = 0.6}} ++(1.4,0.84);
+	\pic at (0,0.08)  {clock};
+	% Ruler
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Minor marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (1.2,0.2) --node[below, sloped]{\m{\Delta x = 6\units{ns}}} ++(0,0.6);
+	\fill (0.2,0.2) circle[radius=.14mm] node[above]{i};
+	\fill (1.2,0.8) circle[radius=.14mm] node[above]{f};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:ThrowingClocksGraph] % location, label
+{A space-time map showing the world-lines of three clocks, two stationary and one moving. The time measured by the moving clock is given by Minkowski's formula.} % caption text
+{\noindent\typesetbuffer[TikZ:ThrowingClocksGraph]} % figure contents
+
+\in{Figure}[fig:ThrowingClocks] shows the fast moving clock measuring the proper time between events i and f. The space-time diagram for the measurement is shown in \in{figure}[fig:ThrowingClocksGraph]. The proper time \m{\tau} can be calculated using Minkowski's formula.
+\startformula
+	\tau = \sqrt{(\Delta t)^2 − (\Delta x)^2 − (\Delta y)^2 − (\Delta z)^2}
+\stopformula
+The clock has no displacement in the \m{y} or \m{z} directions.
+\startformula\startmathalignment
+\NC	\tau = \sqrt{(\Delta t)^2 − (\Delta x)^2}
+		= \NC \sqrt{(10.0\units{ns})^2 − (6.0\units{ns})^2} \NR
+\NC	\NC	= \sqrt{100\units{ns^2} − 36\units{ns^2}}
+		= \sqrt{64\units{ns^2}}
+		= 8.0\units{ns}
+\stopmathalignment\stopformula
+Events i and f are separated by \m{8.0\units{ns}}. You can count the eight ticks along the moving clock's world-line connecting the two events in \in{figure}[fig:ThrowingClocks].  Notice the importance of having the same units for all of the terms in the formula. You cannot at meters to seconds! You must convert each term to the same units before adding.
+
+Comparing the triangle's sides in \in{figure}[fig:ThrowingClocksGraph], we see one of the surprising results of Minkowski's formula: the hypotenuse is not the longest side! The longest side is aways the time component. This is due to the minus signs in Minkowski's formula, which cause any space components to reduce the magnitude. This effect is sometimes called time dilation, because it makes the tick marks along the hypotenuse to appear farther apart than they appear on the time axis, as if motion causes time to stretch. The tick marks are not actually farther apart – they are still separated by \m{1\units{ns}} – but they appear farther apart when we draw space-time diagrams. On paper we can compare the tick marks using a compass or ruler, but these tools do not work in space-time. Proper times must be measured with clocks, and the results agree with Minkowski's formula.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:ThrowingClocks2]
+Two stationary, synchronized clocks are placed \m{8.0\units{ns}} apart (which is \m{2.4\units{m}}).  Another fast clock races past, as shown in \in{figure}[fig:ThrowingClocks2]. The stationary clocks measure the times when the fast clock passes: \m{t\si = 0.0\units{ns}} at the first clock and \m{t\sf = 10.0\units{ns}} at the second. Compute the fast clock's speed and the proper time it measures between the two passing events.
+
+\startbuffer[TikZ:ThrowingClocks2]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture[scale=3]% tikz code
+	% x axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			pre length = 0.6mm,
+			markings, % Main marks
+			mark=between positions 0 and 1 step 2.999mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (-0.22,0) --node[below=2mm]{\m{x} (ns)}node[above=1mm]{\m{\Delta x = 8\units{ns}}} (1.42,0);
+	\draw [black!20] (0.2,0)node[black, below]{\m{x\si}} -- ++(0,0.35)node[above, black]{\m{t\si = 0\units{ns}}}; % Starting line
+	\pic at (0.2,0.1)  {clock}; % node[above right]{tick, tick,\dots}
+	\draw [black!20] (1,0)node[black, below]{\m{x\sf}} -- ++(0,0.35)node[above, black]{\m{t\sf = 10\units{ns}}}; % Finish line
+	\pic at (1,0.1)  {clock};
+	\draw [->] (0.04,0.25) -- ++(1.12,0); % Arrow node[above]{\m{v = 0.8}}
+	\pic at (0.04,0.25)  {clock};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:ThrowingClocks2] % location, label
+{Another three-clock experiment in \in{example}[ex:ThrowingClocks2].} % caption text
+{\noindent\typesetbuffer[TikZ:ThrowingClocks2]} % figure contents
+
+\startsolution
+The space-time diagram is shown in \in{figure}[fig:ThrowingClocksGraph2]. The speed measured using the stationary ruler and clocks is 
+\startformula
+	v = \frac{\Delta x}{\Delta t}
+		= \frac{6.0\units{ns}}{10.0\units{ns} - 0.0\units{ns}}
+		= 0.80,
+\stopformula
+which can also be stated as \m{80\%} of the speed of light, or \m{2.4\sci{8}\units{m/s}}.
+
+The proper time between events {\tf i} and {\tf f} is
+\startformula
+	\tau = \sqrt{(\Delta t)^2 − (\Delta x)^2}
+		= \sqrt{(10.0\units{ns})^2 − (8.0\units{ns})^2}
+		%= \sqrt{100\units{ns^2} − 64\units{ns^2}}
+		%= \sqrt{36\units{ns^2}}
+		= 6.0\units{ns}.
+\stopformula
+At this speed, the hypotenuse is the shortest side of the triangle!
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\startbuffer[TikZ:ThrowingClocksGraph2]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture[scale=3]% tikz code
+	%\draw [black!20, xstep=1.5, ystep=0.1] (0,0.2) grid (1.4,1); % Background grid
+	% x axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (0,0) --node[sloped,above=3mm]{\m{x} (ns)} (0,1.2);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (1.4,1.2) -- (1.4,0);
+	% t axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (0,0) --node[sloped,below]{\m{t} (ns)} (1.4, 0);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (0,1.2) -- (1.4,1.2);
+	% Stationary clocks
+	\draw [
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (0,0.2)node[black, left=1mm]{\m{x\si}} --node[below]{\m{\Delta t = 10\units{ns}}} ++(1.4,0); % Starting line
+	\pic at (0,0.2)  {clock};
+	\draw [black!20,
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (0,1)node[black, left=1mm]{\m{x\sf}} -- ++(1.4,0); % Finish line
+	\pic at (0,1)  {clock};
+	% Moving Clock
+	\draw[
+		postaction={decorate},
+		decoration={
+			pre length = 1.3mm,
+			markings, % Minor marks
+			mark=between positions 0 and 1 step 6.37mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (0,0.04) --node[above, sloped]{\m{\tau = 6\units{ns}}}node[below, sloped]{\m{v = 0.8}} ++(1.4,1.12);
+	\pic at (0,0.04)  {clock};
+	% Ruler
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Minor marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (1.2,0.2) --node[below, sloped]{\m{\Delta x = 8\units{ns}}} ++(0,0.8);
+	\fill (0.2,0.2) circle[radius=.14mm] node[above]{i};
+	\fill (1.2,1) circle[radius=.14mm] node[above]{f};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:ThrowingClocksGraph2] % location, label
+{The faster clock in \in{example}[ex:ThrowingClocks2] (and \in{figure}[fig:ThrowingClocks2]) measures a shorter time than the moving clock in \in{figure}[fig:ThrowingClocks].} % caption text
+{\noindent\typesetbuffer[TikZ:ThrowingClocksGraph2]} % figure contents
+\noindent
+It is not actually possible to move clocks at the incredible speeds in the previous examples. There are two practical ways to perform these sorts of experiments. One is to use low speeds but extremely precise clocks. Atomic clocks costing a few thousand dollars can confirm Minkowski's formula at the speed of a car.
+The other method is to use small particles that decay at a known rate. Accelerating these particles to high speed and observing their decay rate also confirms Minkowski's formula.
+
+\startbuffer[TikZ:ThrowingLight]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture[scale=3]% tikz code
+	% x axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			pre length = 0.6mm,
+			markings, % Main marks
+			mark=between positions 0 and 1 step 2.999mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (-0.12,0) --node[below=2mm]{\m{x} (ns)}node[above=1mm]{\m{\Delta x = 10\units{ns}}} (1.52,0);
+	\draw [black!20] (0.2,0)node[black, below]{\m{x\si}} -- ++(0,0.35); % Starting line
+	\pic at (0.2,0.1)  {clock}; % node[above right]{tick, tick,\dots}
+	\draw [black!20] (1.2,0)node[black, below]{\m{x\sf}} -- ++(0,0.35); % Finish line
+	\pic at (1.2,0.1)  {clock};
+	\draw [->, decorate, decoration={snake, segment length=2mm, amplitude=2mm, post length=3.9cm}] (-0.06,0.25) --node[above]{\m{v = 1}} ++(1.46,0); % Arrow
+	%\pic at (0.04,0.25)  {clock};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:ThrowingLight] % location, label
+{An experiment with two clocks and a flash of light. The flash is represented by the short bust of waves traveling left to right.} % caption text
+{\noindent\typesetbuffer[TikZ:ThrowingLight]} % figure contents
+
+
+\startbuffer[TikZ:ThrowingLightGraph]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture[scale=3]% tikz code
+	%\draw [black!20, xstep=1.5, ystep=0.1] (0,0.2) grid (1.4,1.2); % Background grid
+	% x axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (0,0) --node[sloped,above=3mm]{\m{x} (ns)} (0,1.4);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (1.4,1.4) -- (1.4,0);
+	% t axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (0,0) --node[sloped,below]{\m{t} (ns)} (1.4, 0);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (0,1.4) -- (1.4,1.4);
+	% Stationary clocks
+	\draw [
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (0,0.2)node[black, left=1mm]{\m{x\si}} --node[below]{\m{\Delta t = 10\units{ns}}} ++(1.4,0); % Starting line
+	\pic at (0,0.2)  {clock};
+	\draw [black!20,
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (0,1.2)node[black, left=1mm]{\m{x\sf}} -- ++(1.4,0); % Finish line
+	\pic at (0,1.2)  {clock};
+	% Moving Clock
+	\draw[decorate, decoration={snake, segment length=2mm, amplitude=2mm, post length=5.6cm}
+	] (-0.04,-0.04) --node[above, sloped]{\m{\tau = 0}}node[below, sloped]{\m{v = 1}} (1.4,1.4);
+	% Ruler
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Minor marks
+			mark=between positions 0 and 1 step 3mm with {
+				\draw (0,2pt) -- (0,-2pt);
+			},
+		}
+	] (1.2,0.2) --node[below, sloped]{\m{\Delta x = 10\units{ns}}} ++(0,1);
+	\fill (0.2,0.2) circle[radius=.14mm] node[above]{i};
+	\fill (1.2,1.2) circle[radius=.14mm] node[above]{f};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:ThrowingLightGraph] % location, label
+{Two stationary clocks and a flash of light. Light's speed is always \m{1}. The proper time along a light path is always zero.} % caption text
+{\noindent\typesetbuffer[TikZ:ThrowingLightGraph]} % figure contents
+
+The fastest particle is the photon, which always travels at the speed of light. \in{Figure}[fig:ThrowingLight] shows an experiment measuring the photon's speed. The space-time diagram in \in{Figure}[fig:ThrowingLightGraph] shows the photon's world-line with a slope \m{v=1}. The proper time along the photon's path is 
+\startformula
+	\tau = \sqrt{(\Delta t)^2 − (\Delta x)^2}
+		= \sqrt{(10.0\units{ns})^2 − (10.0\units{ns})^2}
+		%= \sqrt{100\units{ns^2} − 64\units{ns^2}}
+		%= \sqrt{36\units{ns^2}}
+		= 0.0\units{ns}.
+\stopformula
+Proper time along a photon's path is always zero. This does not mean that events i and f happen at the same time – they do not – but no time can be measured going from one point to the other along the \m{v=1} path connecting the events.
+
+\section{Momentum and energy in the new geometry}
+Minkowski's geometry provides a new way to understand the connection between a particle's momentum and its energy. Since the world is four-dimensional, momentum should be a four-vector \m{\fourvec{p}}.
+\startformula
+	\fourvec{p} = \components{E, p_x, p_y, p_z}	
+\stopformula
+This is also called the energy-momentum vector because the time component is the particle's energy \m{E}. The magnitude of the energy-momentum four-vector is the particle's mass.
+\startformula
+	m = \vabs{\fourvec{p}}
+		= \sqrt{E^2 - p_x^2 - p_y^2 - p_z^2}
+		= \sqrt{E^2 - \vabs{\,\vec{\!p\!}\,}^2}
+\stopformula
+
+\startbuffer[TikZ:ParticleEpm]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle \small% Old style numerals in text
+\startTEXpage
+\starttikzpicture
+	\startaxis[
+		footnotesize,
+		width=2.4in,%\marginparwidth,
+		y={1cm},%x={2mm},
+		xlabel={\m{t}},
+		xmin=0, xmax=200,
+		xtick=\empty,
+		ylabel={\m{x}},
+		ymin=-0.5, ymax=2,
+		ytick=\empty,
+		]
+		\addplot[thick,smooth,domain=0:210,samples=101]{sin(x))};%node[below right, pos=.2]{\m{e}};
+		\fill (60,0.866) circle[radius=.4mm];
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (60,0.866) --node[below]{\m{E}} (150,0.866);
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (150,0.866) --node[right]{\m{p_x}} ++(0,0.433);
+   		\draw[thick,->] (60,0.866) --node[above, sloped]{\m{m}} ++(90,0.433);
+	\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:ParticleEpm] % location, label
+{A particle's world-line and the particle's four-momentum at one moment. The \m{t}-component of the four-momentum is the particle energy \m{E}. The magnitude of the four-momentum is the particle's mass \m{m}.} % caption text
+{\noindent\typesetbuffer[TikZ:ParticleEpm]} % figure contents
+\noindent
+This relationship between momentum, energy and mass is shown geometrically in \in{figure}[fig:ParticleEpm].
+When the particle has no momentum the triangle is flat and the energy is the mass, \m{E=m}. 
+When a particle gets some momentum, its energy increases in such a way that the mass remains the same. As the momentum and energy increases the triangle in \in{figure}[fig:ParticleEpm] gets wider, taller, and steeper so that the hypotenuse, according to Minkowski's formula, maintains a constant magnitude. The energy and momentum can become extremely large, but the velocity never becomes greater than \m{1}.
+
+Normally we measure mass in kilograms and energy in joules. Joules are related to kilograms by \m{1\units{J} = 1\units{kg\.m^2/s^2}}. Converting the meters to seconds to reduces the units to kilograms.
+In Minkowski's formulation, Einstein's famous \m{E=mc^2} is just a unit conversion, telling us that an object's energy when it is at rest is its mass measured in joules. This is usually a huge amount of energy, but it is not easy to turn into other useful types of energy because there is no mechanism for reducing most objects' masses. When the object is moving its energy is greater. The extra energy is the object's kinetic energy.
+
+For particles it will be convenient for us to use the energy units electron-volts for particle energy, momentum, and mass. You can covert \m{\unit{eV}} into other units if you need to, but when working with particles it is usually fine to use electron-volts for everything.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:ThrowingClocks2]
+Find the energy and velocity of an electron whose momentum is \m{p=383\units{keV}}. The mass of an electron is \m{m=511\units{keV}}.
+\startsolution
+First, solve Minkowski's formula for \m{E}.
+\startformula\startmathalignment
+\NC	m	\NC = \sqrt{E^2 - p^2}	\NR
+\NC	E	\NC	= \sqrt{m^2 + p^2}
+	= \sqrt{(511\units{keV})^2 - (383\units{keV})^2}
+	= 639\units{keV}
+\stopmathalignment\stopformula
+The speed is the slope of the triangle shown in \in{figure}[fig:ParticleEpm].
+\startformula
+	v = \frac{\Delta x}{\Delta t}
+		= \frac{p}{E}
+		= \frac{383\units{keV}}{639\units{keV}}
+		= 0.6
+\stopformula
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Minkowski's formula and the relationship and slope formula,
+\startformula
+	v = \frac{\Delta x}{\Delta t}
+		= \frac{p}{E},
+\stopformula
+will replace the old formulas for momentum (\m{\vec{p}=m\vec{v}}\,) and kinetic energy (\m{K=\onehalf mv^2}). Those formulas were fine at velocities much lower than the speed of light. These new formulas are good at any speed, including the speed of light!
+
+%Energy is a conserved quantity, and momentum is a conserved vector. Therefore,  energy-momentum is a conserved four-vector.
+
+%\subject{Notes}
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+
+%\subject{Bibliography}
+%        \placelistofpublications
+
+\stopchapter
+\stopcomponent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\startbuffer[TikZ:EuclidRulers]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle \small% Old style numerals in text
+\startTEXpage
+\starttikzpicture% tikz code
+\pic at (5,-1) [cm={0,1,-1,0,(0,0)}] {argyleruler};
+\pic at (3,-1.2) [cm={{5/13},{12/13},{-12/13},{5/13},(0,0)}] {argyleruler};
+\pic at (.8,-4.2) [cm={{3/5},{4/5},{-4/5},{3/5},(0,0)}] {argyleruler};
+\pic at (1.8,-4.8) [cm={{4/5},{3/5},{-3/5},{4/5},(0,0)}] {argyleruler};
+\pic at (3,-2.8) [cm={{12/13},{5/13},{-5/13},{12/13},(0,0)}] {argyleruler};
+\pic at (0,0)  {argyleruler};
+\pic at (0,-1.2) [cm={{12/13},{-5/13},{5/13},{12/13},(0,0)}] {argyleruler};
+%\pic at (0,-2) [cm={{4/5},{-3/5},{3/5},{4/5},(0,0)}] {argyleruler};
+%\pic at (1.8,-3.2) [cm={{3/5},{-4/5},{4/5},{3/5},(0,0)}] {argyleruler};
+\pic at (3.3,-2.9) [cm={{5/13},{-12/13},{12/13},{5/13},(0,0)}] {argyleruler};%
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:EuclidRulers] % location, label
+{These argyle rulers are all congruent with each other. The edges are the same length, as are the diagonals.} % caption text
+{\noindent\typesetbuffer[TikZ:EuclidRulers]} % figure contents
+
+\startbuffer[TikZ:LorentzRulers]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle \small% Old style numerals in text
+\startTEXpage
+\starttikzpicture% tikz code
+%\draw (0,1) rectangle (5,-6);
+%\pic at (0,5) [cm={{13/5},{12/5},{12/5},{13/5},(0,0)}] {argyleruler};
+\pic at (0.4,-4.5) [cm={{5/3},{4/3},{4/3},{5/3},(0,0)}] {argyleruler};
+\pic at (0,-6) [cm={{5/4},{3/4},{3/4},{5/4},(0,0)}] {argyleruler};
+%\pic at (0,2) [cm={{13/12},{5/12},{5/12},{13/12},(0,0)}] {argyleruler};
+\pic at (2.7,-0.5) [cm={{41/40},{9/40},{9/40},{41/40},(0,0)}] {argyleruler};
+\pic at (0,0)  {argyleruler};
+\pic at (2.9,-5.5) [cm={{41/40},{-9/40},{-9/40},{41/40},(0,0)}] {argyleruler};
+\pic at (.4,-1.2) [cm={{13/12},{-5/12},{-5/12},{13/12},(0,0)}] {argyleruler};
+%\pic at (1,-5) [cm={{5/4},{-3/4},{-3/4},{5/4},(0,0)}] {argyleruler};
+%\pic at (2,-4) [cm={{5/3},{-4/3},{-4/3},{5/3},(0,0)}] {argyleruler};
+\draw (0,-6) -- ++(2.5,0) -- ++(0,1.5);
+		\foreach \x in {1,2,...,19}{
+			\draw (\x mm,0mm) -- ++(0mm,.5mm);
+			\draw (\x mm,10mm) -- ++(0mm,-.5mm);
+		}
+		\foreach \x in {10,20}{
+			\draw (\x mm,0mm) -- ++(0mm,1mm);
+			\draw (\x mm,10mm) -- ++(0mm,-1mm);
+		}
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:LorentzRulers] % location, label
+{These argyle rulers are congruent in Minkowski's geometry of space-time. The marked edges are the same magnitude – using Minkowski's formula. The diagonal's magnitudes are all zero!} % caption text
+{\noindent\typesetbuffer[TikZ:LorentzRulers]} % figure contents
+
+% Templates:
+
+% Margin image
+\placefigure[margin][] % Location, Label
+{} % Caption
+{\externalfigure[chapter03/][width=144pt]} % File
+
+% Margin Figure
+\startbuffer[TikZ:NAME]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:NAME] % Location, Label
+{}	 % caption text
+{\noindent\typesetbuffer[TikZ:NAME]}
+
+% Aligned equation
+\startformula\startmathalignment
+\stopmathalignment\stopformula
+
+% Aligned Equations
+\startformula\startmathalignment[m=2,distance=2em]
+\stopmathalignment\stopformula

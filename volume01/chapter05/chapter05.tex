@@ -1,0 +1,1218 @@
+% !TEX useOldSyncParser
+\startcomponent c_chapter05
+\project project_world
+\product prd_volume01
+
+\doifmode{*product}{\setupexternalfigures[directory={chapter05/images}]}
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title=Potential Energy, reference=ch:PotentialEnergy]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\placefigure[margin,none]{}{\small
+	\startalignment[flushleft]
+At this point it may be suitable to admonish – since to many anything new is suspect – that I conceived the whole Theory in my mind, wrote the treatise, communicated most of it privately among friends, even sketched some things in the presence of the Society, before I undertook any experiment,\dots at last the experiments were made before friends and they agreed with the Theory as much as I myself could barely hope.\autocite{p.4}{DBernoulli1968}
+	\stopalignment
+	\startalignment[flushright]
+	{\it Hydrodynamics}\\
+	{\sc Daniel Bernoulli}\\
+	1700–1782
+	\stopalignment
+}
+
+\Initial{P}{endulums, especially pendulum collisions,} provided the first clues needed to understand both momentum and kinetic energy. Galileo discovered another intriguing pendulum property, this time using the interrupted pendulum. Figure~\ref{fig:InterruptedPendulum1} shows this pendulum, which Galileo describes in \booktitle{Two New Sciences}.
+
+%  conservation of height with a with a simple interrupted pendulum,
+\startbuffer[TikZ:InterruptedPendulum1]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\fill (0,3) circle[radius=.4mm]node[above left]{A}; % Pivot
+	\node at (0,0) [below left]{B}; % Bottom
+	\draw (0,-0.2) -- (0,3.2); % Central vertical
+	\node at (-2.4,1.2) [above=1mm]{C}; % Left
+	\node at (2.4,1.2) [above=1mm]{D}; % Right
+	\draw (-2.54,1.2) -- (2.54,1.2); % horizontal at max height
+	\draw[thick] (0,3) -- (0,0); % String
+	\draw[ball color=white] (0,0) circle[radius=1mm]; % Ball
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:InterruptedPendulum1] % Location, Label
+{Galileo’s pendulum consists of a ball at B hanging from a nail at A by a thread.}	 % caption text
+{\noindent\typesetbuffer[TikZ:InterruptedPendulum1]} % Redrawn, reversed Galileo diagram
+% {\externalfigure[GalileoInturuptedPendulum][width=144pt]} % Original from Galileo
+
+\startblockquote
+	Imagine this page to represent a vertical wall with a nail driven into it; and from the nail let there be suspended a lead ball of about fifty grams by means of a fine vertical thread, AB, say approximately a meter long;\dots\autocite{p.~343, "one or two ounces" changed to "about fifty grams," \quotation{two or three cubits} changed to \quotation{approximately a meter.}}{Galileo1638}
+\stopblockquote
+The thread must hang a few centimeters front of the wall so that the lead ball can swing freely without touching the wall.
+\startbuffer[TikZ:InterruptedPendulum2]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\fill (0,3) circle[radius=.4mm]node[above left]{A}; % Pivot
+	\node at (0,0) [below left]{B}; % Bottom
+	\draw (0,-0.2) -- (0,3.2); % Central vertical
+	\node at (-2.4,1.2) [above=1mm]{C}; % Left
+	\node at (2.4,1.2) [above=1mm]{D}; % Right
+	\draw (-2.54,1.2) -- (2.54,1.2); % horizontal at max height
+	% Pendulum path
+	\draw[] (0,0) arc[start angle=270, end angle=217, radius=3cm];
+	\draw[] (0,0) arc[start angle=270, end angle=323, radius=3cm];
+	\draw[thick, opacity=.5] (0,3) -- (-2.4,1.2); % String
+	\draw[ball color=white, opacity=.5] (-2.4,1.2) circle[radius=1mm]; % Ball
+	\draw[thick] (0,3) -- (2.4,1.2); % String
+	\draw[ball color=white] (2.4,1.2) circle[radius=1mm]; % Ball
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:InterruptedPendulum2] % Location, Label
+{Galileo’s pendulum always swings from C through B to D, reaching the original height.}	 % caption text
+{\noindent\typesetbuffer[TikZ:InterruptedPendulum2]} % Redrawn, reversed Galileo diagram
+
+\startblockquote
+	\dots on this wall draw a horizontal line CD, at right angles to the vertical thread AB\dots. Now bring the thread AB with the attached ball into the position AC and set it free [fig.~\ref{fig:InterruptedPendulum2}]; first it will be observed to descend along the arc CBD, to pass the point B, and to travel along the arc BD, till it almost reaches the horizontal CD, a slight shortage being caused by the resistance of the air and of the string; from this we may rightly infer that the ball in its descent through the arc CB acquired an impetus on reaching B that was just sufficient to carry it through a similar arc BC to the same height.\autocite{p.~343-4 for all of the remaining Galileo quotes in this section.}{Galileo1638}
+\stopblockquote
+As we have seen, attempts to quantify Galileo’s impetus caused great confusion because there are \emph{two} quantities, momentum and kinetic energy, that are both important for understanding an object’s motion.
+With luck, one of these will be the \quotation{impetus} acquired in the ball’s descent and sufficient for the ball’s ascent to the same height.
+\startbuffer[TikZ:InterruptedPendulum3]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\fill (0,3) circle[radius=.4mm]node[above left]{A}; % Pivot
+	\node at (0,0) [below left]{B}; % Bottom
+	\draw (0,-0.2) -- (0,3.2); % Central vertical
+	\node at (-2.4,1.2) [above=1mm]{C}; % Left
+	\node at (2.4,1.2) [above=1mm]{D}; % Right
+	\fill (0,2) circle[radius=.4mm]node[left]{E}; % 2nd nail
+	\node at (1.833,1.2) [above=1mm]{G}; % Right
+	\draw (-2.54,1.2) -- (2.54,1.2); % horizontal at max height
+	% Pendulum path
+	\draw[] (0,0) arc[start angle=270, end angle=217, radius=3cm];
+	\draw[] (0,0) arc[start angle=270, end angle=323, radius=3cm];
+	\draw[] (0,0) arc[start angle=270, end angle=336.4, radius=2cm];
+	\draw[thick, opacity=.5] (0,3) -- (-2.4,1.2); % String
+	\draw[ball color=white, opacity=.5] (-2.4,1.2) circle[radius=1mm]; % Ball
+	\draw[thick] (0,3) -- (0,2); % String
+	\draw[thick] (0,2) -- (1.833,1.2); % String
+	\draw[ball color=white] (1.833,1.2) circle[radius=1mm]; % Ball
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:InterruptedPendulum3] % Location, Label
+{Galileo’s interrupted pendulum always swings to the same height, even when the string hits a nail placed at E, below the pivot.}	 % caption text
+{\noindent\typesetbuffer[TikZ:InterruptedPendulum3]} % Redrawn, reversed Galileo diagram
+\startblockquote
+	Having repeated this experiment many times, let us now drive a nail into the wall\dots say at E [fig.~\ref{fig:InterruptedPendulum3}]\dots so that it projects out some ten to fifteen centimeters in order that the thread, again carrying the ball through the arc CB, may strike upon the nail E when the ball reaches B, and thus compel it to traverse the arc BG, described about E as center. %\quotation{five or six inches} changed to \quotation{ten to fifteen centimeters.}
+\stopblockquote
+The nail at E interrupts that pendulum’s swing, and the ball travels up the steeper arc BG.
+\startblockquote
+	You will be pleased to see that the ball swings to the point G in the horizontal\dots
+\stopblockquote
+Galileo noticed that G is the same height as C and D. The interruption does not make G higher by reducing the length of the ascending path, nor does it make G lower by making the path steeper. The \quotation{impetus} acquired by the pendulum during its descent from C to B is exactly enough to carry it up the ascent from B to the G.
+\startbuffer[TikZ:InterruptedPendulum4]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\fill (0,3) circle[radius=.4mm]node[above left]{A}; % Pivot
+	\node at (0,0) [below left]{B}; % Bottom
+	\draw (0,-0.2) -- (0,3.2); % Central vertical
+	\node at (-2.4,1.2) [above=1mm]{C}; % Left
+	\node at (2.4,1.2) [above=1mm]{D}; % Right
+	\fill (0,2) circle[radius=.4mm]node[left]{E}; % 2nd nail
+	\fill (0,1) circle[radius=.4mm]node[left]{F}; % 3nd nail
+	\node at (1.833,1.2) [above=1mm]{G}; % Right
+	\node at (0.98,1.2) [above=1mm]{I}; % Right
+	\draw (-2.54,1.2) -- (2.54,1.2); % horizontal at max height
+	% Pendulum path
+	\draw[] (0,0) arc[start angle=270, end angle=217, radius=3cm];
+	\draw[] (0,0) arc[start angle=270, end angle=323, radius=3cm];
+	\draw[] (0,0) arc[start angle=270, end angle=336.4, radius=2cm];
+	\draw[] (0,0) arc[start angle=270, end angle=371.5, radius=1cm];
+	\draw[thick, opacity=.5] (0,3) -- (-2.4,1.2); % String
+	\draw[ball color=white, opacity=.5] (-2.4,1.2) circle[radius=1mm]; % Ball
+	\draw[thick] (0,3) -- (0,1); % String
+	\draw[thick] (0,1) -- (0.98,1.2); % String
+	\draw[ball color=white] (0.98,1.2) circle[radius=1mm]; % Ball
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:InterruptedPendulum4] % Location, Label
+{Galileo’s interrupted pendulum again swings to the same height when the string hits a nail placed at F.}	 % caption text
+{\noindent\typesetbuffer[TikZ:InterruptedPendulum4]} % Redrawn, reversed Galileo diagram
+\startblockquote
+\dots and you would see the same thing happen if the obstacle were placed at some lower point, say at F [fig.~\ref{fig:InterruptedPendulum4}], about which the ball would describe the arc BI, the rise of the ball always terminating exactly on the line CD.%\autocite{p.~344}{Galileo1638}
+\stopblockquote
+%Placing the nail even lower at F gives the same result. The path from B to I is even shorter and steeper, but I’s height is the same as the height of C, D, and G.
+In fact, the interrupting nail does not have to be directly below the pivot at A, it can be anywhere. I find this experiment surprisingly entertaining. Galileo clearly enjoyed it as well.
+\startblockquote
+	But when the nail is placed so low that the remainder of the thread below it will not reach to the height CD (which would happen if the nail were placed nearer to B than to the intersection of AB with the horizontal CD), then the thread leaps over the nail and twists itself about it.
+\stopblockquote
+If you know a five-year-old, then you have a perfect partner for this experiment. If you do not, you have my permission to try it anyway.
+
+Huygens, who discovered the conservation of \m{mv} and \m{mv^2} in pendulum collisions, also studied the colliding pendulums’ initial and final heights, and again he discovered something quite remarkable.
+Pendulums of different masses may be released from various heights. Then, after the colliding with each other, those masses will ascend to other various heights. Huygens discovered that for elastic collisions the total of the masses times their heights (total \m{mh}, where \m{h} is the mass’s height) is the same before and after the collision.
+
+Huygens then related the total \m{mh} at release to the total \m{mv^2} at the collision, showing that the total \m{mh} lost in the masses’ descent is proportional to the \m{mv^2} right before the collision. Likewise the total \m{mv^2} right after the collision is proportional to the total \m{mh} gained in the masses’ ascent.
+%Huygens made all of the observations before Newton introduced momentum, before Leibniz introduced \visviva, and long before the concept of kinetic energy. None the less, we should take a moment to understand his observation in modern physics language.
+%Huygens then took on the problem of what happens before the system returns to rest. Galileo had shown that pendulum descends the loss of height is proportional to the increase in square of the pendulum’s speed.
+%Between the moments of initial and final rest the masses descend and pick up some kinetic energy, exchange that energy in the collisions, and then loose the kinetic energy as they ascend.
+Huygens extended his analysis to any system moved by gravity. Whenever the system’s total \m{mh} decreased, the total \m{mv^2} would increase proportionally; when the total \m{mh} increased, the total \m{mv^2} would decrease proportionally. In Huygens’ view, a system in motion always has the potential to ascend to a greater height and come to rest. Even though the system’s actual height may be lower, this potential height is conserved. Considering Galileo’s interrupted pendulum Huygens would say that as the pendulum swings through B it has the potential to ascend to the line CD, which it does.
+
+Johann Bernoulli, an early advocate for \visviva\, saw the situation from the opposite perspective. To him, the initial heights represented stored \visviva. When the pendulums were released the \visviva\ could emerge during the descent only to return to the stored state during the ascent. In this view the conservation of \visviva\ must take into account the stored \visviva\ in the total \m{mh} as well as the total \m{mv^2} in the motion. Considering Galileo’s interrupted pendulum, Bernoulli would say that the pendulum at C contains potential \visviva, which becomes actual \visviva during the descent to B. This \visviva\ then returns to its stored, potential \visviva\ during the ascent to line CD.
+
+As a practical matter, Huygen’s view and Bernoulli’s view are interchangeable. The modern view does not prefer either form. Energy is changing from a static state to a moving state and then back. The moving state is kinetic energy. The static form of energy is called potential energy.
+
+The relationship between Huygens’ heights and \visviva\ was already getting very complicated when Johann Bernoulli’s son, Daniel Bernoulli, decided to solve the problem of motions and pressures in fluids. The younger Bernoulli did not attempt to demonstrate mathematically that Huygen’s relationship between total \m{mh} and \m{mv^2} applies to fluids (or, equivalently, that fluids obey conservation of \visviva). Instead he assumed, as a hypothesis, that this relationship applies to fluids and then used the relationship to make predictions. He describes this project in the introduction to his revolutionary work on fluids, \booktitle{Hydrodynamica}, published in 1738 (two years prior to Du Châtlet’s \booktitle{Foundations}).
+
+\startblockquote
+	It is amazing how much utility this hypothesis may have in mechanical Philosophy\dots it is the same [hypothesis] that I employed for investigating in fluids the laws of motion arising from their own gravity\dots However, I preferred to adopt this hypothesis with Huygenian rather than Paternal words, and to mark it with the name of \textit{the equality between actual descent and potential ascent,} rather than by that other of \textit{conservation of \visviva,} which some even yet dislike, chiefly in England, I know not by what misfortune.\autocite{p.~12-3.}{DBernoulli1968}
+\stopblockquote
+The complicated systems of pipes, tanks, and fountains studied by Daniel Bernoulli were vastly more complex than the systems considered by Huygens and the elder Bernoulli, but the energy conservation law Daniel Bernoulli used to analyze these systems is quite simple. In his study of fluids, Daniel Bernoulli was the first to carefully account for the system’s kinetic and potential energy, as well as any energy added or removed through the work of outside forces. This careful application of a simple law produced a an abundant harvest of detailed and often surprising predictions.
+Daniel Bernoulli refers to these predictions as \quotation{theorems} because they each follow logically from the law of conservation of energy.
+%\startblockquote
+%	in this way much presents itself that was previously unknown, not only about the motion of water but also, as one can see, surprisingly, about its pressure which, with no Analysis yet performed, no one will have easily foreseen or expected.\autocite{p.~13.}{DBernoulli1968}
+%\stopblockquote
+\startblockquote
+	The Theorems which are presented are not only new, but the majority are unexpected, of the truth of all of which I was not able to convince myself clearly until I had conducted experiments which removed all my doubt.\autocite{p.~10.}{DBernoulli1968}
+\stopblockquote
+Every experiment testing these predictions also a tests the conservation law on which these predictions are based. The remarkable agreement between predictions and experiments gave Daniel Bernoulli great confidence in the law of conservation of energy.
+
+\section{Gravitational potential energy}
+
+The complicated systems studied by Huygens and D.~Bernoulli all store energy as \keyterm{gravitational potential energy}. Luckily, we can understand gravitational potential energy by applying D.~Bernoulli’s insights to Galileo’s simple pendulum experiments. A version of Galileo’s pendulum with a \m{150\units{g}} mass is shown in figure~\in[fig:GalileoPendulum1].
+
+\startbuffer[TikZ:GalileoPendulum1]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\draw [help lines, xstep=8, ystep=.34] (-4.3,0) grid (4.3,4.3); % Background grid
+%	\draw (-4.3,-0.5) rectangle (4.3,4.5); % Border
+	% h axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0)
+				node[left]{
+					\pgfmathparse{
+						-10+10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,-4pt);
+			},
+		}
+	] (-4.3,0) -- (-4.3,4);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (-4.3,0) --node[sloped,above=5mm]{\m{h} (cm)} (-4.3,4);
+	% U axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 6.8mm with {
+				\draw (0,0)
+				node[right]{
+					\pgfmathparse{
+						0.1*(-1+\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						})
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,4pt);
+			},
+		}
+	] (4.3,0) -- (4.3,4.082);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3.4mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (4.3,0) --node[sloped,below=6mm]{\m{U} (J)} (4.3,4.082);
+	\fill (0,4) circle[radius=.4mm]node[above left]{A}; % Pivot
+	\node at (0,0) [below left]{B}; % Bottom
+	\draw (0,-0.2) -- (0,4.2); % Central vertical
+	\node at (-3.2,1.6) [above=2mm]{C}; % Left
+	\node at (3.2,1.6) [above=1mm]{D}; % Right
+%	\fill (0,2) circle[radius=.4mm]node[left]{E}; % 2nd nail
+%	\fill (0,1) circle[radius=.4mm]node[left]{F}; % 3nd nail
+%	\node at (1.833,1.6) [above=1mm]{G}; % Right
+%	\node at (0.98,1.6) [above=1mm]{I}; % Right
+	\draw (-4.0,1.6) -- (4.0,1.6); % horizontal at max height
+	% Pendulum path
+%	\draw[] (0,0) arc[start angle=270, end angle=336.4, radius=2cm];
+%	\draw[] (0,0) arc[start angle=270, end angle=371.5, radius=1cm];
+	% Positive on the right
+	\draw[
+%		postaction={decorate},
+%		decoration={
+%			markings, % Main marks
+%			mark=between positions 0 and 1 step 1cm with {
+%				\draw (0,0) -- (0,-4pt)
+%				node[below,transform shape]{
+%					\pgfmathparse{
+%						-10+10*\pgfkeysvalueof{%
+%							/pgf/decoration/mark info/sequence number%
+%						}
+%					}
+%					\pgfmathprintnumber{\pgfmathresult}
+%				};
+%			},
+%		}
+	] (0,0) arc[start angle=270, end angle=323.1, radius=4cm];
+%	\draw[
+%		postaction={decorate},
+%		decoration={
+%			markings, % Main marks
+%			mark=between positions 0 and 1 step 0.998mm with {
+%				\draw (0,0) -- (0,-2pt);
+%			},
+%		}
+%	] (0,0) arc[start angle=270, end angle=360, radius=5cm];
+	% Negative on the left
+	\draw[
+%		postaction={decorate},
+%		decoration={
+%			markings, % Main marks
+%			mark=between positions 0 and 1 step 1cm with {
+%				\draw (0,0) -- (0,4pt)
+%				node[below,font=transform shape,rotate=180]{
+%					\pgfmathparse{
+%						10-10*\pgfkeysvalueof{%
+%							/pgf/decoration/mark info/sequence number%
+%						}
+%					}
+%					\pgfmathprintnumber{\pgfmathresult}
+%				};
+%			},
+%		}
+	] (0,0) arc[start angle=270, end angle=216.9, radius=4cm];
+%	\draw[
+%		postaction={decorate},
+%		decoration={
+%			markings, % Main marks
+%			mark=between positions 0 and 1 step 0.998mm with {
+%				\draw (0,0) -- (0,2pt);
+%			},
+%		}
+%	] (0,0) arc[start angle=270, end angle=180, radius=5cm];
+	% Pendulum
+	\draw[thick] (0,4) --node[sloped,above]{\m{40\units{cm}}} (-3.2,1.6); % String
+	\draw[ball color=white] (-3.2,1.6) circle[radius=2mm]; % Ball , opacity=.5
+	\fill (-3.2,1.6) circle[radius=.4mm]; % CoM
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[top][fig:GalileoPendulum1] % location
+{A smaller version of Galileo’s pendulum. Both the heigh \m{h} and the gravitational potential energy \m{U} are shown for this \m{150\units{g}} pendulum.}	 % caption text
+{\noindent\typesetbuffer[TikZ:GalileoPendulum1]} % figure contents
+
+To perform his experiment, Galileo brings the pendulum to position C where it has some gravitational potential energy.
+The symbol for any type of potential energy is \m{U}. The formula for gravitational potential energy is
+\startformula
+	U = mgh.
+\stopformula
+Along with Hugyens’ \m{mh}, this formula includes \m{g}, which is the same \m{9.8\units{m/s^2}} found in the formula for gravitational force, \m{F = mg}. The \m{g} is included because Earth’s gravitational attraction makes this energy storage passible. On the moon, where \m{g} is smaller, lifting an object requires less work, but it also stores less gravitational potential energy.
+
+%\placefigure[margin][fig:GravPotentialEnergy] % location
+%{Gravitational potential energy is proportional to the mass and the height.}	% caption text
+%{\externalfigure[GravPotentialEnergy][width=144pt]} % File
+
+We will measure the hight \m{h} from the equilibrium point at B, as shown on the left side of figure~\in[fig:GalileoPendulum1]. At C the balls height is \m{16\units{cm}}, so its gravitational potential energy is
+\startformula
+	U = mgh
+		= (0.150\units{kg})(9.8\units{m/s^2})(0.16\units{m})
+		= 0.24\units{kg\.m^2/s^2}
+		= 0.24\units{J}
+\stopformula
+The final answer has energy units, as it should. The pendulum at C has \m{0.26\units{J}} of gravitational potential energy.
+
+This gravitational potential energy was stored in the ball when Galileo moved the ball from B to C, which required him to do some work on the pendulum.
+
+\startexample[ex:GalileoPendulum1] How much work did Galileo do on the \m{150\units{g}} pendulum when he moved it from its equilibrium position at B to the point C, \m{16\units{cm}} higher?
+\startsolution
+	Following Daniel Bernoulli, we start with the law of conservation of energy. The total energy includes both kinetic and potential energy, that is \m{H\si=K\si+U\si} and \m{H\sf=K\sf+U\sf}.
+\startformula\startmathalignment
+\NC	H\si + W + \cancel{Q}	\NC = H\sf			\NR
+\NC	K\si + U\si + W			\NC = K\sf + U\sf	\NR
+\stopmathalignment\stopformula
+	Since the pendulum starts motionless at B and ends motionless at C, the initial and final kinetic energies are both zero. The initial height of the ball at B is zero, so the initial gravitational potential energy is zero. Only the work and final gravitational potential energy remain.
+\startformula\startmathalignment
+\NC	\cancel{K\si} + \cancel{U\si} + W	\NC = \cancel{K\sf} + U\sf	\NR
+\NC	W							\NC = 0.24\units{J}	\NR
+\stopmathalignment\stopformula
+	Galileo did \m{0.24\units{J}} of work on the pendulum when he moved it from B to C.
+\stopsolution
+\stopexample
+
+Whenever you are asked to calculate work you should consider using the work formula \m{W = F_x\Delta x + F_y\Delta y + F_z\Delta z}, but that would have been a poor choice here. You do not know the force Galileo applied and it almost certainly was not a constant force, making this into a calculus problem. Conservation of energy only requires the direct calculation of initial and final energies, which is much easier.
+
+The height \m{h} can be measured from the floor, a table top, sea level, or any other convenient reference, as long as that reference stays in place for the entire calculation. A convenient choice is often the lowest point of the motion, like the point B along the path of Galileo’s pendulum. The pendulum’s gravitational potential energy, calculated from the ball’s height, is shown for all heights along the right side of figure~\in[fig:GalileoPendulum1]. Using a different reference point, like the floor, shifts all of the heights on the left and all of the potential energies on the right. However, this would not force Galileo to do more work. No matter where the reference point is, he moves the pendulum from B to C, increasing the height by \m{16\units{cm}}. This increases the potential energy by \m{0.24\units{J}}, so he still does \m{0.24\units{J}} of work on the pendulum.
+
+\startexample[ex:GalileoPendulum1] Galileo releases the pendulum at point C and it swings through the equilibrium point B. What is the ball’s speed as it passes through B?
+\startsolution
+The descending pendulum’s gravitational potential energy will decrease during the descent, and the kinetic energy will increase by the same amount. All of this is accounted for using the law of conservation of energy, this time without any outside force doing work.
+	\startformula\startmathalignment
+	\NC	H\si + \cancel{W} + \cancel{Q}	\NC = H\sf		\NR
+	\NC	K\si + U\si					\NC = K\sf + U\sf
+	\stopmathalignment\stopformula
+	The pendulum starts motionless at C, so the initial kinetic energy is zero. When the pendulum reaches B, the gravitational potential energy is zero. Only the initial potential energy and final kinetic energies remain.
+	\startformula\startmathalignment
+	\NC	U\si	\NC = K\sf 	\NR
+	\NC	mgh	\NC = \half mv^2	\NR
+	\NC	v	\NC = \sqrt{2gh}
+				= \sqrt{2(9.8\units{m/s^2})(0.16\units{m})}
+				= 0.89\units{m/s}
+	\stopmathalignment\stopformula
+The ball passes through B at \m{0.89\units{m/s}}.
+\stopsolution
+\stopexample
+
+In the solution above I asserted that there is no work done by outside forces. You might object – the nail exerts a force on the string, the string exerts a force on the ball, and Earth exerts a downwards for on the ball as well. Any one of these could do work!
+
+However, the nail does no work because it has no displacement. The string is attached to the ball, which does have a displacement, but the displacement is always perpendicular to the force exerted by the string, so the string also does no work. (The nail and string do contribute momentum to the ball, which one reason why we would not want to solve this problem using conservation of momentum.)
+
+The most serious challenge is the Earth’s gravitational force, which does do work. We can include that work or not depending on what we chose to include in the system being studied.
+%This problem could have been solved using the work done by the gravitational force on the pendulum during the descent from C to B. The difference between my solution and the solution using work is the choice of the system being studied.
+The pendulum’s kinetic energy is a property of the pendulum. To study pendulum’s the motion we must include the pendulum’s kinetic energy in our system.
+
+The gravitational potential energy is not actually in the pendulum, nor is it in the Earth which is pulling down on the pendulum. The gravitational potential energy is in the gravitational field surrounding the pendulum. We can chose to include this potential energy in our system or not. If you chose to make the box the only thing in the system, then the gravitational force is an outside force that does work. Since the potential energy is outside the system it does not contribute to the total energy, therefore \m{H=K}. Using this method the solution looks like this:
+	\startformula\startmathalignment
+	\NC	H\si + W + \cancel{Q}		\NC = H\sf			\NR
+	\NC	\cancel{K\si} + F_y\Delta y	\NC = K\sf			\NR
+	\NC	(-mg)(-h)					\NC = \half mv^2	\NR
+	\NC	v						\NC = \sqrt{2gh}
+						= \sqrt{2(9.8\units{m/s^2})(0.16\units{m})}
+							= 0.89\units{m/s}
+	\stopmathalignment\stopformula
+There are some tricky signs in the middle, but the final answer is exactly the same.
+While both methods are acceptable, you should include the gravitational potential energy \m{U} in the system.
+Daniel Bernoulli taught that including \m{U} in the system is both easier and gives us a better insight.
+
+If you include the gravitational potential energy in the system, as I did originally, then the gravitational force is not an external force, it is internal to the system. This force plays a roll in moving energy from one part of the system (the gravitational field) to another part (the box), but it does not add any energy to the system, nor does it remove any energy from the system. That is why there was no external work in my solution.
+
+During the descent and assent the pendulum’s energy is split between gravitational potential energy and kinetic energy. The gradual decrease in gravitational potential energy during the descent and the increase during the assent are graphed in figure~\in[fig:GalileoPendulumGraphU]. The energy is shown as a function of the ball’s position \m{s} along the curved path, as shown in figure\in[fig:GalileoPendulumPath1]. The gravitational potential energy is determined by the height of each position, and can be graphed for all positions along the path. The equilibrium point is the point of lowest potential energy at \m{s=0\units{cm}}.
+
+\startbuffer[TikZ:GalileoPendulumPath1]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\draw [help lines, xstep=8, ystep=.34] (-4.3,0) grid (4.3,4.3); % Background grid
+%	\draw (-4.3,-0.5) rectangle (4.3,4.5); % Border
+	% h axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0)
+				node[left]{
+					\pgfmathparse{
+						-10+10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,-4pt);
+			},
+		}
+	] (-4.3,0) -- (-4.3,4);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (-4.3,0) --node[sloped,above=5mm]{\m{h} (cm)} (-4.3,4);
+	% U axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 6.8mm with {
+				\draw (0,0)
+				node[right]{
+					\pgfmathparse{
+						0.1*(-1+\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						})
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,4pt);
+			},
+		}
+	] (4.3,0) -- (4.3,4.082);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3.4mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (4.3,0) --node[sloped,below=6mm]{\m{U} (J)} (4.3,4.082);
+	\fill (0,4) circle[radius=.4mm]; % Pivot
+%	\node at (0,0) [above left]{B}; % Bottom
+%	\draw (0,-0.2) -- (0,4.2); % Central vertical
+%	\node at (-3.2,1.6) [above=2mm]{C}; % Left
+%	\node at (3.2,1.6) [above=1mm]{D}; % Right
+%	\fill (0,2) circle[radius=.4mm]node[left]{E}; % 2nd nail
+%	\fill (0,1) circle[radius=.4mm]node[left]{F}; % 3nd nail
+%	\node at (1.833,1.6) [above=1mm]{G}; % Right
+%	\node at (0.98,1.6) [above=1mm]{I}; % Right
+%	\draw (-4.0,1.6) -- (4.0,1.6); % horizontal at max height
+	% Pendulum path
+%	\draw[] (0,0) arc[start angle=270, end angle=336.4, radius=2cm];
+%	\draw[] (0,0) arc[start angle=270, end angle=371.5, radius=1cm];
+	% Positive on the right
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0) -- (0,-4pt)
+				node[below,transform shape]{
+					\pgfmathparse{
+						-10+10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				};
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=339, radius=4cm];
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 0.998mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=339, radius=4cm];
+	% Negative on the left
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0) -- (0,4pt)
+				node[below, transform shape, rotate=180]{
+					\pgfmathparse{
+						10-10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				};
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 0.998mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
+	\node at (0,0) [below=5mm]{\m{s} (cm)};
+	% Pendulum
+	\draw[thick] (0,4) --node[sloped,above]{\m{40\units{cm}}} (0,0); % String
+	\draw[ball color=white] (0,0) circle[radius=2mm]; % Ball , opacity=.5
+	\fill (0,0) circle[radius=.4mm]; % CoM
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[top][fig:GalileoPendulumPath1] % location
+{Galileo’s pendulum with the position \m{s} shown along the ball’s curved path.}	 % caption text
+{\noindent\typesetbuffer[TikZ:GalileoPendulumPath1]} % figure contents
+
+\startbuffer[TikZ:GalileoPendulumGraphU]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\startaxis[
+			scale only axis,
+			x={1mm},y={68mm},
+			xmin=-48, xmax=48,
+			minor x tick num=1,
+			xlabel=\m{s} (cm),
+			%axis x line=none,
+			%axis y line*=right,
+			ymin=0, ymax=0.6,
+			minor y tick num=3,
+			ylabel=Energy (J),
+			grid=both
+		]
+		\addplot[thick, domain=-50:50] {0.588*(1-cos(deg(x/40)))}node[above right,pos=.1]{\m{U}};
+		%\addplot[thick, domain=0:75] {0.2205*(1-cos(deg(x/15))};
+%		\draw[thin](-37,0) --node[pos=.7, below, sloped]{Release Position} (-37,.7);
+%		\addplot[thick, red, domain=-37:37] {0.235}node[above, pos=.3]{\m{H}};
+%		\addplot[thick, red, domain=-37:37] {0.235-0.588*(1-cos(deg(x/40))}node[below right, pos=.6]{\m{K}};
+%		\addplot[thick, red, domain=0:23] {0.22-0.2205*(1-cos(deg(x/15))};
+%	\draw[red, thin](37,0) --node[pos=.7, above, sloped]{Turning Point} (37,.7);
+	\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[bottom][fig:GalileoPendulumGraphU] % location
+{An energy graph showing the ball’s gravitational potential energy as a function of position \m{s} along the curved path.}	% caption text
+{\noindent\typesetbuffer[TikZ:GalileoPendulumGraphU]} % figure contents
+
+Galileo began his experiment by moving the pendulum from the equilibrium position at \m{s=0\units{cm}} to the position \m{s=-37\units{cm}}, as show in figure~\in[fig:GalileoPendulumPath2]. The gravitational potential energy at this release position \m{U=0.24\units{J}}, as shown on the graph in figure~\in[fig:GalileoPendulumGraphHK]. At the moment of release the pendulum’s kinetic energy is \m{K=0\units{J}}, so its total energy is \m{H = U + K = 0.24\units{J} + 0\units{J} = 0.24\units{J}}, which is also shown on the energy graph in figure~\in[fig:GalileoPendulumGraphHK].
+
+\startbuffer[TikZ:GalileoPendulumPath2]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\draw [help lines, xstep=8, ystep=.34] (-4.3,0) grid (4.3,4.3); % Background grid
+%	\draw (-4.3,-0.5) rectangle (4.3,4.5); % Border
+	% h axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0)
+				node[left]{
+					\pgfmathparse{
+						-10+10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,-4pt);
+			},
+		}
+	] (-4.3,0) -- (-4.3,4);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (-4.3,0) --node[sloped,above=5mm]{\m{h} (cm)} (-4.3,4);
+	% U axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 6.8mm with {
+				\draw (0,0)
+				node[right]{
+					\pgfmathparse{
+						0.1*(-1+\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						})
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,4pt);
+			},
+		}
+	] (4.3,0) -- (4.3,4.082);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3.4mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (4.3,0) --node[sloped,below=6mm]{\m{U} (J)} (4.3,4.082);
+	\fill (0,4) circle[radius=.4mm]; % Pivot
+%	\node at (0,0) [above left]{B}; % Bottom
+%	\draw (0,-0.2) -- (0,4.2); % Central vertical
+%	\node at (-3.2,1.6) [above=2mm]{C}; % Left
+%	\node at (3.2,1.6) [above=1mm]{D}; % Right
+%	\fill (0,2) circle[radius=.4mm]node[left]{E}; % 2nd nail
+%	\fill (0,1) circle[radius=.4mm]node[left]{F}; % 3nd nail
+%	\node at (1.833,1.6) [above=1mm]{G}; % Right
+%	\node at (0.98,1.6) [above=1mm]{I}; % Right
+%	\draw (-4.0,1.6) -- (4.0,1.6); % horizontal at max height
+	% Pendulum path
+%	\draw[] (0,0) arc[start angle=270, end angle=336.4, radius=2cm];
+%	\draw[] (0,0) arc[start angle=270, end angle=371.5, radius=1cm];
+	% Positive on the right
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0) -- (0,-4pt)
+				node[below,transform shape]{
+					\pgfmathparse{
+						-10+10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				};
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=339, radius=4cm];
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 0.998mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=339, radius=4cm];
+	% Negative on the left
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0) -- (0,4pt)
+				node[below, transform shape, rotate=180]{
+					\pgfmathparse{
+						10-10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				};
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 0.998mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
+	\node at (0,0) [below=5mm]{\m{s} (cm)};
+	% Pendulum
+	\draw[thick] (0,4) --node[sloped,above]{\m{40\units{cm}}} (-3.2,1.6); % String
+	\draw[ball color=white] (-3.2,1.6) circle[radius=2mm]; % Ball , opacity=.5
+	\fill (-3.2,1.6) circle[radius=.4mm]; % CoM
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[top][fig:GalileoPendulumPath2] % location
+{Galileo’s pendulum at the release position \m{s=\units{-37cm}}.}	 % caption text
+{\noindent\typesetbuffer[TikZ:GalileoPendulumPath2]} % figure contents
+
+
+\startbuffer[TikZ:GalileoPendulumGraphHK]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\startaxis[
+			scale only axis,
+			x={1mm},y={68mm},
+			xmin=-48, xmax=48,
+			minor x tick num=1,
+			xlabel=\m{s} (cm),
+			%axis x line=none,
+			%axis y line*=right,
+			ymin=0, ymax=0.6,
+			minor y tick num=3,
+			ylabel=Energy (J),
+			grid=both
+		]
+		\addplot[thick, domain=-50:50] {0.588*(1-cos(deg(x/40))}node[above right,pos=.06]{\m{U}};
+		%\addplot[thick, domain=0:75] {0.2205*(1-cos(deg(x/15))};
+		\draw[thin](-37,0) --node[pos=.6, below, sloped]{Release Position} (-37,.7);
+%	\ifprintanswers
+		\addplot[thick, domain=-37:37] {0.235}node[above, pos=.25]{\m{H}};
+		\addplot[thick, domain=-37:37] {0.235-0.588*(1-cos(deg(x/40)))}node[below right, pos=.25]{\m{K}};
+%		\addplot[thick, red, domain=0:23] {0.22-0.2205*(1-cos(deg(x/15))};
+	\draw[thin](37,0) --node[pos=.6, above, sloped]{Turning Point} (37,.7);
+%	\fi
+	\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[bottom][fig:GalileoPendulumGraphHK] % location
+{The energy graph for Galileo’s experiment where he releases the pendulum at \m{s=-37\units{cm}}.}	% caption text
+{\noindent\typesetbuffer[TikZ:GalileoPendulumGraphHK]} % figure contents
+
+Once the pendulum is released it starts moving to the right. Its gravitational potential \m{U} decreases and its kinetic energy \m{K} increases. The increasing kinetic energy is shown by the curve labeled \quotation{\m{K}} on the graph in figure~\in[fig:GalileoPendulumGraphHK].
+Since no work is being done on the system by outside forces, the total energy \m{H=0.24\units{J}} stays constant, as shown by the horizontal line labeled \quotation{\m{H}} on the graph in figure~\in[fig:GalileoPendulumGraphHK]. As the potential energy decreases, the kinetic energy increases by exactly the same amount, so that the total energy \m{H=U+K} stays constant.
+
+When the pendulum reaches the equilibrium point \m{s=0\units{cm}}, the potential energy is completely gone. All of the energy is kinetic, as can be seen by the point where the graph of \m{K} touches the line \m{H} on the graph.
+
+As the pendulum continues upwards, the potential energy increases and the kinetic energy decreases. When the pendulum reaches the position \m{s=37\units{cm}}, all of the energy is again gravitational potential energy, where the \m{H} line touches the graph of \m{U} in figure~\in[fig:GalileoPendulumGraphHK]. The pendulum does not have enough energy to go any further. The kinetic energy cannot be negative, so the gravitational potential energy cannot be greater than \m{H}. The point where the \m{H=U} is called a turning point, because the pendulum will reach that point and then turn around moving in the other direction, back towards lower potential energy.
+
+As it swings back from right to left, the gravitational energy again decreases while the kinetic energy increases, until it returns to the equilibrium point. Then the gravitational potential energy increases and the kinetic energy decreases until it reaches the original release point, which is another turning point.
+
+As the pendulum swings back and forth between the turning points and \m{s=-37\units{s}} and \m{s=37\units{cm}} the energies will continue to follow the curves in figure~\in[fig:GalileoPendulumGraphHK], going right and then left between the turning points.
+
+Energy graphs like this one are extremely useful for understanding motion. They are especially useful for finding turning points and finding speeds at specific locations, something that is often difficult to do with momentum conservation. Energy graphs are not as useful for questions involving time, since everything is graphed as a function of position. In the next section we will introduce two other types of potential energy. You will have the opportunity to work with graphs of these in the problem sets.
+
+%During the descent from C to B the ball’s initial \m{0.24\units{J}} of gravitational potential energy is converted to kinetic energy. Then, during the ascent the \m{0.24\units{J}} of kinetic energy is converted back to gravitational potential energy, just enough to bring the ball back to its original height at D. In this experiment Galileo’s \quotation{impetus} is clearly the ball’s kinetic energy which increases during the descent from C to B and which is sufficient to carry the ball up the ascent from B to D.
+%
+%The gravitational field’s ability to store potential energy was a great mystery until Einstein explained that it has to do with the bending of space-time. This is extremely interesting and terribly complicated. Luckily, Daniel Bernoulli showed us how to deal with these sorts of mind-boggling complications: ignore them.
+%He did not need to know the details of intermolecular forces in fluids, and you do not need to know the details of space-time bending. Just use the potential energy formula and everything will be fine, provided you are careful to include the potential energy in the system and remember that the gravitational force is an internal force that does no work \emph{on the system.}
+
+\startexample[ex:BalloonLaunch] In their quest for knowledge, physics students launch a water balloon from the top of the school onto the soccer field below. The water balloon has a mass of \m{0.50\units{kg}} and is launched with with a speed of \m{15\units{m/s}} and an angle \m{53\degree} above the horizontal, as shown in figure~\ref{fig:BalloonLaunch}. What is the water ballon’s speed when it hits the ground?
+
+\startbuffer[TikZ:BalloonLaunch]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\startaxis[%axis equal,
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={0.1333cm},x={0.1333cm},
+		xlabel={\m{x} (m)},
+		xmin=0, xmax=30,
+		%xtick={0,1,...,4},
+		%minor x tick num=9,
+		ylabel={\m{y} (m)},
+		ymin=0, ymax=20,
+		%ytick={0,1,...,6},
+		%minor y tick num=4,
+		clip=false,
+		]
+  \addplot[samples=100, variable=\t, domain=0:3.21]
+    ({9*t}, {12+12*t-4.9*t^2});
+  \addplot[samples=10, domain=0:3,
+    % the default choice âvariable=\xâ leads to
+    % unexpected results here!
+  	mark = *, mark size={.4pt},
+    variable=\t,
+    quiver={
+        u={9},
+        v={12-9.8*t},
+        scale arrows=0.333}, thick,
+        ->]
+    ({9*t}, {12+12*t-4.9*t^2});
+  	\draw[fill=black!20] (0,0) rectangle (2,12);
+	\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:BalloonLaunch] % location
+{The path of the projectile in example~\ref{ex:BalloonLaunch}}	% caption text
+{\noindent\typesetbuffer[TikZ:BalloonLaunch]} % figure contents
+
+
+\startsolution
+	The ballon starts with both potential and kinetic energy, but only has kinetic energy at the end.
+	\startformula\startmathalignment
+	\NC	H\si + \cancel{W} + \cancel{Q}	\NC = H\sf						\NR
+	\NC	K\si + U\si					\NC = K\sf + \cancel{U\sf}			\NR
+	\NC	\half mv\si^2 + mgh			\NC = \half mv\sf^2				\NR
+	\NC	v\sf						\NC = \sqrt{v\si^2 + 2gh}			\NR
+	\NC						\NC = \sqrt{(15\units{m/s})^2+2(9.8\units{m/s^2})(12.0\units{m})}\NR
+	\NC					\NC = 21\units{m/s}
+	\stopmathalignment\stopformula
+	The balloon is traveling quite a bit faster when it gets down to the soccer field.
+\stopsolution
+\stopexample
+	Since energy is not directional there is no need to break anything into components. The balloon speed at impact is not affected by the launch angle. The launch angle will affect the distance and the time aloft, but the impact speed depends only on the initial speed and height.
+
+%Gravitational potential energy was the first form of potential energy to be identified and quantified, but there are other ways to store energy
+
+\section{Spring potential energy}
+
+After completing \booktitle{Hydrodynamica} Daniel Bernoulli developed new applications for his energy principle, and even found new types of potential energy, like the energy stored in a stretched or compressed spring.
+
+The ability to easily store and return energy makes springs incredibly useful.
+In some cases the energy stored is quite small. Buttons on a keyboard have tiny springs in them that store some energy when the button is pressed. This energy is used to push the button back up so it is ready to be pressed again.
+A bow for firing arrows is a different shape, but it is still a spring. When the string is pulled back the bow stores a larger amount of energy. When the string is released the energy stored in the bow is delivered to the arrow as kinetic energy.
+
+The potential energy stored in a spring depends on the spring’s stiffness \m{k} and the amount of stretch of the spring \m{s}. (The spring stiffness is often called the spring constant.)
+\highlightbox{
+\startformula[eq:1DUspring]
+	U\sub{spring} = \half ks^2
+\stopformula
+}
+The stretch must always be measured from the relaxed length of the spring. If the spring is compressed rather than stretched, as in the ball bounce example above, then the \quotation{stretch} is negative. However, since the stretch is squared it does not matter whether the stretch is positive or negative; the energy stored is positive either way.
+
+
+\startbuffer[TikZ:SpringCart]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\fill [black!10,] (0,0) rectangle (9.6,-.15);
+\fill [black!10,] (0,0) rectangle (.2,.6);
+\startaxis[
+	x={1mm},y={1mm},
+	xlabel={\m{x}(cm)},
+	hide y axis,
+	minor x tick num=4,
+	axis x line=bottom,
+	tick align = outside,
+	x axis line style={-},
+	ymin=0,
+	ymax=50,
+	xmin=-48,xmax=48,
+	xlabel={\m{s}(cm)},
+	%axis x line=center,
+	%style={rotate=-5.7},
+	clip=false
+]
+\pic at (-13,0){cart};
+%\pic at (49,0){block};
+\draw[decorate,decoration={coil,segment length=5pt}] (-46,2.5) --node[above=3pt] {\m{k}} (-19,2.5);
+%\draw[decorate,decoration={coil,segment length=6pt}] (151,2.5) -- (52,2.5);
+\draw (-46,0) -- (-46,6);
+\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[bottom][fig:SpringCart] % location
+{A cart connected to a spring will oscillate back and forth.}	% caption text
+{\noindent\typesetbuffer[TikZ:SpringCart]} % figure contents
+
+%[Example finding the compression of the spring based on the Kinetic energy of the incoming ball.
+
+
+%[Introduce energy buckets.]
+
+
+%This leads to the equation for the force exerted by a spring, Hookes’s law.
+%\highlightbox{
+%\startformula
+%	F\sub{spring} = -kx
+%\stopformula
+%}
+
+%\section{Energy transformations in oscillations}
+
+Figure \in[fig:SpringCart] shows a small cart attached to a spring, which will behave in a manner similar to Galileo’s pendulum. Moving the cart to the left, as shown, requires some work and stores potential energy in the spring. When the cart is released the spring will push the cart back towards the equilibrium point at \m{s=0\units{cm}}, and the spring’s potential energy will get converted to kinetic energy of the cart.
+
+At equilibrium point all of the energy is kinetic. As the cart passes the equilibrium it will slow as its kinetic energy is again turned into spring potential energy, this time in the stretched spring.
+The cart will continue to oscillate, with the energy going back-and-forth between the cart and the spring over-and-over again.
+
+The spring’s maximum compression is the amplitude of the oscillation. That is the moment when all of the energy is in the spring as potential energy. When the ball passes through the midpoint of the oscillation all of the energy is in the kinetic energy of the ball. Using conservation of energy we can find the maximum speed of the ball (at the midpoint) from the amplitude.
+
+Again we will consider the combined system of the ball and the spring: \m{H = K+U}. The initial position is at full stretch (\m{K=0}, \m{s=A}) and the final position is at the midpoint (\m{U=0}, \m{v=v\sub{max}}).
+\startformula\startmathalignment
+\NC	H\si + \cancel{W} + \cancel{Q}	\NC = H\sf					\NR
+\NC	\cancel{K\si} + U\si			\NC = K\sf + \cancel{U\sf}		\NR
+\NC	\half k A^2					\NC = \half mv\sub{max}^2	\NR
+\NC	A\sqrt{\frac{k}{m}}			\NC = v\sub{max}
+\stopmathalignment\stopformula
+The maximum velocity, right at the midpoint, it proportional to the amplitude.
+
+Recall from our earlier discussion of oscillations that the maximum velocity can also be found from the amplitude and the period.
+\highlightbox{
+\startformula[eq:vmaxA]
+	v\sub{max} = \frac{2\pi A}{T}
+\stopformula
+}
+Combine this formula for \m{v\sub{max}} with the formula for \m{v\sub{max}} that we found above using conservation of energy.
+\startformula
+	\cancel{A}\sqrt{\frac{k}{m}} = \frac{2\pi \cancel{A}}{T}
+\stopformula
+Cleaning this up gives a useful formula an oscillator’s period \m{T}.
+\highlightbox{
+\startformula
+	T = 2\pi\sqrt{\frac{m}{k}}
+\stopformula
+}
+The period \m{T} depends on the mass of the cart and the stiffness of the spring, but it does not depend on the amplitude of the oscillations. If the oscillations are small, the speed is also small and each cycle takes time \m{T}. If the oscillations are big the speed is also big and each cycle is still completed in the same time \m{T}.
+
+This can be used to find the frequency as well
+\startformula
+	f = \frac{1\units{cyc}}{T} = \frac{1\units{cyc}}{2\pi}\sqrt{\frac{k}{m}}
+\stopformula
+Again, the frequency does not depend on the amplitude, only on the mass and the spring constant. A stiffer spring (larger \m{k}) will increase the frequency, while a larger mass will lower the frequency.
+
+
+\section{Gravitational potential energy in the Solar System}
+
+In the year that \booktitle{Hydrodynamica} was published, 1738, Daniel Bernoulli produced a paper on the motion of the Moon, which is pulled by both Earth and the Sun. Gravitational forces in the solar system had already been studied in some detail using Newton’s methods of momentum and force, but Daniel Bernoulli attacked the problem using potential and kinetic energy.
+
+The gravitational potential energy formula earlier in this chapter, \m{U=mgh}, is only useful for relatively small heights near the Earth’s surface. Over the long distances between planets, moons, and the sun, the gravitational potential energy is a bit more complicated. The gravitational potential energy of any two objects in the solar system is
+\startformula
+	U = -G\frac{mM}{r},
+\stopformula
+where \m{m} and \m{M} are the objects’ masses, \m{r} is the distance between the objects’ centers, and \m{G=6.67\sci{-11}\units{m^3/kg\.s^2}} is the universal gravitational constant.
+
+This formula is a bit intimidating, but extremely valuable if used correctly. First, notice that the distance between the objects is in the denominator. If the distance is extremely large, then their gravitational potential energy is extremely small. This is quite convenient because it means that very distant objects can be ignored. When studying the interaction of the Earth and Moon, it is not necessary to include the gravitational potential energy due to distant stars.
+
+The second thing to notice is that the distance is between the objects’ centers. When calculating the gravitational potential energy of an object on the Earth’s surface the distance \m{r} is Earth’s radius (\m{r\sEarth=6.37\sci{6}\units{m}}) not the height above Earth’s surface.
+
+Third, the formula always gives a negative potential energy. This has alarmed many people, including great physicists, but it is not a problem. The gravitational potential energy is zero when the objects are far apart and it goes down as objects get closer together. Down from zero is negative. Kinetic energy is always positive, but there is no reason to be alarmed by negative potential energy.
+
+Finally, the universal gravitational constant \m{G} is extremely small, so the gravitational potential energy between every-day objects at every-day distances can be completely ignored. At least one of the objects must have a huge mass in order for the gravitational potential energy to be significant. Earth’s mass of \m{5.97\sci{24}\units{kg}} is enough to have a significant effect.
+
+\startexample[] How much work is required to lift a \m{3.0\units{kg}} box from Earth’s surface to a very distant location?
+
+\startbuffer[TikZ:BoxEarthGravU]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startaxis
+ [footnotesize, width=2.13in, height=2in,
+   xlabel={\m{r} (\m{\sci{6}\units{m}})},
+   xmin=0, xmax=50,
+   ylabel={\m{U} (\m{\sci{6}\unit{J}})},
+   ymin=-200, ymax=0,
+   %ytick={-10,-8,...,0},
+ ]
+ \addplot[
+   thick,
+   domain=6.37:50,
+   samples=201
+  ]
+  {-1190/x}
+  ;
+\startpgfonlayer{background}
+\fill [black!20] (0, -200) rectangle (6.37, 0);
+\stoppgfonlayer
+%\draw [thick](0, -9.4) parabola (6.37, {(-1.99/6.37)});
+\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:BoxEarthGravU] % location
+{The gravitational potential energy of a \m{3.0\units{kg}} object in Earth’s vicinity. The potential is not shown for locations inside Earth (the  gray region).}	% caption text
+{\noindent\typesetbuffer[TikZ:BoxEarthGravU]} % figure contents
+
+\startsolution
+	This problem is just like the earlier problem where the box was lifted onto a shelf, but now we must use the gravitational potential energy formula that works for large distances. The gravitational potential energy for the box and Earth are plotted in figure~\ref{fig:BoxEarthGravU}.
+	\startformula\startmathalignment
+	\NC	H\si + W + \cancel{Q}	\NC = H\sf			\NR
+	\NC	K\si + U\si + W			\NC = K\sf + U\sf
+	\stopmathalignment\stopformula
+	Since the box starts motionless on the floor and ends motionless far away , the initial and final kinetic energies are both zero. The final potential energy is also zero because the box is very far from Earth. Only the work and initial potential energy remain. The initial distance between the box’s center and Earth’s center is Earth’s radius.
+	\startformula\startmathalignment
+	\NC	U\si + W			\NC = 0										\NR
+	\NC	-G\frac{mM}{r} + W	\NC = 0										\NR
+	\NC	W				\NC = G\frac{mM}{r}								\NR
+	\NC					\NC = (6.67\sci{-11}\units{m^3/kg\.s^2})
+				\frac{(3.0\units{kg})(5.97\sci{24}\units{kg})}{6.37\sci{6}\units{m}}		\NR
+	\NC					\NC = 1.88\sci{8}\units{J}
+	\stopmathalignment\stopformula
+	Moving the \m{3\units{kg}} box from Earth’s surface to a distant location requires a tremendous amount of work.
+\stopsolution
+\stopexample
+
+\startexample[] The \m{3.0\units{kg}} box was placed far from Earth, but even so it eventually is pulled back by Earth’s gravitational attraction. How fast is the box going when it enters the atmosphere, approximately \m{100\units{km}} above Earth’s surface?
+\startsolution
+	Include the gravitational potential energy so that there is no work done on the system.
+\m{100\units{km}}.
+	\startformula\startmathalignment
+	\NC	H\si + \cancel{W} + \cancel{Q}	\NC = H\sf		\NR
+	\NC	K\si + U\si					\NC = K\sf + U\sf
+	\stopmathalignment\stopformula
+		The falling box starts with neither kinetic nor potential energy, so the initial total energy is zero. As the box falls its potential energy becomes more negative and its kinetic energy becomes more positive so that the total is unchanged at zero.
+	\startformula\startmathalignment
+	\NC	0				\NC = \half mv^2	- G\frac{mM}{r}	\NR
+	\NC	\half \cancel{m}v^2	\NC = G\frac{\cancel{m}M}{r}		\NR
+	\NC	v				\NC = \sqrt{\frac{2GM}{r}}
+	\stopmathalignment\stopformula
+The final distance between Earth’s center and the box is Earth’s radius plus
+	\startformula\startmathalignment
+	\NC	v	\NC = \sqrt{\frac{2(6.67\sci{-11}\units{m^3/kg\.s^2})(5.97\sci{24}\units{kg})}
+				{6.37\sci{6}\units{m}+1.00\sci{5}\units{m}}}		\NR
+	\NC		\NC = 1.11\sci{4}\units{m/s}
+	\stopmathalignment\stopformula
+	The box enters the atmosphere with a speed of about \m{11\units{km/s}}, causing it to burn up before hitting the ground.
+\stopsolution
+\stopexample
+
+Daniel Bernoulli’s method has continued to provide insight into every know physical process, from particle interactions to the expansion of the universe. In the centuries since the publication of \booktitle{Hyrodynamica} much of the important progress in physics has come from properly identifying and quantifying the many forms of energy.
+
+
+\subject{Notes}
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+
+%\subject{Bibliography}
+%        \placelistofpublications
+
+
+\stopchapter
+\stopcomponent
+
+%[Example problem: Make a plot of the gravitational potential around a \m{10\units{kg}} bowling ball. Make the plot from the surface of the bowling ball at \m{r=0.10\units{m}} to a distance \m{r = 1\units{m}} from the center of the of the ball.]
+%\placefigure[margin][] % location
+%{}	% caption text
+%\hspace{-7pt}
+%%{\starttikzpicture
+%%\datavisualization [scientific axes, x axis={attribute=r,
+%%label={[node style={inner sep=0pt,outer sep=0pt, below = 1mm}]\m{r} (m)}, include value=0, length=3.9cm},
+%%y axis={attribute=Phi, label={[node style={inner sep=0pt,outer sep=0pt}] \m{\Phi} (\m{\sci{-9}\unit{m^2/s^2}})}, include value=0,include value=-8, ticks={step=2}},  visualize as smooth line]
+%%data [format=function] {
+%%    var r : interval [.11:1];
+%%    func Phi = -0.667/\value r;
+%%}
+%%info {
+%%\fill [gray] (visualization cs: r=0, Phi=-8) rectangle (visualization cs: r=.11, Phi=0);
+%%};
+%%\stoptikzpicture}
+%{\starttikzpicture
+%\startaxis
+% [footnotesize, width=2.13in, height=2in,
+%   xlabel={\m{r} (m)},
+%   xmin=0, xmax=1,
+%   ylabel={\m{\Phi} (\m{\sci{-9}\unit{m^2/s^2}})},
+%   ymin=-8, ymax=0,
+%   ytick={-8,-6,...,0},
+% ]
+% \addplot[
+%   thick,
+%   domain=.11:1,
+%   samples=201
+%  ]
+%  {-0.667/x}
+%  ;
+%\startpgfonlayer{background}
+%\fill [black!20] (0, -8) rectangle (.11, 0);
+%\stoppgfonlayer
+%\stopaxis
+%\stoptikzpicture}
+%\caption[Gravitational potential of a ball]{
+%The gravitational potential in the vicinity of a \m{10\units{kg}} bowling ball. The potential is extremely small, and can only be detected with the most sensitive instruments. The potential is not shown inside the bowling ball (the gray region).
+%}
+%\label{fig:BallGravPot}
+%%
+
+
+
+%The gravitational potential energy is always negative. There is no reason to be alarmed by this. It is negative because gravity is attractive, so the gravitational potential energy must decrease as objects approach each other. Since the potential energy is close to zero at large distances, the potential energy can only go down by going negative as the objects approach each other. Kinetic energy is always positive, as is the energy stored in a spring, but gravitational potential energy is negative.
+
+
+%\subsection{Gravitational potential energy}
+%
+%
+%
+%\subsection{Freefall}
+%\label{sec:freefall}
+%
+%Let’s see what each of these can tell us about the motion of the cart, starting with conservation of energy. In this case we will consider the cart’s kinetic energy, \m{K}, and gravitational potential energy, \m{U}.
+%\startformula\startmathalignment[m=2,distance=2em]
+%	H\sf \NC = H\si + \cancel{W} + \cancel{Q}	\NC \NC \text{no outside work or heat}\NR
+%	K\sf + \cancel{U\sf} \NC = K\si + U\si		\NC \NC \text{set \m{U=0} at the ground}\NR
+%	\half mv\sf^2 \NC = \half mv\si^2 + mgy\si	\NC \NC \text{formulae for \m{K} and \m{U}}\NR
+%	\half v\sf^2 \NC = \half v\si^2 + gh		\NC \NC \text{divide both sides by \m{m}}\NR
+%	v\sf^2 \NC = v\si^2 + 2gh					\NC \NC \text{multiply both sides by 2}\NR
+%	v\sf \NC = \pm\sqrt{v\si^2 + 2gh}			\NC \NC \text{square root of both sides}
+%\stopmathalignment\stopformula
+%When taking the square root of in the last line, we must include a plus-or-minus. The mathematics cannot tell us which sign to pick, but often the correct sign is obvious from the problem. For example, if an object is falling to the ground, then the final velocity in negative, so replace the \m{\pm} with a negative sign.
+%
+%
+%The downward force is the object’s weight. Objects with a small mass, like a gnat, have a small weight. Objects with a large mass also have a large weight.
+%
+%In fact, an object’s weight, \m{F\sub{G}} is proportional to the object’s mass, \m{m}, and it is always downward. On Earth the force vector is
+%
+%The words \quotation{mass} and \quotation{weight} are often treated as synonyms, but to a physicist they are different. %They
+%
+%Take a moment to see that the equation fits with what you've experienced about gravitational force.  Weight is proportional to mass, meaning that the force pulling down on two identical boxes is double the force pulling down on only one.
+%
+%
+%\subsection{Incline}
+
+%\section{Motion with a constant force}
+%
+%For the programming I do not want to find average velocity. We start with a half time step to estimate the average momentum during the time step.
+%
+%We use that momentum to find the velocity and that velocity to update the position.
+%Then we use a full time step to update the momentum and repeat the cycle.
+%\placefigure[margin][] % location
+%{}	% caption text
+%	\marginfig{PavgConstF}
+%	\caption{When the force is constant, the velocity at \m{t_\frac{1}{2}} is the average velocity. This makes it easy to update the position.}
+%
+%
+%\subsection{Momentum vs. time graphs}
+%
+%\begin{align}
+%	x_1 \NC = x_0 + v\sub{avg} \Delta t \NR
+%		\NC  =  x_0 + v\sub{avg} \Delta t
+%\end{align}
+
+
+% Templates:
+
+% Margin image
+\placefigure[margin][] % Location, Label
+{} % Caption
+{\externalfigure[chapter03/][width=144pt]} % File
+
+% Margin Figure
+\placefigure[margin][] % location
+{}	% caption text
+{\starttikzpicture	% tikz code
+\stoptikzpicture}
+
+% Aligned equation
+\startformula\startmathalignment
+\stopmathalignment\stopformula
+
+% Aligned Equations
+\startformula\startmathalignment[m=2,distance=2em]
+\stopmathalignment\stopformula

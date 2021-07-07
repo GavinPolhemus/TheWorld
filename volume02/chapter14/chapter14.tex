@@ -1,0 +1,408 @@
+% !TEX useOldSyncParser
+\startcomponent c_chapter01
+\project project_world
+\product prd_volume02
+
+\doifmode{*product}{\setupexternalfigures[directory={chapter14/images}]}
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title={Optics}, reference=ch:Optics]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\placefigure[margin,none]{}{\small
+	\startalignment[flushleft]
+After long reflection in solitude and meditation, I suddenly had the idea, during the year 1923, that the discovery made by Einstein in 1905 should be generalized by exteding it to all material particles and notably to electrons
+%\autocite{p.436}{Pais SiTL, preface to re-edited thesis 1924, 1963.}
+	\stopalignment
+	\startalignment[flushright]
+	%{\it On the Physiological Causes\\
+	%	of Harmony in Music}\\
+	{\sc Louis de Broglie}\\
+	1892 – 1987
+	\stopalignment
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\Initial{T}{he photon} shocked early twentieth century physicists, but the idea of a light particle was not new.  Ancient philosophers had considered the possibility that vision is due to particles entering our eyes with information about objects around us. Newton adopted a particle view in his theory of optics, with light particles traveling in straight lines unless their path is changed by a mirror, prism, or lens.
+
+By the end of the nineteenth century, the particle view had been completely displaced by the wave view, but the twentieth century photon gives us the luxury of using both particle and wave concepts to understand light – switching views to suit the problem at hand. Two simple equations allow us to relate the particle properties to the wave properties.
+\startformula
+	E = hf
+		\qquad
+	\vabs{\,\vec{\!p\!}\,} = \frac{h\cdot 1\units{cyc}}{\lambda}
+\stopformula
+The first equation, originally due to Planck, tells us that energy is frequency. The second, demonstrated by Compton, tells us that momentum is inverse wavelength. In both cases, Planck's constant, \m{h}, is the factor relating the particle properties (energy and momentum) to the wave properties.
+
+\startbuffer[TikZ:ReflectionWaves]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-3.5,-2.5) rectangle ++(5,5); 
+	\draw [ % Incident ray
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-3.6,-2.7);
+	\draw [ % Incident ray (forward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.6,1.2);
+	\draw [ % Reflected ray
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-3.6,2.7); % Refracted ray
+	\draw [ % Reflected ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.6,-1.2);
+%	\draw (0,-2.5) rectangle ++(0,5); 
+	\fill[black!20] (0,-2.5) rectangle ++(1.5,5); 
+	\draw [thick, ->](-3.2,-2.4)  --node[pos = .4, above left]{\m{\vec p\si}} ++(1.2,0.9); % Incident ray momentum
+	% \draw (0,0) circle [radius=1.5cm]node[below right=1.cm]{\m{\vabs{\,\vec{\!p\!}\,}=E}};
+	\draw [thick, <-](-3.2,2.4)  --node[pos = .65, below left]{\m{\vec p\sf}} ++(1.2,-0.9); % Refracted ray momentum
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:ReflectionWaves] % location, label
+{Light reflecting off a surface has the same frequency and wavelength after the reflection. The wavefronts of the incident and reflected waves coincide at the surface.} % caption text
+{\noindent\typesetbuffer[TikZ:ReflectionWaves]} % figure contents
+
+Both wave and particle properties are useful in understanding \keyterm{reflection}, where light bounces off the surface of a material. The wave view is shown in \in{figure}[fig:ReflectionWaves], where waves arrive from the lower left, strike the vertical surface, and bounce off toward the upper left. The parallel lines are called wave-fronts, and they move in the direction of the wave's travel at the speed of light. The distance between successive wave-fronts is the light's wavelength. %Shorter wavelength corresponds to higher momentum, so closely spaced wavefronts correspond to a larger momentum vector.
+Reflections do not change the light's frequency or wavelength, only its direction. 
+
+Notice that the incoming and outgoing wave-fronts coincide along the surface. As each wavefront moves to the right, the lower edge of the wavefront is the first part to reach the surface. This part bounces off, reflected back towards the left. As the wave-front moves, more and more of it encounters the surface and changes direction, until the upper part – last to reach the surface – is turned around, and the entire wave-front moves away to the left.
+
+\startbuffer[TikZ:ReflectionPhotons]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-3.5,-2.5) rectangle ++(5,5); 
+	\draw [ % Incident ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-3.6,-2.7);
+	\draw [black!30, % Incident ray (forward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.6,1.2);
+	\draw [ % Reflected ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-3.6,2.7); % Refracted ray
+	\draw [black!30, % Reflected ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.6,-1.2);
+%	\draw (0,-2.5) rectangle ++(0,5); 
+	\draw (0,0) circle [radius=1.5cm];
+	\fill[black!20] (0,-2.5) rectangle ++(1.5,5); 
+	\draw [thick, ->](-3.2,-2.4)  --node[pos = .4, above left]{\m{\vec p\si}} ++(1.2,0.9); % Incident ray momentum
+	\draw [thick, ->](0,0)  --node[below right]{\m{\vec p\si}} ++(1.2, 0.9); % Incident ray momentum
+	\draw[densely dotted] (0,0) circle [radius=1.5cm]node[left=1.5cm]{\m{E}};
+	\draw [thick, ->](0,0)  --node[below left]{\m{\vec p\sf}} ++(-1.2, 0.9); % Refracted ray momentum
+	\draw [thick, ->](1.2, 0.9)  --node[above right]{\m{\vec J}} (-1.2, 0.9); % Impulse
+	\draw [thick, <-](-3.2,2.4)  --node[pos = .65, below left]{\m{\vec p\sf}} ++(1.2,-0.9); % Refracted ray momentum
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:ReflectionPhotons] % location, label
+{Photons reflecting off a surface have the same energy (frequency) after the reflection. Their change in momentum is perpendicular to the surface.} % caption text
+{\noindent\typesetbuffer[TikZ:ReflectionPhotons]} % figure contents
+
+The particle view of the reflection is shown in \in{figure}[fig:ReflectionPhotons].
+In this view, photons with momentum \m{\vec p\si} approach the reflective surface. The photons' energy \m{E} is conserved in the elastic collision with the reflective surface. Since the photons' momentum is related to the energy by \m{\vabs{\,\vec{\!p\!}\,} = E}, the initial and final momentum have the same magnitude, shown by the circle labeled \m{E} in \in{figure}[fig:ReflectionPhotons]. The impulse \m{\vec J} delivered to the photons by the reflective surface is perpendicular to the surface. These two facts – conservation of energy and the perpendicular impulse – completely determine the photons' final momentum, as shown in \in{figure}[fig:ReflectionPhotons].
+
+For centuries the wave view and the particle view were seen as competing theories of light. In the twentieth century we learned that these are the same theory, described using two different vocabularies. When I say, \quotation{reflections do not change the light's frequency,} and, \quotation{the photons' energy \m{E} is conserved in the elastic collision,} I am saying the same thing it two different languages. Energy is frequency, and it does not change in a reflection. Likewise, \quotation{incoming and outgoing wave-fronts coincide along the surface} is the same as statement as \quotation{The impulse delivered to the photons is perpendicular to the surface.} The connection between these two statements is less obvious than the energy-frequency equivalence, but they are the same. (The connection would be more obvious if we defined directional wavelength. However, this is both complicated and unnecessary. Directional momentum is the same thing in language you already know well.) The wave view and the particle view are complimentary descriptions of the same phenomena. Physicists call this \keyterm{complimentarity}.
+
+When the reflecting surface delivers an impulse to the photon, the photon delivers an equal and opposite impulse to the surface. This impulse is extremely small. Even the huge number of photons in direct sunlight deliver a total impulse that is too small to be noticed in most situations. Still, the impulse is real. In space, where objects move without friction, the impulses delivered by sunlight can gradually change an object's momentum significantly. A small demonstration satellite, LightSail 2, is currently in orbit around Earth, using a large solar solar-sail to maneuver by reflecting sunlight. The Near-Earth Astroid Scout, set to be launched by NASA in November 2021, will visit an asteroid with the help of and \m{85\units{m^2}} solar-sail. 
+
+
+\startbuffer[TikZ:WavesSlowing]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-2.5,-1) rectangle ++(5,2); 
+	\fill[black!20] (0,-1) rectangle ++(2.5,2); 
+	\draw [thick, ->](-2,0.25)  --node[above]{higher speed} ++(1.5,0); % Refracted ray momentum
+	\draw [thick, ->](0.75,0.25)  --node[above]{lower speed} ++(1,0); % Impulse
+	\draw [ % Outside ray
+		decorate, %postaction={decorate, draw},
+		decoration={coil, aspect = 0, segment length=6mm},
+	](0,0)  --node[below=1mm]{longer waves} ++(-2.8,0);
+	\draw [ % Inside ray
+		decorate, %postaction={decorate, draw},
+		decoration={coil, aspect = 0, segment length=4mm},
+	](0,0)  --node[below=1mm]{shorter waves} ++(2.8,0); % Refracted ray
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:WavesSlowing] % location, label
+{As waves enter a transparent material their motion is slower, causing waves to bunch together for a shorter wavelength.} % caption text
+{\noindent\typesetbuffer[TikZ:WavesSlowing]} % figure contents
+
+
+\startbuffer[TikZ:PhotonsSlowing]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-2.5,-1) rectangle ++(5,2); 
+	\fill[black!20] (0,-1) rectangle ++(2.5,2); 
+	\draw [ % Outside ray
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.5cm, segment length=6mm},
+	](0,0)  --node[above=0.5cm]{longer waves} ++(-2.8,0);
+	\draw [ % Inside ray
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.5cm, segment length=4mm},
+	](0,0)  --node[above=0.5cm]{shorter waves} ++(2.8,0); % Refracted ray
+	\draw [thick, ->](-1.75,0)  --node[pos=0.33, below]{\m{\vec p\si}}node[below=0.5cm]{lower momentum} ++(1,0); % Refracted ray momentum
+	\draw [thick, ->](0.5,0)  --node[pos=0.33, below]{\m{\vec p\sf}}node[below=0.5cm]{higher momentum} ++(1.5,0); % Impulse
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:PhotonsSlowing] % location, label
+{The same waves as in \in{figure}[fig:WavesSlowing], but shown here as wavefronts and photon momentum.
+As waves enter the transparent material, their shorter wavelength is higher momentum.} % caption text
+{\noindent\typesetbuffer[TikZ:PhotonsSlowing]} % figure contents
+
+
+\section{Light in a transparent material}
+
+As light enters a transparent material – like water or glass – it slows down slightly, causing the waves to bunch up a bit, making the wavelength shorter (\in{fig.}[fig:WavesSlowing]). Shorter wavelength is higher momentum (\in{fig.}[fig:PhotonsSlowing]). Photons travel more slowly in a transparent material, so their momentum to increases! This does not fit well with our intuition about momentum, but our intuition is built around the equation \m{\vec p=m\vec v}, which is obviously not useful for massless photons. The correct way to think about photons is by translating our understanding of waves into the language of particles. The wave relation between wavelength and frequency can be translated into a useful relationship between momentum and energy for a photon in a transparent material:
+
+\startbuffer[TikZ:RefractionWaves]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-2.5,-2.5) rectangle ++(5,5); 
+	\draw [ % Incident ray
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-2.1,-2.8);
+	\draw [ % Incident ray (forward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.8,2.4);
+	\fill[black!20] (0,-2.5) rectangle ++(2.5,5); 
+	\draw [thick, ->](-1.8,-2.4)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	% \draw (0,0) circle [radius=1.5cm]node[below right=1cm]{\m{\vabs{\,\vec{\!p\!}\,}=E}};
+	% \draw (0,0) circle [radius=2cm]node[below right=1.33cm]{\m{\vabs{\,\vec{\!p\!}\,}=n E}};
+	\draw [thick, <-](2.4,1.8)  --node[below right]{\m{\vec p\sf}} ++(-1.6,-1.2); % Refracted ray momentum
+	% \draw [thick, ->](0.9,1.2)  --node[above]{\m{\vec J}} (1.6,1.2); % Impulse
+	\path[clip] (0,-2.5) rectangle ++(2.5,5); 
+	\draw [ % Refracted ray
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(2.8,2.1); % Refracted ray
+	\draw [ % Refracted ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(-2.4,-1.8);
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RefractionWaves] % location, label
+{As waves enter the denser material, their wavelength shortens and their path is bent.} % caption text
+{\noindent\typesetbuffer[TikZ:RefractionWaves]} % figure contents
+
+\startformula
+		\vabs{\,\vec{\!p\!}\,} = nE,
+\stopformula
+where \m{n} is the material's \keyterm{index of refraction}. The index of refraction for vacuum is \m{n=1}, which gives us the usual relativistic relationship between energy and momentum for a massless photon. Transparent materials have indexes that range from one up to about 2.5. Air's index is about \m{1.0003}, which we will round to \m{1.00} in most calculations.
+
+In \in{figure}[fig:PhotonsSlowing] the light is traveling from air into a transparent material with index \m{n=1.50}. 
+The photons' energy \m{E} is unchanged as it passes into the material. The photons' momentum increases from \m{\vabs{\,\vec{\!p\si\!}\,} = E} outside the material to \m{\vabs{\,\vec{\!p\sf\!}\,} = nE = 1.50\,E} inside the material, with a corresponding decrease in wavelength.
+
+When waves enter a transparent material at an angle, as shown in \in{figures}[fig:RefractionWaves] and \in[fig:RefractionPhotons], the magnitude and direction of the photons' momentum changes. The wave view is shown in \in{figure}[fig:RefractionWaves]. As the waves enter the material (\m{n=1.33}) they bunch up into shorter waves. The wave-fronts outside and inside the material must coincide at the boundary, as can be seen in the figure. As a result, the wave-fronts are bent slightly, changing the direction of the light. This bending is called \keyterm{refraction}.
+
+\startbuffer[TikZ:RefractionPhotons]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-2.5,-2.5) rectangle ++(5,5); 
+	\draw [ % Incident ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-2.1,-2.8);
+	\draw [black!30,  % Incident ray (forward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.8,2.4);
+	\draw [thick, ->](-1.8,-2.4)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	% \draw (0,0) circle [radius=1.5cm]node[left=1.5cm]{\m{E}};
+	\fill[black!20] (0,-2.5) rectangle ++(2.5,5); 
+	\path[clip] (0,-2.5) rectangle ++(2.5,5); 
+	\draw [ % Refracted ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(2.8,2.1); % Refracted ray
+	\draw [black!30,  % Refracted ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(-2.4,-1.8);
+	\draw [thick, ->](0,0)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	\draw [thick, ->](0,0)  --node[below right]{\m{\vec p\sf}} ++(1.6,1.2); % Refracted ray momentum
+	\draw [thick, ->](0.9,1.2)node[above]{\m{\vec J}}  -- (1.6,1.2); % Impulse
+	\draw[densely dotted] (0,0) circle [radius=1.5cm]node[below right=0.7cm]{\m{E}};
+	\draw (0,0) circle [radius=2cm]node[below right=1.33cm]{\m{n E}};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RefractionPhotons] % location, label
+{As waves enter the denser material, their wavelength shortens and their path is bent.} % caption text
+{\noindent\typesetbuffer[TikZ:RefractionPhotons]} % figure contents
+
+The complimentary photon view of refraction is shown in \in{figure}[fig:RefractionPhotons]. In this view the photons entering the transparent material will have momentum \m{\vabs{\,\vec{\!p\sf\!}\,} = nE = 1.33\,E}, which is shown by the circle labeled \m{E} in the figure. The impulse delivered by the surface is perpendicular to the surface. The point where the perpendicular impulse \m{\vec J} meets the circle \m{nE} gives the final momentum \m{\vec p\sf}, shown in the figure. Notice that the path of the the photons is refracted slightly, exactly like the refraction in the wave view.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:RefractionReflectionPhotons]
+When light encounters a boundary, like the one in \in{figure}[fig:RefractionPhotons], some of the light enters the material and is refracted, while some of the light is reflected. Add the reflected light to \in{figure}[fig:RefractionPhotons].
+\startbuffer[TikZ:RefractionReflectionPhotons]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-2.5,-2.5) rectangle ++(5,5); 
+	\draw [ % Incident ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-2.1,-2.8);
+	\draw [black!30,  % Incident ray (forward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.8,2.4);
+	\draw [thick, ->](-1.8,-2.4)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	% \draw (0,0) circle [radius=1.5cm]node[left=1.5cm]{\m{E}};
+	\draw (0,0) circle [radius=1.5cm]node[left=1.5cm]{\m{E}};
+	\fill[black!20] (0,-2.5) rectangle ++(2.5,5); 
+	\path[clip] (0,-2.5) rectangle ++(2.5,5); 
+	\draw [ % Refracted ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(2.8,2.1); % Refracted ray
+	\draw [black!30,  % Refracted ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(-2.4,-1.8);
+	\draw [thick, ->](0,0)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	%\draw [thick, ->](0,0)  --node[below right]{\m{\vec p\sf}} ++(1.6,1.2); % Refracted ray momentum
+	%\draw [thick, ->](0.9,1.2)node[above]{\m{\vec J}}  -- (1.6,1.2); % Impulse
+	\draw[densely dotted] (0,0) circle [radius=1.5cm];%node[below right=0.7cm]{\m{E}};
+	\draw (0,0) circle [radius=2cm]node[below right=1.33cm]{\m{n E}};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RefractionReflectionPhotons] % location, label
+{Waves reflecting off of the surface remain in the area where \m{n=1}, so the reflected photons' momentum will fall on the circle \m{\vabs{\,\vec{\!p\sub{r}\!}\,} = E}} % caption text
+{\noindent\typesetbuffer[TikZ:RefractionReflectionPhotons]} % figure contents
+
+\startbuffer[TikZ:RefractionReflectionPhotons2]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-2.5,-2.5) rectangle ++(5,5); 
+	\draw [ % Incident ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-2.1,-2.8);
+	\draw [black!30,  % Incident ray (forward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.8,2.4);
+	\draw [ % Reflected ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-2.1,2.8);
+	\draw [black!30,  % Reflected ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.8,-2.4);
+	\draw [thick, ->](-1.8,-2.4)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	\draw [thick, ->](0,0)  --node[below left=0mm]{\m{\vec p\sub{r}}} ++(-0.9,1.2); % reflected ray momentum
+	%\draw [thick, <-](-1.8,2.4)  --node[below left=0mm]{\m{\vec p\sub{r}}} ++(0.9,-1.2); % reflected ray momentum
+	% \draw (0,0) circle [radius=1.5cm]node[left=1.5cm]{\m{E}};
+	\draw (0,0) circle [radius=1.5cm]node[left=1.5cm]{\m{E}};
+	\fill[black!20] (0,-2.5) rectangle ++(2.5,5); 
+	\draw [thick, ->](0.9,1.2) --node[above right]{\m{\vec J\sub{r}}} ++(-1.8,0); % Impulse
+	\path[clip] (0,-2.5) rectangle ++(2.5,5); 
+	\draw [ % Refracted ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(2.8,2.1); % Refracted ray
+	\draw [black!30,  % Refracted ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(-2.4,-1.8);
+	\draw [thick, ->](0,0)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	%\draw [thick, ->](0,0)  --node[below right]{\m{\vec p\sf}} ++(1.6,1.2); % Refracted ray momentum
+	%\draw [thick, ->](0.9,1.2)node[above]{\m{\vec J}}  -- (1.6,1.2); % Impulse
+	\draw[densely dotted] (0,0) circle [radius=1.5cm];%node[below right=0.7cm]{\m{E}};
+	\draw (0,0) circle [radius=2cm]node[below right=1.33cm]{\m{n E}};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RefractionReflectionPhotons2] % location, label
+{The impulse delivered to the photons is perpendicular to the surface, giving \m{\vec{\!p\sub{r}}}.} % caption text
+{\noindent\typesetbuffer[TikZ:RefractionReflectionPhotons2]} % figure contents
+
+\startsolution
+Since we have so much experience with momentum vectors, we will use the photon view to add to the figure. The photons that bounce off of the surface remain in the air where \m{n=1}. So these reflected photons (with subscript {\tf r}) will have momentum \m{\vabs{\,\vec{\!p\sub{r}\!}\,} = E}, the same as the incoming photon. I've added the circle of radius \m{E} to \in{figure}[fig:RefractionReflectionPhotons] to show the magnitude of the reflected photon's momentum. (To reduce clutter, I've removed the impulse and momentum of the photons that enter material.)
+
+To get the reflected photon's direction, I use the fact that the impulse delivered is perpendicular to the material's surface, as shown in \in{figure}[fig:RefractionReflectionPhotons2]. The point where the perpendicular impulse meets the circle \m{E} gives the reflected photon's final momentum \m{\vec p\sub{r}}, also shown in \in{figure}[fig:RefractionReflectionPhotons2]. Wave fronts are visible in the background so you can see the wave view as well.
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+%\subject{Notes}
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+
+%\subject{Bibliography}
+%        \placelistofpublications
+
+\stopchapter
+\stopcomponent

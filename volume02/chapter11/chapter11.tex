@@ -1,0 +1,465 @@
+% !TEX useOldSyncParser
+\startcomponent c_chapter01
+\project project_world
+\product prd_volume02
+
+\doifmode{*product}{\setupexternalfigures[directory={chapter11/images}]}
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title={The Energy Called Heat}, reference=ch:Heat]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\placefigure[margin,none]{}{\small
+%	\startalignment[flushleft]
+%By convention sweet and by convention bitter, by convention hot, by convention cold, by convention color; but in reality atoms and void.%\autocite{p.46}{Helmholtz1857}
+%	\stopalignment
+%	\startalignment[flushright]
+%	%{\it On the Physiological Causes\\
+%	%	of Harmony in Music}\\
+%	{\sc Democritus}\\
+%	c.460 -- c.370 \scaps{BCE}
+%	\stopalignment
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Initial{W}{hen Thomas Newcomen} and his partner John Calley built the first piston steam engine 1712, there was not a physicist alive who could have explained how it worked. Newcomen and Calley built the engine to pump water out of a mine at the Conygree Coalworks in central England. At the time, there were no powered machines working in the mines – all work was done by laborers and horses. The mine did have a sort of steam pump that used condensing steam to suck ground water out of the mine, preventing the mine from flooding. However, this steam pump was not working and Newcomen was called to fix it. The fix he devised, shown in \in{figure}[fig:NewcomenAtmospheric], was actually an entirely new design. \in{Figure}[fig:NewcomenAtmospheric] shows his new engine in its resting position. On the left is a simple pump driven by a large weight. When the weight is lifted, water flows into the bottom of the pump, deep in the mine (not shown). When the heavy weight is lowered, it forces water up a pipe to the surface. Then the weight must be lifted again. 
+
+\placefigure[margin][fig:NewcomenAtmospheric]{Newcomen engine from \booktitle{Practical physics for secondary schools. Fundamental principles and applications to daily life,} by Newton Henry Black and Harvey Nathaniel Davis, publ. 1913 by Macmillan and Company, p.~219} {\externalfigure[NewcomenAtmospheric][width=\rightmarginwidth]}
+
+Lifting the weight is the job of the engine on the right. Water in the boiler \m{A} is heated by a fire below. When the valves \m{V} and \m{V''} are opened (with valve \m{V'} closed), steam rises into the cylinder \m{B} forcing any air out through the valve \m{V''}.
+
+Once the cylinder is filled entirely with steam, the cylinder is sealed by closing valves \m{V} and \m{V''}. Then the valve \m{V'} is opened briefly, allowing cold water from the tank \m{C} to spray into the cylinder, as shown in \in{figure}[fig:NewcomenAtmospheric]. This spray cools the cylinder and the steam, causing the steam to condense into liquid water again. All of the steam condenses into a tiny volume of water, which collects with the sprayed water at the bottom of the cylinder. No air is allowed back into the cylinder, and all of the steam has condensed, so the cylinder is almost empty, with near vacuum above the small pool of  water at the bottom.
+
+Outside the cylinder is the atmosphere, pushing in from all sides. Most importantly, the atmosphere pushes down on the movable piston which forms the top of the cylinder in \in{figure}[fig:NewcomenAtmospheric]. The downward pressure \m{P} produces a huge downward force \m{F} on the piston.
+\startformula
+	F = PA,
+\stopformula
+where \m{A} is the piston's area. (In this chapter we will use \m{P} for pressure, not power.) The {\sc si} unit for pressure is a pascal, defined by
+\startformula
+	1\units{Pa} = 1\units{N/m^2}.
+\stopformula
+%Atmospheric pressure is about \m{P\sub{atm} = 101\units{kPa} = 1.01\sci{5}\units{Pa}}, but it varies significantly with altitude and weather.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:NewcomenForce]
+A working replica of Newcomen's engine operates at a museum near the site of Newcomen's original. The piston's radius is \m{26\units{cm}}. What is the force exerted on the piston by the atmosphere?
+
+\startsolution
+The piston's area is \m{A= \pi r^2 = \pi(0.26m)^2 = 0.212\units{m^2}}. The force is
+\startformula\startmathalignment
+\NC F	\NC = PA												\NR
+\NC		\NC = (1.01\sci{5}\units{Pa})(0.212\units{m^2})				\NR
+\NC		\NC = (1.01\sci{5}\units{N/\ucan{m^2}})(0.212\,\ucan{m^2})	\NR
+\NC		\NC = 21\,000\units{N}.
+\stopmathalignment\stopformula
+This downward force acting on the right side of \in{figure}[fig:NewcomenAtmospheric] is enough to lift a weight of over \m{2000\units{kg}} on the left.
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The atmosphere's pressure drives the piston downward. This downward motion is the engine's power stroke. It pulls down on the chain at \m{D} in \in{figure}[fig:NewcomenAtmospheric], rocking the large lever \m{FED} around the pivot \m{E}. That lifts the chain at \m{F}, raising the large weight.
+
+Once the weight is lifted, the valve \m{V} is opened, allowing the water to flow down into the boiler. Hot steam from the boiler fills the cylinder \m{B} again, allowing the piston to rise and the weight to fall.
+The whole process is then be repeated, spraying cold water into the cylinder to condense the steam for the power stroke. (Since the cylinder is filling with steam directly from the boiler, valve \m{V''} does not need to be opened each cycle.)
+
+Newcomen's design included mechanisms that used the motion of the top beam to open and close the valves automatically at precisely the right times in the cycle. (These mechanisms are not shown in the diagrams.) This allowed the engine to operate continuously, performing each cycle in about five seconds and doing as much work as a team of several horses or dozens of men. Many mines upgraded to Newcomen's reliable and powerful engine. Dozens were installed in Britain and eventually in other parts of Europe.
+
+The engines could be built in a variety of sizes, depending on the mine's needs. Engineers developed the concepts of work and power to quantify their engines' productivity, so they could build the right size engine.
+
+
+\startbuffer[TikZ:NewcomenPower]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle \small% Old style numerals in text
+\startTEXpage
+\starttikzpicture% tikz code
+% left cylinder
+\draw[thick,fill=black!30] (-2.5,7.5)-- ++(0,-7.5) -- ++(2,0) -- ++(0,7.5) -- ++(-.1,0) -- ++(0,-7.4) -- ++(-1.8,0) -- ++(0,7.4) -- cycle;
+\fill[black!30] (-1.7,-0.5) rectangle ++(0.4,0.5);
+\draw[thick,] (-1.7,-0.5)-- ++(0,0.5) -- ++(0.4,0) -- ++(0,-0.5);
+\node at (-1.5,3.5){\m{V\si}};
+% right cylinder
+\draw[thick,fill=black!30] (0.5,7.5)-- ++(0,-7.5) -- ++(2,0) -- ++(0,7.5) -- ++(-.1,0) -- ++(0,-7.4) -- ++(-1.8,0) -- ++(0,7.4) -- cycle;
+\fill[black!30] (1.3,-0.5) rectangle ++(0.4,0.5);
+\draw[thick,] (1.3,-0.5)-- ++(0,0.5) -- ++(0.4,0) -- ++(0,-0.5);
+\node at (1.5,0.5){\m{V\sf}};
+% left piston
+\draw[thick,fill=black!30] (-2.4,7) rectangle ++(1.8,0.2);
+\fill[black!30] (-1.6,8.2) rectangle ++(0.2,-1);
+\draw[thick,] (-1.6,8.2)-- ++(0,-1) -- ++(0.2,0) -- ++(0,1);
+\node at (-1,7.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+\node at (-2,7.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+% right piston
+\draw[thick,fill=black!30] (0.6,1) rectangle ++(1.8,.2);
+\fill[black!30] (1.4,8.2) rectangle ++(0.2,-7);
+\draw[thick,] (1.4,8.2)-- ++(0,-7) -- ++(0.2,0) -- ++(0,7);
+\node at (1,1.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+\node at (2,1.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+% y coordinate axis
+\draw[thick,->] (0,0) -- (0,7.9)node[above]{\m{y}};
+\draw[] (.45,1) -- ++(-0.5,0)node[left]{\m{y\sf}};
+\draw[] (-.45,7) -- ++(0.5,0)node[right]{\m{y\si}};
+\draw[] (.05,0.1) -- ++(-0.1,0)node[left]{\m{0}};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:NewcomenPower] % location, label
+{The downward power stroke of Newcomen's atmospheric engine is driven by atmospheric pressure pushing down on the piston.} % caption text
+{\noindent\typesetbuffer[TikZ:NewcomenPower]} % figure contents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:NewcomenPower]
+The replica of Newcomen's engine in \in{example}[ex:NewcomenForce] has a piston that travels approximately 1.8\units{m} inside the cylinder, shown in \in{figure}[fig:NewcomenPower]. Like Newcomen's original, it operates at a rate of one cycle every five seconds. Find the work done by the atmosphere on the engine and the average power.
+
+\startsolution
+The work can be calculated using the force form \in{example}[ex:NewcomenForce] and a displacement of 1.8\units{m}.
+\startformula
+W = F\Delta y
+	= (21\,000\sci{4}\units{N})(1.8\units{m})	
+	= 38\,000\units{J}.
+\stopformula
+The force and displacement are in the same direction, so the work is positive. In \in{figure}[fig:NewcomenPower] they are both pointed in the negative direction, so we also could have written both as negative. The answer would be the same.
+
+Power is the rate at which the work is done.
+\startformula
+	\frac{W}{\Delta t} = \frac{38\,000\units{J}.}{5\units{s}} = 7500\units{W}
+\stopformula
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+While we used the piston's area and displacement to calculate the work, all that is actually needed is the pressure and the cylinder's change in volume. The volume of the cylinder in \in{figure}[fig:NewcomenPower] is \m{V = Ay}, where \m{A} is the piston's area and \m{y} is its height. Taking care with signs, we should write the downward force as \m{F=-PA}, since pressure and area are positive, but the force is in the negative direction.
+\startformula
+	W = F \Delta y = -P A(y\sf - y\si) = -P(Ay\sf - Ay\si) = -P(V\sf - V\si) = -P\Delta V
+\stopformula
+The negative sign deserves some explanation. During the engine's downward power stroke, the volume inside the cylinder is decreasing, so \m{\Delta V} is negative. The pressure is positive, so the work formula \m{W= -P\Delta V} will give positive work for the downward power stroke, as it should.
+
+Work was a new concept to physicists in the eighteenth century – remember, the \visviva\ debate was raging at this time – but the ideas behind the engine's forceful power stroke were well understood. Atmospheric pressure, force, and displacement were all basic physics knowledge at that time.
+
+The upward stroke was where physicists would have started struggling. The piston is lifted by the heavy weight, but this is only possible because steam is allowed into the cylinder, as shown in \in{figure}[fig:NewcomenSteam]. The steam, also at atmospheric pressure, pushes up on the bottom of the piston, balancing the downward force of the outside atmosphere so the piston can rise. The steam is clearly doing work as it lifts the piston against the downward force of the atmosphere, but where does the steam get the energy? Clearly, the energy is from the fire, but it is not obvious how the energy of the fire turns into work done on the piston.
+
+\startbuffer[TikZ:NewcomenSteam]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle \small% Old style numerals in text
+\startTEXpage
+\starttikzpicture% tikz code
+% left cylinder
+\draw[thick,fill=black!30] (-2.5,7.5)-- ++(0,-7.5) -- ++(2,0) -- ++(0,7.5) -- ++(-.1,0) -- ++(0,-7.4) -- ++(-1.8,0) -- ++(0,7.4) -- cycle;
+\fill[black!30] (-1.7,-0.5) rectangle ++(0.4,0.5);
+\draw[thick,] (-1.7,-0.5)-- ++(0,0.5) -- ++(0.4,0) -- ++(0,-0.5);
+\node at (-1.5,0.5){\m{V\si}};
+% right cylinder
+\draw[thick,fill=black!30] (0.5,7.5)-- ++(0,-7.5) -- ++(2,0) -- ++(0,7.5) -- ++(-.1,0) -- ++(0,-7.4) -- ++(-1.8,0) -- ++(0,7.4) -- cycle;
+\fill[black!30] (1.3,-0.5) rectangle ++(0.4,0.5);
+\draw[thick,] (1.3,-0.5)-- ++(0,0.5) -- ++(0.4,0) -- ++(0,-0.5);
+\node at (1.5,3.5){\m{V\sf}};
+% right piston
+\draw[thick,fill=black!30] (0.6,7) rectangle ++(1.8,0.2);
+\fill[black!30] (1.4,8.2) rectangle ++(0.2,-1);
+\draw[thick,] (1.4,8.2)-- ++(0,-1) -- ++(0.2,0) -- ++(0,1);
+\node at (1,7.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+\node at (2,7.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+\node at (1,7) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=90]{\m{P}};
+\node at (2,7) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=90]{\m{P}};
+% left piston
+\draw[thick,fill=black!30] (-2.4,1) rectangle ++(1.8,.2);
+\fill[black!30] (-1.6,8.2) rectangle ++(0.2,-7);
+\draw[thick,] (-1.6,8.2)-- ++(0,-7) -- ++(0.2,0) -- ++(0,7);
+\node at (-1,1.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+\node at (-2,1.2) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=270]{\m{P}};
+\node at (-1,1) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=90]{\m{P}};
+\node at (-2,1) [single arrow, fill=black!25, single arrow head extend=.1cm, anchor=tip, shape border rotate=90]{\m{P}};
+% y coordinate axis
+\draw[thick,->] (0,0) -- (0,7.9)node[above]{\m{y}};
+\draw[] (.45,7) -- ++(-0.5,0)node[left]{\m{y\sf}};
+\draw[] (-.45,1) -- ++(0.5,0)node[right]{\m{y\si}};
+\draw[] (.05,0.1) -- ++(-0.1,0)node[left]{\m{0}};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:NewcomenSteam] % location, label
+{Steam entering the cylinder provides an upwards force on the piston. It is then lifted by the heavy weight on the left  of \in{figure}[fig:NewcomenAtmospheric].} % caption text
+{\noindent\typesetbuffer[TikZ:NewcomenSteam]} % figure contents
+
+\placefigure[margin][fig:DBernoulliGas]{Daniel Bernoulli's description of a gas. The gas molecules are not packed together. Still, their frequent collisions with the piston hold the piston and weight aloft.} {\externalfigure[DBernoulliGas][width=\rightmarginwidth]}
+
+Daniel Bernoulli's \booktitle{Hydrodynamica} appeared in 1838. In this great work, he brought together physicists' \visviva, engineers' work, and his own ideas about potential energy. He also offered an insightful and correct model of a gas like steam. He described the gas as being made of many tiny parts, now called molecules, that bounce around furiously – ricocheting off of the containers walls and off of each other, as shown in \in{figure}[fig:DBernoulliGas]. In this model, the tiny molecules are spread throughout the container, but they occupy very little of the space. It looks as if the piston and the weight at the top of \in{figure}[fig:DBernoulliGas] will fall, packing the molecules together at the bottom of the cylinder. Bernoulli realized that if the molecules are traveling fast enough, their repeated impacts on the bottom of the piston will provide enough tiny impulses to keep the piston from falling. This became known as the kinetic theory of gasses because it is the molecule's motion that causes the pressure against the sides of the container. The molecules' sizes and shapes are of little consequence.
+
+Bernoulli took several important steps in developing this model. He recognized that the kinetic energy of the molecules could be affected by the work done by the piston, or by raising the container's temperature. This established a connection between energy and temperature which would eventually be central to understanding engines. Unfortunately,  this part of \booktitle{Hydrodynamica} was largely ignored for a century. Physicists were not interested in engines, and engineers were not reading physics treatises. It was a great century for steam engines, but not a great century for understanding the heat that powered them.
+
+\section{Energy and Temperature in solids}
+By the early nineteenth century physicists noticed the industrial revolution happening around them and many decided to catch up with the engineers by investigating the connection between energy and temperature. They found that the connection depended on the material being studied. Heating water over a fire to a certain temperature takes far longer than heating an equal mass of copper, for example. We say that water has a very high \keyterm{heat capacity} because it consumes a great deal of heat for a relatively small increase in temperature and gives off a great deal of heat when its temperature decreases. 
+
+In 1819 at the École Polytechnique in Paris, Pierre Dulong and Alexis Petit were measuring the heat capacities of solid elements when the noticed a surprising chemistry connection. The energy required to raise the temperature of many solid elements was proportional to the amount of substance measured in moles! Moles were a fairly new idea, and the molar masses of many elements were not yet known. (In fact, a great many elements had not yet been identified.) This relationship became known as the Delong-Petit Law. In modern notation it says that the energy in random thermal motions \m{E\sth} is proportional to the temperature \m{T} and the number of moles \m{n}.
+\startformula
+	E\sth = 3nRT
+\stopformula
+The constant \m{R = 8.314\units{J/mol\.K}}. This law works especially well for the many elements that are metals, and it explains why lighter metals have a higher heat capacity than heavier metals. Lighter metals have more moles in the same mass, so they hold more thermal energy.
+
+If you have taken chemistry, you might have noticed the \m{nRT} on the right side of the Delong-Petit Law looks a lot like the right side of the Ideal Gas Law. This is an important connection that should become clear by the end of the chapter. If you did not notice that connection, you are in good company. Delong and Petit did not notice it either because the Ideal Gas Law had not been discovered. Delong and Petit's discovery preceded the Ideal Gas Law by several decades.
+
+The Delong-Petit Law gives us a formula for thermal energy that we can use with conservation of energy. Thermal energy can be combined with any of the other forms of energy – kinetic energy, or various types of potential energy – but for simple heating experiments \m{E\sth} is the only type of energy that matters. Solids do not expand dramatically when heated, so the work due to \m{\Delta V} is tiny compared to the heat, and can be ignored.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:DPcopper]
+\m{2.0} moles of copper are heated from \m{20\unit{\degree C}} to \m{100\unit{\degree C}}. How much heat \m{Q} was absorbed by the copper?
+\startsolution
+Start with conservation of energy, then use the Delong-Petit law for the thermal energies.
+\startformula\startmathalignment
+\NC H\si + \cancel{W} + Q	\NC = H\sf			\NR
+\NC E\sub{therm,i} +  Q	\NC = E\sub{therm,f}	\NR
+\NC 3nRT\si +  Q	\NC = 3nRT\sf				\NR
+\NC Q	\NC = 3nRT\sf - 3nRT\si					\NR
+%\NC 	\NC = 3nR(T\sf - T\si)					\NR
+\NC 	\NC = 3nR \Delta T					\NR
+\stopmathalignment\stopformula
+The change in temperature is \m{\Delta T = 80\unit{\degree C}}. Since celsius degrees are the same size as kelvin degrees, the change in kelvin is the same: \m{\Delta T = 80\units{K}}. The heat absorbed by the copper is.
+\startformula
+ Q = 3(2.0\units{mol})( 8.314\units{J/mol\.K})(80\unit{K})	
+	= 4.0\sci{3}\units{J}
+	= 4.0\units{kJ}
+\stopformula
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Dulong and Petit's discovery proved incredibly useful. Chemists had been trying to determine molar masses using chemical reactions. This presented a challenge, because the chemists could not be sure of the chemical formulas, so they often did not know if a mole of a compound in their reactions included one mole, two moles, or more moles of the individual elements. This could lead to huge errors in the molar mass. However, the Dulong-Petit Law, while not incredibly precise, allowed a determination of the number of moles in a sample purely from physical measurements, without any chemical reactions. This method corrected many of the chemists' early mistakes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:DPIron]
+A sample of iron is found to lose \m{4.5\units{J}} of heat as it cools from \m{10.0\unit{\degree C}} to \m{0.0\unit{\degree C}}. How many moles of iron are in the sample?
+\startsolution
+Starting with conservation of energy leads to \m{Q= 3nR \Delta T}, found in \in{example}[ex:DPcopper], this time with \m{\Delta T = -10\units{K}} and \m{Q = -4.5\units{J}} (negative because the iron sample loses energy as heat).
+\startformula\startmathalignment
+\NC Q	\NC = 3nR \Delta T					\NR
+\NC n	\NC = \frac{Q}{3R \Delta T}
+	= \frac{-4.5\units{J}}{3( 8.314\units{J/mol\.K})(-10\unit{K})}
+	= 0.018\units{mol}					\NR
+\stopmathalignment\stopformula
+The molar mass is the mass per mole, so dividing this sample's mass by \m{0.018\units{mol}} would give the molar mass.
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Delong and Petit's original paper looked at only 13 solid elements, but eventually their law was used for dozens of elements. The molar masses checked using the Delong-Petit law were central to the construction of the periodic table in 1871.
+
+For physicists, the Dulong-Petit Law established a clear connection between atoms, temperature, and thermal energy. Somehow, atoms we holding thermal energy, probably in their microscopic random motions, but the details were unresolved. The law could not be extended to liquids and gasses, and since \m{W\approx0} for solids, the law did not provide the connection between heat \m{Q} and work \m{W} needed to understand engines like Newcomen's.
+
+\section{The motion which we call heat}
+Rudolf Clausius finally made the connection between energy, heat, and work. His equation relating them is the equation we have called conservation of energy. He was the one who put it all together.
+\startformula
+	H\si + W + Q = H\sf
+\stopformula
+This equation is often called the \keyterm{First Law of Thermodynamics}, especially when used in problems involving thermal energy and heat, but it is the conservation of energy law you already know. The full equation is especially important for studying gasses, where heat and work both affect the energy.
+
+Clausius also provided the first full accounting of the kinetic theory of gasses proposed by Daniel Bernoulli over a century earlier. Clausius' paper \booktitle{On The Nature of the Motion We Call Heat} connects pressure and temperature with the microscopic kinetic energy of gas molecules in a container like the one drawn by Bernoulli (show again in \in{fig.}[fig:DBernoulliGas2]). Clausius followed Bernoulli's suggestion that the pressure exerted by the gas is due to the many impulses delivered by fast-moving gas molecules colliding with the container. It is worth understanding his argument. (I am giving the argument using velocity components, rather than speed and direction as Clausius did. This is avoids the trigonometry and calculus required for his argument.)
+
+\placefigure[margin][fig:DBernoulliGas2]{Rudolf Clausius used Daniel Bernoulli's vision of a gas (above) to find the molecules' average kinetic energy. The volume of gas is \m{V=hA}, where \m{h} is the hight of the gas and \m{A} is the area of the movable lid.} {\externalfigure[DBernoulliGas][width=\rightmarginwidth]}
+
+The total impulse delivered to the container's movable lid by these collision is the product of the impulse delivered in each collision, the number of collisions per molecule, and the total number of molecules. Let us consider each of these factors before multiplying them together.
+
+A particle approaching the lid with a positive velocity \m{v_y} will bounce off the lid with the opposite, negative velocity \m{-v_y}. The change in the molecule's momentum is therefore \m{\Delta p_y = -2mv_y}. This is the downward impulse that the lid delivers to the molecule. The lid receives an equal and opposite upward impulse \m{J=2mv_y}. This is the first factor in the product. (The molecule's velocity may also have horizontal components \m{v_x} and \m{v_z}. These do not reverse when the molecule bounces off the lid, and they do not contribute any upward impulse to the lid.)
+
+To find the number of collisions per molecule, Clausius imagined molecules so small that they never collide with each other, only bouncing off of the container. In this case, the number of collisions is the total vertical distance traveled by molecule, \m{v_y\Delta t}, divided by the length of a single round trip for the top of the container to the bottom and back to the top, \m{2h}. The second factor in our product is therefore \m{v_y\Delta t/2h}. (The molecules actually collide with each other frequently, but those collisions do not diminish the average number of collisions between molecules and the lid.)
+
+The third and final factor in our product is the number of molecules \m{N}. 
+Writing the total impulse delivered to the lid as \m{F\Delta t}, the product is
+\startformula
+	F\Delta t = 2mv_y \cdot \frac{v_y \Delta t}{2h} \cdot N.
+\stopformula
+This can be simplified significantly using the facts that force is pressure times area (\m{F=PA}), volume is base area times height (\m{V=Ah}), and the \m{y} part of the molecule's kinetic energy is \m{K_y = \onehalf mv_y^2}. 
+\startformula\startmathalignment
+\NC	PA\Delta t	\NC = 2 \cdot \frac{mv_y^2}{2}\cdot\frac{\Delta t}{h}\cdot N	\NR
+\NC	PAh	\NC = 2N \cdot \half mv_y^2	\NR
+\NC	PV	\NC = 2N K_y.	\NR
+\stopmathalignment\stopformula
+Every molecule does not have exactly the same kinetic energy; \m{K_y} is each molecule's average kinetic energy due to its motion in the \m{y}-direction. Each molecule's average kinetic energies due to motions in the \m{x} and \m{z}-directions are the same.
+
+The above relation between pressure, volume, the number of molecules, and their kinetic energy had been worked out over a century earlier by D.~Bernoulli. Clausius' derivation was a bit more rigorous than Bernoulli's, but Clausius big advantage over Bernoulli was the ideal gas law, \m{PV = nRT}, including the ability to compute the number of moles \m{n}, absolute temperature \m{T}, and the gas constant \m{R=8.314\units{J/mol\.K}}, all of which were found after Bernoulli's time. This allowed Clausius to replace \m{PV} in the equation above with \m{nRT}, giving a relationship between temperature and the molecules' kinetic energy.
+\startformula\startmathalignment
+\NC	nRT		\NC = 2N K_y	\NR
+\NC	N K_y	\NC = \half nRT	\NR
+\stopmathalignment\stopformula
+This is starting to look like the Dulong-Petit Law, with energy on the left proportional to temperature on the right. However, here the energy is only the \m{y}-part of the kinetic energy. The total translational kinetic energy \m{K\sub{trans}} of all \m{N} molecules is
+\startformula
+	K\sub{trans} = N(K_x+K_y+K_z) = 3NK_y = \frac{3}{2}nRT.
+\stopformula
+Clausius tells us that experiments had shown the actual thermal energy in a gas is approximately
+\startformula
+	E\sth \approx 2.4\,nRT.
+\stopformula
+Of course, experimental coeficient \m{2.4} is not the same the theoretical coefficient \m{3/2}, but this is not a problem. Clausius was well aware that the total thermal energy may include kinetic energy due to other types of motion – rotational kinetic energy or energy of vibrations within the molecule – which would make \m{E\sth} greater than \m{K\sub{trans}}, which is what we see.
+
+We now have three very similar formulas for thermal energy in terms of temperature.
+\startblockquote
+\startalignment[flushright]% or center
+\starttabulate[|l|l|c|]
+\NC Dulong-Petit Law					\NC solid elements	\NC \m{E\sth = 3nRT}				\NR
+\NC Clausius kinetic theory\quad\strut	\NC ideal gas		\NC \m{K\sub{trans} = \frac{3}{2}nRT}		\NR
+\NC Experiments						\NC common gasses	\NC \m{E\sth \approx 2.4\,nRT}	\NR
+\stoptabulate
+\stopalignment
+\stopblockquote
+In all cases, the energy is proportional to the temperature and the number of moles (or the number of molecules).  The only difference is the coefficient on the right, which seems to be related to the state, \m{3} for solids and approximately \m{2.4} for common gasses. This is not surprising, since the molecules in a solid will likely have different motions than molecules in a gas.
+
+\section{Boltzmann's equipartition theorem}
+
+In 1860, the brilliant physicist James Clerk Maxwell decided to determine the coefficient in the \m{E\sth} formula for common gasses by carefully accounting for all the types of motion available to the molecule. It was a disaster.
+
+Maxwell derived one very important result in his first attempt: every possible type of motion contains the same amount of kinetic energy. (He called each possible type of motion a \quotation{degree of freedom.}) For a gas molecule, the energy in one degree of freedom – motion in the \m{y}-direction – the average kinetic energy was found by Clausius
+\startformula
+	N K_y = \half nRT
+\stopformula
+For Maxwell's analysis of the motions of individual molecules, it is helpful to simplify this formula by recalling that number of molecules is the number of moles times Avogadro's Number, i.~e. \m{N=n\NA}.
+\startformula\startmathalignment
+\NC	n\NA K_y	\NC = \half nRT	\NR
+\NC K_y	\NC = \frac{1}{2} \left(\frac{R}{\NA}\right)T	\NR
+\stopmathalignment\stopformula
+The average energy in \m{K_y} will actually be the average energy in each degree of freedom in the gas. Avogadro's Number is huge (\m{\NA=6.02\sci{23}\unit{/mol}}), so this formula gives a tiny average energy in each degree of freedom. Only when there are many molecules will these add up to a significant total energy.
+Since every degree of freedom has the same average energy, the all that remained for Maxwell was to count the number of degrees of freedom.
+
+The simplest possibility is that the molecule's only degrees of freedom are translations in the \m{x}, \m{y}, and \m{z}-directions, which gives Clausius' total \m{K\sub{trans}}, which we already saw was too small. Maxwell therefore considered the possibility that the molecule have some rigid shape and can rotate about the three coordinate axes. These three types of rotation provide another three degrees of freedom, for a total of \m{3+3=6} degrees of freedom per molecule. The total thermal energy in the gas would be
+\startformula
+	E\sth = N 6 \cdot \frac{1}{2} \left(\frac{R}{\NA}\right)T
+		= n\NA 3 \left(\frac{R}{\NA}\right)T
+		= 3nRT
+		\qquad\text{(wrong)}
+\stopformula
+This looks like the Dulong-Petit Law for solids, not the thermal energy in a common gas. Maxwell admitted that this attempt was a failure.
+
+The next advance came ten years later, in 1971, when Ludwig Boltzmann discovered that thermal energy also goes into potential energy, not just kinetic energy. If the atoms are held together by forces similar to a spring, which is plausible, then every spring will also contain an average potential energy equal to the average kinetic energy in each degree of freedom. This is called the \keyterm{equipartition theorem}, because it says that the energy is divided (partitioned) equally among all of the degrees of freedom and springs, on average. To find the total energy requires counting the degrees of freedom plus the number of springs.
+
+Maxwell tried again. Common gasses are made of two atoms: \chemical{N_2}, \chemical{O_2}, \chemical{H_2}, \chemical{NO}, etc. If the atoms are connected by a spring, then each atom has three degrees of freedom for its motion, plus one spring, for a total of \m{3+3+1=7} places to put energy in each molecule. The total thermal energy in the gas would be
+\startformula
+	E\sth = N 7 \cdot \frac{1}{2} \left(\frac{R}{\NA}\right)T
+		= n\NA \frac{7}{2} \left(\frac{R}{\NA}\right)T
+		= \frac{7}{2}nRT
+		\qquad\text{(wrong)}
+\stopformula
+This is even worse than the previous attempt! Most concerning, Maxwell saw a disturbing pattern. In 1875, he sounded the alarm.
+\startblockquote
+Now, every additional variable [degree of freedom] introduces an additional amount of capacity for internal motion\dots. Every additional variable, therefore, increases the heat capacity\dots. So does any capacity which the molecule may have for storing up energy in the potential form. But the calculated heat capacity is already too great when we suppose the molecule to consist of two atoms only. Hence every additional degree of complexity which we attribute to the molecule can only increase the difficulty of reconciling the observed with the calculated value of the  heat capacity.  %[Maxwell 1875, \emph{specific heat} replaced with emph{heat capacity}. p.433]
+	
+I have now put before you what I consider to be the greatest difficulty yet encountered by the molecular theory.
+\stopblockquote
+
+Maxwell's admonition led to two breakthroughs – one experimental and one theoretical. Experimentalists, wishing to minimize the confounding degrees of freedom, turned their attention to monoatomic gasses. Not many were know in 1875, since none of the noble gasses had been discovered. Mercury vapor, which consists of individual mercury atoms, was found to have a thermal energy 
+\startformula
+	E\sth = \frac{3}{2}nRT.
+		\qquad\text{(monoatomic gas)}
+\stopformula
+This is exactly what is predicted for an atom that only has three degrees of freedom – no spinning, vibrating, or springs.
+This was an important success for the equipartition theorem and for molecular theory, although a rather simple success.
+
+The theoretical advance came again from Boltzmann, this time in his important 1876 paper \booktitle{On the Nature of Gas Molecules}. After recalling the success of Mercury vapor with three degrees of freedom, he continues carefully.
+\startblockquote
+It is now obvious to consider the case that a molecule consists of two firmly connected [atoms]. Such a molecule would have five degrees of freedom; the three coordinates of its center of gravity and two variables that determine the direction of its central line\dots. 
+\stopblockquote
+Maxwell had over counted. Only two angles are needed to describe the direction of the central line, giving two rotational degrees of freedom. Along with the three degrees of freedom for the molecules position, this gives \m{3+2=5} degrees of freedom for each molecule, leading to
+\startformula
+	E\sth = \frac{5}{2}nRT.
+		\qquad\text{(rigid diatomic or linear gas molecule)}
+\stopformula
+Compared to the experimental coefficient of \m{2.4}, Boltzmann concludes that his predicted coefficient of \m{5/2} is
+\startblockquote
+\dots a value which dos not deviate too far from that experimentally found for air and most other simple gasses. The same value would be obtained if a molecule consisted of any series of firmly connected [atoms] which lie in a straight line.
+\stopblockquote
+Carbon dioxide, which has the linear structure O–C–O, is an example of a linear molecule with five degrees of freedom.
+\startblockquote
+On the other hand, if [the] atoms are not in a straight line or more generally if the molecule is any rigid shape which is not [linear] then the number of degrees of freedom is six\dots.
+\stopblockquote
+This leads to the thermal energy that Maxwell had mistakenly applied to all molecular gasses.
+\startformula
+	E\sth = 3nRT.
+		\qquad\text{(rigid nonlinear gas molecule)}
+\stopformula
+\quotation{This relation\dots has also been observed for some gasses}
+Another important success. It is remarkable that we can learn about the shape of a gas molecule by carefully measuring the heat capacity of the gas. The shape of the molecule – linear or nonlinear – determines the number of degrees of freedom, and therefore determines how much thermal energy each molecule will hold!
+
+Finally, having explained the nature of gas molecules, Boltzmann turned his attention to the elemental solids described by the Delong-Petit Law half a century earlier. In the solid, an atom can move slightly in all three directions, but it cannot move far. It has three degrees of freedom, but it is also pushed back toward its equilibrium positions by the spring-like forces exerted along each direction by neighboring atoms. These forces act effectively as three springs, one along each degree of freedom, restoring the atom to its proper place. Three degrees of freedom and three springs give \m{3+3=6} spots to put energy for each atom, leading to the Dulong-Petit Law.
+\startformula
+	E\sth = 3nRT.
+		\qquad\text{(elemental solid)}
+\stopformula
+Boltzmann's 1876 paper was a tremendous triumph for his equipartition theorem and for molecular theory.
+
+
+\section{Boltzmann's constant}
+In 1876, Avogadro's number was not known. At the beginning of the twentieth century, when the value was found to be \m{\NA = 6.02\sci{23}\unit{/mol}}, the quantity \m{R/\NA} became known as Boltzmann's constant.
+\startformula
+	\kB = \frac{R}{\NA} =  1.381\sci{-23}\units{ J/K}
+\stopformula
+According to Boltzmann's equipartition theorem, the average amount of energy stored in each place (degree of freedom or spring) is proportional to the temperature, and is given by the formula \m{½\,\kB T}. 
+
+You should think of \m{\kB} as a conversion from kelvins to joules. Kelvins are just another unit for measuring average energy. Specifically, a kelvin is a measure of the energy in each place. A kelvin is a very tiny amount of energy, because at a temperature of \m{1\units{K}} the energy in each place is extremely tiny. Even at room temperature \m{T = 298\units{K}} the energy in each place is tiny. It is only the energy of many, many molecules that is significant.
+
+In 2019, the Standard International units were updated to make Boltzmann's constant the definition of temperature, and Boltzmann's constant was assigned the exact value
+\startformula
+	\kB =  1.380649\sci{-23}\units{ J/K}.
+		\qquad\text{(exact)}
+\stopformula
+Likewise, Avogadro's number was made the definition of a mole, with the defined value 
+\startformula
+	\NA =  6.02214076\sci{-23}\unit{ /mol}.
+		\qquad\text{(exact)}
+\stopformula
+This leads to an exact value for the Gas constant \m{R}.
+\startformula
+	R = \kB\NA = 8.31446261815324\unit{ J/mol\.K}
+		\qquad\text{(exact)}
+\stopformula
+Usually, these exact values are not needed for calculations. What is important to remember is that \emph{temperature is a measure of energy.}
+
+%\subject{Notes}
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+
+%\subject{Bibliography}
+%        \placelistofpublications
+
+\stopchapter
+\stopcomponent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%$6.241509\sci{18}$ electrons is \emph{negative} one Coulomb. One Coulomb of charge from a one volt battery gives one joule of energy. How many electron volts are in one joule? Converting the other way, one electron volt is how many joules? How many electron volts of energy would be produced by one mole of electrons going through a potential difference on one volt. How many joules? Calories too?
+
+
+% Templates:
+
+% Margin image
+\placefigure[margin][] % Location, Label
+{} % Caption
+{\externalfigure[chapter03/][width=144pt]} % File
+
+% Margin Figure
+\startbuffer[TikZ:NAME]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:NAME] % Location, Label
+{}	 % caption text
+{\noindent\typesetbuffer[TikZ:NAME]}
+
+% Aligned equation
+\startformula\startmathalignment
+\stopmathalignment\stopformula
+
+% Aligned Equations
+\startformula\startmathalignment[m=2,distance=2em]
+\stopmathalignment\stopformula

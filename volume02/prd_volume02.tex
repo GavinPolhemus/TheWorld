@@ -1,0 +1,33 @@
+\startproduct prd_volume02
+\project project_world
+
+\def\volNo{II}
+\def\volDir{volume02}
+\def\volSubtitle{Particles fill the Cosmos}
+
+\component common/titlepage
+\startfrontmatter
+	\component common/contents
+\stopfrontmatter
+\setupuserpagenumber[number=1]
+\startbodymatter
+	\setupheadnumber[chapter][+8]
+	\component chapter09/chapter09 % Particles in Fields
+	\component chapter10/chapter10 % Circuits
+	\component chapter11/chapter11 % Heat
+	\component chapter12/chapter12 % Plank
+	\component chapter13/chapter13 % Relativity
+	\component chapter14/chapter14 % Optics
+	\component chapter15/chapter15 % Middle Model
+%	\component chapter16/chapter16 % Cosmology
+\stopbodymatter
+
+%\startappendices
+%\stopappendices
+
+\startbackmatter
+	\component common/bibliography
+	\component common/index
+\stopbackmatter
+
+\stopproduct

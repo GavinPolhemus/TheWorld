@@ -193,6 +193,7 @@
 %
 \setupexternalfigures[
 	maxwidth=\measure{fullwidth},
+	directory={images},
 ]
 \defineexternalfigure[widefigure][width=\measure{fullwidth}]
 
@@ -240,6 +241,11 @@
 %	spacebefore=-3in,%Temporary! Puts caption above for Ch5
 	spacebefore=\the\dimexpr\naturalfloatht+\lineheight\relax,% This puts the caption below
 ]
+
+% Abreviations
+
+\define\ie{{\sl i.e.}}
+
 
 % Text Fractions
 % HR: this might be easier with OpenType features. GP: I'm almost certain it would be.
