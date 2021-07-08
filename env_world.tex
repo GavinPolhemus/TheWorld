@@ -197,6 +197,28 @@
 ]
 \defineexternalfigure[widefigure][width=\measure{fullwidth}]
 
+% Specifically for TikZ figures
+
+\startbuffer[starttikz]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+   \startTEXpage
+   \starttikzpicture[thick]
+\stopbuffer
+
+\startbuffer[stoptikz]
+   \stoptikzpicture
+   \stopTEXpage
+\stopbuffer
+
+\define[3]\marginTikZ{
+  \startplacefigure[location=margin, reference=fig:#2, title={#3}]
+    #1\typesetbuffer[starttikz,#2,stoptikz]
+  \stopplacefigure
+}
+
 % Captions - always in the margin
 \setupcaptions[figure,table][
 	width=\rightmarginwidth,

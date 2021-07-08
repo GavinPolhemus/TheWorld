@@ -70,16 +70,55 @@ Not every pair in this pipe collection produces consonant pitches. The three pai
 
 \placetextfloat[top][fig:MonochordTyndall]{Monochord shown in John Tyndall’s 1875 textbook, \booktitle{Sound.}} {\externalfigure[MonochordTyndallSound][width=\textwidth]}
 
-\placefigure[margin,here][fig:monochord]{A monochord produces the lowest pitch when the full length of string is played.  Placing a finger on the string reduces the string’s length and raises its pitch. The three lengths shown can be paired to form the simple ratios 2:1, 3:2, and 4:3.}
-{\vskip1in\noindent%
-\starttikzpicture[thick,domain=-90:90]
+%\placefigure[margin,here][fig:monochord]{A monochord produces the lowest pitch when the full length of string is played.  Placing a finger on the string reduces the string’s length and raises its pitch. The three lengths shown can be paired to form the simple ratios 2:1, 3:2, and 4:3.}
+%{\vskip1in\noindent%
+%\starttikzpicture[thick]
+%	% First monochord
+%	\draw[fill=black!10] (0,4.75) rectangle (1.5,-4.75); % Box
+%	\draw (0.5,4.5)--(1,4.5); % Top bridge
+%	\draw (0.5,-4.5)--(1,-4.5); % Bottom bridge
+%	\draw[opacity=.5] (.75,4.5)--(.75,-4.5);
+%	\draw[opacity=.5,domain=-90:90] plot ({cos(\x)/10 + 0.75},{\x/20});
+%	\draw[opacity=.5,domain=-90:90] plot ({-cos(\x)/10 + 0.75},{\x/20});
+%	\draw[thin] (.25,4.5) -- (.45,4.5);
+%	\draw[thin] (.25,-4.5) -- (.45,-4.5);
+%	\draw [thin,<->](.32, 4.5) -- node[fill=black!10,inner sep=2pt]{\m{L}}  (.32, -4.5);
+%	% Second monochord
+%	\draw[fill=black!10] (1.75,4.75) rectangle (3.25,-4.75); % Box
+%	\draw (2.25,4.5)--(2.75,4.5); % Top bridge
+%	\draw (2.25,-4.5)--(2.75,-4.5); % Bottom bridge
+%	\draw (2.5,4.5)--(2.5,1.5);
+%	\draw[opacity=.5] (2.5,1.5)--(2.5,-4.5);
+%	\draw[thin] (2,1.5) -- (2.35,1.5);
+%	\draw[thin] (2,-4.5) -- (2.2,-4.5);
+%	\draw[opacity=.5,domain=-90:90] plot ({cos(\x)/10 + 2.5},{\x/30-1.5});
+%	\draw[opacity=.5,domain=-90:90] plot ({-cos(\x)/10 + 2.5},{\x/30-1.5});
+%	\draw [thin,<->](2.07, 1.5) -- node[fill=black!10,inner sep=2pt]{\m{\tfrac{2}{3}L}}  (2.07, -4.5);
+%	\draw[fill=white] (2.5,1.5) circle[radius=.1]; % Finger placement
+%	% Third monochord
+%	\draw[fill=black!10] (3.5,4.75) rectangle (5,-4.75); % Box
+%	\draw (4,4.5)--(4.5,4.5); % Top bridge
+%	\draw (4,-4.5)--(4.5,-4.5); % Bottom bridge
+%	\draw (4.25,4.5)--(4.25,0); % Straight string
+%	\draw[opacity=.5] (4.25,0)--(4.25,-4.5);
+%	\draw[opacity=.5,domain=-90:90] plot ({cos(\x)/10 + 4.25},{\x/40-2.25});
+%	\draw[opacity=.5,domain=-90:90] plot ({-cos(\x)/10 + 4.25},{\x/40-2.25});
+%	% Dimension of vibrating string
+%	\draw[thin] (3.75,0) -- (4.1,0);
+%	\draw[thin] (3.75,-4.5) -- (3.95,-4.5);
+%	\draw [thin,<->](3.82, 0) -- node[fill=black!10,inner sep=2pt]{\m{\tfrac{1}{2}L}}  (3.82, -4.5);
+%	\draw[fill=white] (4.25,0) circle[radius=.1]; % Finger placement
+%\stoptikzpicture
+%}
+
+\startbuffer[monochord]
 	% First monochord
 	\draw[fill=black!10] (0,4.75) rectangle (1.5,-4.75); % Box
 	\draw (0.5,4.5)--(1,4.5); % Top bridge
 	\draw (0.5,-4.5)--(1,-4.5); % Bottom bridge
 	\draw[opacity=.5] (.75,4.5)--(.75,-4.5);
-	\draw[opacity=.5] plot ({cos(\x)/10 + 0.75},{\x/20});
-	\draw[opacity=.5] plot ({-cos(\x)/10 + 0.75},{\x/20});
+	\draw[opacity=.5,domain=-90:90] plot ({cos(\x)/10 + 0.75},{\x/20});
+	\draw[opacity=.5,domain=-90:90] plot ({-cos(\x)/10 + 0.75},{\x/20});
 	\draw[thin] (.25,4.5) -- (.45,4.5);
 	\draw[thin] (.25,-4.5) -- (.45,-4.5);
 	\draw [thin,<->](.32, 4.5) -- node[fill=black!10,inner sep=2pt]{\m{L}}  (.32, -4.5);
@@ -91,8 +130,8 @@ Not every pair in this pipe collection produces consonant pitches. The three pai
 	\draw[opacity=.5] (2.5,1.5)--(2.5,-4.5);
 	\draw[thin] (2,1.5) -- (2.35,1.5);
 	\draw[thin] (2,-4.5) -- (2.2,-4.5);
-	\draw[opacity=.5] plot ({cos(\x)/10 + 2.5},{\x/30-1.5});
-	\draw[opacity=.5] plot ({-cos(\x)/10 + 2.5},{\x/30-1.5});
+	\draw[opacity=.5,domain=-90:90] plot ({cos(\x)/10 + 2.5},{\x/30-1.5});
+	\draw[opacity=.5,domain=-90:90] plot ({-cos(\x)/10 + 2.5},{\x/30-1.5});
 	\draw [thin,<->](2.07, 1.5) -- node[fill=black!10,inner sep=2pt]{\m{\tfrac{2}{3}L}}  (2.07, -4.5);
 	\draw[fill=white] (2.5,1.5) circle[radius=.1]; % Finger placement
 	% Third monochord
@@ -101,15 +140,18 @@ Not every pair in this pipe collection produces consonant pitches. The three pai
 	\draw (4,-4.5)--(4.5,-4.5); % Bottom bridge
 	\draw (4.25,4.5)--(4.25,0); % Straight string
 	\draw[opacity=.5] (4.25,0)--(4.25,-4.5);
-	\draw[opacity=.5] plot ({cos(\x)/10 + 4.25},{\x/40-2.25});
-	\draw[opacity=.5] plot ({-cos(\x)/10 + 4.25},{\x/40-2.25});
+	\draw[opacity=.5,domain=-90:90] plot ({cos(\x)/10 + 4.25},{\x/40-2.25});
+	\draw[opacity=.5,domain=-90:90] plot ({-cos(\x)/10 + 4.25},{\x/40-2.25});
 	% Dimension of vibrating string
 	\draw[thin] (3.75,0) -- (4.1,0);
 	\draw[thin] (3.75,-4.5) -- (3.95,-4.5);
 	\draw [thin,<->](3.82, 0) -- node[fill=black!10,inner sep=2pt]{\m{\tfrac{1}{2}L}}  (3.82, -4.5);
 	\draw[fill=white] (4.25,0) circle[radius=.1]; % Finger placement
-\stoptikzpicture
-}
+\stopbuffer
+
+\marginTikZ{\vskip 1in}{monochord}{A monochord produces the lowest pitch when the full length of string is played.  Placing a finger on the string reduces the string’s length and raises its pitch. The three lengths shown can be paired to form the simple ratios 2:1, 3:2, and 4:3.}
+
+
 Pythagoras and Philolaus could have demonstrated their mathematical model of consonance with a string instrument. A monochord, like the one in figure \in[fig:MonochordTyndall], is often used for these demonstrations, but a cello or guitar works as well.  On any of these instruments a single string can produce many pitches. The string sounds its lowest pitch when its full length is free to vibrate. Pressing down on the string reduces the portion that can vibrate, producing a higher pitch. Making the string very short will raise the pitch dramatically.
 
 To hear consonance and dissonance, you need to play two strings. To test simple ratios, the strings must be tuned to the same pitch. (Instruments with multiple strings always have each string tuned to a different pitch, so you need two instruments.) Strings tuned to the same open pitch produce consonant sounds when their lengths are reduced to form simple ratios like those on the monochords in figure \in[fig:monochord]. Ratios that aren’t simple will produce dissonant pitches, some much worse than others. Strings, like pipes, provide evidence supporting the Pythagorean model.
@@ -128,18 +170,31 @@ Galilei’s challenge was quickly met by the realization that the ratios must be
 \section{Amplitude and frequency}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\placefigure[margin][fig:stringamp]{The amplitude of a string’s vibration is measured from the string’s rest position to its maximum displacement on either side.}
-	{\hbox{\starttikzpicture[thick,domain=-90:90]
+%\placefigure[margin][fig:stringamp]{The amplitude of a string’s vibration is measured from the string’s rest position to its maximum displacement on either side.}
+%	{\hbox{\starttikzpicture[thick,domain=-90:90]
+%	\draw[fill=black!10] (0,4.75) rectangle (1.5,-4.75); % Box
+%	\draw (0.5,4.5)--(1,4.5); % Top bridge
+%	\draw (0.5,-4.5)--(1,-4.5); % Bottom bridge
+%	\draw[opacity=.5] (.75,4.5)--(.75,-4.5);
+%	\draw[opacity=.5] plot ({cos(\x)/4 + 0.75},{\x/20});
+%	\draw[opacity=.5] plot ({-cos(\x)/4 + 0.75},{\x/20});
+%	\draw [thin,->](.15, 0)--(0.5, 0) node[above left]{\m{A}};
+%	\draw [thin,->](1.1, 0)--(0.75, 0); %node[left]{\m{A}};
+%	\stoptikzpicture}%
+%}
+
+\startbuffer[stringamp]
 	\draw[fill=black!10] (0,4.75) rectangle (1.5,-4.75); % Box
 	\draw (0.5,4.5)--(1,4.5); % Top bridge
 	\draw (0.5,-4.5)--(1,-4.5); % Bottom bridge
 	\draw[opacity=.5] (.75,4.5)--(.75,-4.5);
-	\draw[opacity=.5] plot ({cos(\x)/4 + 0.75},{\x/20});
-	\draw[opacity=.5] plot ({-cos(\x)/4 + 0.75},{\x/20});
+	\draw[opacity=.5, domain=-90:90] plot ({cos(\x)/4 + 0.75},{\x/20});
+	\draw[opacity=.5, domain=-90:90] plot ({-cos(\x)/4 + 0.75},{\x/20});
 	\draw [thin,->](.15, 0)--(0.5, 0) node[above left]{\m{A}};
 	\draw [thin,->](1.1, 0)--(0.75, 0); %node[left]{\m{A}};
-	\stoptikzpicture}%
-}
+\stopbuffer
+
+\marginTikZ{}{stringamp}{The amplitude of a string’s vibration is measured from the string’s rest position to its maximum displacement on either side.}
 
 All sounds, musical or not, are produced by something vibrating.  When the motion is disorganized, the resulting sound can be anything from a hiss to a clatter.  A musical pitch is produced by an organized vibration that repeats the same movement many times per second in exactly the same way.
 
@@ -657,7 +712,30 @@ Egypt is close enough to the equator for the sun to pass almost directly overhea
 Eratosthenes learned there was a well in southern Egypt, in the town of Syene, where the noon sun was \emph{exactly} overhead on the summer solstice, so that someone looking into the well would see the sun’s reflection in the water far below.
 Farther north, in Alexandria, the sun was not quite directly overhead due to the Earth’s curvature. At noon on the summer solstice, Eratosthenes measured the shadow cast by a vertical post in Alexandria and found the sun was one fiftieth of a circle (about seven degrees) away from vertical. This meant  the distance from the Syene to Alexandria was one fiftieth of Earth’s circumference, as shown in figure \in[fig:EarthRadius].
 
-\placefigure[margin][fig:EarthRadius]{Eratosthenes determined Earth’s size. The well’s depth and the post’s height are greatly exaggerated.}{\hbox{\starttikzpicture[thick,domain=-90:90]
+%\placefigure[margin][fig:EarthRadius]{Eratosthenes determined Earth’s size. The well’s depth and the post’s height are greatly exaggerated.}{\hbox{\starttikzpicture[thick,domain=-90:90]
+%\clip (-1.25,-.5) rectangle (3.75,17);
+%\foreach \x in {-1,-.5,...,3.5}
+%	\draw[black!50,postaction={decorate}, decoration={markings,% switch on markings
+%mark=between positions 1cm and 3cm step 1.55cm with {\arrow{stealth}}}] (\x,17)--(\x,13.96);
+%\path (1.25,16.75) node[below,fill=white,inner sep=2pt]{Parallel rays from the sun}; % Rays label
+%\draw[thick, decoration={random steps, segment length=1mm, amplitude=.2mm},fill=black!10] (.1,13.96) -- (.1,14.96) % Well
+%	decorate{arc [start angle=89.62, end angle = -269.45, radius=14.96cm]} % Earth’s surface
+%	-- ( -.1,13.96) -- cycle;
+%\draw[->] (0,0)--(82.8:14.93) node[fill=black!10, inner sep=2pt, sloped, pos=0.98, left]{Post in Alexandria} ; % Angled radius
+%\draw[->] (0,0) -- node[fill=black!10, inner sep=2pt, sloped, pos=0.98, left]{Well in Syene} (0,13.94); % Vertical radius
+%\draw (0,4) arc [start angle=90, end angle = 82.8, radius=4cm]; % Earth’s angle
+%\draw (2,15.13) arc [start angle=270, end angle = 262.8, radius=.7cm]; % Post’s angle
+%\draw[<->,postaction={decorate, decoration={markings,
+%mark=at position .5 with {\node[above=2pt, fill=white, inner sep=2pt, transform shape]{5000 stadia};}}}] (0,15.11) arc [start angle=90, end angle = 82.8, radius=15.11cm]; % distance
+%\draw[very thick] (82.8:14.96) -- (82.8:15.96) ; % Post
+%\draw[<->,rounded corners] (2.03,15.13) -| (2.33,7) node[fill=black!10,inner sep=2pt]{\m{\tfrac{1}{50}} of a circle} |- (.52,3.972);
+%\draw[->,postaction={decorate, decoration={markings,
+%mark=at position .5 with {\node[above=2pt, fill=white, inner sep=2pt, transform shape]{North};}}}] (81:15.46) arc [start angle=81, end angle = 77.4, radius=15.46cm]; % North
+%\fill (0,0) circle[radius=1pt] node[right]{Earth’s Center}; % Vertical radius
+%	\stoptikzpicture}
+%}
+
+\startbuffer[EarthRadius]
 \clip (-1.25,-.5) rectangle (3.75,17);
 \foreach \x in {-1,-.5,...,3.5}
 	\draw[black!50,postaction={decorate}, decoration={markings,% switch on markings
@@ -677,8 +755,9 @@ mark=at position .5 with {\node[above=2pt, fill=white, inner sep=2pt, transform 
 \draw[->,postaction={decorate, decoration={markings,
 mark=at position .5 with {\node[above=2pt, fill=white, inner sep=2pt, transform shape]{North};}}}] (81:15.46) arc [start angle=81, end angle = 77.4, radius=15.46cm]; % North
 \fill (0,0) circle[radius=1pt] node[right]{Earth’s Center}; % Vertical radius
-	\stoptikzpicture}
-}
+\stopbuffer
+
+\marginTikZ{}{EarthRadius}{Eratosthenes determined Earth’s size. The well’s depth and the post’s height are greatly exaggerated.}
 
 Measuring the angle was the easy part. Measuring the distance from Alexandria to the well was more difficult.
 Eratosthenes may have measure the distance by making the trip himself, or he may have used distance measurements made by others.
