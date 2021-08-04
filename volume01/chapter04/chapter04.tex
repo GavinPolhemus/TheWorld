@@ -1,11 +1,11 @@
-% !TEX useOldSyncParser
+% !TEX useConTeXtSyncParser
 \startcomponent c_chapter04
 \project project_world
 \product prd_volume01
 
 \doifmode{*product}{\setupexternalfigures[directory={chapter04/images}]}
 
-\setupsynctex[state=start,method=max] % "method=max" or "min"
+\setupsynctex[state=start, method=min] % "method=max" or "min"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startchapter[title=Vis Viva,reference=ch:VisViva]
@@ -358,7 +358,7 @@ Leibniz describes what happens during an elastic collision.
 	%gradually compressed like two inflated balls, and more and more approach each other in turn by the continually increased pressure; that, moreover, by this thing the motion itself is weakened, the force itself of the effort being carried over into the elasticities (elastra) of the bodies, until at length they are reduced to rest; but then at length the elasticity of the bodies restoring them, they themselves rebound from each other in turn with a retrograde motion begun again from rest and continually increasing; at length with the same velocity with which they approached each other, regained but turned in the opposite direction, they recede in turn from each other and return into the positions \m{A_3}, \m{B_3} which coincide with the positions \m{A_1}, \m{B_1}, if the bodies are supposed equal and of equal velocity.
 	%	[New Understanding p. 686]
 \stopblockquote
-In Leibniz’s example, the speeds are the same after the collision as before, so the total kinetic energy also remains the same. In many elastic collisions each object does not retain the same velocity; one speeds up and one slows down, as in Newton’s example. However, Huygens demonstrated the total \m{mv^2} remains the same in all perfectly elastic collisions. Therefore, the total kinetic energy also remains the same.
+In Leibniz’s example, the speeds are the same after the collision as before, so the total kinetic energy also remains the same. In many elastic collisions each object does not retain the same velocity; one speeds up while the other slows down, as in Newton’s example. However, Huygens demonstrated the total \m{mv^2} remains the same in all perfectly elastic collisions. Therefore, the total kinetic energy also remains the same.
 
 However, most collisions are not perfectly elastic, and some kinetic energy is lost. In these \keyterm{inelastic} collisions the final total kinetic energy is less than the initial kinetic energy.
 The effects of the inelastic collision can be seen by looking again at Newton’s example. In the case where ball \m{B} only transfers \m{4} of momentum to ball \m{A}, both balls are a little more sluggish after the collision due to the loss of kinetic energy, as shown in figures~\in[fig:NewtonsExampleInelastic] and \in[fig:PendulumCollisionGraph4]. (Compare to the bounces in fig.~\in[fig:NewtonsExampleElastic] and fig.~\in[fig:PendulumCollisionGraph3].) The kinetic energy lost in the collision can calculated by using the balls’ final momentums to find their velocities and then their kinetic energies. The intermediate step of finding the velocity is going to get tedious quickly, so it is worth finding the direct relationship between kinetic energy and momentum.
@@ -1100,7 +1100,7 @@ Du Châtelet confirms this with specific masses and velocities. She gives a mass
 {The globes' velocities when the rod is perpendicular to the line of motion.}	% caption text
 {\noindent\typesetbuffer[TikZ:spinningmovingperpendicular]} % figure contents
 \startformula
-mv\sub{B}+mv\sub{A} = 1\cdot 2 + 1\cdot 0 = 2
+mv\sub{B}+mv\sub{A} = 1\cdot 2 + 1\cdot 0 = 2.
 \stopformula
 \startbuffer[TikZ:spinningmovingperparallel]
 \environment env_physics
@@ -1124,9 +1124,9 @@ mv\sub{B}+mv\sub{A} = 1\cdot 2 + 1\cdot 0 = 2
 \placefigure[margin][fig:spinningmovingperparallel] % location
 {The globes' velocities when the rod is aligned with the line of motion.}	% caption text
 {\noindent\typesetbuffer[TikZ:spinningmovingperparallel]} % figure contents
-She then considers the moment when the rod aligns with the line, as in \in{figure}[fig:spinningmovingperparallel]. At this moment B’s velocity due to the spinning is upwards, perpendicular to the rod’s central velocity, so the velocities add (using the tip-to-tail method) to give a speed \m{v\sub{A}=\sqrt 2}. Similarly, A’s velocity due to the rod’s rotation is downward, giving body A a speed \m{v\sub{A}=\sqrt 2}. The total quantity of motion is then
+She then considers the moment when the rod aligns with the line, as in \in{figure}[fig:spinningmovingperparallel]. At this moment B’s velocity due to the spinning is upward, perpendicular to the rod’s central velocity, so the velocities add (using the tip-to-tail method) to give a speed \m{v\sub{A}=\sqrt 2}. Similarly, A’s velocity due to the rod’s rotation is downward, giving body A a speed \m{v\sub{A}=\sqrt 2}. The total quantity of motion is then
 \startformula
-mv\sub{B}+mv\sub{A} = 1\cdot \sqrt 2 + 1\cdot \sqrt 2 = 2 \sqrt 2
+mv\sub{B}+mv\sub{A} = 1\cdot \sqrt 2 + 1\cdot \sqrt 2 = 2 \sqrt 2.
 \stopformula
 \startbuffer[TikZ:spinningmovingmomentum]
 \environment env_physics
@@ -1146,12 +1146,12 @@ mv\sub{B}+mv\sub{A} = 1\cdot \sqrt 2 + 1\cdot \sqrt 2 = 2 \sqrt 2
 \placefigure[margin][fig:spinningmovingmomentum] % location
 {The globes' momentum when the rod is aligned with the line of motion.}	% caption text
 {\noindent\typesetbuffer[TikZ:spinningmovingmomentum]} % figure contents
-This quantity of motion is bigger than the quantity of motion in the perpendicular orientation, just as Newton said. Clearly, the quantity of motion is not constant as the globes spin. However, the total momentum \m{\vec p = \vec p\sub{B} + \vec p\sub{B}} is constant, always to the right with a magnitude \m{p = 2}, as shown \in{figure}[fig:spinningmovingmomentum]. What about the \visviva?
+This quantity of motion is bigger than the quantity of motion in the perpendicular orientation, just as Newton said. Clearly, the quantity of motion is not constant as the globes spin. However, the total momentum \m{\vec p = \vec p\sub{A} + \vec p\sub{B}} is constant, always to the right with a magnitude \m{p = 2}, as shown \in{figure}[fig:spinningmovingmomentum]. What about the \visviva?
 The following example gives us a clue.
 
 %%%%%%%% EXAMPLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:NewtonGlobes]
-Find the total kinetic energy of Newton’s connected globes when the connecting rod is perpendicular to the center’s line of motion and when the rod is aligned with the center’s line of motion. Use Du Châtelet’s masses and speeds (with units). Each globe has a mass of \m{1\units{kg}}. The speeds are \m{1\units{m/s}} due to the rotation about the center of mass and \m{1\units{m/s}} due to the center of mass’s motion.
+Find the total kinetic energy of Newton’s connected globes when the connecting rod is perpendicular to the center’s line of motion and also when the rod is aligned with the center’s line of motion. Use Du Châtelet’s masses and speeds (with units). Each globe has a mass of \m{1\units{kg}}. The speeds are \m{1\units{m/s}} due to the rotation about the center of mass and \m{1\units{m/s}} due to the center of mass’s motion.
 \startsolution
 When the rod is perpendicular to the center’s line of motion the, total kinetic energy is
 \startformula \startmathalignment
@@ -1367,7 +1367,7 @@ The total kinetic energy is \m{2\units{J}}.
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The total kinetic energy calculated using \m{K = K\sub{CoM} + K\sub{rot}} in this example matches the total energy calculated in example~\in[ex:NewtonGlobes] when we used the method \m{K = K\sub{A} + K\sub{B}}. This is a good sign!
-These two methods should give the same answer, but there is an important difference in the calculation. In \in{example}[ex:NewtonGlobes], we found the total kinetic energy in two specific orientations. Other orientations are significantly challenging.
+These two methods should give the same answer, but there is an important difference in the calculation. In \in{example}[ex:NewtonGlobes], we found the total kinetic energy in two specific orientations. Other orientations are more challenging.
 However, using \m{K = K\sub{CoM} + K\sub{rot}}, the center of mass kinetic energy \m{K\sub{CoM}} and the kinetic energy due to rotation \m{K\sub{rot}} are both independent of the orientation. We find them once, and they stay the same throughout the motion, confirming Du Châtelet's assertion that the \visviva\ always remains the same.
 
 
@@ -1419,8 +1419,8 @@ Finding \m{K\sub{rot}} for more complicated shapes is, of course, more complicat
 %\def\angles{72,54,...,-90}
 %\starttikzpicture% tikz code
 %\draw (5,0) coordinate (A) --node[below]{\m{r}} (0,0) coordinate (B) -- (4,3) coordinate (C)
-%pic ["\m{\theta}", draw, angle eccentricity=1.4] {angle}
-%pic ["\m{s}", draw, angle radius=5cm, angle eccentricity=1.05] {angle};
+%pic [pic text=$\theta$, draw, angle eccentricity=1.4] {angle}
+%pic [pic text=$s$, draw, angle radius=5cm, angle eccentricity=1.05] {angle};
 %\stoptikzpicture
 %\stopTEXpage
 %\stopbuffer
@@ -1453,8 +1453,8 @@ Finding \m{K\sub{rot}} for more complicated shapes is, of course, more complicat
 %\filldraw (43.8:2.5) coordinate (C) circle[radius=1pt]node[left=1.5mm]{Florence};
 %\draw (-2.5,0) --node[below]{Equator} (2.5,0);
 %\draw (2.5,0) coordinate (A) -- (0,0) coordinate (B) --node[right=1.5mm]{\m{r}} (C)
-%pic ["\m{\theta}", draw, angle eccentricity=1.4] {angle}
-%pic ["\m{s}", draw, angle radius=2.5cm, angle eccentricity=1.09] {angle};
+%pic [pic text=$\theta$, draw, angle eccentricity=1.4] {angle}
+%pic [pic text=$s$, draw, angle radius=2.5cm, angle eccentricity=1.09] {angle};
 %\stoptikzpicture
 %\stopTEXpage
 %\stopbuffer
@@ -1497,7 +1497,7 @@ Finding \m{K\sub{rot}} for more complicated shapes is, of course, more complicat
 %\draw (-2.5,0) --node[below]{Equator} (2.5,0);
 %\draw (A) --node[below right,pos=.4]{\m{r}} (0,0) coordinate (B) --node[pos=.3, above]{\m{\theta}} (C)
 %pic [draw, angle radius=1cm, angle eccentricity=1.1] {angle}
-%pic ["\m{s}", draw, angle radius=2.5cm, angle eccentricity=1.09] {angle};
+%pic [pic text=$s$, draw, angle radius=2.5cm, angle eccentricity=1.09] {angle};
 %\stoptikzpicture
 %\stopTEXpage
 %\stopbuffer
@@ -1556,7 +1556,7 @@ Two globes, with masses \m{m\sub{A} = 3.0\units{kg}} and \m{m\sub{B} = 1.0\units
 	}
 	\draw[->, thick](0,0) --node[above]{\m{v}} ++(1.5,0);
 		\path ({tan(57.3)},1) coordinate (A) -- (0,0) coordinate (B) -- ({-tan(57.3)},1) coordinate (C)
-pic [draw, <-, thick, angle eccentricity=1.2, "\m{\omega}", angle radius=12mm] {angle};
+pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=12mm] {angle};
 \stoptikzpicture
 \stopTEXpage
 \stopbuffer
@@ -1645,7 +1645,7 @@ To quickly review: An object’s total momentum is the momentum of its center of
 		\fill(2,1.6) circle[radius=.4mm];
 		\draw[->, thick](2,1.6) --node[above]{\m{v}} ++(2,0);
 		\path ({2+tan(35.8)},2.6) coordinate (A) -- (2,1.6) coordinate (B) -- ({2-tan(35.8)},2.6) coordinate (C)
-pic [draw, <-, thick, angle eccentricity=1.2, "\m{\omega}", angle radius=8mm] {angle};
+pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=8mm] {angle};
 		\draw[thin] (0,0)--(5,0);
 \stoptikzpicture
 \stopTEXpage
@@ -1694,7 +1694,7 @@ A \m{40\units{kg}} cannon ball is rolling on a smooth surface at a speed of \m{2
 		\fill(2,1) circle[radius=.4mm];
 		\draw[->, thick](2,1) --node[above, pos=0.7]{\m{v}} ++(2,0);
 		\path ({2+tan(57.3)},2) coordinate (A) -- (2,1) coordinate (B) -- ({2-tan(57.3)},2) coordinate (C)
-pic [draw, <-, thick, angle eccentricity=1.2, "\m{\omega}", angle radius=12mm] {angle};
+pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=12mm] {angle};
 		\draw[thin] (0,0)--(5,0);
 \stoptikzpicture
 \stopTEXpage
@@ -1759,7 +1759,7 @@ The conservation laws for momentum and energy have survived every experimental t
 \blank[.5in]
 \startblockquote\it
 Lastly, let us think of fostering a taste for study, a taste which makes our happiness depend only on ourselves. Let us preserve ourselves from ambition, and, above all, let us be certain of what we want to be; let us choose for ourselves our path in life, and let us try to strew that path with flowers.\\
-	\rightaligned{\it Discourse on Happiness}% final lines
+	\rightaligned{\it Discourse on Happiness}\\% final lines
 	\rightaligned{\sc Emilie Du Châtelet}
 	%\rightaligned{1706–1749}}
 \stopblockquote

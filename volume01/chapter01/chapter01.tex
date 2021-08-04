@@ -1,4 +1,4 @@
-% !TEX useOldSyncParser
+% !TEX useConTeXtSyncParser
 \startcomponent c_chapter01
 \project project_world
 \product prd_volume01
@@ -9,9 +9,8 @@
 
 \starttext
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startchapter[title=Four Paths,reference=ch:Music]
+\startchapter[title=Four Paths, reference=ch:Music]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \placefigure[margin,none]{}{\small
 	\startalignment[flushleft]
@@ -66,50 +65,7 @@ We start with Pythagoras and and his follower Philolaus, who demonstrate the con
 
 Not every pair in this pipe collection produces consonant pitches. The three pairs in figure \in[fig:PythagoreanPipesDis] are not simple ratios of small numbers. Each of these pairs will produce dissonant pitches.
 
-%\placefigure[margin][fig:]{} {\externalfigure[][width=\rightmarginwidth]}
-
 \placetextfloat[top][fig:MonochordTyndall]{Monochord shown in John Tyndall’s 1875 textbook, \booktitle{Sound.}} {\externalfigure[MonochordTyndallSound][width=\textwidth]}
-
-%\placefigure[margin,here][fig:monochord]{A monochord produces the lowest pitch when the full length of string is played.  Placing a finger on the string reduces the string’s length and raises its pitch. The three lengths shown can be paired to form the simple ratios 2:1, 3:2, and 4:3.}
-%{\vskip1in\noindent%
-%\starttikzpicture[thick]
-%	% First monochord
-%	\draw[fill=black!10] (0,4.75) rectangle (1.5,-4.75); % Box
-%	\draw (0.5,4.5)--(1,4.5); % Top bridge
-%	\draw (0.5,-4.5)--(1,-4.5); % Bottom bridge
-%	\draw[opacity=.5] (.75,4.5)--(.75,-4.5);
-%	\draw[opacity=.5,domain=-90:90] plot ({cos(\x)/10 + 0.75},{\x/20});
-%	\draw[opacity=.5,domain=-90:90] plot ({-cos(\x)/10 + 0.75},{\x/20});
-%	\draw[thin] (.25,4.5) -- (.45,4.5);
-%	\draw[thin] (.25,-4.5) -- (.45,-4.5);
-%	\draw [thin,<->](.32, 4.5) -- node[fill=black!10,inner sep=2pt]{\m{L}}  (.32, -4.5);
-%	% Second monochord
-%	\draw[fill=black!10] (1.75,4.75) rectangle (3.25,-4.75); % Box
-%	\draw (2.25,4.5)--(2.75,4.5); % Top bridge
-%	\draw (2.25,-4.5)--(2.75,-4.5); % Bottom bridge
-%	\draw (2.5,4.5)--(2.5,1.5);
-%	\draw[opacity=.5] (2.5,1.5)--(2.5,-4.5);
-%	\draw[thin] (2,1.5) -- (2.35,1.5);
-%	\draw[thin] (2,-4.5) -- (2.2,-4.5);
-%	\draw[opacity=.5,domain=-90:90] plot ({cos(\x)/10 + 2.5},{\x/30-1.5});
-%	\draw[opacity=.5,domain=-90:90] plot ({-cos(\x)/10 + 2.5},{\x/30-1.5});
-%	\draw [thin,<->](2.07, 1.5) -- node[fill=black!10,inner sep=2pt]{\m{\tfrac{2}{3}L}}  (2.07, -4.5);
-%	\draw[fill=white] (2.5,1.5) circle[radius=.1]; % Finger placement
-%	% Third monochord
-%	\draw[fill=black!10] (3.5,4.75) rectangle (5,-4.75); % Box
-%	\draw (4,4.5)--(4.5,4.5); % Top bridge
-%	\draw (4,-4.5)--(4.5,-4.5); % Bottom bridge
-%	\draw (4.25,4.5)--(4.25,0); % Straight string
-%	\draw[opacity=.5] (4.25,0)--(4.25,-4.5);
-%	\draw[opacity=.5,domain=-90:90] plot ({cos(\x)/10 + 4.25},{\x/40-2.25});
-%	\draw[opacity=.5,domain=-90:90] plot ({-cos(\x)/10 + 4.25},{\x/40-2.25});
-%	% Dimension of vibrating string
-%	\draw[thin] (3.75,0) -- (4.1,0);
-%	\draw[thin] (3.75,-4.5) -- (3.95,-4.5);
-%	\draw [thin,<->](3.82, 0) -- node[fill=black!10,inner sep=2pt]{\m{\tfrac{1}{2}L}}  (3.82, -4.5);
-%	\draw[fill=white] (4.25,0) circle[radius=.1]; % Finger placement
-%\stoptikzpicture
-%}
 
 \startbuffer[monochord]
 	% First monochord
@@ -169,19 +125,6 @@ Galilei’s challenge was quickly met by the realization that the ratios must be
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Amplitude and frequency}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\placefigure[margin][fig:stringamp]{The amplitude of a string’s vibration is measured from the string’s rest position to its maximum displacement on either side.}
-%	{\hbox{\starttikzpicture[thick,domain=-90:90]
-%	\draw[fill=black!10] (0,4.75) rectangle (1.5,-4.75); % Box
-%	\draw (0.5,4.5)--(1,4.5); % Top bridge
-%	\draw (0.5,-4.5)--(1,-4.5); % Bottom bridge
-%	\draw[opacity=.5] (.75,4.5)--(.75,-4.5);
-%	\draw[opacity=.5] plot ({cos(\x)/4 + 0.75},{\x/20});
-%	\draw[opacity=.5] plot ({-cos(\x)/4 + 0.75},{\x/20});
-%	\draw [thin,->](.15, 0)--(0.5, 0) node[above left]{\m{A}};
-%	\draw [thin,->](1.1, 0)--(0.75, 0); %node[left]{\m{A}};
-%	\stoptikzpicture}%
-%}
 
 \startbuffer[stringamp]
 	\draw[fill=black!10] (0,4.75) rectangle (1.5,-4.75); % Box
@@ -283,7 +226,7 @@ When calculating frequencies and ratios, always add intervals by multiplying the
 %\frac{L\sub{low}}{L\sub{high}} \NC= \frac{2}{1}
 %\stopformula
 %
-%Suppose you are building a pipe organ.  You decide the longest, lowest pipe will be eight feet long.  How long should you make the pipe that will produce a pitch one octave above the lowest pitch? Clearly, it should be four feet long.  The algebraic steps required to find this length are shown in Example~\in[ex:organ].
+%Suppose you are building a pipe organ.  You decide the longest, lowest pipe will be eight feet long.  How long should you make the pipe that will produce a pitch one octave above the lowest pitch? Clearly, it should be four feet long.  The algebraic steps required to find this length are shown in example~\in[ex:organ].
 %
 %	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\startexample[ex:organ]
@@ -663,7 +606,7 @@ While Galilei appreciated the intellectual beauty of polyphony, his study of anc
 \section{Celestial objects do not circle Earth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Before we investigate the Pythagorean’s mathematical model of the cosmos, there is one thing that I want you to remember: this model is terrible! Celestial objects do not circle Earth. Only the moon goes around Earth, and none of the objects circle, they travel along ellipses. Some of these ellipses are close to circular, so a model made from circles could be a rough starting point for understanding the solar system. A model in which all of the objects go around Earth is irredeemable. This became clear almost immediately to anyone making regular observations of the planets.
+Before we investigate the Pythagorean’s mathematical model of the cosmos, there is one thing that I want you to remember: this model is terrible! Celestial objects do not circle Earth. Only the Moon goes around Earth, and none of the objects circle, they travel along ellipses. Some of these ellipses are close to circular, so a model made from circles could be a rough starting point for understanding the solar system. A model in which all of the objects go around Earth is irredeemable. This became clear almost immediately to anyone making regular observations of the planets.
 
 % textwidth figure
 \placetextfloat[top][fig:Ptolemaicsystem]{The geocentric model from Peter Apian’s \booktitle{Cosmographia,} 1524. Earth sits motionless in the center while the heavens spin around it. The outermost sphere, labeled \emph{Primu Mobile} or \quotation{primary mover,} spins most quickly, dragging the inner spheres along at slightly slower rates. This diagram, like others in the coming pages, uses common symbols for the visible planets. Table \in[T:Astrosym] shows these symbols, as well as the symbols of two more recently discovered planets.} {\externalfigure[ptolemaicsystem][width=\textwidth]}
@@ -689,8 +632,8 @@ Before we investigate the Pythagorean’s mathematical model of the cosmos, ther
 \Astro{\Neptune}{Neptune}\NR
 \LL[2]
 \stoptabulate}
-In the Pythagorean model (figure \in[fig:Ptolemaicsystem]) the sun, moon, planets, and stars all orbit the central, motionless Earth. This is a \keyterm{geocentric model}. (\quotation{Geo-} means Earth, so geocentric is \quotation{Earth centered.})
-The sun completes one revolution around Earth every day. The moon, which is closer to Earth takes slightly more than a day to complete a revolution, about twenty-four hours and fifty minutes. The stars, which are farther away, complete a revolution in slightly less time than the sun, about twenty-three hours and fifty-six minutes. This pattern of longer revolutions for closer objects and shorter revolutions for father objects holds for all of the planets in the geocentric models. However, it only applies to their average revolution times. All of these objects have complicated rhythms of speeding up and slow down.
+In the Pythagorean model (figure \in[fig:Ptolemaicsystem]) the Sun, Moon, planets, and stars all orbit the central, motionless Earth. This is a \keyterm{geocentric model}. (\quotation{Geo-} means Earth, so geocentric is \quotation{Earth centered.})
+The Sun completes one revolution around Earth every day. The Moon, which is closer to Earth takes slightly more than a day to complete a revolution, about twenty-four hours and fifty minutes. The stars, which are farther away, complete a revolution in slightly less time than the Sun, about twenty-three hours and fifty-six minutes. This pattern of longer revolutions for closer objects and shorter revolutions for father objects holds for all of the planets in the geocentric models. However, it only applies to their average revolution times. All of these objects have complicated rhythms of speeding up and slow down.
 
 The geocentric model, the Sun, Moon, and stars all behave reasonably, traveling at nearly constant rates rates from east to west while moving somewhat north and south with the seasons. The planets, in contrast, have the most erratic movements, speeding up and slowing down, sometimes falling behind but at times moving faster than the stars. Venus and Mercury seem to be tethered to the Sun, sometimes falling behind but then aways overtaking the Sun, leading for a while, and falling behind again.
 In addition, the planets get significantly brighter and then dimmer, as if they are approaching Earth and then receding away.
@@ -698,49 +641,26 @@ In addition, the planets get significantly brighter and then dimmer, as if they 
 These motions inspired ancient Greeks to try several completely different models of the world (referring to Earth and the visible heavens). The most obvious modification is to put Mercury and Venus in orbit around the Sun, explaining why they never stray far from the Sun, and also why they move closer and then farther from Earth. Another model of the world puts Mars, Jupiter and Saturn in large orbits around the Sun, explaining their erratic behavior.
 
 % textwidth figure
-\placetextfloat[top][fig:CopernicanSystem]{The heliocentric model in \booktitle{On the Revolutions of the Heavenly Spheres,} 1543. In this model the distant stars are immobile. Planets orbit the sun, with inner planets orbiting more quickly than outer planets. The moon is the one exception, orbiting Earth (\emph{Terra} in the diagram) rather than the sun (\emph{Sol.}).} {\externalfigure[Copernican_heliocentrism_theory_diagram][width=\textwidth]}
+\placetextfloat[top][fig:CopernicanSystem]{The heliocentric model in \booktitle{On the Revolutions of the Heavenly Spheres,} 1543. In this model the distant stars are immobile. Planets orbit the Sun, with inner planets orbiting more quickly than outer planets. The Moon is the one exception, orbiting Earth (\emph{Terra} in the diagram) rather than the Sun (\emph{Sol.}).} {\externalfigure[Copernican_heliocentrism_theory_diagram][width=\textwidth]}
 
-The most daring modification was proposed by Aristarchus in the third century \scaps{bc}. He allowed Earth to join the other planets orbiting the Sun, as shown in figure \in[fig:CopernicanSystem]. This is the \keyterm{heliocentric model}. (\quotation{Helio-} means Sun.) In this model Earth moves in two ways. It rotates around its own axis, completing one rotation every day, and it orbits the sun, completing one revolution every year. All of the other known planets – Mercury, Venus, Mars, Jupiter, and Saturn – also orbit the sun. (Since all of these planets appeared as tiny dots in the sky, no one knew if they were rotating. We now know that they all rotate.)
-In the heliocentric model, the moon does not orbit the sun like the other planets do; it orbits Earth, completing one revolution each lunar month (about \m{29\onehalf} days).
-The heliocentric model became widely known among astronomers, but it was not widely accepted. One reason was the moon’s exceptional behavior. Why would everything revolve around the central sun, except for the moon?
+The most daring modification was proposed by Aristarchus in the third century \scaps{bc}. He allowed Earth to join the other planets orbiting the Sun, as shown in figure \in[fig:CopernicanSystem]. This is the \keyterm{heliocentric model}. (\quotation{Helio-} means Sun.) In this model Earth moves in two ways. It rotates around its own axis, completing one rotation every day, and it orbits the Sun, completing one revolution every year. All of the other known planets – Mercury, Venus, Mars, Jupiter, and Saturn – also orbit the Sun. (Since all of these planets appeared as tiny dots in the sky, no one knew if they were rotating. We now know that they all rotate.)
+In the heliocentric model, the Moon does not orbit the Sun like the other planets do; it orbits Earth, completing one revolution each lunar month (about \m{29\onehalf} days).
+The heliocentric model became widely known among astronomers, but it was not widely accepted. One reason was the Moon’s exceptional behavior. Why would everything revolve around the central Sun, except for the Moon?
 
 About this time, Eratosthenes measured Earth’s size –  an incredible achievement.
 %Educated people of the time already knew that Earth was round
 Eratosthenes had moved to Egypt to be librarian at the renowned Library of Alexandria, where the Nile flows into the Mediterranean Sea.
 This put Eratosthenes in the perfect location to make this measurement.
-Egypt is close enough to the equator for the sun to pass almost directly overhead in the summer.
-Eratosthenes learned there was a well in southern Egypt, in the town of Syene, where the noon sun was \emph{exactly} overhead on the summer solstice, so that someone looking into the well would see the sun’s reflection in the water far below.
-Farther north, in Alexandria, the sun was not quite directly overhead due to the Earth’s curvature. At noon on the summer solstice, Eratosthenes measured the shadow cast by a vertical post in Alexandria and found the sun was one fiftieth of a circle (about seven degrees) away from vertical. This meant  the distance from the Syene to Alexandria was one fiftieth of Earth’s circumference, as shown in figure \in[fig:EarthRadius].
-
-%\placefigure[margin][fig:EarthRadius]{Eratosthenes determined Earth’s size. The well’s depth and the post’s height are greatly exaggerated.}{\hbox{\starttikzpicture[thick,domain=-90:90]
-%\clip (-1.25,-.5) rectangle (3.75,17);
-%\foreach \x in {-1,-.5,...,3.5}
-%	\draw[black!50,postaction={decorate}, decoration={markings,% switch on markings
-%mark=between positions 1cm and 3cm step 1.55cm with {\arrow{stealth}}}] (\x,17)--(\x,13.96);
-%\path (1.25,16.75) node[below,fill=white,inner sep=2pt]{Parallel rays from the sun}; % Rays label
-%\draw[thick, decoration={random steps, segment length=1mm, amplitude=.2mm},fill=black!10] (.1,13.96) -- (.1,14.96) % Well
-%	decorate{arc [start angle=89.62, end angle = -269.45, radius=14.96cm]} % Earth’s surface
-%	-- ( -.1,13.96) -- cycle;
-%\draw[->] (0,0)--(82.8:14.93) node[fill=black!10, inner sep=2pt, sloped, pos=0.98, left]{Post in Alexandria} ; % Angled radius
-%\draw[->] (0,0) -- node[fill=black!10, inner sep=2pt, sloped, pos=0.98, left]{Well in Syene} (0,13.94); % Vertical radius
-%\draw (0,4) arc [start angle=90, end angle = 82.8, radius=4cm]; % Earth’s angle
-%\draw (2,15.13) arc [start angle=270, end angle = 262.8, radius=.7cm]; % Post’s angle
-%\draw[<->,postaction={decorate, decoration={markings,
-%mark=at position .5 with {\node[above=2pt, fill=white, inner sep=2pt, transform shape]{5000 stadia};}}}] (0,15.11) arc [start angle=90, end angle = 82.8, radius=15.11cm]; % distance
-%\draw[very thick] (82.8:14.96) -- (82.8:15.96) ; % Post
-%\draw[<->,rounded corners] (2.03,15.13) -| (2.33,7) node[fill=black!10,inner sep=2pt]{\m{\tfrac{1}{50}} of a circle} |- (.52,3.972);
-%\draw[->,postaction={decorate, decoration={markings,
-%mark=at position .5 with {\node[above=2pt, fill=white, inner sep=2pt, transform shape]{North};}}}] (81:15.46) arc [start angle=81, end angle = 77.4, radius=15.46cm]; % North
-%\fill (0,0) circle[radius=1pt] node[right]{Earth’s Center}; % Vertical radius
-%	\stoptikzpicture}
-%}
+Egypt is close enough to the equator for the Sun to pass almost directly overhead in the summer.
+Eratosthenes learned there was a well in southern Egypt, in the town of Syene, where the noon Sun was \emph{exactly} overhead on the summer solstice, so that someone looking into the well would see the Sun’s reflection in the water far below.
+Farther north, in Alexandria, the Sun was not quite directly overhead due to the Earth’s curvature. At noon on the summer solstice, Eratosthenes measured the shadow cast by a vertical post in Alexandria and found the Sun was one fiftieth of a circle (about seven degrees) away from vertical. This meant  the distance from the Syene to Alexandria was one fiftieth of Earth’s circumference, as shown in figure \in[fig:EarthRadius].
 
 \startbuffer[EarthRadius]
 \clip (-1.25,-.5) rectangle (3.75,17);
 \foreach \x in {-1,-.5,...,3.5}
 	\draw[black!50,postaction={decorate}, decoration={markings,% switch on markings
 mark=between positions 1cm and 3cm step 1.55cm with {\arrow{stealth}}}] (\x,17)--(\x,13.96);
-\path (1.25,16.75) node[below,fill=white,inner sep=2pt]{Parallel rays from the sun}; % Rays label
+\path (1.25,16.75) node[below,fill=white,inner sep=2pt]{Parallel rays from the Sun}; % Rays label
 \draw[thick, decoration={random steps, segment length=1mm, amplitude=.2mm},fill=black!10] (.1,13.96) -- (.1,14.96) % Well
 	decorate{arc [start angle=89.62, end angle = -269.45, radius=14.96cm]} % Earth’s surface
 	-- ( -.1,13.96) -- cycle;
@@ -792,11 +712,11 @@ Amazed by this report, he set out to understand and then construct his own spygl
 	It would be altogether a waste of time to enumerate the number and importance of the benefits which this instrument may be expected to confer when used by land or sea. But without paying attention to its use for terrestrial objects, I betook myself to observations of the heavenly bodies.\autocite{p.~49--50}{Galileo1610}
 \stopblockquote
 
-Galileo shares his observations with delight and wonder. He presents his observations of the moon in careful drawings, figure \in[fig:MoonSurface], that reveal its surface in greater detail than anyone had seen before.
+Galileo shares his observations with delight and wonder. He presents his observations of the Moon in careful drawings, figure \in[fig:MoonSurface], that reveal its surface in greater detail than anyone had seen before.
 % Margin image
-\placefigure[margin][fig:MoonSurface]{The moon’s hills and valleys are clearly visible in Galileo’s original watercolors.} {\externalfigure[MoonPhases6][width=\rightmarginwidth]}
+\placefigure[margin][fig:MoonSurface]{The Moon’s hills and valleys are clearly visible in Galileo’s original watercolors.} {\externalfigure[MoonPhases6][width=\rightmarginwidth]}
 \startblockquote
-	...anyone may know with the certainty that is due to the use of our senses that the moon certainly does not possess a smooth and polished surface, but one rough and uneven, and, just like the face of the earth itself, it is everywhere full of vast protuberances, deep chasms, and sinuosities.\autocite{p.~48}{Galileo1610}
+	...anyone may know with the certainty that is due to the use of our senses that the Moon certainly does not possess a smooth and polished surface, but one rough and uneven, and, just like the face of the earth itself, it is everywhere full of vast protuberances, deep chasms, and sinuosities.\autocite{p.~48}{Galileo1610}
 \stopblockquote
 %Just as Vincenzio Galilei’s had overturned Aristotle’s understanding of a string’s vibration,
 This observation challenged Aristotle’s view that objects in the heavens were perfectly smooth and round, made of an immutable substance unlike anything on Earth.
@@ -817,9 +737,9 @@ Galileo discovered these planets in the vicinity of Jupiter, observing three of 
 These observations are reproduced in figure \in[fig:JupiterMoons].
 %He reports that on January 11 the explanation for their motion became clear.
 \startblockquote
-	I therefore concluded, and decided unhesitatingly, that there were three stars in the heavens moving around Jupiter, like Venus and Mercury around the sun. This was finally established as clear as daylight by numerous other subsequent observations. These observations also established that there are not only three, but four, wandering sidereal bodies performing their revolutions around Jupiter.\autocite{p.~69}{Galileo1610}
+	I therefore concluded, and decided unhesitatingly, that there were three stars in the heavens moving around Jupiter, like Venus and Mercury around the Sun. This was finally established as clear as daylight by numerous other subsequent observations. These observations also established that there are not only three, but four, wandering sidereal bodies performing their revolutions around Jupiter.\autocite{p.~69}{Galileo1610}
 \stopblockquote
-The four celestial objects that Galileo discovered, which he referred to as \quotation{planets,} \quotation{stars} and \quotation{wandering sidereal bodies} in the passages above, are now called moons of Jupiter, or Jovian moons. Today the term \keyterm{star} is reserved for large, hot objects like the sun that produce their own light. The term \keyterm{planet} is reserved for objects orbiting the sun or another star. \emph{Moon}\index{moon} refers to an object orbiting a planet. Jupiter has many moons too small for Galileo  to have seen with his telescope.
+The four celestial objects that Galileo discovered, which he referred to as \quotation{planets,} \quotation{stars} and \quotation{wandering sidereal bodies} in the passages above, are now called moons of Jupiter, or jovian moons. Today the term \keyterm{star} is reserved for large, hot objects like the Sun that produce their own light. The term \keyterm{planet} is reserved for objects orbiting the Sun or another star. \emph{Moon}\index{moon} refers to an object orbiting a planet. Jupiter has many moons too small for Galileo  to have seen with his telescope.
 Jupiter’s four large moons, often called the \keyterm{Galilean moons}, are huge, almost as large as the planet Mars.
 
 % Margin image
@@ -844,18 +764,18 @@ Jupiter’s four large moons, often called the \keyterm{Galilean moons}, are hug
 
 Galileo’s  discovery of Jupiter’s moons removed one of the primary objections to the Copernican system.
 \startblockquote
-	Additionally, we have a notable and splendid argument to remove the scruple of those who can tolerate the revolution of the planets around the sun in the Copernican system, but are so disturbed by the motion of one moon around the earth (while both accomplish an orbit of a year’s length around the sun) that they think this constitution of the universe must be rejected as impossible. For now we have not just one planet revolving around another while both traverse a vast orbit around the sun, but four planets which our sense of sight presents to us circling around Jupiter (like the moon around the earth) while the whole system travels over a mighty orbit around the sun in the period of twelve years.\autocite{p.~83--84}{Galileo1610}
+	Additionally, we have a notable and splendid argument to remove the scruple of those who can tolerate the revolution of the planets around the Sun in the Copernican system, but are so disturbed by the motion of one Moon around the earth (while both accomplish an orbit of a year’s length around the Sun) that they think this constitution of the universe must be rejected as impossible. For now we have not just one planet revolving around another while both traverse a vast orbit around the Sun, but four planets which our sense of sight presents to us circling around Jupiter (like the Moon around the earth) while the whole system travels over a mighty orbit around the Sun in the period of twelve years.\autocite{p.~83--84}{Galileo1610}
 \stopblockquote
 
 %\section{Period of orbits and rotations}
 
 When Galileo says that Jupiter completes an orbit \quotation{in the period of twelve years,} he is using \quotation{period} just as it was used for vibrations in Chapter \in[ch:Music]. Period\index{period} is still the time required for one \keyterm{cycle}.
 In the case of the vibrating string, a cycle is one complete back-and-forth motion. In the case of an orbit, like Galileo describes, a cycle is one complete revolution of the orbiting object around the central object. In the case of rotation, a cycle is one complete rotation about the axis. The period of Earth’s rotation about its axis is \m{T=1\units{day}}. %In the case of an orbit, a cycle is one complete revolution about the orbit’s center.
-The period of Earth’s revolution around the sun is \m{T=1\units{year}=365.24\units{days}}. %In all cases the period is the time required to complete a cycle.
+The period of Earth’s revolution around the Sun is \m{T=1\units{year}=365.24\units{days}}. %In all cases the period is the time required to complete a cycle.
 Musical vibrations have periods of hundredths or thousandths of a second. Orbits can have periods of days, years, decades or longer. The same symbol \m{T} represents periods of any duration.
 
 \section{Period relations}
-The orbits of planets can be described by their frequencies rather than their periods. For example, Mercury orbits the sun with a period \m{T=88.0} days. The frequency can be found using the frequency relations from Chapter \in[ch:Music]. We could find the frequency in Hertz, but since the period is months long, let us find the frequency in cycles per year.
+The orbits of planets can be described by their frequencies rather than their periods. For example, Mercury orbits the Sun with a period \m{T=88.0} days. The frequency can be found using the frequency relations from Chapter \in[ch:Music]. We could find the frequency in Hertz, but since the period is months long, let us find the frequency in cycles per year.
 \startformula
 	f = \frac{1\units{cyc}}{T}	%\\
 		= \frac{1\units{cyc}}{88.0\ucan{d}}
@@ -866,7 +786,7 @@ In practice, frequencies are rarely used to describe orbits and rotations becaus
 % Some of the are explored in the problems at the end of the chapter.
 
 %\question
-%What is the frequency of Jupiter’s orbit around the sun?
+%What is the frequency of Jupiter’s orbit around the Sun?
 %\begin{solution} Period is the reciprocal of frequency.
 %	\begin{align*}
 %		T &= \frac{1\units{cyc}}{f}	\\
@@ -910,7 +830,7 @@ As with frequency, the most accurate way to measure the period is to measure the
 
 %[Galileo was not the only astronomer refining our model of the solar system. Tycho precision observations and Kepler sophisticated modeling.... A scale diagram of the solar system would be good here. Can I find a drawing of Kepler’s solar system? Alternatively, we could talk about the older precision data and with a teaser about better data which was not available to Galileo, but will be discussed in chapter 7.]
 
-A circular orbit’s radius is measured from the orbit’s center of the orbit, just as amplitude is measured from the oscillating motion’s central point.
+A circular orbit’s radius is measured from the orbit’s center, just as amplitude is measured from the oscillating motion’s central point.
 Planets and moons following circular orbits travel with a constant speed.
 %\footnote{This footnote is only for savvy readers screaming \quotation{but the \emph{direction}!} Newton, in 1687, taught us that changes in the velocity’s direction are just as important as changes in the magnitude. In Newton’s view, the velocity \emph{is not} constant along a circular path because the direction changing. Lagrange responded, in 1790, that we can bend our coordinates to match our situation, and then consider velocities along the bent coordinates. After bending the coordinates to follow the circle, the velocity \emph{is} constant. Lagrange’s trick is both practical and powerful. We will take full advantage of it. The two methods are compared in Chapter \in[ch:Orbits].}
 The speed can be calculated using \quotation{distance over duration.} During one cycle the distance is the circumference of the orbit, \m{2\pi R}, and the duration is the period \m{T}.
@@ -922,7 +842,29 @@ The speed can be calculated using \quotation{distance over duration.} During one
 %We have measured the displacement along the circular path.%, even though the planet returns to its original position after one orbit.
 
 \startexample[ex:EarthSurfaceSpeed]
-Earth completes one full rotation every day, so a person near the equator will travel Earth’s circumference each day. The tower in Florence is almost halfway between the equator and the North Pole, so each day the tower completes a somewhat smaller circle, with a radius of \m{4600\units{km}}. What is the speed of tower due to Earth’s rotation?
+Earth completes one full rotation every day, so a person near the equator will travel Earth’s circumference each day. The tower in Florence is almost halfway between the equator and the North Pole, so each day the tower completes a somewhat smaller circle, with a radius of \m{4600\units{km}}, as shown in \in{figure}[fig:FlorenceCircle1]. What is the speed of tower due to Earth’s rotation?
+% Florence: 43°46′17″N 11°15′15″E
+\startplacefigure[location=margin, reference=fig:FlorenceCircle1, title={Florence circles Earth's axis every day, following a circle of radius $R = 4600\units{km}$.}]
+\startMPcode
+  pickup pencircle scaled 0.8pt ;
+  draw externalfigure "EarthNorthPole.png" scaled 0.498 shifted (-2.5cm,-2.5cm) ;
+  path Equator, Circle, Radius ; pair Florence ;
+  Equator := fullcircle scaled 5cm ;
+  Florence := dir(-33.75)*1.805cm ;
+  Circle := fullcircle scaled 3.61cm ;
+  Radius := origin -- Florence ;
+  draw Equator;
+  label.bot  ("Equator", (0,-2.5cm)) ;
+  dotlabel.top ("Earth's Axis", origin) ;
+  draw Radius ;
+  drawarrow Circle;
+  label.urt  ("$R$", .5Florence) ;
+  begingroup;
+    interim labeloffset := 2mm ;
+    dotlabel.lft  ("Florence", Florence) ;
+  endgroup;
+\stopMPcode
+\stopplacefigure
 \startsolution
 The formula for the speed of circular motion will provide the answer, with the help of several unit conversions.
 \startformula\startmathalignment
@@ -940,46 +882,6 @@ The formula for the speed of circular motion will provide the answer, with the h
 \stopsolution
 \stopexample
 
-%\question
-%What is Earth’s speed in its orbit about the sun?
-%\begin{solution} Earth’s distance from the sun is \m{1.50\sci{11}\units{m}}.
-%	\begin{align*}
-%		\abs{v} &= \frac{2\pi R}{T}		\\
-%			&= \frac{2\pi\cdot1.50\sci{11}\units{m}}{365\units{\ucan{days}}}
-%				\left(\frac{1\units{\ucan{day}}}{24\units{\ucan{hr}}}\right)
-%				\left(\frac{1\units{\ucan{hr}}}{60\units{\ucan{min}}}\right)
-%				\left(\frac{1\units{\ucan{min}}}{60\units{s}}\right)	\\
-%			&= \answer{3.0\sci{4}\units{m/s}}
-%				\quad \text{or}\quad
-%				\answer{30.\units{km/s}}
-%	\end{align*}
-%	\m{30.\units{km/s}} is very fast!
-%\end{solution}
-
-
-
-
-%The previous example required a rather tedious unit conversion from years to seconds. We can simplify this step by finding the number of seconds in a year.
-%\startformula
-%	1\units{yr} = 1\units{\ucan{yr}}
-%				\frac{365\units{\ucan{days}}}{1\units{\ucan{yr}}}
-%				\frac{24\units{\ucan{hr}}}{1\units{\ucan{day}}}
-%				\frac{60\units{\ucan{min}}}{1\units{\ucan{hr}}}
-%				\frac{60\units{s}}{1\units{\ucan{min}}}
-%				= 3.15\sci{7}
-%				\approx \pi\sci{7}\units{s}
-%\stopformula
-%The approximation at the end is a lucky coincidence. Since it is off by less than one-half of a percent, we can use it in calculations with three significant figures or less. Using this approximation, the solution to the last example problem is simple enough to do without a calculator.
-%	\begin{align*}
-%		v &= \frac{2\pi R}{T}		\\
-%			&= \frac{2\cancel{\pi}\cdot1.50{\sci{\cancel{11}}}^{\,4}\units{m}}{1\units{\ucan{yr}}}
-%				\frac{1\units{\ucan{yr}}}{\cancel{\pi}\times\cancel{10^{7}}\units{s}}	\\
-%			&= \answer{3.00\sci{4}\units{m/s}}
-%				\quad \text{or}\quad
-%				\answer{30.0\units{km/s}}
-%	\end{align*}
-%Since the last significant digit is always uncertain, this answer matches the one we found before. Using the approximation doesn’t always work so nicely, but it always helps. Just remember that it cannot be used in problems requiring four or more significant figures.
-
 In 1609, one year before Galileo’s \booktitle{Sidereal Messenger}, Johannes Kepler announced that the planets’ orbits are not described by circles – they are actually slightly elliptical. Ellipses are simple shapes, but they did not fit well into the mechanical models of spheres and wheels that drove both the Ptolemaic and Copernican world systems. Kepler found a mathematical model for the world’s motions, but the forces that could drive these off-center, elliptical motions were mysterious. The perspective was shifting, from a mechanical model to a new physics of motion. Galileo, who did not take much notice of Kepler’s announcement, did understand motion, which he had been studying before his sudden interest in astronomy. He used the discoveries from his lab to understand the world he discovered through his spyglass.
 
 \booktitle{The Sidereal Messenger}, published in March of 1610, made Galileo a celebrity. In April, the grand duke of Tuscany, Cosimo II de' Medici, appointed Galileo to be his \quotation{Philosopher and Chief Mathematician.} Galileo quit his job at the University of Padua and moved to Florence where he refined his telescopes and studied the heavens in greater detail. He continued to write about his observations in letters and books.
@@ -987,6 +889,18 @@ In 1609, one year before Galileo’s \booktitle{Sidereal Messenger}, Johannes Ke
 %[Scale map of the solar system for Kepler and speeds.]
 
 %[Speeds make the transition to Chapter 3! Galileo distinguishes between astronomical and terrestrial arguments, and it might be good to quote him since we are going back to him.]
+
+%[The Assayer, 1623]
+
+
+Galileo was well aware that circular orbits do not match precise measurements of the planets’ motions, but those measurements were not his interest. Galileo intended his model to explain the new observations made with his telescope.
+
+% Margin image
+\placefigure[margin][fig:Phases]{Galileo’s drawings show Venus’s phases and changes in apparent size. (\booktitle{The Assayer,} 1623])} {\externalfigure[VenusPhases][width=144pt]}
+
+The telescope revealed some planets going through phases, like the phases of the Moon, as well as changing significantly in apparent size as they approach Earth and then recede during their orbits around the Sun. Galileo presented these observations earlier (figure \in[fig:Phases]), but in the \booktitle{Two World Systems} he uses them to make a compelling case for a heliocentric model. Since establishing Earth’s motion around the Sun was his goal, refining the model with orbits’ exact sizes and shapes would have been a counterproductive distraction.
+
+
 \stopsection
 
 \subject{Notes}
@@ -999,6 +913,11 @@ In 1609, one year before Galileo’s \booktitle{Sidereal Messenger}, Johannes Ke
 \subject{Bibliography}
         \placelistofpublications  [criterium=chapter, method=local]			% Citations for this chapter only
 
+\stopchapter
+
+\stoptext
+
+\stopcomponent
 
 
 \page
@@ -1060,7 +979,7 @@ How long will it take for the  D string with a frequency of \m{293\units{Hz}} to
 \blank[big]
 
 
-%\question The moon completes one revolution around Earth in 29.3 days. Find the speed of the moon in its orbit around Earth.
+%\question The Moon completes one revolution around Earth in 29.3 days. Find the speed of the Moon in its orbit around Earth.
 
 \question The inner two moons of Jupiter, Io and Europa, are in a 1:2 resonance, which means that the ratio of Io’s period to Europa’s period is one-to-two. Europa’s orbital period is 3.55 days. What is Io’s orbital period?
 %\begin{solution}[3in]
@@ -1083,11 +1002,11 @@ How long will it take for the  D string with a frequency of \m{293\units{Hz}} to
 %\end{solution}
 
 
-\question Galileo published \textit{The Starry Messenger} in 1610. The Galileo spacecraft, which studied Jupiter and its moons up close, became the first craft to orbit Jupiter in 1995. How many orbits did Jupiter make between these two events? Jupiter orbits the sun once every 11.86 years.
+\question Galileo published \textit{The Starry Messenger} in 1610. The Galileo spacecraft, which studied Jupiter and its moons up close, became the first craft to orbit Jupiter in 1995. How many orbits did Jupiter make between these two events? Jupiter orbits the Sun once every 11.86 years.
 
-\question The Galileo spacecraft was launched on October 18, 1989. Its successful mission as the first man-made satellite of Jupiter ended on September 21, 2003 with an intentional crash into Jupiter’s atmosphere. Find the length of the Galileo mission in Jovian years.
+\question The Galileo spacecraft was launched on October 18, 1989. Its successful mission as the first man-made satellite of Jupiter ended on September 21, 2003 with an intentional crash into Jupiter’s atmosphere. Find the length of the Galileo mission in jovian years.
 
-%\question Saturn orbits the sun once every 29.5 years. How many orbits has it made since Galileo published \textit{The Starry Messenger} in 1610?
+%\question Saturn orbits the Sun once every 29.5 years. How many orbits has it made since Galileo published \textit{The Starry Messenger} in 1610?
 %\begin{solution}[3in]
 %	\startformula
 %T = \frac{1\units{cyc}\cdot\Delta t}{N}
@@ -1109,7 +1028,7 @@ How long will it take for the  D string with a frequency of \m{293\units{Hz}} to
 
 \question The Cassini spacecraft journey to Saturn began with its launch on October 15, 1997. Cassini orbited Saturn, studying the planet, its many moons, and its amazing rings until September 15, 2017. How long was Cassini’s mission in Saturn’s years? Saturn’s orbit takes 29.5 Earth years.
 
-\question Earth’s Moon orbits Earth with a frequency of \m{13.4\units{cyc/yr}}. What is the moon’s orbital period in days?
+\question Earth’s Moon orbits Earth with a frequency of \m{13.4\units{cyc/yr}}. What is the Moon’s orbital period in days?
 %\begin{solution}[3in]
 %\begin{align*}
 %	T &= \frac{1\units{cyc}}{f}	\\
@@ -1131,19 +1050,3 @@ Gravitational-Wave Observatory) detected a tiny vibration of space-time. These v
 \stopitemize
 %\stopcolumns
 \stopsubject
-
-\stopchapter
-%\page
-%
-%\setuplayout[
-%	leftmargin=36pt, % 1/2 in
-%	leftmargindistance=9pt, % 3/8 in
-%	width=306pt, % 4 1/4 in
-%	rightmargindistance=27pt, % 3/8 in
-%	rightmargin=144pt,  % 2 in
-%]
-%\setupheadertexts[text][section][][][chapter]
-%\setupheadertexts[margin][][\hfill\pagenumber][\pagenumber \hfill][]
-
-\stoptext
-\stopcomponent

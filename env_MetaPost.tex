@@ -1,0 +1,64 @@
+\startenvironment env_MetaPost
+
+\startMPinclusions
+  pickup pencircle scaled 0.8pt;
+  anglelength := 5mm ;
+
+\stopMPinclusions
+
+% Specifically for MetaPost figures
+
+\startbuffer[startMP]
+\environment env_physics
+\environment env_MetaPost
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+   \startMPpage
+\stopbuffer
+
+\startbuffer[stopMP]
+   \stopMPpage
+\stopbuffer
+
+\define[3]\marginMP{
+  \startplacefigure[location=margin, reference=fig:#2, title={#3}]
+    #1\typesetbuffer[startMP,#2,stopMP]
+  \stopplacefigure
+}
+
+% Cancel command for use in equations. Perhaps one command can work in both italic and roman.
+\startuniqueMPgraphic{cross out}
+  picture cross;
+  cross := image(draw (0,0)--(1,1); draw (0,1)--(1,0););
+  draw cross xscaled \overlaywidth yscaled \overlayheight withpen pencircle scaled .8pt ;
+\stopuniqueMPgraphic
+
+\defineoverlay[canceloverlay][\uniqueMPgraphic{cross out}]
+
+\defineframed[cancelframe][background=canceloverlay, frame=off, offset=overlay]
+
+\define[1]\cancel{%
+	\ifmmode
+		\mathchoice
+		{\cancelframe{$\displaystyle #1$}}
+		{\cancelframe{$\textstyle #1$}}
+		{\cancelframe{$\scriptstyle #1$}}
+		{\cancelframe{$\scriptscriptstyle #1$}}
+	\else%
+		\cancelframe{#1}%
+	\fi%
+}
+
+\define[1]\ucan{%
+	\ifmmode
+		\mathchoice
+		{\cancelframe{$\rm\displaystyle #1$}}
+		{\cancelframe{$\rm\textstyle #1$}}
+		{\cancelframe{$\rm\scriptstyle #1$}}
+		{\cancelframe{$\rm\scriptscriptstyle #1$}}
+	\else%
+		\cancelframe{#1}%
+	\fi%
+}
+
+\stopenvironment
