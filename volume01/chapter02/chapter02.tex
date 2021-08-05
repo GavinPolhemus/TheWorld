@@ -804,7 +804,7 @@ This is equivalent to the formula in \in{Chapter}[ch:Music], used to find the sp
 \startexample[ex:RadiansEarthSpeed]
 Earth’s distance from the Sun is $1.50\sci{11}\units{m}$. What is Earth’s speed in its orbit about the Sun?
 \placefigure[margin][fig:DialogueSolarSystemEarth]
-{Galileo's schematic map edited to show only the Sun (labeled O), Earth (P), and the Moon (shown as a full moon at N and as a new moon at P). The radius of Earth's orbit about the Sun is $1.50\sci{11}\units{m}$.}
+{Galileo's schematic map edited to show only the Sun (labeled O), Earth (A), and the Moon (shown as a full moon at N and as a new moon at P). The radius of Earth's orbit about the Sun is $1.50\sci{11}\units{m}$.}
 {\externalfigure[DialogueSolarSystemEarth][width=144pt]}
 \startsolution
 The radius of Earth’s orbit around the Sun is $1.50\sci{11}\units{m}$, as shown in \in{figure}[fig:DialogueSolarSystemEarth].
@@ -1122,6 +1122,15 @@ Find the speed of the tower in Florence using the angular velocity from \in{exam
   pickup pencircle scaled 0.8pt ;
   draw externalfigure "EarthNorthPole.png" scaled 0.498 shifted (-2.5cm,-2.5cm) ;
   path Equator, Rotation, Radius ; pair Florence ;
+  picture Scale ;
+  Scale := image(
+    pickup pencircle scaled 0.8pt ;
+    draw origin -- (-.5cm, 0) ;
+    draw (0,-1mm) -- (0, 1mm) ;
+    draw (-.5cm,-1mm) -- (-.5cm, 1mm) ;
+    label.rt ("$= 200\units{m/s}$", (0,0.1mm)) ;
+  ) ;
+  draw Scale shifted (0.9cm, 2.8cm) ;
   Equator := fullcircle scaled 5cm ;
   Florence := dir(-33.75)*1.805cm ;
   Rotation := quartercircle scaled 2cm rotated 45;
@@ -1133,6 +1142,9 @@ Find the speed of the tower in Florence using the angular velocity from \in{exam
   label.top  ("$\omega$", point 1 of Rotation) ;
   label.urt  ("$R$", .5Florence) ;
   dotlabel.llft  ("Florence", Florence) ;
+  z.v - Florence = 8.25mm * dir(angle(Florence) + 90) ;
+  drawarrow Florence -- z.v ;
+  label.lrt  ("$v$", .5[Florence,z.v]) ;
 \stopMPcode
 \stopplacefigure
 \startsolution
