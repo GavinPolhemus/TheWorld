@@ -1,0 +1,102 @@
+\setuppapersize[letter]
+%\showframe
+
+\setuplayout
+	[topspace=0.5in,
+	backspace=0.75in,
+	header=24pt,
+	footer=36pt,
+	height=middle,
+	width=middle]
+	
+\setuppagenumbering
+	[location=bottom]
+
+
+\starttext
+
+\startalignment[middle]
+\definedfont[SerifBold at 16pt]
+Physics Equations: Semester 1\break
+\definedfont[Serif at 12pt]
+\currentdate[month,day,{, },year]\break
+\stopalignment
+
+\starttable[|ls(0pt)|rs(4pt)|l|rs(4pt)|l|]
+
+\NC	\NC 1	\NC Dimension \NC 3	\NC Dimensions		\NC\SR
+
+\NC \bf Motion	\NC	\NC	\NC	\NC\FR
+\NC Position
+	\NC $x,$	\NC $y, or z$
+		\NC	$(x,$ 	\NC $y, z)$	\NC\MR
+\NC Displacement
+	\NC $\Delta x$	\NC $= x_{f} - x_{i}$
+		\NC $\Delta y $	\NC $= y_{f} - y_{i}$ $\Delta z = z_{f} - z_{i}$	\NC\MR
+\NC Distance
+	\NC $s$	\NC $\ge |\Delta x|$
+		\NC	$s$	\NC $\ge \sqrt{(\Delta x)^{2}+(\Delta y)^{2}+(\Delta z)^{2}}$	\NC\MR
+\NC Velocity
+	\NC $v$	\NC $=\frac{dx}{dt}$
+		\NC $\vec{v}$	\NC $=\left<v_{x},v_{y},v_{z}\right>$	\NC\MR
+\NC Constant Velocity
+	\NC $v$	\NC $=\frac{\Delta x}{\Delta t}$
+		\NC $v_{x}$	\NC $=\frac{\Delta x}{\Delta t}$ $v_{y}=\frac{\Delta y}{\Delta t}$ $v_{z}=\frac{\Delta z}{\Delta t}$	\NC\MR
+\NC Instantaneous Velocity
+	\NC $v$	\NC $=\frac{\text{tangent line's }\Delta x}{\text{tangent line's }\Delta t}$
+		\NC $v_{x}$	\NC $=\frac{dx}{dt}$ $v_{y}=\frac{dy}{dt}$ $v_{z}=\frac{dz}{dt}$	\NC\MR
+\NC Speed
+	\NC $|v|$	\NC $=\frac{ds}{dt}$
+		\NC $||\vec{v}||$	\NC $=\sqrt{v_{x}^{2}+v_{y}^{2}+v_{z}^{2}}=\frac{ds}{dt}$	\NC\MR
+\NC Constant speed
+	\NC $|v|$	\NC $=\frac{s}{\Delta t}$
+		\NC $||\vec{v}||$	\NC $=\frac{s}{\Delta t}$	\NC\MR
+\NC Position update
+	\NC $x_{i}$	\NC$+\;v\Delta t=x_{f}$
+		\NC $x_{i}$\NC $+\; v_{x}\Delta t=x_{f}$	\NC\MR
+\NC
+	\NC	\NC
+		\NC $y_{i}$	\NC $+\;v_{y}\Delta t=y_{f}$	\NC\MR
+\NC
+	\NC	\NC
+		\NC $z_{i}$	\NC $+\;v_{z}\Delta t=z_{f}$	\NC\MR
+\NC \bf Momentum $(v \ll c)$
+	\NC $p$	\NC $=mv$
+		\NC $\vec{p}$	\NC $=m\vec{v}$	\NC\MR
+\NC Magnitude of momentum
+	\NC $|p|$	\NC $=m|v|$
+		\NC $||\vec{p}||$	\NC $=m||\vec{v}||$	\NC\MR
+\NC \bf Energy $(v \ll c)$
+	\NC	\NC
+		\NC	\NC\MR
+\NC Kinetic Energy
+	\NC $K$	\NC $=\frac{1}{2}mv^{2}=\frac{p^{2}}{2m}$
+		\NC $K$	\NC $=K_{x}+K_{y}+K_{z}$	\NC\MR
+\NC Work
+	\NC $W$	\NC $=F\Delta x$
+		\NC $W$	\NC $=F_{x}\Delta x+F_{y}\Delta y+F_{z}\Delta z$	\NC\MR
+\NC \bf Springs
+	\NC	\NC
+		\NC	\NC	\NC\MR
+\NC Spring potential energy
+	\NC $U$	\NC $=\frac{1}{2}ks^{2}$
+		\NC	\NC	\NC\MR
+\NC Hooke's Law (Spring force)
+	\NC $F$	\NC $=-ks$
+		\NC	\NC	\NC\MR
+\NC Mass-spring period and frequency
+	\NC $T$	\NC $=2\pi\sqrt{\frac{m}{k}}$ $f=\frac{1 \text{cyc}}{2\pi}\sqrt{\frac{k}{m}}$
+		\NC	\NC	\NC\MR
+\NC \bf Gravity near the Earth's surface
+	\NC	\NC
+		\NC	\NC	\NC\MR
+\NC Gravitational potential energy
+	\NC $U$	\NC $=mgh$
+		\NC	\NC	\NC\MR
+\NC \bf Lagrange's Equation
+	\NC $F$	\NC $=-\left(\frac{\text{tangent line's }\Delta U}{\text{tangent line's }\Delta x}\right)$
+		\NC	\NC	\NC\MR
+\stoptable
+
+
+\stoptext
