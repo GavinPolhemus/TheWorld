@@ -22,12 +22,14 @@
 \define\sth{\sub{therm}}
 
 % Math
-\definemathfence[abs][left="007C,right="007C,command=yes]
-\definemathfence[vabs][left="2016,right="2016,command=yes]
+\definemathfence[abs][bar][command=yes]
+\definemathfence[vabs][doublebar][command=yes]
+\definemathfence[components][angle][command=yes]
+\definemathfence[coordinates][parenthesis][command=yes]
 %\define[1]\abs{\left|#1\right|} % better: https://tex.stackexchange.com/questions/475890/how-to-typeset-absolute-values-and-norms-in-context
-\define[1]\vabs{\left\Vert#1\right\Vert}
-\define[1]\components{\left\langle #1 \right\rangle}
-\define[1]\coordinates{\left( #1 \right)}
+%\define[1]\vabs{\left\Vert#1\right\Vert}
+%\define[1]\components{\left\langle #1 \right\rangle}
+%\define[1]\coordinates{\left( #1 \right)}
 \define[1]\sci{\times 10^{#1}}
 \define\dotp{\boldsymbol{\cdot}}%{\bullet}%
 \define[1]\fourvec{{\bi #1}}
