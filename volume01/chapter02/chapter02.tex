@@ -47,6 +47,7 @@ A rock naturally falls downward, towards the Earth’s center, as shown in figur
 		\draw[shade, ball color = gray] (1.75,7.7) circle[radius=.1cm][opacity=.6];
 		\draw[shade, ball color = gray] (1.75,4.575) circle[radius=.1cm][opacity=.8];
 		\draw[shade, ball color = gray] (1.75,.2) circle[radius=.1cm];
+		\draw[thin,-{Straight Barb}] (1.75,10.2)--node[rotate=90, above]{$85\units{m}$}(1.75,.2);
 		\draw[fill=black!10,thin] (2,.15)--(2,9.65)--(1.9,9.85)--(1.9,10.15)--(3.8,10.15)--(3.8,9.85)--(3.7,9.65)--(3.7,.15);
 		\draw[fill=black!50] (3,0.15) rectangle (3.12,.4);
 		\fill [black!10] (0,0) rectangle (5,.15);
@@ -78,8 +79,8 @@ A rock naturally falls downward, towards the Earth’s center, as shown in figur
 		\draw[fill=white!90!black,thin] (16.05,.15)--(16.05,1.1)--(16.04,1.12)--(16.04,1.15)--(16.23,1.15)--(16.23,1.12)--(16.22,1.1)--(16.22,.15);
 		\fill[white!90!black] (16.6,0)--(0,0)--(0,.15)--(16.6,.15);
 		\draw[thin] (0,.15)--(16.6,.15);
-		\draw[thin,-{Straight Barb}] (.4,1.155)--(.4,.155);%node[rotate=-90, below]{Rock}
-		\draw[thin,-{Straight Barb}] (.535,.65)--(16.135,.65);%node[above=.5]{Tower’s eastward motion}
+		\draw[thin,-{Straight Barb}] (.4,1.155)--node[rotate=90, above]{$85\units{m}$}(.4,.155);
+		\draw[thin,-{Straight Barb}] (.535,.65)--node[above]{$1400\units{m}$}(16.135,.65);
 \stoptikzpicture}}
 
 Regarding the motion of the tower, recall that Earth’s size was known even in Aristotle’s time. If Earth makes a full rotation every day, a tower in Greece or Italy would be carried by Earth’s rotation at an amazing \m{330\units{m/s}} toward the east (example \in[ex:EarthSurfaceSpeed] in the previous chapter).
@@ -1482,9 +1483,9 @@ Let us return now to the puzzle of the falling rock. We know that the rock is ac
 		\draw[fill=white!90!black,thin] (12.15,.15)--(12.15,1.1)--(12.14,1.12)--(12.14,1.15)--(12.33,1.15)--(12.33,1.12)--(12.32,1.1)--(12.32,.15)[opacity=.8];
 		\draw[fill=white!90!black,thin] (16.05,.15)--(16.05,1.1)--(16.04,1.12)--(16.04,1.15)--(16.23,1.15)--(16.23,1.12)--(16.22,1.1)--(16.22,.15);
 		\fill[white!90!black] (16.6,0)--(0,0)--(0,.15)--(16.6,.15);
-		\draw[thin] (0,.15)--(16.6,.15);
-		\draw[thin,-{Straight Barb}] (.4,1.155) parabola (16,.155);%node[rotate=-90, below]{Rock}
-		%\draw[thin,->] (.535,.65)--(16.135,.65);%node[above=.5]{Tower’s eastward motion}
+		\draw[thin] (0,.15)--node[above]{$1400\units{m}$}(16.6,.15);
+		\node[rotate=90, above, black] at (.44,.64){$85\units{m}$};
+		\draw[thin,-{Straight Barb}] (.4,1.155) parabola (16,.155);
 \stoptikzpicture}}
 
 \placefigure[margin][fig:RockDropGalileo] % location
