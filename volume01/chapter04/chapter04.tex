@@ -136,7 +136,7 @@ Leibniz first proposed the universal conservation law for $mv^2$ in 1686, the ye
 
 %Following the publication of Newton’s \booktitle{Principia},
 Leibniz accepted  momentum as a conserved measure of motion and attempted to address the confusion among the Cartesians who mistakenly conflated Descartes’s quantity of motion and Newton’s momentum. %(described at the end of \in{Chapter}[ch:Momentum]). Since the term \quote{momentum} had not appeared, Leibniz referred to Newton’s momentum as the quantity of progress, distinguishing it from Descartes’s quantity of motion.
-%His essay, published in the journal \booktitle{Acta Eruditorum}, opened with a title unlikely to win friends amoung the Cartesians: \quote{Brief Demonstration of a Notable Error of Descartes and Others Concerning a Natural Law, According to which God is Said Always to Conserve the Same Quantity of Motion; A Law Which They Also Misuse in Mechanics.}
+%His essay, published in the journal \booktitle{Acta Eruditorum}, opened with a title unlikely to win friends among the Cartesians: \quote{Brief Demonstration of a Notable Error of Descartes and Others Concerning a Natural Law, According to which God is Said Always to Conserve the Same Quantity of Motion; A Law Which They Also Misuse in Mechanics.}
 Notice how Leibniz treats momentum as a directional quantity,  positive for motion in one direction and negative for motion in the other, just as we have done.
 \startblockquote
 I remark also another conservation, namely, that of the momentum, but neither is this the conservation of that which is absolute.
@@ -304,17 +304,17 @@ The factor of one-half is of no consequence for Leibniz. If his \visviva\ quanti
 	\stoptabulate
 }
 
-In Newton’s collision example, the kinetic energy of ball $A$ would be
+In Newton’s collision example, ball $A$'s kinetic energy is
 \startformula
 K=\half mv^2 = \half\cdot3\cdot2^2 = 6,
 \stopformula
-and the kinetic energy of object $B$ would be
+and $B$'s is
 \startformula
-K=\half mv^2 = \half\cdot1\cdot10^2 = 50,
+K=\half mv^2 = \half\cdot1\cdot10^2 = 50.
 \stopformula
-for a total initial kinetic energy of $K\si=56$. The initial values of momentum, and kinetic energy for this collision are recorded in \in{table}[T:NewtonCollisionBefore].
+The total initial kinetic energy is $K\si=6+50=56$. The initial momenta, and kinetic energies for this collision are recorded in \in{table}[T:NewtonCollisionBefore].
 
-Let us make a similar table showing the values after the collision. We are going to consider both of the outcomes mentioned above. First, we consider the case with the larger momentum transfer, where ball $A$’s final momentum is $18$ and ball $B$’s is $-2$. Ball $A$’s final velocity is found from its momentum.
+Let us make a similar table showing the values after the collision. We will consider both of the outcomes mentioned above. First, consider the case with the larger momentum transfer, where ball $A$’s final momentum is $18$ and ball $B$’s is $-2$. Ball $A$’s final velocity is found from its momentum.
 	\startformula\startmathalignment
 		\NC p	\NC= mv \NR
 		\NC v	\NC= \frac{p}{m} = \frac{18}{3}=6
@@ -833,9 +833,9 @@ Energy can also be added as heat $Q$ by cooking the cart over a fire, which incr
 %Leibniz’s did not know that the balls’ temperature is a measure of the microscopic random motion – higher temperature indicating greater microscopic \visviva. The loss of the balls’ \visviva\ to the microscopic parts causes an increase in temperature, but the increase is extremely small, far too small for seventeenth century experimenters to measure. The idea that the temperature is connected to microscopic \visviva\ appeared several times in the decades that followed, but was not widely accepted until the middle of the nineteenth century. We will return to this idea in Volume II.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startexample[ex:BlockSlideK]
+\startexample[ex:BlockSlide]
 The cart and block, together weighing $550\units{g}$, slide in the positive direction against a force of friction equal to $-0.40\units{N}$. Initially, they have a velocity of $2.5\units{m/s}$. How far will they slide before coming to rest?
-\startbuffer[TikZ:BlockSlideK]
+\startbuffer[TikZ:BlockSlide]
 \environment env_physics
 \environment env_TikZ
 \setupbodyfont [libertinus,11pt]
@@ -863,9 +863,9 @@ The cart and block, together weighing $550\units{g}$, slide in the positive dire
 \stopTEXpage
 \stopbuffer
 
-\placefigure[margin][fig:BlockSlideK] % location
-{A cart pushes a block on a track, slowing to a stop in example~\in[ex:BlockSlideK].}	% caption text
-{\noindent\typesetbuffer[TikZ:BlockSlideK]} % figure contents
+\placefigure[margin][fig:BlockSlide] % location
+{A cart pushes a block on a track, slowing to a stop in example~\in[ex:BlockSlide].}	% caption text
+{\noindent\typesetbuffer[TikZ:BlockSlide]} % figure contents
 \startsolution
 	The conservation of energy equation is always a safe way to start.
 	\startformula[eq:1DEconserve]
@@ -899,41 +899,68 @@ Put these into the conservation of energy equation and solve for the displacemen
 This cart and block start quickly with a small force resisting their motion, so they are able to slide a considerable distance, $5.7\units{m}$, before coming to a stop.
 \stopsolution\stopexample
 
-\startbuffer[TikZ:BlockSlideK]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage\small%
-\starttikzpicture% tikz code
-	\startaxis[
-		footnotesize,
-		width=2.20in,%\marginparwidth,
-		y={1cm}, %x={2mm},
-		xlabel={$x$ (m)},
-		xmin=0, xmax=10,
-		%xtick={-1,0,...,3},
-		minor x tick num=3,
-		ylabel={Energy (J)},
-	  	every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
-		ymin=0, ymax=2,
-		minor y tick num=4,
-	   	extra y ticks={0},
-	   	extra y tick labels=\empty,
-   		extra y tick style={grid=major},
-		clip mode=individual,
-		]
-	  	\addplot[thick, samples=121, domain=0:10,]
-		    {1.72-(0.2)*x}node[above right,pos=.4] {$H=K$}
-		;
-	\stopaxis
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
+%\startbuffer[TikZ:BlockSlideK] % This is replaced by the MetaPost version below.
+%\environment env_physics
+%\environment env_TikZ
+%\setupbodyfont [libertinus,11pt]
+%\setoldstyle % Old style numerals in text
+%\startTEXpage\small%
+%\starttikzpicture% tikz code
+%	\startaxis[
+%		footnotesize,
+%		%width=5.1cm,%\marginparwidth,
+%		y={1cm}, x={3.67mm},
+%		xlabel={$x$ (m)},
+%		xmin=0, xmax=10,
+%		minor x tick num=3,
+%		ylabel={Energy (J)},
+%	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
+%		ymin=0, ymax=2,
+%		minor y tick num=4,
+%		]
+%	  	\addplot[thick, samples=121, domain=0:10,]
+%		    {1.72-(0.2)*x}node[above right,pos=.4] {$H=K$}
+%		;
+%	\stopaxis
+%\stoptikzpicture
+%\stopTEXpage
+%\stopbuffer
+%
+%\placefigure[margin][fig:BlockSlideK]
+%{The block’s energy as a function of position for \in{example}[ex:BlockSlide].}
+%{\noindent\typesetbuffer[TikZ:BlockSlideK]} % figure contents
 
-\placefigure[margin][fig:BlockSlideK]
-{The block’s energy as a function of position for \in{example}[ex:BlockSlideK].}
-{\noindent\typesetbuffer[TikZ:BlockSlideK]} % figure contents
+\startuseMPgraphic{graph::mynewgraph} % I'd like to add minor ticks, 0.667mm long.
+vardef function =
+	path p;
+	for x = 0 step 1 until 10:
+		y := 1.72-(0.2)*x; augment.p(x,y); endfor;
+	p enddef;
+draw begingraph(3.67cm,2cm);
+	setrange(origin, 10,2);
+	graph_template.itick := origin--(1mm,0) ;
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy (J)") rotated 90,OUT) ;
+	glabel.bot(textext("$x$ (m)"), OUT);
+	gdraw(function) withpen pencircle scaled 0.8pt;
+	glabel.urt("$H=K$",4);
+	%glabel(fullcircle scaled 2cm, (0,0));
+endgraph;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:BlockSlideK, title={The block’s energy as a function of position for \in{example}[ex:BlockSlide].}]
+\small
+\reuseMPgraphic{graph::mynewgraph}
+\stopplacefigure
 
 \noindent
 The plot in \in{figure}[fig:BlockSlideK] shows the energy of the block as a function of position while the block is slowing to a stop. The block starts out with $1.72\units{J}$ of energy, and loses that energy as it slides to the right. Because the negative work done by friction is proportional to the distance, the energy decreases in proportion to the distance. The slope is equal to the force, $-0.20\units{N}$.
