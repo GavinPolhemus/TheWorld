@@ -28,17 +28,17 @@ What matters to me is not merely to impart to the reader what I have to say, but
 
 Since the Moon, Sun, and Earth are all circular – the most perfect shape – the Pythagoreans believed that all all celestial bodies circle Earth, a model that ran into conflicts with observations immediately. To explain the planet's erratic motions across the sky, ancient astronomers introduced compound motion into their models, so that the planets moved on circles which were themselves being carried by other circles. Hamilton's formulation is ideally suited for compound motion, as we have seen in two important examples – projectile motion and the motion of Newton's connected globes, explained by Du Châtelet.
 
-Galileo first explained projectile motion as the combination of uniform horizontal motion (constant \m{v_x}) with vertical free-fall motion. To Galileo, circular motion was as natural as linear motion, so he saw no obstacle to combining circular motion with linear motion. For example, he argues in \booktitle{Two World Systems} that an object dropped down a very deep well will continue to move about the Earth's center with uniform circular motion (constant \m{\omega}) as it free-falls to Earth's center.
+Galileo first explained projectile motion as the combination of uniform horizontal motion (constant $v_x$) with vertical free-fall motion. To Galileo, circular motion was as natural as linear motion, so he saw no obstacle to combining circular motion with linear motion. For example, he argues in \booktitle{Two World Systems} that an object dropped down a very deep well will continue to move about the Earth's center with uniform circular motion (constant $\omega$) as it free-falls to Earth's center.
 
 In fact, circular motion requires a force – as Descartes and Newton taught us – to bend the path away from naturally straight motion. For example, the Moon is kept in a circular orbit around Earth by the constant pull of Earth's gravity. Earth's gravity does not simultaneously produce free-fall motion, bringing the Moon crashing down – thankfully.
 
 Perhaps in situations that naturally involve circular motions, like orbits, we could find an angular momentum, similar to the linear momentum, that stays constant in the absence of external angular forces. This approach was eventually worked out in the highly abstract physics of the eighteenth century, but for our astronomical questions the treatment will be almost identical to the momentum you already know and love.
 
-An object's angular momentum is represented by \m{L}, and it is connected to rotational kinetic energy in the same way that momentum is connected to center-of-mass kinetic energy. Recall that we had two formulas for kinetic energy, one using velocity and the other using momentum.
+An object's angular momentum is represented by $L$, and it is connected to rotational kinetic energy in the same way that momentum is connected to center-of-mass kinetic energy. Recall that we had two formulas for kinetic energy, one using velocity and the other using momentum.
 \startformula
 	K = \half mv^2 = \frac{p^2}{2m}
 \stopformula
-Likewise, rotational kinetic energy can be written in terms of angular velocity \m{\omega} or angular momentum \m{L}. Write these formulas in the same form as above.
+Likewise, rotational kinetic energy can be written in terms of angular velocity $\omega$ or angular momentum $L$. Write these formulas in the same form as above.
 \startformula
 	K = \half I\omega^2 = \frac{L^2}{2I}
 \stopformula
@@ -48,7 +48,7 @@ Solving that last equation gives the angular momentum formula.
 \startformula
 	L = I\omega
 \stopformula
-This looks very similar to the momentum formula \m{p=mv}. In both cases the momentum is the product of the objects \quotation{inertia} and its velocity. This analogy between linear and angular quantities is shown in \in{table}[T:LinearAngular].
+This looks very similar to the momentum formula $p=mv$. In both cases the momentum is the product of the objects \quotation{inertia} and its velocity. This analogy between linear and angular quantities is shown in \in{table}[T:LinearAngular].
 
 \placetable
     [margin]
@@ -59,23 +59,23 @@ This looks very similar to the momentum formula \m{p=mv}. In both cases the mome
 \FL[2]%\toprule
 \NC				\NC Linear		\NC Angular 		\NR
 \HL
-\NC Velocity		\NC \ \m{v}		\NC \m{\omega}		\NR
-\NC Inertia		\NC \ \m{m}		\NC \m{I}			\NR
-\NC Momentum	\NC \m{p=mv}	\NC \m{L=I\omega}	\NR
+\NC Velocity		\NC \ $v$		\NC $\omega$		\NR
+\NC Inertia		\NC \ $m$		\NC $I$			\NR
+\NC Momentum	\NC $p=mv$	\NC $L=I\omega$	\NR
 \LL[2]%\bottomrule
     \stoptabulate}
 
 
- The angular version of force is called torque and is represented by \m{\tau} (tau). Torque is a twisting force that will cause something to gain angular momentum. This leads to the third great conservation law of mechanics, conservation of angular momentum. 
+ The angular version of force is called torque and is represented by $\tau$ (tau). Torque is a twisting force that will cause something to gain angular momentum. This leads to the third great conservation law of mechanics, conservation of angular momentum. 
 \startformula
 	L\si + \tau\Delta t = L\sf
 \stopformula
 
-We would like to explain the planets' motions around the Sun using angular momentum and energy. Orbits of the inner four planets – Mercury, Venus, Earth, and Mars – are shown in \in{figure}[fig:KeplerTerestrial]. While we could work in cartesian coordinates, the solar system is much easier to describe with polar coordinates, and this has been the tradition since before cartesian coordinates were invented. Each planet's gravitational potential energy is determined by its distance from the sun, the \m{r} coordinate. Since we will be using conservation of angular momentum, we will need to know the torque, which turns out to be zero! Hamilton's equation works with any coordinates, and for angular coordinates it gives the torque.
+We would like to explain the planets' motions around the Sun using angular momentum and energy. Orbits of the inner four planets – Mercury, Venus, Earth, and Mars – are shown in \in{figure}[fig:KeplerTerestrial]. While we could work in cartesian coordinates, the solar system is much easier to describe with polar coordinates, and this has been the tradition since before cartesian coordinates were invented. Each planet's gravitational potential energy is determined by its distance from the sun, the $r$ coordinate. Since we will be using conservation of angular momentum, we will need to know the torque, which turns out to be zero! Hamilton's equation works with any coordinates, and for angular coordinates it gives the torque.
 \startformula
 	\tau = -\frac{\Delta U}{\Delta\theta}
 \stopformula
-Motion in the \m{\theta} direction (keeping \m{r} constant) does not change a planets' potential energy, so there is no force pushing the planets in the \m{\theta} direction. The only force is the gravitational force in the negative \m{r} direction, directly toward the Sun. The planets do exert forces on each other but these are extremely small compared to the force of the Sun's gravity, so we will ignore them.
+Motion in the $\theta$ direction (keeping $r$ constant) does not change a planets' potential energy, so there is no force pushing the planets in the $\theta$ direction. The only force is the gravitational force in the negative $r$ direction, directly toward the Sun. The planets do exert forces on each other but these are extremely small compared to the force of the Sun's gravity, so we will ignore them.
 
 \startbuffer[TikZ:KeplerTerestrial]
 \environment env_physics
@@ -87,7 +87,7 @@ Motion in the \m{\theta} direction (keeping \m{r} constant) does not change a pl
 \startpolaraxis
  [	xticklabels=\empty,
  	ytick={0,0.5,...,2.5},
- 	yticklabels={{},{},\m{100\units{Gm}},{},\m{200\units{Gm}},{}},
+ 	yticklabels={{},{},$100\units{Gm}$,{},$200\units{Gm}$,{}},
  	minor y tick num={4},
 	% yminorgrids=true,
 	hide x axis,
@@ -95,7 +95,7 @@ Motion in the \m{\theta} direction (keeping \m{r} constant) does not change a pl
 	scale only axis=true, width={10cm},
  	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
 	major grid style = {middlegray},
- 	% ylabel={Distance from Sun \m{r} (\m{\sci{9}\units{m}})},
+ 	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
  ]
     \addplot [ % Mars area at aphelion
         draw=none, fill=black!20,
@@ -169,7 +169,7 @@ Motion in the \m{\theta} direction (keeping \m{r} constant) does not change a pl
 \stopbuffer
 
 \placetextfloat[top][fig:KeplerTerestrial] % location
-{The orbits of the inner planets. The orbits of Mercury and Mars are noticeably off-center. The gray pie-slices show the angle covered in \m{20\units{days}} by Mars and Mercury when they are closest and farthest from the Sun. Notice that both the angle and the distance are greater when the planet is closer to the Sun. Both the angular velocity and the speed are greater when closer to the Sun.}	 % caption text
+{The orbits of the inner planets. The orbits of Mercury and Mars are noticeably off-center. The gray pie-slices show the angle covered in $20\units{days}$ by Mars and Mercury when they are closest and farthest from the Sun. Notice that both the angle and the distance are greater when the planet is closer to the Sun. Both the angular velocity and the speed are greater when closer to the Sun.}	 % caption text
 {\noindent\typesetbuffer[TikZ:KeplerTerestrial]} % figure contents
 
 We will use conservation of energy and conservation of angular momentum to explain three features of the planets' orbits. First, we will explain each planet's changing speed. Second, we will study the orbit's shape. Third, we will explain the relationship between the orbital periods of different planets. In each case we will look at the answer first, and then understand how it comes about, because this is what actually happened. Before Euler's angular momentum, before Bernoulli's potential energy and Leibniz's \visviva, before Newton's laws, even before Galileo's new science of motion, a complete mathematical model of planetary orbits was put forward Johannes Kepler. The model's simplicity and incredible precision made it a gold-standard test for every physical theory that followed.
@@ -197,7 +197,7 @@ Kepler recounts his struggle with Mars in his revolutionary \booktitle{New Astro
 \startpolaraxis
  [	xticklabels=\empty,
  	ytick={0,0.5,...,2.5},
- 	yticklabels={{},{},\m{100\units{Gm}},{},\m{200\units{Gm}},{}},
+ 	yticklabels={{},{},$100\units{Gm}$,{},$200\units{Gm}$,{}},
  	minor y tick num={4},
 	% yminorgrids=true,
 	hide x axis,
@@ -205,7 +205,7 @@ Kepler recounts his struggle with Mars in his revolutionary \booktitle{New Astro
 	scale only axis=true, width={10cm},
  	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
 	major grid style = {middlegray},
- 	% ylabel={Distance from Sun \m{r} (\m{\sci{9}\units{m}})},
+ 	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
  ]
     \addplot [ % Mars area at aphelion
         draw=none, fill=black!20,
@@ -242,7 +242,7 @@ Kepler recounts his struggle with Mars in his revolutionary \booktitle{New Astro
 \stopbuffer
 
 \placetextfloat[top][fig:KeplerMarsAncients] % location
-{Kepler's model of Mars's orbit using a perfect circle, off center, and a constant angular velocity about an equant. The lines show the equal angle about the equant over two different \m{20\units{day}} durations. The same angle produces a larger displacement on the side farther from the equant – and closer to the Sun. This model failed.}	 % caption text
+{Kepler's model of Mars's orbit using a perfect circle, off center, and a constant angular velocity about an equant. The lines show the equal angle about the equant over two different $20\units{day}$ durations. The same angle produces a larger displacement on the side farther from the equant – and closer to the Sun. This model failed.}	 % caption text
 {\noindent\typesetbuffer[TikZ:KeplerMarsAncients]} % figure contents
 
 Before he could check this model he needed to determine the obit's center and radius and the equant's location. He used four of Tycho's observations in an extremely laborious calculation, explained in chapter 16 of \booktitle{New Astronomy.} At one point in the explanation he exclaims,
@@ -259,7 +259,7 @@ Kepler then explains, in methodical detail, that additional prediction disagreed
 
 After year's of work, Kepler responds to this devastating verdict with perhaps the most moving passage I have found in any science text.
 \startblockquote
-Since the divine benevolence has vouchsafed us Tycho Brahe, a most diligent observer, from whose observations the \m{8'} error of this [model] is shown in Mars, it is fitting that we with thankful mind both acknowledge and honor this favor of God. For it is in this that we shall carry on, to find at length the true form of the celestial motions, supported as we are by the proofs showing our suppositions to be fallacious. In what follows, I shall myself, to the best of my ability, lead the way for others on this road. For if I had thought I could ignore eight minutes\dots I would have already made enough of a correction in Ch.~16. Now, because they could not be ignored, these eight minutes alone will have led the way to the reformation of all of astronomy\dots.% Kepler1609 p211
+Since the divine benevolence has vouchsafed us Tycho Brahe, a most diligent observer, from whose observations the $8'$ error of this [model] is shown in Mars, it is fitting that we with thankful mind both acknowledge and honor this favor of God. For it is in this that we shall carry on, to find at length the true form of the celestial motions, supported as we are by the proofs showing our suppositions to be fallacious. In what follows, I shall myself, to the best of my ability, lead the way for others on this road. For if I had thought I could ignore eight minutes\dots I would have already made enough of a correction in Ch.~16. Now, because they could not be ignored, these eight minutes alone will have led the way to the reformation of all of astronomy\dots.% Kepler1609 p211
 \stopblockquote
 If I had to point to a single moment when the old philosophical reasoning gave way to a new scientific practice, it would be this moment – when Kepler, after years of calculation, confronts the data proving his failure, gives thanks, and starts over.
 
@@ -291,15 +291,15 @@ Since the Sun is at the center, the Earth's angular momentum is determined by it
 \startformula
 	I = mr^2,
 \stopformula
-where \m{m} is Earth's mass and \m{r} is the radial coordinate measured as distance from the Sun, as in \in{figure}[fig:KeplerTerestrial].
+where $m$ is Earth's mass and $r$ is the radial coordinate measured as distance from the Sun, as in \in{figure}[fig:KeplerTerestrial].
 
-Even though the Earth is spherical, we do not use the formula for a sphere's moment of inertia, the way we would for rolling problems. Earth is engaged in two circular motions: spinning about its axis and revolving around the Sun. Hamilton's formulation allows us to treat those as separate motions. To study Earth's rotation about its axis, we would use the moment of inertia of a sphere. Here, we will study only Earth's revolutions about the Sun, for which we should treat Earth as a small mass at the end of a very long rod from the center. For this motion the momentum of inertia is \m{I=mr^2}.
+Even though the Earth is spherical, we do not use the formula for a sphere's moment of inertia, the way we would for rolling problems. Earth is engaged in two circular motions: spinning about its axis and revolving around the Sun. Hamilton's formulation allows us to treat those as separate motions. To study Earth's rotation about its axis, we would use the moment of inertia of a sphere. Here, we will study only Earth's revolutions about the Sun, for which we should treat Earth as a small mass at the end of a very long rod from the center. For this motion the momentum of inertia is $I=mr^2$.
 
-As we described at earlier in the chapter, Hamilton's equations tell us that there is no torque pushing Earth around in its orbit, therefore the angular momentum \m{L=I\omega} is constant. Kepler told us that Earth's angular velocity changes as it gets slightly closer to the Sun on one side of its orbit and then slightly farther away on the other. How does Earth's angular velocity \m{\omega} change if the angular momentum \m{L} remains constant? The angular velocity changes because the moment of inertia changes! Putting Earth's moment of inertia \m{I=mr^r} into the angular momentum formula gives 
+As we described at earlier in the chapter, Hamilton's equations tell us that there is no torque pushing Earth around in its orbit, therefore the angular momentum $L=I\omega$ is constant. Kepler told us that Earth's angular velocity changes as it gets slightly closer to the Sun on one side of its orbit and then slightly farther away on the other. How does Earth's angular velocity $\omega$ change if the angular momentum $L$ remains constant? The angular velocity changes because the moment of inertia changes! Putting Earth's moment of inertia $I=mr^r$ into the angular momentum formula gives 
 \startformula
 	L = mr^2\omega.
 \stopformula
-This angular momentum stays constant. As Earth gets slightly closer to to the Sun on one side of its orbit, the distance \m{r} decreases slightly and the angular velocity \m{\omega} must increase slightly. Earth speeds up. As Earth gets farther from the Sun again on the other side of its orbit, \m{r} increases slightly and \m{\omega} must decrease slightly. Earth slows down. This is exactly the amount of speeding and slowing required to both maintain a constant angular momentum \m{L} and to maintain equal areas swept out in equal times.
+This angular momentum stays constant. As Earth gets slightly closer to to the Sun on one side of its orbit, the distance $r$ decreases slightly and the angular velocity $\omega$ must increase slightly. Earth speeds up. As Earth gets farther from the Sun again on the other side of its orbit, $r$ increases slightly and $\omega$ must decrease slightly. Earth slows down. This is exactly the amount of speeding and slowing required to both maintain a constant angular momentum $L$ and to maintain equal areas swept out in equal times.
 
 \section{Earth's orbital angular momentum and energy}
 
@@ -307,13 +307,13 @@ As the planet speeds up and slows down, its kinetic energy increases and decreas
 \startformula
 	K_\theta = \frac{L^2}{2I} = \frac{L^2}{2mr^2}
 \stopformula 
-I've added a \m{\theta} subscript to remind us that \m{K_\theta} is the kinetic energy due to motion in the \m{\theta}-direction. The angular momentum \m{L} in the formula remains constant throughout the Earth's orbit, but the moment of inertia changes, which then changes the kinetic energy. As Earth gets slightly closer to the Sun on one side of its orbit, \m{m} and \m{I} both decrease slightly, making the kinetic energy \m{K_\theta} increase.
+I've added a $\theta$ subscript to remind us that $K_\theta$ is the kinetic energy due to motion in the $\theta$-direction. The angular momentum $L$ in the formula remains constant throughout the Earth's orbit, but the moment of inertia changes, which then changes the kinetic energy. As Earth gets slightly closer to the Sun on one side of its orbit, $m$ and $I$ both decrease slightly, making the kinetic energy $K_\theta$ increase.
 
-Although the change in \m{r} is relatively small, the change in Earth's kinetic energy is huge! Where dose all of all of that energy come from? It comes from a decrease in the gravitational potential energy \m{U}.
+Although the change in $r$ is relatively small, the change in Earth's kinetic energy is huge! Where dose all of all of that energy come from? It comes from a decrease in the gravitational potential energy $U$.
 \startformula
 	U = -G\frac{mM_\Sun}{r}
 \stopformula
-As the distance \m{r} decreases slightly, \m{K_\theta} increases and \m{U} decreases as shown in the energy diagram in \in{figure}[fig:EnergyGraphKU]. The diagram only shows the \m{r} coordinate, not the angle \m{\theta}. The Earth is always also moving in the \m{\theta} direction as it orbits the Sun.
+As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases as shown in the energy diagram in \in{figure}[fig:EnergyGraphKU]. The diagram only shows the $r$ coordinate, not the angle $\theta$. The Earth is always also moving in the $\theta$ direction as it orbits the Sun.
 
 \startbuffer[TikZ:EnergyGraphKU]
 \environment env_physics
@@ -325,10 +325,10 @@ As the distance \m{r} decreases slightly, \m{K_\theta} increases and \m{U} decre
 \startaxis
  [	x={2cm},y={.5cm},
    %title={Cart's Energy $H=K+U\sub{s}+U\sub{g}$},
-   xlabel={Distance from Sun \m{r} (\m{\sci{11}\units{m}})},
+   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
    xmin=0, xmax=5,
    minor x tick num=4,
-   ylabel={Energy (\m{m\sci{8}\units{J/kg}})},
+   ylabel={Energy ($m\sci{8}\units{J/kg}$)},
    ymin=-10, ymax=6,
    minor y tick num=3,
  ]
@@ -358,7 +358,7 @@ As the distance \m{r} decreases slightly, \m{K_\theta} increases and \m{U} decre
   ]
   {-13.3/x}
   %[yshift=-10pt]
-    node[below right,pos=0.9] {\m{U=-G\frac{mM_\Sun}{r}}}
+    node[below right,pos=0.9] {$U=-G\frac{mM_\Sun}{r}$}
   ;
 %\addplot[ % Circular Orbits
 %   thick, dotted,
@@ -374,7 +374,7 @@ As the distance \m{r} decreases slightly, \m{K_\theta} increases and \m{U} decre
   ]
   {9.926/x^2}
   %[yshift=8pt]
-    node[above, pos=0.95] {\m{K_\theta=\frac{L^2}{2mr^2}}}
+    node[above, pos=0.95] {$K_\theta=\frac{L^2}{2mr^2}$}
   ;
 \addplot[ % K angular Earth
    thin,
@@ -383,7 +383,7 @@ As the distance \m{r} decreases slightly, \m{K_\theta} increases and \m{U} decre
   ]
   {(-13.27/x)+(9.926/x^2)}
   %[yshift=8pt]
-    node[above right,pos=0.75] {\m{K_\theta + U}}
+    node[above right,pos=0.75] {$K_\theta + U$}
   ;
 \addplot[ % E Earth
    very thick,
@@ -418,16 +418,16 @@ As the distance \m{r} decreases slightly, \m{K_\theta} increases and \m{U} decre
 \stopbuffer
 
 \placetextfloat[top][fig:EnergyGraphKU] % location
-{Earth's rotational kinetic energy \m{K_\theta} and potential energy \m{U} plotted as functions of the distance from the Sun \m{r}. The sum \m{K_\theta+U} cradles Earth at its minimum. \m{U} prevents Earth from leaving the solar system, while \m{K_\theta} keeps it from spiraling into the Sun. Earth is always also moving the the \m{\theta} direction (not shown) as it orbits the Sun.}	 % caption text
+{Earth's rotational kinetic energy $K_\theta$ and potential energy $U$ plotted as functions of the distance from the Sun $r$. The sum $K_\theta+U$ cradles Earth at its minimum. $U$ prevents Earth from leaving the solar system, while $K_\theta$ keeps it from spiraling into the Sun. Earth is always also moving the the $\theta$ direction (not shown) as it orbits the Sun.}	 % caption text
 {\noindent\typesetbuffer[TikZ:EnergyGraphKU]} % figure contents
 
-Why does Earth not just keep spiraling inward towards the Sun, losing potential energy and gaining kinetic energy as it meets a fiery doom? This is an interesting story that requires a closer look at the energy graph in \in{figure}[fig:EnergyGraphKU]. The plots of \m{K_\theta} and \m{U} are nearly opposites, but there is a very important difference in their shapes. The potential energy \m{U} is inversely proportional to the distance \m{r} while the rotational kinetic energy \m{K_\theta} is inversely proportional to \m{r^2}.
+Why does Earth not just keep spiraling inward towards the Sun, losing potential energy and gaining kinetic energy as it meets a fiery doom? This is an interesting story that requires a closer look at the energy graph in \in{figure}[fig:EnergyGraphKU]. The plots of $K_\theta$ and $U$ are nearly opposites, but there is a very important difference in their shapes. The potential energy $U$ is inversely proportional to the distance $r$ while the rotational kinetic energy $K_\theta$ is inversely proportional to $r^2$.
 \startformula
 	U\sim \frac{1}{r} \qquad K \sim \frac{1}{r^2}
 \stopformula
-When \m{r} is very small, \m{r^2} is much smaller than \m{r}, making \m{K_\theta} much larger than \m{U}. When \m{r} is very large, \m{r^2} is much larger than \m{r}, making \m{K_\theta} much smaller than \m{U}. \m{K_\theta} is the dominant form of energy when \m{r} is small, and \m{U} is the dominant form of energy when \m{r} is large. This change can be seen in the sum \m{U+K_\theta} in the energy diagram (\in{fig.}[fig:EnergyGraphKU]). At small \m{r} the sum rises like \m{K_\theta}, while at large \m{r} it rises like \m{U}.
+When $r$ is very small, $r^2$ is much smaller than $r$, making $K_\theta$ much larger than $U$. When $r$ is very large, $r^2$ is much larger than $r$, making $K_\theta$ much smaller than $U$. $K_\theta$ is the dominant form of energy when $r$ is small, and $U$ is the dominant form of energy when $r$ is large. This change can be seen in the sum $U+K_\theta$ in the energy diagram (\in{fig.}[fig:EnergyGraphKU]). At small $r$ the sum rises like $K_\theta$, while at large $r$ it rises like $U$.
 
-Somewhere in the middle is a minimum which cradles Earth. Earth rocks gently in this minimum, losing potential energy \m{U} and gaining rotational kinetic energy \m{K_\theta} as it moves slightly towards the Sun on one side of its orbit, then losing \m{K_\theta} and gaining \m{U} is it moves away again on the other side.
+Somewhere in the middle is a minimum which cradles Earth. Earth rocks gently in this minimum, losing potential energy $U$ and gaining rotational kinetic energy $K_\theta$ as it moves slightly towards the Sun on one side of its orbit, then losing $K_\theta$ and gaining $U$ is it moves away again on the other side.
 
 Now that we understand Earth's changing speed in terms of angular momentum and energy, let's return to Kepler. 
 With his new area law, Kepler had more precise positions for Earth, and returned to the problem of Mars. His new effort is described in Book Five of \booktitle{New Astronomy}.
@@ -436,7 +436,7 @@ Mars's more off-center orbit provides a more difficult challenge for Kepler's ar
 
 The areas swept out by Mars are not the same as the areas swept out by Mercury. Both planets have constant angular momentum, but Mars's angular momentum is much greater than Mercury's. (This is true even if we correct for Mars's larger mass.) Mars sweeps out about twice the area that Mercury does in the same time. You can roughly check this by measuring the areas in \in{figure}[fig:KeplerTerestrial].
 
-Mars's off-center orbit also leads to a more interesting energy graph, shown in \in{figure}[fig:EnergyGraphKUH]. Mars's energy graph shows the total energy \m{H}, including the kinetic energy \m{K_r} due to Mars's motion in the \m{r}-direction. The total energy \m{H} is slightly higher than the minimum of \m{K_\theta+U}, allowing Mars to oscillate over a significant range of distances from approximately \m{r\sub{min}=2\units{Gm}} to \m{r\sub{max}=2.5\units{Gm}}. These turning points in the energy graph are same maximum and minimum distances of Mars's orbit shown in \in{figure}[fig:KeplerTerestrial]. If you look closely at Earth's energy graph (\in{fig.}[fig:EnergyGraphKU]) you will see that it is also a small line segment showing the Earth's range of distances from the Sun.
+Mars's off-center orbit also leads to a more interesting energy graph, shown in \in{figure}[fig:EnergyGraphKUH]. Mars's energy graph shows the total energy $H$, including the kinetic energy $K_r$ due to Mars's motion in the $r$-direction. The total energy $H$ is slightly higher than the minimum of $K_\theta+U$, allowing Mars to oscillate over a significant range of distances from approximately $r\sub{min}=2\units{Gm}$ to $r\sub{max}=2.5\units{Gm}$. These turning points in the energy graph are same maximum and minimum distances of Mars's orbit shown in \in{figure}[fig:KeplerTerestrial]. If you look closely at Earth's energy graph (\in{fig.}[fig:EnergyGraphKU]) you will see that it is also a small line segment showing the Earth's range of distances from the Sun.
 
 \startbuffer[TikZ:EnergyGraphKUH]
 \environment env_physics
@@ -448,10 +448,10 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 \startaxis
  [	x={2cm},y={2cm},
    %title={Cart's Energy $H=K+U\sub{s}+U\sub{g}$},
-   xlabel={Distance from Sun \m{r} (\m{\sci{11}\units{m}})},
+   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
    xmin=0, xmax=5,
    minor x tick num=4,
-   ylabel={Energy (\m{m\sci{8}\units{J/kg}})},
+   ylabel={Energy ($m\sci{8}\units{J/kg}$)},
    ymin=-4, ymax=0,
    minor y tick num=3,
  ]
@@ -481,7 +481,7 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
   ]
   {-13.3/x}
   %[yshift=-10pt]
-    node[below right,pos=0.6] {\m{U}}
+    node[below right,pos=0.6] {$U$}
   ;
 %\addplot[ % Circular Orbits
 %   thick, dotted,
@@ -497,7 +497,7 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 %  ]
 %  {9.926/x^2}
 %  %[yshift=8pt]
-%    node[above, pos=0.95] {\m{K_\theta}}
+%    node[above, pos=0.95] {$K_\theta$}
 %  ;
 %\addplot[ % K angular Earth
 %   thin,
@@ -506,7 +506,7 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 %  ]
 %  {(-13.27/x)+(9.926/x^2)}
 %  %[yshift=8pt]
-%    node[above right,pos=0.75] {\m{K_\theta + U}}
+%    node[above right,pos=0.75] {$K_\theta + U$}
 %  ;
 %\addplot[ % E Earth
 %   very thick,
@@ -524,7 +524,7 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
   ]
   {(-13.27/x)+(14.99/x^2)}
   %[yshift=8pt]
-    node[below left,pos=0.45] {\m{K_\theta + U}}
+    node[below left,pos=0.45] {$K_\theta + U$}
   ;
 \addplot[ % E Mars
    very thick,
@@ -533,7 +533,7 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
   ]
   {-2.912}
  % [yshift=10pt]
-    node[below, pos=0.5] {\m{H = U + K_\theta + K_r}}
+    node[below, pos=0.5] {$H = U + K_\theta + K_r$}
     node[above, pos=0.5] {Mars}
   ;
 \stopaxis
@@ -542,7 +542,7 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 \stopbuffer
 
 \placetextfloat[top][fig:EnergyGraphKUH] % location
-{Mars's energy graph. The sum \m{K_\theta+U} cradles Mars at its minimum. Mars oscillates between approximately \m{r\sub{min}=2\units{Gm}} and \m{r\sub{max}=2.5\units{Gm}}, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
+{Mars's energy graph. The sum $K_\theta+U$ cradles Mars at its minimum. Mars oscillates between approximately $r\sub{min}=2\units{Gm}$ and $r\sub{max}=2.5\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
 {\noindent\typesetbuffer[TikZ:EnergyGraphKUH]} % figure contents
 
 
@@ -559,7 +559,7 @@ This presented a huge computational challenge. All of Kepler's geometrical metho
 At one point in this dreadful analysis he writes to a friend, \quotation{if only the shape were a perfect ellipse all of the answers could be found in Archimedes' and Appollonius' works.} %Koestler p335
 Ellipses are circles squashed symmetrically, no pointier at one end than the other. These had been studied extensively by the ancient Greeks. Almost anything that could be done with a circle had also been worked out for ellipses, which would make Kepler's work much easier. Alas, for his egg shape almost nothing was known. Kepler struggled to make progress. The struggle with the egg fills eleven chapters (45-55) of \booktitle{New Astronomy.} In the process he computes an impressive table of twenty-eight different observations of Mars, from 1582 to 1595, with Mars's distance from the Sun, position along its orbit, predicted position in the sky, its observed position, and the error. Many of the errors were several minutes – huge errors by Kepler's standards – causing the egg to \quotation{go up in smoke.} % Kepler p406
 
-Kepler starts over again, using his table of twenty-eight distances. While considering these distances, he was playing around with another calculation and stumbled upon the number \m{1.00429}, which reminded him of one of the distances, which was off of the circle by \m{0.00432}. \quotation{It was as if I were awakened from a sleep to see a new light\dots.} % Kepler p407
+Kepler starts over again, using his table of twenty-eight distances. While considering these distances, he was playing around with another calculation and stumbled upon the number $1.00429$, which reminded him of one of the distances, which was off of the circle by $0.00432$. \quotation{It was as if I were awakened from a sleep to see a new light\dots.} % Kepler p407
 He tried the same formula for other observations and it again gave the right distances! He did not realize that formula gives the distances on an ellipse, since he had simply stumbled on the formula while doing something else. As a result, he put these correct distances at the wrong positions and produced an orbit that was \quotation{chubby-faced} and did not match the observations. He therefore abandoned the formula to try something entirely new – an ellipse!
 \startblockquote
 Why should I mince words? The truch of Nature, which I had rejected and chased away, returned by stealth through the backdoor, disguising itself to be accepted. That is to say, I laid [the distance formula] aside, and fell back on ellipses, believing that this was quite a different hypothesis, whereas the two, as I will prove in the next chapter, are one and the same\dots.% Keostler p388
@@ -586,7 +586,7 @@ Kepler believed that his mathematical model of Mars's motion – the area law on
 \startpolaraxis
  [	xticklabels=\empty,
  	ytick={0,5,...,45},
- 	yticklabels={{},{},\m{1\units{Tm}},{},\m{2\units{Tm}},{},\m{3\units{Tm}},{},\m{4\units{Tm}},{}},
+ 	yticklabels={{},{},$1\units{Tm}$,{},$2\units{Tm}$,{},$3\units{Tm}$,{},$4\units{Tm}$,{}},
  	minor y tick num={4},
 	% yminorgrids=true,
 	hide x axis,
@@ -595,7 +595,7 @@ Kepler believed that his mathematical model of Mars's motion – the area law on
  	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
 	major grid style = {middlegray},
 	clip = false,
- 	% ylabel={Distance from Sun \m{r} (\m{\sci{9}\units{m}})},
+ 	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
  ]
 %    \addplot [ % Mars area at aphelion
 %        draw=none, fill=black!20,
@@ -719,7 +719,7 @@ Kepler believed that his mathematical model of Mars's motion – the area law on
 \stopbuffer
 
 \placetextfloat[bottom][fig:HaleysComet] % location
-{The elliptical orbits of all eight planets and Halley's Comet. The planet's orbits are nearly circular, but off-center. Halley's Comet's orbit is highly elliptical, brining it near Earth approximately every \m{76} years. It's next appearance will be in 2061. (\m{1\units{Tm} = 10^{12}\units{m}})}	 % caption text
+{The elliptical orbits of all eight planets and Halley's Comet. The planet's orbits are nearly circular, but off-center. Halley's Comet's orbit is highly elliptical, brining it near Earth approximately every $76$ years. It's next appearance will be in 2061. ($1\units{Tm} = 10^{12}\units{m}$)}	 % caption text
 {\noindent\typesetbuffer[TikZ:HaleysComet]} % figure contents
 
 When Newton presented his laws of motion and gravity in the \booktitle{Principia,} almost eighty years after \booktitle{New Astronomy}, his first application of those laws is a proof of Kepler's area law. Newton goes on to show that elliptical orbits arise only from a force that is inversely proportional to the squared distance. Even a tiny change in the force formula causes the elliptical orbit's long axis to rotate slowly, so that over time the planet traces a flower pattern rather than a simple ellipse.
@@ -741,7 +741,7 @@ This ratio can be used to related the periods and radii of any two planets' orbi
 \startformula
 \left(\frac{T_1}{T_2}\right)^2 = \left(\frac{a_1}{a_2}\right)^3
 \stopformula
-where \m{T_1} and \m{a_1} are the period and radius of one planet's orbit, while \m{T_2} and \m{a_2} are those of the other. For elliptical orbits the radius is half of the ellipse's long axis. Formally, \m{a} is called the semi-major axis.
+where $T_1$ and $a_1$ are the period and radius of one planet's orbit, while $T_2$ and $a_2$ are those of the other. For elliptical orbits the radius is half of the ellipse's long axis. Formally, $a$ is called the semi-major axis.
 
 Kepler believed that the 3/2th power was a sign of a musical perfect fifth. It is not. Nonetheless, Newton showed that this ratio is also a consequence of his theories of motion and gravity. Kepler's three laws remain a remarkable achievement of insight and determination.
 
@@ -776,16 +776,16 @@ When the storm rages and the state is threatened by shipwreck, we can do nothing
 \FL[2]%\toprule
 \NC				\NC Linear			\NC Angular 			\NC Conversion		\NR
 \HL
-\NC	 Coordinate	\NC \m{s}			\NC \m{\theta}			\NC \m{s=r\theta}	\NR
-\NC Velocity		\NC \ \m{ds=v\,dt}	\NC \m{\omega}			\NC \m{v=r\omega}	\NR
-\NC Inertia		\NC \ \m{m}			\NC \m{I}				\NC \m{I=mr^2}		\NR
-\NC Momentum	\NC \m{p=mv}		\NC \m{L=I\omega}		\NC \m{L=rp}		\NR
-\NC Force		\NC \m{dp=F\,dt}		\NC \m{dL = \tau\,dt}		\NC \m{\tau=rF}		\NR
-\NC Kinetic Energy	\NC \m{K=\onehalf mv^2=\frac{p^2}{2m}}
-									\NC \m{K=\onehalf I\omega^2=\frac{L^2}{2I}}
-															\NC \m{K = K}				\NR
-\NC Hamilton's Eq.	\NC \m{F=-\frac{\Delta U}{\Delta s}}
-									\NC \m{\tau=-\frac{\Delta U}{\Delta\theta}}	\NC	\NR
+\NC	 Coordinate	\NC $s$			\NC $\theta$			\NC $s=r\theta$	\NR
+\NC Velocity		\NC \ $ds=v\,dt$	\NC $\omega$			\NC $v=r\omega$	\NR
+\NC Inertia		\NC \ $m$			\NC $I$				\NC $I=mr^2$		\NR
+\NC Momentum	\NC $p=mv$		\NC $L=I\omega$		\NC $L=rp$		\NR
+\NC Force		\NC $dp=F\,dt$		\NC $dL = \tau\,dt$		\NC $\tau=rF$		\NR
+\NC Kinetic Energy	\NC $K=\onehalf mv^2=\frac{p^2}{2m}$
+									\NC $K=\onehalf I\omega^2=\frac{L^2}{2I}$
+															\NC $K = K$				\NR
+\NC Hamilton's Eq.	\NC $F=-\frac{\Delta U}{\Delta s}$
+									\NC $\tau=-\frac{\Delta U}{\Delta\theta}$	\NC	\NR
 \LL[2]%\bottomrule
     \stoptabulate%}
 

@@ -41,10 +41,10 @@ A moving object’s quantity of motion, according to Descartes, is equal to the 
 \startblockquote
 When one part of matter is moved twice as fast as the other, and the other is twice as big as the former, the smaller has just as much motion as the greater.\autocite{p.~53. Translation by Paige Moore}{Descartes1644}
 \stopblockquote
-In modern mathematical language, Descartes’s quantity of motion is \m{m\vabs{\vec{v}}}.
+In modern mathematical language, Descartes’s quantity of motion is $m\vabs{\vec{v}}$.
 Since mass and speed are positive, Descartes’s quantity of motion is alway positive for a moving object, regardless of the motion’s direction. The quantity of motion is zero only if the object is at rest. %The total quantity of motion for a collection of objects is positive if any of them are moving and zero only if all of them are at rest.
 
-Descartes, as was his style, did not write out the formula for his quantity of motion. Even if he had, he certainly would not have written \m{m\vabs{\vec{v}}}, because vectors had not been invented! He would have written \m{mv} where \m{v} is the speed. We are going to adopt this cleaner notation for speed while keeping the notation \m{\vec v} for the velocity vector and \m{v_x}, \m{v_y}, and \m{v_z} for the vector’s components.
+Descartes, as was his style, did not write out the formula for his quantity of motion. Even if he had, he certainly would not have written $m\vabs{\vec{v}}$, because vectors had not been invented! He would have written $mv$ where $v$ is the speed. We are going to adopt this cleaner notation for speed while keeping the notation $\vec v$ for the velocity vector and $v_x$, $v_y$, and $v_z$ for the vector’s components.
 
 In his \booktitle{Principia}, Descartes presented several applications of his quantity of motion, but he had stated the most important laws much earlier in \booktitle{The World}, completed in 1633 but not published in his lifetime. His first law is a concise restatement of Galileo’s observation that motion naturally continues.
 \startblockquote
@@ -55,7 +55,7 @@ Descartes then offers a second law that is quite new.
 \startblockquote
 	I suppose as a second rule that, when one of these bodies pushes another, it cannot give the other any motion except by losing as much of its own at the same time; nor can it take away from the other body’s motion unless its own is increased by as much. This rule, joined to the preceding, agrees quite well with all experiences in which we see one body begin or cease to move because it is pushed or stopped by some other.\autocite{p.~65.}{Descartes1633}
 \stopblockquote
-Motion is not created or destroyed, but passed from one object to another. The motion of individual objects change, \quotation{nevertheless,} Descartes declared, the total motion in the universe \quotation{has a certain fixed quantity} that never changes. Objects gain and lose motion, but in total \quotation{motion is conserved.}\autocite{p.~53–4. Translation by Paige Moore}{Descartes1644}
+Motion is not created or destroyed, but passed from one object to another. The motion of individual objects change, \quotation{nevertheless,} Descartes declared, the total motion in the universe \quotation{has a certain fixed quantity} that never changes. Objects gain and lose motion, but in total, \quotation{motion is conserved.}\autocite{p.~53–4. Translation by Paige Moore}{Descartes1644}
 
 Descartes applied his quantity of motion to the simplest interaction: a collision between two objects.
 In this case the amount that one object speeds up could be determined based on how much the other object slows down.
@@ -65,7 +65,7 @@ Several of Descartes’s predictions conflicted with easily observed actual coll
 Not everyone accepted Descartes’s defense of his failed predictions.
 Christiaan Huygens, who was well versed in Cartesian philosophy, produced a different set of principles which he presented in \booktitle{The Motion of Colliding Bodies}, published in 1656.
 % De Motu Corporum Ex Percussione
-Huygens explained that the \emph{direction} of the quantity of motion must be taken into account. He also found the quantity \m{mv^2} is conserved in collisions with a good bounce (called \emph{elastic collisions}). The quantity \m{mv^2} is not conserved in collisions with a poor bounce (called \emph{inelastic collisions}).
+Huygens explained that the \emph{direction} of the quantity of motion must be taken into account. He also found the quantity $mv^2$ is conserved in collisions with a good bounce (called \emph{elastic collisions}). The quantity $mv^2$ is not conserved in collisions with a poor bounce (called \emph{inelastic collisions}).
 
 About that time, the recently established Royal Society in London put out a request for papers on the topic of collisions. Isaac Newton relates the results of that request, accompanied by the diagram shown in figure \ref{fig:PrincipiaPendula}.
 
@@ -148,11 +148,11 @@ Two balls are hung from identical long strings so that they are barely touching,
 		footnotesize,
 		width=2.13in,%\marginparwidth,
 		y={1mm},%x={2mm},
-		xlabel={\m{t} (s)},
+		xlabel={$t$ (s)},
 		xmin=0, xmax=1.57,
 		xtick={0,0.5,1.0,1.5},
 		minor x tick num=4,
-		ylabel={\m{x} (cm)},
+		ylabel={$x$ (cm)},
 	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
 		ymin=0, ymax=50,
 		minor y tick num=4,
@@ -193,13 +193,13 @@ Two balls are hung from identical long strings so that they are barely touching,
 \startexample[ex:PendulumCollisionWren1]
 	Suppose Wren’s demonstration was done using pendulums with periods of 3.14 seconds. %The larger, left ball has a mass of 75 grams, while the smaller, right ball has a mass of 25 grams.
 	The larger ball is pulled back a distance of 15.0 centimeters and released to strike the smaller ball, as shown in figure~\ref{fig:PendulumCollisionWren}. What is the larger ball’s velocity as it arrives at the collision? 	\startsolution
-To find the speed at the collision point, we use the formula for the maximum speed of simple harmonic motion. The amplitude is the ball’s initial distance from its equilibrium point, \m{A=15.0\units{cm}}. (Vector notation is not required for one dimensional problems. For these I will continue to use \m{\abs{v}} for speed and \m{v} for velocity.)
+To find the speed at the collision point, we use the formula for the maximum speed of simple harmonic motion. The amplitude is the ball’s initial distance from its equilibrium point, $A=15.0\units{cm}$. (Vector notation is not required for one dimensional problems. For these I will continue to use $\abs{v}$ for speed and $v$ for velocity.)
 	\startformula
 		\abs{v}\sub{max} = \frac{2\pi A}{T}
 			= \frac{2\cancel{\pi}\cdot15.0\units{cm}}{\cancel{3.14}\units{s}}
 			= 30.0\units{cm/s}
 	\stopformula
-The speed does not tell us the velocity’s direction, but we can see that the ball is moving the in positive direction, so the velocity is \m{30.0\units{cm/s}}.
+The speed does not tell us the velocity’s direction, but we can see that the ball is moving in the positive direction, so the velocity is $30.0\units{cm/s}$.
 \stopsolution
 \stopexample
 
@@ -208,7 +208,7 @@ The balls’ velocities immediately after the collision can be determined from t
 \startexample[ex:PendulumCollisionWren2]
 	Use the data in Example~\ref{ex:PendulumCollisionWren1} and the distances in figure~\ref{fig:PendulumCollisionWren} or \ref{fig:PendulumCollisionWrenGraph} to find the velocity of each ball after the collision.
 \startsolution
-After the collision the large ball swings from its equilibrium point at \m{x=20.0\units{cm}} to its stopping point at \m{x=28.0\units{cm}}. The amplitude of the motion is
+After the collision the large ball swings from its equilibrium point at $x=20.0\units{cm}$ to its stopping point at $x=28.0\units{cm}$. The amplitude of the motion is
 	\startformula
 		A = \Delta x = x\sf-x\si = 28.0\units{cm} - 20.0\units{cm} = 8\units{cm}
 	\stopformula
@@ -218,18 +218,18 @@ This can be used to find the velocity of the large ball.
 			= \frac{2\cancel{\pi}\cdot8.0\units{cm}}{\cancel{3.14}\units{s}}
 			= 16.0\units{cm/s}
 	\stopformula
-The same procedure gives the velocity of the small ball, which swings from its equilibrium position at \m{x=25\units{cm}} to a stop at \m{x=46\units{cm}}.
+The same procedure gives the velocity of the small ball, which swings from its equilibrium position at $x=25\units{cm}$ to a stop at $x=46\units{cm}$.
 	\startformula
 		\abs{v}\sub{max} = \frac{2\pi A}{T}
 			= \frac{2\pi\,\Delta x}{T}
 			= \frac{2\cancel{\pi}(46.0\units{cm}-25.0\units{cm})}{\cancel{3.14}\units{s}}
 			= 42.0\units{cm/s}
 	\stopformula
-Both of the velocities are to the right, which is positive. The velocity of the large ball is \m{16.0\units{cm/s}} and the velocity of the small ball is \m{42.0\units{cm/s}}.
+Both of the velocities are to the right, which is positive. The velocity of the large ball is $16.0\units{cm/s}$ and the velocity of the small ball is $42.0\units{cm/s}$.
 \stopsolution
 \stopexample
 
-\noindent Since pendulums will be colliding frequently in this chapter, we will save work later by incorporating \m{A=\Delta x} into the speed formula to get a formula for the pendulum collision velocities.
+\noindent Since pendulums will be colliding frequently in this chapter, we will save work later by incorporating $A=\Delta x$ into the speed formula to get a formula for the pendulum collision velocities.
 \startformula
 	v = \frac{2\pi\,\Delta x}{T}
 \stopformula
@@ -296,25 +296,25 @@ To give a full demonstration, Wren would have performed collisions with both bal
 \startexample[ex:PendulumCollisionWren3]
 	Wren continues his demonstration with the balls reversed. This time both balls are pulled to the side and released. The small ball catches up with the large ball and bounces off of it, as shown in figure \ref{fig:PendulumCollision3}. Find all of the velocities.
 \startsolution
-Before the collision, the small ball moves from \m{x=5.0\units{cm}} to \m{x=25.0\units{cm}}.
+Before the collision, the small ball moves from $x=5.0\units{cm}$ to $x=25.0\units{cm}$.
 	\startformula
 		v = \frac{2\pi\,\Delta x}{T}
 			= \frac{2\cancel{\pi}(25.0\units{cm}-5.0\units{cm})}{\cancel{3.14}\units{s}}
 			= 40.0\units{cm/s}
 	\stopformula
-The large ball moves from \m{x=26.0\units{cm}} to \m{x=30.0\units{cm}}.
+The large ball moves from $x=26.0\units{cm}$ to $x=30.0\units{cm}$.
 	\startformula
 		v = \frac{2\pi\,\Delta x}{T}
 			= \frac{2\cancel{\pi}(30.0\units{cm}-26.0\units{cm})}{\cancel{3.14}\units{s}}
 			= 8.0\units{cm/s}
 	\stopformula
-After the collision, the small ball moves from \m{x=25.0\units{cm}} to \m{x=21.0\units{cm}}.
+After the collision, the small ball moves from $x=25.0\units{cm}$ to $x=21.0\units{cm}$.
 	\startformula
 		v = \frac{2\pi\,\Delta x}{T}
 			= \frac{2\cancel{\pi}(21.0\units{cm}-25.0\units{cm})}{\cancel{3.14}\units{s}}
 			= -8.0\units{cm/s}
 	\stopformula
-The large ball moves from \m{x=30.0\units{cm}} to \m{x=42.0\units{cm}}.
+The large ball moves from $x=30.0\units{cm}$ to $x=42.0\units{cm}$.
 	\startformula
 		v = \frac{2\pi\,\Delta x}{T}
 			= \frac{2\cancel{\pi}(42.0\units{cm}-30.0\units{cm})}{\cancel{3.14}\units{s}}
@@ -330,11 +330,11 @@ All of the velocities above have the correct direction.
 		footnotesize,
 		width=2.13in,%\marginparwidth,
 		y={1mm},%x={2mm},
-		xlabel={\m{t} (s)},
+		xlabel={$t$ (s)},
 		xmin=0, xmax=1.57,
 		xtick={0,0.5,1.0,1.5},
 		minor x tick num=4,
-		ylabel={\m{x} (cm)},
+		ylabel={$x$ (cm)},
 	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
 		ymin=0, ymax=50,
 		minor y tick num=4,
@@ -373,7 +373,7 @@ All of the velocities above have the correct direction.
 \marginTikZ{}{PendulumCollisionGraph3}{The position vs.~time graph for the collision experiment in Example \ref{ex:PendulumCollisionWren3}.} % vskip, name, caption
 
 \noindent
-The direction of the pendulum’s velocity \m{v} is the direction of the pendulum’s displacement \m{\Delta x}, so the pendulum collision formula gives the pendulum’s velocity -- including direction -- not just the speed. If the displacement is in the positive direction then the velocity is positive. If the displacement is in the negative direction then the velocity is negative, as is the case for the small ball after the collision in the Example \ref{ex:PendulumCollisionWren3} above. The full position vs.\ time graph for this collision, showing the rebound of the small ball, is in figure \ref{fig:PendulumCollisionGraph3}.
+The direction of the pendulum’s velocity $v$ is the direction of the pendulum’s displacement $\Delta x$, so the pendulum collision formula gives the pendulum’s velocity -- including direction -- not just the speed. If the displacement is in the positive direction then the velocity is positive. If the displacement is in the negative direction then the velocity is negative, as is the case for the small ball after the collision in the Example \ref{ex:PendulumCollisionWren3} above. The full position vs.\ time graph for this collision, showing the rebound of the small ball, is in figure \ref{fig:PendulumCollisionGraph3}.
 
 
 %\placefigure[margin][] % location
@@ -383,27 +383,27 @@ The direction of the pendulum’s velocity \m{v} is the direction of the pendulu
 %
 
 
-The rules of collision required close attention to the direction of motion. Newton took note of this in his most important work, \booktitle{Philosophi\ae\ Naturalis Principia Mathematica}, where he made direction central to the study of all motion. Newton introduced his own quantity of motion \m{m\vec{v}}. This is a directional quantity. In one dimension, Newton’s quantity of motion is found by multiplying the mass, which is always positive, by the velocity, which can be positive or negative depending on the direction of motion. The resulting quantity of motion is positive for objects moving in the positive direction and negative for objects moving in the negative direction, just like velocity. This directional quantity of motion is the cornerstone of Newton’s physics.
+The rules of collision required close attention to the direction of motion. Newton took note of this in his most important work, \booktitle{Philosophi\ae\ Naturalis Principia Mathematica}, where he made direction central to the study of all motion. Newton introduced his own quantity of motion $m\vec{v}$. This is a directional quantity. In one dimension, Newton’s quantity of motion is found by multiplying the mass, which is always positive, by the velocity, which can be positive or negative depending on the direction of motion. The resulting quantity of motion is positive for objects moving in the positive direction and negative for objects moving in the negative direction, just like velocity. This directional quantity of motion is the cornerstone of Newton’s physics.
 
-Like Descartes, Newton did not write a formula for his quantity of motion. If he had, he would have written \m{mv}, just like Descartes, because vectors had not been invented. This ambiguity between speed and velocity caused tremendous confusion for decades. We are going to avoid that confusion by using vector notation. Before we dive into the mathematics of vectors, let us take a moment to note another promising replacement for Descartes’s disappointing \m{mv}.
+Like Descartes, Newton did not write a formula for his quantity of motion. If he had, he would have written $mv$, just like Descartes, because vectors had not been invented. This ambiguity between speed and velocity caused tremendous confusion for decades. We are going to avoid that confusion by using vector notation. Before we dive into the mathematics of vectors, let us take a moment to note another promising replacement for Descartes’s disappointing $mv$.
 
 %We have been using one dimensional language, but Newton understood this to work just as well in two or three dimensions. We will continue to use one dimensional language because all of the important ideas and many experiments require only one dimension. We will return to two and three dimensional language toward the end of the chapter.
 
-Gottfried Leibniz also admired the contributions of Huygens, Wallis, and Wren, and he began developing his own system of mechanics. Unlike Newton, Leibniz adopted Huygens’s formula \m{mv^2} as the important quantity. Leibniz called \m{mv^2} the \textit{vis viva} or \quotation{living force} and made it the basis of his own theory of motion. The \textit{vis viva} is much closer in spirit to Descartes’s original quantity of motion because \m{mv^2} is positive for any motion and zero only for systems completely at rest, just like Descartes’s \m{mv}.
+Gottfried Leibniz also admired the contributions of Huygens, Wallis, and Wren, and he began developing his own system of mechanics. Unlike Newton, Leibniz adopted Huygens’s formula $mv^2$ as the important quantity. Leibniz called $mv^2$ the \textit{vis viva} or \quotation{living force} and made it the basis of his own theory of motion. The \textit{vis viva} is much closer in spirit to Descartes’s original quantity of motion because $mv^2$ is positive for any motion and zero only for systems completely at rest, just like Descartes’s $mv$.
 
 The science community quickly accepted Newton’s theory of motion, although very few natural philosophers actually understood it. Newton’s many successful predictions and experimental verifications demonstrated the power of his methods, even to those who could not understand them.
 
 The science community was rather skeptical of Leibniz’s \textit{vis viva}, which did not have the same level of experimental support, at least not in the mechanical laboratory experiments that scientists preferred.
-%The \textit{quantitas motus} was the cornerstone of Newton’s comprehensive formulation of mechanics, put forth in the \booktitle{Philosophi\ae\ Naturalis Principia Mathematica}. The \booktitle{Principia} does not mention \m{mv^2}, so, they reasoned, the \textit{vis viva} must be incorrect. Given the tremendous stature of Newton, Leibniz’s \m{mv^2} was largely dismissed in favor of Newton’s \m{mv}.
+%The \textit{quantitas motus} was the cornerstone of Newton’s comprehensive formulation of mechanics, put forth in the \booktitle{Philosophi\ae\ Naturalis Principia Mathematica}. The \booktitle{Principia} does not mention $mv^2$, so, they reasoned, the \textit{vis viva} must be incorrect. Given the tremendous stature of Newton, Leibniz’s $mv^2$ was largely dismissed in favor of Newton’s $mv$.
 Even without the endorsement of the scientific community, Leibniz’s formula for \textit{vis viva} made useful predictions for many practical applications. Engineers and chemists adopted his formula and tested it in many experiments involving friction, fluids, and heat – things that scientists tried to avoid in motion experiments. The practical value of \textit{vis viva} suggested that it was both correct and important.
 
-A rift developed between Leibniz’s supporters, who used \m{mv^2}, and Newton’s supporters, who used \m{mv}. Newton’s supporters were called the Cartesians because of the similarity between Newton’s formula \m{m\vec{v}} and Descartes’s \m{mv}. Fittingly, they sometimes included direction, as Newton taught them, and sometimes they did not, reverting to Descartes’ directionless quantity of motion. It was a mess.
+A rift developed between Leibniz’s supporters, who used $mv^2$, and Newton’s supporters, who used $mv$. Newton’s supporters were called the Cartesians because of the similarity between Newton’s formula $m\vec{v}$ and Descartes’s $mv$. Fittingly, they sometimes included direction, as Newton taught them, and sometimes they did not, reverting to Descartes’ directionless quantity of motion. It was a mess.
 
 % Was Leibniz describing something new, or was he simply using the wrong formula for the quantity of motion?
 
 This disagreement was a perfectly reasonable scientific dispute that could have been resolved with careful experiments and detailed observations.
 Unfortunately, the \textit{vis viva} debate instead devolved into a battle of egos, carried out with great animosity, tainted by nationalism. Fueled by other philosophical and political disagreements, the conflict raged for almost half a century, continuing long after Newton’s and Leibniz’s deaths.
-This unproductive turn was, in part, due to human nature, but conflicting experimental results also contributed to the confusion. Some experiments supported the formula \m{mv} while others supported the formula \m{mv^2}.
+This unproductive turn was, in part, due to human nature, but conflicting experimental results also contributed to the confusion. Some experiments supported the formula $mv$ while others supported the formula $mv^2$.
 In the long run, the acrimonious debate did lead to ingenious experiments, careful analysis, and eventually to profound insights.
 The unexpected resolution became the foundation for all physics that followed.
 \placefigure[margin][fig:GravesandeCollider] % Location, Label
@@ -449,7 +449,7 @@ Newton’s second definition establishes the \textit{quantitas motus}, now calle
 	{\sc Definition 2 }
 	\textit{Momentum is a measure of motion that arises from the velocity and the mass jointly.}\autocite{p.~404. \quotation{Quantity of motion} changed to \quotation{momentum,} \quotation{quantity of matter} to \quotation{mass.}}{Newton1999}
 \stopblockquote
-The symbol \m{\vec{p}} represents momentum. Using our mathematical language, Newton's definition of momentum is%
+The symbol $\vec{p}$ represents momentum. Using our mathematical language, Newton's definition of momentum is%
 %\highlightbox{%
 \startformula
 	\vec{p} = m\vec{v}.	%\tag*{\scaps{momentum}}
@@ -469,13 +469,13 @@ In one dimension, the momentum is found by multiplying the velocity by the mass.
 	]
 	\pic at (40,0) {cart};
 	%\pic at (16,0) {cart};
-    %\draw[->, thick] (0,15) --node[right=2.5mm]{\m{=100\units{g\.m/s}}} (5,15);
-    \draw[->, thick] (40,2.5) --node[above=2.5mm]{\m{v=-60\units{cm/s}}} ++(-30,0);
+    %\draw[->, thick] (0,15) --node[right=2.5mm]{$=100\units{g\.m/s}$} (5,15);
+    \draw[->, thick] (40,2.5) --node[above=2.5mm]{$v=-60\units{cm/s}$} ++(-30,0);
 		% Legend
    		\addlegendimage{
 	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
  		};
-		\addlegendentry{\m{=10\units{cm/s}}}
+		\addlegendentry{$=10\units{cm/s}$}
     \stopaxis
 \stopbuffer
 
@@ -490,22 +490,22 @@ In one dimension, the momentum is found by multiplying the velocity by the mass.
 	]
 	\pic at (40,0) {cart};
 	%\pic at (16,0) {cart};
-    %\draw[->, thick] (0,15) --node[right=2.5mm]{\m{=100\units{g\.m/s}}} (5,15);
-    \draw[->, thick] (40,2.5) --node[above=2.5mm]{\m{p=-480\units{g\.m/s}}} (16,2.5);
+    %\draw[->, thick] (0,15) --node[right=2.5mm]{$=100\units{g\.m/s}$} (5,15);
+    \draw[->, thick] (40,2.5) --node[above=2.5mm]{$p=-480\units{g\.m/s}$} (16,2.5);
 		% Legend
    		\addlegendimage{
 	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
  		};
-		\addlegendentry{\m{=100\units{g\.m/s}}}
+		\addlegendentry{$=100\units{g\.m/s}$}
     \stopaxis
 \stopbuffer
 
 \marginTikZ{}{CartMomentumEx}{The cart’s momentum in \in{example}[ex:CartMomentum].} % vskip, name, caption
 
 \startexample[ex:CartMomentum]
-	A cart, whose mass is \m{800\units{g}}, is rolling on the track with a velocity of \m{-60\units{cm/s}}, as shown in \in{figure}[fig:CartVelotictyToMomentumEx]. Calculate the cart’s momentum.
+	A cart, whose mass is $800\units{g}$, is rolling on the track with a velocity of $-60\units{cm/s}$, as shown in \in{figure}[fig:CartVelotictyToMomentumEx]. Calculate the cart’s momentum.
 	\startsolution
-		Although it is fine to work with centimeters, we prefer meters. Convert the velocity to meters per second using the fact that the \quotation{c} in \quotation{cm} stands for \m{10^{-2}}.
+		Although it is fine to work with centimeters, we prefer meters. Convert the velocity to meters per second using the fact that the \quotation{c} in \quotation{cm} stands for $10^{-2}$.
 	\startformula
 		v = -60\units{cm/s} = -60\sci{-2}\units{m/s} = -0.60\units{m/s}
 	\stopformula
@@ -515,8 +515,8 @@ In one dimension, the momentum is found by multiplying the velocity by the mass.
 	\NC		\NC = (800\units{g})(-0.60\units{m/s}) \NR
 	\NC		\NC = \answer{-480\units{g\.m/s}}
 	\stopmathalignment\stopformula
-	The momentum of the cart is \m{-480\units{g\.m/s}}, as shown in \in{figure}[fig:CartMomentumEx].
-	The negative answer indicates that the momentum is in the negative direction. Other acceptable answers are \m{-48000\units{g\.cm/s}} and \m{-0.48\units{kg\.m/s}}. Do not mix scientific notation and SI prefixes (for example \m{-4.8\sci{4}\units{g\.cm/s}}), since it is needlessly confusing.
+	The momentum of the cart is $-480\units{g\.m/s}$, as shown in \in{figure}[fig:CartMomentumEx].
+	The negative answer indicates that the momentum is in the negative direction. Other acceptable answers are $-48000\units{g\.cm/s}$ and $-0.48\units{kg\.m/s}$. Do not mix scientific notation and SI prefixes (for example $-4.8\sci{4}\units{g\.cm/s}$), since it is needlessly confusing.
 	%KK-Do the students know what SI prefixes are?
 \stopsolution
 \stopexample
@@ -537,14 +537,14 @@ After defining momentum, Newton explains that momentum is an extensive quantity,
 	]
 	%\pic at (40,0) {cart};
 	\pic at (16,0) {cart};
-    \draw[->, thick] (16,2.5) -- (30,2.5);% node[above=2.5mm]{\m{p=mv}}
+    \draw[->, thick] (16,2.5) -- (30,2.5);% node[above=2.5mm]{$p=mv$}
 	\pic at (16,5) {block};
-    \draw[->, thick] (16,7.5) -- (30,7.5);% node[above=2.5mm]{\m{p=mv}}
+    \draw[->, thick] (16,7.5) -- (30,7.5);% node[above=2.5mm]{$p=mv$}
 		% Legend
    		\addlegendimage{
 	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
  		};
-		\addlegendentry{\m{=10\units{cm/s}}}
+		\addlegendentry{$=10\units{cm/s}$}
     \stopaxis
 \stopbuffer
 
@@ -554,7 +554,7 @@ After defining momentum, Newton explains that momentum is an extensive quantity,
 Taken to the extreme, the momentum of an object is the sum of the momenta of all of the atoms that make up the object.
 When a car moves, every one of its atoms has some momentum. The total momentum of the car is the sum of the momenta of all of the atoms making up the car.
 A locomotive traveling at the same velocity has far more atoms, so it also has far more momentum.
-Displacement and velocity are \textit{not} extensive. If every atom in a cart is displaced by \m{30\units{cm}} then the whole cart is displaced by \m{30\units{cm}}. You do not add the displacements of all of the atoms to get the displacement of the cart. Likewise, if every atom in the locomotive has a velocity of \m{-10\units{m/s}}, then the whole locomotive has a velocity of \m{-10\units{m/s}}. % The momentum in each atom of the cart or locomotive is quite small. They must be added to give object’s total momentum.
+Displacement and velocity are \textit{not} extensive. If every atom in a cart is displaced by $30\units{cm}$ then the whole cart is displaced by $30\units{cm}$. You do not add the displacements of all of the atoms to get the displacement of the cart. Likewise, if every atom in the locomotive has a velocity of $-10\units{m/s}$, then the whole locomotive has a velocity of $-10\units{m/s}$. % The momentum in each atom of the cart or locomotive is quite small. They must be added to give object’s total momentum.
 Objects moving together have the same velocity (fig. \ref{fig:CartBlockVelocity}), but can have different momenta (fig. \ref{fig:CartMomentum}).
 The extensive and directional nature of Newton’s momentum makes it an extremely powerful tool for understanding motion.
 
@@ -567,14 +567,14 @@ The extensive and directional nature of Newton’s momentum makes it an extremel
 	]
 	%\pic at (40,0) {cart};
 	\pic at (16,0) {cart};
-    \draw[->, thick] (16,2.5) -- (40,2.5);% node[above=2.5mm]{\m{p=mv}}
+    \draw[->, thick] (16,2.5) -- (40,2.5);% node[above=2.5mm]{$p=mv$}
 	\pic at (16,5) {block};
-    \draw[->, thick] (16,7.5) -- (20,7.5);% node[above=2.5mm]{\m{p=mv}}
+    \draw[->, thick] (16,7.5) -- (20,7.5);% node[above=2.5mm]{$p=mv$}
 		% Legend
    		\addlegendimage{
 	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
  		};
-		\addlegendentry{\m{=100\units{g\.m/s}}}
+		\addlegendentry{$=100\units{g\.m/s}$}
     \stopaxis
 \stopbuffer
 
@@ -596,7 +596,7 @@ Most relate to specific situations, and some have been superseded by more fundam
 	{\sc Definition 4 }
 	\textit{Impulse is the action exerted on a body to change its state either of resting or of moving uniformly straight forward.}\autocite{p.~405. \quotation{Impressed force} changed to \quotation{impulse,} \quotation{quantity of matter} to \quotation{mass.}}{Newton1999}
 \stopblockquote
-Impulse is always exerted by another object; impulse cannot originate within the object itself. Impulse is a directional quantity represented by the vector \m{\vec{J}}. In one dimension, the impulse’s sign determins whether it changes the motion of the object toward the positive direction or toward the negative direction.
+Impulse is always exerted by another object; impulse cannot originate within the object itself. Impulse is a directional quantity represented by the vector $\vec{J}$. In one dimension, the impulse’s sign determins whether it changes the motion of the object toward the positive direction or toward the negative direction.
 
 \section{Newton’s first and second laws of motion}
 With these definitions established, Newton presents his revolutionary three laws of motion.
@@ -631,7 +631,7 @@ Greater impulse delivered by the incoming ball gives the ball at rest a proporti
 
 The incoming ball also receives an impulse from the ball at rest. This impulse changes the incoming ball’s momentum. Since the direction of this impulse is opposite the direction of the incoming momentum, the impulse will decrease or even reverse the momentum of the incoming ball.
 
-The delivered impulse \m{\vec{J}} is added to the ball’s initial momentum to produce the final momentum.
+The delivered impulse $\vec{J}$ is added to the ball’s initial momentum to produce the final momentum.
 %\highlightbox{
 \startformula
 	\vec{p}\si + \vec{J} = \vec{p}\sf
@@ -699,7 +699,7 @@ Impulse, like the momentum, is directional. If the impulse is in the same direct
 \marginTikZ{}{PendulumCollisionWrenDup}{The larger ball is pulled to the side and released (top). It swings to the center, striking the smaller ball (middle). After the collision, the balls slow to a stop (bottom).} % vskip, name, caption
 
 \startexample[ex:PendulumImpulse]
-Return to the collision described in Examples \ref{ex:PendulumCollisionWren1} and \ref{ex:PendulumCollisionWren2}, where a large ball strikes a stationary, smaller ball. (The diagram showing the collision is reproduced here as figure \ref{fig:PendulumCollisionWrenDup}.) Use the results of those two examples to find the impulse delivered to the large ball in the collision. The large ball has a mass of \m{165\units{g}}.
+Return to the collision described in Examples \ref{ex:PendulumCollisionWren1} and \ref{ex:PendulumCollisionWren2}, where a large ball strikes a stationary, smaller ball. (The diagram showing the collision is reproduced here as figure \ref{fig:PendulumCollisionWrenDup}.) Use the results of those two examples to find the impulse delivered to the large ball in the collision. The large ball has a mass of $165\units{g}$.
 	\startsolution
 	In Examples \ref{ex:PendulumCollisionWren1} and \ref{ex:PendulumCollisionWren2} the velocity of the large ball was found both just before and just after the collision. To find the impulse we will start with Newton’s second law, inserting the formula for momentum. In one dimension Newton’s second law does not require vector notation.
  	\startformula\startmathalignment
@@ -710,7 +710,7 @@ Return to the collision described in Examples \ref{ex:PendulumCollisionWren1} an
 	\NC		\NC = (165\units{g})(0.160\units{m/s}-0.300\units{m/s}) \NR
 	\NC		\NC = \answer{-23.1\units{g\.m/s}}
 	\stopmathalignment\stopformula
-	The large ball received an impulse of \m{-23.1\units{g\.m/s}}.
+	The large ball received an impulse of $-23.1\units{g\.m/s}$.
 	While the large ball continued to move in the positive direction, it received an impulse in the negative direction, opposite its motion. This impulse slowed the large ball, but was not enough change its direction.
 \stopsolution
 \stopexample
@@ -720,11 +720,11 @@ Newton makes the important observation that the impulse need not be delivered al
 	If some impulse generates any momentum, then twice the impulse will generate twice the momentum, and three times the impulse will generate three times the momentum, whether the impulse is all at once or successively by degrees.\autocite{p.~416. \quotation{Force} changed to \quotation{impulse,} \quotation{motion} to \quotation{momentum.}}{Newton1999}
 \stopblockquote
 If a large ball is struck by three smaller balls, it does not matter if the three smaller balls strike at the same time or in some sequence. The change in the momentum of the larger ball will be the total impulse delivered, whether delivered all at once or in succession.
-To calculate the final momentum after the three impacts, we can simply add all three impulses (represented by \m{\vec{J}_1}, \m{\vec{J}_2}, and \m{\vec{J}_3}) to the initial momentum.
+To calculate the final momentum after the three impacts, we can simply add all three impulses (represented by $\vec{J}_1$, $\vec{J}_2$, and $\vec{J}_3$) to the initial momentum.
 \startformula
 	\vec{p}\si + \vec{J}_1 + \vec{J}_2 + \vec{J}_3 = \vec{p}\sf
 \stopformula
-Objects in our everyday lives are constantly interacting with other objects, so there are often many impulses that must be added. We will represent total of all of these impulses as \m{\vec{J}\sn}, with the \quotation{net} reminding us to catch \emph{all} the impulses and add them when finding the change in momentum.
+Objects in our everyday lives are constantly interacting with other objects, so there are often many impulses that must be added. We will represent total of all of these impulses as $\vec{J}\sn$, with the \quotation{net} reminding us to catch \emph{all} the impulses and add them when finding the change in momentum.
 \startformula
 	\vec{p}\si + \vec{J}\sn = \vec{p}\sf
 \stopformula
@@ -749,7 +749,7 @@ As problems get more complicated, this reminder will become quite valuable.
 %   		\addlegendimage{
 %	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
 % 		};
-%		\addlegendentry{\m{=100\units{g\.m/s}}}
+%		\addlegendentry{$=100\units{g\.m/s}$}
     \stopaxis\\
 	\startaxis[
 		margin cart track,
@@ -793,7 +793,7 @@ As problems get more complicated, this reminder will become quite valuable.
 \marginTikZ{}{BlockSlide}{A block with initial momentum $p\si$ slides to a stop. The friction between the block and the track exerts a force $F$ on the block opposing the block's motion. This force gradually reduces the block's momentum until the block slows to a stop. As the momentum gets smaller, the displacements also get smaller.} % vskip, name, caption
 In many cases, objects will receive an impulse over an extended time, like the sliding block in \in{figure}[fig:BlockSlide].
 The block has initial positive momentum $p\si$, and is sliding in the positive direction. Friction between the block and the track produces a force in the negative direction, opposing the block's motion. This force gradually reduces the block's momentum, slowing the block to a stop. During the slide, the force of friction delivers and impulse that is equal and opposite to the block's initial momentum – just enough impulse to bring the block's final momentum to zero.
-This impulse does not arrive in a brief strike, but is delivered gradually over the duration of the slide. \keyterm{Force} is the rate at which impulse is delivered. The total impulse delivered is the force \m{\vec{F}} multiplied by its duration \m{\Delta t}.
+This impulse does not arrive in a brief strike, but is delivered gradually over the duration of the slide. \keyterm{Force} is the rate at which impulse is delivered. The total impulse delivered is the force $\vec{F}$ multiplied by its duration $\Delta t$.
 %\highlightbox{
 \startformula
 	\vec{J} = \vec{F}\Delta t	%\tag*{\emph{impulse}}
@@ -819,7 +819,7 @@ Consider again two glasses, this time falling from the same height, but one land
 {A drinking glass falling onto a harder floor is more likely to be broken by the floor’s stopping force.} % Caption
 {\externalfigure[glass2][width=144pt]} % File
 
-When finding a change in momentum, we will almost always need to compute the impulse from the force and the time. When there are multiple forces acting, the total impulse \m{\vec{J}\sn} is due to the total force \m{\vec{F}\sn}.
+When finding a change in momentum, we will almost always need to compute the impulse from the force and the time. When there are multiple forces acting, the total impulse $\vec{J}\sn$ is due to the total force $\vec{F}\sn$.
 Thus we have the useful \keyterm{momentum update formula}.
 \highlightbox{
 \startformula[eq:1Dpconserve]
@@ -828,7 +828,7 @@ Thus we have the useful \keyterm{momentum update formula}.
 }
 An object’s initial momentum, plus the total force acting on the object multiplied by the forces’ duration, is the object’s final momentum.
 
-The standard metric unit of force is a newton, represented by \m{\unit{N}}.
+The standard metric unit of force is a newton, represented by $\unit{N}$.
 \startformula
 	1\units{N} = 1\units{kg\.m/s^2}
 \stopformula
@@ -843,22 +843,22 @@ The following example shows how to convert newtons in a typical momentum update 
 	]
 	\fill [on layer={axis background}] (-0.5,0) rectangle (49.5,-1.5)[opacity=.1];
 	\pic at (10,0) {block};
-    \draw[->, thick] (10,2.5) --node[above]{\m{p\si}} (25,2.5);
-    \draw[->, thick] (10,0.25) --node[above, pos = .6]{\m{F}} (0,0.25);
+    \draw[->, thick] (10,2.5) --node[above]{$p\si$} (25,2.5);
+    \draw[->, thick] (10,0.25) --node[above, pos = .6]{$F$} (0,0.25);
 		% Legend
    		\addlegendimage{
 	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
  		};
-		\addlegendentry{\m{=100\units{g\.m/s}}}
+		\addlegendentry{$=100\units{g\.m/s}$}
     \stopaxis
 \stopbuffer
 
-\marginTikZ{}{BlockSlideEx}{A block with initial momentum \m{p\si} slides to a stop.} % vskip, name, caption
+\marginTikZ{}{BlockSlideEx}{A block with initial momentum $p\si$ slides to a stop.} % vskip, name, caption
 
 \startexample[ex:BlockSlide]
-A block with an initial momentum of \m{p\si=150\units{g\.m/s}} slides on a track, as shown in \in{figure}[fig:BlockSlideEx]. The friction with the track produces a gentle backwards force of \m{-0.30\units{N}}. (Negative because it opposes the block’s positive velocity.) How long will it take for the block to come to a stop?
+A block with an initial momentum of $p\si=150\units{g\.m/s}$ slides on a track, as shown in \in{figure}[fig:BlockSlideEx]. The friction with the track produces a gentle backwards force of $-0.30\units{N}$. (Negative because it opposes the block’s positive velocity.) How long will it take for the block to come to a stop?
 \startsolution
-This one-dimensional problem can be solved with the momentum update formula. There is only one force, \m{F\sn=-0.30\units{N}}. The block comes to rest so the final momentum is \m{p\sf=0}. Solve to find the duration of the slide, \m{\Delta t}.
+This one-dimensional problem can be solved with the momentum update formula. There is only one force, $F\sn=-0.30\units{N}$. The block comes to rest so the final momentum is $p\sf=0$. Solve to find the duration of the slide, $\Delta t$.
 	\startformula\startmathalignment
 	\NC	p\si + F\sn\Delta t \NC = p\sf \NR
 	\NC	F\Delta t \NC = \cancel{p\sf} - p\si \NR
@@ -868,7 +868,7 @@ This one-dimensional problem can be solved with the momentum update formula. The
 				\left(\frac{1\units{\cancel{kg}}}{1000\units{\cancel{g}}}\right) \NR
 	\NC		\NC = \answer{0.50\units{s}}
 	\stopmathalignment\stopformula
-	The block slides for \m{0.50\units{s}} before friction brings it to a stop.
+	The block slides for $0.50\units{s}$ before friction brings it to a stop.
 \stopsolution
 \stopexample
 
@@ -945,10 +945,10 @@ Alternatively, you could include both balls in the system. Then you must include
 
 The wise choice is the system including both balls, which allows us to ignore the force between the balls. This force and its duration are difficult to determine, and ultimately unimportant for determining what happens in the collision. Newton illustrates with a simple example.
 
-Before turning to Newton’s example, I would like you to notice one thing that may have seemed a bit odd in Corollary 3. Newton determines the total momentum by \quotation{adding the momenta in one direction and subtracting the momenta in the other direction.} We have not been doing that. We add all of the momenta, but the momenta in one direction are positive, and the momenta in the other direction are negative. Adding \m{-5} to something is the same as subtracting \m{5}, so we get the same answer as Newton. However, things get complicated for Newton when there is a second object, because the two objects might be moving in the same direction or opposite directions, which means special cases to consider. Using positive and negative to represent direction avoids all of that. We just add, no matter what direction things are going, and let the signs take care of themselves. %I suspect that Newton did not use this approach because vectors, the basis for our method, were not invented until the second half of the nineteenth century, almost two hundred years after the publication of the \booktitle{Principia}.
+Before turning to Newton’s example, I would like you to notice one thing that may have seemed a bit odd in Corollary 3. Newton determines the total momentum by \quotation{adding the momenta in one direction and subtracting the momenta in the other direction.} We have not been doing that. We add all of the momenta, but the momenta in one direction are positive, and the momenta in the other direction are negative. Adding $-5$ to something is the same as subtracting $5$, so we get the same answer as Newton. However, things get complicated for Newton when there is a second object, because the two objects might be moving in the same direction or opposite directions, which means special cases to consider. Using positive and negative to represent direction avoids all of that. We just add, no matter what direction things are going, and let the signs take care of themselves. %I suspect that Newton did not use this approach because vectors, the basis for our method, were not invented until the second half of the nineteenth century, almost two hundred years after the publication of the \booktitle{Principia}.
 I removed these extra cases from the proof of Corollary 3 above, but in the example below you will see him subtracting a momentum rather than adding a negative momentum. It should not be too difficult to follow.
 
-Newton also does not use any specific units, just \quotation{parts} for everything. When he says that body \m{A} \quotation{has two parts of velocity} and body \m{B} has \quotation{ten parts of velocity} he is saying that \m{B} is moving five times faster than \m{A}. A part of mass times a part of velocity is a part of momentum. (\quotation{Parts} are no longer accepted units.)% The \scaps{si} units which we use had not been established in Newton’s time.)
+Newton also does not use any specific units, just \quotation{parts} for everything. When he says that body $A$ \quotation{has two parts of velocity} and body $B$ has \quotation{ten parts of velocity} he is saying that $B$ is moving five times faster than $A$. A part of mass times a part of velocity is a part of momentum. (\quotation{Parts} are no longer accepted units.)% The \scaps{si} units which we use had not been established in Newton’s time.)
 
 Newton's example can be demonstrated with pendulums, as shown in \in{figure}[fig:NewtonCollision].
 
@@ -970,8 +970,8 @@ Newton's example can be demonstrated with pendulums, as shown in \in{figure}[fig
 	\coordinate (A) at (30,249);
 	\pic (first) at (B) [rotate=-4.68] {small pendulum=100};
 	\pic (second) at (A) [rotate=-0.935] {pendulum=100};
-	\path (6,6) node[above right]{\m{B}};
-	\path (24,6) node[above left]{\m{A}};
+	\path (6,6) node[above right]{$B$};
+	\path (24,6) node[above left]{$A$};
     \stopaxis\\
 	\startaxis[% Collision
 		margin cart track,
@@ -987,8 +987,8 @@ Newton's example can be demonstrated with pendulums, as shown in \in{figure}[fig
 	\fill [on layer={axis background}] (-0.5,0) rectangle (49.5,-1.5)[opacity=.1];
 	\coordinate (B) at (25,249);
 	\coordinate (A) at (30,249);
-	\pic (third) at (B) {small pendulum=100}node[below right]{\m{B}};
-	\pic (forth) at (A) {pendulum=100}node[below right]{\m{B}};
+	\pic (third) at (B) {small pendulum=100}node[below right]{$B$};
+	\pic (forth) at (A) {pendulum=100}node[below right]{$B$};
     \stopaxis\\
 	\startaxis[% Final 1
 		margin cart track,
@@ -1066,44 +1066,44 @@ Newton's example can be demonstrated with pendulums, as shown in \in{figure}[fig
 \marginTikZ{}{NewtonCollision}{To demonstrate Newton’s example with pendulums, both balls must be pulled to the left and released (top diagram). Both balls move in the positive direction and have positive momentum when they collide (second diagram). If nine units of momentum are transferred, then ball $B$ still has one unit of momentum and continues in the positive direction (top diagram). If ball $B$ transfers all ten units of its momentum to ball $A$, then ball $B$ will remain stoped at its equilibrium position after the collision ($\Delta p_A = 10$). Ball $B$ can transfer more momentum than it has, causing it to rebound in the negative direction ($\Delta p_A = 11$ and $\Delta p_A = 12$).} % vskip, name, caption
 
 \startblockquote
-	For example, suppose a spherical body \m{A} is three times as large as a spherical body \m{B} and has two parts of velocity, and let \m{B} follow \m{A} in the same straight line with ten parts of velocity; then the momentum of \m{A} is to the momentum of \m{B} as six to ten. Suppose that their momenta are of six parts and ten parts respectively; the sum will be sixteen parts.
+	For example, suppose a spherical body $A$ is three times as large as a spherical body $B$ and has two parts of velocity, and let $B$ follow $A$ in the same straight line with ten parts of velocity; then the momentum of $A$ is to the momentum of $B$ as six to ten. Suppose that their momenta are of six parts and ten parts respectively; the sum will be sixteen parts.
 \stopblockquote
 
 The masses are $m_A=3$ and $m_B=1$. The initial velocities are $v\sub{$A$i}=2$ and $v\sub{$B$i}=10$. Therefore, the total initial momentum is
 \startformula\startmathalignment
-\NC	p\si \NC = p\sub{\m{A}i} + p\sub{\m{B}i}		\NR
+\NC	p\si \NC = p\sub{$A$i} + p\sub{$B$i}		\NR
 \NC		\NC = m_A v\sub{$A$i} + m_B v\sub{$B$i}		\NR
 \NC		\NC = 3 \cdot 2 + 1\cdot 10	\NR
 \NC		\NC = 6 + 10	\NR
 \NC		\NC = 16.		\NR
 \stopmathalignment\stopformula
-Initially, the bodies have a total of sixteen parts of momentum. When the collision occurs, some of body \m{B}’s momentum will be transferred to body \m{A}. Since there are no external forces, this transfer will not result in any change in the total momentum.
+Initially, the bodies have a total of sixteen parts of momentum. When the collision occurs, some of body $B$’s momentum will be transferred to body $A$. Since there are no external forces, this transfer will not result in any change in the total momentum.
 \startblockquote
-	When the bodies collide, therefore, if body \m{A} gains...% three or four or five parts of momentum, body \m{B} will lose just as many parts of momentum and thus after reflection body \m{A} will continue with nine or ten or eleven parts of motion and \m{B} with seven or six or five parts of momentum, the sum being always, as originally, sixteen parts of momentum. Suppose body \m{A} gains
-	nine or ten or eleven or twelve parts of momentum and so moves forward with fifteen or sixteen or seventeen or eighteen parts of momentum after meeting body \m{B}; then body \m{B}, by losing as many parts of momentum as \m{A} gains, will either move forward with one part, having lost nine parts of momentum, or will be at rest, having lost its forward momentum of ten parts, or will move backward with one part of momentum, having lost its momentum and (if I may say) one part more, or will move backward with two parts of momentum because a forward motion of twelve parts has been subtracted. And thus the sums, \m{15+1} or \m{16+0}, of the motion in the same direction and the differences, \m{17-1} and \m{18-2} of the momenta in opposite directions will always be sixteen parts of momentum, just as before the bodies met and were reflected.\autocite{pp.~420–421. \quotation{Motion} changed to \quotation{momentum,} \quotation{motions} to \quotation{momenta.}}{Newton1999}
+	When the bodies collide, therefore, if body $A$ gains...% three or four or five parts of momentum, body $B$ will lose just as many parts of momentum and thus after reflection body $A$ will continue with nine or ten or eleven parts of motion and $B$ with seven or six or five parts of momentum, the sum being always, as originally, sixteen parts of momentum. Suppose body $A$ gains
+	nine or ten or eleven or twelve parts of momentum and so moves forward with fifteen or sixteen or seventeen or eighteen parts of momentum after meeting body $B$; then body $B$, by losing as many parts of momentum as $A$ gains, will either move forward with one part, having lost nine parts of momentum, or will be at rest, having lost its forward momentum of ten parts, or will move backward with one part of momentum, having lost its momentum and (if I may say) one part more, or will move backward with two parts of momentum because a forward motion of twelve parts has been subtracted. And thus the sums, $15+1$ or $16+0$, of the motion in the same direction and the differences, $17-1$ and $18-2$ of the momenta in opposite directions will always be sixteen parts of momentum, just as before the bodies met and were reflected.\autocite{pp.~420–421. \quotation{Motion} changed to \quotation{momentum,} \quotation{motions} to \quotation{momenta.}}{Newton1999}
 \stopblockquote
 
 %\startblockquote
 %	And since the momenta with which the bodies will continue to move after the reflections are known, the velocity of each will be found, on the supposition that it is to the velocity before the reflection as the momentum after the reflection is to the momentum before the reflection.
-%	For example, in the last case, where the motion of body \m{A} was six parts before reflection and eighteen parts afterward, and its velocity was two parts before reflection, its velocity will be found to be six parts after reflection on the basis of the following statement: as six parts of momentum before reflection is to eighteen parts of momentum afterward, so two parts of velocity before reflection is to six parts of velocity afterward.
+%	For example, in the last case, where the motion of body $A$ was six parts before reflection and eighteen parts afterward, and its velocity was two parts before reflection, its velocity will be found to be six parts after reflection on the basis of the following statement: as six parts of momentum before reflection is to eighteen parts of momentum afterward, so two parts of velocity before reflection is to six parts of velocity afterward.
 %\stopblockquote
 
 To restate Newton’s conclusion in our notation, the total final momentum is
 \startformula
-	p\sf = p\sub{\m{A}f} + p\sub{\m{B}f},
+	p\sf = p\sub{$A$f} + p\sub{$B$f},
 \stopformula
-which will still be sixteen. Depending on the amount of momentum transferred, the total of sixteen can be achieved in a variety of ways. In Newton’s last two cases, body \m{B} transfers so much momentum to \m{A} that \m{B}’s final momentum is negative, meaning that \m{B} has changed direction in the collision and is traveling in the negative direction. The complete position vs.\ time graphs for Newton's examples are shown in \in{figure}[fig:NewtonCollisionGraph].
+which will still be sixteen. Depending on the amount of momentum transferred, the total of sixteen can be achieved in a variety of ways. In Newton’s last two cases, body $B$ transfers so much momentum to $A$ that $B$’s final momentum is negative, meaning that $B$ has changed direction in the collision and is traveling in the negative direction. The complete position vs.\ time graphs for Newton's examples are shown in \in{figure}[fig:NewtonCollisionGraph].
 
 \startbuffer[NewtonCollisionGraph]
 	\startaxis[
 		footnotesize,
 		width=2.13in,%\marginparwidth,
 		y={1mm},%x={2mm},
-		xlabel={\m{t} (s)},
+		xlabel={$t$ (s)},
 		xmin=0, xmax=1.57,
 		xtick={0,0.5,1.0,1.5},
 		minor x tick num=4,
-		ylabel={\m{x} (cm)},
+		ylabel={$x$ (cm)},
 	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
 		ymin=0, ymax=50,
 		minor y tick num=4,
@@ -1124,8 +1124,8 @@ which will still be sixteen. Depending on the amount of momentum transferred, th
 		\addplot[thick,smooth,domain=0.785:1.57,samples=101]{30-12*cos(2*deg(x))};
 		\startscope[opacity=.3,transparency group]
 		\fill[opacity=.3](0,5) circle[radius=.4mm];
-		\draw[opacity=.3, shade, ball color = white] (0,5) circle[radius=2mm]node[above right=1mm]{\m{B}};
-		\draw[opacity=.3, shade, ball color = white] (0,26) circle[radius=3mm]node[below right=1mm]{\m{A}};
+		\draw[opacity=.3, shade, ball color = white] (0,5) circle[radius=2mm]node[above right=1mm]{$B$};
+		\draw[opacity=.3, shade, ball color = white] (0,26) circle[radius=3mm]node[below right=1mm]{$A$};
 		\fill[opacity=.3](0,26) circle[radius=.4mm];
 %		\draw  [semithick](-.4,-4) -- (-.4,52);
 %		\draw  [semithick](.4,-4) -- (.4,52);
@@ -1162,13 +1162,14 @@ which will still be sixteen. Depending on the amount of momentum transferred, th
 Conservation of momentum does not determine how much momentum is transferred. Conservation of momentum only tells us that the transfer does not change the total momentum. Some objects bounce better than others, which causes a greater transfer of momentum. We will return to this issue in Chapter \ref{ch:VisViva}, where we will find the limits on how much momentum can be transferred.
 
 If the objects stick together, then we can calculate the final velocity.
-The two bodies stuck together act as one body with a mass that is the total mass. In Newton’s example, the total mass of \m{A} and \m{B} is \m{m\sub{total} = m_A + m_B = 1+3 = 4}. We can use this mass to find their velocity after the collision.
+The two bodies stuck together act as one body with a mass that is the total mass. In Newton’s example, the total mass of $A$ and $B$ is $m\sub{total} = m_A + m_B = 1+3 = 4$. We can use this mass to find their velocity after the collision.
 \startformula\startmathalignment
 \NC	p\sf \NC = m\sub{total} v\sf	\NR
 \NC	v\sf \NC = \frac{p\sf}{m\sub{total}}	\NR
 \NC	v\sf \NC = \frac{16}{4}	\NR
 \NC	v\sf \NC = 4			\NR %\answer{4}
 \stopmathalignment\stopformula
+\pagereference[NewtonInelasticSpeed]
 
 A collision where the objects stick together is called \emph{totally inelastic}. Newton's example could have resulted in a totally inelastic collision, as shown in \in{figure}[fig:NewtonInelasticCollision]. The position vs.\ time graph for this inelastic collision (\in{fig.}[fig:NewtonInelasticCollisionGraph]) shows the two balls moving together after the collision.
 
@@ -1190,8 +1191,8 @@ A collision where the objects stick together is called \emph{totally inelastic}.
 	\coordinate (A) at (30,249);
 	\pic (first) at (B) [rotate=-4.68] {small pendulum=100};
 	\pic (second) at (A) [rotate=-0.935] {pendulum=100};
-	\path (6,6) node[above right]{\m{B}};
-	\path (24,6) node[above left]{\m{A}};
+	\path (6,6) node[above right]{$B$};
+	\path (24,6) node[above left]{$A$};
     \stopaxis\\
 	\startaxis[
 		margin cart track,
@@ -1207,8 +1208,8 @@ A collision where the objects stick together is called \emph{totally inelastic}.
 	\fill [on layer={axis background}] (-0.5,0) rectangle (49.5,-1.5)[opacity=.1];
 	\coordinate (B) at (25,249);
 	\coordinate (A) at (30,249);
-	\pic (third) at (B) {small pendulum=100}node[below right]{\m{B}};
-	\pic (forth) at (A) {pendulum=100}node[below right]{\m{B}};
+	\pic (third) at (B) {small pendulum=100}node[below right]{$B$};
+	\pic (forth) at (A) {pendulum=100}node[below right]{$B$};
     \stopaxis\\
 	\startaxis[
 		margin cart track,
@@ -1235,11 +1236,11 @@ A collision where the objects stick together is called \emph{totally inelastic}.
 		footnotesize,
 		width=2.13in,%\marginparwidth,
 		y={1mm},%x={2mm},
-		xlabel={\m{t} (s)},
+		xlabel={$t$ (s)},
 		xmin=0, xmax=1.57,
 		xtick={0,0.5,1.0,1.5},
 		minor x tick num=4,
-		ylabel={\m{x} (cm)},
+		ylabel={$x$ (cm)},
 	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
 		ymin=0, ymax=50,
 		minor y tick num=4,
@@ -1254,8 +1255,8 @@ A collision where the objects stick together is called \emph{totally inelastic}.
 		\addplot[thick,smooth,domain=0.785:1.57,samples=101]{30-8*cos(2*deg(x))};
 		\startscope[opacity=.3,transparency group]
 		\fill[opacity=.3](0,5) circle[radius=.4mm];
-		\draw[opacity=.3, shade, ball color = white] (0,5) circle[radius=2mm]node[above right=1mm]{\m{B}};
-		\draw[opacity=.3, shade, ball color = white] (0,26) circle[radius=3mm]node[below right=1mm]{\m{A}};
+		\draw[opacity=.3, shade, ball color = white] (0,5) circle[radius=2mm]node[above right=1mm]{$B$};
+		\draw[opacity=.3, shade, ball color = white] (0,26) circle[radius=3mm]node[below right=1mm]{$A$};
 		\fill[opacity=.3](0,26) circle[radius=.4mm];
 %		\draw  [semithick](-.4,-4) -- (-.4,52);
 %		\draw  [semithick](.4,-4) -- (.4,52);
@@ -1278,17 +1279,17 @@ A collision where the objects stick together is called \emph{totally inelastic}.
 \marginTikZ{}{NewtonInelasticCollisionGraph}{The position vs.~time graph for Newton’s totally inelastic collision.} % vskip, name, caption
 
 \startexample[]
-	A cart, whose mass is \m{800\units{g}}, is rolling with a velocity of \m{-60\units{cm/s}} on a track. The moving cart collides with a stationary cart whose mass is \m{1600\units{g}}. They stick together and continue rolling.
-	Calculate the carts’ velocity \m{v\sf} after the collision.
+	A cart, whose mass is $800\units{g}$, is rolling with a velocity of $-60\units{cm/s}$ on a track. The moving cart collides with a stationary cart whose mass is $1600\units{g}$. They stick together and continue rolling.
+	Calculate the carts’ velocity $v\sf$ after the collision.
 	\startsolution
-	The first part of this problem can be solved using conservation of momentum to find \m{p\sub{f}}. Since there are no external forces changing the momentum of the carts, \m{F\sn\Delta t=0}.
+	The first part of this problem can be solved using conservation of momentum to find $p\sub{f}$. Since there are no external forces changing the momentum of the carts, $F\sn\Delta t=0$.
 	\startformula\startmathalignment
 	\NC	p\si + \cancel{F\sn\Delta t} \NC = p\sf\NR
-	\NC	p\sub{\m{A}i} + \cancel{p\sub{\m{B}i}} \NC = p\sub{\m{A}f} + p\sub{\m{B}f}
+	\NC	p\sub{$A$i} + \cancel{p\sub{$B$i}} \NC = p\sub{$A$f} + p\sub{$B$f}
 	\stopmathalignment\stopformula
-	Initially only one cart is moving. I have called that cart \m{A}, with initial momentum \m{p\sub{}A\m{i}}. The other cart, cart \m{B}, is not moving initially so its initial momentum is zero. The final momentum is the total final momentum of both carts together.
+	Initially only one cart is moving. I have called that cart $A$, with initial momentum $p\sub{$A$i}$. The other cart, cart $B$, is not moving initially so its initial momentum is zero. The final momentum is the total final momentum of both carts together.
 
-	Next, insert the momentum formula, \m{p=mv}, for each momentum. Cart \m{A} has mass \m{m_A=800\units{g}} and cart \m{B} mass \m{m_B=1600\units{g}}. The initial velocity of cart \m{A} is \m{v\si=-60\units{cm/s}}. Both carts have the same final velocity \m{v\sf}, which we are trying to find.
+	Next, insert the momentum formula, $p=mv$, for each momentum. Cart $A$ has mass $m_A=800\units{g}$ and cart $B$ mass $m_B=1600\units{g}$. The initial velocity of cart $A$ is $v\si=-60\units{cm/s}$. Both carts have the same final velocity $v\sf$, which we are trying to find.
 	\startformula\startmathalignment
 	\NC		m_A v\si \NC = m_A v\sf + m_B v\sf	\NR
 	\NC		m_A v\si \NC = (m_A + m_B) v\sf	\NR
@@ -1297,7 +1298,7 @@ A collision where the objects stick together is called \emph{totally inelastic}.
 	\NC			\NC =  \frac{800\units{g}}{(800\units{g} + 1600\units{g})}(-0.60\units{m/s})	\NR
 	\NC			\NC = -0.20\units{m/s}	\NR
 	\stopmathalignment\stopformula
-	The final velocity of the stuck-together carts is \m{-0.20\units{m/s}}, which can also be expressed as \m{-20\units{cm/s}}. This is one third of the initial velocity \m{v\sub{i}=-60\units{cm/s}} because the initial momentum is now being used to move three times as much mass. The minus sign tells us the final velocity, like the initial velocity, is in the negative direction.
+	The final velocity of the stuck-together carts is $-0.20\units{m/s}$, which can also be expressed as $-20\units{cm/s}$. This is one third of the initial velocity $v\sub{i}=-60\units{cm/s}$ because the initial momentum is now being used to move three times as much mass. The minus sign tells us the final velocity, like the initial velocity, is in the negative direction.
 \stopsolution
 \stopexample
 
@@ -1310,16 +1311,16 @@ These heavenly motions are quite unlike the collisions that inspired Newton’s 
 The moons of Jupiter are held in orbit by Jupiter’s gravitational force, while our moon is held in orbit by Earth’s gravitational force. Earth’s gravitational force is ever present not only for the moon, but for everything near Earth, including each of us. We will start our study of gravity here, on Earth’s surface. Once we mastered the tremendous power of vectors, we too will be turn our attention to the heavens.
 
 Let’s look first at Galileo’s example of the ball rolling off an edge and falling due to the force of gravity. Figure
-\ref{fig:BallOffTableVel2} shows the velocity vectors from Chapter \ref{ch:Motion}. To apply Newton’s laws to these velocities requires some basic mathematical operations with vectors. In particular, we must be able to multiply a vector by a number, as in the momentum formula \m{\vec{p}=m\vec{v}}, and we must be able to add vectors, as in the law of conservation of momentum \m{\vec p\si + \vec F\Delta t = \vec p\sf}.
+\ref{fig:BallOffTableVel2} shows the velocity vectors from Chapter \ref{ch:Motion}. To apply Newton’s laws to these velocities requires some basic mathematical operations with vectors. In particular, we must be able to multiply a vector by a number, as in the momentum formula $\vec{p}=m\vec{v}$, and we must be able to add vectors, as in the law of conservation of momentum $\vec p\si + \vec F\Delta t = \vec p\sf$.
 
 \startbuffer[BallOffTableVel2]
 	\startaxis[
 		footnotesize,
 		%width=\marginparwidth, scale only axis,
 		x={1mm},y={1mm},
-		xlabel={\m{x} (cm)},
+		xlabel={$x$ (cm)},
 		xmin=0,xmax=39.5,
-		ylabel={\m{y} (cm)},
+		ylabel={$y$ (cm)},
 		ymin=0,ymax=45,
 		minor x tick num=4,
 		axis x line=bottom,
@@ -1331,8 +1332,8 @@ Let’s look first at Galileo’s example of the ball rolling off an edge and fa
 		clip = false,
 		legend style={draw=none,at={(1,1)},anchor=south east,yshift = 1ex},
 		]
-		%\fill(10,19) circle[radius=.4mm]node[below]{\m{\scriptstyle }\coordinates{1.0,1.9}\unit{cm}};
-		%\fill(9,13) circle[radius=.4mm]node[below]\m{\scriptstyle \coordinates{9,13}\unit{cm}};
+		%\fill(10,19) circle[radius=.4mm]node[below]{$\scriptstyle $\coordinates{1.0,1.9}\unit{cm}};
+		%\fill(9,13) circle[radius=.4mm]node[below]$\scriptstyle \coordinates{9,13}\unit{cm}$;
 		%\draw[shade, ball color = white] (-10,47) circle[radius=3][opacity=.2];
 		%\fill(-10,47) circle[radius=.4mm][opacity=.2];
 		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
@@ -1350,21 +1351,21 @@ Let’s look first at Galileo’s example of the ball rolling off an edge and fa
 		\draw[thin] (-2,45)--(0,45);
 		\draw[thin] (-7.5,45)--(-5.5,45);
 		% Velocity at t=0s
-   		\draw[thick,->] (0,48) -- (6,48);%node[above right,pos=.3]\m{\scriptstyle 1.2\units{m/s}}
+   		\draw[thick,->] (0,48) -- (6,48);%node[above right,pos=.3]$\scriptstyle 1.2\units{m/s}$
 		% Velocity at .1s
-		\draw[semithick, densely dotted,-{>[scale=.5]}] (12,43.1) --(12,38.1);%node[right]{\m{\scriptstyle -1.0\units{m/s}}}
-		\draw[semithick, densely dotted,-{>[scale=.5]}] (12,38.1) -- (18,38.1);%node[above right,pos=.3]{\m{\scriptstyle 1.2\units{m/s}}}
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (12,43.1) --(12,38.1);%node[right]{$\scriptstyle -1.0\units{m/s}$}
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (12,38.1) -- (18,38.1);%node[above right,pos=.3]{$\scriptstyle 1.2\units{m/s}$}
 		\draw[thin] (12,40.1) -- (14,40.1)-- (14,38.1);
-   		\draw[thick,->] (12,43.1) -- (18,38.1);%node[below left]{\m{\scriptstyle \components{1.2,-2.0}\unit{m/s}}}
+   		\draw[thick,->] (12,43.1) -- (18,38.1);%node[below left]{$\scriptstyle \components{1.2,-2.0}\unit{m/s}$}
    		% Velocity at .2s
-		\draw[semithick, densely dotted,-{>[scale=.5]}] (24,28.4) --node[left,pos=.55]{\m{\scriptstyle -2.0\units{m/s}}} (24,18.42);
-		\draw[semithick, densely dotted,-{>[scale=.5]}] (24,18.42) --node[below]{\m{\scriptstyle 1.2\units{m/s}}} (30,18.42);
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (24,28.4) --node[left,pos=.55]{$\scriptstyle -2.0\units{m/s}$} (24,18.42);
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (24,18.42) --node[below]{$\scriptstyle 1.2\units{m/s}$} (30,18.42);
 		\draw[thin] (24,20.42) -- (26,20.42)-- (26,18.42);
-   		\draw[thick,->] (24,28.4) --node[above right, pos=.6]{\m{\scriptstyle 2.3\units{m/s}}} (30,18.42);%node[below left]\m{\scriptstyle \components{1.2,-2.0}\unit{m/s}$}
+   		\draw[thick,->] (24,28.4) --node[above right, pos=.6]{$\scriptstyle 2.3\units{m/s}$} (30,18.42);%node[below left]$\scriptstyle \components{1.2,-2.0}\unit{m/s}$$
    		% Velocity at .3s
 		%\startpgfinterruptboundingbox
-		\draw[semithick, densely dotted,-{>[scale=.5]}] (36,3.9) --(36,-10.8);%node[left=-1em,fill=white,pos=.7]{\m{\scriptstyle -2.9\units{m/s}}}
-		\draw[semithick, densely dotted,-{>[scale=.5]}] (36,-10.8) --(42,-10.8);%node[below]{\m{\scriptstyle 1.2\units{m/s}}}
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (36,3.9) --(36,-10.8);%node[left=-1em,fill=white,pos=.7]{$\scriptstyle -2.9\units{m/s}$}
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (36,-10.8) --(42,-10.8);%node[below]{$\scriptstyle 1.2\units{m/s}$}
 		\draw[thin] (36,-8.8) -- (38,-8.8)-- (38,-10.8);
    		\draw[thick,->] (36,3.9) -- (42,-10.8);%node[below left]
 		%\stoppgfinterruptboundingbox
@@ -1372,16 +1373,16 @@ Let’s look first at Galileo’s example of the ball rolling off an edge and fa
    		\addlegendimage{
 	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
  		};
-		\addlegendentry{\m{=1\units{m/s}}}
+		\addlegendentry{$=1\units{m/s}$}
 	\stopaxis
 \stopbuffer
 
 \marginTikZ{}{BallOffTableVel2}{Velocity vectors and their components reproduced from figures \ref{fig:BallOffTableVelMag} and \ref{fig:BallOffTableVelComp}.
 } % vskip, name, caption
 
-Multiplying vectors by numbers works in a very natural way. For example, multiplying a vector by \m{2} doubles the vector’s length while keeping the vector’s direction the same. If vector \m{\vec v} is the vector with magnitude of \m{2.3\units{m/s}} in figure~\ref{fig:BallOffTableVel2}, then the vector \m{2\vec v} would have a magnitude of \m{4.6\units{m/s}} and would point in the same direction as \m{\vec v}. The vector’s components would double as well. Since \m{\vec v = \components{1.2,-2.0}\unit{m/s}}, doubling the vector gives \m{2\vec v = \components{2.4,-2.0}\unit{m/s}}.
+Multiplying vectors by numbers works in a very natural way. For example, multiplying a vector by $2$ doubles the vector’s length while keeping the vector’s direction the same. If vector $\vec v$ is the vector with magnitude of $2.3\units{m/s}$ in figure~\ref{fig:BallOffTableVel2}, then the vector $2\vec v$ would have a magnitude of $4.6\units{m/s}$ and would point in the same direction as $\vec v$. The vector’s components would double as well. Since $\vec v = \components{1.2,-2.0}\unit{m/s}$, doubling the vector gives $2\vec v = \components{2.4,-2.0}\unit{m/s}$.
 
-Finding momentum is not quite as easy as doubling. The ball in figure~\ref{fig:BallOffTableVel2} has mass \m{m=150\units{g}}. The momentum \m{\vec p = m \vec v} has a magnitude of \m{(150\units{g})(2.3\units{m/s}) = 345\units{g\.m/s}} and points in the same direction as \m{\vec v}, as shown in figure~\ref{fig:BallOffTableMomentum}. The figure also shows the momentum vector’s components.
+Finding momentum is not quite as easy as doubling. The ball in figure~\ref{fig:BallOffTableVel2} has mass $m=150\units{g}$. The momentum $\vec p = m \vec v$ has a magnitude of $(150\units{g})(2.3\units{m/s}) = 345\units{g\.m/s}$ and points in the same direction as $\vec v$, as shown in figure~\ref{fig:BallOffTableMomentum}. The figure also shows the momentum vector’s components.
 \startformula\startmathalignment[m=2,distance=2em]
 \NC	p_x \NC = mv_x \NC  p_y \NC = mv_y	\NR
 \NC		\NC = (150\units{g})(1.2\units{m/s})
@@ -1398,9 +1399,9 @@ Finding momentum is not quite as easy as doubling. The ball in figure~\ref{fig:B
 		footnotesize,
 		%width=\marginparwidth, scale only axis,
 		x={1mm},y={1mm},
-		xlabel={\m{x} (cm)},
+		xlabel={$x$ (cm)},
 		xmin=0,xmax=39.5,
-		ylabel={\m{y\,/\units{cm}}},
+		ylabel={$y\,/\units{cm}$},
 		ymin=0,ymax=45,
 		minor x tick num=4,
 		axis x line=bottom,
@@ -1412,8 +1413,8 @@ Finding momentum is not quite as easy as doubling. The ball in figure~\ref{fig:B
 		clip = false,
 		legend style={draw=none,at={(1,1)},anchor=south east,yshift = 1ex},
 		]
-		%\fill(10,19) circle[radius=.4mm]node[below]{\m{\scriptstyle \coordinates{1.0,1.9}\unit{cm}}};
-		%\fill(9,13) circle[radius=.4mm]node[below]{\m{\scriptstyle \coordinates{9,13}\unit{cm}}};
+		%\fill(10,19) circle[radius=.4mm]node[below]{$\scriptstyle \coordinates{1.0,1.9}\unit{cm}$};
+		%\fill(9,13) circle[radius=.4mm]node[below]{$\scriptstyle \coordinates{9,13}\unit{cm}$};
 		%\draw[shade, ball color = white] (-10,47) circle[radius=3][opacity=.2];
 		%\fill(-10,47) circle[radius=.4mm][opacity=.2];
 		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
@@ -1431,21 +1432,21 @@ Finding momentum is not quite as easy as doubling. The ball in figure~\ref{fig:B
 		\draw[thin] (-2,45)--(0,45);
 		\draw[thin] (-7.5,45)--(-5.5,45);
 		% Velocity at t=0s
-   		\draw[thick,->] (0,48) -- (9,48);%node[above right,pos=.3]{\m{\scriptstyle 1.2\units{m/s}}}
+   		\draw[thick,->] (0,48) -- (9,48);%node[above right,pos=.3]{$\scriptstyle 1.2\units{m/s}$}
 		% Velocity at .1s
-		\draw[semithick, densely dotted,-{>[scale=.5]}] (12,43.1) --(12,35.6);%node[right]{\m{\scriptstyle -1.0\units{m/s}}}
-		\draw[semithick, densely dotted,-{>[scale=.5]}] (12,35.6) -- (21,35.6);%node[above right,pos=.3]{\m{\scriptstyle 1.2\units{m/s}}}
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (12,43.1) --(12,35.6);%node[right]{$\scriptstyle -1.0\units{m/s}$}
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (12,35.6) -- (21,35.6);%node[above right,pos=.3]{$\scriptstyle 1.2\units{m/s}$}
 		\draw[thin] (12,37.6) -- (14,37.6)-- (14,35.6);
-   		\draw[thick,->] (12,43.1) -- (21,35.6);%node[below left]{\m{\scriptstyle \components{1.2,-2.0}\unit{m/s}}}
+   		\draw[thick,->] (12,43.1) -- (21,35.6);%node[below left]{$\scriptstyle \components{1.2,-2.0}\unit{m/s}$}
    		% Velocity at .2s
-		\draw[semithick, densely dotted,-{>[scale=.5]}] (24,28.4) --node[left,pos=.55]{\m{\scriptstyle -300\units{g\cdot m/s}}} (24,13.43);
-		\draw[semithick, densely dotted,-{>[scale=.5]}] (24,13.43) --node[below]{\m{\scriptstyle 180\units{g\cdot m/s}}} (33,13.43);
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (24,28.4) --node[left,pos=.55]{$\scriptstyle -300\units{g\cdot m/s}$} (24,13.43);
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (24,13.43) --node[below]{$\scriptstyle 180\units{g\cdot m/s}$} (33,13.43);
 		\draw[thin] (24,15.43) -- (26,15.43)-- (26,13.43);
-   		\draw[thick,->] (24,28.4) --node[above, sloped, pos=.6]{\m{\scriptstyle 345\units{g\cdot m/s}}} (33,13.43);%node[above right]{\m{\scriptstyle \components{180,-300}\unit{m/s}}}
+   		\draw[thick,->] (24,28.4) --node[above, sloped, pos=.6]{$\scriptstyle 345\units{g\cdot m/s}$} (33,13.43);%node[above right]{$\scriptstyle \components{180,-300}\unit{m/s}$}
    		% Velocity at .3s
 		%\startpgfinterruptboundingbox
-		\draw[semithick, densely dotted,-{>[scale=.5]}] (36,3.9) -- +(0,-22.05);%node[left=-1em,fill=white,pos=.7]{\m{\scriptstyle -2.9\units{m/s}}}
-		\draw[semithick, densely dotted,-{>[scale=.5]}] (36,-18.15) -- +(9,0);%node[below]{\m{\scriptstyle 1.2\units{m/s}}}
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (36,3.9) -- +(0,-22.05);%node[left=-1em,fill=white,pos=.7]{$\scriptstyle -2.9\units{m/s}$}
+		\draw[semithick, densely dotted,-{>[scale=.5]}] (36,-18.15) -- +(9,0);%node[below]{$\scriptstyle 1.2\units{m/s}$}
 		\draw[thin] (36,-16.15) -- ++(2,0)-- ++(0,-2);
    		\draw[thick,->] (36,3.9) -- +(9,-22.05);%node[below left]
 		%\stoppgfinterruptboundingbox
@@ -1453,7 +1454,7 @@ Finding momentum is not quite as easy as doubling. The ball in figure~\ref{fig:B
    		\addlegendimage{
 	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
  		};
-		\addlegendentry{\m{=100\units{g\.m/s}}}
+		\addlegendentry{$=100\units{g\.m/s}$}
 	\stopaxis
 \stopbuffer
 
@@ -1465,10 +1466,10 @@ Finding momentum is not quite as easy as doubling. The ball in figure~\ref{fig:B
 Momentum vectors and velocity vectors have different units, so they need different scales. Our diagrams will have either velocity vectors or momentum vectors, but not both, so there will only be one vector scale on each diagram.
 
 \startexample[ex:cannonpv]
-	A cannon fires a \m{40\units{kg}} cannon ball at an upward angle so that its initial momentum is \m{\vec p\si = \components{1600, 1200}\unit{kg\.m/s}}, as shown in figure~\in[fig:cannonp]. Find the cannon ball’s initial velocity and speed.
+	A cannon fires a $40\units{kg}$ cannon ball at an upward angle so that its initial momentum is $\vec p\si = \components{1600, 1200}\unit{kg\.m/s}$, as shown in figure~\in[fig:cannonp]. Find the cannon ball’s initial velocity and speed.
 
 \startbuffer[cannonp]
-%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{\m{p\si}}(13,1.5);
+%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
 %\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
 \draw[shade, ball color = black] (0.78,.61) circle[radius=.05cm]; % Ball
 \fill[fill=black!70] (0.76,0.47)-- ++(-.12,.16)-- ++(-.51,-.32)-- ++(0.18,-0.24)-- cycle; % Cannon Barrel
@@ -1477,13 +1478,13 @@ Momentum vectors and velocity vectors have different units, so they need differe
 \draw[fill = black!70] (0.3,0.25) circle[radius=0.05cm]; % Cannon Pivot
 \shade[top color=gray] (0,-.04) rectangle (5,0); % Ground
 \draw (0,0)--(5,0);
-\draw[thick,->] (0.78,0.61)--node[above, sloped]{\m{\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}}} ++(2.4,1.8); % Momentum
+\draw[thick,->] (0.78,0.61)--node[above, sloped]{$\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum
 \stopbuffer
 
 \marginTikZ{}{cannonp}{A cannon ball is fired with the momentum shown (ex.~\in[ex:cannonpv]).} % vskip, name, caption
 
 \startsolution
-Start with the momentum formula \m{\vec p = m\vec v} and immediately break it into component equations. Solve each component equation for the components of \m{\vec v}.
+Start with the momentum formula $\vec p = m\vec v$ and immediately break it into component equations. Solve each component equation for the components of $\vec v$.
 \startformula
 	\vec p = m\vec v
 \stopformula
@@ -1497,11 +1498,11 @@ Start with the momentum formula \m{\vec p = m\vec v} and immediately break it in
 \NC		\NC = 40\units{m/s}
 			\NC		\NC = 30\units{m/s}						\NR
 \stopmathalignment\stopformula
-Combine the components into the velocity vector \m{\vec v}.
+Combine the components into the velocity vector $\vec v$.
 \startformula
 	\vec v = \components{40,30}\unit{m/s}
 \stopformula
-The cannon ball’s speed \m{v} is the magnitude of its velocity \m{\vec v}.
+The cannon ball’s speed $v$ is the magnitude of its velocity $\vec v$.
 \startformula
 	v = \vabs{\vec{v}}
 		= \sqrt{v_x^2 + v_y^2}
@@ -1510,10 +1511,10 @@ The cannon ball’s speed \m{v} is the magnitude of its velocity \m{\vec v}.
 %		= \sqrt{10000\unit{m^2/s^2}}
 		= 50\units{m/s}
 \stopformula
-The cannon ball’s velocity is \m{\components{40,30}\unit{m/s}}. Its speed is \m{50\units{m/s}}.
+The cannon ball’s velocity is $\components{40,30}\unit{m/s}$. Its speed is $50\units{m/s}$.
 
 \startbuffer[cannonv]
-%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{\m{p\si}}(13,1.5);
+%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
 %\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
 \draw[shade, ball color = black] (0.78,.61) circle[radius=.05cm]; % Ball
 \fill[fill=black!70] (0.76,0.47)-- ++(-.12,.16)-- ++(-.51,-.32)-- ++(0.18,-0.24)-- cycle; % Cannon Barrel
@@ -1522,7 +1523,7 @@ The cannon ball’s velocity is \m{\components{40,30}\unit{m/s}}. Its speed is \
 \draw[fill = black!70] (0.3,0.25) circle[radius=0.05cm]; % Cannon Pivot
 \shade[top color=gray] (0,-.04) rectangle (5,0); % Ground
 \draw (0,0)--(5,0);
-\draw[thick,->] (0.78,0.61)--node[above, sloped]{\m{\scriptstyle \vec v = \components{40, 30}\unit{m/s}}} ++(2.4,1.8); % Momentum
+\draw[thick,->] (0.78,0.61)--node[above, sloped]{$\scriptstyle \vec v = \components{40, 30}\unit{m/s}$} ++(2.4,1.8); % Momentum
 \stopbuffer
 
 \marginTikZ{}{cannonv}{The cannon ball’s velocity found in example~\in[ex:cannonpv].} % vskip, name, caption
@@ -1530,17 +1531,17 @@ The cannon ball’s velocity is \m{\components{40,30}\unit{m/s}}. Its speed is \
 \stopsolution
 \stopexample
 
-The conservation of momentum equation includes vector multiplication. The net force vector \m{\vec F\sn} is multiplied by the duration \m{\Delta t}. The resulting impulse vector is added to the initial momentum vector \m{\vec p_i} to get the final momentum vector \m{\vec p\sf}.
+The conservation of momentum equation includes vector multiplication. The net force vector $\vec F\sn$ is multiplied by the duration $\Delta t$. The resulting impulse vector is added to the initial momentum vector $\vec p_i$ to get the final momentum vector $\vec p\sf$.
 \startformula
 	\vec{p}\si +\vec{F}\sn\Delta t = \vec{p}\sf
 \stopformula
-When Newton introduces his second law he provides a helpful diagram, which I have reproduced and adorned with vector notation in figure~\ref{fig:AddVecParallogram}. This diagram shows an object’s initial momentum \m{\vec p\si} horizontal and to the right. The object receives and impulse \m{\vec{F}\sn\Delta t} which is down and to the slightly to the right. The initial momentum and the impulse are added to produce the final momentum \m{\vec{p}\sf} which is down and far to the right, as shown. Newton combines the vectors by producing a parallelogram from the initial momentum and the impulse. In this parallelogram method, the final momentum is the diagonal of the parallelogram.
+When Newton introduces his second law he provides a helpful diagram, which I have reproduced and adorned with vector notation in figure~\ref{fig:AddVecParallogram}. This diagram shows an object’s initial momentum $\vec p\si$ horizontal and to the right. The object receives an impulse $\vec{F}\sn\Delta t$ which is down and slightly to the right. The initial momentum and the impulse are added to produce the final momentum $\vec{p}\sf$ which is down and far to the right, as shown. Newton combines the vectors by producing a parallelogram from the initial momentum and the impulse. In this parallelogram method, the final momentum is the diagonal of the parallelogram.
 
 \startbuffer[AddVecParallogram]
 		x={1cm},y={1cm},
-   		\draw[thick,->] (1,2) --node[above]{\m{\vec p\si}} (4,2);
-   		\draw[thick,->] (1,2) --node[below left]{\m{\vec{F}\sn\Delta t}} (2,0);
-   		\draw[thick,->] (1,2) --node[above]{\m{\vec p\sf}} (5,0);
+   		\draw[thick,->] (1,2) --node[above]{$\vec p\si$} (4,2);
+   		\draw[thick,->] (1,2) --node[below left]{$\vec{F}\sn\Delta t$} (2,0);
+   		\draw[thick,->] (1,2) --node[above]{$\vec p\sf$} (5,0);
    		\draw[thin] (4,2) -- (5,0);
    		\draw[thin] (2,0) -- (5,0);
 \stopbuffer
@@ -1551,45 +1552,45 @@ Another method for adding the vectors is to arrange them tip-to-tail as shown in
 
 \startbuffer[AddVecTipTail]
 		x={1cm},y={1cm},
-   		\draw[thick,->] (1,2) --node[above]{\m{\vec p\si}} (4,2);
-   		\draw[thick,->] (4,2) --node[above right]{\m{\vec{F}\sn\Delta t}} (5,0);
-   		\draw[thick,->] (1,2) --node[below]{\m{\vec p\sf}} (5,0);
+   		\draw[thick,->] (1,2) --node[above]{$\vec p\si$} (4,2);
+   		\draw[thick,->] (4,2) --node[above right]{$\vec{F}\sn\Delta t$} (5,0);
+   		\draw[thick,->] (1,2) --node[below]{$\vec p\sf$} (5,0);
 %   		\draw[thin] (4,2) -- (5,0);
 %   		\draw[thin] (2,0) -- (5,0);
 \stopbuffer
 
 \marginTikZ{}{AddVecTipTail}{The tip-to-tail method for adding vectors.} % vskip, name, caption
 
-In the tip-to-tail method it is easy to see that the \m{x}-component of the initial momentum added to the \m{x}-component of the impulse gives the \m{x}-component of the final momentum, and likewise for the \m{y}-components. When working with components it will be useful to break Newton’s second law into component equations (dropping \quotation{net} to reduce clutter).
+In the tip-to-tail method it is easy to see that the $x$-component of the initial momentum added to the $x$-component of the impulse gives the $x$-component of the final momentum, and likewise for the $y$-components. When working with components it will be useful to break Newton’s second law into component equations (dropping \quotation{net} to reduce clutter).
 \startformula
 		\vec p\si + \vec{F}\Delta t = \vec p\sf
 \stopformula
 \startformula
-	p\sub{i,\m{x}} + F_x\Delta t = p\sub{i,\m{x}} \qquad p\sub{i,\m{y}} + F_y\Delta t = p\sub{f,\m{y}}
+	p\sub{i,$x$} + F_x\Delta t = p\sub{i,$x$} \qquad p\sub{i,$y$} + F_y\Delta t = p\sub{f,$y$}
 \stopformula
 
 %\section{Gravitational force}
 %Once the ball has rolled off the edge, the force acting on it is the Earth’s gravitational force.
 The rock dropped from the tower, the ball rolling off the edge, and the cannon ball are all projectiles. No longer in contact with anything else, their motion is bent downward by the constant gravitational force exerted by Earth below.
  Earth does not exert the same force on everything.
-Massive things are heavy because Earth exerts a large force on them. Objects with little mass are light because Earth exerts a small force on them. The magnitude of the gravitational force is \m{mg}, where \m{g=9.8\units{m/s^2}}. The force is downward, which is the negative \m{y}-direction, so the gravitational force vector is
+Massive things are heavy because Earth exerts a large force on them. Objects with little mass are light because Earth exerts a small force on them. The magnitude of the gravitational force is $mg$, where $g=9.8\units{m/s^2}$. The force is downward, which is the negative $y$-direction, so the gravitational force vector is
 \startformula
 	\vec F = \components{0,-mg}.
 \stopformula
 \startexample[ex:cannonballFg]
-	Find the gravitational force on a \m{40.\units{kg}} cannon ball.
+	Find the gravitational force on a $40.\units{kg}$ cannon ball.
 	\startsolution
-	The the magnitude of the gravitational force is \m{mg}.
+	The the magnitude of the gravitational force is $mg$.
 	\startformula
 		mg = (40.\units{kg})(9.8\units{m/s^2}) = 392\units{kg\.m/s^2} = 390\units{N}
 	\stopformula
-	The gravitational force is downward, in the negative \m{y}-direction.
+	The gravitational force is downward, in the negative $y$-direction.
 \startformula
 	\vec F = \components{0, mg} = \components{0,-390}\unit{N}
 \stopformula
 \stopsolution
 \stopexample
-The gravitational force is the only significant force acting on the falling rock, the ball rolling off the edge, and the cannon ball. For all of these objects the net force \m{\vec F\sn} is simply the gravitational force.
+The gravitational force is the only significant force acting on the falling rock, the ball rolling off the edge, and the cannon ball. For all of these objects the net force $\vec F\sn$ is simply the gravitational force.
 %An object traveling through the air with great speed, like the cannon ball, will experience a significant force from the air resisting the object’s motion. The example below includes this resisting force, which must be added to the gravitational force to find the net force. %The forces must be added as vectors to find the net force vector. The net force is then used in the law of conservation of momentum, requiring another vector addition to find the final momentum.
 
 \startexample[ex:cannonpf]
@@ -1598,7 +1599,7 @@ The gravitational force is the only significant force acting on the falling rock
 {The cannon ball’s momentum changes due to the force of gravity and the air’s resisting force in example~\in[ex:cannonpf].
 }	% caption text
 {\noindent\starttikzpicture
-%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{\m{p\si}}(13,1.5);
+%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
 %\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
 \draw[shade, ball color = black] (0.78,.61) circle[radius=.05cm]; % Ball initial
 \fill[fill=black!70] (0.76,0.47)-- ++(-.12,.16)-- ++(-.51,-.32)-- ++(0.18,-0.24)-- cycle; % Cannon Barrel
@@ -1607,61 +1608,61 @@ The gravitational force is the only significant force acting on the falling rock
 \draw[fill = black!70] (0.3,0.25) circle[radius=0.05cm]; % Cannon Pivot
 \shade[top color=gray] (0,-.2) rectangle (10.8,0); % Ground
 \draw (0,0)--(10.8,0);
-\draw[thick,->] (0.78,0.61)--node[above, sloped]{\m{\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}}} ++(2.4,1.8); % Momentum
+\draw[thick,->] (0.78,0.61)--node[above, sloped]{$\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum
 \draw (0.78,0.61) parabola [bend pos=0] bend +(6.75,2.53) +(6.75,2.53); % Trajectory
 \filldraw[white] (5.28,2.86) rectangle (7.53,3.14); % Trajectory
 \draw[shade, ball color = black] (5.28,2.86) circle[radius=.05cm]; % Ball final
-\draw[thick,->] (5.28,2.86)--node[above, sloped]{\m{\scriptstyle \vec p\sf = ?}} ++(2.4,0.6); % Momentum
+\draw[thick,->] (5.28,2.86)--node[above, sloped]{$\scriptstyle \vec p\sf = ?$} ++(2.4,0.6); % Momentum
 \stoptikzpicture}
-	A cannon fires a \m{40\units{kg}} cannon ball with a speed of \m{50\units{m/s}}. The ball is fired at an upward angle so that its initial momentum is \m{\vec p\si = \components{1600, 1200}\unit{kg\.m/s}}, as shown in figure~\in[fig:cannonpf]. While it is in the air gravity exerts a downward force \m{\vec F = \components{0, -390}\unit{N}}. %The ball encounters some resistance to moving through the air, which exerts a backward force of approximately \m{F\sub{air} = \components{-40, -30}\unit{N}}.
-What is the cannon ball’s momentum \m{2.0\units{s}} after it is fired? (Ignore air resistance.)
+	A cannon fires a $40\units{kg}$ cannon ball with a speed of $50\units{m/s}$. The ball is fired at an upward angle so that its initial momentum is $\vec p\si = \components{1600, 1200}\unit{kg\.m/s}$, as shown in figure~\in[fig:cannonpf]. While it is in the air gravity exerts a downward force $\vec F = \components{0, -390}\unit{N}$. %The ball encounters some resistance to moving through the air, which exerts a backward force of approximately $F\sub{air} = \components{-40, -30}\unit{N}$.
+What is the cannon ball’s momentum $2.0\units{s}$ after it is fired? (Ignore air resistance.)
 \startsolution
-%We will solve this problem in two steps. First, we will find the net force acting on the cannon ball, \m{\vec F\sn = \vec F_g + \vec F\sub{air}}. Then we will use conservation of momentum to find the final momentum.
+%We will solve this problem in two steps. First, we will find the net force acting on the cannon ball, $\vec F\sn = \vec F_g + \vec F\sub{air}$. Then we will use conservation of momentum to find the final momentum.
 %Compute the net force by breaking the vector equation into component equations.
 %\startformula
 %	\vec F\sn = \vec F_g + \vec F\sub{air}
 %\stopformula
 %\startformula\startmathalignment[m=2,distance=2em]
-%\NC	F\sub{net,\m{x}}	\NC = F_{g,x} + F\sub{air,\m{x}}
-%		\NC	F\sub{net,\m{y}}	\NC = F_{g,y} + F\sub{air,\m{y}}	\NR
+%\NC	F\sub{net,$x$}	\NC = F_{g,x} + F\sub{air,$x$}
+%		\NC	F\sub{net,$y$}	\NC = F_{g,y} + F\sub{air,$y$}	\NR
 %\NC				\NC = 0 + (-40\units{N})
 %		\NC				\NC = (-390\units{N}) - (-30\units{N})			\NR
 %\NC				\NC = -40\units{N}
 %		\NC				\NC = -420\units{N}
 %\stopmathalignment\stopformula
-%Combine the components into the vector \m{\vec F\sn}.
+%Combine the components into the vector $\vec F\sn$.
 %\startformula
 %	\vec F\sn = \components{-40,-420}\unit{m/s}
 %\stopformula
-We will solve this problem using the conservation of momentum equation, broken into components equations. (Here we drop the \quotation{net.}) First the \m{x}-component:
+We will solve this problem using the conservation of momentum equation, broken into components equations. (Here we drop the \quotation{net.}) First the $x$-component:
 \startformula\startmathalignment
-\NC	p\sub{i,\m{x}} + F_x\Delta t
+\NC	p\sub{i,$x$} + F_x\Delta t
 	\NC = 1600\units{kg\.m/s} + (0\units{N})(2\units{s})			\NR
-\NC	\NC = 1600\units{kg\.m/s}	= p\sub{f,\m{x}}
+\NC	\NC = 1600\units{kg\.m/s}	= p\sub{f,$x$}
 %	\NC = 1600\units{kg\.m/s} + (-40\units{N})(2.0\units{s})		\NR
 %\NC	\NC = 1600\units{kg\.m/s} + (-40\units{kg\.m/s^2})(2.0\units{s})	\NR
-%NC	\NC = 1520\units{kg\.m/s}	= p\sub{f,\m{x}}
+%NC	\NC = 1520\units{kg\.m/s}	= p\sub{f,$x$}
 \stopmathalignment\stopformula
-Since the gravitational force’s \m{x}-component is zero, the \m{x}-component of the momentum is unchanged. The \m{y}-component does change due to the downward force of gravity.
+Since the gravitational force’s $x$-component is zero, the $x$-component of the momentum is unchanged. The $y$-component does change due to the downward force of gravity.
 \startformula\startmathalignment
-\NC	p\sub{i,\m{y}} + F_y\Delta t
+\NC	p\sub{i,$y$} + F_y\Delta t
 	\NC = 1200\units{kg\.m/s} + (-390\units{N})(2.0\units{s})		\NR
-\NC	\NC = 420\units{kg\.m/s}	= p\sub{f,\m{y}}
+\NC	\NC = 420\units{kg\.m/s}	= p\sub{f,$y$}
 \stopmathalignment\stopformula
 Combine the components to make the final momentum vector (and round to two significant figures).
 \startformula
 	\vec p\sf = \components{1600,420}\unit{kg\.m/s}
 \stopformula
-Two seconds after leaving the cannon, the ball’s momentum is \m{\vec p\sf = \components{1600,420}\unit{kg\.m/s}}, as shown in \in{figure}[fig:cannonconservepf], where $\vec p\si$ and $\vec J$ are added by the tip-to-tail method.
+Two seconds after leaving the cannon, the ball’s momentum is $\vec p\sf = \components{1600,420}\unit{kg\.m/s}$, as shown in \in{figure}[fig:cannonconservepf], where $\vec p\si$ and $\vec J$ are added by the tip-to-tail method.
 The cannon ball's motion is shown in \in{figure}[fig:cannonpfanswer].
 \stopsolution
 
 \startbuffer[cannonFgFa]
 \draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
 \filldraw (0,0) circle[radius=.02cm]; % Ball cm
-\draw[thick,->] (0,0)--node[above]{\m{\scriptstyle \vec p\si}} ++(2.4,1.8); % Momentum
-\draw[thick,->] (0,0)--node[right]{\m{\scriptstyle \vec F = \components{0, -390}\unit{N}}} ++(0,-1.96); % Fg
-%\draw[thick,->] (0,0)--node[above left]{\m{\scriptstyle \vec F\sub{air} = \components{-40, -30}\unit{N}}} ++(-0.4,-0.3); % Fa
+\draw[thick,->] (0,0)--node[above]{$\scriptstyle \vec p\si$} ++(2.4,1.8); % Momentum
+\draw[thick,->] (0,0)--node[right]{$\scriptstyle \vec F = \components{0, -390}\unit{N}$} ++(0,-1.96); % Fg
+%\draw[thick,->] (0,0)--node[above left]{$\scriptstyle \vec F\sub{air} = \components{-40, -30}\unit{N}$} ++(-0.4,-0.3); % Fa
 \stopbuffer
 
 \marginTikZ{}{cannonFgFa}{The force of gravity and the resisting force of air on the cannon ball in example~\in[ex:cannonpf]. The air’s resisting force is opposite the ball’s motion} % vskip, name, caption
@@ -1671,18 +1672,18 @@ The cannon ball's motion is shown in \in{figure}[fig:cannonpfanswer].
 %{\noindent\starttikzpicture
 %\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
 %\filldraw (0,0) circle[radius=.02cm]; % Ball cm
-%%\draw[thick,->] (0.78,0.61)--node[above]{\m{\scriptstyle \vec p\si}} ++(2.4,1.8); % Momentum
-%\draw[thick,->] (0,0)--node[right]{\m{\scriptstyle \vec F_g = \components{0, -390}\unit{N}}} ++(0,-3.92); % Fg
-%\draw[thick,->] (0,-3.92)--node[below right]{\m{\scriptstyle \vec F\sub{air} = \components{-40, -30}\unit{N}}} ++(-0.4,-0.3); % Fa
-%\draw[thick,->] (0,0)--node[left]{\m{\scriptstyle \vec F\sn = \components{-40, -420}\unit{N}}} ++(-0.4,-4.22); % Fn
+%%\draw[thick,->] (0.78,0.61)--node[above]{$\scriptstyle \vec p\si$} ++(2.4,1.8); % Momentum
+%\draw[thick,->] (0,0)--node[right]{$\scriptstyle \vec F_g = \components{0, -390}\unit{N}$} ++(0,-3.92); % Fg
+%\draw[thick,->] (0,-3.92)--node[below right]{$\scriptstyle \vec F\sub{air} = \components{-40, -30}\unit{N}$} ++(-0.4,-0.3); % Fa
+%\draw[thick,->] (0,0)--node[left]{$\scriptstyle \vec F\sn = \components{-40, -420}\unit{N}$} ++(-0.4,-4.22); % Fn
 %\stoptikzpicture}
 
 \startbuffer[cannonconservepf]
 \draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
 \filldraw (0,0) circle[radius=.02cm]; % Ball cm
-\draw[thick,->] (0,0)--node[above, sloped, pos=.6]{\m{\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}}} ++(2.4,1.8); % Momentum initial
-\draw[thick,->] (2.4,1.8)--node[right]{\m{\scriptstyle \vec F\sn \Delta t}} +(0,-1.17); % Fnet
-\draw[thick,->] (0,0)--node[below, sloped, pos=.7]{\m{\scriptstyle \vec p\sf = \components{1600, 420}\unit{kg\cdot m/s}}} ++(2.4,0.63); % pf
+\draw[thick,->] (0,0)--node[above, sloped, pos=.6]{$\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum initial
+\draw[thick,->] (2.4,1.8)--node[right]{$\scriptstyle \vec F\sn \Delta t$} +(0,-1.17); % Fnet
+\draw[thick,->] (0,0)--node[below, sloped, pos=.7]{$\scriptstyle \vec p\sf = \components{1600, 420}\unit{kg\cdot m/s}$} ++(2.4,0.63); % pf
 \stopbuffer
 
 \marginTikZ{}{cannonconservepf}{Using conservation of momentum to find the final momentum of the cannon ball in example~\in[ex:cannonpf].} % vskip, name, caption
@@ -1691,7 +1692,7 @@ The cannon ball's motion is shown in \in{figure}[fig:cannonpfanswer].
 {The cannon ball’s initial momentum and its momentum two seconds later in example~\in[ex:cannonpf]
 }	% caption text
 {\noindent\starttikzpicture
-%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{\m{p\si}}(13,1.5);
+%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
 %\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
 \draw[shade, ball color = black] (0.78,.61) circle[radius=.05cm]; % Ball initial
 \fill[fill=black!70] (0.76,0.47)-- ++(-.12,.16)-- ++(-.51,-.32)-- ++(0.18,-0.24)-- cycle; % Cannon Barrel
@@ -1700,11 +1701,11 @@ The cannon ball's motion is shown in \in{figure}[fig:cannonpfanswer].
 \draw[fill = black!70] (0.3,0.25) circle[radius=0.05cm]; % Cannon Pivot
 \shade[top color=gray] (0,-.2) rectangle (10.8,0); % Ground
 \draw (0,0)--(10.8,0);
-\draw[thick,->] (0.78,0.61)--node[above, sloped]{\m{\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}}} ++(2.4,1.8); % Momentum
+\draw[thick,->] (0.78,0.61)--node[above, sloped]{$\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum
 \draw (0.78,0.61) parabola [bend pos=0] bend +(6.75,2.53) +(6.75,2.53); % Trajectory
 \filldraw[white] (5.28,2.86) rectangle (7.53,3.14); % Trajectory
 \draw[shade, ball color = black] (5.28,2.86) circle[radius=.05cm]; % Ball final
-\draw[thick,->] (5.28,2.86)--node[above, sloped]{\m{\scriptstyle \vec p\sf = \components{1500, 360}\unit{kg\cdot m/s}}} ++(2.4,0.6); % Momentum
+\draw[thick,->] (5.28,2.86)--node[above, sloped]{$\scriptstyle \vec p\sf = \components{1500, 360}\unit{kg\cdot m/s}$} ++(2.4,0.6); % Momentum
 \stoptikzpicture}
 \stopexample
 %The previous example multiple forces which had to be added as vectors to find the net force vector. Similarly, for a systems of multiple objects add the momenta as vectors to find the total momentum vector. For example, in a collision between objects moving in different directions the initial momentum of the system is the vector sum of all of the objects’ momentum vectors.
@@ -1713,15 +1714,15 @@ The cannon ball's motion is shown in \in{figure}[fig:cannonpfanswer].
 
 Galileo argued that the rock’s tendency to fall in no way diminishes its horizontal motion, which continues naturally, allowing it to keep up with the moving tower even as it falls. Newton’s law of conservation of momentum gives us a new insight into Galileo’s argument. According to Newton, the rock has horizontal momentum before it is dropped because it is being carried along with the tower by Earth’s rotation. When the rock is released it falls due to the downward gravitational force. This force gives the rock an increasing downward component to the rock’s momentum, but it does not alter the horizontal component, just as we saw for the cannon ball in the previous example.
 
-To see the gradual affect of the gravitational force, let’s look at the cannon ball’s motion in small steps. Figure~\in[fig:cannonds] shows the cannon ball’s momentum and the downward gravitational force acting on it during its flight. Initially the momentum is to the right and upward. During a short duration \m{dt} the momentum changes by a small amount \m{\vec F dt}. This continues, with the momentum changing an additional amount \m{\vec F dt} during each short duration \m{dt}, as shown in figure~\in[fig:cannondp]. The changing momentum causes the cannon ball’s path to bend downward, as shown in figure~\in[fig:cannonds]. Newton’s momentum and the law of conservation of momentum give an explanation for the compound motion of projectiles described by Galileo.
+To see the gradual affect of the gravitational force, let’s look at the cannon ball’s motion in small steps. Figure~\in[fig:cannonds] shows the cannon ball’s momentum and the downward gravitational force acting on it during its flight. Initially the momentum is to the right and upward. During a short duration $dt$ the momentum changes by a small amount $\vec F dt$. This continues, with the momentum changing an additional amount $\vec F dt$ during each short duration $dt$, as shown in figure~\in[fig:cannondp]. The changing momentum causes the cannon ball’s path to bend downward, as shown in figure~\in[fig:cannonds]. Newton’s momentum and the law of conservation of momentum give an explanation for the compound motion of projectiles described by Galileo.
 %\placefigure[margin][fig:cannonFg] % location
 %{The force of gravity acting downward on the cannon ball. The air’s resisting force is small enough to ignore.
 %}	% caption text
 %{\noindent\vskip.75in\starttikzpicture
 %\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
 %\filldraw (0,0) circle[radius=.02cm]; % Ball cm
-%\draw[thick,->] (0,0)--node[above]{\m{\vec p\si}} ++(2.4,1.8); % Momentum
-%\draw[thick,->] (0,0)--node[right]{\m{\vec F\sn = \vec F_g}} ++(0,-1.96); % Fg
+%\draw[thick,->] (0,0)--node[above]{$\vec p\si$} ++(2.4,1.8); % Momentum
+%\draw[thick,->] (0,0)--node[right]{$\vec F\sn = \vec F_g$} ++(0,-1.96); % Fg
 %\stoptikzpicture}
 
 
@@ -1735,7 +1736,7 @@ To see the gradual affect of the gravitational force, let’s look at the cannon
   [top,none]
   {This is its caption I need to fix.}
 {\hbox{\starttikzpicture	% tikz code
-%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{\m{p\si}}(13,1.5);
+%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
 %\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
 \draw[shade, ball color = black][opacity=0.25] (0.78,.61) circle[radius=.05cm]; % Ball initial
 \fill[fill=black!70] (0.76,0.47)-- ++(-.12,.16)-- ++(-.51,-.32)-- ++(0.18,-0.24)-- cycle; % Cannon Barrel
@@ -1753,8 +1754,8 @@ To see the gradual affect of the gravitational force, let’s look at the cannon
 	\draw[thick,->][opacity={(5+\T)/20}] ({0.78+\T*2.25},{0.61+\T*1.6875-\T*\T*0.28125})-- ++(0,-1.96); % Fg
 }
 \draw[shade, ball color = black] (14.28,0.616) circle[radius=.05cm]; % Ball final
-\draw[thick,->] (14.28,0.61)--node[below left]{\m{\scriptstyle \vec p}} ++(2.4,-1.8); % Momentum
-\draw[thick,->] (14.28,0.61)--node[left]{\m{\vec F}} ++(0,-1.96); % Fg
+\draw[thick,->] (14.28,0.61)--node[below left]{$\scriptstyle \vec p$} ++(2.4,-1.8); % Momentum
+\draw[thick,->] (14.28,0.61)--node[left]{$\vec F$} ++(0,-1.96); % Fg
 \stoptikzpicture}}
 
 \startbuffer[cannondp]
@@ -1765,39 +1766,39 @@ To see the gradual affect of the gravitational force, let’s look at the cannon
 	\draw[thick,->][opacity={(5+\T)/20}] (0,0)-- ++(2.4,{1.8-\T*0.6}); % Momentum
 	\draw[thick,->][opacity={(5+\T)/20}] (2.4,{2.4-\T*0.6})-- +(0,-0.6); % Fnet
 }
-\draw[thick,->] (2.4,-1.2)--node[right]{\m{\scriptstyle \vec F\sn dt}} +(0,-0.6); % Fnet
-\draw[thick,->] (0,0)--node[below left]{\m{\scriptstyle \vec p}} ++(2.4,-1.8); % pf
+\draw[thick,->] (2.4,-1.2)--node[right]{$\scriptstyle \vec F\sn dt$} +(0,-0.6); % Fnet
+\draw[thick,->] (0,0)--node[below left]{$\scriptstyle \vec p$} ++(2.4,-1.8); % pf
 \stopbuffer
 
 \marginTikZ{}{cannondp}{Using conservation of momentum to find the final momentum of the cannon ball in example~\in[ex:cannonpf].} % vskip, name, caption
 
 %\startexample[]
-%	The \m{150\units{g}} ball rolls off of the table with an initial momentum  \m{\vec{p}\si = \components{180,0}\unit{g\.m/s}}. What is the ball’s momentum \m{0.20\units{s}} later?
+%	The $150\units{g}$ ball rolls off of the table with an initial momentum  $\vec{p}\si = \components{180,0}\unit{g\.m/s}$. What is the ball’s momentum $0.20\units{s}$ later?
 %	\startsolution
-%	We will find this using Newton’s second law, which we will more commonly call the conservation of momentum equation. The impulse is due to the gravitational force \m{\vec F}, so we will use all of the tools from this section.
+%	We will find this using Newton’s second law, which we will more commonly call the conservation of momentum equation. The impulse is due to the gravitational force $\vec F$, so we will use all of the tools from this section.
 %	\startformula
 %	\NC	\vec p\si + \vec F\Delta t = \vec p\sf
 %	\stopformula
-%Break this equation into components and calculate. First, the \m{x}-direction which has no force.
+%Break this equation into components and calculate. First, the $x$-direction which has no force.
 %\startformula
-%	p\sub{i,\m{x}} + F_x \Delta t
+%	p\sub{i,$x$} + F_x \Delta t
 %		= 180\units{g\.m/s} + 0
 %		= 180\units{g\.m/s}
-%		= p\sub{f,\m{x}}
+%		= p\sub{f,$x$}
 %\stopformula
-%Second, the \m{y}-direction which has no initial momentum.
+%Second, the $y$-direction which has no initial momentum.
 %\startformula\startmathalignment
-%\NC	p\sub{i,\m{y}} + F_y\Delta t
+%\NC	p\sub{i,$y$} + F_y\Delta t
 %	\NC = 0 + (-mg)\Delta t	\NR
 %\NC	\NC = -(150\units{g})(9.8\units{m/s^{2}})(0.20\units{s})	\NR
 %\NC	\NC = -(294\units{g\.m/s})
-%	= p\sub{f,\m{y}}
+%	= p\sub{f,$y$}
 %\stopmathalignment\stopformula
-%Combine the components to get the final momentum vector \m{\vec p\sub{f}}.
+%Combine the components to get the final momentum vector $\vec p\sub{f}$.
 %\startformula
 %	\vec p\sf = \components{180,-290}\unit{g\.m/s}
 %\stopformula
-%This is approximately the momentum shown in figure~\ref{fig:BallOffTableMomentum} for the ball \m{0.20\units{s}}. (Rounding in calculations can cause small differences in the last significant digit, as seen  in the difference between \m{290\units{g\.m/s}} above and  \m{300\units{g\.m/s}} in figure~\ref{fig:BallOffTableMomentum}. Both answers are acceptable.)
+%This is approximately the momentum shown in figure~\ref{fig:BallOffTableMomentum} for the ball $0.20\units{s}$. (Rounding in calculations can cause small differences in the last significant digit, as seen  in the difference between $290\units{g\.m/s}$ above and  $300\units{g\.m/s}$ in figure~\ref{fig:BallOffTableMomentum}. Both answers are acceptable.)
 %\stopsolution
 %\stopexample
 
@@ -1805,7 +1806,7 @@ To see the gradual affect of the gravitational force, let’s look at the cannon
 \section{Circular motion and centripetal force}
 Newton confirmed Galileo’s description of projectile motion, but offered a dramatically different view of circular motion. Galileo viewed circular motion as natural. Newton, following Descartes, recognized that only straight motion is natural – a force is required to bend an object’s path into a circle. A bent path is always evidence that some force is acting.
 
-As an example, the moon does not travel in a straight line, but instead orbits Earth. The motion is approximately uniform circular, as shown in figure~\in[fig:MoonMomentum1]. Since the speed is constant, the momentum’s magnitude is also constant. The momentum’s direction is changing, always tangent to the circular path. Figure~\in[fig:MoonMomentum2] shows the changing momentum \m{p} and the small changes \m{dp}. These momentum changes must be due to a force acting in the direction of the changes, as shown in figure~\in[fig:MoonMomentum3]. The direction of the force is changing, always staying perpendicular to the momentum. This bends the Moon’s path without changing its speed. Since the force is perpendicular to the path, it is aways directed toward the center of the circle, as shown it figure~\in[fig:MoonMomentum4]
+As an example, the moon does not travel in a straight line, but instead orbits Earth. The motion is approximately uniform circular, as shown in figure~\in[fig:MoonMomentum1]. Since the speed is constant, the momentum’s magnitude is also constant. The momentum’s direction is changing, always tangent to the circular path. Figure~\in[fig:MoonMomentum2] shows the changing momentum $p$ and the small changes $dp$. These momentum changes must be due to a force acting in the direction of the changes, as shown in figure~\in[fig:MoonMomentum3]. The direction of the force is changing, always staying perpendicular to the momentum. This bends the Moon’s path without changing its speed. Since the force is perpendicular to the path, it is aways directed toward the center of the circle, as shown it figure~\in[fig:MoonMomentum4]
 
 The circular motion does not cause a force toward the center. Rather, the force causes the circular motion. Any circular motion we observe, such as the motions of moons around planets or planets around the Sun, must be due to a force pulling the orbiting object toward the center of it orbit.
 
@@ -1823,18 +1824,18 @@ The circular motion does not cause a force toward the center. Rather, the force 
 		 arc [start angle=\T, end angle={\T-10}, radius=4cm];
 	}
 		\draw[-{Straight Barb[scale length=.5]},ultra thick] (-30:4cm)% Label last segment
-		 arc [start angle=-30, end angle={-40}, radius=4cm]node[above=1.5mm]{\m{ds}};
+		 arc [start angle=-30, end angle={-40}, radius=4cm]node[above=1.5mm]{$ds$};
 	\foreach \T in {-10,-20,-30}{% Draw vectors
 		\draw[][opacity={(20-\T)/100}] (0,0) -- (\T:4cm);
 		\draw[thick,->][opacity={(20-\T)/100}] (\T:4cm) -- ++({\T-90}:3cm);
 	}
-	\draw (0,0) --node[below left]{\m{R}} (-40:4cm);% Final vectors
-	\draw[thick,->] (-40:4cm) --node[left=1mm, pos=.7]{\m{p}} ++({-130}:3cm);
+	\draw (0,0) --node[below left]{$R$} (-40:4cm);% Final vectors
+	\draw[thick,->] (-40:4cm) --node[left=1mm, pos=.7]{$p$} ++({-130}:3cm);
 		\path (-50:4cm) coordinate (A) -- (0,0) coordinate (B) -- (4cm,0) coordinate (C)
 pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.5cm] {angle};
 \stopbuffer
 
-\marginTikZ{}{MoonMomentum1}{The Moon orbits Earth with a constant speed. The moon’s momentum \m{\vec p}, always tangent to the path, has a constant magnitude \m{p} but a changing direction.} % vskip, name, caption
+\marginTikZ{}{MoonMomentum1}{The Moon orbits Earth with a constant speed. The moon’s momentum $\vec p$, always tangent to the path, has a constant magnitude $p$ but a changing direction.} % vskip, name, caption
 
 \startbuffer[MoonMomentum2]
 	\clip (-3.5,-3.1) rectangle (1.5,0.3);
@@ -1844,14 +1845,14 @@ pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.
 		\draw[thick,->][opacity={(20-\T)/100}] (0,0) -- ({\T-90}:3cm);
 		\draw[thick,->][opacity={(20-\T)/100}] ({\T-90}:3cm) -- ({\T-100}:3cm);
 	}
-	%\draw (0,0) --node[below left]{\m{R}} (-40:4cm);
-	\draw[thick,->] (0,0) --node[left=2mm, pos=.6]{\m{p}} ({-130}:3cm);
-	\draw[thick,->] ({-120}:3cm) --node[below left]{\m{dp}} ({-130}:3cm);
+	%\draw (0,0) --node[below left]{$R$} (-40:4cm);
+	\draw[thick,->] (0,0) --node[left=2mm, pos=.6]{$p$} ({-130}:3cm);
+	\draw[thick,->] ({-120}:3cm) --node[below left]{$dp$} ({-130}:3cm);
 		\path (-140:4cm) coordinate (A) -- (0,0) coordinate (B) -- (0,-4cm) coordinate (C)
 pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.5cm] {angle};
 \stopbuffer
 
-\marginTikZ{}{MoonMomentum2}{Placing the momentum vectors at the same place show’s the arc produced by the small momentum changes \m{d\vec p}.} % vskip, name, caption
+\marginTikZ{}{MoonMomentum2}{Placing the momentum vectors at the same place show’s the arc produced by the small momentum changes $d\vec p$.} % vskip, name, caption
 
 \startbuffer[MoonMomentum3]
 	\clip (-3.5,-3) rectangle (1.5,0.3);
@@ -1862,12 +1863,12 @@ pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.
 		\draw[thick,->][opacity={(20-\T)/100}] (0,0) -- ({\T-90}:3cm);
 		\draw[thick,->][opacity={(20-\T)/100}] ({\T-90}:3cm) -- ++({\T+180}:2cm);
 	}
-	%\draw (0,0) --node[below left]{\m{R}} (-40:4cm);
-	\draw[thick,->] (0,0) --node[left=2mm]{\m{p}} ({-130}:3cm);
-	\draw[thick,->] ({-130}:3cm) --node[above right]{\m{F}} ++({140}:2cm);
+	%\draw (0,0) --node[below left]{$R$} (-40:4cm);
+	\draw[thick,->] (0,0) --node[left=2mm]{$p$} ({-130}:3cm);
+	\draw[thick,->] ({-130}:3cm) --node[above right]{$F$} ++({140}:2cm);
 \stopbuffer
 
-\marginTikZ{}{MoonMomentum3}{The small momentum changes \m{d\vec p} are produced by the force \m{\vec F}, which is tangent to the arc and therefore perpendicular to the momentum \m{\vec p}.} % vskip, name, caption
+\marginTikZ{}{MoonMomentum3}{The small momentum changes $d\vec p$ are produced by the force $\vec F$, which is tangent to the arc and therefore perpendicular to the momentum $\vec p$.} % vskip, name, caption
 
 \startbuffer[MoonMomentum4]
 	\clip (-0.5,-5) rectangle (4.5,4.1);
@@ -1887,9 +1888,9 @@ pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.
 		\draw[thick,->][opacity={(20-\T)/100}] (\T:4cm) -- ++({\T-90}:3cm);
 		\draw[thick,->][opacity={(20-\T)/100}] (\T:4cm) -- ++({\T+180}:2cm);
 	}
-	%\draw (0,0) --node[below left]{\m{R}} (-40:4cm);% Final vectors
-	\draw[thick,->] (-40:4cm) --node[left=1mm, pos=.7]{\m{p}} ++({-130}:3cm);
-	\draw[thick,->] (-40:4cm) --node[left=3mm]{\m{F}} ++({140}:2cm);
+	%\draw (0,0) --node[below left]{$R$} (-40:4cm);% Final vectors
+	\draw[thick,->] (-40:4cm) --node[left=1mm, pos=.7]{$p$} ++({-130}:3cm);
+	\draw[thick,->] (-40:4cm) --node[left=3mm]{$F$} ++({140}:2cm);
 \stopbuffer
 
 \marginTikZ{}{MoonMomentum4}{As the Moon circles Earth, the force on the Moon is always toward Earth, perpendicular to the momentum, changing the momentum’s direction but not the speed.} % vskip, name, caption
@@ -1911,9 +1912,9 @@ Newton used the centripetal force formula to understand the orbits of moons and 
 Newton’s three laws of motion and conservation of momentum have proven to be among the most enduring ideas in physics. At the time of the \textit{vis viva} debates, no one could have foreseen the physics revolutions of the twentieth century – relativity, quantum mechanics, and quantum field theory. Yet Newton’s laws have survived to this day.
 
 Experiments with fast particles in the twentieth century have shown that
-Newton’s formula for momentum, \m{m\vec{v}}, is not accurate for particles traveling close to the speed of light, \m{3\sci{8}\units{m/s}}. For lower speeds, this equation is extremely accurate, even at \m{3\sci{7}\units{m/s}}, one tenth of the speed of light, Newton’s formula has an error of less than \m{0.5\%}. Do not hesitate to use Newton’s \m{m\vec{v}} unless you are working with particles traveling faster than \m{10^7\units{m/s}}. Einstein discovered the correct formula for all speeds. We will learn his momentum formula when we study high speed particles in Volume II.
+Newton’s formula for momentum, $m\vec{v}$, is not accurate for particles traveling close to the speed of light, $3\sci{8}\units{m/s}$. For lower speeds, this equation is extremely accurate, even at $3\sci{7}\units{m/s}$, one tenth of the speed of light, Newton’s formula has an error of less than $0.5\%$. Do not hesitate to use Newton’s $m\vec{v}$ unless you are working with particles traveling faster than $10^7\units{m/s}$. Einstein discovered the correct formula for all speeds. We will learn his momentum formula when we study high speed particles in Volume II.
 
-You may be wondering what happened to the famous \m{\vec{F}=m\vec{a}}, which is usually called Newton’s second law. We did not introduce \m{\vec{F}=m\vec{a}} for three reasons. First, that is not what Newton actually said. Second, \m{\vec{F}=m\vec{a}} is not actually correct. To get from Newton’s second law to \m{\vec{F}=m\vec{a}} you need to use the momentum formula, \m{\vec{p}=m\vec{v}}. As was just mentioned, \m{\vec{p}=m\vec{v}} fails for very high speeds. Newton’s second law, \emph{as he originally stated it,} is correct for all speeds, even the speed of light. When we study interactions between fast particles in Volume II %Part \ref{part:Particles}
+You may be wondering what happened to the famous $\vec{F}=m\vec{a}$, which is usually called Newton’s second law. We did not introduce $\vec{F}=m\vec{a}$ for three reasons. First, that is not what Newton actually said. Second, $\vec{F}=m\vec{a}$ is not actually correct. To get from Newton’s second law to $\vec{F}=m\vec{a}$ you need to use the momentum formula, $\vec{p}=m\vec{v}$. As was just mentioned, $\vec{p}=m\vec{v}$ fails for very high speeds. Newton’s second law, \emph{as he originally stated it,} is correct for all speeds, even the speed of light. When we study interactions between fast particles in Volume II %Part \ref{part:Particles}
  we will still use Newton’s version of his second law. Third, in my experience students find momentum much easier to understand than acceleration. We will keep our focus on momentum rather than acceleration.
 
 \section{Newton’s momentum and the Cartesian’s quantity of motion}
@@ -1921,7 +1922,7 @@ You may be wondering what happened to the famous \m{\vec{F}=m\vec{a}}, which is 
 The Cartesians celebrated Newton’s achievements, but very few actually understood the \booktitle{Principia}. In fact, most thought Newton had confirmed Descartes’ quantity of motion when he had actually replaced it! This shocking confusion is somewhat more understandable because of the geometric methods used by Newton and the Cartesians. To prevent you from falling into the same confusion, I have been using the modern term \emph{momentum} for Newton’s quantity of motion, even though he called it the \textit{quantitas motus}, the same words used by Descartes. They also used the same words for velocity and speed. Newton thought of his definition of \textit{quantitas motus} as a formula for the magnitude of the momentum. %, which would then be given direction when it was drawn on paper to do the geometric computations.
 The magnitude of Newton’s \textit{quantitas motus} is, of course, exactly the same as Descarte’s quantity of motion. It is only when adding the momenta that Newton took direction into account, adding momenta in one direction, but subtracting momenta in the other (or by adding them as vectors using the paralelelogram method). It is easy to see why the Cartesians were confused. Do not become a twenty-first century Cartesian! Remember the difference between the vector and its magnitude.
 
-One notable contemporary of Newton did \emph{not} confuse momentum with the quantity of motion – Gottfried Leibniz. He used algebraic techniques like ours, and he recognized the importance of the sign indicating the direction of velocity and momentum. Still, he chose to focus his attention on the directionless quantity \m{mv^2}, which he called the \visviva.
+One notable contemporary of Newton did \emph{not} confuse momentum with the quantity of motion – Gottfried Leibniz. He used algebraic techniques like ours, and he recognized the importance of the sign indicating the direction of velocity and momentum. Still, he chose to focus his attention on the directionless quantity $mv^2$, which he called the \visviva.
 Recognizing Newton’s triumph, it would be easy for us to join the Cartesians in dismissing Leibniz. Before we do, it is worth understanding Leibniz’s purpose in proposing the conservation of \textit{vis viva}.
 
 
@@ -1939,7 +1940,7 @@ Recognizing Newton’s triumph, it would be easy for us to join the Cartesians i
 \stopcomponent
 
 
-%Scalar multiplication is a big deal in this section and we have vectors with different units. Multiply \m{\vec v} by the scalar \m{\Delta t} to get the displacement \m{\Delta \vec r}. There should be a good discussion of \emph{not} dividing by vectors. It is possible in some cases to solve for \m{\Delta t} given \m{\Delta \vec{r}} and \m{\vec{v}}, but often not. Show what happens in either case. Specifically, the equation is really three component equations, but if you solve for one unknown if may work in only one or two of the equations. This can also be used to show the dangers of just working with magnitudes.
+%Scalar multiplication is a big deal in this section and we have vectors with different units. Multiply $\vec v$ by the scalar $\Delta t$ to get the displacement $\Delta \vec r$. There should be a good discussion of \emph{not} dividing by vectors. It is possible in some cases to solve for $\Delta t$ given $\Delta \vec{r}$ and $\vec{v}$, but often not. Show what happens in either case. Specifically, the equation is really three component equations, but if you solve for one unknown if may work in only one or two of the equations. This can also be used to show the dangers of just working with magnitudes.
 
 
 %%Rather than following Galileo’s brilliant and lengthy refutation, we will confront Aristotle’s argument using conservation of momentum and the mathematical language of vectors.%, which will greatly reduce our effort.
@@ -1947,16 +1948,16 @@ Recognizing Newton’s triumph, it would be easy for us to join the Cartesians i
 %%\startformula
 %%	\vec{p}\sf = \vec{p}\si + \vec{F}\Delta t
 %%\stopformula
-%%The force in this case is the force of gravity, which is directed downward and has magnitude \m{mg}.
+%%The force in this case is the force of gravity, which is directed downward and has magnitude $mg$.
 %%\startformula
 %%	\vec{F} = \coordinates{0,-mg,0}
 %%\stopformula
 %
-%The constant force of gravity changes the rock’s momentum. However, we have learned that the \m{y}-component of the force will only affect the \m{y}-component of the momentum. Since the force has no \m{x}-component, the momentum’s \m{x}-component is unchanged by the force.
+%The constant force of gravity changes the rock’s momentum. However, we have learned that the $y$-component of the force will only affect the $y$-component of the momentum. Since the force has no $x$-component, the momentum’s $x$-component is unchanged by the force.
 %
-%If Earth’s surface were stationary, as Aristotle believed, the a rock at held at the top of the tower would have no horizontal momentum, \m{p\sub{i}x}=0}. When released, it continues to have no horizontal momentum, falling directly downward and landing at the base of the tower. Since this is what does happen, we seem to have strong evidence for Aristotle’s view.
+%If Earth’s surface were stationary, as Aristotle believed, the a rock at held at the top of the tower would have no horizontal momentum, $p\sub{i}x$=0}. When released, it continues to have no horizontal momentum, falling directly downward and landing at the base of the tower. Since this is what does happen, we seem to have strong evidence for Aristotle’s view.
 %
-%However, if the tower is moving, due to Earth’s rotation, then the rock held at the top of the tower would have significant horizontal momentum in order to move along with the tower, \m{p\sub{i}x}=mv\sub{tower}}. When released that stone would keep this horizontal momentum, falling toward the ground but simultaneously moving horizontally along with the tower. As rock falls, the tower moves \m{1.5\units{km}} to the east, and the rock also travels exactly the same distance, striking the ground right at the base of the tower, exactly as we expect.
+%However, if the tower is moving, due to Earth’s rotation, then the rock held at the top of the tower would have significant horizontal momentum in order to move along with the tower, $p\sub{i}x$=mv\sub{tower}}. When released that stone would keep this horizontal momentum, falling toward the ground but simultaneously moving horizontally along with the tower. As rock falls, the tower moves $1.5\units{km}$ to the east, and the rock also travels exactly the same distance, striking the ground right at the base of the tower, exactly as we expect.
 
 %In modern language we refer to them as different components of the momentum.
 
@@ -1967,12 +1968,12 @@ Recognizing Newton’s triumph, it would be easy for us to join the Cartesians i
 %\startformula
 %	av + by = ax + bz.
 %\stopformula
-%I call \emph{progress} here the quantity of motion which proceeds from the side of the centre of gravity, so that if the body \m{b}, for example, should proceed in the contrary direction before the impact, and thus its conspiring velocity \m{y} be negative or be expressed by \m{-\abs{y}}, %understanding by \m{\abs{y}...} mass (molem), or that which is positive in \m{y},
-%then the progress of \m{a} will be \m{av}, the progress of \m{b} will be \m{-b\abs{y}}. And the total progress will be \m{av - b\abs{y}}, which is the difference of the quantities of motion of the two bodies. If the bodies \m{a} and \m{b} proceed from one and the same side before and after the impact, these letters, \m{v}, \m{y}, \m{x}, \m{z}, signify only conspiring velocities real or affirmative, and consequently in this case it appears by this equation that the same quantity of motion will be conserved after and before the impact. But if the bodies \m{a} and \m{b} should proceed in a contrary direction before the impact and in the same direction after the impact, the difference of the quantity of motion before the impact would be equal to the sum of the quantity of motion after the impact. And there will be other similar variations according to the variation of the signs of the letters \m{y}, \m{x}, \m{z}.
+%I call \emph{progress} here the quantity of motion which proceeds from the side of the centre of gravity, so that if the body $b$, for example, should proceed in the contrary direction before the impact, and thus its conspiring velocity $y$ be negative or be expressed by $-\abs{y}$, %understanding by $\abs{y}...$ mass (molem), or that which is positive in $y$,
+%then the progress of $a$ will be $av$, the progress of $b$ will be $-b\abs{y}$. And the total progress will be $av - b\abs{y}$, which is the difference of the quantities of motion of the two bodies. If the bodies $a$ and $b$ proceed from one and the same side before and after the impact, these letters, $v$, $y$, $x$, $z$, signify only conspiring velocities real or affirmative, and consequently in this case it appears by this equation that the same quantity of motion will be conserved after and before the impact. But if the bodies $a$ and $b$ should proceed in a contrary direction before the impact and in the same direction after the impact, the difference of the quantity of motion before the impact would be equal to the sum of the quantity of motion after the impact. And there will be other similar variations according to the variation of the signs of the letters $y$, $x$, $z$.
 %\stopblockquote
 
 
-%\section{What about \m{F=ma}?}\label{sec:Fma}
+%\section{What about $F=ma$?}\label{sec:Fma}
 %The formula for impulse uses the duration of the force’s action and the second involving the displacement.
 %\startformula\startmathalignment
 %\NC	p\sf \NC = p\si + F\Delta t	\NR
@@ -1998,14 +1999,14 @@ Recognizing Newton’s triumph, it would be easy for us to join the Cartesians i
 %Show that displacement vectors are true vectors by giving the rules for vectors and checking some of them off.\footnote{\booktitle{Linear and Geometric Algebra}, by Alan Macdonald is a great reference for this section.\autocite{Macdonald2010}}
 %
 %\begin{enumerate}
-%	\item \m{a\vec v \in V}, \m{\vec u + \vec{u} \in V}
-%	\item \m{\vec{u} + \vec{v} = \vec{v} + \vec{u}}
-%	\item \m{(\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})}
-%	\item \m{\vec{v} + \vec{0} = \vec{v}}
-%	\item \m{0\vec{v} = \vec{0}}
-%	\item \m{1\vec{v} = \vec{v}}
-%	\item \m{a(\vec{u} + \vec{v}) = a\vec{u} + a\vec{v}}
-%	\item \m{(a+b)\vec{v} = a\vec{v} + b\vec{v}}
+%	\item $a\vec v \in V$, $\vec u + \vec{u} \in V$
+%	\item $\vec{u} + \vec{v} = \vec{v} + \vec{u}$
+%	\item $(\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})$
+%	\item $\vec{v} + \vec{0} = \vec{v}$
+%	\item $0\vec{v} = \vec{0}$
+%	\item $1\vec{v} = \vec{v}$
+%	\item $a(\vec{u} + \vec{v}) = a\vec{u} + a\vec{v}$
+%	\item $(a+b)\vec{v} = a\vec{v} + b\vec{v}$
 %\end{enumerate}
 %
 
