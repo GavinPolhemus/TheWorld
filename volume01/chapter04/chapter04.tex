@@ -739,7 +739,7 @@ While ’s Gravesande’s evidence won a few converts, many scientists remained 
 %\end{marginfigure}
 
 \section{Work}
-Engineers in the eighteenth century were not reading academic papers about \visviva, they were building increasingly powerful and complex machines – water wheels, windmills, pumps – to perform important, difficult tasks like grinding grain and lifting water out of mines. Engineers sought to quantify each machines' usefulness in order to answer economic questions: If a small team of horses could run a mill grinding grain, could a windmill  or a water wheel achieve the same result at a lower cost? If a water wheel in town could grind a certain amount of grain, how much water could be pumped out of a mine in the hills using a similar water wheel there? These questions are answered by determining the \keyterm{work} done by the machine.
+Engineers in the eighteenth century were not reading academic papers about \visviva, they were building increasingly powerful and complex machines – water wheels, windmills, pumps – to perform important, difficult tasks like grinding grain and lifting water out of mines. Engineers sought to quantify each machine's usefulness in order to answer economic questions: If a small team of horses could run a mill grinding grain, could a windmill  or a water wheel achieve the same result at a lower cost? If a water wheel in town could grind a certain amount of grain, how much water could be pumped out of a mine in the hills using a similar water wheel there? These questions are answered by determining the \keyterm{work} done by the machine.
 
 I am sure you have done quite a bit of physical work and have some sense of what physical work is. 
 Lifting a heavy box or pushing a heavy cart requires work. In all cases work requires a force $F$ exerted over a displacement $\Delta x$. The resulting amount of work $W$ is simply the product of the force and the displacement.
@@ -751,10 +751,6 @@ Lifting a heavy box or pushing a heavy cart requires work. In all cases work req
 %Sliding two refrigerators one meter requires twice as much work as sliding a single refrigerator one meter. If you slide the refrigerators one at a time, the work is twice as much because you do the work of sliding one refrigerator twice. If you push them one meter at the \emph{same} time, then you must push with twice as much force. Pushing with this double force accomplishes double the work in only one meter. Therefore, the work is proportional to the force. We conclude, $W = F\Delta x$. This argument was made many times by engineers and scientists during the \visviva\ debate, although I am not sure who argued it first.
 %During the \visviva\ debate, this was called effort, or the effect of the \visviva. We will use the current term: work.
 
-What if you decide to push the refrigerator in the negative direction? To make the refrigerator move in the negative direction you will have to apply a negative force. This will cause a negative displacement. Since the force and the displacement are both negative, the work will be positive. No matter which way you push the refrigerator, you will need to do positive work!
-
-While you are pushing the refrigerator in the positive direction, friction with the floor is opposing the motion by pushing in the negative direction. While the force exerted by the friction is negative, the displacement is still positive, so the work done by friction is negative. The refrigerator gets some kinetic energy due to the positive work that you do pushing it, but that kinetic energy is quickly lost due to the negative work done by friction.
-
 Since work is force times displacement, the \scaps{si} units for work are $\unit{N\.m}$. These units are so common that they have been given their own name – \keyterm{joules}. The symbol for a joule is J (not to be confused with the symbol for impulse, $J$ ). % and it is related to the other standard SI units by the definition
 \startformula
 	1\units{J}=1\units{N\.m}
@@ -762,34 +758,34 @@ Since work is force times displacement, the \scaps{si} units for work are $\unit
 The following example shows how work is calculated, including the unit conversion to joules.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startexample[ex:BlockW]
-	The block slides $16.0\units{cm}$ along the track against a friction force of $-0.30\units{N}$ (The force is negative, opposing the block’s positive motion). What is the work done by the block?
-\startbuffer[TikZ:BlockW]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage\small
-\starttikzpicture% tikz code
-	\fill [black!10] (0,0) rectangle (4.9,-.15);
-	\startaxis[
-		margin cart track,
-		ymax=10,
-	]
-		\pic at (10,0) {block}[opacity=.4];
-		\pic at (26,0) {block};
-   		\draw[-{Straight Barb}, thick] (10,2.5) --node[pos=.5,above=2.5mm]{$\Delta x=16.0\units{cm}$}(26,2.5);
-    \stopaxis
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
-
-\placefigure[margin][fig:BlockW] % location
-{A block slides on a track, slowing to a stop in example~\in[ex:BlockW].}	% caption text
-{\noindent\typesetbuffer[TikZ:BlockW]} % figure contents
+\startexample[ex:HorseW]
+James Watt sold powerful engines across England in the late eighteenth century. For his marketing materials, he wanted to compare the work done by his engines to the work done by a horse. In a 1782 experiment, he found that in one hour a horse pulling with $800\units{N}$ of force could travel $3.3\units{km}$. How much work did the horse do in an hour?
+%\startbuffer[TikZ:BlockW]
+%\environment env_physics
+%\environment env_TikZ
+%\setupbodyfont [libertinus,11pt]
+%\setoldstyle % Old style numerals in text
+%\startTEXpage\small
+%\starttikzpicture% tikz code
+%	\fill [black!10] (0,0) rectangle (4.9,-.15);
+%	\startaxis[
+%		margin cart track,
+%		ymax=10,
+%	]
+%		\pic at (10,0) {block}[opacity=.4];
+%		\pic at (26,0) {block};
+%   		\draw[-{Straight Barb}, thick] (10,2.5) --node[pos=.5,above=2.5mm]{$\Delta x=16.0\units{cm}$}(26,2.5);
+%    \stopaxis
+%\stoptikzpicture
+%\stopTEXpage
+%\stopbuffer
+%
+%\placefigure[margin][fig:BlockW] % location
+%{A block slides on a track, slowing to a stop in example~\in[ex:BlockW].}	% caption text
+%{\noindent\typesetbuffer[TikZ:BlockW]} % figure contents
 
 \startsolution
-The work done by the block is found using the work formula, but take care to use the correct force between the block and the track. The work done by the block is calculated using the force \emph{of} the block, but we are given the force \emph{on} the block. Newton’s third law tells us that the force of the block on the track is equal and opposite to the force of the track on the block. Therefore, we will calculate the work using $F=0.30\units{N}$ for the force of the block on the track.
+The work done by the horse is found using the work formula.
 %	\startformula\startmathalignment
 %		\NC W	\NC = F\Delta x \NR
 %		\NC		\NC = (0.30\units{N})(16.0\units{cm})	\NR
@@ -799,20 +795,72 @@ The work done by the block is found using the work formula, but take care to use
 %	\stopmathalignment \stopformula
 \startformula
 	W  = F\Delta x
-		= (0.30\units{N})(0.16\units{m})
-		= 0.048\units{N\.m}
-		= \answer{0.048\units{J}}
+		= (800\units{N})(3300\units{m})
+		= 2\,640\,000\units{N\.m}
+		= \answer{2.64\sci{6}\units{J}}
 \stopformula
-	The work done by the sliding block is $0.048\units{J}$ or $4.8\sci{-2}\units{J}$.
+	In one hour, the horse did $2.64\sci{6}\units{J}$ of work.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-’s Gravesande’s experiment provides a good example of positive and negative work being done in the $y$-direction. A dropped ball is pulled downward by the gravitational force. The downward force is negative, and the downward displacement is also negative, so work done by the gravitational force is positive, increasing the ball’s kinetic energy.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\startexample[ex:BlockW]
+%	The block slides $16.0\units{cm}$ along the track against a friction force of $-0.30\units{N}$ (The force is negative, opposing the block’s positive motion). What is the work done by the block?
+%\startbuffer[TikZ:BlockW]
+%\environment env_physics
+%\environment env_TikZ
+%\setupbodyfont [libertinus,11pt]
+%\setoldstyle % Old style numerals in text
+%\startTEXpage\small
+%\starttikzpicture% tikz code
+%	\fill [black!10] (0,0) rectangle (4.9,-.15);
+%	\startaxis[
+%		margin cart track,
+%		ymax=10,
+%	]
+%		\pic at (10,0) {block}[opacity=.4];
+%		\pic at (26,0) {block};
+%   		\draw[-{Straight Barb}, thick] (10,2.5) --node[pos=.5,above=2.5mm]{$\Delta x=16.0\units{cm}$}(26,2.5);
+%    \stopaxis
+%\stoptikzpicture
+%\stopTEXpage
+%\stopbuffer
+%
+%\placefigure[margin][fig:BlockW] % location
+%{A block slides on a track, slowing to a stop in example~\in[ex:BlockW].}	% caption text
+%{\noindent\typesetbuffer[TikZ:BlockW]} % figure contents
+%
+%\startsolution
+%The work done by the block is found using the work formula, but take care to use the correct force between the block and the track. The work done by the block is calculated using the force \emph{of} the block, but we are given the force \emph{on} the block. Newton’s third law tells us that the force of the block on the track is equal and opposite to the force of the track on the block. Therefore, we will calculate the work using $F=0.30\units{N}$ for the force of the block on the track.
+%%	\startformula\startmathalignment
+%%		\NC W	\NC = F\Delta x \NR
+%%		\NC		\NC = (0.30\units{N})(16.0\units{cm})	\NR
+%%%		\NC		\NC = (0.30\units{N})(0.16\units{m})	\NR
+%%		\NC		\NC = 0.048\units{N\.m}			\NR
+%%		\NC		\NC = \answer{0.048\units{J}}
+%%	\stopmathalignment \stopformula
+%\startformula
+%	W  = F\Delta x
+%		= (0.30\units{N})(0.16\units{m})
+%		= 0.048\units{N\.m}
+%		= \answer{0.048\units{J}}
+%\stopformula
+%	The work done by the sliding block is $0.048\units{J}$ or $4.8\sci{-2}\units{J}$.
+%\stopsolution
+%\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-When the ball hits the clay, the clay exerts an upward force much greater than the gravitational force. The ball continues down a bit, making a dent in the clay, so there is a small negative displacement even as the clay is exerting a large positive force. The work done on the ball as it stops is the product of the positive force and the negative displacement. This negative work on the ball eliminates it's kinetic energy, brining it to a stop.
+In the example above we used positive values for both the force $F$ and the displacement $\Delta x$. These are correct if the horse pulls in the positive direction. If the horse instead pulls in the negative direction, then the force $F$ would be negative. The horse's displacement $\Delta x$ would also be negative. The work done by the horse would be
+\startformula
+	W  = F\Delta x
+		= (-800\units{N})(-3300\units{m})
+		= \answer{2.64\sci{6}\units{J}},
+\stopformula
+exactly the same positive work done by the horse in the example. No matter which way the horse pulls, he does positive work! 
 
-%The size of the dent in the clay was proportional to the work done by the ball during the impact. Dents are harder to measure than displacements, but the idea is the same. His data showed that the work done was proportional to the \visviva, not the momentum.
+It is possible to do negative work. When the force and the displacement are in opposite directions – one is positive and the other is negative – the work formula correctly gives a negative amount of work, as we will soon see.
+
 
 \section{Conservation of energy}
 
@@ -820,84 +868,158 @@ Engineers’ work and physicists’ \visviva\ were first linked by Daniel Bernou
 
 The symbol for total energy is $H$. %, honoring William Rowan Hamilton, who we will meet in \in{Chapter}[ch:1Ddynamics].
 The conservation law for total energy $H$ looks very similar to the conservation law for momentum.
-%\highlightbox{
 \startformula[eq:1DEconserve]
 	H\si + W + Q = H\sf %\sub{net} + Q\sub{net}
 \stopformula
-%}%\end{shaded}
 Energy can be added or removed from a system through work $W$ done by outside forces.
-A person pushing a cart does positive work, increasing the cart’s kinetic energy. Friction resists the cart’s motion, doing negative work and decreasing the cart’s kinetic energy.
+A person pushing a heavy cart does work, increasing the cart’s kinetic energy.
 
-Energy can also be added as heat $Q$ by cooking the cart over a fire, which increases the random, microscopic energy of the cart’s atoms and molecules. D. Bernoulli had some deep insights into how $Q$ related to the motion of the microscopic parts, but he did not manage to calculate $Q$. That part of the project became one of the greatest challenges for physicists during the nineteenth century. We will return to it in Volume II. Until then we will faithfully include $Q$ when writing the conservation of energy equation, but immediately cross it out because the heat transfer $Q$ is zero in mechanics problems. In mechanics, any change in a system’s total energy is due to an outside force doing work on the system.
+Energy can also be added as heat $Q$ by cooking the cart over a fire, which increases the random, microscopic energy of the cart’s atoms and molecules. D. Bernoulli had some deep insights into how $Q$ related to the motion of the microscopic parts, but he could not calculate $Q$. The correct measurement of heat became one of the greatest challenges for physicists during the nineteenth century. We will return to this topic in Volume II. Until then, we will faithfully include $Q$ when writing the conservation of energy equation, but immediately cross it out because the heat transfer $Q$ is zero in mechanics problems. In mechanics, any change in a system’s total energy is due to outside forces doing work on the system.
 
 %Leibniz’s did not know that the balls’ temperature is a measure of the microscopic random motion – higher temperature indicating greater microscopic \visviva. The loss of the balls’ \visviva\ to the microscopic parts causes an increase in temperature, but the increase is extremely small, far too small for seventeenth century experimenters to measure. The idea that the temperature is connected to microscopic \visviva\ appeared several times in the decades that followed, but was not widely accepted until the middle of the nineteenth century. We will return to this idea in Volume II.
 
+With any conservation law we must take care to define the system. With momentum conservation, we could chose which objects to include in the system. For example, in pendulum collisions we typically included both balls in our system, adding their momenta to find the system's total momentum. With conservation of energy we chose both the objects and the types of energy we wish to include in the system. In the pendulum examples we included the balls' kinetic energy, but not the energy of microscopic random motion. As we study more types of energy, we will carefully chose which types to include in the system. For the remainder of this chapter, only kinetic energy $K$ will be included in the system's total energy $H$.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startexample[ex:BlockSlide]
-The cart and block, together weighing $550\units{g}$, slide in the positive direction against a force of friction equal to $-0.40\units{N}$. Initially, they have a velocity of $2.5\units{m/s}$. How far will they slide before coming to rest?
-\startbuffer[TikZ:BlockSlide]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage\small
-\starttikzpicture% tikz code
-	\fill [black!10] (0,0) rectangle (4.9,-.15);
-	\startaxis[
-		margin cart track,
-		ymax=10,
-		legend style={draw=none, at={(1,1)}, anchor=south east},%yshift = 1ex},
-	]
-	%\pic at (40,0) {cart};
-	\pic at (10,0) {cart};
-	\pic at (19,0) {block};
-	\draw[->, thick] (10,2.5) --node[above=2.5mm]{$v=2.5\units{m/s}$} (35,2.5);
-    %\draw[->, thick] (16,7.5) -- (20,7.5);% node[above=2.5mm]{$p=mv$}
-		% Legend
-   		\addlegendimage{
-	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
- 		};
-		\addlegendentry{$=50\units{cm/s}$}
-    \stopaxis
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
-
-\placefigure[margin][fig:BlockSlide] % location
-{A cart pushes a block on a track, slowing to a stop in example~\in[ex:BlockSlide].}	% caption text
-{\noindent\typesetbuffer[TikZ:BlockSlide]} % figure contents
+\startexample[ex:CartWork1]
+You need to push a $75\units{kg}$ cart full of books down a straight, level hallway. The cart's large wheels roll easily on the smooth, hard floor, so almost no force is required to push the cart once it is moving. Considerable force is required to get the cart moving due to the large mass of books. You apply $27\units{N}$ of force to get the cart moving, and continue to apply $27\units{N}$ for the first $2.0\units{m}$ of movement. What is the moving cart's new kinetic energy and speed?
 \startsolution
-	The conservation of energy equation is always a safe way to start.
-	\startformula[eq:1DEconserve]
-		H\si + W + \cancel{Q} = H\sf
-	\stopformula
-	The only contribution to the initial total energy $H\si$ is the cart and block’s kinetic energy $K\si = \half mv^2$, where $m$ is the total mass of the cart and block.
+The conservation of energy equation is always a safe way to start. We will use conservation of energy to find the change in the cart's kinetic energy during the first $2\units{m}$, when you are doing work by pushing the cart.
 \startformula
-	H\si	= K\si
-		= \half mv^2
-		= \half (550\units{g})(2.5\units{m/s})^2
-		= 1.72\units{kg\.m^2/s^2}
+	H\si + W + \cancel{Q} = H\sf
 \stopformula
-The units are quite a mess, but they clean up nicely using the fact that $1\units{N} = 1\units{kg\.m/s^2}$. Putting this in with care gives.
-\startformula
-	K\si = 1.72\units{N\.m}
-		= 1.72\units{J}
-\stopformula
-The units of kinetic energy are joules, just like work!
-
-The work $W$ done on the cart and block by the force of friction is $F\Delta x$, where $F$ is the force on the block, not the force exerted by the block on the track. The force on the block is negative, so the work done on the block will be negative, decreasing the total energy. In fact, it decreases the total energy to zero ($H\sf=0$) because the cart and block stop.
-
-Put these into the conservation of energy equation and solve for the displacement.
+The total energy $H$ is the cart's kinetic energy $K$. Since the cart is not moving initially, the initial kinetic energy is zero, and $H\si = K\si = 0\units{J}$.
 \startformula\startmathalignment
-	\NC	K\si + F\Delta x	 \NC = 0\NR
-	%\NC	F\Delta x \NC = K\si	\NR
-	\NC	\Delta x \NC = \frac{K\si}{F}
-			= \frac{1.72\units{J}}{-0.30\units{N}}
-			= \frac{1.72\units{\ucan{N}\.m}}{-0.30\,\ucan{N}}
-			= 5.7\units{m}
+	\NC	\cancel{H\si} + W	 \NC = K\sf	\NR
+	\NC	 F\Delta x			 \NC = K\sf	\NR
 \stopmathalignment \stopformula
-This cart and block start quickly with a small force resisting their motion, so they are able to slide a considerable distance, $5.7\units{m}$, before coming to a stop.
+The cart's final kinetic energy is equal to the work you do pushing the cart for the first $2\units{m}$.
+\startformula
+	K\sf	= F\Delta x
+		= (27\units{N})(2.0\units{m})
+		= 54\units{J}
+\stopformula
+The cart's speed can be found from the kinetic energy formula.
+\startformula\startmathalignment
+	\NC K		\NC = \half mv^2	\NR
+	\NC v		\NC = \sqrt{\frac{2K}{m}}
+		 = \sqrt{\frac{2(54\units{J})}{75\units{kg}}}
+		 = \sqrt{\frac{2(54\units{N\.m})}{75\units{kg}}}	\NR
+\stopmathalignment\stopformula
+The units are tricky. I made the substitution $1\units{J} = 1\units{N\.m}$ above, but I also need to substitute $1\units{N} = 1\units{kg\.m/s^2}$. (See p.~\at[eq:NetwonUnit].) Then the units simplify correctly.
+\startformula
+	v = \sqrt{\frac{2(54\units{kg\.m^2/s^2})}{75\units{kg}}}
+		= \sqrt{1.44\units{m^2/s^2}}
+		= 1.2\units{m/s}
+\stopformula
+Your work gives the cart a speed of $1.2\units{m/s}$.
 \stopsolution\stopexample
+
+The example above required a new unit conversion for the cart's kinetic energy.
+\startformula
+	K\sf = 54\units{J} = 54\units{N\.m} = 54\units{(kg\.m/s^2)\.m} = 54\units{kg\.m^2/s^2}
+\stopformula
+Here we see the useful energy unit conversions:
+\startformula
+	1\units{J} = 1\units{N\.m} = 1\units{kg\.m^2/s^2}
+\stopformula
+%Joules are the usual {\sc si} units for energy, while $\units{N\.m}$ are the units one expects from the work formula $W=F\Delta x$ and $\units{kg\.m^2/s^2}$ are the units one expects from the kinetic energy formula $K=\onehalf mv^2$.
+
+This is an appropriate place for me to make a frank confession: I have a terrible memory. I cannot remember these energy unit conversions. However, I do remember the work formula and the kinetic energy formula. They are short, and I have used each about one million times. Whenever I need energy unit conversions, I just remember the formulas $W=F\Delta x$ and $K=\onehalf mv^2$. The left sides have the energy unit $\units{J}$ while the right sides have the units $\units{N\.m}$ and $\units{kg\.m^2/s^2}$, respectively. When I am working with non-{\sc si} units, as I often do, these tricks give me the conversions in whatever crazy units I am using. Tricks like this made physics attractive to me at an early age! (A professor at The University of Chicago, where I earned my Ph.D., observed that I  passed the physics department's grueling candidacy exam without actually knowing much of anything. I took this as a vindication of my figure-it-out survival strategy.) 
+
+%Energy will come in many different forms, with many different formulas, but the units can always be converted to joules.
+
+The rolling cart of the previous example, which you have given $54\units{J}$ of kinetic energy, will continue to roll at $1.2\units{m/s}$ until it is acted on by another force. Let us say that your destination is $8\units{m}$ from where you originally started pushing the cart. You will need to start slowing the cart some distance before reaching the destination. You will do this by pulling backward on the cart, opposing its forward motion. As the cart slows your force and the displacement will be in opposite directions. You will do negative work on the cart, reducing its kinetic energy to zero, as described in the next example.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:CartWork2]
+The $75\units{kg}$ cart from \in{example}[ex:CartWork1] is coasting along the hallway with a $54\units{J}$ of energy. As you approach your destination, you begin pulling backward on the cart to slow it. You pull with a backward force of $18\units{N}$. How far does the cart roll before coming to a stop?
+
+\startsolution
+We again use conservation of energy, this time as you slow the cart to a stop ($H\sf = K\sf = 0\units{J}$).
+\startformula\startmathalignment
+	\NC H\si + W + \cancel{Q}	\NC = \cancel{H\sf}	\NR
+	\NC	K\si + F\Delta x	 		\NC = 0	\NR
+	\NC	 F\Delta x 				\NC = -K\si	\NR
+\stopmathalignment \stopformula
+The cart's initial kinetic energy is positive, so the work must be negative. The force and the displacement must be in opposite directions. We will call the direction of motion positive. The force, which is opposing the motion, will be negative, $F = -18\units{N}$. Solving for $\Delta x$,
+\startformula
+	\Delta x = \frac{-K\si}{F}
+		= \frac{-54\units{J}}{-18\units{N}}
+		= \frac{-54\units{N\.m}}{-18\units{N}}
+		= 3.0\units{m}
+\stopformula
+The cart rolls $3\units{m}$ before coming to a complete stop.
+\stopsolution\stopexample
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\startexample[ex:BlockSlide]
+%The cart and block, together weighing $550\units{g}$, slide in the positive direction against a force of friction equal to $-0.40\units{N}$. Initially, they have a velocity of $2.5\units{m/s}$. How far will they slide before coming to rest?
+%\startbuffer[TikZ:BlockSlide]
+%\environment env_physics
+%\environment env_TikZ
+%\setupbodyfont [libertinus,11pt]
+%\setoldstyle % Old style numerals in text
+%\startTEXpage\small
+%\starttikzpicture% tikz code
+%	\fill [black!10] (0,0) rectangle (4.9,-.15);
+%	\startaxis[
+%		margin cart track,
+%		ymax=10,
+%		legend style={draw=none, at={(1,1)}, anchor=south east},%yshift = 1ex},
+%	]
+%	%\pic at (40,0) {cart};
+%	\pic at (10,0) {cart};
+%	\pic at (19,0) {block};
+%	\draw[->, thick] (10,2.5) --node[above=2.5mm]{$v=2.5\units{m/s}$} (35,2.5);
+%    %\draw[->, thick] (16,7.5) -- (20,7.5);% node[above=2.5mm]{$p=mv$}
+%		% Legend
+%   		\addlegendimage{
+%	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
+% 		};
+%		\addlegendentry{$=50\units{cm/s}$}
+%    \stopaxis
+%\stoptikzpicture
+%\stopTEXpage
+%\stopbuffer
+%
+%\placefigure[margin][fig:BlockSlide] % location
+%{A cart pushes a block on a track, slowing to a stop in example~\in[ex:BlockSlide].}	% caption text
+%{\noindent\typesetbuffer[TikZ:BlockSlide]} % figure contents
+%\startsolution
+%	The conservation of energy equation is always a safe way to start.
+%	\startformula[eq:1DEconserve]
+%		H\si + W + \cancel{Q} = H\sf
+%	\stopformula
+%	The only contribution to the initial total energy $H\si$ is the cart and block’s kinetic energy $K\si = \half mv^2$, where $m$ is the total mass of the cart and block.
+%\startformula
+%	H\si	= K\si
+%		= \half mv^2
+%		= \half (550\units{g})(2.5\units{m/s})^2
+%		= 1.72\units{kg\.m^2/s^2}
+%\stopformula
+%The units are quite a mess, but they clean up nicely using the fact that $1\units{N} = 1\units{kg\.m/s^2}$. Putting this in with care gives.
+%\startformula
+%	K\si = 1.72\units{N\.m}
+%		= 1.72\units{J}
+%\stopformula
+%The units of kinetic energy are joules, just like work!
+%
+%The work $W$ done on the cart and block by the force of friction is $F\Delta x$, where $F$ is the force on the block, not the force exerted by the block on the track. The force on the block is negative, so the work done on the block will be negative, decreasing the total energy. In fact, it decreases the total energy to zero ($H\sf=0$) because the cart and block stop.
+%
+%Put these into the conservation of energy equation and solve for the displacement.
+%\startformula\startmathalignment
+%	\NC	K\si + F\Delta x	 \NC = 0\NR
+%	%\NC	F\Delta x \NC = K\si	\NR
+%	\NC	\Delta x \NC = \frac{K\si}{F}
+%			= \frac{1.72\units{J}}{-0.30\units{N}}
+%			= \frac{1.72\units{\ucan{N}\.m}}{-0.30\,\ucan{N}}
+%			= 5.7\units{m}
+%\stopmathalignment \stopformula
+%This cart and block start quickly with a small force resisting their motion, so they are able to slide a considerable distance, $5.7\units{m}$, before coming to a stop.
+%\stopsolution\stopexample
 
 %\startbuffer[TikZ:BlockSlideK] % This is replaced by the MetaPost version below.
 %\environment env_physics
@@ -930,14 +1052,15 @@ This cart and block start quickly with a small force resisting their motion, so 
 %{The block’s energy as a function of position for \in{example}[ex:BlockSlide].}
 %{\noindent\typesetbuffer[TikZ:BlockSlideK]} % figure contents
 
-\startuseMPgraphic{graph::mynewgraph} % I'd like to add minor ticks, 0.667mm long.
-vardef function =
+\startuseMPgraphic{graph::CartWork} % I'd like to add minor ticks, 0.667mm long.
 	path p;
-	for x = 0 step 1 until 10:
-		y := 1.72-(0.2)*x; augment.p(x,y); endfor;
-	p enddef;
-draw begingraph(3.67cm,2cm);
-	setrange(origin, 10,2);
+	p := (0,0) -- (2,54) -- (5,54) -- (8,0);
+	picture myarrow;
+	myarrow := image(
+		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
+	);
+draw begingraph(4cm,3.5cm);
+	setrange(origin, 8,70);
 	graph_template.itick := origin--(1mm,0) ;
 	for y=auto.y:
 		itick.lft(formatted("$@g$", y), y);
@@ -951,25 +1074,147 @@ draw begingraph(3.67cm,2cm);
 	endfor
 	glabel.lft(textext("Energy (J)") rotated 90,OUT) ;
 	glabel.bot(textext("$x$ (m)"), OUT);
-	gdraw(function) withpen pencircle scaled 0.8pt;
-	glabel.urt("$H=K$",4);
-	%glabel(fullcircle scaled 2cm, (0,0));
+	gdraw(p) withpen pencircle scaled 0.8pt;
+	glabel.top("$H=K$",1.6);
+	glabel.bot("$F=27\units{N}$",0.5) rotatedaround(point 0.5 of p, angle (1,2.7));
+	glabel.bot("$F=0\units{N}$",1.5);
+	glabel.bot("$F=-18\units{N}$",2.5) rotatedaround(point 2.5 of p, angle (1,-1.8));
+	glabel(myarrow, 0.5) rotatedaround(point 0.5 of p, angle (1,2.7));
+	glabel(myarrow, 1.5);
+	glabel(myarrow, 2.5) rotatedaround(point 2.5 of p, angle (1,-1.8));
 endgraph;
 \stopuseMPgraphic
 
-\startplacefigure[location=margin, reference=fig:BlockSlideK, title={The block’s energy as a function of position for \in{example}[ex:BlockSlide].}]
+\startplacefigure[location=margin, reference=fig:CartWork, title={The cart's energy as a function of position for \in{examples}[ex:CartWork1] and \in[ex:CartWork2]. The graph's slope is the force applied to the cart.}]
 \small
-\reuseMPgraphic{graph::mynewgraph}
+\reuseMPgraphic{graph::CartWork}
 \stopplacefigure
 
 \noindent
-The plot in \in{figure}[fig:BlockSlideK] shows the energy of the block as a function of position while the block is slowing to a stop. The block starts out with $1.72\units{J}$ of energy, and loses that energy as it slides to the right. Because the negative work done by friction is proportional to the distance, the energy decreases in proportion to the distance. The slope is equal to the force, $-0.20\units{N}$.
-
-In the example we saw that kinetic energy has the same \scaps{si} units as work. In fact, the \scaps{si} units for all types of energy, work, and heat are joules. The following conversions are useful.
+The plot in \in{figure}[fig:CartWork] shows the cart's energy as a function of position as you roll it down the hallway, a total distance of $8\units{m}$. During the first $2\units{m}$, your force steadily increases the cart's kinetic energy from $0\units{J}$ to $54\units{J}$. In fact, the force you exert is the slope of the energy graph.
 \startformula
-	1\units{J} = 1\units{N\.m} = 1\units{kg\.m^2/s^2}
+	F = \frac{\Delta H}{\Delta x}
+		= \frac{54\units{J}}{2\units{m}} 
+		= \frac{54\units{N\.m}}{2\units{m}} 
+		= 27\units{N} 
 \stopformula
-Energy will come in many different forms, with many different formulas, but the units can always be converted to joules.
+The cart then coasts for the next $3\units{m}$. During this part of the journey you exert no force and the cart's kinetic energy remains constant. Again, your force, $0\units{N}$, is the energy graph's slope. Finally, during the last $3\units{m}$, you steadily reduce the cart's kinetic energy by exerting a force that opposes the cart's motion. This negative force, $-18\units{N}$, is the energy graph's slope during the final $3\units{m}$.
+
+\startuseMPgraphic{graph::CartPosition} % I'd like to add minor ticks, 0.667mm long.
+	path p;
+	p := (0,0) ..controls (0,1.11) and (0.66,2.22).. (2,3.33)
+		-- (5,5.83) ..controls (7,7.5) and (8,9.17).. (8,10.83);
+	picture myarrow;
+	myarrow := image(
+		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
+	);
+draw begingraph(4cm,4cm);
+	setcoords(linear, -linear);
+	setrange(origin, 8,12);
+	graph_template.itick := origin--(1mm,0) ;
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	for x=auto.x:
+		itick.top(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$t$ (s)") rotated 90,OUT) ;
+	glabel.top(textext("$x$ (m)"), OUT);
+	gdraw(p) withpen pencircle scaled 0.8pt;
+endgraph;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:CartPosition, title={The cart's position as a function of time for \in{examples}[ex:CartWork1] and \in[ex:CartWork2]. The graph is rotated $90\degree$ clockwise so the position axis aligns with the position axis in \in{figure}[fig:CartWork]. As time increases (downward on the graph), the cart moves from $x=0\units{m}$ to $x=8\units{m}$, accelerating for the first few seconds, then coasting at a speed of $1.2\units{m/s}$, and finally decelerating over the last few seconds.}]
+\small
+\reuseMPgraphic{graph::CartPosition}
+\stopplacefigure
+
+Energy vs.\ position graphs, like the one in \in{figure}[fig:CartWork], are extremely useful, and they will become more useful as we learn about more types of energy. Energy graphs work well with the position vs.\ time graphs we have seen so frequently. \in{Figure}[fig:CartPosition] shows the position vs. time graph for your trip pushing the cart of books. I have rotated the graph $90°$ clockwise to align the position axis with the position axis of the energy graph in \in{figure}[fig:CartWork] above. 
+(You may want to rotate the page for a minute so you can recognize the time and position axes.) The position vs.\ time graph shows the cart accelerating during the first few seconds as you push the cart the first $2\units{m}$. Then the position graph's slope is a constant $1.2\units{m/s}$ as the cart coasts for $3\units{m}$. Finally, the cart's velocity decreases as you bring it to a stop.
+
+On position vs.\ time graphs the story is always told from left to right – or from top to bottom if the graph is rotated. The story goes from earlier time to later time. Time never goes backwards!
+
+On energy graphs the story can go either direction. In \in{examples}[ex:CartWork1] and \in[ex:CartWork2], you pushed the cart from $x=0\units{m}$ to $x=8\units{m}$, left to right. You could just as easily push the cart from $x=8\units{m}$ to $x=0\units{m}$, right to left. \in{Figure}[fig:CartGraphs] shows the graphs for such a return trip, this time with a much lighter empty cart ($9\units{kg}$). Follow the story on the graphs.
+
+At $t=0\units{s}$ you are at $x=8\units{m}$. You push the empty cart in the negative direction with a gentle force $F=-9N$. You push for $2\units{m}$ in the negative direction, a displacement of $\Delta x = -2\units{m}$. The energy graph's slope is negative here. Since the displacement is also negative, you do positive work on the cart, and the cart's kinetic energy increases to $K = 18\units{J}$. 
+
+The cart then coasts in the negative direction with kinetic energy $K = 18\units{J}$. This kinetic energy is positive even though the cart is moving in the negative direction. Kinetic energy is \emph{always} positive!
+The empty cart's kinetic energy is much less than the full cart's $54\units{J}$ of energy in your earlier trip. However, the empty cart's speed is $2\units{m/s}$, greater than the heavy cart's, because the empty cart's mass is so much smaller. The empty cart's velocity is $-2\units{m/s}$ because it is moving in the negative direction. This is visible as a slope of $-2\units{m/s}$ on the position vs.\ time graph. (Rotate if you need to, so you can see the negative slope.)
+
+Finally, you stop the cart with a force $F=18\units{N}$ in the positive direction. This force is the same magnitude as the force you used to stop the full cart. Since the empty cart is much lighter, you are able to stop it is a much shorter distance, brining it to a stop at $x=0\units{m}$. The return trip with the empty cart takes less energy and less time than the first trip with the full, heavy cart.
+
+\startuseMPgraphic{graph::CartGraphs} % I'd like to add minor ticks, 0.667mm long.
+	path H;
+	H := (8,0) -- (6,18) -- (1,18) -- (0,0);
+	picture myarrow;
+	myarrow := image(
+		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
+	);
+draw begingraph(4cm,1.5cm);
+	setrange(origin, 8,30);
+	graph_template.itick := origin--(1mm,0) ;
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy (J)") rotated 90,OUT) ;
+	glabel.bot(textext("$x$ (m)"), OUT) shifted (0,-1mm);
+	gdraw(H) withpen pencircle scaled 0.8pt;
+	glabel.top("$H=K$",1.4);
+	glabel.bot("$-9\units{N}$",0.6) rotatedaround(point 0.6 of H, angle (1,-0.9));
+	glabel.bot("$F=0\units{N}$",1.5);
+	glabel.bot("$18\units{N}$",2.4) rotatedaround(point 2.4 of H, angle (1,1.8));
+	glabel(myarrow, 0.5) rotatedaround(point 0.5 of H, angle (-1,0.9));
+	glabel(myarrow, 1.5) rotatedaround(point 1.5 of H, 180);
+	glabel(myarrow, 2.5) rotatedaround(point 2.5 of H, angle (-1,-1.8));
+endgraph;
+	path p;
+	p := (8,0) ..controls (8,0.66) and (7.33,1.33).. (6,2)
+		-- (1,4.5) ..controls (0.33,4.83) and (0,5.17).. (0,5.5);
+	picture myarrow;
+	myarrow := image(
+		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
+	);
+draw begingraph(4cm,2cm);
+	setcoords(linear, -linear);
+	setrange(origin, 8,6);
+	graph_template.itick := origin--(1mm,0) ;
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	for x=auto.x:
+		%itick.top(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$t$ (s)") rotated 90,OUT) ;
+	%glabel.top(textext("$x$ (m)"), OUT);
+	gdraw(p) withpen pencircle scaled 0.8pt;
+endgraph shifted (0cm, -2.4cm);
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:CartGraphs, title={The cart's energy as a function of position and position as a function of time as the empty cart is returned to $x=0$. These graphs are drawn to the same scale as \in{figures}[fig:CartWork] and \in[fig:CartPosition].}]
+\small
+\reuseMPgraphic{graph::CartGraphs}
+\stopplacefigure
+
+’s Gravesande’s experiment provides another good example of positive and negative work, this time in the $y$-direction. A dropped ball is pulled downward by the gravitational force. The downward force is negative, and the downward displacement is also negative, so work done by the gravitational force is positive, increasing the ball’s kinetic energy.
+
+When the ball hits the clay, the clay exerts an upward force much greater than the gravitational force. The ball continues down a bit, making a dent in the clay, so there is a small negative displacement even as the clay is exerting a large positive force. The work done on the ball as it stops is the product of the positive force and the negative displacement. This negative work eliminates the ball's kinetic energy, brining it to a stop.
+
+The size of the dent in the clay was proportional to the work done by the ball during the impact. Dents are harder to measure than displacements, but the idea is the same. His data showed that the work done was proportional to the ball's \visviva, not the ball's momentum.
 
 \section{Kinetic energy and work in three dimensions}
 
@@ -1021,6 +1266,9 @@ We don’t need your friend’s force to find the work you do. Your force is eno
 You do $95\units{J}$ of work on the refrigerator. There is no way to know from this information if your friend is working at all.
 \stopsolution
 \stopexample
+
+Daniel Bernoulli linked engineers' work to physicists' \visviva\ through conservation of energy, and he demonstrated that this profound link could solve important and difficult problems in both physics and engineering. These ideas and others in his revolutionary \booktitle{Hydrodynamica} were accepted slowly by the physics community, and were not fully embraced until many year's after \booktitle{Hydrodynamica's} publication in 1738. Perhaps Bernoulli's ideas were too far ahead of his time, or perhaps the humble Bernoulli lacked the necessary gifts of self promotion.
+One idea, the conservation of \visviva, did gain rapid acceptance – but not primarily due to a Bernoulli's work.
 
 \section{Vis viva revived}
 Leibnitz’s \visviva\ was given new life by a bold genius, Emilie Du Châtelet. %, who investigated both sides of the debate in great depth.
@@ -1200,7 +1448,7 @@ You would be wise to wonder if Newton’s example or Du Châtelet’s choice of 
 \startblockquote
 In all cases, and especially in that which I have just cited from M. Newton, the \visviva\ stay invariable. \autocite{199}{DuChatelet1740}
 \stopblockquote
-Any velocities, any masses, and any rigid shape will have a constant kinetic energy unless external forces act on the object to change its energy. If the masses are different or if the shape is asymmetrical then the center of mass is not necessarily in the geometric center, but the object still rotates naturally about its center of mass and kinetic energy is constant. (We will learn more about theses situations near the end of the chapter when we look more closely and rotational motion.) Du Châtelet knew these complicated cases worked as well, but the simple example above made her point quite clearly.
+Any velocities, any masses, and any rigid shape will have a constant kinetic energy unless external forces do work on the object to change its energy. If the masses are different or if the shape is asymmetrical, then the center of mass is not necessarily in the geometric center, but the object still rotates naturally about its center of mass and kinetic energy is constant. (We will learn more about theses situations near the end of the chapter when we look more closely and rotational motion.) Du Châtelet knew these complicated cases worked as well, but the simple example above made her point quite clearly.
 
 
 \section{Angular motion and rotational kinetic energy}
@@ -1336,7 +1584,7 @@ If the object is not symmetrical we force the issue by finding a point where the
 {Two globes of different masses joined by a slender rod revolve about their center of mass. The smaller globes has a greater speed than the larger mass, but the globes’ momenta have the same magnitude. The total momentum is zero.}	% caption
 {\noindent\typesetbuffer[TikZ:spinning31CoM]} % figure contents
 
-Let’s abandon the midpoint and instead rotate about a point that is closer to the heavy globe, as shown in figure~\in[fig:spinning31CoM]. This rotation gives a smaller velocity to the heavy globe while giving a larger velocity to the lighter globe. If we pick the point so that the velocities are in the ratio of one-to-three, then multiplying by the masses, which are in the ratio of three-to-one, will give the globes equal and opposite the momenta. This special rotation point is the \emph{center of mass.} Every object has a center of mass, a point about which any rotation will produce no momentum. The larger the difference in the masses, the farther the center of mass is shifted toward the heavier mass.
+Let’s abandon the midpoint and instead rotate about a point that is closer to the heavy globe, as shown in figure~\in[fig:spinning31CoM]. This rotation gives a smaller velocity to the heavy globe while giving a larger velocity to the lighter globe. If we pick the point so that the velocities are in the ratio of one-to-three, then multiplying by the masses, which are in the ratio of three-to-one, will give the globes equal and opposite the momenta. This special rotation point is the \emph{center of mass.} The larger the difference in the masses, the farther the center of mass is shifted toward the heavier mass.
 
 Every object has a center of mass, and will spin about this center without any net momentum. Every object’s total momentum is $\vec p = m \vec v$ where $m$ is the object’s mass and $\vec v$ is the velocity of its center of mass. The total momentum always obeys conservation of momentum,
 \startformula
@@ -1391,8 +1639,9 @@ The total kinetic energy is $2\units{J}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The total kinetic energy calculated using $K = K\sub{CoM} + K\sub{rot}$ in this example matches the total energy calculated in example~\in[ex:NewtonGlobes] when we used the method $K = K\sub{A} + K\sub{B}$. This is a good sign!
 These two methods should give the same answer, but there is an important difference in the calculation. In \in{example}[ex:NewtonGlobes], we found the total kinetic energy in two specific orientations. Other orientations are more challenging.
-However, using $K = K\sub{CoM} + K\sub{rot}$, the center of mass kinetic energy $K\sub{CoM}$ and the kinetic energy due to rotation $K\sub{rot}$ are both independent of the orientation. We find them once, and they stay the same throughout the motion, confirming Du Châtelet's assertion that the \visviva\ always remains the same.
+Using $K = K\sub{CoM} + K\sub{rot}$, we have replaced the complicated motion of the two globes with a very simple type of compound motion: uniform motion of the center of mass compounded with uniform circular motion about the center of mass. Each of type of uniform motion makes an unchanging contribution to the total kinetic energy, confirming Du Châtelet's assertion that the total \visviva\ always remains the same.
 
+%Using $K = K\sub{CoM} + K\sub{rot}$, the center of mass kinetic energy $K\sub{CoM}$ and the kinetic energy due to rotation $K\sub{rot}$ are both independent of the orientation. We find them once, and they stay the same throughout the motion
 
 In addition to the Newtonian arguments, Du Châtelet cited specific experiments, like ’s Gravesande’s, providing further evidence for momentum and \visviva\ – and evidence against Descartes’ quantity of motion. Du Châtelet understood the difference between Newton’s successful momentum and Descartes’ failed quantity of motion, and she drove a wedge between the two as she advanced he argument for \visviva.
 %Du Châtlet’s arguments must have confounded the Cartesians terribly. They viewed themselves as Newton’s defenders, but challenging her arguments for Leibniz’s \visviva\ would mean abandoning Newton as well!
@@ -1622,7 +1871,7 @@ The total kinetic energy is $110\units{J}$.
 
 \section{Vis viva’s legacy}
 
-Du Châtelet continued to contribute to the physics community by producing a complete translation of Newton’s \booktitle{Principia} into French. In addition to translating the text, she translated all of the mathematics from Newton’s geometric calculus to Leibniz’s more powerful algebraic notation, making the text much more useful. In addition she provided a commentary and updated all of the astronomical data and calculations. This monumental intellectuall achievement was also a physical feat, as she worked seventeen hours a day – while pregnant – to complete what she called \quotation{my Newton.} Genius, nobility, wealth, and fame could not reduce the perils of pregnancy and childbirth for an older woman in the eighteenth century. At the age of 42, she feared that her work would be left unfinished if she let it slip past her due date.
+Du Châtelet continued to contribute to the physics community by producing a complete translation of Newton’s \booktitle{Principia} into French. In addition to translating the text, she translated the mathematics from Newton’s geometric calculus to Leibniz’s more powerful algebraic notation, making the text much more useful.  She also produced a commentary and updated all of the astronomical data and calculations. This monumental intellectual achievement was also a physical feat, as she worked seventeen hours a day – while pregnant – to complete what she called \quotation{my Newton.} Genius, nobility, wealth, and fame could not reduce the perils of pregnancy and childbirth for an older woman in the eighteenth century. At the age of 42, she feared that her work would be left unfinished if she let it slip past her due date.
 
 She was working after midnight when she went into labor. The birth was relatively easy. She retired to bed for a few days but continued to work, completing corrections on the printer's proofs and then sending all of her working papers  to the royal librarian. Then, on the sixth day, she developed a sudden headache and had trouble breathing. Perhaps a blood clot, formed during her time in bed, had broken free and lodged in her lungs. The royal physician and the most prominent doctors of the region were called, but they could offer only opiates for some relief. She died that night, September 10, 1749.
 
