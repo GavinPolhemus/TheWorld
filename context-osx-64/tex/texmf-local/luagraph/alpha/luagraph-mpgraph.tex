@@ -1,0 +1,279 @@
+\startcomponent luagraph-mpgraph
+
+\environment luagraph-environment
+
+\startchapter [title=John Hobby's graph macros]
+
+\placeinitial
+Let's first look at John Hobby's \text {graph} macros, revisited.
+
+\blank [2*line]
+
+\startquotation
+We concentrate on the mechanics of producing particular kinds of graphs
+because the question of what type of graph is best in a given situation
+is covered elsewhere;
+e.g., \cite[authoryears] [Cleveland1985,Cleveland1993,Cleveland1993a]
+and \cite[authoryears] [Tufte1983].
+The goal is to provide at least the power of UNIX\footnote{UNIX is a registered
+trademark of UNIX System Laboratories, Inc.} \italic {grap} \cite [Bentley1990],
+but within the MetaPost language.
+Hence the package is implemented using MetaPost's powerful macro facility.
+
+The \text {graph} macros provide the following functionality:
+\startitemize [nowhite]
+\item Automatic scaling
+\item Automatic generation and labeling of tick marks or grid lines
+\item Multiple coordinate systems
+\item Linear and logarithmic scales
+\item Separate data files
+\item Ability to handle numbers outside the usual range
+\item Arbitrary plotting symbols
+\item Drawing, filling, and labeling commands for graphs
+\stopitemize
+In addition to these items, the user also has access to all the features
+described in the MetaPost user's manual \cite [Hobby1992a].
+These include access to almost all the features of PostScript,
+ability to use and manipulate typeset text,
+ability to solve linear equations,
+and data types for points, curves, pictures, and coordinate transformations.
+\stopquotation
+
+These objectives remain actual and they have been expanded.
+A first step was the simple adaptation of the \text {graph} macros
+to double|-|precision \METAPOST, removing all special tricks and manipulations
+needed under the standard scaled number system.
+A second step, described here, is the liberation from the constraints
+imposed by the \METAPOST\ syntax, using \LUA\ advantageously
+where appropriate. We have also made the macros more \CONTEXT-friendly.
+
+\startsection [title=A few examples]
+
+\startbuffer
+\usemodule [luagraph]
+\stopbuffer
+
+\typebuffer
+%\getbuffer% done in luagraph-enviornment
+
+in the preamble loads the module and creates the \METAPOST\ instance \type {graph}.
+
+\startbuffer
+\startMPcode{graph}
+startgraph(.8TextWidth,.6TextWidth)
+    autogrid.llft() withcolor .6white ;
+    gdraw "agepop91.csv" ;
+    draw frame ;
+    label.lft(textext("population") rotated 90, frame)
+                                    shifted (left*3LineHeight) ;
+    label.bot("age (years)", frame) shifted (down*LineHeight) ;
+stopgraph ;
+\stopMPcode
+\stopbuffer
+
+\typebuffer
+
+\startplacefigure
+     [title=A graph of the 1991 age distribution in the United States.]
+\getbuffer
+\stopplacefigure
+
+A few notes about differences between this example and the first example
+of the Hobby \type {graph} macro package documentation:
+
+\startitemize
+
+\startitem
+We use \type {startgraph} … \type {stopgraph ;} (rather than 
+       \type {begingraph} … \type {endgraph ;}).%
+\startfootnote
+\type {begin} … \type {end} is more appropriate for users of \LATEX!
+\stopfootnote
+\stopitem
+
+\startitem
+The datafile expected is a \type {csv} format, using a comma as a field
+separator.
+\stopitem
+
+\startitem
+We explicitly ask to place a grid, draw a frame and add axis labels.
+None of these get included by default.
+The \italic {suffix} (\type {.llft}) determines where the grid numbering
+gets placed, here at the bottom and left sides of the graph field.
+Similarly for the frame: \type {draw frame.llft ;} would only draw the
+left and bottom edges, for example.
+\stopitem
+
+\stopitemize
+
+Objects get drawn in the order that they appear, so the line
+of data overlies the scale grid. (You can see this by zooming in.)
+Regular \METAPOST\ commands can be interspersed, and \type {draw} refers
+to coordinates in the scale of the page whereas \type {gdraw} refers to
+the data coordinate scale. Similarly for \type {label} and \type
+{glabel}, etc. Notice that a special \METAPOST\ instance (\type {{graph}})
+is used, in which the specific graph macros are defined (in addition to
+all \METAFUN\ macros of \type {{doublefun}}).
+
+Let's try some improvement of this graph:
+
+\startbuffer
+\startMPcode{graph}
+startgraph()
+    ticmarklength := 2EmWidth/3 ;
+    setscale((0,0),(90,5)) ;
+    autogrid.llft(1,2) withcolor .5white ;
+    gdraw lua.mp.CSVDataPath("agepop91.csv") yscaled 1e-6 ;
+    gplot gpath ;
+   %gdraw gpath withsymbol 10 ;
+    draw frame ;
+    label.lft(textext("population (in millions)") rotated 90, frame)
+                                    shifted (left*LineHeight) ;
+    label.bot("age (years)", frame) shifted (down*LineHeight) ;
+stopgraph ;
+\stopMPcode
+\stopbuffer
+
+\typebuffer
+
+\startplacefigure
+     [title=The 1991 age distribution plotted with filled circles.]
+\getbuffer
+\stopplacefigure
+
+In this example, the behavior of the autogrid macro is changed from
+drawing a full grid to drawing and numbering tic|-|marks, by setting the
+internal numeric variable \type {ticmarklength} to a non|-|zero value.
+Starting a new graph without specifying the frame dimensions continues
+using the previously used graph frame.
+
+The \type {.csv} data file was read once into \LUA\ memory and is
+recalled using the \LUA\ command \type{lua.mp.CSVDataPath()} returning a
+path that can be scaled and otherwise manipulated. Reading the file once
+saves a file \type {.tma} in the form of a \LUA\ table (and this file
+can be deleted) as well as a binary file \type {.tmc} that is a
+\quotation {compiled} version. Subsequent \CONTEXT\ runs can load this
+file very quickly, efficiently, and automatically
+as long as the original source file is not changed
+(and the \type {.tmc} file is not deleted)!
+
+The data path that was drawn is made available through the symbol
+\type {gpath} (of type path, of course). This holds the path
+used by the previous \type {gdraw} command.
+The command \type {gplot gpath ;} is equivalent to
+\type {gdraw gpath withsymbol 0 ;}
+Symbol~0 is an open circle
+and can also be obtained \type {withsymbol} $○$ ;
+Unicode \quote {WHITE CIRCLE} (U+25CB).%
+\startfootnote
+Symbol \quotation {10} would yield filled circles,
+and these can also be obtained \type {withsymbol} $●$ ;
+Unicode \quote {BLACK CIRCLE} (U+25CF).
+\stopfootnote
+Notice that these do not use simply a font character
+but rather a \METAPOST\ picture
+including an outline \quote {halo},
+helping distinguish overlapping data symbols.
+
+The scale of the graph is also explicitly set through the command
+\type {setcoordinates()}.
+As shown here, two \italic {pairs} are given corresponding to
+$(xmin,ymin)$ and $(xmax,ymax)$, and these can alternately
+specified as four numbers, not necessarily grouped into pairs.
+Any one of these can be the \METAPOST\ symbol \type {whatever},
+which will then be auto|-|scaled.
+
+\stopsection
+
+\startsection [title=Coordinate systems]
+
+By default, the mapping between data coordinates and drawing coordinates
+is linear, where the relationship between the two is obtained through a
+standard \type {transformation} in the \METAPOST\ sense.
+
+The Hobby \type {graph} macros also allows for logarithmic (base~10)
+scales, both full and semi|-|log ($x$ or $y$). Using \LUA, we go beyond
+that and almost any functional mapping can be used including, notably,
+polar coordinates. In fact, the mapping of data need not even be
+2D$\rightarrow$2D, for \LUA\ data tables can be $n$|-|dimensional.
+For now, however, we have programmed only 2D mappings with include
+base~10 and base~2 logarithms, square root, polar ($θ,r$), with more to
+come.
+
+\startbuffer
+\startMPcode{graph}
+startgraph()
+    setcoordinates(Log,Log) ;
+    setscale(10,.001,500,500) ;
+    autogrid.llft(9,9) withcolor .5white ;
+
+    gdraw "matmul.csv" dashed evenly ;
+    glabel.ulft("Standard",8) ;
+    gdraw lua.mp.CSVDataPath("matmul.csv",1,3) ;
+    glabel.lrt ("Strassen",8) ;
+
+    draw frame ;
+    label.lft(textext("timing (seconds)") rotated 90, frame)
+                                    shifted (left*LineHeight) ;
+    label.bot("matrix size", frame) shifted (down*LineHeight) ;
+stopgraph ;
+\stopMPcode
+\stopbuffer
+
+\typebuffer
+
+By default, the first two columns of the data file are extracted;
+the second \type {gdraw} uses the \LUA\ function \type
+{lua.mp.CSVDataPath()} to extract the first and third columns
+in this example.
+
+The logarithm base $10$ scale is illustrated through the placement of
+intermediate, \quotation {minor} tic marks, selected for both the $x$-
+and $y$-scales (abscissa and ordinate) through the pair \type {(9,9)}
+passed to the command \type {autogrid}.
+
+\startplacefigure
+     [title=Timings for two matrix multiplication algorithms.]
+\getbuffer
+\stopplacefigure
+
+\startbuffer
+\startMPcode{graph}
+startgraph()
+    draw frame ;
+    setcoordinates(LinLin) ;
+    setscale(1980,whatever,1990,whatever) ;
+    autogrid.llft() withcolor .5white ;
+    gdraw "lead.csv" ;
+    glabel.lft("$\longleftarrow~$", 4.2) ;
+    label.lft(textext("Emissions (thousands of metric tons)")
+                      rotated 90, frame)
+                             shifted (left*LineHeight) ;
+    label.bot("Year", frame) shifted (down*LineHeight) ;
+
+    setscale(1980,whatever,1990,whatever) ;
+    autogrid.rt  () withcolor .5white ;
+    gdraw lua.mp.CSVDataPath("lead.csv",1,3) ;
+    glabel.rt ("$~\longrightarrow$", 3) ;
+    label.rt (textext("Lead concentration (micrograms per cubic meter of air)")
+                      rotated 90, frame)
+                             shifted (right*1.5LineHeight) ;
+stopgraph ;
+\stopMPcode
+\stopbuffer
+
+\typebuffer
+
+\startplacefigure
+     [title=Annual lead emissions and average level at atmospheric
+     monitoring stations in the United States.]
+\getbuffer
+\stopplacefigure
+
+
+\stopsection
+
+\stopchapter
+
+\stopcomponent

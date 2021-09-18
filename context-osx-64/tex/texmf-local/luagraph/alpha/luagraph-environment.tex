@@ -1,0 +1,84 @@
+\startenvironment luagraph-environment
+
+\setupbodyfont
+  [newcomputermodern-book,10pt]
+ %[dejavu,11pt]
+
+\setupwhitespace
+  [medium]
+
+\definehighlight
+  [emphasis]
+  [style=italic]
+
+\setupitemize
+  [symbol=2] % dash rather than bullet
+
+\setupinitial
+  [n=2,
+   font=Normal cp \measure{initial:n}]
+
+\setupalign
+  [tolerant,stretch] % verystrict, strict, tolerant, verytolerant, stretch
+
+\defineitemgroup
+  [captionitemize]
+  [itemize]
+  [option=text,
+   stopper=]
+
+\setupinteraction
+  [state=start,
+   option=bookmark,
+   color=,
+   contrastcolor=]
+
+\setupinteractionscreen
+  [option=bookmark] 
+\placebookmarks
+  [chapter,title,section]
+  [chapter,title]
+\enabledirectives
+  [references.bookmarks.preroll]
+
+\setupnote
+  [footnote]
+  [symbolcommand=\removeunwantedspaces\nnbsp,
+   next=\space,
+   split=verystrict,
+   scope=page]
+\automigrateinserts % needed to handle footnotes within a box...
+
+\def\LUA{Lua}
+
+
+\usebtxdefinitions
+  [apa]
+\setupbtxrendering
+  [apa]
+  [pagestate=start] % index cite pages in bibliography
+
+\startbuffer [bib]
+
+@Article{Hobby2001,
+  author  = "Hobby, John D.",
+  title   = "Drawing graphs with MetaPost",
+  journal = "TUGboat"
+  volume  = "22",
+  number  = "1/2",
+  pages   = "46–58",
+  month   = mar,
+  year    = "2001",
+  ISSN    = "0896-3207",
+}
+
+\stopbuffer
+
+\usebtxdataset
+  [bib.buffer]
+\usebtxdataset
+  [graph.bib]
+
+\usemodule [luagraph]
+
+\stopenvironment

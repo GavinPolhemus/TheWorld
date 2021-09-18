@@ -1,0 +1,490 @@
+\startcomponent luagraph-points
+
+\environment luagraph-environment
+
+\startchapter [title=Plotting data points with symbols]
+
+\placeinitial
+Data, in particular less dense data sets than drawn in the previous
+chapters of this manual, are often plotted using symbols in what is
+sometimes called a \quote {scatter plot}. This helps to visualize the
+individual nodes or data points beyond connecting consecutive points
+using straight line segments (or smoothed curve) with optional filling
+of the area bounded by this resulting path (and an axis, typically).
+
+A variety of symbols can be used, yet a set of good plotting symbols
+\startitemize [text,a] [stopper=]
+\startitem
+will be relatively simple, i.e.\ of fairly high symmetry to be easily
+identifiable;
+\stopitem
+\startitem
+will be clearly distinguishable between data series;
+\stopitem
+\startitem
+will remain identifiable when overlapping, easily obtained by outlining
+the drawn symbol with a background \quote {halo};
+\startfootnote
+The internal \type {graphsymbolhaloscale} (= 4/3) sets the scale of
+the symbol \quote {halo} relative to its overall scale.
+\stopfootnote
+and, finally
+\stopitem
+\startitem
+will make a careful use of color so as to remain identifiable by people
+having some color blindness or when represented in grayscale.
+\stopitem
+\stopitemize
+Conventionally, good plotting symbols consist of circles, squares,
+diamonds (or 45° rotated squares), triangles in various orientations
+(up, down, left, and right) and stars. Such symbols are defined by the
+graph macros and conveniently assigned numbers:
+
+\startplacetable [location=force,
+    title={Numbered graph symbols: \type {GraphSymbol[}$n$\type{]}}]
+\startMPcode{graph}
+startgraph(TextWidth/2,LineHeight*2)
+    setscale(whatever,-.5,whatever,1.5) ;
+    gdraw (-.5,0)--(9.5,0) withcolor .5white ;
+    for i=0 upto 9 :
+        glabel(i, (i,1)) ;
+        gdraw (i,0) withsymbol i ;
+    endfor
+stopgraph ;
+startgraph ()
+    setscale(whatever,-.5,whatever,1.5) ;
+    gdraw (-.5,0)--(9.5,0) withcolor .5white ;
+    for i=0 upto 9 :
+        glabel(i+10, (i,1)) ;
+        gdraw (i,0) withsymbol (i+10) ;
+    endfor
+stopgraph shifted (down*2LineHeight) ;
+
+addbackground withcolor .925[blue,white] ;
+\stopMPcode
+\stopplacetable
+
+Note that numbered symbols ten through nineteen repeat the shapes of
+symbols numbered zero through nine and are filled.
+
+Symbol~0 (and 10) is mnemonically a circle and also the symbol most
+commonly used. Symbol~1 (and 11) is a square, a second most common
+symbol used, as is symbol~2 (12) that is a rotated square or \quote
+{diamond}. Symbols~3–6 (13–16) are up, down, left, and right triangles,
+respectively, and symbol~7 (17) is a (five|-|pointed) star.
+Symbols~8, 9, 18 and 19 are up, right, down, and left arrows,
+respectively. The size of the symbols are set by the internal \type
+{graphsymbolsize:=2EmWidth/3;} by default.
+
+In addition, the numbered symbols can be referred to by their (utf-8)
+character
+(\type {○ □ ◇ △ ▽ ◁ ▷ ☆ ● ■ ◆ ▲ ▼ ◀ ▶ ★ ↑ → ↓ ←}).
+In fact, any font character (actually string) can be used with the 
+limitation currently that the string must be a valid \METAPOST\ token
+name. Similarly, undefined numbered symbols get typeset as the number
+itself.
+\startfootnote
+String delimiters \type {""} can be omitted as the macros declare string
+variables for these symbols. This illustrates the extension that we have
+made to \METAPOST\ allowing the use of almost any utf-8 character in
+\type {suffix} or token names. \METAPOST\ reserved characters cannot be
+used for symbol names although one can always in these cases define an
+explicit spelled|-|out token such as \type {asterisk}, for example.
+A consequence is that one must take care to \quote {protect} real
+strings with curly brackets if the string content runs the risk of
+corresponding exactly to a known string or numeric token (variable),
+in which case one can be in for a surprise!
+\stopfootnote
+To overcome this limitation (of valid token names), the string can be
+grouped or \quote {protected} using curly brackets, for example:
+
+\startbuffer
+\startMPcode{graph}
+startgraph(3LineHeight,LineHeight)
+    setscale(-.5,-.5,2.5,.5) ;
+    gdraw (0,0) withsymbol  ○ ;
+    gdraw (1,0) withsymbol  "{○}" ;
+    gdraw (2,0) withsymbol "{\bfc ∗}" ;
+stopgraph ;
+\stopMPcode
+\stopbuffer
+
+\centerline{\getbuffer}
+
+\typebuffer
+
+Drawing a path using symbols is obtained with the keyword \type
+{withsymbol} $n$ [or "c" for the character(s)~c];
+the internal \type {graphsymbolsize} controls the scaling of the font
+character or string.
+
+\startplacetable [location=force,
+    title={Letters as graph symbols: \type {withsymbol "{a}"}}]
+\startMPcode{graph}
+startgraph(TextWidth/2,LineHeight*2)
+    setscale(whatever,-.75,whatever,1.75) ;
+    gdraw (-.5,0)--(12.5,0) withcolor .5white ;
+    save i ; i = 0 ;
+    for s="a","b","c","d","e","f","g","h","i","j","k","l","m":
+        glabel.d(s, (i,1)) ;
+        gdraw (i,0) withsymbol ("{"&s&"}") ;
+        i := i + 1 ;
+    endfor
+stopgraph ;
+startgraph ()
+    setscale(whatever,-.75,whatever,1.75) ;
+    gdraw (-.5,0)--(12.5,0) withcolor .5white ;
+    save i ; i = 0 ;
+    for s="n","o","p","q","r","s","t","u","v","w","x","y","z":
+        glabel.d(s, (i,1)) ;
+        gdraw (i,0) withsymbol ("{"&s&"}") ;
+        i := i + 1 ;
+    endfor
+stopgraph shifted (down*2LineHeight) ;
+startgraph ()
+    setscale(whatever,-.75,whatever,1.75) ;
+    gdraw (-.5,0)--(12.5,0) withcolor .5white ;
+    save i ; i = 0 ;
+    for s="α","β","γ","δ","ε","ζ","η","θ","ι","κ","λ","μ","ν":
+        glabel.d(s, (i,1)) ;
+        gdraw (i,0) withsymbol ("{"&s&"}") ;
+        i := i + 1 ;
+    endfor
+stopgraph shifted (down*4LineHeight) ;
+startgraph ()
+    setscale(whatever,-.75,whatever,1.75) ;
+    gdraw (-.5,0)--(12.5,0) withcolor .5white ;
+    save i ; i = 0 ;
+    for s="ξ","ο","π","ρ","σ","ς","τ","υ","φ","χ","ψ","ω","©":
+        glabel.d(s, (i,1)) ;
+        gdraw (i,0) withsymbol ("{"&s&"}") ;
+        i := i + 1 ;
+    endfor
+stopgraph shifted (down*6LineHeight) ;
+
+addbackground withcolor .925[blue,white] ;
+\stopMPcode
+\stopplacetable
+
+\startbuffer
+\startMPcode{graph}
+save year ;
+year := lua.mp.CSVDataValue(f0,0,"New Year 2019") ;
+
+startgraph(2TextWidth/3,TextHeight/3)
+    path p ;
+    p := lua.mp.CSVDataPath(f0,"hours",5,true,year,year+24*60/5)
+         shifted (-lua.mp.CSVDataValue(f0,year,"hours"),0) ;
+    gdraw p ;
+    gdraw p withsymbol 0 ;
+    string s ; s := lua.mp.CSVDataValue(f0,0,5) ;
+    label.lft(textext(substring (21,length s) of s) rotated 90,
+              frame)
+        shifted (left*3EmWidth) ;
+    autogrid.llft(5,10) ;
+
+    setscale() ;
+    path q ;
+    q := lua.mp.CSVDataPath(f0,"hours",6,true,year,year+24*60/5)
+         shifted (-lua.mp.CSVDataValue(f0,year,"hours"),0) ;
+    gdraw q                      withcolor blue ;
+    gdraw q withsymbol 1         withcolor blue ;
+    autogrid.rt(5)               withcolor blue ;
+    string s ; s := lua.mp.CSVDataValue(f0,0,6) ;
+    label.rt(textext(substring (21,length s) of s) rotated 90,
+              frame)
+        shifted (right*3EmWidth) withcolor blue ;
+    label.bot("time of day (hours)", frame)
+        shifted (down*LineHeight) ;
+    draw frame ;
+    % legend:
+    gdraw (2,150) withsymbol 1   withcolor blue ;
+    glabel.rt("diffuse",(3,150)) withcolor blue ;
+    gdraw (2,135) withsymbol 0 ;
+    glabel.rt("global", (3,135)) ;
+    glabel.rt("\it(see text)",(3,120)) ;
+stopgraph ;
+\stopMPcode
+\stopbuffer
+
+\typebuffer
+
+\startplacefigure [location=force,
+    width=\textwidth,
+    title={\type {withsymbol}: Global (black circles) and
+           diffuse (blue squares) irradiances, 2019/01/01.}]
+    \getbuffer
+\stopplacefigure
+
+The previous example overlays two data series with differing ordinate
+scales. The command \type {setscale()} flushes the drawn data up to
+its call and starts a new (auto)scaling. The \type {autogrid()} commands
+are used to mark and to number the axes, and the present example shows
+how it can be used to number the left and right ordinate axes
+differently for each scale block.
+\startfootnote
+Note that it \emphasis {may} have been desirable to number the
+hour|-|of|-|day abscissa in fractions of 24~hours (0, 6, 12, 18, 24)
+rather than by fractions of base~10 (0, 5, 10, 15, 20). A future version
+of the package \emphasis {may} allow one to optionally specify the
+number or base of major tic marks or gridlines.
+\stopfootnote
+This use would be confusing if full grid lines were to be drawn.
+
+One day (24~hours) or $24*60/5 = 288$ data points are drawn using open
+symbols (0 and 1): circles and squares. Color is used to further
+distinguish the two data series and scales. Here, blue is chosen as it
+would also appear lighter under grayscale (or to a color|-|blind
+observer).
+
+In the above example, a legend is drawn within the graph canvas using a
+combination of \type {gdraw} and \type {glabel} commands. This is done
+for illustration, although one should note that the use of such labels
+are generally frowned upon by editors and often excluded by style
+guides.
+\startfootnote
+It is even fashionable to sometimes surround this legend in a
+(shadow|-|effect) frame. Such visual pfluff, also known as \quote {eye
+candy}, serves to bring clutter and distraction to a graphical
+illustration.
+\stopfootnote
+Accepted correct practice is to identify the data series in the
+figure caption, as (also) done here.
+
+\startbuffer
+\startMPcode{graph}
+ticmarklength := 0 ; % draw grid
+startgraph(fullcircle scaled (2TextWidth/3))
+    setcoordinates(polar) ; polarscale := 24 ;
+    setscale((whatever,0),(whatever,1250)) ;
+    autogrid.llft(5) ;
+    gdrawarrow (12+37/60,0)--(12+37/60,1250)
+        withcolor red ;
+    glabel.urt(" 12:37", (12+37/60,1250))
+        withcolor red ;
+    gdraw p ; gdraw p withsymbol "○" ;
+stopgraph ;
+setcoordinates(linlin) ; % reset
+\stopMPcode
+\stopbuffer
+
+\typebuffer
+
+\startplacefigure [location=force,
+    width=\textwidth,
+    title={Polar coordinates: global horizontal irradiance (W/m²), 2019/01/01.
+           The red arrow points to the solar noon.}]
+    \getbuffer
+\stopplacefigure
+
+Note that the red arrow pointing out the solar noon is drawn in polar
+coordinates not from the origin $(0,0)$ but rather from $(12:37,0)$ that
+is also at the origin of the plot; this assures the starting angular
+orientation of the arrow in the polar coordinate transformation. The
+arrow can be seen to be an axis of symmetry of the data.
+
+\startsection [title=Drawing error bars]
+
+Often, a data set is to be drawn including error bars. These error
+estimates are to be calculated from the data in some rigorous fashion,
+with care taken in the propagation of errors. Whereas such techniques
+are beyond the scope of this manual, I will give two fairly
+straight|-|forward examples.
+
+In any \emphasis {counting} experiment, for example in counting photons,
+rare events, or random variables, the error in the count is determined
+by Poissonian statistics: for a count $N$ the error would be $\sqrt N$
+(and the relative uncertainty is $1/\sqrt N$, vanishing for large
+$N≫1$). Of course, this error must be scaled correctly as the data is
+normalized (with a common mistake being to take the square root of the
+normalized count rather than the raw count). When plotting raw counts, a
+square|-|root scale for the ordinate might be appropriate as the
+counting errors will appear equal in such a representation.
+
+A second case can be illustrated when taking the mean of a multiple
+number of samples. The data that have been shown so far are five minute
+averages of ten second samples, so each value is the composite of thirty
+measurements. No error is reported, yet one can make an estimate based
+on the dispersion of the data. For an average over $N$ samples, the mean
+is of course
+\placeformula
+    \startformula
+        \overbar x = \frac1N \sum_{i=1}^N x_i
+    \stopformula
+and an estimate of the \bold {sample} variance is
+\placeformula
+    \startformula
+        σ = \frac1N \left[ N\sum_{i=1}^N x_i^2 -
+                    \left(\sum_{i=1}^N x_i\right)^2 \right]^{\frac12} ,
+    \stopformula
+both of which are simply calculated.
+
+This can be demonstrated using the global horizontal irradiance drawn
+previously. A \METAPOST\ macro \type {binpath()} returns a path derived
+from a given path binning the data as running averages. The variances
+calculated as above can be used to draw error bars. In the following
+figure, hourly averages are calculated from the five minute data.
+
+\startbuffer
+\startMPcode {graph}
+path r ; r := subpath (0, length p - 1) of p ;
+
+startgraph(2TextWidth/3,TextHeight/3)
+    draw frame ;
+    setscale(whatever,0,whatever,whatever) ;
+    autogrid(5) ;
+    autogrid.lft(5) ;
+    gfill p withcolor blue withtransparency (1,.2) ;
+    gdraw r withcolor blue ;
+    gdraw binpath1(r,60/5) ;
+   %for i within binpath1(r,60/5) :
+   %    gdrawdblarrow (pathpart i) ;
+   %endfor
+    gdraw binpath(r,60/5) withsymbol 0 ;
+stopgraph ;
+
+startgraph()
+    draw frame ;
+    setscale(whatever,0,whatever,whatever) ;
+    autogrid.llft(5) ;
+    gdraw r withcolor blue ;
+    for i within binpath[-1](r,60/5) :
+        if     filled  i: gfill (pathpart i)
+                              withtransparency (1,.3) ; 
+        elseif stroked i: gdraw (pathpart i) withsymbol "•" ; fi
+    endfor
+stopgraph shifted (0,-TextHeight/3-LineHeight/4) ;
+\stopMPcode
+\stopbuffer
+
+\startplacefigure [location=force,
+    width=\textwidth,
+    title={Binned running averages of the data drawn with error bars
+          (top) and error regions (bottom).}]
+    \getbuffer
+\stopplacefigure
+
+Two different styles are shown. The first (top) drawing the resulting
+points using symbol \type {0} (circles) overlaying horizontal and
+vertical error bars, the tips of the horizontal error bars can be seen
+if one looks carefully. The bottom drawing shows an alternative
+representation, where an error region is shaded and the points at the
+centers are drawn using symbol \type {"•"} (unicode bullet).
+
+\typebuffer
+
+One should note that, in taking this running average, it is important to
+use an open or non|-|cyclic path. In the top graph, the area under the
+data is transparently shaded in blue using the \type {cyclic} path \type
+{p}, whereas a truncated path \type {r} is passed to the \type
+{binpath()} macro.
+
+The function \type {binpath[n]()} returns a picture rather than a path and
+contains a series of error bar paths when given a numeric \type
+{suffix}, the scale of the error bars in terms of standard deviation $σ$
+is given by the numeric value (i.e. a value of $1$ gives one standard
+deviation error bars). The confidence interval may be chosen to be
+larger. For example, if one assumes that the dispersion of measurements
+is normally distributed, then a value of $1.96σ$ would describe a 95\%\
+confidence interval and a value of $2.58σ$ would describe a confidence
+interval of 99\%.
+
+Because the variance is symmetric about the mean, a negative value of
+this parameter is used to select the alternate, confidence region (as
+seen in the bottom graph) rather than the default error bar
+representation (as seen in the top graph). This picture can be \type
+{gdraw}n as in the top panel, or its elements can be drawn or filled
+separately with differing properties as in the bottom panel using \type
+{for i within}. The top code contains a commented snippet showing how
+the error bars can be drawn as double|-|headed arrows.
+\startfootnote
+New arrow styles are being introduced that can be used to draw the error
+bars in a tick|-|marked or clewed style.
+\stopfootnote
+Due to the \METAPOST\ suffix syntax, a negative value must be enclosed
+within square brackets whereas one can omit the square brackets for a
+positive value. For convenience, two internals are defined: \type
+{errorbarpicture} having a value of $+1$ and \type {errorellipsepicture}
+having a value of $-1$ so one can also write:
+\starttyping
+    gdraw binpath.errorbarpicture(r,60/5) ;
+\stoptyping
+and
+\starttyping
+    gdraw binpath.errorellipsepicture(r,60/5) ;
+\stoptyping
+
+The function can also return a \type {path} containing the variances
+(via \type {binpath0()}:
+
+\startbuffer
+\startMPcode{graph}
+startgraph()
+    setscale (0,0,.5,100) ;
+    path v ; 
+    v := binpath.errorvariancepath(r,60/5) ;
+    gdraw v withcolor green ;
+    gdraw v withsymbol ● ;
+    autogrid.llft() withcolor .5white ;
+    drawarrow frame.lft ;
+    drawarrow frame.bot ;
+    label.lft("$σ_y$", frame) shifted (left*2EmWidth) ;
+    label.bot("$σ_x$", frame) shifted (down*2EmWidth) ;
+stopgraph ;
+\stopMPcode
+\stopbuffer
+
+\typebuffer
+
+(The internal \type {errorvariancepath} has a value of zero.)
+
+\startplacefigure [location=force,
+    title={\type{binpath0(r,12)}}]
+    \getbuffer
+\stopplacefigure
+
+The data that was binned, being evenly spaced in time in five minute
+intervals, or $1/12$ of an hour, the variance in $x$, $σ_x$, is uniform
+(except for the last value having one fewer data point to bin).
+
+Although the following example may seem redundant (because the function
+\type {binpath} can directly produce the error bar picture, as shown
+earlier), it is used to illustrate how one can draw error bars given a
+path of data and a second path variable containing the error bar
+values.
+
+\startbuffer
+\startMPcode{graph}
+startgraph()
+    setscale ((0,0),(24,whatever))
+    gdraw binpath(r,60/5) witherrorbars binpath0(r,60/5)
+        withsymbol ○ ;
+    autogrid.llft(5,10) withcolor .5white ;
+    string s ; s := lua.mp.CSVDataValue(f0,0,5) ;
+    label.lft(textext("Irradiance (W/m²)") rotated 90,
+              frame)
+        shifted (left*3EmWidth) ;
+    label.bot("Time of day (hours)", frame)
+        shifted (down*1.5EmWidth) ;
+stopgraph ;
+drawarrow frame.lft ;
+drawarrow frame.bot ;
+\stopMPcode
+\stopbuffer
+
+\typebuffer
+
+\startplacefigure [location=force,
+    title={\type {p witherrorbars e}}]
+    \getbuffer
+\stopplacefigure
+
+The variant \type {p witherrorregion e} can be alternately used. Note that
+the frame is drawn after the graph is flushed in order to put the arrow
+axes in the foreground.
+
+\stopsection
+
+\stopchapter
+
+\stopcomponent

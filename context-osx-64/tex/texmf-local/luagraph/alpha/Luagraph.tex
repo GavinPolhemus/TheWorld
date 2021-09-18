@@ -1,0 +1,51 @@
+% author    : Alan Braslau
+% copyright : PRAGMA ADE & ConTeXt Development Team
+% license   : Creative Commons Attribution ShareAlike 4.0 International
+% reference : pragma-ade.nl | contextgarden.net | texlive (related) distributions
+% origin    : the ConTeXt distribution
+%
+% comment   : Because this manual is distributed with TeX distributions it comes with a rather
+%             liberal license. We try to adapt these documents to upgrades in the (sub)systems
+%             that they describe. Using parts of the content otherwise can therefore conflict
+%             with existing functionality and we cannot be held responsible for that. Many of
+%             the manuals contain characteristic graphics and personal notes or examples that
+%             make no sense when used out-of-context.
+%
+% comment   : A proof-of-concept for the present luagraph module was presented at the ConTeXt
+%             2018 user meeting. The completely re-written graph code is to be part of 
+%             the MetaFun code modules.
+
+\environment luagraph-environment
+
+\startproduct Luagraph
+
+\startdocument
+  [title=luagraph,
+   author=Alan Braslau,
+   copyright=\ConTeXt\ development team,
+   version=0.1]
+
+\component luagraph-titlepage
+
+\startfrontmatter
+    \component luagraph-contents
+    \component luagraph-introduction
+\stopfrontmatter
+
+\startbodymatter
+    \component luagraph-concept
+    \component luagraph-mpgraph
+%   \component luagraph-example
+%   \component luagraph-functions
+%   \component luagraph-arrays
+%   \component luagraph-points
+%   \component luagraph-fit
+\stopbodymatter
+
+\startbackmatter
+    \component luagraph-bibliography
+\stopbackmatter
+
+\stopdocument
+
+\stopproduct

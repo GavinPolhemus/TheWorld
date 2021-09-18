@@ -1,0 +1,494 @@
+\startcomponent luagraph-functions
+
+\environment luagraph-environment
+
+\startchapter [title=Drawing functions]
+
+\placeinitial
+After plotting data, what could be more useful than drawing functions?
+Whereas a teacher or a mathematician might like the possibility of a
+function determining its own locus of points, but I prefer to start
+with a somewhat simpler example showing greater control, focusing
+interest in a particular range or region.
+
+\startsection [title=Displaying a function under different coordinate systems]
+
+Say we wish to draw a sinusoidal curve, representing a periodic
+function (like the annual temperature variation seen previously):
+
+\startbuffer
+\startMPcode{graph}
+def JOIN = hide(def JOIN = .. enddef) enddef ;
+path p ; p := for i=0 upto 360: JOIN (i,100cosd(i)) endfor ;
+
+startgraph (TextWidth/2)
+    gdraw p ;
+    autogrid.llft() ; draw frame.rt ;
+    label.bot("angle (degrees)",frame)
+        shifted (down*LineHeight) ;
+stopgraph ;
+\stopMPcode
+\stopbuffer
+
+\startplacefigure [location=force,
+    title={$y = 100 \cos(2πx/360)$}]
+    \getbuffer
+\stopplacefigure
+
+\typebuffer
+
+Defining the macro \type {JOIN} is a trick that allows one to avoid
+including a conditional statement within the loop. A second feature
+introduced here is the drawing of just one segment, here the right edge,
+of the canvas frame (the other three segments are drawn in this example
+as gridlines).
+
+The \METAPOST\ function \type {cosd()}, as its name suggests, takes an
+angle in degrees as its argument.
+\startfootnote
+\METAFUN\ defines a similar function \type {cos()} whose argument is
+taken as is convention in radians.
+\stopfootnote
+
+A change of coordinates to logarithmic scales will only show positive
+values, and the addition of minor grid lines helps greatly in
+illustrating this non|-|linear scale.
+
+\startbuffer
+\startMPcode{graph}
+startgraph ()
+    setcoordinates(log,log) ;
+    gdraw p withpen currentpen scaled 2 ;
+    autogrid.llft(9) ; draw frame.rt ;
+    label.bot("angle (degrees)",frame)
+        shifted (down*LineHeight) ;
+stopgraph ;
+\stopMPcode
+\stopbuffer
+
+\typebuffer
+
+\startplacefigure [location=force,
+    width=\textwidth,
+    title={Logarithmic scales: $\log_{10} x,\log_{10} y$ (\type {loglog})}]
+    \getbuffer
+\stopplacefigure
+
+Another useful non|-|linear scale takes the square|-|root of the values.
+
+\startbuffer
+\startMPcode{graph}
+startgraph ()
+    setcoordinates(linsqrt) ;
+    gdraw p withpen currentpen scaled 2 ;
+    autogrid.llft(5,0) ;
+    ahlength := EmWidth ; ahvariant := 1 ;
+    drawarrow frame.lft ;
+    drawarrow frame.bot ;
+    label.bot("angle (degrees)",frame)
+        shifted (down*LineHeight) ;
+stopgraph ;
+\stopMPcode
+\stopbuffer
+
+\typebuffer
+
+Note that the \METAPOST\ arrowhead length is rather small by default, so
+we set it to the \type {EmWidth}, as well as choosing the arrowhead
+style variant that shows a barb.
+
+\startplacefigure [location=force,
+    width=\textwidth,
+    title={Semi|-|square root scale: $x,\sqrt y$ (\type {linsqrt})}]
+    \getbuffer
+\stopplacefigure
+
+The \type {sqrt} scale is particularly useful when considering counting
+distributions, where the error in the ordinate takes a constant
+dimension.
+
+The (currently) recognized coordinate scales are
+\type {lin},
+\type {date},
+\type {log}, and
+\type {sqrt}
+in any combination, and more can be added rather easily. In addition to
+mapping one coordinate to a new scale, one can also (easily) map the
+combination of both coordinates as a two|-|dimensional function:
+$(x′,y′) = f(x,y)$. A useful example is the \type {polar} coordinate
+system:
+\placeformula
+    \startformula
+        (x′,y′) = r(\sin θ,\cos θ)
+    \stopformula
+where $(x,y)$ are taken as $(θ/s,r)$ and the scale $s$ is a constant
+such that $θ/s$ is the angle in radians. For $s=1$ (the default), the
+period of the polar coordinates is one unit in the abscissa of the data,
+i.e. $x=1$.
+
+\startbuffer
+\startMPcode{graph}
+def JOIN = hide(def JOIN = .. enddef) enddef ;
+path q ; q := for i=-180 upto 180:
+              JOIN (i,100exp(-((i/72)**2))) endfor ;
+
+startgraph (reverse fullcircle scaled (TextWidth/2) rotated 90)
+    setcoordinates(polar) ; polarscale := 360 ;
+    setscale((whatever,0),(whatever,whatever)) ;
+    gdraw p withcolor blue ;
+    gdraw q withcolor red ;
+    autogrid.llft(10,0) withcolor .5white ;
+    drawarrow frame ; 
+stopgraph ;
+\stopMPcode
+\stopbuffer
+
+\typebuffer
+
+Because the path \type {p} was defined in units of degrees, we set \type
+{polarscale := 360 ;} It is also useful to set the $r$ (i.e.
+$y_{\mathrm{min}}$) scale minimum explicitly to zero so as not to
+confusingly label the radius scale of the bounded circle. In the example
+function drawn here, where $f(x) = 100\cos(2πx/360)$, this yields
+$100[\sin(2πx/360)\cos(2πx/360),\cos^2(2πx/360)]$ describing a circle
+that is circumscribed twice in the polar plot.
+
+\startplacefigure [location=force,
+    width=\textwidth,
+     list={Polar coordinates},
+    title={Polar coordinates: $r\sin(2πθ/360),r\cos(2πθ/360)$ (\type
+    {polar}). The cosine periodic time|-|function is drawn in blue and, in
+    comparison, a Gaussian or normal distribution is drawn in red.}]
+    \getbuffer
+\stopplacefigure
+
+For fun, and for comparison, a Gaussian function $G(x) = 100\exp(-(x/72)^2)$
+or normal distribution is drawn in red. How similar, yet different they
+look in this polar representation.
+\startfootnote
+The Gaussian width $72/360$ is $1/5$ the period of the cosine that an
+attentive reader will recognize as the so|-|called \emphasis {capacity
+factor} of solar irradiation.
+\stopfootnote
+The calculation also illustrates one of the charms of the \METAPOST\
+language precedence rules.
+
+\stopsection
+
+\startsection [title=Drawing contour solutions to non|-|linear equations]
+
+As I was starting to work on this project, a question was asked on the
+mailing list on how to draw a contour of solutions to a non|-|linear
+equation in \METAPOST. The example given was the following:
+
+\placeformula
+    \startformula
+        2x^5 + xy + y^5 = 0 ; ~~~~~~ x ∈ [0,2],~y ∈ [-2,1/2]
+    \stopformula
+
+It was suggested to calculate the data externally and then import the
+data into \METAPOST. I thought that it would be more fun to find the
+solution through brute force, that is a grid search over the
+two|-|dimensional domain $(x,y)$ and posted a solution in pure
+\METAPOST.
+
+Aditya Mahajan then suggested on the mailing list that the same calculation
+might be done more efficiently in \LUA, and he then posted a
+proof|-|of|-|concept solution based on my \METAPOST\ example. Using \LUA\
+for the calculation is indeed at least an order of magnitude faster, for a
+\METAPOST\ expansion in a 1M|-|step \type {for} loop can be very penalizing.
+Hans and I completed Aditya's example to make a somewhat general command,
+reproduced here. The graphic is of course in \METAPOST:
+
+\startbuffer
+\startMPcode{graph}
+  ahlength      := EmWidth ;
+  ahvariant     := 1 ;
+  ticmarklength := 2EmWidth/3 ;
+\stopMPcode
+
+\startuseMPgraphic{graph::ContourPlot}{width}
+  startgraph(\MPvar{width})
+      setcoordinates (lin,lin) ;
+      setscale(lua.mp.ContourMin(),lua.mp.ContourMax()) ;
+      autogrid.llft() ;
+      gdraw lua.mp.ContourPath() ;
+      drawarrow frame.bot ;
+      label.rt ("$x$", lrcorner frame) ;
+      drawarrow frame.lft ;
+      label.top("$y$", ulcorner frame) ;
+  stopgraph ;
+\stopuseMPgraphic
+\stopbuffer
+
+\typebuffer
+
+\getbuffer
+
+The first block of code is not necessary and sets style parameters, here
+for illustration.
+
+The calculation is then performed in \LUA; it is a double loop over the
+two dimensions, evaluating the equation looking for zeros, within a
+margin of error \type {e}.
+
+\startbuffer
+\startluacode
+   userdata         = userdata or { }
+   userdata.contour = { }
+   userdata.xlim    = { 0, 0 }
+   userdata.ylim    = { 0, 0 }
+
+   function userdata.contourplot(f, xlim, ylim, length, ef)
+       local n = 0
+       local t = { }
+       local xmin, xmax = xlim[1], xlim[2]
+       local ymin, ymax = ylim[1], ylim[2]
+       for x = xmin, xmax, (xmax - xmin)/length do
+           for y = ymin, ymax, (ymax - ymin)/length do
+               local e = ef(x,y)
+               local z =  f(x,y)
+               if z < e and z > -e then
+                  n = n + 1
+                  t[n] = { x, y }
+               end
+           end
+       end
+       userdata.xlim    = xlim
+       userdata.ylim    = ylim
+       userdata.contour = t
+   end
+
+   function mp.ContourPath()
+       mp.path(userdata.contour,"..",false)
+   end
+   function mp.ContourMin()
+       mp.pair({ userdata.xlim[1], userdata.ylim[1] })
+   end
+   function mp.ContourMax()
+       mp.pair({ userdata.xlim[2], userdata.ylim[2] })
+   end
+\stopluacode
+\stopbuffer
+
+\typebuffer
+
+\getbuffer
+
+Finally, a \CONTEXT\ command can be defined, simplifying access:
+
+\startbuffer
+\unexpanded\def\ContourPlot
+  {\dosingleempty\doContourPlot}
+
+\def\doContourPlot[#1]%
+  {\setvariables
+     [ContourPlot]
+     [x={0,0},
+      y={0,0},
+      w=10cm,
+      n=1000,
+      e=1e-2,
+      #1]%
+   \ctxlua{userdata.contourplot(
+        function(x,y) return \getvariable{ContourPlot}{function}
+            end,
+        {\getvariable{ContourPlot}{x}},
+        {\getvariable{ContourPlot}{y}},
+         \getvariable{ContourPlot}{n},
+        function(x,y) return \getvariable{ContourPlot}{e} end
+   )}%
+   \useMPgraphic
+    {graph::ContourPlot}{width=\getvariable{ContourPlot}{w}}}
+\stopbuffer
+
+\typebuffer
+
+\getbuffer
+
+The end user only needs to know the following command:
+
+\startbuffer
+\ContourPlot
+   [function={2*x^5 + x*y + y^5},
+    x={0,2},y={-2,0.5},
+    n=1000,e={x/1000},
+    w=7cm]
+\stopbuffer
+
+\typebuffer
+
+yielding
+
+\startplacefigure [location=force,
+    title={$2x^5 + xy + y^5 = 0$}]
+    \getbuffer
+\stopplacefigure
+
+Note how the style parameter, \type {ticmarklength := 2EmWidth/3 ;}, set
+above for this example affects the drawing of grid lines. Pretty cool,
+indeed!
+
+More sophisticated mathematical tools than the grid search used here
+could be implemented to solve for the zero or roots of a function, yet
+this technique works pretty well. The choice of the error or zero
+tolerance function, here \type {x/1000} is used, is critical to avoid
+getting an oscillating result.
+
+\stopsection
+
+\startsection [title=Extended math C99 function library]
+
+\LUA\ provides a standard set of math functions in the \type {math.}
+namespace. However, this is not the complete set of math functions as
+defined in libm (ISO C99, and subsequent, see \goto{ISO/IEC 9899:TC3}
+[url(http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf)]);
+luatex additionally provides the following functions in the \type
+{xmath.} (extended|-|math) namespace:
+
+\startcolumns [n=5]
+\startluacode
+for k,v in table.sortedpairs(xmath) do
+    context(k); context.crlf()
+end
+\stopluacode
+\stopcolumns
+
+Luatex also includes the complex functions (described in the C99
+\type {<complex.h>} header file) in the \type {xcomplex.}
+(extended|-|complex) namespace:
+
+\startluacode
+local find = string.find
+context.startcolumns({ "n=5" })
+for k,v in table.sortedpairs(xcomplex) do
+    if not find(k,"^__") then
+        context(k); context.crlf()
+    end
+end
+context.stopcolumns()
+\stopluacode
+
+Furthermore, as a bonus because we
+want \CONTEXT\ to be the premier tool in the \TEX\ world for
+mathematicians, we include the complex error functions that are provided
+by the \type {libcerf} library (see
+\goto{https://jugit.fz-juelich.de/mlz/libcerf}
+[url(https://jugit.fz-juelich.de/mlz/libcerf)]).
+
+These extended math functions may be used within \LUA\ as in
+\starttyping
+local j0,j1,jn = xmath.j0,xmath.j1,xmath.jn
+\stoptyping
+for example, or within \METAPOST\ as follows:
+
+\startbuffer
+\startMPcode{graph}
+vardef jzero primary x =
+    scantokens(lua("mp.quoted(xmath.j0("& decimal x & "))"))
+enddef ;
+vardef jone  primary x =
+    scantokens(lua("mp.quoted(xmath.j1("& decimal x & "))"))
+enddef ;
+vardef jn(expr n,x)    =
+    scantokens(lua("mp.quoted(xmath.jn("& decimal n & ","
+                                        & decimal x & "))"))
+enddef ;
+\stopMPcode
+\stopbuffer
+
+\typebuffer
+
+Note that, due to the \METAPOST\ syntax, we use the suffixes \type
+{jzero} and \type {jone} (rather than \type {j0} and \type {j1}).
+
+\getbuffer
+
+\startbuffer
+\definesymbol[gr:uparrow]   [\bf\low{↑}]
+\definesymbol[gr:downarrow] [\bf\high{↓}]
+\definesymbol[gr:leftarrow] [\bf\ ←]
+\definesymbol[gr:rightarrow][\bf→\ ]
+
+\startMPcode {graph}
+    save r,f,m; numeric r[],f[],m[] ;
+    r1 := 0.125 ; f1 := 6 ; m1 := 6 ; % C
+    r2 := 0.25  ; f2 := 6 ; m2 := 6 ; % C
+    r3 := 0.27  ; f3 := 1 ; m3 := 6 ; % H
+    r4 := 0.34  ; f4 := 6 ; m4 := 6 ; % C
+    r5 := 0.47  ; f5 := 8 ; m5 := 6 ; % O
+    r6 := 0.6   ; f6 := 6 ; m6 := 6 ; % C
+    r7 := 0.625 ; f7 := 8 ; m7 := 6 ; % O
+    def F primary x =
+        (for j=1 upto 5:%7:
+            if j>1: + fi m[j]*f[j]*jzero(x*r[j])
+        endfor)
+    enddef ;
+
+    startgraph (TextWidth/2)
+        setcoordinates(lin,log) ;
+        numeric qmax ; qmax := 25 ;
+        setscale((0,1e-4),(qmax,1)) ;
+        autogrid.llft(5,10) ;
+        drawarrow frame.bot ;
+        drawarrow frame.lft ;
+        label.bot("$Q$ (nm)", frame)
+            shifted (down*LineHeight) ;
+        label.lft(btex $[F(Q)/F(0)]^2$ etex rotated 90, frame)
+            shifted (left*2LineHeight) ;
+
+        save n,Fzero,q,Fq ; numeric n,Fzero,q,Fq ;
+        n := 200 ; Fzero := F(1e-10) ;
+        def JOIN=hide(def JOIN=--enddef)enddef ;
+        path p ; p := for i=1 upto n :
+                          hide(q := i/n * qmax ; Fq := F(q)/Fzero)
+                          JOIN (q,Fq*Fq)
+                      endfor ;
+        gdraw p ;
+
+        save a,d ; a := 1.894 ;
+        for h=0 upto 4 :
+            for k=h upto 4 :
+                if (h+k)>0 :
+                    d := a/sqrt(4/3)/sqrt(h*h+h*k+k*k) ;
+                    q := 2pi/d ;
+                    Fq := F(q)/Fzero ;
+                    clearxy ; z = (q,Fq*Fq) ;
+                    glabel.bot("\bf ↑", z) withcolor red ;
+                    if y<1e-4: y := 1e-4 ; fi
+                    glabel.top("\bfxx " & decimal h & decimal k, z) withcolor red ;
+                fi 
+            endfor ;
+        endfor ;
+    stopgraph ;
+    setcoordinates(lin,lin) ;
+\stopMPcode
+\stopbuffer
+
+\startplacefigure [location=force,
+    width=\textwidth,
+    title={Example plotting a sum of Bessel functions of the first kind of order
+    zero $j_0(x)$. The indices in red are positions of discrete reflexions in
+    this scattering function. Whereas in this case, the function is
+    calculated as \METAPOST\ code, it would be more efficient to perform
+    all calculations in lua.}]
+    \getbuffer
+\stopplacefigure
+
+More examples \emphasis {may} be given later in this documentation.
+
+\stopsection
+
+\startsubsubject [title=Summary of tokens introduced in this chapter]
+
+\starttyping
+ahlength
+ahvariant
+ticmarklength
+\stoptyping
+
+\stopsubsubject
+
+\stopchapter
+
+\stopcomponent

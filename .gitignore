@@ -12,6 +12,8 @@ m_k_i_v_*
 *.synctex
 /tmp/
 *.syncctx
+install.sh
+/context-osx-64/modules
 !PythagoreanPipesCons.pdf
 !PythagoreanPipesDis.pdf
 !PythagoreanPipesArrows.pdf
