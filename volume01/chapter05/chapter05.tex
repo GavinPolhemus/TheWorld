@@ -120,11 +120,11 @@ With luck, one of these will be the \quotation{impetus} acquired in the ball’s
 \startblockquote
 	Having repeated this experiment many times, let us now drive a nail into the wall\dots say at E [fig.~\ref{fig:InterruptedPendulum3}]\dots so that it projects out some ten to fifteen centimeters in order that the thread, again carrying the ball through the arc CB, may strike upon the nail E when the ball reaches B, and thus compel it to traverse the arc BG, described about E as center. %\quotation{five or six inches} changed to \quotation{ten to fifteen centimeters.}
 \stopblockquote
-The nail at E interrupts that pendulum’s swing, and the ball travels up the steeper arc BG.
+The nail at E interrupts the pendulum’s swing, and the ball travels up the steeper arc BG.
 \startblockquote
-	You will be pleased to see that the ball swings to the point G in the horizontal\dots
+	You will be pleased to see that the ball swings to the point G in the horizontal\dots.
 \stopblockquote
-Galileo noticed that G is the same height as C and D. The interruption does not make G higher by reducing the length of the ascending path, nor does it make G lower by making the path steeper. The \quotation{impetus} acquired by the pendulum during its descent from C to B is exactly enough to carry it up the ascent from B to the G.
+Galileo noticed that G is the same height as C and D. The interruption does not make G higher by reducing the length of the ascending path, nor does it make G lower by making the path steeper. The \quotation{impetus} acquired by the pendulum during its descent from C to B is exactly enough to carry it up the shorter, steeper ascent from B to the G.
 \startbuffer[TikZ:InterruptedPendulum4]
 \environment env_physics
 \environment env_TikZ
@@ -178,9 +178,9 @@ Huygens then related the total $mh$ at release to the total $mv^2$ at the collis
 %Between the moments of initial and final rest the masses descend and pick up some kinetic energy, exchange that energy in the collisions, and then loose the kinetic energy as they ascend.
 Huygens extended his analysis to any system moved by gravity. Whenever the system’s total $mh$ decreased, the total $mv^2$ would increase proportionally; when the total $mh$ increased, the total $mv^2$ would decrease proportionally. In Huygens’ view, a system in motion always has the potential to ascend to a greater height and come to rest. Even though the system’s actual height may be lower, this potential height is conserved. Considering Galileo’s interrupted pendulum Huygens would say that as the pendulum swings through B it has the potential to ascend to the line CD, which it does.
 
-Johann Bernoulli, an early advocate for \visviva\, saw the situation from the opposite perspective. To him, the initial heights represented stored \visviva. When the pendulums were released the \visviva\ could emerge during the descent only to return to the stored state during the ascent. In this view the conservation of \visviva\ must take into account the stored \visviva\ in the total $mh$ as well as the total $mv^2$ in the motion. Considering Galileo’s interrupted pendulum, Bernoulli would say that the pendulum at C contains potential \visviva, which becomes actual \visviva during the descent to B. This \visviva\ then returns to its stored, potential \visviva\ during the ascent to line CD.
+Johann Bernoulli, an early advocate for \visviva\, saw the situation from the opposite perspective. To him, the initial heights represented stored \visviva. When the pendulums were released the \visviva\ could emerge during the descent only to return to the stored state during the ascent. In this view the conservation of \visviva\ must take into account the stored \visviva\ in the total $mh$ as well as the total $mv^2$ in the motion. Considering Galileo’s interrupted pendulum, Bernoulli would say that the pendulum at C contains potential \visviva, which becomes actual \visviva\ during the descent to B. This \visviva\ is then stored as potential \visviva\ during the ascent to line CD.
 
-As a practical matter, Huygen’s view and Bernoulli’s view are interchangeable. The modern view does not prefer either form. Energy is changing from a static state to a moving state and then back. The moving state is kinetic energy. The static form of energy is called potential energy.
+As a practical matter, Huygen’s view and Bernoulli’s view are interchangeable. The modern view does not prefer either form. Energy is changing from a static state to a moving state and then back. The moving state is kinetic energy. The static form of energy is called \keyterm{potential energy}.
 
 The relationship between Huygens’ heights and \visviva\ was already getting very complicated when Johann Bernoulli’s son, Daniel Bernoulli, decided to solve the problem of motions and pressures in fluids. The younger Bernoulli did not attempt to demonstrate mathematically that Huygen’s relationship between total $mh$ and $mv^2$ applies to fluids (or, equivalently, that fluids obey conservation of \visviva). Instead he assumed, as a hypothesis, that this relationship applies to fluids and then used the relationship to make predictions. He describes this project in the introduction to his revolutionary work on fluids, \booktitle{Hydrodynamica}, published in 1738 (two years prior to Du Châtlet’s \booktitle{Foundations}).
 
@@ -361,13 +361,13 @@ We will measure the hight $h$ from the equilibrium point at B, as shown on the l
 		= 0.24\units{kg\.m^2/s^2}
 		= 0.24\units{J}
 \stopformula
-The final answer has energy units, as it should. The pendulum at C has $0.26\units{J}$ of gravitational potential energy.
+The final answer has energy units, as it should. The pendulum at C has $0.24\units{J}$ of gravitational potential energy.
 
 This gravitational potential energy was stored in the ball when Galileo moved the ball from B to C, which required him to do some work on the pendulum.
 
 \startexample[ex:GalileoPendulum1] How much work did Galileo do on the $150\units{g}$ pendulum when he moved it from its equilibrium position at B to the point C, $16\units{cm}$ higher?
 \startsolution
-	Following Daniel Bernoulli, we start with the law of conservation of energy. The total energy includes both kinetic and potential energy, that is $H\si=K\si+U\si$ and $H\sf=K\sf+U\sf$.
+	Following Daniel Bernoulli, we start with the law of conservation of energy. The total energy includes the ball's kinetic and potential energies. That is $H\si=K\si+U\si$ and $H\sf=K\sf+U\sf$. Galileo's work will be $W$, increasing the ball's energy.
 \startformula\startmathalignment
 \NC	H\si + W + \cancel{Q}	\NC = H\sf			\NR
 \NC	K\si + U\si + W			\NC = K\sf + U\sf	\NR
@@ -381,7 +381,7 @@ This gravitational potential energy was stored in the ball when Galileo moved th
 \stopsolution
 \stopexample
 
-Whenever you are asked to calculate work you should consider using the work formula $W = F_x\Delta x + F_y\Delta y + F_z\Delta z$, but that would have been a poor choice here. You do not know the force Galileo applied and it almost certainly was not a constant force, making this into a calculus problem. Conservation of energy only requires the direct calculation of initial and final energies, which is much easier.
+Whenever you are asked to calculate work you should consider using the work formula $W = F_x\Delta x + F_y\Delta y + F_z\Delta z$, but that would have been a poor choice here, because you do not know the force Galileo applied. Conservation of energy only requires the direct calculation of initial and final energies, which is easy.
 
 The height $h$ can be measured from the floor, a table top, sea level, or any other convenient reference, as long as that reference stays in place for the entire calculation. A convenient choice is often the lowest point of the motion, like the point B along the path of Galileo’s pendulum. The pendulum’s gravitational potential energy, calculated from the ball’s height, is shown for all heights along the right side of figure~\in[fig:GalileoPendulum1]. Using a different reference point, like the floor, shifts all of the heights on the left and all of the potential energies on the right. However, this would not force Galileo to do more work. No matter where the reference point is, he moves the pendulum from B to C, increasing the height by $16\units{cm}$. This increases the potential energy by $0.24\units{J}$, so he still does $0.24\units{J}$ of work on the pendulum.
 
@@ -406,13 +406,13 @@ The ball passes through B at $0.89\units{m/s}$.
 
 In the solution above I asserted that there is no work done by outside forces. You might object – the nail exerts a force on the string, the string exerts a force on the ball, and Earth exerts a downwards for on the ball as well. Any one of these could do work!
 
-However, the nail does no work because it has no displacement. The string is attached to the ball, which does have a displacement, but the displacement is always perpendicular to the force exerted by the string, so the string also does no work. (The nail and string do contribute momentum to the ball, which one reason why we would not want to solve this problem using conservation of momentum.)
+However, the nail does no work because it has no displacement. The string is attached to the ball, which does have a displacement, but the displacement is always perpendicular to the force exerted by the string, so the string also does no work. (The nail and string do contribute momentum to the ball. We would not want to solve this problem using conservation of momentum.)
 
-The most serious challenge is the Earth’s gravitational force, which does do work. We can include that work or not depending on what we chose to include in the system being studied.
+The most serious challenge is Earth’s gravitational force, which does do work. We can include that work or not depending on what we chose to include in the system being studied.
 %This problem could have been solved using the work done by the gravitational force on the pendulum during the descent from C to B. The difference between my solution and the solution using work is the choice of the system being studied.
 The pendulum’s kinetic energy is a property of the pendulum. To study pendulum’s the motion we must include the pendulum’s kinetic energy in our system.
 
-The gravitational potential energy is not actually in the pendulum, nor is it in the Earth which is pulling down on the pendulum. The gravitational potential energy is in the gravitational field surrounding the pendulum. We can chose to include this potential energy in our system or not. If you chose to make the box the only thing in the system, then the gravitational force is an outside force that does work. Since the potential energy is outside the system it does not contribute to the total energy, therefore $H=K$. Using this method the solution looks like this:
+The gravitational potential energy is not actually in the pendulum, nor is it in Earth, which is pulling down on the pendulum. The gravitational potential energy is in the gravitational field surrounding the pendulum. We can chose to include this potential energy in our system or not. If you chose to make the pendulum the only thing in the system, then the gravitational force is an outside force that does work on the system. Since the potential energy is outside the system it does not contribute to the total energy, therefore $H=K$. Using this method the solution looks like this:
 	\startformula\startmathalignment
 	\NC	H\si + W + \cancel{Q}		\NC = H\sf			\NR
 	\NC	\cancel{K\si} + F_y\Delta y	\NC = K\sf			\NR
@@ -423,9 +423,9 @@ The gravitational potential energy is not actually in the pendulum, nor is it in
 	\stopmathalignment\stopformula
 There are some tricky signs in the middle, but the final answer is exactly the same.
 While both methods are acceptable, you should include the gravitational potential energy $U$ in the system.
-Daniel Bernoulli taught that including $U$ in the system is both easier and gives us a better insight.
+Daniel Bernoulli taught that including potential energy in the system is both easier and gives us a better insight.
 
-If you include the gravitational potential energy in the system, as I did originally, then the gravitational force is not an external force, it is internal to the system. This force plays a roll in moving energy from one part of the system (the gravitational field) to another part (the box), but it does not add any energy to the system, nor does it remove any energy from the system. That is why there was no external work in my solution.
+If you include the gravitational potential energy in the system, as I did originally, then the gravitational force is not an external force – it is internal to the system. This force plays a roll in moving energy from one part of the system (the gravitational field) to another part (the box), but it does not add any energy to the system, nor does it remove any energy from the system. That is why there was no external work in my solution.
 
 During the descent and assent the pendulum’s energy is split between gravitational potential energy and kinetic energy. The gradual decrease in gravitational potential energy during the descent and the increase during the assent are graphed in figure~\in[fig:GalileoPendulumGraphU]. The energy is shown as a function of the ball’s position $s$ along the curved path, as shown in figure\in[fig:GalileoPendulumPath1]. The gravitational potential energy is determined by the height of each position, and can be graphed for all positions along the path. The equilibrium point is the point of lowest potential energy at $s=0\units{cm}$.
 
@@ -808,6 +808,7 @@ Energy graphs like this one are extremely useful for understanding motion. They 
 %During the descent from C to B the ball’s initial $0.24\units{J}$ of gravitational potential energy is converted to kinetic energy. Then, during the ascent the $0.24\units{J}$ of kinetic energy is converted back to gravitational potential energy, just enough to bring the ball back to its original height at D. In this experiment Galileo’s \quotation{impetus} is clearly the ball’s kinetic energy which increases during the descent from C to B and which is sufficient to carry the ball up the ascent from B to D.
 %
 %The gravitational field’s ability to store potential energy was a great mystery until Einstein explained that it has to do with the bending of space-time. This is extremely interesting and terribly complicated. Luckily, Daniel Bernoulli showed us how to deal with these sorts of mind-boggling complications: ignore them.
+%[ Why fluids in this next sentence? Remind reader of Hydrodynamica. ]
 %He did not need to know the details of intermolecular forces in fluids, and you do not need to know the details of space-time bending. Just use the potential energy formula and everything will be fine, provided you are careful to include the potential energy in the system and remember that the gravitational force is an internal force that does no work \emph{on the system.}
 
 \startexample[ex:BalloonLaunch] In their quest for knowledge, physics students launch a water balloon from the top of the school onto the soccer field below. The water balloon has a mass of $0.50\units{kg}$ and is launched with with a speed of $15\units{m/s}$ and an angle $53\degree$ above the horizontal, as shown in figure~\ref{fig:BalloonLaunch}. What is the water ballon’s speed when it hits the ground?
@@ -882,13 +883,13 @@ The ability to easily store and return energy makes springs incredibly useful.
 In some cases the energy stored is quite small. Buttons on a keyboard have tiny springs in them that store some energy when the button is pressed. This energy is used to push the button back up so it is ready to be pressed again.
 A bow for firing arrows is a different shape, but it is still a spring. When the string is pulled back the bow stores a larger amount of energy. When the string is released the energy stored in the bow is delivered to the arrow as kinetic energy.
 
-The potential energy stored in a spring depends on the spring’s stiffness $k$ and the amount of stretch of the spring $s$. (The spring stiffness is often called the spring constant.)
+The potential energy stored in a spring depends on the spring’s \keyterm{stiffness} $k$ and the amount of stretch of the spring $s$. (The spring stiffness is often called the spring constant.)
 \highlightbox{
 \startformula[eq:1DUspring]
 	U\sub{spring} = \half ks^2
 \stopformula
 }
-The stretch must always be measured from the relaxed length of the spring. If the spring is compressed rather than stretched, as in the ball bounce example above, then the \quotation{stretch} is negative. However, since the stretch is squared it does not matter whether the stretch is positive or negative; the energy stored is positive either way.
+The stretch must always be measured from the relaxed length of the spring. If the spring is compressed rather than stretched, then the \quotation{stretch} is negative. However, since the stretch is squared it does not matter whether the stretch is positive or negative; the energy stored is positive either way.
 
 
 \startbuffer[TikZ:SpringCart]
