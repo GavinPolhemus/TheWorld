@@ -1,9 +1,9 @@
 return {
- ["enginebanner"]="This is LuaMetaTeX, Version 2.09.21",
- ["formatbanner"]="2021.09.03 18:49",
- ["formatid"]=593,
- ["functionality"]=20210903,
+ ["enginebanner"]="This is LuaMetaTeX, Version 2.09.24",
+ ["formatbanner"]="2021.09.17 10:01",
+ ["formatid"]=595,
+ ["functionality"]=20210914,
  ["luaversion"]=0x1.599999999999ap+2,
  ["sourcefile"]="context.mkxl",
- ["sourcehash"]="0546fa39b7ff2f6dbd356757dac33f5b",
+ ["sourcehash"]="0e1dd8456bc234b535f76e562abbb2fc",
 }

@@ -1730,10 +1730,10 @@ return {
    ["xitsmath-regular.otf"]="XITSMath-Regular.otf",
   },
  },
- ["date"]="2021-09-04",
+ ["date"]="2021-09-21",
  ["root"]="selfautoparent:texmf",
- ["time"]="08:53:10",
+ ["time"]="07:49:19",
  ["type"]="files",
- ["uuid"]="8f046b6d-4ea6-b422-6e99-44177b4e87b4",
+ ["uuid"]="91328dc2-47b0-a05b-40e2-df984f190fe7",
  ["version"]="1.100",
 }

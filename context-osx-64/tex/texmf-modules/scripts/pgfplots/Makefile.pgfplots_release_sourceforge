@@ -5,7 +5,7 @@
 # make -f pgfplots/scripts/pgfplots/Makefile.pgfplots_release_sourceforge
 DIR=pgfplots
 VERSION=_unstable
-#VERSION=_1.16
+#VERSION=_1.17
 
 ZIP=pgfplots$(VERSION).tds.zip
 CTANZIP=pgfplots$(VERSION).ctan.flatdir.zip
@@ -26,10 +26,8 @@ pdf: $(PDF) $(PDFTABLE)
 
 revisionfile: $(REVISIONFILE)
 
-uploadindexhtml: /tmp/index.html
-	scp $< cfeuersaenger,pgfplots@web.sourceforge.net:htdocs/
-	
-
+# XXX : update for github!
+#
 upload: $(ZIP) $(PDF) $(PDFTABLE) $(CHANGELOG) $(README) $(REVISIONFILE)
 	scp $^ $(TEX_NOTES) cfeuersaenger,pgfplots@web.sourceforge.net:htdocs/
 
@@ -77,7 +75,9 @@ $(ZIP): FORCE
 		--exclude='*.blg' \
 		--exclude='*.idx' \
 		--exclude='*.ilg' \
+		--exclude='README.md' \
 		--exclude='*.log' \
+		--exclude='*.rej' \
 		--exclude='*.log.all' \
 		--exclude='*.dpth' \
 		--exclude='*.figlist' \
@@ -89,6 +89,7 @@ $(ZIP): FORCE
 		--exclude='*.tmp' \
 		--exclude='*.tuo' \
 		--exclude='*.tui' \
+		--exclude='*.tuc' \
 		--exclude='*.top' \
 		--exclude='*.pgf' \
 		--exclude='luaunit' \
@@ -142,9 +143,16 @@ $(PDF): $(DIR)/doc/latex/pgfplots/pgfplots.pdf
 $(PDFTABLE): $(DIR)/doc/latex/pgfplots/pgfplotstable.pdf
 	cp $< $@
 
+# XXX : is that html of PHP? 
+# XXX : update for github?
 download:
 	scp  cfeuersaenger,pgfplots@web.sourceforge.net:htdocs/index.html /tmp || exit 1
 	echo "index.html copied to /tmp"
+
+uploadindexhtml: /tmp/index.html
+	scp $< cfeuersaenger,pgfplots@web.sourceforge.net:htdocs/
+	
+
 
 gallery:
 	echo "Remaking gallery ... "

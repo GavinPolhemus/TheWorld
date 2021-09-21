@@ -81,14 +81,12 @@
         }{\pgfpoint{\ctikzvalof{nodes width}*\pgf@circ@Rlen}{\ctikzvalof{nodes width}*\pgf@circ@Rlen}}
     }
     \behindforegroundpath{
-
         \pgfscope
             \pgfpathcircle{\pgfpointorigin}{\ctikzvalof{nodes width}*\pgf@circ@Rlen}
             \pgfsetcolor{\ctikzvalof{color}}
             \pgfsetfillopacity{\ctikzvalof{poles/full fill opacity}}% normally 1.0
             \pgfusepath{draw,fill}
         \endpgfscope
-
     }
 }
 
@@ -121,12 +119,11 @@
         \pgfpointborderellipse{\pgfpoint{\pgf@circ@res@left}{\pgf@circ@res@up}
         }{\pgfpoint{\ctikzvalof{nodes width}*\pgf@circ@Rlen}{\ctikzvalof{nodes width}*\pgf@circ@Rlen}}
     }
-
     \behindforegroundpath{
-
         \pgfscope
             \pgfpathcircle{\pgfpointorigin}{\ctikzvalof{nodes width}*\pgf@circ@Rlen}
             \pgfsetcolor{\ctikzvalof{color}}
+            \pgfsetfillopacity{\ctikzvalof{poles/open fill opacity}}% normally 1.0
             \ifx\tikz@fillcolor\pgfutil@empty
                 % set the default fill color to white
                 \pgfsetfillcolor{\ctikzvalof{open poles fill}}
@@ -137,10 +134,8 @@
             \else
                 \pgfsetfillcolor{\tikz@fillcolor}
             \fi
-            \pgfsetfillopacity{\ctikzvalof{poles/open fill opacity}}% normally 1.0
             \pgfusepath{draw,fill}
         \endpgfscope
-
     }
 }
 
@@ -244,6 +239,7 @@
             {\pgfpoint{-\pgf@circ@res@temp}{-\pgf@circ@res@temp}}
             {\pgfpoint{\pgf@circ@res@temp}{\pgf@circ@res@temp}}
             \pgfsetcolor{\ctikzvalof{color}}
+            \pgfsetfillopacity{\ctikzvalof{poles/open fill opacity}}% normally 1.0
             \ifx\tikz@fillcolor\pgfutil@empty
                 % set the default fill color to white
                 \pgfsetfillcolor{\ctikzvalof{open poles fill}}
@@ -254,7 +250,6 @@
             \else
                 \pgfsetfillcolor{\tikz@fillcolor}
             \fi
-            \pgfsetfillopacity{\ctikzvalof{poles/open fill opacity}}% normally 1.0
             \pgfusepath{draw,fill}
         \endpgfscope
     }
@@ -341,6 +336,7 @@
             {\pgfpoint{-\pgf@circ@res@temp}{-\pgf@circ@res@temp}}
             {\pgfpoint{\pgf@circ@res@temp}{\pgf@circ@res@temp}}
             \pgfsetcolor{\ctikzvalof{color}}
+            \pgfsetfillopacity{\ctikzvalof{poles/open fill opacity}}% normally 1.0
             \ifx\tikz@fillcolor\pgfutil@empty
                 % set the default fill color to white
                 \pgfsetfillcolor{\ctikzvalof{open poles fill}}
@@ -351,7 +347,6 @@
             \else
                 \pgfsetfillcolor{\tikz@fillcolor}
             \fi
-            \pgfsetfillopacity{\ctikzvalof{poles/open fill opacity}}% normally 1.0
             \pgfusepath{draw,fill}
         \endpgfscope
     }
@@ -556,6 +551,12 @@
 
 %% Current arrow
 
+%% we need a phantom version of this shape for advanced v-i-f
+%% use strange names to keep ot private
+\newif\ifpgfcirc@really@draw@currarrow\pgfcirc@really@draw@currarrowtrue
+\ctikzset{phantom@currarrow/.code=\pgfcirc@really@draw@currarrowfalse}
+\ctikzset{normal@currarrow/.code=\pgfcirc@really@draw@currarrowtrue}
+
 \pgfdeclareshape{currarrow}{
     \savedanchor{\northeast}{%
         \pgf@circ@res@step = \pgf@circ@Rlen
@@ -582,22 +583,28 @@
     }
     \behindforegroundpath{
         \pgfscope
-            \pgf@circ@res@step = \pgf@circ@Rlen
-            \divide \pgf@circ@res@step by \ctikzvalof{current arrow scale}
+            \ifpgfcirc@really@draw@currarrow
+                \pgf@circ@res@step = \pgf@circ@Rlen
+                \divide \pgf@circ@res@step by \ctikzvalof{current arrow scale}
 
-            \pgfpathmoveto{\pgfpoint{-.7\pgf@circ@res@step}{0pt}}
-            \pgfpathlineto{\pgfpoint{-.7\pgf@circ@res@step}{-.8\pgf@circ@res@step}}
-            \pgfpathlineto{\pgfpoint{1\pgf@circ@res@step}{0pt}}
-            \pgfpathlineto{\pgfpoint{-.7\pgf@circ@res@step}{.8\pgf@circ@res@step}}
-            \pgfpathlineto{\pgfpoint{-.7\pgf@circ@res@step}{0pt}}
-            \pgfsetcolor{\ctikzvalof{color}}
-            \pgfusepath{draw,fill}
-
+                \pgfpathmoveto{\pgfpoint{-.7\pgf@circ@res@step}{0pt}}
+                \pgfpathlineto{\pgfpoint{-.7\pgf@circ@res@step}{-.8\pgf@circ@res@step}}
+                \pgfpathlineto{\pgfpoint{1\pgf@circ@res@step}{0pt}}
+                \pgfpathlineto{\pgfpoint{-.7\pgf@circ@res@step}{.8\pgf@circ@res@step}}
+                \pgfpathlineto{\pgfpoint{-.7\pgf@circ@res@step}{0pt}}
+                \pgfsetcolor{\ctikzvalof{color}}
+                \pgfusepath{draw,fill}
+            \fi
         \endpgfscope
     }
 }
 
 %% Flow arrow
+%% we need a phantom version of this shape for advanced v-i-f
+%% use strange names to keep ot private
+\newif\ifpgfcirc@really@draw@flowarrow\pgfcirc@really@draw@flowarrowtrue
+\ctikzset{phantom@flowarrow/.code=\pgfcirc@really@draw@flowarrowfalse}
+\ctikzset{normal@flowarrow/.code=\pgfcirc@really@draw@vlowarrowtrue}
 
 \pgfdeclareshape{flowarrow}{
     \savedanchor{\northeast}{%
@@ -631,14 +638,16 @@
     }
     \behindforegroundpath{
         \pgfscope
-            \pgf@circ@res@step = \pgf@circ@Rlen
-            \divide \pgf@circ@res@step by 4
-            \pgfpathmoveto{\pgfpoint{-\pgf@circ@res@step}{0pt}}
-            \pgfpathlineto{\pgfpoint{\pgf@circ@res@step}{0pt}}
-            \pgfsetcolor{\ctikzvalof{color}}
-            \pgfusepath{draw}
-            \pgftransformshift{\pgfpoint{\pgf@circ@res@step}{0pt}}
-            \pgfnode{currarrow}{tip}{}{}{\pgfusepath{fill}}
+            \ifpgfcirc@really@draw@flowarrow
+                \pgf@circ@res@step = \pgf@circ@Rlen
+                \divide \pgf@circ@res@step by 4
+                \pgfpathmoveto{\pgfpoint{-\pgf@circ@res@step}{0pt}}
+                \pgfpathlineto{\pgfpoint{\pgf@circ@res@step}{0pt}}
+                \pgfsetcolor{\ctikzvalof{color}}
+                \pgfusepath{draw}
+                \pgftransformshift{\pgfpoint{\pgf@circ@res@step}{0pt}}
+                \pgfnode{currarrow}{tip}{}{}{\pgfusepath{fill}}
+            \fi
         \endpgfscope
     }
 }
