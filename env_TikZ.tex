@@ -19,6 +19,7 @@
 
 \tikzset{>/.tip=Latex} % The tip drawn by -> will be the LaTeX tip.
 \tikzset{tips=proper} % Arrows with zero length will not have heads. 
+\tikzset{help lines/.style=lightgray}
 
 % Redefined footnote size graphs, replacing LaTeX style commands with ConTeXt commands.
 \pgfplotsset{
@@ -46,7 +47,7 @@
 \environment env_TikZ
 \setupbodyfont [libertinus,11pt]
 \setoldstyle % Old style numerals in text
-   \startTEXpage
+   \startTEXpage\small
    \starttikzpicture[thick]
 \stopbuffer
 
