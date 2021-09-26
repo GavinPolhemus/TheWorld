@@ -200,7 +200,7 @@ A meter stick has been placed below the rolling ball in figure \in[fig:levelroll
 %The marks start with $0\units{cm}$ at one end and go to $45\units{cm}$ at the other.
 The marks on the meter stick allow us to identify the ball’s position, represented by the variable $x$.
 %\footnote{This track has zero at one end and only positive numbers, so the address is a measurement of how far the cart is from the \quotation{zero} end of the track. It would be perfectly acceptable for the track to have zero in the middle with positive numbers on one side and negative on the other. In that case positive addresses would give the distance to one side of track’s center, while negative numbers would give the distances on the other side. If my track extended in both directions to the horizon, I would certainly want to put zero near where I was working and measure distances from there.}
-These positions, measured at the ball’s center, are listed in table \in[T:levelroll]. The graph in figure \in[fig:LevelRollGraph], shows the ball’s position as a function of time. Notice that the axes of graph are not labeled $x$ and $y$ as they typically are in math class. Here the horizontal axis is the time $t$, and the vertical axis is the position $x$
+These positions, measured at the ball’s center, are listed in table \in[T:levelroll]. The graph in figure \in[fig:LevelRollGraph], shows the ball’s position as a function of time. Notice that the axes of graph are not labeled $x$ and $y$ as they typically are in math class. Here the horizontal axis is the time $t$, and the vertical axis is the position $x$.
 
 \placetable[margin][T:levelroll] % Label
     {The rolling ball’s positions listed at one second intervals.} % Caption
@@ -574,7 +574,7 @@ This is the extremely useful \keyterm{position update formula} for constant velo
 
 
 \startexample[ex:CartUpdate]
-The cart rolls along the track with a constant velocity of $1.8\units{m/s}$. It passes the $40\units{m}$ mark on the track at $t=1.00\units{s}$, as shown in figure \in[fig:CartUpdateEx]. If it continues to roll at a constant velocity, what will its position be at $t= 1.10\units{s}$?
+The cart rolls along the track with a constant velocity of $-1.8\units{m/s}$. It passes the $40\units{m}$ mark on the track at $t=1.00\units{s}$, as shown in figure \in[fig:CartUpdateEx]. If it continues to roll at a constant velocity, what will its position be at $t= 1.10\units{s}$?
 \startsolution
 The motion’s duration is $\Delta t = t\sf - t\si = 1.10\units{s}-1.00\units{s} = 0.10\units{s}$.
 Use this duration in the position update formula.
@@ -1070,7 +1070,7 @@ When an object rotates, its many parts move with different speeds – in many di
 \stopformula
 % Saint Petersburg, Russia: 59°56′15″N 30°18′31″E
 
-The rate of angular displacement is \keyterm{angular velocity,} represented by $\omega$ (omega).
+The angular displacement's rate of change is \keyterm{angular velocity,} represented by $\omega$ (omega).
 \startformula
 	\omega = \frac{\Delta \theta}{\Delta t}
 \stopformula
@@ -1743,7 +1743,7 @@ The little arrow on $\vec{v}$ indicates that it is a vector with multiple compon
 	The velocity’s components were found in examples \in[ex:BallOffTableVelx] and \in[ex:BallOffTableVely].	\startformula
 		\vec{v} = \components{v_x,v_y} = \components{1.2\units{m/s},-2.0\units{m/s}}
 	\stopformula
-	The ball’s velocity at $t=0.2\units{s}$ is approximately $\components{1,2,-2.4}\unit{m/s}$.
+	The ball’s velocity at $t=0.2\units{s}$ is approximately $\components{1.2,-2.4}\unit{m/s}$.
 \stopsolution
 \stopexample
 
@@ -2059,7 +2059,7 @@ The velocity vectors are always straight and tangent to the path, pointing in th
 
 % During the first half of this duration, the ball is falling more slowly than it is at $t=0.20\units{s}$. During the second half it is falling faster. These two effects
 
-Acceleration complicates our efforts to predict and object’s future position. The position update formulas, $x\si + v_x\Delta t = x\sf$ and $y\si + v_y\Delta t = y\sf$, only work if the velocity remains constant throughout the duration $\Delta t$. However, we can still succeed by focusing on a short duration $dt$ during which the velocity changes very little. During this short duration the coordinates change by small amounts
+Acceleration complicates our efforts to predict an object’s future position. The position update formulas, $x\si + v_x\Delta t = x\sf$ and $y\si + v_y\Delta t = y\sf$, only work if the velocity remains constant throughout the duration $\Delta t$. However, we can still succeed by focusing on a short duration $dt$ during which the velocity changes very little. During this short duration the coordinates change by small amounts
 \startformula
 dx = v_x\,dt	\qquad	dy = v_y\,dt
 \stopformula
