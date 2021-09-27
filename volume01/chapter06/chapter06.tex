@@ -468,6 +468,68 @@ Finally, we find the displacement in the $x$ direction using the position update
 \NC	\Delta x \NC = v\si\sqrt{\frac{2h}{g}}
 \stopmathalignment\stopformula
 
+\startexample[ex:BalloonLaunch] In their quest for knowledge, physics students launch a water balloon from the top of the school onto the soccer field below. The water balloon has a mass of $0.50\units{kg}$ and is launched with with a speed of $15\units{m/s}$ and an angle $53\degree$ above the horizontal, as shown in figure~\ref{fig:BalloonLaunch}. What is the water ballon’s speed when it hits the ground?
+
+\startbuffer[TikZ:BalloonLaunch]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\startaxis[%axis equal,
+		footnotesize,
+		width=2.25in,%\marginparwidth,
+		y={0.1333cm},x={0.1333cm},
+		xlabel={$x$ (m)},
+		xmin=0, xmax=30,
+		%xtick={0,1,...,4},
+		%minor x tick num=9,
+		ylabel={$y$ (m)},
+		ymin=0, ymax=20,
+		%ytick={0,1,...,6},
+		%minor y tick num=4,
+		clip=false,
+		]
+  \addplot[samples=100, variable=\t, domain=0:3.21]
+    ({9*t}, {12+12*t-4.9*t^2});
+  \addplot[samples=10, domain=0:3,
+    % the default choice âvariable=\xâ leads to
+    % unexpected results here!
+  	mark = *, mark size={.4pt},
+    variable=\t,
+    quiver={
+        u={9},
+        v={12-9.8*t},
+        scale arrows=0.333}, thick,
+        ->]
+    ({9*t}, {12+12*t-4.9*t^2});
+  	\draw[fill=black!20] (0,0) rectangle (2,12);
+	\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:BalloonLaunch] % location
+{The path of the projectile in example~\ref{ex:BalloonLaunch}}	% caption text
+{\noindent\typesetbuffer[TikZ:BalloonLaunch]} % figure contents
+
+
+\startsolution
+	The water ballon starts with both potential and kinetic energy, but only has kinetic energy at the end.
+	\startformula\startmathalignment
+	\NC	H\si + \cancel{W} + \cancel{Q}	\NC = H\sf						\NR
+	\NC	K\si + U\si					\NC = K\sf + \cancel{U\sf}			\NR
+	\NC	\half mv\si^2 + mgh			\NC = \half mv\sf^2				\NR
+	\NC	v\sf						\NC = \sqrt{v\si^2 + 2gh}			\NR
+	\NC						\NC = \sqrt{(15\units{m/s})^2+2(9.8\units{m/s^2})(12.0\units{m})}\NR
+	\NC					\NC = 21\units{m/s}
+	\stopmathalignment\stopformula
+	The balloon is traveling quite a bit faster when it gets down to the soccer field.
+\stopsolution
+\stopexample
+	Since energy is not directional there is no need to break anything into components. The balloon speed at impact is not affected by the launch angle. The launch angle will affect the distance and the time aloft, but the impact speed depends only on the initial speed and height.
+
 
 \section{Spring Forces}
 
