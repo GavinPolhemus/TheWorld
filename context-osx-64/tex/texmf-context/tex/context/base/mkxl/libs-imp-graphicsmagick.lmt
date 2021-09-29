@@ -67,9 +67,9 @@ function graphicsmagick.convert(specification)
     end
 end
 
-function graphicsmagick.statistics(report)
+function graphicsmagick.statistics(feedback)
     local runtime = statistics.elapsedtime(graphicsmagick)
-    if report then
+    if feedback then
         report("nofruns %s, runtime %s",nofruns,runtime)
     else
         return {

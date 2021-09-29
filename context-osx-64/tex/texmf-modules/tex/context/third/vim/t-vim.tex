@@ -1,6 +1,6 @@
 %D \module
 %D   [     file=t-vim,
-%D      version=2021.05.23,
+%D      version=2021.09.05,
 %D        title=\CONTEXT\ User Module,
 %D     subtitle=Vim syntax highlighting,
 %D       author=Aditya Mahajan,
@@ -9,18 +9,19 @@
 %D        email=adityam <at> ieee <dot> org,
 %D      license=Simplified BSD License]
 
-\writestatus{loading}{Vim syntax highlighting (ver: 2021.05.23)}
+\writestatus{loading}{Vim syntax highlighting (ver: 2021.09.05)}
 
 \startmodule [vim]
 \usemodule   [filter]           % loads module catcodes
 \usemodule   [syntax-highlight] % loads syntax-groups and filter module
+
+\unprotectmodulecatcodes
 
 \startinterface all
     \setinterfaceconstant {vimrc}           {vimrc}
     \setinterfaceconstant {vimcommand}      {vim\c!command}
 \stopinterface
 
-\unprotectmodulecatcodes
 
 \def\vimtyping@id          {vimtyping}
 \def\vimtyping@namespace   {@@@@\vimtyping@id}
@@ -215,12 +216,12 @@
         [Identifier]
 
     \definesyntaxgroup
-        [Condition,Repeat,Label,Operator,Keyword,Exception]
+        [Conditional,Repeat,Label,Operator,Keyword,Exception]
         [Statement]
 
     \definesyntaxgroup
         [Include,Define,Macro,PreCondit]
-        [Preproc]
+        [PreProc]
 
     \definesyntaxgroup
         [StorageClass,Structure,Typedef]
