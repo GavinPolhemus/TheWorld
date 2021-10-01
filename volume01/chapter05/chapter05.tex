@@ -197,7 +197,7 @@ Daniel Bernoulli refers to these predictions as \quotation{theorems} because the
 \stopblockquote
 Every experiment testing these predictions also a tests the conservation law on which these predictions are based. The remarkable agreement between predictions and experiments gave Daniel Bernoulli great confidence in the law of conservation of energy.
 
-\section{Gravitational potential energy}
+\section[sec:GravU]{Gravitational potential energy}
 
 The complicated systems studied by Huygens and D.~Bernoulli all store energy as \keyterm{gravitational potential energy}. Luckily, we can understand gravitational potential energy by applying D.~Bernoulli’s insights to Galileo’s simple pendulum experiments. A version of Galileo’s pendulum with a $150\units{g}$ mass is shown in figure~\in[fig:GalileoPendulum1].
 
@@ -348,7 +348,7 @@ The symbol for any type of potential energy is $U$. The formula for gravitationa
 \startformula
 	U = mgh.
 \stopformula
-Along with Hugyens’ $mh$, this formula includes $g$, which is the same $9.8\units{m/s^2}$ found in the formula for gravitational force, $F = mg$. The $g$ is included because Earth’s gravitational attraction makes this energy storage passible. On the moon, where $g$ is smaller, lifting an object requires less work, but it also stores less gravitational potential energy.
+Along with Hugyens’ $mh$, this formula includes $g$, which is the same $9.8\units{m/s^2}$ found in the formula for gravitational force, $F = mg$. The $g$ is included because Earth’s gravitational attraction makes this energy storage possible. On the moon, where $g$ is smaller, lifting an object requires less work, but it also stores less gravitational potential energy.
 
 %\placefigure[margin][fig:GravPotentialEnergy] % location
 %{Gravitational potential energy is proportional to the mass and the height.}	% caption text
@@ -401,9 +401,9 @@ The descending pendulum’s gravitational potential energy will decrease during 
 	\NC	mgh	\NC = \half mv^2	\NR
 	\NC	v	\NC = \sqrt{2gh}
 				= \sqrt{2(9.8\units{m/s^2})(0.16\units{m})}
-				= 0.89\units{m/s}
+				= 1.8\units{m/s}
 	\stopmathalignment\stopformula
-The ball passes through B at $0.89\units{m/s}$.
+The ball passes through B at $1.8\units{m/s}$.
 \stopsolution
 \stopexample
 
@@ -438,7 +438,7 @@ You can choose to leave the ball's gravitational potential energy out of the sys
 	\NC	(-mg)(-h)					\NC = \half mv^2	\NR
 	\NC	v						\NC = \sqrt{2gh}
 						= \sqrt{2(9.8\units{m/s^2})(0.16\units{m})}
-							= 0.89\units{m/s}
+							= 1.8\units{m/s}
 	\stopmathalignment\stopformula
 There are some tricky signs in the middle, but the final answer is exactly the same.
 While both methods are acceptable, you should include the gravitational potential energy $U$ in the system.
@@ -632,7 +632,7 @@ When choosing the system, you are not on a mission to find every type of energy 
 {\noindent\typesetbuffer[TikZ:GalileoPendulumGraphU]} % figure contents
 
 \section{Energy Graphs}
-An energy graph, like the ones introduced in \in{Chapter}[ch:VisViva] (\at{p.}[fig:CartWork]), clearly shows the flow of energy from gravitational potential energy to kinetic energy as the pendulum descends. The pendulum's energy graph, \in{figure}[fig:GalileoPendulumGraphU], shows the ball's gravitational potential energy $U$ as a function of the pall's position $s$ along the ball's path. Positions are labeled along the path in \in{figure}[fig:GalileoPendulumPath2].
+An energy graph, like the ones introduced in \in{Chapter}[ch:VisViva] (\at{p.}[fig:CartWork]), clearly the flow of energy from gravitational potential energy to kinetic energy as the pendulum descends. The pendulum's energy graph, \in{figure}[fig:GalileoPendulumGraphU], shows the ball's gravitational potential energy $U$ as a function of the ball's position $s$ along its path. Positions are labeled along the path in \in{figure}[fig:GalileoPendulumPath2].
 
 The ball's gravitational potential energy depends only on the ball's position, not on its speed or momentum. This allows us to graph the gravitational potential energy $U$ for all positions before we know anything about the motion. Knowing the $U$'s graph first is important, because we will use this graph to predict the pendulum's motion.
 
@@ -779,8 +779,7 @@ The ball's gravitational potential energy depends only on the ball's position, n
 {Galileo’s pendulum at the release position $s=\units{-37cm}$.}	 % caption text
 {\noindent\typesetbuffer[TikZ:GalileoPendulumPath2]} % figure contents
 
-\noindent
-Galileo began his experiment by moving the pendulum from the equilibrium position at $s=0\units{cm}$ to the position $s=-37\units{cm}$ (where $h=16\units{cm}$), as shown in \in{figure}[fig:GalileoPendulumPath2]. The gravitational potential energy at this release position $U=0.24\units{J}$, as shown on the graph in \in{figure}[fig:GalileoPendulumGraphHK]. At the moment of release the pendulum’s kinetic energy is $K=0\units{J}$, so its total energy is $H = U + K = 0.24\units{J} + 0\units{J} = 0.24\units{J}$, which is also shown on the energy graph in \in{figure}[fig:GalileoPendulumGraphHK].
+Galileo began his experiment by moving the pendulum from the equilibrium position at $s=0\units{cm}$ to the position $s=-37\units{cm}$ (where $h=16\units{cm}$), as shown in \in{figure}[fig:GalileoPendulumPath2]. The gravitational potential energy at this release position is $U=0.24\units{J}$, as shown on the graph in \in{figure}[fig:GalileoPendulumGraphHK]. At the moment of release the pendulum’s kinetic energy is $K=0\units{J}$, so its total energy is $H = U + K = 0.24\units{J} + 0\units{J} = 0.24\units{J}$, which is also shown on the energy graph in \in{figure}[fig:GalileoPendulumGraphHK].
 
 \startbuffer[TikZ:GalileoPendulumGraphHK]
 \environment env_physics
@@ -804,14 +803,14 @@ Galileo began his experiment by moving the pendulum from the equilibrium positio
 			ylabel=Energy (J),
 			%grid=both
 		]
-		\addplot[thick, domain=-50:50] {0.588*(1-cos(deg(x/40))}node[above right,pos=.06]{$U$};
+		\addplot[thick, domain=-50:50] {0.588*(1-cos(deg(x/40))}node[below left=-1pt, pos=.1]{$U$};
 		%\addplot[thick, domain=0:75] {0.2205*(1-cos(deg(x/15))};
-		\draw[thin](-37,0) --node[pos=.6, below, sloped]{Release Position} (-37,.7);
+		\draw[thin](-37,0) --node[pos=.62, above=-2pt, sloped]{release position}node[pos=.62, below, sloped]{\& turning point} (-37,.7);
 %	\ifprintanswers
 		\addplot[thick, domain=-37:37] {0.235}node[above, pos=.25]{$H=U+K$};
-		\addplot[thick, domain=-37:37] {0.235-0.588*(1-cos(deg(x/40)))}node[below right, pos=.25]{$K$};
+		\addplot[thick, domain=-37:37] {0.235-0.588*(1-cos(deg(x/40)))}node[below right=-1pt, pos=.25]{$K$};
 %		\addplot[thick, red, domain=0:23] {0.22-0.2205*(1-cos(deg(x/15))};
-	\draw[thin](37,0) --node[pos=.6, above, sloped]{Turning Point} (37,.7);
+	\draw[thin](37,0) --node[pos=.62, above=-2pt, sloped]{turning point} (37,.7);
 %	\fi
 	\stopaxis
 \stoptikzpicture
@@ -823,7 +822,7 @@ Galileo began his experiment by moving the pendulum from the equilibrium positio
 {\noindent\typesetbuffer[TikZ:GalileoPendulumGraphHK]} % figure contents
 
 Once the pendulum is released it starts moving to the right. Its gravitational potential $U$ decreases and its kinetic energy $K$ increases. The increasing kinetic energy is shown by the curve labeled \quotation{$K$} on the graph in figure~\in[fig:GalileoPendulumGraphHK].
-Since no work is being done on the system by outside forces, the total energy $H=0.24\units{J}$ stays constant, as shown by the horizontal line labeled \quotation{$H$} on the graph in figure~\in[fig:GalileoPendulumGraphHK]. As the potential energy decreases, the kinetic energy increases by exactly the same amount, so that the total energy $H=U+K$ stays constant.
+Since no work is done on the system by outside forces, the total energy $H=0.24\units{J}$ stays constant, as shown by the horizontal line labeled \quotation{$H$} on the graph in figure~\in[fig:GalileoPendulumGraphHK]. As the potential energy decreases, the kinetic energy increases by exactly the same amount, so that the total energy $H=U+K$ stays constant.
 
 When the pendulum reaches the equilibrium point $s=0\units{cm}$, the potential energy is completely gone. All of the energy is kinetic, as can be seen by the point where the graph of $K$ touches the line $H$ on the graph.
 
@@ -858,14 +857,14 @@ Simple harmonic motion, first introduced in \in{Chapter}[ch:Motion] (\at{p.}[sec
 The spring's \keyterm{stiffness}, represented by $k$, is a measure of how difficult it is to stretch or compress the spring. Very stiff springs are hard to stretch or compress, while springs with a small stiffness stretch or compress easily. (The spring stiffness is often called the \keyterm{spring constant.})
 
 \startbuffer[SpringCart]
-	\fill [black!10] (-.2,0) rectangle (4.8,-.15);
-	\fill [black!10] (0,0) rectangle (-.2,.6);
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
 	\draw[thin] (0,0) -- (0,.6);
 	\startaxis[margin cart track,
 			xmin=-24,xmax=24,
 			ymax=10,
 			]
-	\path (0,0) pic {cart}node[above = 5mm]{$m$};
+	\path (0,0) pic {cart};%node[above = 5mm]{$m$};
 	\draw[decorate,decoration={coil,segment length=3.6pt}] (-24,2.5) --node[above=3pt] {$k$} (-6,2.5);
     \stopaxis
 \stopbuffer
@@ -873,8 +872,8 @@ The spring's \keyterm{stiffness}, represented by $k$, is a measure of how diffic
 \marginTikZ{}{SpringCart}{A cart connected to an ideal spring. This spring's natural length is $18\units{cm}$, so it holds the cart gently at $x=0\units{cm}$.} % vskip, name, caption
 
 \startbuffer[SpringCartRight]
-	\fill [black!10] (-.2,0) rectangle (4.8,-.15);
-	\fill [black!10] (0,0) rectangle (-.2,.6);
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
 	\draw[thin] (0,0) -- (0,.6);
 	\startaxis[margin cart track,
 			xmin=-24,xmax=24,
@@ -933,8 +932,8 @@ endgraph;
 The ideal spring's energy graph, shown in \in{figure}[fig:IdealSpringU], looks almost identical to the pendulum's graph in \in{figure}[fig:GalileoPendulumGraphU], and the motion is also similar.
 
 \startbuffer[SpringCartLeft]
-	\fill [black!10] (-.2,0) rectangle (4.8,-.15);
-	\fill [black!10] (0,0) rectangle (-.2,.6);
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
 	\draw[thin] (0,0) -- (0,.6);
 	\startaxis[margin cart track,
 			xmin=-24,xmax=24,
@@ -947,11 +946,11 @@ The ideal spring's energy graph, shown in \in{figure}[fig:IdealSpringU], looks a
 
 \marginTikZ{}{SpringCartLeft}{A cart connected to an ideal spring will oscillate with simple harmonic motion.} % vskip, name, caption
 
-For example, pushing the cart to the left, as shown in \in{figure}[fig:SpringCartLeft] stores some potential energy in the spring, as shown in the energy graph in \in{figure}[fig:CartGraphs].
+For example, pushing the cart to the left, as shown in \in{figure}[fig:SpringCartLeft] stores some potential energy in the spring, as shown in the energy graph in \in{figure}[fig:CartGraphEnergy].
 When the cart is released the spring will push the cart back toward the equilibrium point at $x=0\units{cm}$, and the spring’s potential energy will get converted to kinetic energy of the cart.
 As the cart passes through the equilibrium, all of the energy is kinetic.  Then the cart will slow as its kinetic energy is again turned into spring potential energy, this time in the stretched spring.
-The cart will continue to oscillate back-and-forth between the turning points. The system's energy will continue changing from the spring's potential energy to the cart's kinetic energy and then changing back with each oscillation from one turning point to the other.
-\startuseMPgraphic{graph::IdealSpringEnergy} % I'd like to add minor ticks, 0.667mm long.
+The cart will continue to oscillate back-and-forth between the turning points. The system's energy will continue changing from the spring's potential energy to the cart's kinetic energy and then changing back with each trip from one turning point to the other.
+\startuseMPgraphic{graph::CartGraphEnergy} % I'd like to add minor ticks, 0.667mm long.
 	path U, H, K, TPL, TPR;
 	U := (-24,24) ..controls (-8,-8) and (8,-8).. (24,24);
 	H := (-12,6) -- (12,6);
@@ -969,29 +968,43 @@ draw begingraph(4.5cm,2.4cm);
 	endfor
 	glabel.lft(textext("Energy (J)") rotated 90,OUT)  shifted (2mm,0);
 	glabel.bot(textext("$x$ (cm)"), OUT);
+	gdraw(TPL) withcolor "middlegray";
+	glabel.top("turning",0.72) rotatedaround(point 0.72 of TPL, 90);
+	glabel.bot("point",0.72) rotatedaround(point 0.72 of TPL, 90);
+	gdraw(TPR) withcolor "middlegray";
+	glabel.top("turning",0.72) rotatedaround(point 0.72 of TPR, 90);
+	glabel.bot("point",0.72) rotatedaround(point 0.72 of TPR, 90);
 	gdraw(U) withpen pencircle scaled 0.8pt;
 	glabel.llft("$U$",0.2);
 	gdraw(H) withpen pencircle scaled 0.8pt;
 	glabel.top("$H$",0.15);
 	gdraw(K) withpen pencircle scaled 0.8pt;
 	glabel.lrt("$K$",0.4);
-	gdraw(TPL) withpen pencircle scaled 0.8pt withcolor "middlegray";
-	glabel.top("Turning",0.7) rotatedaround(point 0.7 of TPL, 90);
-	glabel.bot("point",0.7) rotatedaround(point 0.7 of TPL, 90);
-	gdraw(TPR) withpen pencircle scaled 0.8pt withcolor "middlegray";
-	glabel.top("Turning",0.7) rotatedaround(point 0.7 of TPR, 90);
-	glabel.bot("point",0.7) rotatedaround(point 0.7 of TPR, 90);
 endgraph;
 \stopuseMPgraphic
 
-\startplacefigure[location=margin, reference=fig:IdealSpringEnergy, title={The potential energy of an ideal spring is a perfect parabola.}]
+\startplacefigure[location=margin, reference=fig:CartGraphEnergy, title={The energy graph for a cart released at $x=-12\units{cm}$. The cart will oscillate between the turning points.}]
 \small
-\reuseMPgraphic{graph::IdealSpringEnergy}
+\reuseMPgraphic{graph::CartGraphEnergy}
 \stopplacefigure
 
-In the last section I promised that any system's motion could be predicted using the energy graph. For the cart connected to an ideal spring, the motion is simple harmonic. All we need to determine is the motion's amplitude and period. ( I have not proven to you that this system's motion is simple harmonic. You will have to trust me for now.)
+In the last section I promised that any system's motion could be predicted using energy. For the cart connected to an ideal spring, the motion is simple harmonic. All we need to determine is the motion's amplitude $A$ and period $T$. (I have not proven to you that this system's motion is simple harmonic. You will have to trust me for now.)
 
-The motion's amplitude is the maximum displacement from the equilibrium point. This is easy to find on the energy graph – it is the distance to the turning points, which is determined by the initial energy.
+The motion's amplitude is the maximum displacement from the equilibrium point. This is easy to find on the energy graph – it is the distance to the turning points, which are determined by the initial energy. The amplitude $A$ of the cart's simple harmonic motion is shown on the position vs.\ time graph in \in{figure}[fig:CartGraphs]. You can see how the cart's release point, the turning points, and the amplitude line up. In the diagram, the cart is released at $x=-12\units{cm}$, so the turning points are at $x=\pm12\units{cm}$. The position vs.\ time graph shows the cart's motion oscillating between $x=-12\units{cm}$ and $x=12\units{cm}$. Therefore, the amplitude of the oscillations is $A=12\units{cm}$.
+
+\startbuffer[SpringCartClean]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			]
+	\path (-12,0) pic {cart}node[above = 5mm]{$m$};
+	\draw[decorate,decoration={coil,segment length=1.06pt}] (-24,2.5) --node[above=3pt] {$k$} (-18,2.5);
+    \stopaxis
+\stopbuffer
 
 \startuseMPgraphic{graph::SHOGraphs} % I'd like to add minor ticks, 0.667mm long.
 	path U, H, K, TPL, TPR;
@@ -1011,99 +1024,123 @@ draw begingraph(4.5cm,2.4cm);
 	endfor
 	glabel.lft(textext("Energy (J)") rotated 90,OUT)  shifted (2mm,0);
 	glabel.bot(textext("$x$ (cm)"), OUT);
+	gdraw(TPL) withcolor "middlegray";
+	glabel.top("turning",0.72) rotatedaround(point 0.72 of TPL, 90);
+	glabel.bot("point",0.72) rotatedaround(point 0.72 of TPL, 90);
+	gdraw(TPR) withcolor "middlegray";
+	glabel.top("turning",0.72) rotatedaround(point 0.72 of TPR, 90);
+	glabel.bot("point",0.72) rotatedaround(point 0.72 of TPR, 90);
 	gdraw(U) withpen pencircle scaled 0.8pt;
-	glabel.urt("$U$",0.15);
+	glabel.llft("$U$",0.2);
 	gdraw(H) withpen pencircle scaled 0.8pt;
 	glabel.top("$H$",0.15);
 	gdraw(K) withpen pencircle scaled 0.8pt;
 	glabel.lrt("$K$",0.4);
-	gdraw(TPL) withpen pencircle scaled 0.8pt;
-	glabel.top("Turning",0.6) rotatedaround(point 0.6 of TPL, 90);
-	glabel.bot("point",0.6) rotatedaround(point 0.6 of TPL, 90);
-	gdraw(TPR) withpen pencircle scaled 0.8pt;
-	glabel.top("Turning point",0.4) rotatedaround(point 0.4 of TPR, 90);
 endgraph;
-
-	path p;
-	p := (8,0) ..controls (8,0.66) and (7.33,1.33).. (6,2)
-		-- (1,4.5) ..controls (0.33,4.83) and (0,5.17).. (0,5.5);
-	picture myarrow;
-	myarrow := image(
-		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
-	);
-draw begingraph(4cm,2cm);
+%	path p;
+%	p := (8,0) ..controls (8,0.66) and (7.33,1.33).. (6,2)
+%		-- (1,4.5) ..controls (0.33,4.83) and (0,5.17).. (0,5.5);
+%	picture myarrow;
+%	myarrow := image(
+%		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
+%	);
+	vardef position =
+		path p;
+		for t = 0 upto 160:
+			x := -12*cos(t/8); augment.p(x,t); endfor;
+		p enddef;
+	path xmax, xmin, equlib ;
+	xmax := (-12,0) -- (-12,160);
+	xmin := (12,0) -- (12,160);
+	equlib := (0,3) -- (0,160);
+draw begingraph(4.5cm,10cm);
 	setcoords(linear, -linear);
-	setrange(origin, 8,6);
+	setrange(-21,0, 24,160);
 	graph_template.itick := origin--(1mm,0) ;
-	for y=auto.y:
-		itick.lft(formatted("$@g$", y), y);
-		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
-		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
-	endfor
+%	for y=auto.y:
+	itick.lft(formatted("$@g$", 0), 0);
+%		itick.lft(formatted("$@g$", y), y);
+%		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+%		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+%	endfor
 	for x=auto.x:
 		%itick.top(formatted("$@g$", x), x);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("$t$ (s)") rotated 90,OUT) ;
+	glabel.lft(textext("$t$ (s)") rotated -90,OUT) shifted (2mm,0);
 	%glabel.top(textext("$x$ (m)"), OUT);
-	gdraw(p) withpen pencircle scaled 0.8pt;
-endgraph shifted (0cm, -2.4cm);
+	gdraw(xmin) withcolor "middlegray";
+	%glabel.top("turning",0.72);% rotatedaround(point 0.72 of TPL, 90);
+	%glabel.bot("point",0.72) rotatedaround(point 0.72 of TPL, 90);
+	gdraw(xmax) withcolor "middlegray";
+	%glabel.top("turning",0.72) rotatedaround(point 0.72 of TPR, 90);
+	%glabel.bot("point",0.72) rotatedaround(point 0.72 of TPR, 90);
+	gdraw(equlib) withcolor "middlegray";
+	gdraw(position) withpen pencircle scaled 0.8pt;
+	gdrawdblarrow (0,8*3.14) -- (12,8*3.14);
+	glabel.top("$A$",0.4) ;
+	gdraw (12,8*3.14) -- (16,8*3.14) withcolor "middlegray";
+	gdraw (12,24*3.14) -- (16,24*3.14) withcolor "middlegray";
+	gdrawdblarrow (15,8*3.14) -- (15,24*3.14);
+	glabel.rt("$T$",0.5) ;
+endgraph shifted (0cm, -10.4cm);
 \stopuseMPgraphic
 
-\startplacefigure[location=margin, reference=fig:CartGraphs, title={The cart's energy as a function of position and position as a function of time as the empty cart is returned to $x=0$. These graphs are drawn to the same scale as \in{figures}[fig:CartWork] and \in[fig:CartPosition].}]
-\small
+\startplacefigure[location=margin, reference=fig:CartGraphs, title={The cart at its release position (top), the energy graph for the cart and spring (middle), and the cart's position vs.\ time graph (bottom).}]
+\typesetbuffer[starttikz,SpringCartClean,stoptikz]\small
 \reuseMPgraphic{graph::SHOGraphs}
 \stopplacefigure
 
-The motion's period is the time it takes the cart to go from one turning point to the other and back. This is not easy to find on the energy graph, but we can get it with a little work. We know from \in{Chapter}[ch:Motion] that the period $T$ is related to the amplitude $A$ and the maximum velocity. We also know how to find the maximum velocity using the energy graph. Perhaps if we relate these two, we can find the period.
-
-The spring’s maximum compression is the amplitude of the oscillation. That is the moment when all of the energy is in the spring as potential energy. When the ball passes through the midpoint of the oscillation all of the energy is in the kinetic energy of the cart. Using conservation of energy we can find the maximum speed of the cart (at the midpoint) from the amplitude.
-
-Again we will consider the combined system of the cart and the spring: $H = K+U$. The initial position is at full stretch ($K=0$, $x=A$) and the final position is at the midpoint ($U=0$, $v=v\sub{max}$).
+The motion's period is the time it takes the cart to go from one turning point to the other and back. This is not easy to find on the energy graph, but we can get it with a little work. We know from \in{Chapter}[ch:Motion] that the period $T$ is related to the amplitude $A$ and the maximum speed by the formula $v\sub{max} = 2\pi A/T$. (See \at{p.}[eq:vmaxT].) This can be solved for the period. 
+\startformula
+	T = \frac{2\pi A}{v\sub{max}}
+\stopformula
+We already have the amplitude $A$, all we need is the maximum speed $v\sub{max}$, which we can find using conservation of energy.
+\startformula
+	H\si + W + \cancel{Q}  = H\sf
+\stopformula
+We will start at the moment when the cart is released, and stop when the cart reaches its maximum speed at the equilibrium point. No external forces do work on this system during this time.
 \startformula\startmathalignment
-\NC	H\si + \cancel{W} + \cancel{Q}	\NC = H\sf					\NR
-\NC	\cancel{K\si} + U\si			\NC = K\sf + \cancel{U\sf}		\NR
-\NC	\half k A^2					\NC = \half mv\sub{max}^2	\NR
-\NC	A\sqrt{\frac{k}{m}}			\NC = v\sub{max}
+\NC	H\si + \cancel{W}	\NC = H\sf					\NR
+\NC	K\si + U\si			\NC = K\sf + U\sf		\NR
 \stopmathalignment\stopformula
-The maximum velocity, right at the midpoint, it proportional to the amplitude.
-
-Recall from our earlier discussion of oscillations that the maximum velocity can also be found from the amplitude and the period.
-\highlightbox{
-\startformula[eq:vmaxA]
-	v\sub{max} = \frac{2\pi A}{T}
-\stopformula
-}
-Combine this formula for $v\sub{max}$ with the formula for $v\sub{max}$ that we found above using conservation of energy.
+When the cart is released, it does not have any kinetic energy. All of the energy is potential energy in the spring. When the cart passes through the equilibrium point, the spring's potential energy is zero, and all of the energy is in the cart's kinetic energy. 
+\startformula\startmathalignment
+\NC	\cancel{K\si} + U\si	\NC = K\sf + \cancel{U\sf}		\NR
+\NC	\half k x\si^2		\NC = \half mv\sf^2	\NR
+\stopmathalignment\stopformula
+The initial position is $x\si = -A$, which we know. The final speed is the maximum speed that we need, $v\sf = v\sub{max}$. Put these into our conservation of energy equation and solve for $v\sub{max}$.
+\startformula\startmathalignment
+\NC	 \half k (-A)^2	\NC = \half mv\sub{max}^2	\NR
+\NC	 v\sub{max}		\NC = A\sqrt{k/m}
+\stopmathalignment\stopformula
+To find a numerical value for $v\sub{max}$ we would need to know the spring's stiffness $k$ and the cart's mass $m$. We will leave them as variables for now. Plug this formula for $v\sub{max}$ into the formula for the period $T$, and something surprising happens.
 \startformula
-	\cancel{A}\sqrt{\frac{k}{m}} = \frac{2\pi \cancel{A}}{T}
+	T = \frac{2\pi \cancel{A}}{\cancel{A}\sqrt{k/m}} = 2\pi\sqrt{\frac{m}{k}}
 \stopformula
-Cleaning this up gives a useful formula an oscillator’s period $T$.
-\highlightbox{
-\startformula
-	T = 2\pi\sqrt{\frac{m}{k}}
-\stopformula
-}
-The period $T$ depends on the mass of the cart and the stiffness of the spring, but it does not depend on the amplitude of the oscillations. If the oscillations are small, the speed is also small and each cycle takes time $T$. If the oscillations are big the speed is also big and each cycle is still completed in the same time $T$.
+The amplitude $A$ cancels out, meaning that the period $T$ is independent of the amplitude. If the oscillations are small, the speed is also small and each cycle takes time $T$. If the oscillations are big the speed is also big and each cycle is still completed in the same time $T$.
+Small oscillations take just as long as large oscillations! (Maybe this is not too surprising, since you have known this fact about pendulums since \in{Chapter}[ch:Motion].) The period does depend on the mass and spring stiffness. A larger mass increases the period. A stiffer spring (larger $k$) shortens the period.
 
-This can be used to find the frequency as well
+We can find the oscillation's frequency as well.
 \startformula
 	f = \frac{1\units{cyc}}{T} = \frac{1\units{cyc}}{2\pi}\sqrt{\frac{k}{m}}
 \stopformula
-Again, the frequency does not depend on the amplitude, only on the mass and the spring constant. A stiffer spring (larger $k$) will increase the frequency, while a larger mass will lower the frequency.
+Again, the frequency does not depend on the amplitude, only on the mass and the spring stiffness. A stiffer spring increases the frequency. A larger mass reduces the frequency.
 
-\section{Small vibrations of real systems}
+Whenever we encounter a mass on a spring, we could use these formulas to find the period or frequency from the spring stiffness and the mass. However, the method is important, not the formulas. Amplitude is determined by the turning points. Period is given by the equation for simple harmonic motion: $T= 2\pi A/v\sub{max}$. The maximum speed can be found using conservation of energy.
+This three-step method will give the amplitude and period for simple harmonic oscillators that look nothing like a mass on a spring.
 
-Moving the cart to the right, as shown, requires some work and stores potential energy in the spring. 
-The ideal spring's potential energy has a very simple formula.
-\startformula[eq:1DUspring]
-	U\sub{spring} = \half kx^2
-\stopformula
+\section{Small oscillations in real systems}
+We looked at the simple harmonic oscillator in some detail because simple harmonic oscillators are everywhere! All musical instruments have parts that act as a simple harmonic oscillators (the strings, for example). Many budding musicians have found that pots and pans also act as simple harmonic oscillators when struck with a wooden spoon. The human voice comes from oscillators in our throat. Even sound itself is a sort of simple harmonic oscillator in the air. Daniel Bernoulli studied simple harmonic oscillators that he made with fluid filled tubes.
+
+Many simple harmonic oscillators are too fast or too slow for us to notice. Atoms vibrate in molecules with frequencies around $10^{12}\units{Hz}$. Oscillations in the electromagnetic field, which we perceive as light, are similarly rapid. The solar system oscillates up and down through the plane of our galaxy with a period of almost $200$ million years. Other cosmic oscillations repeat even more slowly. Simple harmonic motion is incredibly common at every scale.
+
+All of these simple harmonic oscillators only produce simple harmonic motion when the amplitude is not too big. The potential energy for a real spring, for example, is not a perfect parabola. If the spring is compressed too much, the coils collide (\in{fig.}[fig:SpringCartBang]). Compressing the spring any more would require tremendous energy. If the spring is stretched too much, it will break (\in{fig.}[fig:SpringCartSnap]), and all of the potential energy will be lost. As a result, a real spring's potential energy looks more like \in{figure}[fig:RealSpringGraphEnergy]. The middle of the potential energy graph still looks like a parabola, so the motion will be simple harmonic if the turning points are within that region. If the total energy $H$ is too high, the spring will become too compressed or stretched, and the motion will not be simple harmonic. These sorts of failures are possible with any simple harmonic oscillator. A pendulum can knock against a wall. Musical strings can snap. Molecules can break. Every simple harmonic oscillator has its limits.
 
 \startbuffer[SpringCartBang]
-	\fill [black!10] (-.2,0) rectangle (4.8,-.15);
-	\fill [black!10] (0,0) rectangle (-.2,.6);
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
 	\draw[thin] (0,0) -- (0,.6);
 	\startaxis[margin cart track,
 			xmin=-24,xmax=24,
@@ -1118,8 +1155,8 @@ The ideal spring's potential energy has a very simple formula.
 \marginTikZ{}{SpringCartBang}{Compress a real spring too much, and its coils will collide.} % vskip, name, caption
 
 \startbuffer[SpringCartSnap]
-	\fill [black!10] (-.2,0) rectangle (4.8,-.15);
-	\fill [black!10] (0,0) rectangle (-.2,.6);
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
 	\draw[thin] (0,0) -- (0,.6);
 	\startaxis[margin cart track,
 			xmin=-24,xmax=24,
@@ -1135,13 +1172,139 @@ The ideal spring's potential energy has a very simple formula.
 
 \marginTikZ{}{SpringCartSnap}{Stretch a real spring too much, and it will break.} % vskip, name, caption
 
+\startuseMPgraphic{graph::RealSpringGraphEnergy} % I'd like to add minor ticks, 0.667mm long.
+	path U, H, K, TPL, TPR;
+	U := (-16,24) -- (-15,75/8) ..controls (-5,-25/8) and (5,-25/8).. (15,75/8) -- (16,0);
+	H := (-12,6) -- (12,6);
+	K := (-24,-18) ..controls (-8,14) and (8,14).. (24,-18);
+	TPL := (-12,0) -- (-12,24);
+	TPR := (12,0) -- (12,24);
+draw begingraph(4.5cm,2.4cm);
+	setrange(-21,0, 24, 24);
+	graph_template.itick := origin--(1mm,0) ;
+	itick.lft(formatted("$@g$", 0), 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy (J)") rotated 90,OUT)  shifted (2mm,0);
+	glabel.bot(textext("$x$ (cm)"), OUT);
+%	gdraw(TPL) withcolor "middlegray";
+%	glabel.top("turning",0.72) rotatedaround(point 0.72 of TPL, 90);
+%	glabel.bot("point",0.72) rotatedaround(point 0.72 of TPL, 90);
+%	gdraw(TPR) withcolor "middlegray";
+%	glabel.top("turning",0.72) rotatedaround(point 0.72 of TPR, 90);
+%	glabel.bot("point",0.72) rotatedaround(point 0.72 of TPR, 90);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.llft("$U$",1.1);
+	glabel.rt("Bang!",0.5) rotatedaround(point 0.5 of U, 10);
+	glabel.urt("Snap!",2) rotatedaround(point 2 of U, 10);
+%	gdraw(H) withpen pencircle scaled 0.8pt;
+%	glabel.top("$H$",0.15);
+%	gdraw(K) withpen pencircle scaled 0.8pt;
+%	glabel.lrt("$K$",0.4);
+endgraph;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:RealSpringGraphEnergy, title={The energy graph for a real spring is not a perfect parabola.}]
+\small
+\reuseMPgraphic{graph::RealSpringGraphEnergy}
+\stopplacefigure
+
+Recognizing these limits also helps us understand why simple harmonic oscillators are so common. 
+
+Any time something is held in place, you are likely to have a simple harmonic oscillator – at least for amplitudes that are small enough.
+
 Pendulums and musical instruments are nearly ideal when their oscillations are small. In fact, most systems that oscillate or vibrate behave like simple harmonic oscillators for small amplitudes. We will look at the small oscillations of real objects in the next section. Here we look the motion of an ideal oscillator.
 
-After completing \booktitle{Hydrodynamica} Daniel Bernoulli developed new applications for his energy principle, and even found new types of potential energy, like the energy stored in a stretched or compressed spring.
+\startluacode
+	function mp.morse(r)
+		local U = 2.47*(1-math.exp(2.66-r))^2
+		mp.inject.numeric(U)
+	end
+	function mp.morseinverselow(U)
+		local r = 2.66-math.log(1+math.sqrt(U/2.47))
+		mp.inject.numeric(r)
+	end
+	function mp.morseinversehigh(U)
+		local r = 2.66-math.log(1-math.sqrt(U/2.47))
+		mp.inject.numeric(r)
+	end
+\stopluacode
 
-The ability to easily store and return energy makes springs incredibly useful.
-In some cases the energy stored is quite small. Buttons on a keyboard have tiny springs in them that store some energy when the button is pressed. This energy is used to push the button back up so it is ready to be pressed again.
-A bow for firing arrows is a different shape, but it is still a spring. When the string is pulled back the bow stores a larger amount of energy. When the string is released the energy stored in the bow is delivered to the arrow as kinetic energy.
+\startuseMPgraphic{graph::I2Energy} % I'd like to add minor ticks, 0.667mm long.
+vardef U =
+	path p;
+		for x = 0 step 0.1 until 10:
+			y := lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+%	path U, H, K, TPL, TPR;
+	path H;
+	E := 0.37;
+%	U := (-24,24) ..controls (-8,-8) and (8,-8).. (24,24);
+	H := (lua.mp.morseinverselow(E),E) -- (lua.mp.morseinversehigh(E),E);
+%	K := (-24,-18) ..controls (-8,14) and (8,14).. (24,-18);
+%	TPL := (-12,0) -- (-12,24);
+%	TPR := (12,0) -- (12,24);
+draw begingraph(4cm,5cm);
+	setrange(origin, 8, 3);
+	graph_template.itick := origin--(1mm,0) ;
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy ($\sci{-19}\units{J}$)") rotated 90,OUT);
+	glabel.bot(textext("$r$ ($\sci{-10}\units{m}$)"), OUT);
+%	gdraw(TPL) withcolor "middlegray";
+%	glabel.top("turning",0.72) rotatedaround(point 0.72 of TPL, 90);
+%	glabel.bot("point",0.72) rotatedaround(point 0.72 of TPL, 90);
+%	gdraw(TPR) withcolor "middlegray";
+%	glabel.top("turning",0.72) rotatedaround(point 0.72 of TPR, 90);
+%	glabel.bot("point",0.72) rotatedaround(point 0.72 of TPR, 90);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.lft("$U$",21);
+	glabel.rt("simple",33);
+	glabel.rt("harmonic",31.6);
+	glabel.rt("motion",30);
+	glabel.rt("Bang!",19.7) rotatedaround(point 19.7 of U, 10);
+	glabel.urt("Bye!",63) rotatedaround(point 63 of U, 10);
+	gdraw(H) withpen pencircle scaled 0.8pt;
+	glabel.top("$H$",0.5);
+%	gdraw(K) withpen pencircle scaled 0.8pt;
+%	glabel.lrt("$K$",0.4);
+endgraph;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:I2Energy, title={Enegy graph for an iodine molecule, \chemical{I_2}, showing the potential energy as a function of the distance $r$ between the two iodine atoms. When the total energy $H$ is low, as shown, the molecule is a good simple harmonic oscillator. At higher energies the molecule can break apart.}]
+\small\reuseMPgraphic{graph::I2Energy}
+\stopplacefigure
+
+\startexample[ex:GalileoPendulumT] Recall Galileo's experiment with the $40\units{cm}$ long pendulum earlier in this chapter (starting on \at{p.}[sec:GravU]). Galileo pulls the pendulum to the position $s=-37\units{cm}$ along its path and releases it.
+What is the pendulum's period?
+\startsolution
+We know the pendulum will swing between the release position at $s=-37\units{cm}$ and the other turning point at $s=37\units{cm}$. The amplitude is therefore $A=37\units{cm}$. In \in{example}[ex:GalileoPendulumT] we used conservation of energy to find the ball's maximum velocity $v\sub{max} = 1.8\units{m/s}$. All that remains is to use the period formula for simple harmonic motion.
+\startformula
+	T = \frac{2\pi A}{v\sub{max}} = \frac{2\pi 37\units{cm}}{1.77\units{m/s}} = 1.3\unit{s}
+\stopformula
+The pendulum's period is $1.3\units{s}$.
+\stopsolution
+\stopexample
+While the pendulum is a very good simple harmonic oscillator, it is not perfect. Were you to repeat Galileo's experiment with great care, you would find that the period for small amplitudes is about one-twentieth of a second shorter than the period for $A=37\units{cm}$. This happens because the pendulum's potential energy in \in{figure}[fig:GalileoPendulumGraphU] is not a perfect parabola, it is actually a cosine function. Since it is almost a parabola, the period is only few percent longer at large amplitudes. This does not cause problems for our pendulum collision experiments, but it would be a serious problem for a pendulum clock, which is expected to keep accurate time as its pendulum swings through thousands of cycles. Good pendulum clocks use a long pendulum and a small amplitude to minimize this error. When the pendulum swings through a small angle it keeps very accurate time.
+
+%After completing \booktitle{Hydrodynamica} Daniel Bernoulli developed new applications for his energy principle, and even found new types of potential energy, like the energy stored in a stretched or compressed spring.
+
+%The ability to easily store and return energy makes springs incredibly useful.
+%In some cases the energy stored is quite small. Buttons on a keyboard have tiny springs in them that store some energy when the button is pressed. This energy is used to push the button back up so it is ready to be pressed again.
+%A bow for firing arrows is a different shape, but it is still a spring. When the string is pulled back the bow stores a larger amount of energy. When the string is released the energy stored in the bow is delivered to the arrow as kinetic energy.
 
 
 \section{Equilibrium}
