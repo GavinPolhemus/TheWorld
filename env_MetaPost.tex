@@ -4,7 +4,6 @@
 \startMPinclusions
   pickup pencircle scaled 0.8pt;
   anglelength := 5mm ;
-
 \stopMPinclusions
 
 % Specifically for MetaPost figures
@@ -61,5 +60,53 @@
 		\cancelframe{#1}%
 	\fi%
 }
+
+\startMPinclusions 
+picture ball;
+	ball := image(
+		fill fullcircle scaled 1cm
+      			withshademethod "circular"
+			withshadecenter (.25,.25)
+       		withcolor "white" shadedinto black;);
+
+% This is from the feynmp package
+%input feynmp
+
+curly_len := 3mm;
+
+vardef pixlen (expr p, n) =
+  for k=1 upto length(p): + segment_pixlen (subpath (k-1,k) of p, n) endfor
+enddef;
+
+vardef segment_pixlen (expr p, n) =
+  for k=1 upto n: + abs (point k/n of p - point (k-1)/n of p) endfor
+enddef;
+
+vardef curly expr p =
+ save cpp;
+ numeric cpp;
+ cpp := ceiling (pixlen (p, 10) / curly_len) / length p;
+ if cycle p:
+   for k=0 upto cpp*length(p) - 1:
+     point (k+.33)/cpp of p
+           {direction (k+.33)/cpp of p rotated 90} ..
+     point (k-.33)/cpp of p
+           {direction (k-.33)/cpp of p rotated -90} ..
+   endfor
+   cycle
+ else:
+   point 0 of p
+         {direction 0 of p rotated -90} ..
+   for k=1 upto cpp*length(p) - 1:
+     point (k+.33)/cpp of p
+           {direction (k+.33)/cpp of p rotated 90} ..
+     point (k-.33)/cpp of p
+           {direction (k-.33)/cpp of p rotated -90} ..
+   endfor
+   point infinity of p
+         {direction infinity of p rotated 90}
+ fi
+enddef;
+\stopMPinclusions
 
 \stopenvironment

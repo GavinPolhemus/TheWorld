@@ -1052,7 +1052,7 @@ endgraph;
 	path xmax, xmin, equlib ;
 	xmax := (-12,0) -- (-12,160);
 	xmin := (12,0) -- (12,160);
-	equlib := (0,3) -- (0,160);
+	equlib := (0,6) -- (0,160);
 draw begingraph(4.5cm,10cm);
 	setcoords(linear, -linear);
 	setrange(-21,0, 24,160);
@@ -1077,13 +1077,13 @@ draw begingraph(4.5cm,10cm);
 	%glabel.top("turning",0.72) rotatedaround(point 0.72 of TPR, 90);
 	%glabel.bot("point",0.72) rotatedaround(point 0.72 of TPR, 90);
 	gdraw(equlib) withcolor "middlegray";
-	gdraw(position) withpen pencircle scaled 0.8pt;
 	gdrawdblarrow (0,8*3.14) -- (12,8*3.14);
 	glabel.top("$A$",0.4) ;
 	gdraw (12,8*3.14) -- (16,8*3.14) withcolor "middlegray";
 	gdraw (12,24*3.14) -- (16,24*3.14) withcolor "middlegray";
 	gdrawdblarrow (15,8*3.14) -- (15,24*3.14);
 	glabel.rt("$T$",0.5) ;
+	gdraw(position) withpen pencircle scaled 0.8pt;
 endgraph shifted (0cm, -10.4cm);
 \stopuseMPgraphic
 
@@ -1135,8 +1135,6 @@ This three-step method will give the amplitude and period for simple harmonic os
 We looked at the simple harmonic oscillator in some detail because simple harmonic oscillators are everywhere! All musical instruments have parts that act as a simple harmonic oscillators (the strings, for example). Many budding musicians have found that pots and pans also act as simple harmonic oscillators when struck with a wooden spoon. The human voice comes from oscillators in our throat. Even sound itself is a sort of simple harmonic oscillator in the air. Daniel Bernoulli studied simple harmonic oscillators that he made with fluid filled tubes.
 
 Many simple harmonic oscillators are too fast or too slow for us to notice. Atoms vibrate in molecules with frequencies around $10^{12}\units{Hz}$. Oscillations in the electromagnetic field, which we perceive as light, are similarly rapid. The solar system oscillates up and down through the plane of our galaxy with a period of almost $200$ million years. Other cosmic oscillations repeat even more slowly. Simple harmonic motion is incredibly common at every scale.
-
-All of these simple harmonic oscillators only produce simple harmonic motion when the amplitude is not too big. The potential energy for a real spring, for example, is not a perfect parabola. If the spring is compressed too much, the coils collide (\in{fig.}[fig:SpringCartBang]). Compressing the spring any more would require tremendous energy. If the spring is stretched too much, it will break (\in{fig.}[fig:SpringCartSnap]), and all of the potential energy will be lost. As a result, a real spring's potential energy looks more like \in{figure}[fig:RealSpringGraphEnergy]. The middle of the potential energy graph still looks like a parabola, so the motion will be simple harmonic if the turning points are within that region. If the total energy $H$ is too high, the spring will become too compressed or stretched, and the motion will not be simple harmonic. These sorts of failures are possible with any simple harmonic oscillator. A pendulum can knock against a wall. Musical strings can snap. Molecules can break. Every simple harmonic oscillator has its limits.
 
 \startbuffer[SpringCartBang]
 	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
@@ -1212,23 +1210,34 @@ endgraph;
 \reuseMPgraphic{graph::RealSpringGraphEnergy}
 \stopplacefigure
 
-Recognizing these limits also helps us understand why simple harmonic oscillators are so common. 
+All of these simple harmonic oscillators only produce simple harmonic motion when the amplitude is not too big. The potential energy for a real spring, for example, is not a perfect parabola. If the spring is compressed too much, the coils collide (\in{fig.}[fig:SpringCartBang]). Compressing the spring any more would require tremendous energy. If the spring is stretched too much, it will break (\in{fig.}[fig:SpringCartSnap]), and all of the potential energy will be lost. As a result, a real spring's potential energy looks more like \in{figure}[fig:RealSpringGraphEnergy]. The middle of the potential energy graph still looks like a parabola, so the motion will be simple harmonic if the turning points are within that region. If the total energy $H$ is too high, the spring will become too compressed or stretched, and the motion will not be simple harmonic. These sorts of failures are possible with any simple harmonic oscillator. A pendulum can knock against a wall. Musical strings can snap. Molecules can break. Every simple harmonic oscillator has its limits.
 
-Any time something is held in place, you are likely to have a simple harmonic oscillator – at least for amplitudes that are small enough.
+Simple harmonic oscillators are everywhere, because the central parabola shape in \in{figure}[fig:RealSpringGraphEnergy] is almost universal. If an object is held in place gently, the parabola is wide (like the pendulum's in \in{figure}[fig:GalileoPendulumGraphU]), and not much energy is required to displace the object. If the object is held tightly, then the parabola is narrow, and the potential energy rises steeply on both sides of equilibrium. The system will produce simple harmonic motion in any case. \in{Figure}[fig:I2Energy] shows another example, the potential energy function responsible for holding two iodine atoms together to form an iodine molecule, \chemical{I_2}. These two atoms act like they are held together by a spring and will vibrate with simple harmonic motion if given a small amount of energy. (Too much energy will break the molecule apart.) Most molecules have bonds that behave like springs. Larger objects have even more parts, so they contain even more ways to vibrate. Many of those vibrations are simple harmonic, even when we cannot see or hear the vibrations.
 
-Pendulums and musical instruments are nearly ideal when their oscillations are small. In fact, most systems that oscillate or vibrate behave like simple harmonic oscillators for small amplitudes. We will look at the small oscillations of real objects in the next section. Here we look the motion of an ideal oscillator.
+\startuseMPgraphic{I2Energy}
+draw curly (-1cm,0) -- (1cm,0) withpen pencircle scaled 0.8pt;
+draw ball shifted (-1.5cm,0);
+label("I",(-1.5cm,0));
+draw ball shifted (1.5cm,0);
+label("I",(1.5cm,0));
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:I2Energy, title={Two iodine atoms are connected to form an iodine molecule, \chemical{I_2}. They are actually connected by an electron bond, but they oscillate as if they are connected by a tiny spring.}]
+\small
+\reuseMPgraphic{I2Energy}
+\stopplacefigure
 
 \startluacode
 	function mp.morse(r)
-		local U = 2.47*(1-math.exp(2.66-r))^2
+		local U = 2.47*(1-math.exp(1.85*(2.66-r)))^2
 		mp.inject.numeric(U)
 	end
 	function mp.morseinverselow(U)
-		local r = 2.66-math.log(1+math.sqrt(U/2.47))
+		local r = 2.66 - math.log(1+math.sqrt(U/2.47))/1.85
 		mp.inject.numeric(r)
 	end
 	function mp.morseinversehigh(U)
-		local r = 2.66-math.log(1-math.sqrt(U/2.47))
+		local r = 2.66 - math.log(1-math.sqrt(U/2.47))/1.85
 		mp.inject.numeric(r)
 	end
 \stopluacode
@@ -1236,14 +1245,14 @@ Pendulums and musical instruments are nearly ideal when their oscillations are s
 \startuseMPgraphic{graph::I2Energy} % I'd like to add minor ticks, 0.667mm long.
 vardef U =
 	path p;
-		for x = 0 step 0.1 until 10:
+		for x = 2 step 0.01 until 10:
 			y := lua.mp.morse(x);
 			augment.p(x,y);
 		endfor;
 	p enddef;
 %	path U, H, K, TPL, TPR;
 	path H;
-	E := 0.37;
+	E := 0.7;
 %	U := (-24,24) ..controls (-8,-8) and (8,-8).. (24,24);
 	H := (lua.mp.morseinverselow(E),E) -- (lua.mp.morseinversehigh(E),E);
 %	K := (-24,-18) ..controls (-8,14) and (8,14).. (24,-18);
@@ -1271,12 +1280,12 @@ draw begingraph(4cm,5cm);
 %	glabel.top("turning",0.72) rotatedaround(point 0.72 of TPR, 90);
 %	glabel.bot("point",0.72) rotatedaround(point 0.72 of TPR, 90);
 	gdraw(U) withpen pencircle scaled 0.8pt;
-	glabel.lft("$U$",21);
-	glabel.rt("simple",33);
-	glabel.rt("harmonic",31.6);
-	glabel.rt("motion",30);
-	glabel.rt("Bang!",19.7) rotatedaround(point 19.7 of U, 10);
-	glabel.urt("Bye!",63) rotatedaround(point 63 of U, 10);
+	glabel.lft("$U$",34);
+	glabel.rt("simple",104);
+	glabel.rt("harmonic",95);
+	glabel.rt("motion",85);
+	glabel.rt("Bang!",28) rotatedaround(point 28 of U, 10);
+	glabel.urt("Bye!",430) rotatedaround(point 430 of U, 10);
 	gdraw(H) withpen pencircle scaled 0.8pt;
 	glabel.top("$H$",0.5);
 %	gdraw(K) withpen pencircle scaled 0.8pt;
@@ -1288,12 +1297,14 @@ endgraph;
 \small\reuseMPgraphic{graph::I2Energy}
 \stopplacefigure
 
+%Pendulums and musical instruments are nearly ideal when their oscillations are small. In fact, most systems that oscillate or vibrate behave like simple harmonic oscillators for small amplitudes. We will look at the small oscillations of real objects in the next section. Here we look the motion of an ideal oscillator.
+
 \startexample[ex:GalileoPendulumT] Recall Galileo's experiment with the $40\units{cm}$ long pendulum earlier in this chapter (starting on \at{p.}[sec:GravU]). Galileo pulls the pendulum to the position $s=-37\units{cm}$ along its path and releases it.
 What is the pendulum's period?
 \startsolution
 We know the pendulum will swing between the release position at $s=-37\units{cm}$ and the other turning point at $s=37\units{cm}$. The amplitude is therefore $A=37\units{cm}$. In \in{example}[ex:GalileoPendulumT] we used conservation of energy to find the ball's maximum velocity $v\sub{max} = 1.8\units{m/s}$. All that remains is to use the period formula for simple harmonic motion.
 \startformula
-	T = \frac{2\pi A}{v\sub{max}} = \frac{2\pi 37\units{cm}}{1.77\units{m/s}} = 1.3\unit{s}
+	T = \frac{2\pi A}{v\sub{max}} = \frac{2\pi (37\units{cm})}{1.8\units{m/s}} = 1.3\unit{s}
 \stopformula
 The pendulum's period is $1.3\units{s}$.
 \stopsolution
@@ -1307,9 +1318,271 @@ While the pendulum is a very good simple harmonic oscillator, it is not perfect.
 %A bow for firing arrows is a different shape, but it is still a spring. When the string is pulled back the bow stores a larger amount of energy. When the string is released the energy stored in the bow is delivered to the arrow as kinetic energy.
 
 
+\section{Friction and other external forces}
+
+Objects held in place by friction do not produce simple harmonic motion. A block placed on a table will not slide off, even if the table is not perfectly level, because friction between the block and the table holds the block in place. If you displace the block a few centimeters, it will not oscillate like a pendulum. It just sits motionless at the new position. Sliding the block requires some work, but that work is not stored as potential energy. Instead, it goes to random, microscopic motion in the surface of the block and the table. (The sliding sound you hear is some of that random motion.)
+
+Until we study heat, we will always leave this random, microscopic motion out of our systems. That means that friction will always be an external force that does work on the system – usually negative work.
+
+\startbuffer[SpringBlockClean]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			]
+	\path (-15,0) pic {block}node[above = 5mm]{$m$};
+	\draw[decorate,decoration={coil,segment length=1.06pt}] (-24,2.5) --node[above=3pt] {$k$} (-18,2.5);
+    \stopaxis
+\stopbuffer
+
+\startuseMPgraphic{graph::BlockSHOGraphs} % I'd like to add minor ticks, 0.667mm long.
+	path U, H, K, Re, TPA, TPB, TPC, TPD, TPE, TPF, St;
+	U := (-24,24) ..controls (-8,-8) and (8,-8).. (24,24);
+	%H := (-15,75/8) -- (12,6) -- (-9,27/8) -- (6,1.5) -- (-3,3/8) -- (0,0);
+	%H := (-15,75/8) -- (13,169/24) -- (-11,121/24) -- (9,27/8) -- (-7,49/24) --(5,25/24) --(-3, 3/8) -- (1,1/24);
+	H := (-15,75/8) -- (9,27/8) -- (-3, 3/8);
+	%H := (-15,75/8) -- (11,121/24) -- (-7,49/24) --(3, 3/8) -- (1,1/24);
+	%H := (-15,75/8) -- (-3,3/8) ;
+	K := (-24,-18) ..controls (-8,14) and (8,14).. (24,-18);
+	Re := (-15,0) -- (-15,13);
+	%TPA := (13,0) -- (13,13);
+	TPA := (11,0) -- (11,13);
+	%TPC := (9,0) -- (9,13);
+	TPB := (-7,0) -- (-7,13);
+	%TPE := (5,0) -- (5,13);
+	TPC := (3,0) -- (3,13);
+	St := (1,0) -- (1,13);
+draw begingraph(4.5cm,2.4cm);
+	setrange(-21,0, 24, 24);
+	graph_template.itick := origin--(1mm,0) ;
+	itick.lft(formatted("$@g$", 0), 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy (J)") rotated 90,OUT)  shifted (2mm,0);
+	glabel.bot(textext("$x$ (cm)"), OUT);
+	gdraw(Re) withcolor "middlegray";
+	glabel.rt("release",1) rotatedaround(point 0.97 of Re, 90);
+	gdraw(TPA) withcolor "middlegray";
+	glabel.rt("turn 1",1) rotatedaround(point 0.97 of TPA, 90);
+	gdraw(TPB) withcolor "middlegray";
+	glabel.rt("turn 2",1) rotatedaround(point 0.97 of TPB, 90);
+	gdraw(TPC) withcolor "middlegray";
+	glabel.rt("turn 3",.92) rotatedaround(point 0.97 of TPC, 90);
+%	gdraw(TPD) withcolor "middlegray";
+%	glabel.rt("turn 4",1) rotatedaround(point 0.97 of TPD, 90);
+%	gdraw(TPE) withcolor "middlegray";
+%	glabel.rt("turn 5",1) rotatedaround(point 0.97 of TPE, 90);
+%	gdraw(TPF) withcolor "middlegray";
+%	glabel.rt("turn 6",1) rotatedaround(point 0.97 of TPF, 90);
+	gdraw(St) withcolor "middlegray";
+	glabel.urt("stop",.85) rotatedaround(point 0.97 of St, 90);
+	gdraw(U) withpen pencircle scaled 0.8pt withcolor "middlegray";
+	glabel.llft("$U$",0.17);
+	gdraw(H) withpen pencircle scaled 0.8pt;
+	glabel.top("$H$",0.36);
+endgraph;
+%	path p;
+%	p := (8,0) ..controls (8,0.66) and (7.33,1.33).. (6,2)
+%		-- (1,4.5) ..controls (0.33,4.83) and (0,5.17).. (0,5.5);
+%	picture myarrow;
+%	myarrow := image(
+%		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
+%	);
+	vardef position =
+		path p;
+		for t = 0 upto 160:
+			x := -12*cos(t/8); augment.p(x,t); endfor;
+		p enddef;
+	path xmax, xmin, equlib ;
+	xmax := (-12,0) -- (-12,160);
+	xmin := (12,0) -- (12,160);
+	equlib := (0,6) -- (0,160);
+draw begingraph(4.5cm,10cm);
+	setcoords(linear, -linear);
+	setrange(-21,0, 24,160);
+	graph_template.itick := origin--(1mm,0) ;
+%	for y=auto.y:
+	itick.lft(formatted("$@g$", 0), 0);
+%		itick.lft(formatted("$@g$", y), y);
+%		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+%		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+%	endfor
+	for x=auto.x:
+		%itick.top(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$t$ (s)") rotated -90,OUT) shifted (2mm,0);
+	%glabel.top(textext("$x$ (m)"), OUT);
+	gdraw(xmin) withcolor "middlegray";
+	%glabel.top("turning",0.72);% rotatedaround(point 0.72 of TPL, 90);
+	%glabel.bot("point",0.72) rotatedaround(point 0.72 of TPL, 90);
+	gdraw(xmax) withcolor "middlegray";
+	%glabel.top("turning",0.72) rotatedaround(point 0.72 of TPR, 90);
+	%glabel.bot("point",0.72) rotatedaround(point 0.72 of TPR, 90);
+	gdraw(equlib) withcolor "middlegray";
+	%gdrawdblarrow (0,8*3.14) -- (12,8*3.14);
+	%glabel.top("$A$",0.4) ;
+	gdraw (12,8*3.14) -- (16,8*3.14) withcolor "middlegray";
+	gdraw (12,24*3.14) -- (16,24*3.14) withcolor "middlegray";
+	gdrawdblarrow (15,8*3.14) -- (15,24*3.14);
+	glabel.rt("$T$",0.5) ;
+	gdraw(position) withpen pencircle scaled 0.8pt;
+endgraph shifted (0cm, -10.4cm);
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:BlockSHOGraphs, title={The block at its release position (top), the energy graph for the block and spring (middle), and the block's position vs.\ time graph (bottom).}]
+\typesetbuffer[starttikz,SpringBlockClean,stoptikz]\small
+\reuseMPgraphic{graph::BlockSHOGraphs}
+\stopplacefigure
+
+In \in{figure}[fig:BlockSHOGraphs]....
+
+\startformula
+	dH = F_x\,dx
+\stopformula
+
+\startuseMPgraphic{graph::SlideRight} % I'd like to add minor ticks, 0.667mm long.
+	path U, H;
+	%U := (-16,24) -- (-15,75/8) ..controls (-5,-25/8) and (5,-25/8).. (15,75/8) -- (16,0);
+	H := (-12,14) -- (12,8);
+draw begingraph(4.5cm,2.4cm);
+	setrange(-21,0, 24, 24);
+	autogrid(,);
+	glabel.lft(textext("Energy") rotated 90,OUT);
+	glabel.bot(textext("$x$"), OUT);
+	gdrawarrow(H) withpen pencircle scaled 0.8pt;
+	glabel.bot("$H$",0.2);
+	gdrawarrow (-4,12) -- (4,12) withpen pencircle scaled 0.8pt;
+	glabel.top("$dx$",0.5);
+	gdrawarrow (4,12) -- (4,10) withpen pencircle scaled 0.8pt;
+	glabel.rt("$dH$",0);
+endgraph;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:SlideRight, title={As the block slides a small distance $dx$ to the right, friction reduces the total energy by $dH$.}]
+\small
+\reuseMPgraphic{graph::SlideRight}
+\stopplacefigure
+
+\in{figure}[fig:SlideRight]
+
+\startuseMPgraphic{graph::SlideLeft} % I'd like to add minor ticks, 0.667mm long.
+	path U, H;
+	%U := (-16,24) -- (-15,75/8) ..controls (-5,-25/8) and (5,-25/8).. (15,75/8) -- (16,0);
+	H := (12,14) -- (-12,8);
+draw begingraph(4.5cm,2.4cm);
+	setrange(-21,0, 24, 24);
+	autogrid(,);
+	glabel.lft(textext("Energy") rotated 90,OUT);
+	glabel.bot(textext("$x$"), OUT);
+	gdrawarrow(H) withpen pencircle scaled 0.8pt;
+	glabel.bot("$H$",0.2);
+	gdrawarrow (4,12) -- (-4,12) withpen pencircle scaled 0.8pt;
+	glabel.top("$dx$",0.5);
+	gdrawarrow (-4,12) -- (-4,10) withpen pencircle scaled 0.8pt;
+	glabel.lft("$dH$",0);
+endgraph;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:SlideLeft, title={As the block slides a small distance $dx$ to the left, friction reduces the total energy by $dH$.}]
+\small
+\reuseMPgraphic{graph::SlideLeft}
+\stopplacefigure
+
+\in{figure}[fig:SlideLeft]
+
+\startuseMPgraphic{graph::SlideToStop} % I'd like to add minor ticks, 0.667mm long.
+	path U, H, nope;
+	U := (-15,75/8) ..controls (-5,-25/8) and (5,-25/8).. (15,75/8);
+	H := (-1.5,3/4) -- (-3, 3/8);
+	nope := (-4.5,0) -- (-3, 3/8) -- (-1.5,0);
+picture mydot; mydot := image(fill fullcircle scaled 3pt;);
+draw begingraph(4.5cm,2.4cm);
+	setrange(-4,0, -2, 1.33);
+	graph_template.itick := origin--(1mm,0) ;
+	itick.lft(formatted("$@g$", 0), 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy") rotated 90,OUT) shifted (2mm,0);
+	glabel.bot(textext("$x$ (cm)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt withcolor "middlegray";
+	glabel.top("$U$",0.38);
+	gdrawarrow(H) withpen pencircle scaled 0.8pt;
+	glabel.top("$H$",0.7);
+	gdraw(nope) withpen pencircle scaled 0.8pt dashed withdots;
+	glabel.bot("no",1.25);
+	glabel.bot("no",0.75);
+	glabel(mydot,1);
+%	gdrawarrow (-3.25,0.44) -- (-2.75,0.44) withpen pencircle scaled 0.8pt;
+%	glabel.top("$\partial x$",0.5);
+%	gdrawarrow (-2.75,0.44) -- (-2.75,0.315) withpen pencircle scaled 0.8pt;
+%	glabel.rt("$\partial U$",0);
+endgraph;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:SlideToStop, title={The block stops at $x=3\units{cm}$, unable to move in either direction.}]
+\small
+\reuseMPgraphic{graph::SlideToStop}
+\stopplacefigure
+
+\in{figure}[fig:SlideToStop]
+When the block arrives at $x=3\units{cm}$, its total energy $H$ is equal to the potential energy $U$. It cannot continue to the left because its total energy would be less than its potential energy, which is impossible. It also cannot turn and go to the right because that would also lead to its total energy being less than its potential energy.
+
 \section{Equilibrium}
 
-\section{External Forces}
+\startformula
+	\partial U = F_x\,\partial x
+\stopformula
+
+\startformula
+	\frac{\partial U}{\partial x} = F_x
+\stopformula
+
+\startuseMPgraphic{graph::BlockStoped} % I'd like to add minor ticks, 0.667mm long.
+	path U, H, nope;
+	U := (-15,75/8) ..controls (-5,-25/8) and (5,-25/8).. (15,75/8);
+	H := (-4.5,0) -- (-3, 3/8) -- (-1.5,0);
+	nope := (-4.5,0) -- (-3, 3/8) -- (-1.5,0);
+draw begingraph(4.5cm,2.4cm);
+	setrange(-4,0, -2, 1.33);
+	graph_template.itick := origin--(1mm,0) ;
+	itick.lft(formatted("$@g$", 0), 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy") rotated 90,OUT) shifted (2mm,0);
+	glabel.bot(textext("$x$ (cm)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt withcolor "middlegray";
+	glabel.top("$U$",0.38);
+	gdraw(nope) withpen pencircle scaled 0.8pt dashed withdots;
+	glabel.bot("no",1.25);
+	glabel.bot("no",0.75);
+	glabel(mydot,1);
+	gdrawarrow (-3.25,0.44) -- (-2.75,0.44) withpen pencircle scaled 0.8pt;
+	glabel.top("$\partial x$",0.5);
+	gdrawarrow (-2.75,0.44) -- (-2.75,0.315) withpen pencircle scaled 0.8pt;
+	glabel.rt("$\partial U$",0);
+endgraph;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:BlockStoped, title={The potential energy's slope at $x=3\units{cm}$ is investigated using a small virtual change in position $\partial x$ and the resulting small virtual change in potential energy $\partial U$.}]
+\small
+\reuseMPgraphic{graph::BlockStoped}
+\stopplacefigure
+
+\in{figure}[fig:BlockStoped]
 
 \section{Gravitational potential energy in the Solar System}
 
