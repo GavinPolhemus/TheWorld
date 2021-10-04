@@ -907,7 +907,7 @@ draw begingraph(4.5cm,2.4cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("Energy (J)") rotated 90,OUT)  shifted (2mm,0);
+	glabel.lft(textext("Energy") rotated 90,OUT)  shifted (2mm,0);
 	glabel.bot(textext("$x$ (cm)"), OUT);
 	gdraw(U) withpen pencircle scaled 0.8pt;
 	glabel.urt("$U$",0.2);
@@ -966,7 +966,7 @@ draw begingraph(4.5cm,2.4cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("Energy (J)") rotated 90,OUT)  shifted (2mm,0);
+	glabel.lft(textext("Energy") rotated 90,OUT)  shifted (2mm,0);
 	glabel.bot(textext("$x$ (cm)"), OUT);
 	gdraw(TPL) withcolor "middlegray";
 	glabel.top("turning",0.72) rotatedaround(point 0.72 of TPL, 90);
@@ -977,7 +977,7 @@ draw begingraph(4.5cm,2.4cm);
 	gdraw(U) withpen pencircle scaled 0.8pt;
 	glabel.llft("$U$",0.2);
 	gdraw(H) withpen pencircle scaled 0.8pt;
-	glabel.top("$H$",0.15);
+	glabel.urt("$H=U+K$",0.07);
 	gdraw(K) withpen pencircle scaled 0.8pt;
 	glabel.lrt("$K$",0.4);
 endgraph;
@@ -1022,7 +1022,7 @@ draw begingraph(4.5cm,2.4cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("Energy (J)") rotated 90,OUT)  shifted (2mm,0);
+	glabel.lft(textext("Energy") rotated 90,OUT)  shifted (2mm,0);
 	glabel.bot(textext("$x$ (cm)"), OUT);
 	gdraw(TPL) withcolor "middlegray";
 	glabel.top("turning",0.72) rotatedaround(point 0.72 of TPL, 90);
@@ -1033,7 +1033,7 @@ draw begingraph(4.5cm,2.4cm);
 	gdraw(U) withpen pencircle scaled 0.8pt;
 	glabel.llft("$U$",0.2);
 	gdraw(H) withpen pencircle scaled 0.8pt;
-	glabel.top("$H$",0.15);
+	glabel.urt("$H=U+K$",0.07);
 	gdraw(K) withpen pencircle scaled 0.8pt;
 	glabel.lrt("$K$",0.4);
 endgraph;
@@ -1068,7 +1068,7 @@ draw begingraph(4.5cm,10cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("$t$ (s)") rotated -90,OUT) shifted (2mm,0);
+	glabel.lft(textext("$t$") ,OUT) shifted (2mm,0);
 	%glabel.top(textext("$x$ (m)"), OUT);
 	gdraw(xmin) withcolor "middlegray";
 	%glabel.top("turning",0.72);% rotatedaround(point 0.72 of TPL, 90);
@@ -1186,7 +1186,7 @@ draw begingraph(4.5cm,2.4cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("Energy (J)") rotated 90,OUT)  shifted (2mm,0);
+	glabel.lft(textext("Energy") rotated 90,OUT)  shifted (2mm,0);
 	glabel.bot(textext("$x$ (cm)"), OUT);
 %	gdraw(TPL) withcolor "middlegray";
 %	glabel.top("turning",0.72) rotatedaround(point 0.72 of TPL, 90);
@@ -1320,9 +1320,11 @@ While the pendulum is a very good simple harmonic oscillator, it is not perfect.
 
 \section{Friction and other external forces}
 
-Objects held in place by friction do not produce simple harmonic motion. A block placed on a table will not slide off, even if the table is not perfectly level, because friction between the block and the table holds the block in place. If you displace the block a few centimeters, it will not oscillate like a pendulum. It just sits motionless at the new position. Sliding the block requires some work, but that work is not stored as potential energy. Instead, it goes to random, microscopic motion in the surface of the block and the table. (The sliding sound you hear is some of that random motion.)
+Daniel Bernoulli taught us to include potential energy in our system whenever possible. We included gravitational potential energy in the pendulum system, rather than calculating the work done by gravity. We included spring potential energy in our simple harmonic oscillator rather than calculating the work done by the spring. Unfortunately, some forces cannot be represented by a potential energy. In these cases we must leave the force as external, doing work on the system.
 
-Until we study heat, we will always leave this random, microscopic motion out of our systems. That means that friction will always be an external force that does work on the system – usually negative work.
+Friction is one of these external forces. 
+Sliding a block on a table requires some work due to the friction between the block and the table. The work done sliding the block is not stored as potential energy. Instead, the work contributes to random, microscopic motion in the surface of the block and the table. (The sliding sound you hear is some of that random motion.)
+Until we study heat, we will always leave this random, microscopic motion out of our systems. That means that friction will always be an external force that does work on the system – usually negative work, reducing the system's energy.
 
 \startbuffer[SpringBlockClean]
 	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
@@ -1339,7 +1341,7 @@ Until we study heat, we will always leave this random, microscopic motion out of
 \stopbuffer
 
 \startuseMPgraphic{graph::BlockSHOGraphs} % I'd like to add minor ticks, 0.667mm long.
-	path U, H, K, Re, TPA, TPB, TPC, TPD, TPE, TPF, St;
+	path U, H, K, Re, Turn, Stop; %TPA, TPB, TPC, TPD, TPE, TPF, St;
 	U := (-24,24) ..controls (-8,-8) and (8,-8).. (24,24);
 	%H := (-15,75/8) -- (12,6) -- (-9,27/8) -- (6,1.5) -- (-3,3/8) -- (0,0);
 	%H := (-15,75/8) -- (13,169/24) -- (-11,121/24) -- (9,27/8) -- (-7,49/24) --(5,25/24) --(-3, 3/8) -- (1,1/24);
@@ -1349,12 +1351,12 @@ Until we study heat, we will always leave this random, microscopic motion out of
 	K := (-24,-18) ..controls (-8,14) and (8,14).. (24,-18);
 	Re := (-15,0) -- (-15,13);
 	%TPA := (13,0) -- (13,13);
-	TPA := (11,0) -- (11,13);
-	%TPC := (9,0) -- (9,13);
-	TPB := (-7,0) -- (-7,13);
+	%TPA := (11,0) -- (11,13);
+	Turn := (9,0) -- (9,13);
+	%TPB := (-7,0) -- (-7,13);
 	%TPE := (5,0) -- (5,13);
-	TPC := (3,0) -- (3,13);
-	St := (1,0) -- (1,13);
+	Stop := (-3,0) -- (-3,13);
+	%Stop := (1,0) -- (1,13);
 draw begingraph(4.5cm,2.4cm);
 	setrange(-21,0, 24, 24);
 	graph_template.itick := origin--(1mm,0) ;
@@ -1364,25 +1366,25 @@ draw begingraph(4.5cm,2.4cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("Energy (J)") rotated 90,OUT)  shifted (2mm,0);
+	glabel.lft(textext("Energy") rotated 90,OUT)  shifted (2mm,0);
 	glabel.bot(textext("$x$ (cm)"), OUT);
 	gdraw(Re) withcolor "middlegray";
 	glabel.rt("release",1) rotatedaround(point 0.97 of Re, 90);
-	gdraw(TPA) withcolor "middlegray";
-	glabel.rt("turn 1",1) rotatedaround(point 0.97 of TPA, 90);
-	gdraw(TPB) withcolor "middlegray";
-	glabel.rt("turn 2",1) rotatedaround(point 0.97 of TPB, 90);
-	gdraw(TPC) withcolor "middlegray";
-	glabel.rt("turn 3",.92) rotatedaround(point 0.97 of TPC, 90);
+	gdraw(Turn) withcolor "middlegray";
+	glabel.rt("turn",1) rotatedaround(point 0.97 of Turn, 90);
+%	gdraw(TPB) withcolor "middlegray";
+%	glabel.rt("turn 2",1) rotatedaround(point 0.97 of TPB, 90);
+%	gdraw(TPC) withcolor "middlegray";
+%	glabel.rt("turn 3",.92) rotatedaround(point 0.97 of TPC, 90);
 %	gdraw(TPD) withcolor "middlegray";
 %	glabel.rt("turn 4",1) rotatedaround(point 0.97 of TPD, 90);
 %	gdraw(TPE) withcolor "middlegray";
 %	glabel.rt("turn 5",1) rotatedaround(point 0.97 of TPE, 90);
 %	gdraw(TPF) withcolor "middlegray";
 %	glabel.rt("turn 6",1) rotatedaround(point 0.97 of TPF, 90);
-	gdraw(St) withcolor "middlegray";
-	glabel.urt("stop",.85) rotatedaround(point 0.97 of St, 90);
-	gdraw(U) withpen pencircle scaled 0.8pt withcolor "middlegray";
+	gdraw(Stop) withcolor "middlegray";
+	glabel.rt("stop",.97) rotatedaround(point 0.97 of Stop, 90);
+	gdraw(U) withpen pencircle scaled 0.8pt;
 	glabel.llft("$U$",0.17);
 	gdraw(H) withpen pencircle scaled 0.8pt;
 	glabel.top("$H$",0.36);
@@ -1396,16 +1398,19 @@ endgraph;
 %	);
 	vardef position =
 		path p;
-		for t = 0 upto 160:
-			x := -12*cos(t/8); augment.p(x,t); endfor;
+		for t = 0 upto 8*3.14:
+			x := -12*cos(t/8) - 3; augment.p(x,t); endfor;
+		for t = 8*3.14 upto 16*3.14:
+			x := -6*cos(t/8) + 3; augment.p(x,t); endfor;
+		augment.p(-3,160);
 		p enddef;
 	path xmax, xmin, equlib ;
-	xmax := (-12,0) -- (-12,160);
-	xmin := (12,0) -- (12,160);
+	xmax := (9,0) -- (9,8*3.14);
+	xmin := (-3,0) -- (-3,16*3.14);
 	equlib := (0,6) -- (0,160);
-draw begingraph(4.5cm,10cm);
+draw begingraph(4.5cm,5cm);
 	setcoords(linear, -linear);
-	setrange(-21,0, 24,160);
+	setrange(-21,0, 24,80);
 	graph_template.itick := origin--(1mm,0) ;
 %	for y=auto.y:
 	itick.lft(formatted("$@g$", 0), 0);
@@ -1418,7 +1423,7 @@ draw begingraph(4.5cm,10cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("$t$ (s)") rotated -90,OUT) shifted (2mm,0);
+	glabel.lft(textext("$t$"),OUT) shifted (2mm,0);
 	%glabel.top(textext("$x$ (m)"), OUT);
 	gdraw(xmin) withcolor "middlegray";
 	%glabel.top("turning",0.72);% rotatedaround(point 0.72 of TPL, 90);
@@ -1429,24 +1434,38 @@ draw begingraph(4.5cm,10cm);
 	gdraw(equlib) withcolor "middlegray";
 	%gdrawdblarrow (0,8*3.14) -- (12,8*3.14);
 	%glabel.top("$A$",0.4) ;
-	gdraw (12,8*3.14) -- (16,8*3.14) withcolor "middlegray";
-	gdraw (12,24*3.14) -- (16,24*3.14) withcolor "middlegray";
-	gdrawdblarrow (15,8*3.14) -- (15,24*3.14);
-	glabel.rt("$T$",0.5) ;
+%	gdraw (12,8*3.14) -- (16,8*3.14) withcolor "middlegray";
+%	gdraw (12,24*3.14) -- (16,24*3.14) withcolor "middlegray";
+%	gdrawdblarrow (15,8*3.14) -- (15,24*3.14);
+%	glabel.rt("$T$",0.5) ;
 	gdraw(position) withpen pencircle scaled 0.8pt;
-endgraph shifted (0cm, -10.4cm);
+endgraph shifted (0cm, -5.4cm);
 \stopuseMPgraphic
 
-\startplacefigure[location=margin, reference=fig:BlockSHOGraphs, title={The block at its release position (top), the energy graph for the block and spring (middle), and the block's position vs.\ time graph (bottom).}]
+\startplacefigure[location=margin, reference=fig:BlockSHOGraphs, title={The block at its release position (top), the energy graph for the block and spring (middle), and the block's position vs.\ time graph (bottom). The block's kinetic energy $K$ is not shown.}]
 \typesetbuffer[starttikz,SpringBlockClean,stoptikz]\small
 \reuseMPgraphic{graph::BlockSHOGraphs}
 \stopplacefigure
 
-In \in{figure}[fig:BlockSHOGraphs]....
-
-\startformula
-	dH = F_x\,dx
-\stopformula
+\startbuffer[SpringBlockCleanRight]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			clip = false,
+			hide x axis = true,
+			]
+	\draw[] (-24,0) -- (24,0);
+	\path (-4,0) pic {block}[opacity=.4];
+	\path (4,0) pic {block};
+	\draw[decorate,decoration={coil,segment length=5pt}] (-24,2.5) -- (1,2.5);
+	\draw[-{Straight Barb}, thick] (-4,2.5) --node[above=2mm] {$dx$} (4,2.5);
+	\draw[->, very thick] (4,0) --node[below, pos=0.4] {$F$} (-3,0);
+    \stopaxis
+\stopbuffer
 
 \startuseMPgraphic{graph::SlideRight} % I'd like to add minor ticks, 0.667mm long.
 	path U, H;
@@ -1467,11 +1486,47 @@ endgraph;
 \stopuseMPgraphic
 
 \startplacefigure[location=margin, reference=fig:SlideRight, title={As the block slides a small distance $dx$ to the right, friction reduces the total energy by $dH$.}]
-\small
+\typesetbuffer[starttikz,SpringBlockCleanRight,stoptikz]\small
 \reuseMPgraphic{graph::SlideRight}
 \stopplacefigure
 
-\in{figure}[fig:SlideRight]
+\in{Figure}[fig:BlockSHOGraphs] shows the energy reducing effect of friction on our simple harmonic oscillator. The cart has been replaced by a block that slides on the table. As the block slides to the right, friction exerts and opposing force $F$ to the left. This force constantly decreases the system's total energy. While the block travels a short distance $dx$ to the the right (\in{fig.}[fig:SlideRight]), the force $F$ does a small amount of work $W = F\,dx$.
+Since the rightward displacement is positive and the leftward force is negative, the work is negative. We can use this work with conservation of energy to find the total energy's small change $dH$.
+\startformula\startmathalignment
+\NC	H\si + W + \cancel{Q}	\NC = H\sf	\NR
+\NC	H\sf - H\si	\NC = W	\NR
+\NC	dH	\NC = F\,dx	\NR
+\stopmathalignment\stopformula
+The total energy's small change $dH$ is negative because the small amount of work $F\,dx$ is negative. This gives the energy graph of $H$ a negative slope, as shown in \in{figure}[fig:SlideRight]. This negative slope is also seen in the energy graph in \in{figure}[fig:BlockSHOGraphs] when the block is sliding to the right from the release point to the first turning point. The negative slope is equal to the negative, leftward force $F$.
+
+The block was released $16\units{cm}$ to the left of the spring's relaxed position at $x=0\units{cm}$, but the loss of energy during the block's rightward slide allows it to only travel $9\units{cm}$ to the right of the spring's relaxed position before the system's total energy $H$ is equal to the potential energy $U$. At this point, the block's kinetic energy is zero. The block stops at this turning point and begins sliding back towards the spring's relaxed position at $x=0\units{cm}$.
+
+After the turning point, when the block is sliding back towards the left, the opposing force of friction is to the right (\in{fig.}[fig:SlideLeft]). 
+While the block slides a small negative distance $dx$, the positive force $F$ does a small amount of negative work $F\,dx$, decreasing the total energy by the small amount $dH = F\,dx$, as shown in \in{figure}[fig:SlideLeft]. The energy graph of the total energy $H$ has a positive slope, even though the energy is decreasing due to the block's motion in the negative direction. This positive slope is seen in \in{figure}[fig:SlideLeft] and also in the energy graph in \in{figure}[fig:BlockSHOGraphs] when the block is sliding to the left from the turning point to the point where the block stops. The positive slope of these graphs is equal to the positive, rightward force $F$.
+
+Any outside force can do work on he system. We first saw this in \in{examples}[ex:CartWork1] and \in[ex:CartWork2] (\at{pp.}[ex:CartWork1]-\at[CartWorkEnding]), when you were pushing the book cart down the hallway. In those examples, you did positive work to increase the cart's total energy, getting the cart moving. Then you did negative work to decrease the cart's total energy, brining it to a stop. The positive work you do comes from chemical potential energy stored in the foods you eat. The negative work you do goes to microscopic, random motion in your muscles. In either case, we do not want to include the complicated chemical potential energy or microscopic, random energy in our system. Instead, we leave these out of the system and treat your force as an external force doing work on the system.
+
+We follow Daniel Bernoulli's advice by putting potential energy in our system whenever we can. But when we cannot, we leave the energy outside of our system, allowing it to act as an external force doing work on the system. We still use the energy graph to understand the motion, with the external force determining the slope of the total energy $H$.
+
+\startbuffer[SpringBlockCleanLeft]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			clip = false,
+			hide x axis = true,
+			]
+	\draw[] (-24,0) -- (24,0);
+	\path (4,0) pic {block}[opacity=.4];
+	\path (-4,0) pic {block};
+	\draw[decorate,decoration={coil,segment length=3.3pt}] (-24,2.5) -- (-7,2.5);
+	\draw[-{Straight Barb}, thick] (4,2.5) --node[above=2mm] {$dx$} (-4,2.5);
+	\draw[->, very thick] (-4,0) --node[below, pos=0.4] {$F$} (3,0);
+    \stopaxis
+\stopbuffer
 
 \startuseMPgraphic{graph::SlideLeft} % I'd like to add minor ticks, 0.667mm long.
 	path U, H;
@@ -1492,11 +1547,30 @@ endgraph;
 \stopuseMPgraphic
 
 \startplacefigure[location=margin, reference=fig:SlideLeft, title={As the block slides a small distance $dx$ to the left, friction reduces the total energy by $dH$.}]
-\small
+\typesetbuffer[starttikz,SpringBlockCleanLeft,stoptikz]\small
 \reuseMPgraphic{graph::SlideLeft}
 \stopplacefigure
 
-\in{figure}[fig:SlideLeft]
+
+\section{Equilibrium: the principle of virtual work}
+
+\startbuffer[SpringBlockCleanStop]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			clip = false,
+			hide x axis = true,
+			]
+	\draw[] (-24,0) -- (24,0);
+	\path (-3,0) pic {block};
+	\draw[decorate,decoration={coil,segment length=3.6pt}] (-24,2.5) -- (-6,2.5);
+	\draw[->, very thick] (-3,0) --node[below, pos=0.4] {$F$} (-10,0);
+    \stopaxis
+\stopbuffer
 
 \startuseMPgraphic{graph::SlideToStop} % I'd like to add minor ticks, 0.667mm long.
 	path U, H, nope;
@@ -1515,11 +1589,11 @@ draw begingraph(4.5cm,2.4cm);
 	endfor
 	glabel.lft(textext("Energy") rotated 90,OUT) shifted (2mm,0);
 	glabel.bot(textext("$x$ (cm)"), OUT);
-	gdraw(U) withpen pencircle scaled 0.8pt withcolor "middlegray";
+	gdraw(U) withpen pencircle scaled 0.8pt;
 	glabel.top("$U$",0.38);
 	gdrawarrow(H) withpen pencircle scaled 0.8pt;
 	glabel.top("$H$",0.7);
-	gdraw(nope) withpen pencircle scaled 0.8pt dashed withdots;
+	gdraw(nope) withpen pencircle scaled 1.2pt dashed withdots;
 	glabel.bot("no",1.25);
 	glabel.bot("no",0.75);
 	glabel(mydot,1);
@@ -1531,14 +1605,17 @@ endgraph;
 \stopuseMPgraphic
 
 \startplacefigure[location=margin, reference=fig:SlideToStop, title={The block stops at $x=3\units{cm}$, unable to move in either direction.}]
-\small
+\typesetbuffer[starttikz,SpringBlockCleanStop,stoptikz]\small
 \reuseMPgraphic{graph::SlideToStop}
 \stopplacefigure
 
+\noindent
 \in{figure}[fig:SlideToStop]
 When the block arrives at $x=3\units{cm}$, its total energy $H$ is equal to the potential energy $U$. It cannot continue to the left because its total energy would be less than its potential energy, which is impossible. It also cannot turn and go to the right because that would also lead to its total energy being less than its potential energy.
 
-\section{Equilibrium}
+Objects held in place by friction do not produce simple harmonic motion. A block placed on a table will not slide off, even if the table is not perfectly level, because friction between the block and the table holds the block in place. If you displace the block a few centimeters, it will not oscillate like a pendulum. It just sits motionless at the new position. 
+
+The system is in equilibrium if and only if the virtual work done by the external forces equals the resulting virtual change in potential energy for all possible virtual displacements of the system.
 
 \startformula
 	\partial U = F_x\,\partial x
@@ -1564,9 +1641,9 @@ draw begingraph(4.5cm,2.4cm);
 	endfor
 	glabel.lft(textext("Energy") rotated 90,OUT) shifted (2mm,0);
 	glabel.bot(textext("$x$ (cm)"), OUT);
-	gdraw(U) withpen pencircle scaled 0.8pt withcolor "middlegray";
+	gdraw(U) withpen pencircle scaled 0.8pt;
 	glabel.top("$U$",0.38);
-	gdraw(nope) withpen pencircle scaled 0.8pt dashed withdots;
+	gdraw(nope) withpen pencircle scaled 1.2pt dashed withdots;
 	glabel.bot("no",1.25);
 	glabel.bot("no",0.75);
 	glabel(mydot,1);
@@ -1602,7 +1679,7 @@ Third, the formula always gives a negative potential energy. This has alarmed ma
 
 Finally, the universal gravitational constant $G$ is extremely small, so the gravitational potential energy between every-day objects at every-day distances can be completely ignored. At least one of the objects must have a huge mass in order for the gravitational potential energy to be significant. Earth’s mass of $5.97\sci{24}\units{kg}$ is enough to have a significant effect.
 
-\startexample[] How much work is required to lift a $3.0\units{kg}$ box from Earth’s surface to a very distant location?
+\startexample[ex:BoxEarthGravU] How much work is required to lift a $3.0\units{kg}$ box from Earth’s surface to a very distant location?
 
 \startbuffer[TikZ:BoxEarthGravU]
 \environment env_physics
@@ -1658,7 +1735,7 @@ Finally, the universal gravitational constant $G$ is extremely small, so the gra
 \stopsolution
 \stopexample
 
-\startexample[] The $3.0\units{kg}$ box was placed far from Earth, but even so it eventually is pulled back by Earth’s gravitational attraction. How fast is the box going when it enters the atmosphere, approximately $100\units{km}$ above Earth’s surface?
+\startexample[ex:BoxEarthGravU2] The $3.0\units{kg}$ box was placed far from Earth, but even so it eventually is pulled back by Earth’s gravitational attraction. How fast is the box going when it enters the atmosphere, approximately $100\units{km}$ above Earth’s surface?
 \startsolution
 	Include the gravitational potential energy so that there is no work done on the system.
 $100\units{km}$.
@@ -1678,7 +1755,7 @@ The final distance between Earth’s center and the box is Earth’s radius plus
 				{6.37\sci{6}\units{m}+1.00\sci{5}\units{m}}}		\NR
 	\NC		\NC = 1.11\sci{4}\units{m/s}
 	\stopmathalignment\stopformula
-	The box enters the atmosphere with a speed of about $11\units{km/s}$, causing it to burn up before hitting the ground.
+The box enters the atmosphere with a speed of about $11\units{km/s}$, causing it to burn up before hitting the ground.
 \stopsolution
 \stopexample
 
