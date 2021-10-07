@@ -1659,10 +1659,10 @@ A system in equilibrium satisfies the \keyterm{principle of virtual work}.
 \startformula
 	F\partial x = \partial U
 \stopformula
-Equilibrium means \quotation{equal balance} between the external forces and the change in potential energy. The principle of virtual work says equilibrium is achieved when the virtual work $F\partial x$ of the external forces $F$ is exactly enough to provide the virtual potential energy change $\partial U$ that would occur due to the virtual displacement $\partial x$.
-If the principle of virtual work is not satisfied, then the system is not in equilibrium.
+Equilibrium means \quotation{equal balance.} The principle of virtual work says equilibrium is achieved when the virtual work $F\partial x$ of the external forces $F$ is exactly enough to provide the virtual potential energy change $\partial U$ that would occur due to the virtual displacement $\partial x$.
+When the principle of virtual work is not satisfied, the system is not in equilibrium.
 
-We can see that our block is in equilibrium at $x=-3\units{cm}$ by moving all of the virtual quantities in the principle of virtual work to one side.
+We can confirm that our block is in equilibrium at $x=-3\units{cm}$ by moving all virtual quantities in the principle of virtual work to the right side.
 \startformula
 	F = \frac{\partial U}{\partial x}
 \stopformula
@@ -1679,7 +1679,7 @@ Potential energy's local slope plays a central role in equilibrium through the p
 
 In the case of the block, friction is the external force that holds the system in equilibrium. This kind of equilibrium is extremely common. A coffee cub set on a nearly level table does not slide off, even if the table is slightly sloped, because friction between the table and the cup holds the cup in place. The size of this frictional force, which depends on the slope of the table, can be found using the principle of virtual work.
 
-\startexample[ex:BoxEarthGravU] A $0.85\units{kg}$ coffee cup is placed on a table. The table is $1.6\units{m}$ wide and not perfectly level, with the right edge being $0.80\units{cm}$ higher than the left edge, as shown in \in{figure}[]. Find the friction force holding the cup in place, preventing it from sliding toward the lower edge of the table.
+\startexample[ex:BoxEarthGravU] A $0.85\units{kg}$ coffee cup is placed on a table. The table is $1.6\units{m}$ wide and not perfectly level, with the right edge being $0.80\units{cm}$ higher than the left edge, as shown in \in{figure}[fig:CupTable]. Find the friction force holding the cup in place, preventing it from sliding toward the lower edge of the table.
 
 \startbuffer[CupTable]
 	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
@@ -1696,98 +1696,59 @@ In the case of the block, friction is the external force that holds the system i
 \stopbuffer
 
 \startuseMPgraphic{graph::CupTableGraphs} % I'd like to add minor ticks, 0.667mm long.
-	path U, H, K, Re, Turn, Stop; %TPA, TPB, TPC, TPD, TPE, TPF, St;
-	U := (-24,24) ..controls (-8,-8) and (8,-8).. (24,24);
-	%H := (-15,75/8) -- (12,6) -- (-9,27/8) -- (6,1.5) -- (-3,3/8) -- (0,0);
-	%H := (-15,75/8) -- (13,169/24) -- (-11,121/24) -- (9,27/8) -- (-7,49/24) --(5,25/24) --(-3, 3/8) -- (1,1/24);
-	H := (-15,75/8) -- (9,27/8) -- (-3, 3/8);
-	%H := (-15,75/8) -- (11,121/24) -- (-7,49/24) --(3, 3/8) -- (1,1/24);
-	%H := (-15,75/8) -- (-3,3/8) ;
-	K := (-24,-18) ..controls (-8,14) and (8,14).. (24,-18);
-	Re := (-15,0) -- (-15,13);
-	%TPA := (13,0) -- (13,13);
-	%TPA := (11,0) -- (11,13);
-	Turn := (9,0) -- (9,13);
-	%TPB := (-7,0) -- (-7,13);
-	%TPE := (5,0) -- (5,13);
-	Stop := (-3,0) -- (-3,13);
-	%Stop := (1,0) -- (1,13);
-draw begingraph(4.5cm,2.4cm);
-	setrange(-21,0, 24, 24);
+path U;
+	U := (0,0) -- (160,0.0666);
+draw begingraph(4cm,1.5cm);
+	setrange(0,0 , 160, 0.0801);
 	graph_template.itick := origin--(1mm,0) ;
-	itick.lft(formatted("$@g$", 0), 0);
 	for x=auto.x:
 		itick.bot(formatted("$@g$", x), x);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("Energy") rotated 90,OUT)  shifted (2mm,0);
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy (J)") rotated 90,OUT) ;
 	glabel.bot(textext("$x$ (cm)"), OUT);
-	gdraw(Re) withcolor "middlegray";
-	glabel.rt("release",1) rotatedaround(point 0.97 of Re, 90);
-	gdraw(Turn) withcolor "middlegray";
-	glabel.rt("turn",1) rotatedaround(point 0.97 of Turn, 90);
-%	gdraw(TPB) withcolor "middlegray";
-%	glabel.rt("turn 2",1) rotatedaround(point 0.97 of TPB, 90);
-%	gdraw(TPC) withcolor "middlegray";
-%	glabel.rt("turn 3",.92) rotatedaround(point 0.97 of TPC, 90);
-%	gdraw(TPD) withcolor "middlegray";
-%	glabel.rt("turn 4",1) rotatedaround(point 0.97 of TPD, 90);
-%	gdraw(TPE) withcolor "middlegray";
-%	glabel.rt("turn 5",1) rotatedaround(point 0.97 of TPE, 90);
-%	gdraw(TPF) withcolor "middlegray";
-%	glabel.rt("turn 6",1) rotatedaround(point 0.97 of TPF, 90);
-	gdraw(Stop) withcolor "middlegray";
-	glabel.rt("stop",.97) rotatedaround(point 0.97 of Stop, 90);
 	gdraw(U) withpen pencircle scaled 0.8pt;
-	glabel.llft("$U$",0.17);
-	gdraw(H) withpen pencircle scaled 0.8pt;
-	glabel.top("$H$",0.36);
-endgraph;
-%	path p;
-%	p := (8,0) ..controls (8,0.66) and (7.33,1.33).. (6,2)
-%		-- (1,4.5) ..controls (0.33,4.83) and (0,5.17).. (0,5.5);
-%	picture myarrow;
-%	myarrow := image(
-%		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
-%	);
-%	vardef position =
-%		path p;
-%		for t = 0 upto 8*3.14:
-%			x := -12*cos(t/8) - 3; augment.p(x,t); endfor;
-%		for t = 8*3.14 upto 16*3.14:
-%			x := -6*cos(t/8) + 3; augment.p(x,t); endfor;
-%		augment.p(-3,160);
-%		p enddef;
-%	path xmax, xmin, equlib ;
-%	xmax := (9,0) -- (9,8*3.14);
-%	xmin := (-3,0) -- (-3,16*3.14);
-%	equlib := (0,6) -- (0,160);
-%draw begingraph(4.5cm,5cm);
-%	setcoords(linear, -linear);
-%	setrange(-21,0, 24,80);
-%	graph_template.itick := origin--(1mm,0) ;
-%%	for y=auto.y:
-%	itick.lft(formatted("$@g$", 0), 0);
-%%		itick.lft(formatted("$@g$", y), y);
-%%		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
-%%		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
-%%	endfor
-%	for x=auto.x:
-%		%itick.top(formatted("$@g$", x), x);
-%		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
-%		itick.top(formatted("@s", ""), x) withcolor "middlegray";
-%	endfor
-%	glabel.lft(textext("$t$"),OUT) shifted (2mm,0);
-%	gdraw(xmin) withcolor "middlegray";
-%	gdraw(xmax) withcolor "middlegray";
-%	gdraw(equlib) withcolor "middlegray";
-%	gdraw(position) withpen pencircle scaled 0.8pt;
-%endgraph shifted (0cm, -5.4cm);
+	glabel.top("$U$",0.5);
+	glabel(mydot,0.75);
+endgraph shifted (0, -3.5cm);
+path Top, Leg;
+	Top := unitsquare xyscaled (4cm, -2mm);
+	Leg := unitsquare xyscaled (1mm, -1.8cm);
+fill Leg shifted (5mm,0) withcolor "lightgray";
+draw Leg shifted (5mm,0) withpen pencircle scaled 0.8pt;
+fill Leg shifted (35mm,0) withcolor "lightgray";
+draw Leg shifted (35mm,0) withpen pencircle scaled 0.8pt;
+fill Top  rotated(angle(160,0.8)) withcolor "lightgray";
+draw Top  rotated(angle(160,0.8)) withpen pencircle scaled 0.8pt;
+picture CCup; path Cup, Handle;
+	Cup := unitsquare xyscaled (2mm,3mm) shifted (-1mm,0);
+	Handle := fullcircle xyscaled (1.4mm,1.8mm) shifted (1.2mm,1.5mm);
+	CCup := image(
+		draw Handle withpen pencircle scaled 1pt;
+		draw Cup
+			withshademethod "linear"
+              	withshadevector (0,1)
+			withshadestep (
+			withshadefraction .7
+			withshadecolors (black,white)
+			)
+			withshadestep (
+				withshadefraction 1
+				withshadecolors (white,black)
+			);
+		draw Cup withpen pencircle scaled 0.8pt;);
+draw CCup shifted (3cm,0) rotated(angle(160,0.8));
 \stopuseMPgraphic
 
-\startplacefigure[location=margin, reference=fig:CupTable, title={The block at its release position (top), the energy graph for the block and spring (middle), and the block's position vs.\ time graph (bottom). The block's kinetic energy $K$ is not shown.}]
-\typesetbuffer[starttikz,CupTable,stoptikz]\small
+\startplacefigure[location=margin, reference=fig:CupTable, title={A coffee cup sits on a slightly sloped table (top). The coffee cup's potential energy vs.\ its position on the slightly sloped table (bottom).}]
+%\typesetbuffer[starttikz,CupTable,stoptikz]
+\small
 \reuseMPgraphic{graph::CupTableGraphs}
 \stopplacefigure
 
@@ -1795,22 +1756,22 @@ endgraph;
 We start this problem with an energy graph and the principle of virtual work.
 \startformula\startmathalignment
 	\NC	F\partial x	\NC = \partial U		\NR
-	\NC				\NC = mg\partial h	\NR
-	\NC				\NC = mg\frac{0.80\units{cm}}{1.6\units{m}}\partial x	\NR
-	\NC	F 	\NC = mg\frac{0.80\units{cm}}{1.6\units{m}}		\NR
+	\NC	F			\NC = \frac{\partial U}{\partial x}		\NR
 \stopmathalignment\stopformula
-The friction force is positive, pushing to the right to prevent the cup from sliding to the left.
+The right side is the potential energy's local slope. Since the table is flat, the graph of $U$ is straight and the slope is the same everywhere. We do not need to use small, virtual changes or a tangent line in this case. We can just find the slope of the $U$ line. 
+\startformula
+	F = \frac{\Delta U}{\Delta x}
+		= \frac{mg\Delta h}{\Delta x}
+		= \frac{(0.85\units{kg})(9.8\units{N/kg})(0.80\units{cm})}{160\units{cm}}
+		= 0.042\units{N}
+\stopformula
+The friction force holding the cup in place is $0.042\units{N}$. The force is positive, pushing to the right to keep the cup from sliding to the left. The friction force is also tiny, because only a tiny force is required to keep the cup from sliding on this nearly level table.
 \stopsolution
 \stopexample
 
 Equilibrium and the principle of virtual work do not require that the system is motionless, only that the forces and energy slopes are in \quotation{equal balance.} A pendulum is in equilibrium every time it passes through its lowest point. The cart and spring system is in equilibrium every time the spring passes though its natural length. The sliding block system is in equilibrium every time the friction force equals the potential energy's local slope. This happens at $x=-3\units{cm}$ when the block is sliding to the right, and at $x=3\units{cm}$ when the block is sliding to the left.
 
 \startuseMPgraphic{EquilibriumStability}
-%draw curly (-1cm,0) -- (1cm,0) withpen pencircle scaled 0.8pt;
-%draw ball shifted (-1.5cm,0);
-%label("A",(-1.5cm,0));
-%draw ball shifted (1.5cm,0);
-%label("B",(1.5cm,0));
 path top, bottom;
 	top := (-2.5cm,0)..(-1.67cm, -0.2cm)..(-0.833cm,0)--(0.833cm,0)..(1.67cm,0.2cm)..(2.5cm,0);
 	bottom := (2.5cm, -0.67cm) -- (-2.5cm, -0.67cm);
@@ -1829,7 +1790,7 @@ draw littleball shifted (1.67cm,0.3cm);
 \reuseMPgraphic{EquilibriumStability}
 \stopplacefigure
 
-Equilibrium and the principle of virtual work also do not ensure that the equilibrium is stable. Consider the three marbles on three different surfaces in \in{figure}[fig:EquilibriumStability]. The marbles are free to roll along the surface, but are not being pushed either direction by external forces. Each marbles in equilibrium, but that equilibrium is more secure or precarious depending on the shape of the surface beneath it.
+Equilibrium and the principle of virtual work also do not ensure that the equilibrium is stable. The marbles in \in{figure}[fig:EquilibriumStability] are each free to roll along the surface, but they are not being pushed either direction by external forces. Each marble is in equilibrium, but that equilibrium is more secure or precarious depending on the shape of the surface.
 The left marble is in \keyterm{stable equilibrium}. If nudged by a small force, it would move slightly and then return to its equilibrium position at the bottom of the dip.
 The right marble is in \keyterm{unstable equilibrium}. If nudged, it would move slightly and then roll away, accelerating down the slope.
 The middle marble is in \keyterm{neutral equilibrium}. If nudged, it would roll slowly, not accelerating away but also not returning.
