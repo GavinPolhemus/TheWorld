@@ -64,10 +64,19 @@
 \startMPinclusions 
 picture ball;
 	ball := image(
-		fill fullcircle scaled 1cm
+		draw fullcircle scaled 1cm
       			withshademethod "circular"
 			withshadecenter (.25,.25)
-       		withcolor "white" shadedinto black;);
+       		withcolor "white" shadedinto black;
+		draw fullcircle scaled 1cm withpen pencircle scaled 0.8pt;);
+
+picture littleball;
+	littleball := image(
+		draw fullcircle scaled 0.2cm
+      			withshademethod "circular"
+			withshadecenter (0.2, 0.2)
+       		withcolor "white" shadedinto black;
+		draw fullcircle scaled 0.2cm withpen pencircle scaled 0.8pt;);
 
 % This is from the feynmp package
 %input feynmp
