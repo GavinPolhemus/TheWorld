@@ -878,7 +878,7 @@ Energy can also be added as heat $Q$ by cooking the cart over a fire, which incr
 
 %Leibniz’s did not know that the balls’ temperature is a measure of the microscopic random motion – higher temperature indicating greater microscopic \visviva. The loss of the balls’ \visviva\ to the microscopic parts causes an increase in temperature, but the increase is extremely small, far too small for seventeenth century experimenters to measure. The idea that the temperature is connected to microscopic \visviva\ appeared several times in the decades that followed, but was not widely accepted until the middle of the nineteenth century. We will return to this idea in Volume II.
 
-With any conservation law we must take care to define the system. With momentum conservation, we could chose which objects to include in the system. For example, in pendulum collisions we typically included both balls in our system, adding their momenta to find the system's total momentum. With conservation of energy we chose both the objects and the types of energy we wish to include in the system. In the pendulum examples we included the balls' kinetic energy, but not the energy of microscopic random motion. As we study more types of energy, we will carefully chose which types to include in the system. For the remainder of this chapter, only kinetic energy $K$ will be included in the system's total energy $H$.
+With any conservation law we must take care to define the system. With momentum conservation, we could chose which objects to include in the system. For example, in pendulum collisions we typically included both balls in our system, adding their momenta to find the system's total momentum. With conservation of energy we choose both the objects and the types of energy we wish to include in the system. In the pendulum examples we included the balls' kinetic energy, but not the energy of microscopic random motion. As we study more types of energy, we will carefully choose which types to include in the system. For the remainder of this chapter, only kinetic energy $K$ will be included in the system's total energy $H$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:CartWork1]
@@ -1284,7 +1284,7 @@ Even as she refuted the Cartesian position, her mastery of Newtonian physics was
 
 As her final argument of this type, Du Châtelet calls on the authority of Isaac Newton himself! In the forth and final edition of \booktitle{Opticks}, published in 1730, Newton included an essay on forces in nature. This famous essay became know by its unhelpful title: \booktitle{Query 31}. In it, Newton argues that the quantity of motion is \emph{not} conserved.
 \quotation{For from the various Composition of two Motions, ’tis very certain that there is not always the same quantity of Motion in the World.}
-He provides an example in which \quotation{two Globes joined by a slender Rod, revolve about their common Center of Gravity with an uniform Motion, while that Center moves on uniformly in a right Line\dots,} as shown in \in{figure}[fig:spinningmoving].\autocite{373}{Newton1730} (The center of gravity is an idea we will return to later in this chapter. We will call it the center of mass.) These combined motions, once they are started, will continue uniformly without any external forces. In this situation,
+He provides an example in which \quotation{two Globes joined by a slender Rod, revolve about their common Center of Gravity with Uniform Motion, while that Center moves on uniformly in a right Line\dots,} as shown in \in{figure}[fig:spinningmoving].\autocite{373}{Newton1730} (The center of gravity is an idea we will return to later in this chapter. We will call it the center of mass.) These combined motions, once they are started, will continue uniformly without any external forces. In this situation,
 \startbuffer[TikZ:spinning]
 \environment env_physics
 \environment env_TikZ
@@ -1436,7 +1436,7 @@ When the rod is aligned with the center’s line of motion, the kinetic energy i
 \startformula
 K = \half(1\units{kg})\left(\sqrt{2}\units{m/s}\right)^2 + \half(1\units{kg})\left(\sqrt{2}\units{m/s}\right)^2 = 2\units{J}.
 \stopformula
-The kinetic energy is the same for both orientations, $K=2\units{J}$. With some additional work is it possible to show that the energy remains constant for all orientations.
+The kinetic energy is the same for both orientations, $K=2\units{J}$. With some additional work it is possible to show that the energy remains constant for all orientations.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1722,13 +1722,13 @@ The rotational kinetic energy is the hard part. First, we must find this object�
 where $I = \left(m\sub{A}^{}r\sub{A}^2 + m\sub{B}^{}r\sub{B}^2\right)$. Next we calculate $I$ and put that value in the simple formula for $K\sub{rot}= \half I\omega^2$ above.
 \startformula\startmathalignment
 \NC	I	\NC = m\sub{A}^{}r\sub{A}^2 + m\sub{B}^{}r\sub{B}^2						\NR
-\NC 		\NC = (3.0\units{kg^2})(0.12\units{m})^2 + (3.0\units{kg^2})(0.12\units{m})^2	\NR
-\NC 		\NC = 0.75\units{kg^2\.m^2}										\NR
+\NC 		\NC = (3.0\units{kg})(0.25\units{m})^2 + (1.0\units{kg^2})(0.75\units{m})^2	\NR
+\NC 		\NC = 0.75\units{kg\.m^2}										\NR
 \stopmathalignment\stopformula
 Using this in the formula for rotational kinetic energy gives
 \startformula
 \NC	K\sub{rot}	\NC = \half I\omega^2						\NR
-\NC			\NC = \half (0.75\units{kg^2\.m^2})(2.0\units{r/s})^2	\NR
+\NC			\NC = \half (0.75\units{kg\.m^2})(2.0\units{r/s})^2	\NR
 \NC			\NC = 1.5\units{J}							\NR
 \stopformula
 Finally, we add the center of mass kinetic energy to the rotational kinetic energy to get the total kinetic energy.
@@ -1814,7 +1814,7 @@ The rolling disk’s total kinetic energy is
 		= \textfrac{1}{2}mv^2 + \textfrac{1}{4}mv^2
 		= \textfrac{3}{4}mv^2.
 \stopformula
-A rolling object’s total kinetic energy is always larger than $\onehalf mv^2$, but how much larger depends on the object’s shape. An objects with the mass far from the center, like a hoop, will have a larger moment of inertia $I$ and will have more kinetic energy when rolling. An object with the mass distributed more toward the axis of rotation will have a smaller moment of inertia, and a smaller total kinetic energy when rolling, as seen in the next example.
+A rolling object’s total kinetic energy is always larger than $\onehalf mv^2$, but how much larger depends on the object’s shape. An object with the mass far from the center, like a hoop, will have a larger moment of inertia $I$ and will have more kinetic energy when rolling. An object with the mass distributed more toward the axis of rotation will have a smaller moment of inertia, and a smaller total kinetic energy when rolling, as seen in the next example.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:RollingCannonBall]
@@ -1877,7 +1877,7 @@ She was working after midnight when she went into labor. The birth was relativel
 
 Du Chatlâtet's translation and comentary contributed greatly to the advancement of physics on the continent, but was largely ignored in England where Newton was so revered that all of the universities stubbornly continued using his cumbersome geometric methods.
 
-On the continent, energy continued to play a central roll in the advancing physics, as we will see, and it continues to be central today. High-energy experiments done in the twentieth century revealed that the formula $K=\onehalf mv^2$ is not correct for speeds close to the speed of light ($3\sci{8}\units{m/s}$), just like the formula for momentum. Also like the formula for momentum, this kinetic energy formula is \emph{extremely} accurate for lower speeds (anything less than $10^7\units{m/s}$). For higher speeds we will need the updated formulas in Volume II.
+On the continent, energy continued to play a central role in the advancing physics, as we will see, and it continues to be central today. High-energy experiments done in the twentieth century revealed that the formula $K=\onehalf mv^2$ is not correct for speeds close to the speed of light ($3\sci{8}\units{m/s}$), just like the formula for momentum. Also like the formula for momentum, this kinetic energy formula is \emph{extremely} accurate for lower speeds (anything less than $10^7\units{m/s}$). For higher speeds we will need the updated formulas in Volume II.
 
 Conservation of energy in its many forms is a bit more complicated that Leibniz’s original idea for conservation of \visviva, but added complexity also makes energy extremely useful. Food, fuel, and batteries all contain energy stored in other forms that can be converted into kinetic energy.
 
