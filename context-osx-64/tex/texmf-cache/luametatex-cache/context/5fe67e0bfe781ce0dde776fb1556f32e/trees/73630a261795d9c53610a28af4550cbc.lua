@@ -63,10 +63,10 @@ return {
    ["mpgraphsaved.pdf"]="mpgraphSaved.pdf",
   },
  },
- ["date"]="2021-09-21",
+ ["date"]="2021-10-11",
  ["root"]="selfautoparent:texmf-local",
- ["time"]="07:49:19",
+ ["time"]="07:19:03",
  ["type"]="files",
- ["uuid"]="a9cceffc-4cad-883c-81f2-3271638edcf2",
+ ["uuid"]="018cb137-476e-a2a0-1212-996eac5ff2b3",
  ["version"]="1.100",
 }

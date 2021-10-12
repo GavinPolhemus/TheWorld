@@ -16,10 +16,10 @@ return {
   },
   ["remap"]={},
  },
- ["date"]="2021-09-21",
+ ["date"]="2021-10-11",
  ["root"]="selfautoparent:texmf-osx-64",
- ["time"]="07:49:19",
+ ["time"]="07:19:03",
  ["type"]="files",
- ["uuid"]="d50fde6b-4e91-a5ab-5c2f-95a660f00ce2",
+ ["uuid"]="7a0fa2f0-4ef5-aa75-1dc4-7a9432b7dbe1",
  ["version"]="1.100",
 }
