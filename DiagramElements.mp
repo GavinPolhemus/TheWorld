@@ -1,72 +1,3 @@
-\startenvironment env_MetaPost
-\usemodule [graph]
-
-%\startMPinclusions % This is getting overwritten by the inclusions below.
-%  pickup pencircle scaled 0.8pt;
-%  anglelength := 5mm ;
-%\stopMPinclusions
-
-%\startMPdefinitions[+]{graph}
-%  input DiagramElements.mp ;
-%\stopMPdefinitions
-
-% Specifically for MetaPost figures
-
-\startbuffer[startMP]
-\environment env_physics
-\environment env_MetaPost
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-   \startMPpage
-\stopbuffer
-
-\startbuffer[stopMP]
-   \stopMPpage
-\stopbuffer
-
-\define[3]\marginMP{
-  \startplacefigure[location=margin, reference=fig:#2, title={#3}]
-    #1\typesetbuffer[startMP,#2,stopMP]
-  \stopplacefigure
-}
-
-% Cancel command for use in equations. Perhaps one command can work in both italic and roman.
-\startuniqueMPgraphic{cross out}
-  picture cross;
-  cross := image(draw (0,0)--(1,1); draw (0,1)--(1,0););
-  draw cross xscaled \overlaywidth yscaled \overlayheight withpen pencircle scaled .8pt ;
-\stopuniqueMPgraphic
-
-\defineoverlay[canceloverlay][\uniqueMPgraphic{cross out}]
-
-\defineframed[cancelframe][background=canceloverlay, frame=off, offset=overlay]
-
-\define[1]\cancel{%
-	\ifmmode
-		\mathchoice
-		{\cancelframe{$\displaystyle #1$}}
-		{\cancelframe{$\textstyle #1$}}
-		{\cancelframe{$\scriptstyle #1$}}
-		{\cancelframe{$\scriptscriptstyle #1$}}
-	\else%
-		\cancelframe{#1}%
-	\fi%
-}
-
-\define[1]\ucan{%
-	\ifmmode
-		\mathchoice
-		{\cancelframe{$\rm\displaystyle #1$}}
-		{\cancelframe{$\rm\textstyle #1$}}
-		{\cancelframe{$\rm\scriptstyle #1$}}
-		{\cancelframe{$\rm\scriptscriptstyle #1$}}
-	\else%
-		\cancelframe{#1}%
-	\fi%
-}
-
-\startMPinclusions 
-%  input DiagramElements.mp ;
 % shawdow(picture, visibility) draws a shadow of the picture (but not the picture) visibility should be between 0-1, with 0 being invisible and 1 being a shadow that is reduces the background brightness by 20%. If visibility is greater than 1, it will make the shadow even darker, but 20% seems to be plenty. (change 0.8background to something else to change the maximum darkness.) The picture should be shifted and rotated in the command, not afterwards. E.g. shadow(cow rotate 45 shifted (10cm, 5cm), .3);.
   vardef shadow(expr p, v) = 
     draw redecorated (draw p) withcolor v[background,0.8background];
@@ -87,6 +18,9 @@ picture littleball;
 			withshadecenter (0.2, 0.2)
        		withcolor "white" shadedinto black;
 		draw fullcircle scaled 0.2cm withpen pencircle scaled 0.8pt;);
+
+
+
 
 % This is from the feynmp package
 %input feynmp
@@ -126,7 +60,3 @@ vardef curly expr p =
          {direction infinity of p rotated 90}
  fi
 enddef;
-\stopMPinclusions
-
-
-\stopenvironment

@@ -1499,7 +1499,7 @@ Since the rightward displacement is positive and the leftward force is negative,
 \stopmathalignment\stopformula
 The total energy's small change $dH$ is negative because the small amount of work $F\,dx$ is negative. This gives the energy graph of $H$ a negative slope, as shown in \in{figure}[fig:SlideRight]. This negative slope is also seen in the energy graph in \in{figure}[fig:BlockSHOGraphs] when the block is sliding to the right from the release point to the first turning point. The negative slope is equal to the negative, leftward force $F$.
 
-The block was released $16\units{cm}$ to the left of the spring's relaxed position at $x=0\units{cm}$, but the loss of energy during the block's rightward slide allows it to only travel $9\units{cm}$ to the right of the spring's relaxed position before the system's total energy $H$ is equal to the potential energy $U$. At this point, the block's kinetic energy is zero. The block stops at this turning point and begins sliding back towards the spring's relaxed position at $x=0\units{cm}$.
+The block was released $16\units{cm}$ to the left of the spring's relaxed position at $x=0\units{cm}$, but the loss of energy during the block's rightward slide allows it to only travel $9\units{cm}$ to the right of the spring's relaxed position before the system's total energy $H$ is equal to the potential energy $U$. At this point, the block's kinetic energy is zero. The block stops at this turning point and begins sliding back toward the spring's relaxed position at $x=0\units{cm}$.
 
 \startbuffer[SpringBlockCleanLeft]
 	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
@@ -1544,7 +1544,7 @@ endgraph;
 \reuseMPgraphic{graph::SlideLeft}
 \stopplacefigure
 
-After the turning point, when the block is sliding back towards the left, the opposing force of friction is to the right (\in{fig.}[fig:SlideLeft]). 
+After the turning point, when the block is sliding back toward the left, the opposing force of friction is to the right (\in{fig.}[fig:SlideLeft]). 
 While the block slides a small negative distance $dx$, the positive force $F$ does a small amount of negative work $F\,dx$, decreasing the total energy by the small amount $dH = F\,dx$, as shown in \in{figure}[fig:SlideLeft]. The energy graph of the total energy $H$ has a positive slope, even though the energy is decreasing due to the block's motion in the negative direction. This positive slope is seen in \in{figure}[fig:SlideLeft] and also in the energy graph in \in{figure}[fig:BlockSHOGraphs] when the block is sliding to the left from the turning point to the point where the block stops. The positive slope of these graphs is equal to the positive, rightward force $F$.
 
 Any outside force can do work on he system. We first saw this in \in{examples}[ex:CartWork1] and \in[ex:CartWork2] (\at{pp.}[ex:CartWork1]-\at[CartWorkEnding]), when you were pushing the book cart down the hallway. In those examples, you did positive work to increase the cart's total energy, getting the cart moving. Then you did negative work to decrease the cart's total energy, brining it to a stop. The positive work you do comes from chemical potential energy stored in the foods you eat. The negative work you do goes to microscopic, random motion in your muscles. In either case, we do not want to include the complicated chemical potential energy or microscopic, random energy in our system. Instead, we leave these out of the system and treat your force as an external force doing work on the system.
@@ -1681,19 +1681,19 @@ In the case of the block, friction is the external force that holds the system i
 
 \startexample[ex:BoxEarthGravU] A $0.85\units{kg}$ coffee cup is placed on a table. The table is $1.6\units{m}$ wide and not perfectly level, with the right edge being $0.80\units{cm}$ higher than the left edge, as shown in \in{figure}[fig:CupTable]. Find the friction force holding the cup in place, preventing it from sliding toward the lower edge of the table.
 
-\startbuffer[CupTable]
-	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
-	\fill [black!10] (0,0) rectangle (-.23,.6);
-	\draw[thin] (0,0) -- (0,.6);
-	\startaxis[margin cart track,
-			xmin=-24,xmax=24,
-			ymax=10,
-			xlabel={},
-			]
-	\path (-15,0) pic {block}node[above = 5mm]{$m$};
-	\draw[decorate,decoration={coil,segment length=1.06pt}] (-24,2.5) --node[above=3pt] {$k$} (-18,2.5);
-    \stopaxis
-\stopbuffer
+%\startbuffer[CupTable]
+%	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+%	\fill [black!10] (0,0) rectangle (-.23,.6);
+%	\draw[thin] (0,0) -- (0,.6);
+%	\startaxis[margin cart track,
+%			xmin=-24,xmax=24,
+%			ymax=10,
+%			xlabel={},
+%			]
+%	\path (-15,0) pic {block}node[above = 5mm]{$m$};
+%	\draw[decorate,decoration={coil,segment length=1.06pt}] (-24,2.5) --node[above=3pt] {$k$} (-18,2.5);
+%    \stopaxis
+%\stopbuffer
 
 \startuseMPgraphic{graph::CupTableGraphs} % I'd like to add minor ticks, 0.667mm long.
 path U;
@@ -1714,12 +1714,13 @@ draw begingraph(4cm,1.5cm);
 	glabel.lft(textext("Energy (J)") rotated 90,OUT) ;
 	glabel.bot(textext("$x$ (cm)"), OUT);
 	gdraw(U) withpen pencircle scaled 0.8pt;
-	glabel.top("$U$",0.5);
+	glabel.top("$U$",0.33);
 	glabel(mydot,0.75);
+	glabel.ulft("$H=U$", 0.75);
 endgraph shifted (0, -3.5cm);
 path Top, Leg;
 	Top := unitsquare xyscaled (4cm, -2mm);
-	Leg := unitsquare xyscaled (1mm, -1.8cm);
+	Leg := unitsquare xyscaled (1mm, -1.8cm) shifted (-0.5mm,0);
 fill Leg shifted (5mm,0) withcolor "lightgray";
 draw Leg shifted (5mm,0) withpen pencircle scaled 0.8pt;
 fill Leg shifted (35mm,0) withcolor "lightgray";
@@ -1731,22 +1732,13 @@ picture CCup; path Cup, Handle;
 	Handle := fullcircle xyscaled (1.4mm,1.8mm) shifted (1.2mm,1.5mm);
 	CCup := image(
 		draw Handle withpen pencircle scaled 1pt;
-		draw Cup
-			withshademethod "linear"
-              	withshadevector (0,1)
-			withshadestep (
-			withshadefraction .7
-			withshadecolors (black,white)
-			)
-			withshadestep (
-				withshadefraction 1
-				withshadecolors (white,black)
-			);
+		fill Cup withcolor "middlegray";
+		draw Cup;
 		draw Cup withpen pencircle scaled 0.8pt;);
-draw CCup shifted (3cm,0) rotated(angle(160,0.8));
+draw CCup shifted (3cm,0.8pt) rotated(angle(160,0.8));
 \stopuseMPgraphic
 
-\startplacefigure[location=margin, reference=fig:CupTable, title={A coffee cup sits on a slightly sloped table (top). The coffee cup's potential energy vs.\ its position on the slightly sloped table (bottom).}]
+\startplacefigure[location=margin, reference=fig:CupTable, title={A coffee cup sits on a slightly sloped table (top). The energy graph shows coffee cup's potential energy vs.\ its position on the slightly sloped table (bottom). The cup's total energy $H$ on the graph is the location of the motionless cup, showing the total energy $H$ is equal to the potential energy $U$.}]
 %\typesetbuffer[starttikz,CupTable,stoptikz]
 \small
 \reuseMPgraphic{graph::CupTableGraphs}
@@ -1768,6 +1760,82 @@ The right side is the potential energy's local slope. Since the table is flat, t
 The friction force holding the cup in place is $0.042\units{N}$. The force is positive, pushing to the right to keep the cup from sliding to the left. The friction force is also tiny, because only a tiny force is required to keep the cup from sliding on this nearly level table.
 \stopsolution
 \stopexample
+
+In the example above, friction provides only enough force to maintain equilibrium, so that the cup stays in place. If the table had a greater slope, the friction force would be greater to maintain the equilibrium. If the table were perfectly level, the friction force would be zero. Friction that holds something in place is called \keyterm{static friction}. The principle of virtual work tells us the static friction force required to maintain equilibrium.
+
+The sliding block on a spring was also held in place by static friction after it stopped at $x=-3\units{cm}$. If the block had stopped to the left of $x=-3cm$, where the $U$ graph is less steep (\in{fig.}[fig:BlockStoped]), then the force of friction holding it in place would also be less. Static friction only provides the force necessary to maintain equilibrium.
+
+\startuseMPgraphic{graph::CupBrokenTableGraphs} % I'd like to add minor ticks, 0.667mm long.
+  vardef shadow(expr p, v) = 
+    draw redecorated (draw p) withcolor v[background,0.8background];
+  enddef; 
+path U, H;
+	U := (0,0) -- (160,5.54);
+	H := (0,2.3) -- (120,4.16);
+draw begingraph(4cm,5cm);
+	setrange(0,0 , 160, 6);
+	graph_template.itick := origin--(1mm,0) ;
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy (J)") rotated 90,OUT) ;
+	glabel.bot(textext("$x$ (cm)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.lrt("$U$",0.5);
+	% glabel(mydot,0.75);
+	gdraw(H) withpen pencircle scaled 0.8pt;
+	glabel.ulft("$H=U+K$",0.75);
+endgraph shifted (0, -5.4cm);
+%path Top, Leg;
+%	Top := unitsquare xyscaled (4cm, -2mm);
+%	Leg := unitsquare xyscaled (1mm, -1.8cm) shifted (-0.5mm,0);
+fill Leg rotated(90) shifted (5mm,-1.3mm) withcolor "lightgray";
+draw Leg rotated(90) shifted (5mm,-1.3mm) withpen pencircle scaled 0.8pt;
+fill Leg shifted (35mm,0) rotated(angle(35,16)) withcolor "lightgray";
+draw Leg shifted (35mm,0) rotated(angle(35,16)) withpen pencircle scaled 0.8pt;
+fill Top rotated(angle(35,16)) withcolor "lightgray";
+draw Top rotated(angle(35,16)) withpen pencircle scaled 0.8pt;
+%picture CCup; path Cup, Handle;
+%	Cup := unitsquare xyscaled (2mm,3mm) shifted (-1mm,0);
+%	Handle := fullcircle xyscaled (1.4mm,1.8mm) shifted (1.2mm,1.5mm);
+%	CCup := image(
+%		draw Handle withpen pencircle scaled 1pt;
+%		draw Cup
+%			withshademethod "linear"
+%              	withshadevector (0,2)
+%			withshadestep (
+%			withshadefraction .7
+%			withshadecolors (black,white)
+%			)
+%			withshadestep (
+%				withshadefraction 1
+%				withshadecolors (white,black)
+%			);
+%		draw Cup withpen pencircle scaled 0.8pt;);
+  pair p;
+  for i=0 step 1 until 10:
+    p := ((3-(i**2)/50)*cm, 0.8pt);
+    shadow(CCup shifted p rotated(angle(35,16)), (i+1)/10) ;
+  endfor
+  draw CCup shifted (0.58cm,0.8pt) rotated(angle(35,16));
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:CupBrokenTable, title={A coffee cup slides on a steeply sloped, broken table (top). The energy graph shows coffee cup's potential energy vs.\ its position on the steep, broken table (bottom). The dot on the graph is the location of the motionless cup, showing $H=U$.}]
+%\typesetbuffer[starttikz,CupTable,stoptikz]
+\small
+\reuseMPgraphic{graph::CupBrokenTableGraphs}
+\stopplacefigure
+
+The static friction can only hold so much. If the table is too steep (\in{fig.}[fig:CupBrokenTable]), friction will not be able to maintain the equilibrium and the cup will slide. The the force of \keyterm{sliding friction} will still oppose the motion, but it will not stop the motion. The principle of virtual work tells us the static friction force required to maintain equilibrium, so we cannot use this principle if the system is out of equilibrium. The sliding friction force is determined by other factors – the materials and textures of the surfaces in contact (the bottom of the cup and the top surface of the table) and on the force pushing the two surfaces together (the cup's weight). The sliding force of friction is best found through experiments.
+
+The sliding block on a spring stopped at $x=-3\units{cm}$ with static friction holding the block in place. In that case the static friction force is right at the its limit. If the block had stoped to the left of $x=-3\units{cm}$, where the potential energy curve is steeper (\in{fig.}[fig:SlideToStop]), it would have been able to turn and slide for a short distance to the right with the total energy $H$ staying above the potential energy $U$. The dotted \quotation{no} line sloping down and to the left would have stayed above the $U$ curve for a short distance, changing it from a dotted \quotation{no} to a solid $H$, showing the total energy as the block slides again to the right.
 
 Equilibrium and the principle of virtual work do not require that the system is motionless, only that the forces and energy slopes are in \quotation{equal balance.} A pendulum is in equilibrium every time it passes through its lowest point. The cart and spring system is in equilibrium every time the spring passes though its natural length. The sliding block system is in equilibrium every time the friction force equals the potential energy's local slope. This happens at $x=-3\units{cm}$ when the block is sliding to the right, and at $x=3\units{cm}$ when the block is sliding to the left.
 

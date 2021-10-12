@@ -14,7 +14,7 @@ m_k_i_v_*
 *.syncctx
 install.sh
 /context-osx-64/modules/
-/context-osx-64/tex/texmf-cache/
+texmf-cache/
 !PythagoreanPipesCons.pdf
 !PythagoreanPipesDis.pdf
 !PythagoreanPipesArrows.pdf
