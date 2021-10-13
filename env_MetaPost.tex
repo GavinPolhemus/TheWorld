@@ -1,15 +1,6 @@
 \startenvironment env_MetaPost
 \usemodule [graph]
 
-%\startMPinclusions % This is getting overwritten by the inclusions below.
-%  pickup pencircle scaled 0.8pt;
-%  anglelength := 5mm ;
-%\stopMPinclusions
-
-%\startMPdefinitions[+]{graph}
-%  input DiagramElements.mp ;
-%\stopMPdefinitions
-
 % Specifically for MetaPost figures
 
 \startbuffer[startMP]
@@ -65,8 +56,7 @@
 	\fi%
 }
 
-\startMPinclusions 
-%  input DiagramElements.mp ;
+\startMPextensions % Extensions apply to all instances that accept them.
 % shawdow(picture, visibility) draws a shadow of the picture (but not the picture) visibility should be between 0-1, with 0 being invisible and 1 being a shadow that is reduces the background brightness by 20%. If visibility is greater than 1, it will make the shadow even darker, but 20% seems to be plenty. (change 0.8background to something else to change the maximum darkness.) The picture should be shifted and rotated in the command, not afterwards. E.g. shadow(cow rotate 45 shifted (10cm, 5cm), .3);.
   vardef shadow(expr p, v) = 
     draw redecorated (draw p) withcolor v[background,0.8background];
@@ -126,7 +116,56 @@ vardef curly expr p =
          {direction infinity of p rotated 90}
  fi
 enddef;
-\stopMPinclusions
-
+\stopMPextensions
 
 \stopenvironment
+
+% From: meta-ini.mkxl
+%
+% initializations:
+% \startMPinitializations ... \stopMPinitializations
+%
+% - pass settings from tex to mp (delayed expansion)
+% - used by context core (and modules)
+% - cumulative definitions
+% - flushed each graphic
+% - can be disabled per instance in the instance setup
+% - managed at the tex end
+%
+% extensions:
+% \startMPextensions {...,...} ... \stopMPextensions
+%
+% - add mp functionality (immediate expansion)
+% - cumulative
+% - all instances or subset of instances (optional list in {...,...})
+% - can be disabled per instance in the instance setup
+% - managed at the lua/mp end
+% - could be managed at the tex end but no real reason and also messy
+%
+% definitions:
+% \startMPdefinitions {...} ... \stopMPdefinitions
+%
+% - add mp functionality (delayed expansion)
+% - cumulative
+% - per instance given in optional {...}
+% - managed at the tex end
+%
+% inclusions:
+% \startMPinclusions [...] {...} ... \stopMPinclusions
+%
+% - add mp functionality (delayed expansion)
+% - cumulative only with optional [+]
+% - per instance given in optional {...}
+% - managed at the tex end
+%
+% order of execution:
+%
+%   definitions
+%   extensions
+%   inclusions
+%   beginfig
+%     initializations
+%     graphic
+%   endfig
+%
+% See \defineMPinstance and \setupMPinstance on Wiki.

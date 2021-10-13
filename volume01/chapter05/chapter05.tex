@@ -1766,9 +1766,9 @@ In the example above, friction provides only enough force to maintain equilibriu
 The sliding block on a spring was also held in place by static friction after it stopped at $x=-3\units{cm}$. If the block had stopped to the left of $x=-3cm$, where the $U$ graph is less steep (\in{fig.}[fig:BlockStoped]), then the force of friction holding it in place would also be less. Static friction only provides the force necessary to maintain equilibrium.
 
 \startuseMPgraphic{graph::CupBrokenTableGraphs} % I'd like to add minor ticks, 0.667mm long.
-  vardef shadow(expr p, v) = 
-    draw redecorated (draw p) withcolor v[background,0.8background];
-  enddef; 
+%vardef shadow(expr p, v) = 
+%draw redecorated (draw p) withcolor v[background,0.8background];
+%enddef; 
 path U, H;
 	U := (0,0) -- (160,5.54);
 	H := (0,2.3) -- (120,4.16);
