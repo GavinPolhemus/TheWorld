@@ -2054,14 +2054,14 @@ The second thing to notice is that the distance is between the objects’ center
 
 Third, the formula always gives a negative potential energy. This has alarmed many people, including great physicists, but it is not a problem. The gravitational potential energy is zero when the objects are far apart and it goes down as objects get closer together. Down from zero is negative. Kinetic energy is always positive, but there is no reason to be alarmed by negative potential energy.
 
-Finally, the universal gravitational constant $G$ is extremely small, so the gravitational potential energy between every-day objects at every-day distances can be completely ignored. At least one of the objects must have a huge mass in order for the gravitational potential energy to be significant. Earth’s mass of $5.97\sci{24}\units{kg}$ is enough to have a significant effect.
+Finally, the universal gravitational constant $G$ is extremely small, so the gravitational potential energy between every-day objects can be completely ignored. At least one of the objects must have a huge mass in order for the gravitational potential energy to be significant. Earth’s mass of $5.97\sci{24}\units{kg}$ is enough to have a significant effect.
 
 \startexample[ex:BoxEarthGravU] How much work is required to lift a $3.0\units{kg}$ box from Earth’s surface to a very distant location?
 
 \startuseMPgraphic{graph::BoxEarthGravU} % I'd like to add minor ticks, 0.667mm long.
 vardef U =
 	path p;
-		for x = 2 step 0.1 until 40:
+		for x = 5 step 0.1 until 40:
 			y := -11.90/x; % lua.mp.morse(x);
 			augment.p(x,y);
 		endfor;
@@ -2073,10 +2073,13 @@ draw begingraph(4cm,4cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("Energy ($\sci{4}\units{J}$)") rotated 90,OUT);
+	glabel.lft(textext("Energy ($\sci{8}\units{J}$)") rotated 90,OUT);
 	glabel.bot(textext("$r$ ($\sci{6}\units{m}$)"), OUT);
 	gdraw(U) withpen pencircle scaled 0.8pt;
-	glabel.lrt("$U$",150);
+	glabel.lrt("$U$",140);
+	glabel(mydot,(80));
+	glabel(mydot,(210));
+	glabel(mydot,(340));
 	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
 	gdraw((6.37,0) -- (6.37,-2)) withpen pencircle scaled 0.8pt;
 	for y=0 step -0.5 until -2:%auto.y:
@@ -2094,8 +2097,6 @@ endgraph shifted (0,-5cm);
     dotlabel.top  ("$F\sub{Newton}$", (26mm,0)) ;
   drawarrow (39mm,0) -- (37.5mm,0);
     dotlabel.llft  ("", (39mm,0)) ;
-%  drawarrow (40mm,0) -- (38.5mm,0);
-%    dotlabel.llft  ("", (40mm,0)) ;
 \stopuseMPgraphic
 
 \startplacefigure[location=margin, reference=fig:BoxEarthGravU, title={The gravitational force on a $3.0\units{kg}$ object at different distances from Earth (top). The potential energy of of $3.0\units{kg}$ object in Earth’s vicinity (bottom). The potential is not shown for locations inside Earth (the gray region).}]
@@ -2103,7 +2104,7 @@ endgraph shifted (0,-5cm);
 \stopplacefigure
 
 \startsolution
-	This problem is just like the earlier problem where the box was lifted onto a shelf, but now we must use the gravitational potential energy formula that works for large distances. The gravitational potential energy for the box and Earth are plotted in figure~\ref{fig:BoxEarthGravU}.
+	This problem is just like the earlier example where Galileo lifted the pendulum (\in{ex.}[ex:GalileoPendulum1]), but now we must use the gravitational potential energy formula that works for large distances. The gravitational potential energy for the box and Earth are plotted in figure~\ref{fig:BoxEarthGravU}.
 	\startformula\startmathalignment
 	\NC	H\si + W + \cancel{Q}	\NC = H\sf			\NR
 	\NC	K\si + U\si + W			\NC = K\sf + U\sf
@@ -2120,6 +2121,24 @@ endgraph shifted (0,-5cm);
 	Moving the $3\units{kg}$ box from Earth’s surface to a distant location requires a tremendous amount of work.
 \stopsolution
 \stopexample
+
+The energy graph in \in{figure}[fig:BoxEarthGravU] shows the box's tremendous increase in gravitational potential energy as it is moved far from Earth. It starts at Earth's surface, with a potential energy $U=-1.88\sci{8}\units{J}$. To move the box far away requires going off the graph, far to the right in \in{figure}[fig:BoxEarthGravU], to the where $U\approx 0\units{J}$. Objects sent to deep space require giant rockets which do the work required to reach the much higher gravitational potential energy. The deep negative potential energy near Earth is often called Earth's \keyterm{gravity well.} The rocket does the work required to climb out of this deep well.
+
+The energy graph in \in{figure}[fig:BoxEarthGravU] also shows the gravitational force. To see it, we must use Lagrange's insight. Above the energy graph I have drawn Earth and the gravitational force on the box at three different distances from Earth. These distances are also marked on the energy graph. The gravitational potential energy's slope is positive everywhere, so the gravitational force, $F\sub{Newton} = -\partial U/\partial x$, is negative everywhere – pulling the box back toward Earth. This is similar to the right side of \in{figure}[fig:BlockSHONewton], where the spring potential energy's positive slope leads to a negative spring force – pulling the block back toward the center. The spring's potential energy gets steeper as the spring is stretched, leading to a spring force that increases with distance. The gravitational potential energy does the opposite, getting less steep as the box is moved farther from Earth, leading to a gravitational force that decreases with distance. This is why the force arrows \in{figure}[fig:BoxEarthGravU] get smaller farther from Earth.
+
+The gravitational force can be calculated from the gravitational potential energy formula. 
+\startformula
+	F\sub{Newton} = -G\frac{mM}{r^2},
+\stopformula
+(This calculation requires some basic calculus, which you do not need to know. If you do know calculus, watch out for three minus signs!) This formula is \keyterm{Newton's universal law of gravitation}, and it can be used to find the gravitational force between any two objects. It looks almost identical to the formula for gravitational potential energy, but the denominator is $r^2$ instead of $r$. The $r^2$ in the denominator tells us that the force is very small when the distance is large. (You already knew that from looking at the energy graph – no calculus needed!)
+
+Newton presented his universal law of gravitation in the \booktitle{Principia}, along with his laws of motion, long before D.~Bernoulli studied gravitational potential energy. D.~Bernoulli did the calculus calculation the other direction,  finding his formula for gravitational potential energy from Newton's universal law of gravitation.
+
+The gravitational force is often written $F = -mg$, where $g$ is the strength of the \keyterm{gravitational field}.
+\startformula
+	g = G\frac{M}{r^2},
+\stopformula
+Here on Earth's surface, $g=9.8\units{m/s^2}$, as you know. The gravitational field gets weaker with distance because of the $r^2$ in the denominator. The gravitational field formula can be used to find $g$ any distance from any celestial object. Objects with larger mass $M$ have stronger gravitational fields. Less massive objects's, like the Moon have weaker gravitational fields.
 
 \startexample[ex:BoxEarthGravU2] The $3.0\units{kg}$ box was placed far from Earth, but even so it eventually is pulled back by Earth’s gravitational attraction. How fast is the box going when it enters the atmosphere, approximately $100\units{km}$ above Earth’s surface?
 \startsolution
@@ -2145,8 +2164,7 @@ The box enters the atmosphere with a speed of about $11\units{km/s}$, causing it
 \stopsolution
 \stopexample
 
-Daniel Bernoulli’s method has continued to provide insight into every know physical process, from particle interactions to the expansion of the universe. In the centuries since the publication of \booktitle{Hyrodynamica} much of the important progress in physics has come from properly identifying and quantifying the many forms of energy.
-
+Daniel Bernoulli’s method – linking kinetic energy, work, and potential energy – has continued to provide insight into every know physical process, from particle interactions to the expansion of the universe. In the centuries since the publication of \booktitle{Hyrodynamica} much of the important progress in physics has come from properly identifying and quantifying the many forms of energy.
 
 \subject{Notes}
 %\placefootnotes[criterium=chapter]
