@@ -854,8 +854,7 @@ This path will not be easy, but our destination is in sight. The quadrivium puzz
 \section{Ideal springs and simple harmonic motion}
 
 Simple harmonic motion, first introduced in \in{Chapter}[ch:Motion] (\at{p.}[sec:SHO]), is produced by a simple system consisting of a mass connected to an ideal spring, as shown in \in{figure}[fig:SpringCart]. The spring has a natural length ($18\units{cm}$ in the figure), so it holds the cart gently in place at the equilibrium position $x=0\units{cm}$. The cart can be moved to the left, compressing the spring, or moved to the right, stretching the string. 
-The spring's \keyterm{stiffness}, represented by $k$, is a measure of how difficult it is to stretch or compress the spring. Very stiff springs are hard to stretch or compress, while springs with a small stiffness stretch or compress easily. (The spring stiffness is often called the \keyterm{spring constant.})
-
+The spring's \keyterm{stiffness}\pagereference[kt:stiffness], represented by $k$, is a measure of how difficult it is to stretch or compress the spring. Very stiff springs are hard to stretch or compress, while springs with a small stiffness stretch or compress easily. (The spring stiffness is often called the \keyterm{spring constant.})
 \startbuffer[SpringCart]
 	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
 	\fill [black!10] (0,0) rectangle (-.23,.6);
@@ -900,7 +899,6 @@ Ideal springs have a simple potential energy formula.
 	TPR := (12,0) -- (12,24);
 draw begingraph(4.5cm,2.4cm);
 	setrange(-21,0, 24, 24);
-	graph_template.itick := origin--(1mm,0) ;
 	itick.lft(formatted("$@g$", 0), 0);
 	for x=auto.x:
 		itick.bot(formatted("$@g$", x), x);
@@ -959,7 +957,6 @@ The cart will continue to oscillate back-and-forth between the turning points. T
 	TPR := (12,0) -- (12,24);
 draw begingraph(4.5cm,2.4cm);
 	setrange(-21,0, 24, 24);
-	graph_template.itick := origin--(1mm,0) ;
 	itick.lft(formatted("$@g$", 0), 0);
 	for x=auto.x:
 		itick.bot(formatted("$@g$", x), x);
@@ -1015,7 +1012,6 @@ The motion's amplitude is the maximum displacement from the equilibrium point. T
 	TPR := (12,0) -- (12,24);
 draw begingraph(4.5cm,2.4cm);
 	setrange(-21,0, 24, 24);
-	graph_template.itick := origin--(1mm,0) ;
 	itick.lft(formatted("$@g$", 0), 0);
 	for x=auto.x:
 		itick.bot(formatted("$@g$", x), x);
@@ -1056,7 +1052,6 @@ endgraph;
 draw begingraph(4.5cm,10cm);
 	setcoords(linear, -linear);
 	setrange(-21,0, 24,160);
-	graph_template.itick := origin--(1mm,0) ;
 %	for y=auto.y:
 	itick.lft(formatted("$@g$", 0), 0);
 %		itick.lft(formatted("$@g$", y), y);
@@ -1179,7 +1174,6 @@ Many simple harmonic oscillators are too fast or too slow for us to notice. Atom
 	TPR := (12,0) -- (12,24);
 draw begingraph(4.5cm,2.4cm);
 	setrange(-21,0, 24, 24);
-	graph_template.itick := origin--(1mm,0) ;
 	itick.lft(formatted("$@g$", 0), 0);
 	for x=auto.x:
 		itick.bot(formatted("$@g$", x), x);
@@ -1212,9 +1206,9 @@ endgraph;
 
 All of these simple harmonic oscillators only produce simple harmonic motion when the amplitude is not too big. The potential energy for a real spring, for example, is not a perfect parabola. If the spring is compressed too much, the coils collide (\in{fig.}[fig:SpringCartBang]). Compressing the spring any more would require tremendous energy. If the spring is stretched too much, it will break (\in{fig.}[fig:SpringCartSnap]), and all of the potential energy will be lost. As a result, a real spring's potential energy looks more like \in{figure}[fig:RealSpringGraphEnergy]. The middle of the potential energy graph still looks like a parabola, so the motion will be simple harmonic if the turning points are within that region. If the total energy $H$ is too high, the spring will become too compressed or stretched, and the motion will not be simple harmonic. These sorts of failures are possible with any simple harmonic oscillator. A pendulum can knock against a wall. Musical strings can snap. Molecules can break. Every simple harmonic oscillator has its limits.
 
-Simple harmonic oscillators are everywhere, because the central parabola shape in \in{figure}[fig:RealSpringGraphEnergy] is almost universal. If an object is held in place gently, the parabola is wide (like the pendulum's in \in{figure}[fig:GalileoPendulumGraphU]), and not much energy is required to displace the object. If the object is held tightly, then the parabola is narrow, and the potential energy rises steeply on both sides of equilibrium. The system will produce simple harmonic motion in any case. \in{Figure}[fig:I2Energy] shows another example, the potential energy function responsible for holding two iodine atoms together to form an iodine molecule, \chemical{I_2}. These two atoms act like they are held together by a spring and will vibrate with simple harmonic motion if given a small amount of energy. (Too much energy will break the molecule apart.) Most molecules have bonds that behave like springs. Larger objects have even more parts, so they contain even more ways to vibrate. Many of those vibrations are simple harmonic, even when we cannot see or hear the vibrations.
+Simple harmonic oscillators are everywhere, because the central parabola shape in \in{figure}[fig:RealSpringGraphEnergy] is almost universal. If an object is held in place gently, the parabola is wide (like the pendulum's in \in{figure}[fig:GalileoPendulumGraphU]), and not much energy is required to displace the object. If the object is held tightly, then the parabola is narrow, and the potential energy rises steeply on both sides of equilibrium. The system will produce simple harmonic motion in any case. \in{Figures}[fig:I2] and \in[fig:I2Energy] show another example, the potential energy function responsible for holding two iodine atoms together to form an iodine molecule, \chemical{I_2}. These two atoms act like they are held together by a spring and will vibrate with simple harmonic motion if given a small amount of energy. (Too much energy will break the molecule apart.) Most molecules have bonds that behave like springs. Larger objects have even more parts, so they contain even more ways to vibrate. Many of those vibrations are simple harmonic, even when we cannot see or hear the vibrations.
 
-\startuseMPgraphic{I2Energy}
+\startuseMPgraphic{I2}
 draw curly (-1cm,0) -- (1cm,0) withpen pencircle scaled 0.8pt;
 draw ball shifted (-1.5cm,0);
 label("I",(-1.5cm,0));
@@ -1222,9 +1216,9 @@ draw ball shifted (1.5cm,0);
 label("I",(1.5cm,0));
 \stopuseMPgraphic
 
-\startplacefigure[location=margin, reference=fig:I2Energy, title={Two iodine atoms are connected to form an iodine molecule, \chemical{I_2}. They are actually connected by an electron bond, but they oscillate as if they are connected by a tiny spring.}]
+\startplacefigure[location=margin, reference=fig:I2, title={Two iodine atoms are connected to form an iodine molecule, \chemical{I_2}. They are actually connected by an electron bond, but they oscillate as if they are connected by a tiny spring.}]
 \small
-\reuseMPgraphic{I2Energy}
+\reuseMPgraphic{I2}
 \stopplacefigure
 
 \startluacode
@@ -1260,11 +1254,10 @@ vardef U =
 %	TPR := (12,0) -- (12,24);
 draw begingraph(4cm,5cm);
 	setrange(origin, 8, 3);
-	graph_template.itick := origin--(1mm,0) ;
 	for y=auto.y:
 		itick.lft(formatted("$@g$", y), y);
 		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
-		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
 	endfor
 	for x=auto.x:
 		itick.bot(formatted("$@g$", x), x);
@@ -1359,7 +1352,6 @@ Until we study heat, we will always leave this random, microscopic motion out of
 	%Stop := (1,0) -- (1,13);
 draw begingraph(4.5cm,2.4cm);
 	setrange(-21,0, 24, 24);
-	graph_template.itick := origin--(1mm,0) ;
 	itick.lft(formatted("$@g$", 0), 0);
 	for x=auto.x:
 		itick.bot(formatted("$@g$", x), x);
@@ -1411,7 +1403,6 @@ endgraph;
 draw begingraph(4.5cm,5cm);
 	setcoords(linear, -linear);
 	setrange(-21,0, 24,80);
-	graph_template.itick := origin--(1mm,0) ;
 %	for y=auto.y:
 	itick.lft(formatted("$@g$", 0), 0);
 %		itick.lft(formatted("$@g$", y), y);
@@ -1463,7 +1454,7 @@ endgraph shifted (0cm, -5.4cm);
 	\path (4,0) pic {block};
 	\draw[decorate,decoration={coil,segment length=5pt}] (-24,2.5) -- (1,2.5);
 	\draw[-{Straight Barb}, thick] (-4,2.5) --node[above=2mm] {$dx$} (4,2.5);
-	\draw[->, very thick] (4,0) --node[below, pos=0.4] {$F$} (-3,0);
+	\draw[->, very thick] (4,0) --node[below, pos=0.4] {$F$} (-0.5,0);
     \stopaxis
 \stopbuffer
 
@@ -1517,7 +1508,7 @@ The block was released $16\units{cm}$ to the left of the spring's relaxed positi
 	\path (-4,0) pic {block};
 	\draw[decorate,decoration={coil,segment length=3.3pt}] (-24,2.5) -- (-7,2.5);
 	\draw[-{Straight Barb}, thick] (4,2.5) --node[above=2mm] {$dx$} (-4,2.5);
-	\draw[->, very thick] (-4,0) --node[below, pos=0.4] {$F$} (3,0);
+	\draw[->, very thick] (-4,0) --node[below, pos=0.4] {$F$} (0.5,0);
     \stopaxis
 \stopbuffer
 
@@ -1573,7 +1564,7 @@ Unable to move in either direction, the block remains stopped at $x=-3\units{cm}
 	\draw[] (-24,0) -- (24,0);
 	\path (-3,0) pic {block};
 	\draw[decorate,decoration={coil,segment length=3.6pt}] (-24,2.5) -- (-6,2.5);
-	\draw[->, very thick] (-3,0) --node[below, pos=0.4] {$F$} (-10,0);
+	\draw[->, very thick] (-3,0) --node[below, pos=0.4] {$F$} (-7.5,0);
     \stopaxis
 \stopbuffer
 
@@ -1582,10 +1573,8 @@ Unable to move in either direction, the block remains stopped at $x=-3\units{cm}
 	U := (-15,75/8) ..controls (-5,-25/8) and (5,-25/8).. (15,75/8);
 	H := (-1.5,3/4) -- (-3, 3/8);
 	nope := (-4.5,0) -- (-3, 3/8) -- (-1.5,0);
-picture mydot; mydot := image(fill fullcircle scaled 3pt;);
 draw begingraph(4.5cm,2.4cm);
 	setrange(-4,0, -2, 1.33);
-	graph_template.itick := origin--(1mm,0) ;
 	itick.lft(formatted("$@g$", 0), 0);
 	for x=auto.x:
 		itick.bot(formatted("$@g$", x), x);
@@ -1625,7 +1614,6 @@ We have denoted small displacements as $dx$, adopting the Leibniz's notation. In
 	nope := (-4.5,0) -- (-3, 3/8) -- (-1.5,0);
 draw begingraph(4.5cm,2.4cm);
 	setrange(-4,0, -2, 1.33);
-	graph_template.itick := origin--(1mm,0) ;
 	itick.lft(formatted("$@g$", 0), 0);
 	for x=auto.x:
 		itick.bot(formatted("$@g$", x), x);
@@ -1700,7 +1688,6 @@ path U;
 	U := (0,0) -- (160,0.0666);
 draw begingraph(4cm,1.5cm);
 	setrange(0,0 , 160, 0.0801);
-	graph_template.itick := origin--(1mm,0) ;
 	for x=auto.x:
 		itick.bot(formatted("$@g$", x), x);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
@@ -1763,7 +1750,7 @@ The friction force holding the cup in place is $0.042\units{N}$. The force is po
 
 In the example above, friction provides only enough force to maintain equilibrium, so that the cup stays in place. If the table had a greater slope, the friction force would be greater to maintain the equilibrium. If the table were perfectly level, the friction force would be zero. Friction that holds something in place is called \keyterm{static friction}. The principle of virtual work tells us the static friction force required to maintain equilibrium.
 
-The sliding block on a spring was also held in place by static friction after it stopped at $x=-3\units{cm}$. If the block had stopped to the left of $x=-3cm$, where the $U$ graph is less steep (\in{fig.}[fig:BlockStoped]), then the force of friction holding it in place would also be less. Static friction only provides the force necessary to maintain equilibrium.
+The sliding block on a spring was also held in place by static friction after it stopped at $x=-3\units{cm}$. If the block had stopped to the right of $x=-3\units{cm}$, where the $U$ graph is less steep (\in{fig.}[fig:BlockStoped]), then the force of friction holding it in place would also be less. Static friction only provides the force necessary to maintain equilibrium.
 
 \startuseMPgraphic{graph::CupBrokenTableGraphs} % I'd like to add minor ticks, 0.667mm long.
 %vardef shadow(expr p, v) = 
@@ -1771,10 +1758,9 @@ The sliding block on a spring was also held in place by static friction after it
 %enddef; 
 path U, H;
 	U := (0,0) -- (160,5.54);
-	H := (0,2.3) -- (120,4.16);
-draw begingraph(4cm,5cm);
+	H := (0,2.66) -- (120,4.16);
+draw begingraph(4cm,6cm);
 	setrange(0,0 , 160, 6);
-	graph_template.itick := origin--(1mm,0) ;
 	for x=auto.x:
 		itick.bot(formatted("$@g$", x), x);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
@@ -1783,7 +1769,7 @@ draw begingraph(4cm,5cm);
 	for y=auto.y:
 		itick.lft(formatted("$@g$", y), y);
 		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
-		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
 	endfor
 	glabel.lft(textext("Energy (J)") rotated 90,OUT) ;
 	glabel.bot(textext("$x$ (cm)"), OUT);
@@ -1792,7 +1778,8 @@ draw begingraph(4cm,5cm);
 	% glabel(mydot,0.75);
 	gdraw(H) withpen pencircle scaled 0.8pt;
 	glabel.ulft("$H=U+K$",0.75);
-endgraph shifted (0, -5.4cm);
+	glabel(myarrow, 0.5) rotatedaround(point 0.5 of H, angle (-3,-1.5));
+endgraph shifted (0, -6.4cm);
 %path Top, Leg;
 %	Top := unitsquare xyscaled (4cm, -2mm);
 %	Leg := unitsquare xyscaled (1mm, -1.8cm) shifted (-0.5mm,0);
@@ -1835,7 +1822,7 @@ draw Top rotated(angle(35,16)) withpen pencircle scaled 0.8pt;
 
 The static friction can only hold so much. If the table is too steep (\in{fig.}[fig:CupBrokenTable]), friction will not be able to maintain the equilibrium and the cup will slide. The the force of \keyterm{sliding friction} will still oppose the motion, but it will not stop the motion. The principle of virtual work tells us the static friction force required to maintain equilibrium, so we cannot use this principle if the system is out of equilibrium. The sliding friction force is determined by other factors – the materials and textures of the surfaces in contact (the bottom of the cup and the top surface of the table) and on the force pushing the two surfaces together (the cup's weight). The sliding force of friction is best found through experiments.
 
-The sliding block on a spring stopped at $x=-3\units{cm}$ with static friction holding the block in place. In that case the static friction force is right at the its limit. If the block had stoped to the left of $x=-3\units{cm}$, where the potential energy curve is steeper (\in{fig.}[fig:SlideToStop]), it would have been able to turn and slide for a short distance to the right with the total energy $H$ staying above the potential energy $U$. The dotted \quotation{no} line sloping down and to the left would have stayed above the $U$ curve for a short distance, changing it from a dotted \quotation{no} to a solid $H$, showing the total energy as the block slides again to the right.
+The sliding block on a spring stopped at $x=-3\units{cm}$ with static friction holding the block in place. In that case the static friction force is right at the its limit. If the block had stoped to the left of $x=-3\units{cm}$, where the potential energy curve is steeper (\in{fig.}[fig:SlideToStop]), it would have been able to turn and slide for a short distance to the right with the total energy $H$ staying above the potential energy $U$. The dotted \quotation{no} line sloping down and to the left would have stayed above the $U$ curve for a short distance, changing it from a dotted \quotation{no} to a solid $H$ showing the total energy as the block slides again to the right.
 
 Equilibrium and the principle of virtual work do not require that the system is motionless, only that the forces and energy slopes are in \quotation{equal balance.} A pendulum is in equilibrium every time it passes through its lowest point. The cart and spring system is in equilibrium every time the spring passes though its natural length. The sliding block system is in equilibrium every time the friction force equals the potential energy's local slope. This happens at $x=-3\units{cm}$ when the block is sliding to the right, and at $x=3\units{cm}$ when the block is sliding to the left.
 
@@ -1858,27 +1845,204 @@ draw littleball shifted (1.67cm,0.3cm);
 \reuseMPgraphic{EquilibriumStability}
 \stopplacefigure
 
-Equilibrium and the principle of virtual work also do not ensure that the equilibrium is stable. The marbles in \in{figure}[fig:EquilibriumStability] are each free to roll along the surface, but they are not being pushed either direction by external forces. Each marble is in equilibrium, but that equilibrium is more secure or precarious depending on the shape of the surface.
+Equilibrium and the principle of virtual work also do not ensure that the equilibrium is stable. The marbles in \in{figure}[fig:EquilibriumStability] are each free to roll along the surface. Each marble is in equilibrium, but that equilibrium is more secure or precarious depending on the shape of the surface.
 The left marble is in \keyterm{stable equilibrium}. If nudged by a small force, it would move slightly and then return to its equilibrium position at the bottom of the dip.
 The right marble is in \keyterm{unstable equilibrium}. If nudged, it would move slightly and then roll away, accelerating down the slope.
 The middle marble is in \keyterm{neutral equilibrium}. If nudged, it would roll slowly, not accelerating away but also not returning.
 
-Objects that do not roll are held in stable equilibrium by friction. A small nudge from an external force is countered by a small change in the friction force, maintaining the stable equilibrium.
-
-% the virtual work done by the external forces equals the resulting virtual change in potential energy for all possible virtual displacements of the system. <- Save for Ch 6.
+Motionless, stable equilibrium is by far the most common type of equilibrium, simply because any moving or unstable equilibrium tends to slow down or fall apart, reaching a new, stable equilibrium. The pendulum and the cart on a spring both gradually loose their energy and come to rest, just like the block. The unstable marble will roll off and find a stable resting place – probably on the floor in some corner. Stable motionless equilibrium endures. Objects generally stay where they are placed, and their parts generally stay connected. An object like the wood block contains approximately $10^25$ particles, each held in stable equilibrium so that the block does not disintegrate. The study of motionless, stable equilibrium is called \keyterm{statics}. The most powerful tool I know for statics is the principle of virtual work.
 
 \section{Daniel Bernoulli versus Newton's force}
-
+Newton did not use the principle of virtual work for statics, he used his ideas about force and momentum. Recall Newton's second law, which we eventually wrote as the momentum update formula (\at{p.}[eq:1Dpconserve]).% We have been looking at equilibrium in one dimension, so we do not need vectors, only the $x$-component.)
 \startformula
-	F\sub{Newton} = -\frac{\partial U}{\partial x}
+	p\si + F\sn\Delta t = p\sf
+\stopformula
+In statics, nothing is moving, so $p\si = p\sf = 0$. Therefore $F\sn$ must also be zero. Newton's condition for equilibrium simply states that the net force is  zero.
+\startformula
+	F\sn = 0
 \stopformula
 
+\startbuffer[SpringBlockCleanStopNewton]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			clip = false,
+			hide x axis = true,
+			]
+	\draw[] (-24,0) -- (24,0);
+	\path (-3,0) pic {block};
+	\draw[decorate,decoration={coil,segment length=3.6pt}] (-24,2.5) -- (-6,2.5);
+	\draw[->, very thick] (-3,0) --node[below=1mm, pos=0.4] {$F\sub{friction}$} (-7.5,0);
+	\draw[->, very thick] (-6,2.5) --node[above=2mm, pos=0.4] {$F\sub{spring}$} (-1.5,2.5);
+    \stopaxis
+\stopbuffer
+
+\startplacefigure[location=margin, reference=fig:SpringBlockCleanStopNewton, title={Newton sees only forces in the system. Equilibrium is balanced of forces, $F\sn = 0$.}]
+\typesetbuffer[starttikz,SpringBlockCleanStopNewton,stoptikz]
+\stopplacefigure
+\noindent
+Newton's view of equilibrium does not involve the potential energy, because Newton did not know about potential energy! He would not see the spring, for example, as storing energy. Rather, he would see it as exerting a force, as in \in{figure}[fig:SpringBlockCleanStopNewton]. The block is held in place by static friction's leftward force balancing the spring's rightward force. The the net force is zero, so the block is in equilibrium, according to Newton.
+
+\startbuffer[HookesBlock1]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			hide x axis = true,
+			]
+	\path (-15,0) pic {block};
+	\draw[decorate,decoration={coil,segment length=1.06pt}] (-24,2.5) -- (-18,2.5);
+	\draw[->, very thick] (-18,2.5) --node[above, pos=0.5] {$F\sub{spring}$} (4.5,2.5);
+    \stopaxis
+\stopbuffer
+
+\startbuffer[HookesBlock2]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			hide x axis = true,
+			]
+	\path (-7.5,0) pic {block};
+	\draw[decorate,decoration={coil,segment length=2.65pt}] (-24,2.5) -- (-10.5,2.5);
+	\draw[->, very thick] (-10.5,2.5) -- (0.75,2.5);
+    \stopaxis
+\stopbuffer
+
+\startbuffer[HookesBlock3]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			hide x axis = true,
+			]
+	\path (0,0) pic {block};
+	\draw[decorate,decoration={coil,segment length=4.24pt}] (-24,2.5) -- (-3,2.5);
+	%\draw[->, very thick] (-18,2.5) --node[above=2mm, pos=0.4] {$F\sub{Newton}$} (-10,2.5);
+    \stopaxis
+\stopbuffer
+
+\startbuffer[HookesBlock4]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			hide x axis = true,
+			]
+	\path (7.5,0) pic {block};
+	\draw[decorate,decoration={coil,segment length=5.8pt}] (-24,2.5) -- (4.5,2.5);
+	\draw[->, very thick] (4.5,2.5) -- (-6.75,2.5);
+    \stopaxis
+\stopbuffer
+
+\startbuffer[HookesBlock5]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			]
+	\path (15,0) pic {block};
+	\draw[decorate,decoration={coil,segment length=7.4pt}] (-24,2.5) -- (12,2.5);
+	\draw[->, very thick] (12,2.5) -- (-10.5,2.5);
+    \stopaxis
+\stopbuffer
+
+\startuseMPgraphic{graph::IdealSpringUdots} % I'd like to add minor ticks, 0.667mm long.
+	path U, H, K, TPL, TPR;
+	U := (-24,24) ..controls (-8,-8) and (8,-8).. (24,24);
+draw begingraph(4.5cm,2.4cm);
+	setrange(-21,0, 24, 24);
+	itick.lft(formatted("$@g$", 0), 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy") rotated 90,OUT)  shifted (2mm,0);
+	glabel.bot(textext("$x$ (cm)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.urt("$U$",0.1);
+	glabel(mydot,3/16);
+	glabel(mydot,(11/32));
+	glabel(mydot,1/2);
+	glabel(mydot,(21/32));
+	glabel(mydot,(13/16));
+endgraph;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:BlockSHONewton, title={The spring's force on the block at five different positions (top). The spring pushes or pulls toward the center. The spring's potential energy slopes down toward the center (bottom). The spring's force is minus the potential energy's slope at each point.}]
+\typesetbuffer[starttikz,HookesBlock1,stoptikz]
+\typesetbuffer[starttikz,HookesBlock2,stoptikz]
+\typesetbuffer[starttikz,HookesBlock3,stoptikz]
+\typesetbuffer[starttikz,HookesBlock4,stoptikz]
+\typesetbuffer[starttikz,HookesBlock5,stoptikz]
+\small
+\reuseMPgraphic{graph::IdealSpringUdots}
+\stopplacefigure
+
+Newton would find an ideal spring's force using \keyterm{Hooke's law}.
+\startformula
+	F\sub{spring} = -kx
+\stopformula
+This force is shown in \in{figure}[fig:BlockSHONewton] for several different lengths of the spring. When the spring is compressed to negative values of $x$, the spring's force pushes back in the positive direction. When the spring is stretched to positive values of $x$, the spring pushes back in the negative direction. The spring force's magnitude is proportional to the distance compressed or stretched. The coefficient $k$ is the spring's stiffness (\at{p.}[kt:stiffness]).
+
+Newton could use the spring's force to describe the block's equilibrium, instead of using the spring's potential energy.
+Newton's view places the spring outside of the system, exerting an external force $F\sub{spring}$ on the block. Daniel Bernoulli advised us to keep the spring in the system. We will usually follow D.~Bernoulli's advice, but understanding Newton's view provides a powerful insight into the relationship between potential energy and force.
+
+The potential energy graph in \in{figure}[fig:BlockSHONewton] has dots matching the block positions above. Comparing the spring forces above to the potential energy graph below, you can see that the spring force always pushes toward lower spring potential energy. Where the potential energy's local slope is greater, the force is also greater. In fact, the local slope of the spring's potential energy is
+\startformula
+	 \frac{\partial U}{\partial x} = kx = -F\sub{spring}.
+\stopformula
+The spring potential energy's local slope is minus the spring's force. when the spring is compressed to the left, the potential energy's slope is negative, going down toward the center, and spring force is positive, pushing toward the center. When the spring is stretched to the right, the potential energy's slope is positive, going up away from the center, and the spring force is negative, pushing back toward the center.
+
+This relationship between the spring potential energy's local slope and the spring force allows us to switch from D.~Bernoulli's view of equilibrium to Newton's. In D.~Bernoulli's view, the only external force is the static friction force. According to the principle of virtual work, equilibrium requires the external force's virtual work to equal the virtual change in potential energy.
+\startformula
+	F\sub{friction}\partial x = \partial U
+\stopformula
+We isolate the force on the left by dividing both sides by the virtual displacement $\partial x$.
+\startformula
+	F\sub{friction} = \frac{\partial U}{\partial x}
+\stopformula
+The right side of the equation is the potential energy's local slope. We just saw that, for the spring, this slope is equal to minus the spring's force in Newton's view.
+\startformula
+	F\sub{friction} = -F\sub{spring}
+\stopformula
+Collect the forces on the left.
+\startformula
+	F\sub{friction} + F\sub{spring} = 0
+\stopformula
+Starting from the principle of virtual work, we have arrived at Newton's formula for equilibrium, $F\sn=0$. The key step was replacing the potential energy's slope in D.~Bernoulli's view with (minus) the spring's force in Newton's view.
+
+We are alway free to chose the system. If we wish to abandon D.~Bernoulli's view, we can move all potential energies out of our system to get to Newton's view based entirely on forces. When we make that change, every one of D.~Bernoulli's potential energies, $U$, must be replaced by a corresponding Newtonian force, $F\sub{Newton}$, which is always given by the formula
+\startformula
+	F\sub{Newton} = -\frac{\partial U}{\partial x}.
+\stopformula
+We saw this relationship between the spring's potential energy and the spring's force. Many other examples were identified over several centuries, but the universal relationship seems to have been first appreciated by Joseph-Louis Lagrange at the end of the eighteenth century. We will refer to this as \keyterm{Lagrange's equation}, and it will be an important tool for reading energy graphs. Whenever you see potential energy, you will be able to recognize the corresponding internal force that drives the motion in Newton's view. These forces, given by Lagrange's equation, always push towards lower potential energy with a force equal to the potential energy's slope. The next section provides an important example.
 
 \section{Gravitational potential energy in the Solar System}
 
 In the year that \booktitle{Hydrodynamica} was published, 1738, Daniel Bernoulli produced a paper on the motion of the Moon, which is pulled by both Earth and the Sun. Gravitational forces in the solar system had already been studied in some detail using Newton’s methods of momentum and force, but Daniel Bernoulli attacked the problem using potential and kinetic energy.
 
-The gravitational potential energy formula earlier in this chapter, $U=mgh$, is only useful for relatively small heights near the Earth’s surface. Over the long distances between planets, moons, and the sun, the gravitational potential energy is a bit more complicated. The gravitational potential energy of any two objects in the solar system is
+The gravitational potential energy formula earlier in this chapter, $U=mgh$, is only useful for relatively small heights near the Earth’s surface. Over the long distances between planets, moons, and the sun, the gravitational potential energy is a bit more complicated. The gravitational potential energy of any two objects is
 \startformula
 	U = -G\frac{mM}{r},
 \stopformula
@@ -1894,40 +2058,49 @@ Finally, the universal gravitational constant $G$ is extremely small, so the gra
 
 \startexample[ex:BoxEarthGravU] How much work is required to lift a $3.0\units{kg}$ box from Earth’s surface to a very distant location?
 
-\startbuffer[TikZ:BoxEarthGravU]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage\small
-\starttikzpicture% tikz code
-\startaxis
- [footnotesize, width=2.13in, height=2in,
-   xlabel={$r$ ($\sci{6}\units{m}$)},
-   xmin=0, xmax=50,
-   ylabel={$U$ ($\sci{6}\unit{J}$)},
-   ymin=-200, ymax=0,
-   %ytick={-10,-8,...,0},
- ]
- \addplot[
-   thick,
-   domain=6.37:50,
-   samples=201
-  ]
-  {-1190/x}
-  ;
-\startpgfonlayer{background}
-\fill [black!20] (0, -200) rectangle (6.37, 0);
-\stoppgfonlayer
-%\draw [thick](0, -9.4) parabola (6.37, {(-1.99/6.37)});
-\stopaxis
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
+\startuseMPgraphic{graph::BoxEarthGravU} % I'd like to add minor ticks, 0.667mm long.
+vardef U =
+	path p;
+		for x = 2 step 0.1 until 40:
+			y := -11.90/x; % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+draw begingraph(4cm,4cm);
+	setrange(0,-2, 40, 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy ($\sci{4}\units{J}$)") rotated 90,OUT);
+	glabel.bot(textext("$r$ ($\sci{6}\units{m}$)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.lrt("$U$",150);
+	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
+	gdraw((6.37,0) -- (6.37,-2)) withpen pencircle scaled 0.8pt;
+	for y=0 step -0.5 until -2:%auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+endgraph shifted (0,-5cm);
+  pickup pencircle scaled 0.8pt ;
+  draw externalfigure "EarthEratosthenes.png" scaled 0.127 shifted (-6.37mm,-6.37mm) ;
+  draw fullcircle scaled 12.74mm;
+  drawarrow (13mm,0) -- (-0.5mm,0);
+    dotlabel.ulft  ("", (13mm,0)) ;
+  drawarrow (26mm,0) -- (22.625mm,0);
+    dotlabel.top  ("$F\sub{Newton}$", (26mm,0)) ;
+  drawarrow (39mm,0) -- (37.5mm,0);
+    dotlabel.llft  ("", (39mm,0)) ;
+%  drawarrow (40mm,0) -- (38.5mm,0);
+%    dotlabel.llft  ("", (40mm,0)) ;
+\stopuseMPgraphic
 
-\placefigure[margin][fig:BoxEarthGravU] % location
-{The gravitational potential energy of a $3.0\units{kg}$ object in Earth’s vicinity. The potential is not shown for locations inside Earth (the  gray region).}	% caption text
-{\noindent\typesetbuffer[TikZ:BoxEarthGravU]} % figure contents
+\startplacefigure[location=margin, reference=fig:BoxEarthGravU, title={The gravitational force on a $3.0\units{kg}$ object at different distances from Earth (top). The potential energy of of $3.0\units{kg}$ object in Earth’s vicinity (bottom). The potential is not shown for locations inside Earth (the gray region).}]
+\small\reuseMPgraphic{graph::BoxEarthGravU}
+\stopplacefigure
 
 \startsolution
 	This problem is just like the earlier problem where the box was lifted onto a shelf, but now we must use the gravitational potential energy formula that works for large distances. The gravitational potential energy for the box and Earth are plotted in figure~\ref{fig:BoxEarthGravU}.

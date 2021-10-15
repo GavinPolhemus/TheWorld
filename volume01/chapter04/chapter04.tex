@@ -1053,15 +1053,10 @@ The cart rolls $3\units{m}$ before coming to a complete stop.
 %{\noindent\typesetbuffer[TikZ:BlockSlideK]} % figure contents
 
 \startuseMPgraphic{graph::CartWork} % I'd like to add minor ticks, 0.667mm long.
-	path p;
-	p := (0,0) -- (2,54) -- (5,54) -- (8,0);
-	picture myarrow;
-	myarrow := image(
-		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
-	);
+	path H;
+	H := (0,0) -- (2,54) -- (5,54) -- (8,0);
 draw begingraph(4cm,3.5cm);
 	setrange(origin, 8,70);
-	graph_template.itick := origin--(1mm,0) ;
 	for y=auto.y:
 		itick.lft(formatted("$@g$", y), y);
 		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
@@ -1074,14 +1069,14 @@ draw begingraph(4cm,3.5cm);
 	endfor
 	glabel.lft(textext("Energy (J)") rotated 90,OUT) ;
 	glabel.bot(textext("$x$ (m)"), OUT);
-	gdraw(p) withpen pencircle scaled 0.8pt;
+	gdraw(H) withpen pencircle scaled 0.8pt;
 	glabel.top("$H=K$",1.6);
-	glabel.bot("$F=27\units{N}$",0.5) rotatedaround(point 0.5 of p, angle (1,2.7));
+	glabel.bot("$F=27\units{N}$",0.5) rotatedaround(point 0.5 of H, angle (1,2.7));
 	glabel.bot("$F=0\units{N}$",1.5);
-	glabel.bot("$F=-18\units{N}$",2.5) rotatedaround(point 2.5 of p, angle (1,-1.8));
-	glabel(myarrow, 0.5) rotatedaround(point 0.5 of p, angle (1,2.7));
+	glabel.bot("$F=-18\units{N}$",2.5) rotatedaround(point 2.5 of H, angle (1,-1.8));
+	glabel(myarrow, 0.5) rotatedaround(point 0.5 of H, angle (1,2.7));
 	glabel(myarrow, 1.5);
-	glabel(myarrow, 2.5) rotatedaround(point 2.5 of p, angle (1,-1.8));
+	glabel(myarrow, 2.5) rotatedaround(point 2.5 of H, angle (1,-1.8));
 endgraph;
 \stopuseMPgraphic
 
@@ -1104,14 +1099,9 @@ The cart then coasts for the next $3\units{m}$. During this part of the journey 
 	path p;
 	p := (0,0) ..controls (0,1.11) and (0.66,2.22).. (2,3.33)
 		-- (5,5.83) ..controls (7,7.5) and (8,9.17).. (8,10.83);
-	picture myarrow;
-	myarrow := image(
-		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
-	);
 draw begingraph(4cm,4cm);
 	setcoords(linear, -linear);
 	setrange(origin, 8,12);
-	graph_template.itick := origin--(1mm,0) ;
 	for y=auto.y:
 		itick.lft(formatted("$@g$", y), y);
 		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
@@ -1156,7 +1146,6 @@ Finally, you stop the cart with a force $F=18\units{N}$ in the positive directio
 	);
 draw begingraph(4cm,1.5cm);
 	setrange(origin, 8,30);
-	graph_template.itick := origin--(1mm,0) ;
 	for y=auto.y:
 		itick.lft(formatted("$@g$", y), y);
 		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
@@ -1188,7 +1177,6 @@ endgraph;
 draw begingraph(4cm,2cm);
 	setcoords(linear, -linear);
 	setrange(origin, 8,6);
-	graph_template.itick := origin--(1mm,0) ;
 	for y=auto.y:
 		itick.lft(formatted("$@g$", y), y);
 		itick.lft(formatted("@s", ""), y) withcolor "middlegray";

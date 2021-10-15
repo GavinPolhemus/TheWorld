@@ -118,6 +118,12 @@ vardef curly expr p =
 enddef;
 \stopMPextensions
 
+\startMPdefinitions{graph}
+	graph_template.itick := origin--(1mm,0) ;
+	picture myarrow; myarrow := image(drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;);
+	picture mydot; mydot := image(fill fullcircle scaled 3pt;);
+\stopMPdefinitions
+
 \stopenvironment
 
 % From: meta-ini.mkxl
