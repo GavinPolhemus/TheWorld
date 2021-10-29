@@ -26,197 +26,399 @@ And the method proposed in the present essay, for the deductive study of the mot
 
 \Initial{I}{n \booktitle{Hydrodynamica} and his other works,} Daniel Bernoulli applied sharp physical insights to practical problems – pipes, fountains, pumps, and other useful machines. Everyone else was going in other directions.
 
-Engineers developed and applied methods specific to specialized applications without looking for broadly applicable physical principles. This approach was incredibly successful, the engineers launched the industrial revolution with their practical methods, creating powerful working engines decades before physicists could explain them.
+Engineers developed and applied methods specific to specialized applications without looking for broadly applicable physical principles. This practical approach was incredibly successful. Eighteenth century engineers launched the industrial revolution, building powerful working engines decades before physicists could explain them.
 
-Physicists largely ignored the engines, focusing their attention on abstract problems in pure mechanics and developing more general methods that could be applied to a huge range of problems – planetary motion, spinning tops, and  complicated jointed pendulums. These problems had little practical value, but they inspired rapid advances in applied mathematics, starting with the work of the great mathematician Leonhard Euler (who was also a close friend of Danial Bernoulli).
+Physicists largely ignored the engines, focusing their attention on abstract problems in pure mechanics – planetary motion, spinning tops, and jointed pendulums. These problems had little practical value, but they inspired rapid advances in applied mathematics.
+Leonhard Euler (a close friend of Danial Bernoulli), adapted and expanded Newton's methods to solve many new types of problems. Other physicists introduced new principles – like energy conservation – to solve problems in entirely new ways. These advances produced a rather confusing patchwork of methods and principles.
 
-\startbuffer[TikZ:RigidPendulumPath1]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage\small
-\starttikzpicture% tikz code
-	\draw [help lines, xstep=8, ystep=.34] (-4,0) grid (4.6,8.2); % Background grid
-%	\draw (-4.3,-0.5) rectangle (4.3,4.5); % Border
-	% h axis
-	\draw[
-		postaction={decorate},
-		decoration={
-			markings, % Main marks
-			mark=between positions 0 and 1 step 1cm with {
-				\draw (0,0)
-				node[left]{
-					\pgfmathparse{
-						-10+10*\pgfkeysvalueof{%
-							/pgf/decoration/mark info/sequence number%
-						}
-					}
-					\pgfmathprintnumber{\pgfmathresult}
-				} -- (0,-4pt);
-			},
-		}
-	] (-4,0) -- (-4,8);
-	\draw[
-		postaction={decorate},
-		decoration={
-			markings, % Main marks
-			mark=between positions 0 and 1 step 1mm with {
-				\draw (0,0) -- (0,-2pt);
-			},
-		}
-	] (-4,0) --node[sloped,above=5mm]{$h$ (cm)} (-4,8);
-	% U axis
-	\draw[
-		postaction={decorate},
-		decoration={
-			markings, % Main marks
-			mark=between positions 0 and 1 step 6.8mm with {
-				\draw (0,0)
-				node[right]{
-					\pgfmathparse{
-						0.1*(-1+\pgfkeysvalueof{%
-							/pgf/decoration/mark info/sequence number%
-						})
-					}
-					\pgfmathprintnumber{\pgfmathresult}
-				} -- (0,4pt);
-			},
-		}
-	] (4.6,0) -- (4.6, 8.164);
-	\draw[
-		postaction={decorate},
-		decoration={
-			markings, % Main marks
-			mark=between positions 0 and 1 step 3.4mm with {
-				\draw (0,0) -- (0,2pt);
-			},
-		}
-	] (4.6,0) --node[sloped,below=6mm]{$U$ (J)} (4.6, 8.164);
-	\fill (0,4) circle[radius=.4mm]; % Pivot
-%	\node at (0,0) [above left]{B}; % Bottom
-%	\draw (0,-0.2) -- (0,4.2); % Central vertical
-%	\node at (-3.2,1.6) [above=2mm]{C}; % Left
-%	\node at (3.2,1.6) [above=1mm]{D}; % Right
-%	\fill (0,2) circle[radius=.4mm]node[left]{E}; % 2nd nail
-%	\fill (0,1) circle[radius=.4mm]node[left]{F}; % 3nd nail
-%	\node at (1.833,1.6) [above=1mm]{G}; % Right
-%	\node at (0.98,1.6) [above=1mm]{I}; % Right
-%	\draw (-4.0,1.6) -- (4.0,1.6); % horizontal at max height
-	% Pendulum path
-%	\draw[] (0,0) arc[start angle=270, end angle=336.4, radius=2cm];
-%	\draw[] (0,0) arc[start angle=270, end angle=371.5, radius=1cm];
-	% Positive on the right
-	\draw[
-		postaction={decorate},
-		decoration={
-			markings, % Main marks
-			mark=between positions 0 and 1 step 1cm with {
-				\draw (0,0) -- (0,-4pt)
-				node[below,transform shape]{
-					\pgfmathparse{
-						-10+10*\pgfkeysvalueof{%
-							/pgf/decoration/mark info/sequence number%
-						}
-					}
-					\pgfmathprintnumber{\pgfmathresult}
-				};
-			},
-		}
-	] (0,0) arc[start angle=-90, end angle=150, radius=4cm];
-	\draw[
-		postaction={decorate},
-		decoration={
-			markings, % Main marks
-			mark=between positions 0 and 1 step 1mm with {
-				\draw (0,0) -- (0,-2pt);
-			},
-		}
-	] (0,0) arc[start angle=-90, end angle=150, radius=4cm];
-	% Negative on the left
-	\draw[
-		postaction={decorate},
-		decoration={
-			markings, % Main marks
-			mark=between positions 0 and 1 step 1cm with {
-				\draw (0,0) -- (0,4pt)
-				node[below, transform shape, rotate=180]{
-					\pgfmathparse{
-						10-10*\pgfkeysvalueof{%
-							/pgf/decoration/mark info/sequence number%
-						}
-					}
-					\pgfmathprintnumber{\pgfmathresult}
-				};
-			},
-		}
-	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
-	\draw[
-		postaction={decorate},
-		decoration={
-			markings, % Main marks
-			mark=between positions 0 and 1 step 1mm with {
-				\draw (0,0) -- (0,2pt);
-			},
-		}
-	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
-	\node at (0,0) [below=5mm]{$s$ (cm)};
-	% Pendulum
-	\draw[thick] (0,4) --node[sloped,above]{$40\units{cm}$} (0,0); % String
-	\draw[ball color=white] (0,0) circle[radius=2mm]; % Ball , opacity=.5
-	\fill (0,0) circle[radius=.4mm]; % CoM
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
+Joseph-Louis Lagrange sought to replace the patchwork with a single method that could be applied to any problem in mechanics. He delivered his synthesis in \booktitle{Analytique mechanique}, published in 1788, almost exactly a century after Newton's \booktitle{Principia}. Lagrange describes his intent in the monumental work's preface.
 
-\placetextfloat[top][fig:RigidPendulumPath1] % location
-{Galileo’s pendulum with the position $s$ shown along the ball’s curved path.}	 % caption text
-{\noindent\typesetbuffer[TikZ:RigidPendulumPath1]} % figure contents
+\startblockquote
+There already exist several treatises on mechanics, but the purpose of this one is entirely new. I propose to condense the theory of this science and the method of solving the related problems to general formulas whose simple application produces all the necessary equations for the solution of each problem. %I hope that my presentation achieves this purpose and leaves nothing lacking.
+%In addition, this work will have another use. The various principles presently available will be assembled and presented from a single point of view in order to facilitate the solution of the problems of mechanics.
+\stopblockquote
 
-\startbuffer[TikZ:RigidPendulumGraphU]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage\small
-\starttikzpicture% tikz code
-	\startaxis[
-			scale only axis,
-			x={1mm},y={68mm},
-			xmin=-24, xmax=134,
-			minor x tick num=1,
-			xlabel=$s$ (cm),
-			%axis x line=none,
-			%axis y line*=right,
-			ymin=-0.05, ymax=1.2,
-			minor y tick num=3,
-			ylabel=Energy (J),
-			grid=both
-		]
-		\addplot[thick, domain=-24:134] {0.588*(1-cos(deg(x/40)))}node[above left, pos=.4]{$U$};
-		\addplot[thick, domain=-24:134] {0.588*2}node[below, pos=.6]{Tangent at maximum $U$};
-		\addplot[thick, domain=-24:134] {0}node[above, pos=.5]{Tangent at minimum $U$};
-		%\addplot[thick, domain=0:75] {0.2205*(1-cos(deg(x/15))};
-%		\draw[thin](-37,0) --node[pos=.7, below, sloped]{Release Position} (-37,.7);
-%		\addplot[thick, red, domain=-37:37] {0.235}node[above, pos=.3]{$H$};
-%		\addplot[thick, red, domain=-37:37] {0.235-0.588*(1-cos(deg(x/40))}node[below right, pos=.6]{$K$};
-%		\addplot[thick, red, domain=0:23] {0.22-0.2205*(1-cos(deg(x/15))};
-%	\draw[red, thin](37,0) --node[pos=.7, above, sloped]{Turning Point} (37,.7);
-	\stopaxis
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
+Lagrange's single method could be used to solve any mechanical system, from Galileo's falling rock and interrupted pendulum to Kepler's planetary orbits and Mersenne's mysterious musical string. We must take a moment to understand what such an ambitious general solution would mean. It is hard enough to solve one problem at a time. How could Lagrange address every conceivable problem at once?
 
-\placefigure[margin][fig:RigidPendulumGraphU] % location
-{An energy graph showing the ball’s gravitational potential energy as a function of position $s$ along the curved path.}	% caption text
-{\vskip27pt\hbox{\starttikzpicture
+\section{Equations of motion}
+First, we must understand the goal of a general solution, which is to predict the system's motion. This is accomplished when we know the position coordinates ($x$, $y$, $\theta$, etc.) for every part of the system at every time. For example, we would like to know the position of a cannon ball at every time between when it is fired upward at an angle and when it hits the ground. Galileo gave us the first tool that we need to accomplish this, the position update formulas.
+
+\placefigure[margin][fig:cannonEoMxy] % location
+{A cannon ball's curving path is found by repeatedly updating its position coordinates $x$ and $y$.}	% caption text
+{\vskip1.4in\hbox{\starttikzpicture
 	\draw[white] (0,0)-- ++(5,0); % Sky to make height better
 \stoptikzpicture}}
 
-\placewidefloat[bottom,none]
-{This is its caption I need to fix.}
-{\hbox{\noindent\typesetbuffer[TikZ:RigidPendulumGraphU]}} % figure contents
+\placewidefloat
+  [top,none]
+  {This is its caption I need to fix.}
+{\hbox{\small\starttikzpicture	% tikz code
+%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
+%\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
+\draw[shade, ball color = black] (0.78,.61) circle[radius=.05cm]; % Ball initial
+\fill[fill=black!70] (0.76,0.47)-- ++(-.12,.16)-- ++(-.51,-.32)-- ++(0.18,-0.24)-- cycle; % Cannon Barrel
+\fill[fill = black!70] (0.22,0.19) circle[radius=0.15cm]; % Cannon Back
+\draw[fill=gray] (0,0)-- ++(0,0.05)-- ++(.2,.2)-- ++(.2,0)-- ++(.2,-.2)-- ++(0,-0.05)-- cycle; % Cannon Base
+\draw[fill = black!70] (0.3,0.25) circle[radius=0.05cm]; % Cannon Pivot
+\shade[top color=gray] (0,-.2) rectangle (16.7,0); % Ground
+\draw (0,0)--(16.7,0);
+\draw[thick,->] ({0.78+(2.25/4)},0.61)node[right]{$dy$} -- ++(0,0.45); % dy
+\draw[thick,->] (0.78,0.61)--node[below]{$dx$} ++({2.25/4},0); % dx
+\draw[->] (0.78,0.61) parabola [bend pos=0] bend +(6.75,2.53) ({0.78+6.25*2.25},{0.61+6.25*1.6875-6.25*6.25*0.28125}); % Trajectory
+\foreach \T in {0.25, 0.5, 0.75, 1, 1.25, 4.75, 5, 5.25, 5.5, 5.75, 6}{% Balls
+	\draw[shade, ball color = black][opacity={(5+\T)/20}] ({0.78+\T*2.25},{0.61+\T*1.6875-\T*\T*0.28125}) circle[radius=.05cm]; % Balls
+	\draw[thick,->][opacity={(5+\T)/20}] ({0.78+(2.25/4)+\T*2.25},{0.61+\T*1.6875-\T*\T*0.28125})-- ++(0,{0.45-\T*0.15}); % dy
+	\draw[thick,->][opacity={(5+\T)/20}] ({0.78+\T*2.25},{0.61+\T*1.6875-\T*\T*0.28125})-- ++({2.25/4},0); % dx
+}
+\foreach \T in {1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5}{% Balls
+	\draw[shade, ball color = black][opacity={(5+\T)/20}] ({0.78+\T*2.25},{0.61+\T*1.6875-\T*\T*0.28125}) circle[radius=.05cm]; % Balls
+	\draw[thick][opacity={(5+\T)/20}] ({0.78+(2.25/4)+\T*2.25},{0.61+\T*1.6875-\T*\T*0.28125})-- ++(0,{0.45-\T*0.15}); % dy
+	\draw[thick,->][opacity={(5+\T)/20}] ({0.78+\T*2.25},{0.61+\T*1.6875-\T*\T*0.28125})-- ++({2.25/4},0); % dx
+}
+\draw[shade, ball color = black] ({0.78+6.25*2.25},{0.61+6.25*1.6875-6.25*6.25*0.28125}) circle[radius=.05cm]; % Ball final
+%\draw[thick,->] (14.28,0.61)--node[right]{$dy$} ++(0,-1.8); % dy
+%\draw[thick,->] (14.28,0.61)--node[below]{$dx$} ++({2.25/4},0); % dx
+\stoptikzpicture}}
 
+\startbuffer[cannonEoMp]
+\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
+\filldraw (0,0) circle[radius=.02cm]; % Ball cm
+\draw[thick,->] (0,0)--node[above left]{$\vec p$} ++(4.8,3.6); % Momentum initial
+\draw[thick,->] (4.8,+3.6)--node[right]{$d\vec p$} +(0,-0.3); % dp
+\foreach \T in {0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6}{% Balls
+	\draw[thick,->][opacity={(5+\T)/20}] (0,0)-- ++(4.8,{3.6-\T*1.2}); % Momentum
+	\draw[thick,->][opacity={(5+\T)/20}] (4.8,{3.6-\T*1.2})-- +(0,-0.3); % dp
+}
+\draw[thick,->] (0,0)-- ++(4.8,-3.9); % pf
+\stopbuffer
+
+\marginTikZ{}{cannonEoMp}{The cannon ball's momentum is updated repeatedly to find the momentum at any later time.} % vskip, name, caption
+\startformula
+	dx = v_x\,dt
+	\qquad
+	dy = v_y\,dt
+\stopformula
+Starting from the cannon ball's initial coordinates, we can use the cannon ball's velocity to find its location a short time later. These position updates are shown in \in{figure}[fig:cannonEoMxy]. The process is repeated over and over to find the position at any time, provided we know the velocity at each moment. However, knowing the velocity is a problem. Galileo studied important examples that have a known velocity – uniform motion, free fall, and simple harmonic motion – but this is far from a general method.
+
+Descartes pointed the way forward with his idea for a conserved quantity of motion. His formula did not work, but two later ideas succeeded. The first was Newton's momentum, updated using his second law. The momentum update formulas for the cannon ball are
+\startformula
+	dp_x = 0,
+	\qquad
+	dp_y = -mg\,dt.
+\stopformula
+The momentum's $x$-component is constant, so its change is always zero. The momentum's $y$-component changes at a constant rate in the downward direction, so its change is always the same size and negative.
+These momentum updates are shown in \in{figure}[fig:cannonEoMp].
+The updates are all proportional to the small duration $dt$ of our time steps.
+%We start with the cannon ball's initial momentum and update it repeatedly to find the momentum at any later time. The momentum gives us the velocity we need to update the position.
+Putting this together with Galileo's position update formulas gives the cannon ball's \keyterm{equations of motion}.
+\startformula\startalign[m=2,distance=5em]
+\NC dx	\NC = \frac{p_x}{m}\,dt	\NC dp_x	\NC = 0	\NR
+\NC dy	\NC = \frac{p_y}{m}\,dt	\NC dp_y	\NC = -mg\,dt	\NR
+\stopalign\stopformula
+Equations of motion must provide a formula to update each coordinate and each momentum. For the two dimensional motion of the cannon ball we must have four update formulas. The right side of the formulas can include known constants (like $m$ and $g$) and the current coordinates and momenta. For the cannon ball's equations of motion, we see that the momentum update formulas contain only constants, and the position update formulas contain constants and momentum components. (I replaced the velocity components with their momentum equivalents.) These are good equations of motion.
+%In the the words of Lagrange, these are good equations of motion because they are \quotation{all of the necessary equations for the solution of [the] problem."
+
+
+\startexample[ex:EoMSHO] Write the equation of motion for the system of the cart (mass $m$) and spring (stiffness $k$) shown in \in{figure}[fig:EoMSHO].
+
+\startbuffer[EoMSHO]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			]
+	\path (0,0) pic {cart}node[above = 5mm]{$m$};
+	\draw[decorate,decoration={coil,segment length=3.6pt}] (-24,2.5) --node[above=3pt] {$k$} (-6,2.5);
+    \stopaxis
+\stopbuffer
+
+\marginTikZ{}{EoMSHO}{A cart connected to a spring for \in{example}[ex:EoMSHO]. This spring's natural length is $18\units{cm}$, so it holds the cart gently at $x=0\units{cm}$.} % vskip, name, caption
+
+\startsolution
+Since the cart moves in one dimension, we only need one coordinate $x$ and one momentum $p$. The two update formulas are
+\startformula
+	dx = v\, dt,
+	\qquad
+	dp = F\,dt.
+\stopformula
+The cart's velocity is $v=p/m$ and the force is given by Hooke's law, $F = -kx$. Putting these in the update formulas gives the equations of motion.
+\startformula
+	dx = \frac{p}{m}\, dt
+	\qquad
+	dp = -kx\,dt
+\stopformula
+In this case the momentum changes depend on the position. The change is always toward the central equilibrium and $x=0$. %Solving with by doing repeated updates produces simple ha
+\stopsolution
+\stopexample
+
+Once we have the equations of motion, we must solve them. For the cannon ball, we start with the cannon ball's initial position and momentum, and then use the update formulas over and over to find the position and momentum at any later time. Sometimes the equations of motion are easy to solve. The equation for $p_x$ is easy to solve. Since the updates are always zero, we know that the momentum's  $x$-component at every time is the same as its initial value (\in{fig.}[fig:cannonEoMp]). Sometimes the equations of motion can be solved with more advanced mathematical tools. In many cases, the equations of motion can only be solved through the tedious process of repeated calculation for many, many small time steps. Today, these repetitive calculation are performed rapidly by computers – once they are given the system's equations of motion.
+
+For the cannon ball, and many other simple systems, Newton's method produces the equations of motion quite easily. However, Newton's approach is not well suited to the two quadrivium problems we hope to solve: the planets' compound motion discovered by Kepler and the musical string's compound vibrations discovered by Mersenne. The quadrivium problems are much easier to approach using the second successful quantity of motion, kinetic energy.
+
+We have already seen how rotational kinetic energy allows us to study study spinning or rolling motion, where many connected part move with different velocities but share a common angular motion. Angular coordinates are also the natural coordinates for planetary motions, We will use angular coordinates and rotational kinetic energy to find and solve the planets' equations of motion in \in{Chapter}[ch:Rotation]. Like a spinning object, a musical string has many parts moving with different velocities. The string's motion is best described in terms of shared motions rather than the individual parts' motions. We will use the shared motion's energy to find and solve the string's equations of motion in \in{Chapter}[ch:Waves]. Before we attack those problems, we must find a connection between the energy and equations of motion.
+
+Energy is not directional, so it works very well for systems with parts move in many directions, (like spinning and rolling)  and in situations where the coordinates are not straight (like angular coordinates). Perhaps kinetic energy could provide the velocities we need for Galileo's position update formulas.
+
+Unfortunately, kinetic energy is not enough. Since kinetic energy is not directional, it cannot give us the velocity components needed for the position update formulas. In the case of the cannon ball, we can easily use conservation of energy to find the cannon ball's speed at any height, but conservation of energy cannot tell us the velocity's direction, which we need the to correctly update the position. (In one dimension, where velocity has only one component, kinetic energy is often enough, but we will not use this one-dimensional trick.)
+
+Lagrange gave us a clue with his formula for converting Daniel Bernoulli's potential energy into Newtons force.
+\startformula
+	F\sub{Newton} = -\frac{\partial U}{\partial x}
+\stopformula
+Remember that $\partial U$ is the small virtual change in the potential energy $U$ due to the small virtual displacement $\partial x$. If there are more coordinates, like $y$ for the cannon ball, then there are more direction for the virtual displacement. Lagrange found that he could get each component of Newton's force by choosing the correct direction for the virtual displacement. He found the $x$-component of Newton's force with a virtual displacement in the $x$-direction, the $y$-component with a virtual displacement in the $y$-direction, and so on for all the coordinates of the system. (These virtual displacements do not actually happen in the physical system, so Lagrange was free to imagine different virtual displacements to get the force's different components.)
+
+For the cannon ball, a small virtual displacement $\partial x$ in the $x$-direction is a horizontal displacement, which does not change the cannon ball's potential energy at all. For this horizontal displacement, $\partial U = 0$, so
+\startformula
+	F_{\text{Newton,}x} = -\frac{\partial U}{\partial x}
+		= -\frac{0}{\partial x}
+		= 0
+\stopformula
+The force's $x$-components is zero, as we knew. A small virtual displacement $\partial y$ in the $y$-direction is a vertical displacement which does change the cannon ball's potential energy. For this vertical displacement, $\partial U = mg\partial y$, so
+\startformula
+	F_{\text{Newton,}y} = -\frac{\partial U}{\partial y}
+		= -\frac{mg\partial y}{\partial y}
+		= -mg
+\stopformula
+The force's $y$-component is $-mg$, again agreeing with what we knew.
+
+\startblockquote
+No figures will be found in this work. The methods I present require neither constructions nor geometrical or mechanical arguments, but solely algebraic operations subject to a regular and uniform procedure. Those who appreciate mathematical analysis will see with pleasure mechanics becoming a new branch of it and hence, will recognize that I have enlarged its domain.
+\stopblockquote
+
+
+
+
+ Lagrange’s work is so abstract that the book contains no diagrams and no physical arguments, only pure mathematics of idealized, general mechanical systems. For those fluent in the new mathematical methods of French analysis, Lagrange’s approach to mechanics is profound and beautiful. I will not attempt to explain a single word of it here.
+
+While the physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring French mathematical revolution transforming physics.
+They remained paralyzed by a fanatic devotion to Newton’s cumbersome, geometric methods and continued to hold a grudge over the Leibniz’s calculus and \visviva. This problem persisted until 1812, when a group of young undergraduate students at Cambridge started the Analytical Society, partly as a joke, to study the methods of French analysis. They learned to solve problems using the continental notation and even translated a few important French books and papers into English. The club met for a few years and essentially disappeared after its members graduated and left Cambridge in 1817.
+
+That probably would have been the end of this little revolt, except that one of the members, George Peacock, was appointed in 1817 to write questions for the rigorous Mathematical Tripos exam taken by all third year mathematics students at Cambridge. He audaciously wrote his questions using the continental notation, which caused a bit of a stir among the faculty, but constrained by tradition, or perhaps simply too lazy to write the questions themselves, they did not interfere. Peacock was asked to write questions again in 1819, and students recognized this as a complete surrender by the Newtonian faculty. From there the adoption of continental notation and methods in England was quite swift. Newton remained a revered figure, but his  150 year old dispute against Leibniz finally passed into history. %Cannell p. 38
+
+The United Kingdom began producing great physicists. Among the first was William Rowan Hamilton. Hamilton was a genius, gifted in languages and mathematics. He learned Hebrew, Latin, and Greek from early childhood. At the age of 15 he read Newton’s \booktitle{Principia}, and a two years later the great French work \booktitle{M\'echanique c\'eleste}, by Pierre-Simon Laplace.%Cannell p. 39
+
+In 1823, at the age of 18, Hamilton entered Trinity College Dublin.
+Trinity College had adopted the continental notation in 1812, a bit ahead of Cambridge, and used the French textbooks in mathematics and physics courses. Hamilton embraced the abstract approach. He earned top marks in all of his courses and won many awards, which propelled him to a position as head of the Dunsink Observatory, near Dublin. Although the observatory provided ample opportunity for practical astronomy, Hamilton continued to focus on more theoretical interests, first in optics and then in mechanics.
+
+Hamilton wrote two ground breaking papers on mechanics, \booktitle{On A General Method In Dynamics} in 1834 and \booktitle{Second Essay On A General Method In Dynamics} in 1835. In these he refined Lagrange’s abstract approach, producing a pair of equations, now known as Hamilton’s equations, that could be applied to any physical system, no matter how complicated. Both of these equations start with the total energy of the system. The first equation gives the velocities of the system’s parts. The second gives the forces on the parts. If we know every part’s starting position and momentum, then Hamilton’s equations the velocities needed to compute new position and the forces required to calculate new momentums, all from knowing the system’s energy!
+
+The formulation of these equations was very abstract, but their application is incredibly practical because the energy is relatively easy to determine. The total kinetic energy can be calculated from the parts’ momentums. The potential energy can be calculated from the parts’ positions. We will not need Hamilton’s first equation because for all of the systems we have considered it gives the same formula for the velocities.
+\startformula
+	dx = \frac{\partial H}{\partial p} dt
+	\qquad
+	dx_1 = \frac{\partial H}{\partial p_1} dt
+\stopformula
+\startformula\startmathalignment
+\NC	\partial W	\NC= F_x\,\partial x + F_y\,\partial y + F_z\,\partial z	\NR
+\NC	-\partial U	\NC= F_x\,\partial x + F_y\,\partial y + F_z\,\partial z	\NR
+\stopmathalignment\stopformula
+\startformula
+	F_x = -\frac{\partial U}{\partial x}
+	\qquad
+	F_y = -\frac{\partial U}{\partial y}
+	\qquad
+	F_z = -\frac{\partial U}{\partial z}
+\stopformula
+This agrees with Newton’s formula for momentum. I will return to Hamilton’s first equation at the end of the chapter.
+
+Hamilton’s second equation provides tremendous new information. It says that the system’s change in momentum $d\varpi$ is determined by the directional derivatives of the system’s total energy $H$, which is now called the Hamiltonian. Using Leibniz’s notation, Hamilton’s second equation is
+\highlightbox{
+\startformula[eq:Hamilton2]
+	dp = -\frac{\partial H}{\partial x} dt
+\stopformula
+}
+
+%
+%
+%\startbuffer[TikZ:RigidPendulumPath1]
+%\environment env_physics
+%\environment env_TikZ
+%\setupbodyfont [libertinus,11pt]
+%\setoldstyle % Old style numerals in text
+%\startTEXpage\small
+%\starttikzpicture% tikz code
+%	\draw [help lines, xstep=8, ystep=.34] (-4,0) grid (4.6,8.2); % Background grid
+%%	\draw (-4.3,-0.5) rectangle (4.3,4.5); % Border
+%	% h axis
+%	\draw[
+%		postaction={decorate},
+%		decoration={
+%			markings, % Main marks
+%			mark=between positions 0 and 1 step 1cm with {
+%				\draw (0,0)
+%				node[left]{
+%					\pgfmathparse{
+%						-10+10*\pgfkeysvalueof{%
+%							/pgf/decoration/mark info/sequence number%
+%						}
+%					}
+%					\pgfmathprintnumber{\pgfmathresult}
+%				} -- (0,-4pt);
+%			},
+%		}
+%	] (-4,0) -- (-4,8);
+%	\draw[
+%		postaction={decorate},
+%		decoration={
+%			markings, % Main marks
+%			mark=between positions 0 and 1 step 1mm with {
+%				\draw (0,0) -- (0,-2pt);
+%			},
+%		}
+%	] (-4,0) --node[sloped,above=5mm]{$h$ (cm)} (-4,8);
+%	% U axis
+%	\draw[
+%		postaction={decorate},
+%		decoration={
+%			markings, % Main marks
+%			mark=between positions 0 and 1 step 6.8mm with {
+%				\draw (0,0)
+%				node[right]{
+%					\pgfmathparse{
+%						0.1*(-1+\pgfkeysvalueof{%
+%							/pgf/decoration/mark info/sequence number%
+%						})
+%					}
+%					\pgfmathprintnumber{\pgfmathresult}
+%				} -- (0,4pt);
+%			},
+%		}
+%	] (4.6,0) -- (4.6, 8.164);
+%	\draw[
+%		postaction={decorate},
+%		decoration={
+%			markings, % Main marks
+%			mark=between positions 0 and 1 step 3.4mm with {
+%				\draw (0,0) -- (0,2pt);
+%			},
+%		}
+%	] (4.6,0) --node[sloped,below=6mm]{$U$ (J)} (4.6, 8.164);
+%	\fill (0,4) circle[radius=.4mm]; % Pivot
+%%	\node at (0,0) [above left]{B}; % Bottom
+%%	\draw (0,-0.2) -- (0,4.2); % Central vertical
+%%	\node at (-3.2,1.6) [above=2mm]{C}; % Left
+%%	\node at (3.2,1.6) [above=1mm]{D}; % Right
+%%	\fill (0,2) circle[radius=.4mm]node[left]{E}; % 2nd nail
+%%	\fill (0,1) circle[radius=.4mm]node[left]{F}; % 3nd nail
+%%	\node at (1.833,1.6) [above=1mm]{G}; % Right
+%%	\node at (0.98,1.6) [above=1mm]{I}; % Right
+%%	\draw (-4.0,1.6) -- (4.0,1.6); % horizontal at max height
+%	% Pendulum path
+%%	\draw[] (0,0) arc[start angle=270, end angle=336.4, radius=2cm];
+%%	\draw[] (0,0) arc[start angle=270, end angle=371.5, radius=1cm];
+%	% Positive on the right
+%	\draw[
+%		postaction={decorate},
+%		decoration={
+%			markings, % Main marks
+%			mark=between positions 0 and 1 step 1cm with {
+%				\draw (0,0) -- (0,-4pt)
+%				node[below,transform shape]{
+%					\pgfmathparse{
+%						-10+10*\pgfkeysvalueof{%
+%							/pgf/decoration/mark info/sequence number%
+%						}
+%					}
+%					\pgfmathprintnumber{\pgfmathresult}
+%				};
+%			},
+%		}
+%	] (0,0) arc[start angle=-90, end angle=150, radius=4cm];
+%	\draw[
+%		postaction={decorate},
+%		decoration={
+%			markings, % Main marks
+%			mark=between positions 0 and 1 step 1mm with {
+%				\draw (0,0) -- (0,-2pt);
+%			},
+%		}
+%	] (0,0) arc[start angle=-90, end angle=150, radius=4cm];
+%	% Negative on the left
+%	\draw[
+%		postaction={decorate},
+%		decoration={
+%			markings, % Main marks
+%			mark=between positions 0 and 1 step 1cm with {
+%				\draw (0,0) -- (0,4pt)
+%				node[below, transform shape, rotate=180]{
+%					\pgfmathparse{
+%						10-10*\pgfkeysvalueof{%
+%							/pgf/decoration/mark info/sequence number%
+%						}
+%					}
+%					\pgfmathprintnumber{\pgfmathresult}
+%				};
+%			},
+%		}
+%	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
+%	\draw[
+%		postaction={decorate},
+%		decoration={
+%			markings, % Main marks
+%			mark=between positions 0 and 1 step 1mm with {
+%				\draw (0,0) -- (0,2pt);
+%			},
+%		}
+%	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
+%	\node at (0,0) [below=5mm]{$s$ (cm)};
+%	% Pendulum
+%	\draw[thick] (0,4) --node[sloped,above]{$40\units{cm}$} (0,0); % String
+%	\draw[ball color=white] (0,0) circle[radius=2mm]; % Ball , opacity=.5
+%	\fill (0,0) circle[radius=.4mm]; % CoM
+%\stoptikzpicture
+%\stopTEXpage
+%\stopbuffer
+%
+%\placetextfloat[top][fig:RigidPendulumPath1] % location
+%{Galileo’s pendulum with the position $s$ shown along the ball’s curved path.}	 % caption text
+%{\noindent\typesetbuffer[TikZ:RigidPendulumPath1]} % figure contents
+%
+%\startbuffer[TikZ:RigidPendulumGraphU]
+%\environment env_physics
+%\environment env_TikZ
+%\setupbodyfont [libertinus,11pt]
+%\setoldstyle % Old style numerals in text
+%\startTEXpage\small
+%\starttikzpicture% tikz code
+%	\startaxis[
+%			scale only axis,
+%			x={1mm},y={68mm},
+%			xmin=-24, xmax=134,
+%			minor x tick num=1,
+%			xlabel=$s$ (cm),
+%			%axis x line=none,
+%			%axis y line*=right,
+%			ymin=-0.05, ymax=1.2,
+%			minor y tick num=3,
+%			ylabel=Energy (J),
+%			grid=both
+%		]
+%		\addplot[thick, domain=-24:134] {0.588*(1-cos(deg(x/40)))}node[above left, pos=.4]{$U$};
+%		\addplot[thick, domain=-24:134] {0.588*2}node[below, pos=.6]{Tangent at maximum $U$};
+%		\addplot[thick, domain=-24:134] {0}node[above, pos=.5]{Tangent at minimum $U$};
+%		%\addplot[thick, domain=0:75] {0.2205*(1-cos(deg(x/15))};
+%%		\draw[thin](-37,0) --node[pos=.7, below, sloped]{Release Position} (-37,.7);
+%%		\addplot[thick, red, domain=-37:37] {0.235}node[above, pos=.3]{$H$};
+%%		\addplot[thick, red, domain=-37:37] {0.235-0.588*(1-cos(deg(x/40))}node[below right, pos=.6]{$K$};
+%%		\addplot[thick, red, domain=0:23] {0.22-0.2205*(1-cos(deg(x/15))};
+%%	\draw[red, thin](37,0) --node[pos=.7, above, sloped]{Turning Point} (37,.7);
+%	\stopaxis
+%\stoptikzpicture
+%\stopTEXpage
+%\stopbuffer
+%
+%\placefigure[margin][fig:RigidPendulumGraphU] % location
+%{An energy graph showing the ball’s gravitational potential energy as a function of position $s$ along the curved path.}	% caption text
+%{\vskip27pt\hbox{\starttikzpicture
+%	\draw[white] (0,0)-- ++(5,0); % Sky to make height better
+%\stoptikzpicture}}
+%
+%\placewidefloat[bottom,none]
+%{This is its caption I need to fix.}
+%{\hbox{\noindent\typesetbuffer[TikZ:RigidPendulumGraphU]}} % figure contents
+%
 
 
 
@@ -567,48 +769,6 @@ Finally, we find the displacement in the $x$ direction using the position update
     ({4*t}, {5-5*t^2});
 	\stopaxis
 \stoptikzpicture}
-
-
-
-Joseph-Louis Lagrange’s work on mechanics culminated in his book \booktitle{Analytique mechanique}, published in 1788. Lagrange’s work is so abstract that the book contains no diagrams and no physical arguments, only pure mathematics of idealized, general mechanical systems. For those fluent in the new mathematical methods of French analysis, Lagrange’s approach to mechanics is profound and beautiful. I will not attempt to explain a single word of it here.
-
-While the physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring French mathematical revolution transforming physics.
-They remained paralyzed by a fanatic devotion to Newton’s cumbersome, geometric methods and continued to hold a grudge over the Leibniz’s calculus and \visviva. This problem persisted until 1812, when a group of young undergraduate students at Cambridge started the Analytical Society, partly as a joke, to study the methods of French analysis. They learned to solve problems using the continental notation and even translated a few important French books and papers into English. The club met for a few years and essentially disappeared after its members graduated and left Cambridge in 1817.
-
-That probably would have been the end of this little revolt, except that one of the members, George Peacock, was appointed in 1817 to write questions for the rigorous Mathematical Tripos exam taken by all third year mathematics students at Cambridge. He audaciously wrote his questions using the continental notation, which caused a bit of a stir among the faculty, but constrained by tradition, or perhaps simply too lazy to write the questions themselves, they did not interfere. Peacock was asked to write questions again in 1819, and students recognized this as a complete surrender by the Newtonian faculty. From there the adoption of continental notation and methods in England was quite swift. Newton remained a revered figure, but his  150 year old dispute against Leibniz finally passed into history. %Cannell p. 38
-
-The United Kingdom began producing great physicists. Among the first was William Rowan Hamilton. Hamilton was a genius, gifted in languages and mathematics. He learned Hebrew, Latin, and Greek from early childhood. At the age of 15 he read Newton’s \booktitle{Principia}, and a two years later the great French work \booktitle{M\'echanique c\'eleste}, by Pierre-Simon Laplace.%Cannell p. 39
-
-In 1823, at the age of 18, Hamilton entered Trinity College Dublin.
-Trinity College had adopted the continental notation in 1812, a bit ahead of Cambridge, and used the French textbooks in mathematics and physics courses. Hamilton embraced the abstract approach. He earned top marks in all of his courses and won many awards, which propelled him to a position as head of the Dunsink Observatory, near Dublin. Although the observatory provided ample opportunity for practical astronomy, Hamilton continued to focus on more theoretical interests, first in optics and then in mechanics.
-
-Hamilton wrote two ground breaking papers on mechanics, \booktitle{On A General Method In Dynamics} in 1834 and \booktitle{Second Essay On A General Method In Dynamics} in 1835. In these he refined Lagrange’s abstract approach, producing a pair of equations, now known as Hamilton’s equations, that could be applied to any physical system, no matter how complicated. Both of these equations start with the total energy of the system. The first equation gives the velocities of the system’s parts. The second gives the forces on the parts. If we know every part’s starting position and momentum, then Hamilton’s equations the velocities needed to compute new position and the forces required to calculate new momentums, all from knowing the system’s energy!
-
-The formulation of these equations was very abstract, but their application is incredibly practical because the energy is relatively easy to determine. The total kinetic energy can be calculated from the parts’ momentums. The potential energy can be calculated from the parts’ positions. We will not need Hamilton’s first equation because for all of the systems we have considered it gives the same formula for the velocities.
-\startformula
-	dx = \frac{\partial H}{\partial p} dt
-	\qquad
-	dx_1 = \frac{\partial H}{\partial p_1} dt
-\stopformula
-\startformula\startmathalignment
-\NC	\partial W	\NC= F_x\,\partial x + F_y\,\partial y + F_z\,\partial z	\NR
-\NC	-\partial U	\NC= F_x\,\partial x + F_y\,\partial y + F_z\,\partial z	\NR
-\stopmathalignment\stopformula
-\startformula
-	F_x = -\frac{\partial U}{\partial x}
-	\qquad
-	F_y = -\frac{\partial U}{\partial y}
-	\qquad
-	F_z = -\frac{\partial U}{\partial z}
-\stopformula
-This agrees with Newton’s formula for momentum. I will return to Hamilton’s first equation at the end of the chapter.
-
-Hamilton’s second equation provides tremendous new information. It says that the system’s change in momentum $d\varpi$ is determined by the directional derivatives of the system’s total energy $H$, which is now called the Hamiltonian. Using Leibniz’s notation, Hamilton’s second equation is
-\highlightbox{
-\startformula[eq:Hamilton2]
-	dp = -\frac{\partial H}{\partial x} dt
-\stopformula
-}
 
 
 \section{Hamilton’s First Equation for Photons}

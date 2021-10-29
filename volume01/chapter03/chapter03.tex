@@ -1597,7 +1597,7 @@ The gravitational force is the only significant force acting on the falling rock
 \placetextfloat[bottom][fig:cannonpf]
 {The cannon ball’s momentum changes due to the force of gravity and the air’s resisting force in example~\in[ex:cannonpf].
 }	% caption text
-{\noindent\starttikzpicture
+{\noindent\small\starttikzpicture
 %\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
 %\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
 \draw[shade, ball color = black] (0.78,.61) circle[radius=.05cm]; % Ball initial
@@ -1607,11 +1607,11 @@ The gravitational force is the only significant force acting on the falling rock
 \draw[fill = black!70] (0.3,0.25) circle[radius=0.05cm]; % Cannon Pivot
 \shade[top color=gray] (0,-.2) rectangle (10.8,0); % Ground
 \draw (0,0)--(10.8,0);
-\draw[thick,->] (0.78,0.61)--node[above, sloped]{$\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum
+\draw[thick,->] (0.78,0.61)--node[above, sloped]{$\vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum
 \draw (0.78,0.61) parabola [bend pos=0] bend +(6.75,2.53) +(6.75,2.53); % Trajectory
 \filldraw[white] (5.28,2.86) rectangle (7.53,3.14); % Trajectory
 \draw[shade, ball color = black] (5.28,2.86) circle[radius=.05cm]; % Ball final
-\draw[thick,->] (5.28,2.86)--node[above, sloped]{$\scriptstyle \vec p\sf = ?$} ++(2.4,0.6); % Momentum
+\draw[thick,->] (5.28,2.86)--node[above, sloped]{$\vec p\sf = ?$} ++(2.4,0.6); % Momentum
 \stoptikzpicture}
 	A cannon fires a $40\units{kg}$ cannon ball with a speed of $50\units{m/s}$. The ball is fired at an upward angle so that its initial momentum is $\vec p\si = \components{1600, 1200}\unit{kg\.m/s}$, as shown in figure~\in[fig:cannonpf]. While it is in the air gravity exerts a downward force $\vec F = \components{0, -390}\unit{N}$. %The ball encounters some resistance to moving through the air, which exerts a backward force of approximately $F\sub{air} = \components{-40, -30}\unit{N}$.
 What is the cannon ball’s momentum $2.0\units{s}$ after it is fired? (Ignore air resistance.)
@@ -1659,12 +1659,12 @@ The cannon ball's motion is shown in \in{figure}[fig:cannonpfanswer].
 \startbuffer[cannonFgFa]
 \draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
 \filldraw (0,0) circle[radius=.02cm]; % Ball cm
-\draw[thick,->] (0,0)--node[above]{$\scriptstyle \vec p\si$} ++(2.4,1.8); % Momentum
-\draw[thick,->] (0,0)--node[right]{$\scriptstyle \vec F = \components{0, -390}\unit{N}$} ++(0,-1.96); % Fg
+\draw[thick,->] (0,0)--node[above]{$\vec p\si$} ++(2.4,1.8); % Momentum
+\draw[thick,->] (0,0)--node[right]{$\vec F = \components{0, -390}\unit{N}$} ++(0,-1.96); % Fg
 %\draw[thick,->] (0,0)--node[above left]{$\scriptstyle \vec F\sub{air} = \components{-40, -30}\unit{N}$} ++(-0.4,-0.3); % Fa
 \stopbuffer
 
-\marginTikZ{}{cannonFgFa}{The force of gravity and the resisting force of air on the cannon ball in example~\in[ex:cannonpf]. The air’s resisting force is opposite the ball’s motion} % vskip, name, caption
+\marginTikZ{\vskip1.5in}{cannonFgFa}{The force of gravity and the resisting force of air on the cannon ball in example~\in[ex:cannonpf]. The air’s resisting force is opposite the ball’s motion} % vskip, name, caption
 
 %\placefigure[margin][fig:cannonFnet] % location
 %{To find the net force, add the force of gravity and the resisting force of air using the tip-to-tail method. The net force is almost directly downward.}	% caption text
@@ -1681,7 +1681,7 @@ The cannon ball's motion is shown in \in{figure}[fig:cannonpfanswer].
 \draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
 \filldraw (0,0) circle[radius=.02cm]; % Ball cm
 \draw[thick,->] (0,0)--node[above, sloped, pos=.6]{$\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum initial
-\draw[thick,->] (2.4,1.8)--node[right]{$\scriptstyle \vec F\sn \Delta t$} +(0,-1.17); % Fnet
+\draw[thick,->] (2.4,1.8)--node[right]{$\vec F\sn \Delta t$} +(0,-1.17); % Fnet
 \draw[thick,->] (0,0)--node[below, sloped, pos=.7]{$\scriptstyle \vec p\sf = \components{1600, 420}\unit{kg\cdot m/s}$} ++(2.4,0.63); % pf
 \stopbuffer
 
@@ -1690,7 +1690,7 @@ The cannon ball's motion is shown in \in{figure}[fig:cannonpfanswer].
 \placetextfloat[bottom][fig:cannonpfanswer]
 {The cannon ball’s initial momentum and its momentum two seconds later in example~\in[ex:cannonpf]
 }	% caption text
-{\noindent\starttikzpicture
+{\noindent\small\starttikzpicture
 %\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
 %\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
 \draw[shade, ball color = black] (0.78,.61) circle[radius=.05cm]; % Ball initial
@@ -1700,11 +1700,11 @@ The cannon ball's motion is shown in \in{figure}[fig:cannonpfanswer].
 \draw[fill = black!70] (0.3,0.25) circle[radius=0.05cm]; % Cannon Pivot
 \shade[top color=gray] (0,-.2) rectangle (10.8,0); % Ground
 \draw (0,0)--(10.8,0);
-\draw[thick,->] (0.78,0.61)--node[above, sloped]{$\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum
+\draw[thick,->] (0.78,0.61)--node[above, sloped]{$\vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum
 \draw (0.78,0.61) parabola [bend pos=0] bend +(6.75,2.53) +(6.75,2.53); % Trajectory
 \filldraw[white] (5.28,2.86) rectangle (7.53,3.14); % Trajectory
 \draw[shade, ball color = black] (5.28,2.86) circle[radius=.05cm]; % Ball final
-\draw[thick,->] (5.28,2.86)--node[above, sloped]{$\scriptstyle \vec p\sf = \components{1500, 360}\unit{kg\cdot m/s}$} ++(2.4,0.6); % Momentum
+\draw[thick,->] (5.28,2.86)--node[above, sloped]{$\vec p\sf = \components{1500, 360}\unit{kg\cdot m/s}$} ++(2.4,0.6); % Momentum
 \stoptikzpicture}
 \stopexample
 %The previous example multiple forces which had to be added as vectors to find the net force vector. Similarly, for a systems of multiple objects add the momenta as vectors to find the total momentum vector. For example, in a collision between objects moving in different directions the initial momentum of the system is the vector sum of all of the objects’ momentum vectors.
@@ -1734,7 +1734,7 @@ To see the gradual affect of the gravitational force, let’s look at the cannon
 \placewidefloat
   [top,none]
   {This is its caption I need to fix.}
-{\hbox{\starttikzpicture	% tikz code
+{\hbox{\small\starttikzpicture	% tikz code
 %\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
 %\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
 \draw[shade, ball color = black][opacity=0.25] (0.78,.61) circle[radius=.05cm]; % Ball initial
@@ -1765,8 +1765,8 @@ To see the gradual affect of the gravitational force, let’s look at the cannon
 	\draw[thick,->][opacity={(5+\T)/20}] (0,0)-- ++(2.4,{1.8-\T*0.6}); % Momentum
 	\draw[thick,->][opacity={(5+\T)/20}] (2.4,{2.4-\T*0.6})-- +(0,-0.6); % Fnet
 }
-\draw[thick,->] (2.4,-1.2)--node[right]{$\scriptstyle \vec F\sn dt$} +(0,-0.6); % Fnet
-\draw[thick,->] (0,0)--node[below left]{$\scriptstyle \vec p$} ++(2.4,-1.8); % pf
+\draw[thick,->] (2.4,-1.2)--node[right]{$\vec F\sn dt$} +(0,-0.6); % Fnet
+\draw[thick,->] (0,0)--node[below left]{$\vec p$} ++(2.4,-1.8); % pf
 \stopbuffer
 
 \marginTikZ{}{cannondp}{Using conservation of momentum to find the final momentum of the cannon ball in example~\in[ex:cannonpf].} % vskip, name, caption
