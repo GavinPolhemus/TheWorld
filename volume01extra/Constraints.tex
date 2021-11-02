@@ -68,7 +68,9 @@ This is the common result for constrained motion. See, for example, José and Sa
 
 The geometric story appears to be this. The $e^\mu_\alpha$ are differential forms on the configuration space, and the constraint equations require that the velocity vectors give zero when contracted with these forms.  The reaction force is also a differential form, a scalar multiple of the $e^\mu_\alpha$. If the differential form can be written as the differential of a scalar function, $e = df$, then constraints are holonomic, and the forces are monogenic. (See Lanczos pp. 146-7.)
 
-[Examples: Rolling down a slope (find r, theta, p, L, and friction force). Rolling in more dimensions. Piston, rod, and crankshaft. Hydraulics example. Superball with friction.]
+[Examples: Rolling down a slope (find r, theta, p, L, and friction force with four equations of motion and one constraint equation.). Rolling in more dimensions. Piston, rod, and crankshaft. Hydraulics example. Superball with friction.]
+
+
 
 \section{Relativistic Hamiltonian method}
 
@@ -78,6 +80,233 @@ Hamiltonian methods are excellent for a full relativistic treatment. The key is 
 \stopformula
 This is a single constraint involving momenta and positions (through $A_\mu$). This will lead to one unknown multiplier, but this multiplier can be set to one, fixing the parametrization of the the particle path. (MTW \booktitle{Gravitation,} pp.~488--489, 654, 897--901 and Lanczos \booktitle{The Variational Principles of Mechanics,} pp.~319--320, 327--336)
 
+\section{Diagrams}
+
+\startbuffer[CupTable]
+\environment env_physics
+\environment env_MetaPost
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+%\startTEXpage
+\startMPpage%{graph::CupTableGraphs} % I'd like to add minor ticks, 0.667mm long.
+path Top;
+	Top := unitsquare xyscaled (4cm, -5mm);
+%	Leg := unitsquare xyscaled (1mm, -1.8cm) shifted (-0.5mm,0);
+%fill Leg shifted (5mm,0) withcolor "lightgray";
+%draw Leg shifted (5mm,0) withpen pencircle scaled 0.8pt;
+%fill Leg shifted (35mm,0) withcolor "lightgray";
+%draw Leg shifted (35mm,0) withpen pencircle scaled 0.8pt;
+fill Top withcolor "lightgray";
+draw Top withpen pencircle scaled 0.8pt;
+picture CCup; path Cup, HandleOut, HandleIn;
+	Cup := unitsquare xyscaled (2cm,3cm) shifted (-1cm,0);
+	HandleOut := fullcircle xyscaled (1.8cm,2.2cm) shifted (1.2cm,1.5cm);
+	HandleIn := fullcircle xyscaled (1cm,1.4cm) shifted (1.2cm,1.5cm);
+	CCup := image(
+		fill HandleOut withcolor "gray";
+		draw HandleOut withpen pencircle scaled 0.8pt;
+		unfill HandleIn ;
+		draw HandleIn withpen pencircle scaled 0.8pt;
+		fill Cup withcolor "gray";
+		draw Cup;
+		draw Cup withpen pencircle scaled 0.8pt;);
+draw CCup shifted (2cm,0.8pt) ;
+path dy; dy := (2cm,-3mm) -- (2cm,3mm);
+drawarrow dy withpen pencircle scaled 0.8pt;%node[right]{$\partial x$} ; % pf
+label.top("$\partial y$", (2cm,3mm));
+\stopMPpage
+%\stopTEXpage
+\stopbuffer
+
+%\startplacefigure[location=margin, reference=fig:CupTable, title={A coffee cup sits on a slightly sloped table (top). The energy graph shows coffee cup's potential energy vs.\ its position on the slightly sloped table (bottom). The cup's total energy $H$ on the graph is the location of the motionless cup, showing the total energy $H$ is equal to the potential energy $U$.}]
+%\typesetbuffer[starttikz,CupTable,stoptikz]
+\typesetbuffer[CupTable]
+%\reuseMPgraphic{graph::CupTableGraphs}
+%\stopplacefigure
+
+\startbuffer[TikZ:GalileoPendulumPath2]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+%	\draw [help lines, xstep=8, ystep=.34] (-4.3,0) grid (4.3,4.3); % Background grid
+%	\draw (-4.3,-0.5) rectangle (4.3,4.5); % Border
+	% h axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0)
+				node[left]{
+					\pgfmathparse{
+						-10+10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,-4pt);
+			},
+		}
+	] (-4.3,0) -- (-4.3,4);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (-4.3,0) --node[sloped,above=5mm]{$h$ (cm)} (-4.3,4);
+	% U axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 6.8mm with {
+				\draw (0,0)
+				node[right]{
+					\pgfmathparse{
+						0.1*(-1+\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						})
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,4pt);
+			},
+		}
+	] (4.3,0) -- (4.3,4.082);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3.4mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (4.3,0) --node[sloped,below=6mm]{$U$ (J)} (4.3,4.082);
+	\fill (0,4) circle[radius=.4mm]; % Pivot
+%	\node at (0,0) [above left]{B}; % Bottom
+%	\draw (0,-0.2) -- (0,4.2); % Central vertical
+%	\node at (-3.2,1.6) [above=2mm]{C}; % Left
+%	\node at (3.2,1.6) [above=1mm]{D}; % Right
+%	\fill (0,2) circle[radius=.4mm]node[left]{E}; % 2nd nail
+%	\fill (0,1) circle[radius=.4mm]node[left]{F}; % 3nd nail
+%	\node at (1.833,1.6) [above=1mm]{G}; % Right
+%	\node at (0.98,1.6) [above=1mm]{I}; % Right
+%	\draw (-4.0,1.6) -- (4.0,1.6); % horizontal at max height
+	% Pendulum path
+%	\draw[] (0,0) arc[start angle=270, end angle=336.4, radius=2cm];
+%	\draw[] (0,0) arc[start angle=270, end angle=371.5, radius=1cm];
+	% Positive on the right
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0) -- (0,-4pt)
+				node[below,transform shape]{
+					\pgfmathparse{
+						-10+10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				};
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=339, radius=4cm];
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 0.998mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=339, radius=4cm];
+	% Negative on the left
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0) -- (0,4pt)
+				node[below, transform shape, rotate=180]{
+					\pgfmathparse{
+						10-10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				};
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 0.998mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (0,0) arc[start angle=270, end angle=201, radius=4cm];
+	\node at (0,0) [below=5mm]{$s$ (cm)};
+	% Pendulum
+	\draw[thick] (0,4) --node[sloped,above]{$40\units{cm}$} (-3.2,1.6); % String
+	\draw[ball color=white] (-3.2,1.6) circle[radius=2mm]; % Ball , opacity=.5
+	\fill (-3.2,1.6) circle[radius=.4mm]; % CoM
+	\draw[very thick, ->] (-3.2,1.6) ++(-3mm,4mm) -- ++(6mm,-8mm)node[above right]{$\partial s$}; % ds
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+%\placetextfloat[top][fig:GalileoPendulumPath2] % location
+%{Galileo’s pendulum at the release position $s=\units{-37cm}$.}	 % caption text
+%{\noindent
+\typesetbuffer[TikZ:GalileoPendulumPath2]
+%} % figure contents
+
+
+\startbuffer[TikZ:GalileoPendulumGraphU]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\startaxis[
+		every tick/.style={darkgray}, % Fixes ticks which are too light in ConTeXt
+		major grid style = {darkgray},
+			scale only axis,
+			x={1mm},y={68mm},
+			xmin=-48, xmax=48,
+			minor x tick num=9,
+			xlabel=$s$ (cm),
+			%axis x line=none,
+			%axis y line*=right,
+			ymin=0, ymax=0.6,
+			minor y tick num=9,
+			ylabel=Energy (J),
+			%grid=both
+		]
+		\addplot[thick, domain=-50:50] {0.588*(1-cos(deg(x/40)))}node[above left, pos=.9]{$U$};
+	\fill(-37,0.235) circle[radius=.4mm];
+	\draw[very thick, ->] (-40,0.27) --node[above]{$\partial s$} (-34,0.27); % ds
+	\draw[very thick, ->] (-34,0.27) --node[right]{$\partial U$} (-34,0.20); % ds
+	\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+%\placetextfloat[bottom][fig:GalileoPendulumGraphU] % location
+%{An energy graph showing the ball’s gravitational potential energy as a function of position $s$ along the curved path.}	% caption text
+%{\noindent
+\typesetbuffer[TikZ:GalileoPendulumGraphU]
+%} % figure contents
 
 \stoptext
 \stopcomponent

@@ -31,7 +31,7 @@ Engineers developed and applied methods specific to specialized applications wit
 Physicists largely ignored the engines, focusing their attention on abstract problems in pure mechanics – planetary motion, spinning tops, and jointed pendulums. These problems had little practical value, but they inspired rapid advances in applied mathematics.
 Leonhard Euler (a close friend of Danial Bernoulli), adapted and expanded Newton's methods to solve many new types of problems. Other physicists introduced new principles – like energy conservation – to solve problems in entirely new ways. These advances produced a rather confusing patchwork of methods and principles.
 
-Joseph-Louis Lagrange sought to replace the patchwork with a single method that could be applied to any problem in mechanics. He delivered his synthesis in \booktitle{Analytique mechanique}, published in 1788, almost exactly a century after Newton's \booktitle{Principia}. Lagrange describes his intent in the monumental work's preface.
+Joseph-Louis Lagrange sought to replace the patchwork with a single method that could be applied to any problem in mechanics. He delivered his synthesis in \booktitle{Mécanique Analytique}, published in 1788, almost exactly a century after Newton's \booktitle{Principia}. Lagrange describes his intent in the monumental work's preface.
 
 \startblockquote
 There already exist several treatises on mechanics, but the purpose of this one is entirely new. I propose to condense the theory of this science and the method of solving the related problems to general formulas whose simple application produces all the necessary equations for the solution of each problem. %I hope that my presentation achieves this purpose and leaves nothing lacking.
@@ -157,7 +157,7 @@ Once we have the equations of motion, we must solve them. For the cannon ball, w
 
 For the cannon ball, and many other simple systems, Newton's method produces the equations of motion quite easily. However, Newton's approach is not well suited to the two quadrivium problems we hope to solve: the planets' compound motion discovered by Kepler and the musical string's compound vibrations discovered by Mersenne. The quadrivium problems are much easier to approach using the second successful quantity of motion, kinetic energy.
 
-We have already seen how rotational kinetic energy allows us to study study spinning or rolling motion, where many connected part move with different velocities but share a common angular motion. Angular coordinates are also the natural coordinates for planetary motions, We will use angular coordinates and rotational kinetic energy to find and solve the planets' equations of motion in \in{Chapter}[ch:Rotation]. Like a spinning object, a musical string has many parts moving with different velocities. The string's motion is best described in terms of shared motions rather than the individual parts' motions. We will use the shared motion's energy to find and solve the string's equations of motion in \in{Chapter}[ch:Waves]. Before we attack those problems, we must find a connection between the energy and equations of motion.
+We have already seen how rotational kinetic energy allows us to study study spinning or rolling motion, where many connected parts move with different velocities but share a common angular motion. Angular coordinates are also the natural coordinates for planetary motions. We will use angular coordinates and rotational kinetic energy to find and solve the planets' equations of motion in \in{Chapter}[ch:Rotation]. Like a spinning object, a musical string has many parts moving with different velocities. The string's motion is best described in terms of shared motions rather than the individual parts' motions. We will use the shared motion's energy to find and solve the string's equations of motion in \in{Chapter}[ch:Waves]. Before we attack those problems, we must find a connection between the energy and equations of motion.
 
 Energy is not directional, so it works very well for systems with parts move in many directions, (like spinning and rolling)  and in situations where the coordinates are not straight (like angular coordinates). Perhaps kinetic energy could provide the velocities we need for Galileo's position update formulas.
 
@@ -167,37 +167,70 @@ Lagrange gave us a clue with his formula for converting Daniel Bernoulli's poten
 \startformula
 	F\sub{Newton} = -\frac{\partial U}{\partial x}
 \stopformula
-Remember that $\partial U$ is the small virtual change in the potential energy $U$ due to the small virtual displacement $\partial x$. If there are more coordinates, like $y$ for the cannon ball, then there are more direction for the virtual displacement. Lagrange found that he could get each component of Newton's force by choosing the correct direction for the virtual displacement. He found the $x$-component of Newton's force with a virtual displacement in the $x$-direction, the $y$-component with a virtual displacement in the $y$-direction, and so on for all the coordinates of the system. (These virtual displacements do not actually happen in the physical system, so Lagrange was free to imagine different virtual displacements to get the force's different components.)
+Remember that $\partial U$ is the small virtual change in the potential energy due to the small virtual displacement $\partial x$. If there are more coordinates, like $y$ for the cannon ball, then there are more direction for the virtual displacement. Lagrange found that he could get each component of Newton's force by choosing the correct direction for the virtual displacement. He found the $x$-component of Newton's force with a virtual displacement in the $x$-direction, the $y$-component with a virtual displacement in the $y$-direction, and so on for all the coordinates of the system. (These virtual displacements do not actually happen in the physical system, so Lagrange was free to imagine different virtual displacements to get the force's different components.)
 
-For the cannon ball, a small virtual displacement $\partial x$ in the $x$-direction is a horizontal displacement, which does not change the cannon ball's potential energy at all. For this horizontal displacement, $\partial U = 0$, so
+\startbuffer[cannondx]
+\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
+\filldraw (0,0) circle[radius=.02cm]; % Ball cm
+\draw[thick,->] (-2.5,-1)--node[above]{$x$} ++(1,0); % x-axis
+\draw[opacity=0] (-2.5,-1)-- ++(5,0); % x-floor to get the ball centered
+\draw[thick,->] (-2.5,-1)--node[right]{$y$} +(0,1); % y-axis
+\draw[thick,->] (-0.5,0)--(0.5,0)node[right]{$\partial x$} ; % pf
+\stopbuffer
+
+\marginTikZ{}{cannondx}{A small horizontal virtual displacement $\partial x$ produces no change in the gravitational potential energy. $\partial U = 0$. } % vskip, name, caption
+For the cannon ball, a small virtual displacement $\partial x$ in the $x$-direction is a horizontal displacement (shown in \in{figure}[fig:cannondx]), which does not change the cannon ball's gravitational potential energy at all. For this horizontal displacement, $\partial U = 0$. Lagrange's equation gives the $x$-component of the gravitational force. (I will drop \quotation{Newton} from the suffix for the remainder of this section.)
 \startformula
-	F_{\text{Newton,}x} = -\frac{\partial U}{\partial x}
+	F_{x} = -\frac{\partial U}{\partial x}
 		= -\frac{0}{\partial x}
 		= 0
 \stopformula
-The force's $x$-components is zero, as we knew. A small virtual displacement $\partial y$ in the $y$-direction is a vertical displacement which does change the cannon ball's potential energy. For this vertical displacement, $\partial U = mg\partial y$, so
+The gravitational force's $x$-components is zero, as we knew. A small virtual displacement $\partial y$ in the $y$-direction is a vertical displacement (shown in \in{figure}[fig:cannondy]), which does change the cannon ball's gravitational potential energy. For this vertical displacement, $\partial U = mg\partial y$, which leads to the $y$ component of the gravitational force.
+\startbuffer[cannondy]
+\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
+\filldraw (0,0) circle[radius=.02cm]; % Ball cm
+\draw[thick,->] (-2.5,-1)--node[above]{$x$} ++(1,0); % x-axis
+\draw[opacity=0] (-2.5,-1)-- ++(5,0); % x-floor to get the ball centered
+\draw[thick,->] (-2.5,-1)--node[right]{$y$} +(0,1); % y-axis
+\draw[thick,->] (0,-0.5)--(0,0.5)node[above]{$\partial y$} ; % pf
+\stopbuffer
+
+\marginTikZ{}{cannondy}{A small vertical virtual displacement $\partial x$ increases the gravitational potential energy. $\partial U = mg\partial y$.} % vskip, name, caption
 \startformula
-	F_{\text{Newton,}y} = -\frac{\partial U}{\partial y}
-		= -\frac{mg\partial y}{\partial y}
+	F_{y} = -\frac{\partial U}{\partial y}
+		= -\frac{mg\cancel{\partial y}}{\cancel{\partial y}}
 		= -mg
 \stopformula
-The force's $y$-component is $-mg$, again agreeing with what we knew.
+\startbuffer[cannonForce]
+\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
+\filldraw (0,0) circle[radius=.02cm]; % Ball cm
+\draw[thick,->] (-2.5,-2)--node[above]{$x$} ++(1,0); % x-axis
+\draw[opacity=0] (-2.5,-2)-- ++(5,0); % x-floor to get the ball centered
+\draw[thick,->] (-2.5,-2)--node[right]{$y$} +(0,1); % y-axis
+\draw[thick,->] (0,0)--node[right]{$\vec F = \components{0,-mg}$} ++(0,-2); % pf
+\stopbuffer
 
+\marginTikZ{\vskip 0.5cm}{cannonForce}{The gravitational force on the cannon ball, with components found using Lagrange's equation.} % vskip, name, caption
+\noindent
+The gravitational force's $y$-component is $-mg$, again agreeing with what we knew. These two components give the gravitational force vector shown in \in{figure}[fig:cannonForce].
+While potential energy itself does not have a direction, Lagrange's procedure produces the force vector, which does have a direction.
+
+Lagrange's equations for the components of Newton's forces were totally unlike Newton's own methods for working with forces. Newton's \booktitle{Principia} is full of diagrams. Newton's calculations are done with graphical methods, and equations are few. In the preface to his \booktitle{Mécanique Analytique}, Lagrange explains his analytical method.
 \startblockquote
 No figures will be found in this work. The methods I present require neither constructions nor geometrical or mechanical arguments, but solely algebraic operations subject to a regular and uniform procedure. Those who appreciate mathematical analysis will see with pleasure mechanics becoming a new branch of it and hence, will recognize that I have enlarged its domain.
 \stopblockquote
+In \booktitle{Mécanique Analytique}, Lagrange used his powerful mathematical analysis to expand the his equation for Newton's forces into a procedure for analyzing any mechanical system, described using and coordinates. Starting with only the formulas for the system's total kinetic energy and total potential energy, Lagrange's \quotation{regular and uniform procedure} produces a complete set of equations of motion for the system. (Lagrange's equations of motion are a bit more tangled than our position and momentum update formulas, so we will not learn the details of his procedure.)
 
+Lagrange's \booktitle{Mécanique Analytique} was a stunning achievement, unlike anything physics had seen before. Lagrange was viewed as a hero in France under King Louis \convertnumber{KR}{16}. Luckily, his fame transcended the turbulent – often violent – politics of France following the French Revolution in 1789. He continued to play a leading role in the advancement of science and mathematics in France even as governments rose and fell around him.
 
+\section{Hamilton's canonical equations of motion}
 
-
- Lagrange’s work is so abstract that the book contains no diagrams and no physical arguments, only pure mathematics of idealized, general mechanical systems. For those fluent in the new mathematical methods of French analysis, Lagrange’s approach to mechanics is profound and beautiful. I will not attempt to explain a single word of it here.
-
-While the physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring French mathematical revolution transforming physics.
+While physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring French mathematical revolution transforming physics.
 They remained paralyzed by a fanatic devotion to Newton’s cumbersome, geometric methods and continued to hold a grudge over the Leibniz’s calculus and \visviva. This problem persisted until 1812, when a group of young undergraduate students at Cambridge started the Analytical Society, partly as a joke, to study the methods of French analysis. They learned to solve problems using the continental notation and even translated a few important French books and papers into English. The club met for a few years and essentially disappeared after its members graduated and left Cambridge in 1817.
 
-That probably would have been the end of this little revolt, except that one of the members, George Peacock, was appointed in 1817 to write questions for the rigorous Mathematical Tripos exam taken by all third year mathematics students at Cambridge. He audaciously wrote his questions using the continental notation, which caused a bit of a stir among the faculty, but constrained by tradition, or perhaps simply too lazy to write the questions themselves, they did not interfere. Peacock was asked to write questions again in 1819, and students recognized this as a complete surrender by the Newtonian faculty. From there the adoption of continental notation and methods in England was quite swift. Newton remained a revered figure, but his  150 year old dispute against Leibniz finally passed into history. %Cannell p. 38
+That probably would have been the end of this little revolt, except that one of the members, George Peacock, was appointed in 1817 to write questions for the rigorous Mathematical Tripos exam taken by all third year mathematics students at Cambridge. He audaciously wrote his questions using the continental notation. This caused a bit of grumbling among the faculty, but they did not interfere. Surprisingly, Peacock was asked to write questions again in 1819. Students recognized this as a complete surrender by the Newtonian faculty. From there, the adoption of continental notation and methods in England was quite swift. Newton remained a revered figure, but his 150 year old dispute with Leibniz was finally laid to rest. %Cannell p. 38
 
-The United Kingdom began producing great physicists. Among the first was William Rowan Hamilton. Hamilton was a genius, gifted in languages and mathematics. He learned Hebrew, Latin, and Greek from early childhood. At the age of 15 he read Newton’s \booktitle{Principia}, and a two years later the great French work \booktitle{M\'echanique c\'eleste}, by Pierre-Simon Laplace.%Cannell p. 39
+The United Kingdom began producing great physicists. Among the first was William Rowan Hamilton. Hamilton was a genius, gifted in languages and mathematics. He learned Hebrew, Latin, and Greek from early childhood. At the age of 15 he read Newton’s \booktitle{Principia}, and a two years later the great French work \booktitle{M\'echanique C\'eleste}, by Pierre-Simon Laplace.%Cannell p. 39
 
 In 1823, at the age of 18, Hamilton entered Trinity College Dublin.
 Trinity College had adopted the continental notation in 1812, a bit ahead of Cambridge, and used the French textbooks in mathematics and physics courses. Hamilton embraced the abstract approach. He earned top marks in all of his courses and won many awards, which propelled him to a position as head of the Dunsink Observatory, near Dublin. Although the observatory provided ample opportunity for practical astronomy, Hamilton continued to focus on more theoretical interests, first in optics and then in mechanics.
@@ -208,19 +241,18 @@ The formulation of these equations was very abstract, but their application is i
 \startformula
 	dx = \frac{\partial H}{\partial p} dt
 	\qquad
-	dx_1 = \frac{\partial H}{\partial p_1} dt
+	dp_x = \left(-\frac{\partial H}{\partial p_x} + F_x \right) dt
 \stopformula
-\startformula\startmathalignment
-\NC	\partial W	\NC= F_x\,\partial x + F_y\,\partial y + F_z\,\partial z	\NR
-\NC	-\partial U	\NC= F_x\,\partial x + F_y\,\partial y + F_z\,\partial z	\NR
-\stopmathalignment\stopformula
-\startformula
-	F_x = -\frac{\partial U}{\partial x}
-	\qquad
-	F_y = -\frac{\partial U}{\partial y}
-	\qquad
-	F_z = -\frac{\partial U}{\partial z}
-\stopformula
+
+
+\startformula\startalign[m=2,distance=5em]
+\NC dx		\NC = \frac{p_x}{m}\,dt
+\NC 	dp_x		\NC = \left(-\frac{\partial H}{\partial x} + F_x \right)	\NR
+\NC dy		\NC = \frac{p_y}{m}\,dt
+\NC 	dp_y		\NC = \left(-\frac{\partial H}{\partial y} + F_y \right) dt	\NR
+\NC d\theta	\NC = \frac{p_\theta}{I}\,dt
+\NC 	dp_\theta	\NC = \left(-\frac{\partial H}{\partial \theta} + F_\theta \right)	\NR
+\stopalign\stopformula
 This agrees with Newton’s formula for momentum. I will return to Hamilton’s first equation at the end of the chapter.
 
 Hamilton’s second equation provides tremendous new information. It says that the system’s change in momentum $d\varpi$ is determined by the directional derivatives of the system’s total energy $H$, which is now called the Hamiltonian. Using Leibniz’s notation, Hamilton’s second equation is
