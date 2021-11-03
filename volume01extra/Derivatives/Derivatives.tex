@@ -1,0 +1,107 @@
+% !TEX useOldSyncParser
+\startcomponent c_chapter01
+\project project_world
+\product prd_volume01
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+\starttext
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title=Derivatives, reference=ch:Derivatives]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+If students could learn these, it might help a great deal when we try to do $\partial U/\partial x$ and $\partial H/\partial p$ in chapters 5 and 6. 
+
+\section{Instantaneous rate of change is a derivative}
+We need three rules for working with rates of change. In the rules below, $f$ and $g$ are functions of time, while $a$ and $n$ are constants.
+\startformula\startmathalignment
+\NC \textfrac{d}{dt}(af)		\NC = a \textfrac{d}{dt} f		\NR
+\NC \textfrac{d}{dt} (f + g)	\NC = \textfrac{d}{dt} f + \textfrac{d}{dt}  g	\NR
+\NC \textfrac{d}{dt} t^n		\NC = n t^{n-1}		\NR
+\stopmathalignment\stopformula
+
+
+There are two general derivative rules that we do not need: the product rule and the chain rule. These are both more difficult to understand and use than the rules above. We could use the product rule to get the power rule, but it that derivation probobaly doesn't bring much benefit.
+The chain rule is could be used for simple harmonic motion, $x = A \sin(t/2\pi T)$, but we don't need the instantaneous velocity of SHO at all times, just the maximum speed. There are, of course, many formulas for derivatives of specific functions (trig, exp, log, etc.), but I think we only need powers.
+
+\startexample[ex:DerivativeConstantV]
+An object's position $x$ at time $t$ is given by the equation
+\startformula
+	x = x_0 + v_0 t
+\stopformula
+Where $x_0$ and $v_0$ are constants. ($x_0$ is the object's starting position). Use the derivative rules to find the object's velocity $v$ at any time $t$.
+
+\startsolution
+We start with the instantaneous velocity definition $v=\frac{dx}{dt}$, and apply the rules.
+\startformula\startmathalignment
+\NC v	\NC = \textfrac{d}{dt} x						\NR
+\NC		\NC = \textfrac{d}{dt} (x_0 + v_0t)				\NR
+\NC		\NC = \textfrac{d}{dt} x_0 + \textfrac{d}{dt} v_0t	\NR
+\NC		\NC = 0 + v_0\textfrac{d}{dt} t					\NR
+\NC		\NC = v_0									\NR
+\stopmathalignment\stopformula
+At any time $t$, the instantaneous velocity $v$ is the constant $v_0$. This is constant velocity motion, also call uniform motion.
+\stopsolution
+\stopexample
+
+
+\startexample[ex:DerivativeConstantF]
+An object's momentum $p$ at time $t$ is given by the equation
+\startformula
+	p = p_0 + F_0t
+\stopformula
+Where $p_0$ and $F_0$ are constants. ($p_0$ is the object's starting momentum). Use the derivative rules to find the force $F$ acting on the object at any time $t$.
+
+\startsolution
+Force is the rate of momentum change $F=\frac{dp}{dt}$.
+\startformula
+	F = \textfrac{d}{dt} p = \textfrac{d}{dt} (p_0 + F_0 t) = F_0
+\stopformula
+At any time $t$, the force $F$ is the constant force $F_0$. This is constant force motion.
+\stopsolution
+\stopexample
+
+
+\startexample[ex:DerivativeConstantF]
+An object's position $x$ at time $t$ is given by the equation
+\startformula
+	x = x_0 + v_0 t + \half a t^2
+\stopformula
+Where $x_0$ and $v_0$ and $a_0$ are constants. Use the derivative rules to find the object's velocity $v$ and the force acting on the object at any time $t$.
+\startsolution
+We start with the instantaneous velocity definition $v=\frac{dx}{dt}$, and apply the rules. Notice what happens to the \onehalf in the final term.
+\startformula\startmathalignment
+\NC v \NC = \textfrac{d}{dt} x											\NR
+\NC		\NC = \textfrac{d}{dt} (x_0 + v_0t + \half a_0 t^2)				\NR
+\NC		\NC = \textfrac{d}{dt} x_0 + \textfrac{d}{dt} v_0t  + \half a_0 t^2	\NR
+\NC		\NC = 0 + v_0\textfrac{d}{dt} t	 + \half a_0 \textfrac{d}{dt} t^2	\NR
+%\NC		\NC = v_0 + \half a 2 t										\NR
+\NC		\NC = v_0 + at												\NR
+\stopmathalignment\stopformula
+This velocity is not constant – the object is accelerating. (The object's initial velocity is $v_0$.) The momentum is also changing.
+\startformula 
+	p = mv = mv_0 + ma_0 t
+\stopformula	
+Using the derivative rules we find the force $F$ acting on the object at any time $t$.
+\startformula
+	F = \textfrac{d}{dt} p = \textfrac{d}{dt} (mv_0 + mat_0) = ma_0
+\stopformula
+At any time $t$, the force $F$ is 
+\startformula
+	F = ma_0
+\stopformula
+Since $m$ and $a_0$ are constants, this is constant force motion. The constant force $F$ acting on the object causes the object's constant acceleration $a_0 = F/m$.
+\stopsolution
+\stopexample
+
+\section{Other problem ideas}
+Resistance forces are often proportional to velocity, resulting in function with negative powers. Find the force acting on an objects whose velocity is $v = c/t$. Find the force acting on an object whose position is $x = x_0 - c/t$ (The object approaches $x_0$, but never quite reaches it due to the slowing.)
+
+\section{Local slopes are partial derivatives}
+
+For a pendulum it would be nice to take a derivative of $\cos(\theta)$, but we don’t need chain rule in that case, and we can do it graphically.
+
+
+\stoptext
+\stopcomponent

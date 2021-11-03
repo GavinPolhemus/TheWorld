@@ -235,32 +235,62 @@ The United Kingdom began producing great physicists. Among the first was William
 In 1823, at the age of 18, Hamilton entered Trinity College Dublin.
 Trinity College had adopted the continental notation in 1812, a bit ahead of Cambridge, and used the French textbooks in mathematics and physics courses. Hamilton embraced the abstract approach. He earned top marks in all of his courses and won many awards, which propelled him to a position as head of the Dunsink Observatory, near Dublin. Although the observatory provided ample opportunity for practical astronomy, Hamilton continued to focus on more theoretical interests, first in optics and then in mechanics.
 
-Hamilton wrote two ground breaking papers on mechanics, \booktitle{On A General Method In Dynamics} in 1834 and \booktitle{Second Essay On A General Method In Dynamics} in 1835. In these he refined Lagrange’s abstract approach, producing a pair of equations, now known as Hamilton’s equations, that could be applied to any physical system, no matter how complicated. Both of these equations start with the total energy of the system. The first equation gives the velocities of the system’s parts. The second gives the forces on the parts. If we know every part’s starting position and momentum, then Hamilton’s equations the velocities needed to compute new position and the forces required to calculate new momentums, all from knowing the system’s energy!
+Hamilton wrote two groundbreaking papers on mechanics, \booktitle{On A General Method In Dynamics} in 1834 and \booktitle{Second Essay On A General Method In Dynamics} in 1835. Hamilton's general method produces the equations of motion for any problem in mechanics, just like Lagrange's procedure, but Hamilton's general method is much easier to understand and execute.
+We will study Hamilton's general method in this chapter. First, we will learn to produce equations of motion from a system's total energy formula. Then, we will learn some methods of solving these equations of motion in specific examples. In \in{Chapter}[ch:Rotation], Hamilton's general method will explain the compound motions of planets, and in \in{Chapter}[ch:Waves] it will reveal the compound vibrations of a musical string.
 
-The formulation of these equations was very abstract, but their application is incredibly practical because the energy is relatively easy to determine. The total kinetic energy can be calculated from the parts’ momentums. The potential energy can be calculated from the parts’ positions. We will not need Hamilton’s first equation because for all of the systems we have considered it gives the same formula for the velocities.
+Hamilton's general method brings together the big ideas of position, momentum, and energy in surprisingly simple way. Hamilton found that he did not need two separate formulas for kinetic energy and potential energy, one formula for the total energy is enough. (He chose the symbol $H$ for total energy, which we have adopted.) Hamilton also recognized momentum's importance, and used momentum in his formula for total energy. For example, he would write the total energy for a cart on a spring like this:
 \startformula
-	dx = \frac{\partial H}{\partial p} dt
+  H = \frac{p^2}{2m} + \half kx^2
+\stopformula
+Euler and Lagrange used velocity rather than momentum, writing kinetic energy as $K=\onehalf mv^2$. Using velocity is reasonable, but it caused the update formulas to get tangled. Hamilton discovered that using momentum allowed him to separate the update formulas, making the equations of motion much easier understand and solve.
+
+%\section{Hamilton's momentum update formula}
+
+%Hamilton's momentum update formula uses and idea similar to Lagrange's equation, 
+
+Hamilton followed Daniel Bernoulli's advice and described all interactions in terms of energy, not it terms of Newton's force. There is a bit of an obstacle to this approach. Lagrange's equation tells us how to find Newton's force from potential energy, but it does not tell us how to go the other way. In fact, some forces – like friction – cannot be described using potential energy and must be left outside the system. We will use $F$ only for these external forces. Any interaction that can be described using potential energy will be included in the energy formula.
+
+The system's total energy $H$ and the the external force $F$ come together in Hamilton's momentum update formula.
+\startformula[eq:Hamilton2]
+	dp = \left(-\frac{\partial H}{\partial x} + F \right) dt
+\stopformula
+The parts of this new formula should be reassuringly familiar. If our system has only external forces, no energy, this would be Newton's momentum update formula, $dp = F\,dt$. The new term on the right looks almost identical to Lagrange's equation, $F\sub{Newton} = -\partial U/\partial x$, but Hamilton replaces the potential energy $U$ with the total energy $H$. This replacement will be essential when using curved coordinates, like the polar coordinate used to describe orbits, but it has no effect in most of the systems we have studied.
+
+
+When calculating $\partial H/\partial x$, we are looking at the virtual change $\partial H$ in the total energy due only to the virtual displacement 
+
+
+
+
+
+\startformula
+	dx = \frac{\partial H}{\partial p_x} dt
 	\qquad
-	dp_x = \left(-\frac{\partial H}{\partial p_x} + F_x \right) dt
+	dp = \left(-\frac{\partial H}{\partial x} + F \right) dt
 \stopformula
 
 
 \startformula\startalign[m=2,distance=5em]
 \NC dx		\NC = \frac{p_x}{m}\,dt
-\NC 	dp_x		\NC = \left(-\frac{\partial H}{\partial x} + F_x \right)	\NR
+\NC 	dp_x		\NC = \left(-\frac{\partial H}{\partial x} + F_x \right)	 dt\NR
 \NC dy		\NC = \frac{p_y}{m}\,dt
 \NC 	dp_y		\NC = \left(-\frac{\partial H}{\partial y} + F_y \right) dt	\NR
 \NC d\theta	\NC = \frac{p_\theta}{I}\,dt
-\NC 	dp_\theta	\NC = \left(-\frac{\partial H}{\partial \theta} + F_\theta \right)	\NR
+\NC 	dp_\theta	\NC = \left(-\frac{\partial H}{\partial \theta} + F_\theta \right) dt	\NR
 \stopalign\stopformula
-This agrees with Newton’s formula for momentum. I will return to Hamilton’s first equation at the end of the chapter.
 
-Hamilton’s second equation provides tremendous new information. It says that the system’s change in momentum $d\varpi$ is determined by the directional derivatives of the system’s total energy $H$, which is now called the Hamiltonian. Using Leibniz’s notation, Hamilton’s second equation is
-\highlightbox{
-\startformula[eq:Hamilton2]
-	dp = -\frac{\partial H}{\partial x} dt
-\stopformula
-}
+
+\subject{Notes}
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+
+%\subject{Bibliography}
+%        \placelistofpublications
+
+
+\stopchapter
+\stopcomponent
+
 
 %
 %
