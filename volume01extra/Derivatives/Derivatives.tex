@@ -11,19 +11,81 @@
 \startchapter[title=Derivatives, reference=ch:Derivatives]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-If students could learn these, it might help a great deal when we try to do $\partial U/\partial x$ and $\partial H/\partial p$ in chapters 5 and 6. 
+%If students could learn these, it might help a great deal when we try to do $\partial U/\partial x$ and $\partial H/\partial p$ in chapters 5 and 6. 
 
-\section{Instantaneous rate of change is a derivative}
-We need three rules for working with rates of change. In the rules below, $f$ and $g$ are functions of time, while $a$ and $n$ are constants.
+%\section{Instantaneous rate of change is a derivative}
+Instantaneous velocity is defined in terms of a small change in position over a small change in time
+\startformula
+	v = \frac{dx}{dt}
+\stopformula
+This is the slope on the position vs.\ time graph, and it can be found at a specific moment by drawing a tangent line. The tangent line method is nice, but it would be great if we could find the instantaneous velocity for every moment – without having to draw a million tangent lines. This can be done with the \keyterm{derivative}.
+
+The derivative takes one function and produces a second function that is everywhere equal to the first function's slope. For example, if the first function is an object's position as a function of time, then that function's derivative is the object's velocity as a function of time. In mathematical language, the object's position $x$ is a function of time and that function's derivative is written $\frac{d}{dt}x$. This derivative is the instantaneous velocity $v$.
+\startformula
+v = \textfrac{d}{dt} x
+\stopformula
+This formula looks very similar to the instantaneous velocity definition above. However, the definition above was a ratio of two small numbers find the instantaneous velocity at a specific moment. The derivative $\frac{d}{dt}$ takes the function $x$ and gives the new function $v$. This can be done with any coordinate ($y$, $z$, $\theta$) to find the corresponding component of the velocity ($v_y$, $v_z$, $\omega$). Since force is the rate of momentum change, the derivative of momentum is force. 
+\startformula
+	F = \frac{d}{dt}p
+\stopformula
+This can also be used to find any component of force from the corresponding component of the momentum.
+
+You will be able to perform all of the derivatives you need with just three rules.
+First, we need to know the derivatives of some simple building block functions. For a constant function, like $x = 1$, the slope is zero at every time, so derivative is zero.
+\startformula
+	\textfrac{d}{dt} 1 = 0
+\stopformula
+(We are ignoring units until we have some building blocks. Don't panic. Units will be back soon.)
+For a function that is a straight line, like $x = t$, the slope is the same at all times, so the derivative is the slope of the line.
+\startformula
+	\textfrac{d}{dt} t = 1
+\stopformula
+For a parabola, like $x = t^2$, the slope is different at different locations, so the derivative is a new function. In this case
+\startformula
+	\textfrac{d}{dt} t^2 = 2t
+\stopformula
+These are all examples of the \keyterm{power rule}.
+\startformula
+	\textfrac{d}{dt} t^n = nt^{n-1}
+\stopformula
+This rule works for any power, including negative powers (like $x = 1/t = t^{-1}$) and fractional powers, (like $x = \sqrt{t} = t^{\onehalf}$).
+
+The second rule says that when a function is multiplied by some constant, its slope is multiplied by the same constant. For any function of time $f$ muliplied by a constant $a$ we use the \keyterm{constant product rule}.
+\startformula
+	\textfrac{d}{dt}(af) = a \textfrac{d}{dt} f
+\stopformula
+The coefficient $a$ will typically have units. (Yay, units!) For example, if an object's momentum is given by the formula $p = (14\units{kg\.m/s^2})t$, we can find the force.
+\startformula
+	F = \textfrac{d}{dt}p
+		= \textfrac{d}{dt} (14\units{kg\.m/s^2})t
+		= (14\units{kg\.m/s^2}) \textfrac{d}{dt} t
+		= 14\units{kg\.m/s^2} 
+\stopformula
+The final rule is for functions added together. The slope of the sum is equal to the sum of the slopes. For any two functions of time $f$ and $g$ we use the \keyterm{sum rule}.
+\startformula
+	\textfrac{d}{dt}(f+g) = \textfrac{d}{dt} f + \textfrac{d}{dt} g
+\stopformula
+For example, if an object's position is given by the formula $y = (12\units{m/s})t - (4.9\units{m/s^2})t^2$, we can find the  velocity.
 \startformula\startmathalignment
-\NC \textfrac{d}{dt}(af)		\NC = a \textfrac{d}{dt} f		\NR
-\NC \textfrac{d}{dt} (f + g)	\NC = \textfrac{d}{dt} f + \textfrac{d}{dt}  g	\NR
-\NC \textfrac{d}{dt} t^n		\NC = n t^{n-1}		\NR
+\NC	v_y \NC = \textfrac{d}{dt}y													\NR
+\NC		\NC = \textfrac{d}{dt} \left[(12\units{m/s})t - (4.9\units{m/s^2})t^2\right]		\NR
+\NC		\NC = \textfrac{d}{dt} (12\units{m/s})t - \textfrac{d}{dt} (4.9\units{m/s^2})t^2	\NR
+\NC		\NC = (12\units{m/s})\textfrac{d}{dt} t - (4.9\units{m/s^2}) \textfrac{d}{dt} t^2	\NR
+\NC		\NC = (12\units{m/s}) - (9.8\units{m/s^2}) t									\NR
 \stopmathalignment\stopformula
 
+There are more derivative rules for more complicated functions, but the three rules above are all you need for this physics course. 
 
-There are two general derivative rules that we do not need: the product rule and the chain rule. These are both more difficult to understand and use than the rules above. We could use the product rule to get the power rule, but it that derivation probobaly doesn't bring much benefit.
-The chain rule is could be used for simple harmonic motion, $x = A \sin(t/2\pi T)$, but we don't need the instantaneous velocity of SHO at all times, just the maximum speed. There are, of course, many formulas for derivatives of specific functions (trig, exp, log, etc.), but I think we only need powers.
+%We only need three rules for working with rates of change. In the rules below, $f$ and $g$ are functions of time, while $a$ and $n$ are constants.
+%\startformula\startmathalignment
+%\NC \textfrac{d}{dt}(af)	\NC = a \textfrac{d}{dt} f					\NR
+%\NC \textfrac{d}{dt} (f + g)	\NC = \textfrac{d}{dt} f + \textfrac{d}{dt}  g	\NR
+%\NC \textfrac{d}{dt} t^n	\NC = n t^{n-1}							\NR
+%\stopmathalignment\stopformula
+%
+%
+%There are two general derivative rules that we do not need: the product rule and the chain rule. These are both more difficult to understand and use than the rules above. We could use the product rule to get the power rule, but it that derivation probobaly doesn't bring much benefit.
+%The chain rule is could be used for simple harmonic motion, $x = A \sin(t/2\pi T)$, but we don't need the instantaneous velocity of SHO at all times, just the maximum speed. There are, of course, many formulas for derivatives of specific functions (trig, exp, log, etc.), but I think we only need powers.
 
 \startexample[ex:DerivativeConstantV]
 An object's position $x$ at time $t$ is given by the equation
@@ -33,7 +95,7 @@ An object's position $x$ at time $t$ is given by the equation
 Where $x_0$ and $v_0$ are constants. ($x_0$ is the object's starting position). Use the derivative rules to find the object's velocity $v$ at any time $t$.
 
 \startsolution
-We start with the instantaneous velocity definition $v=\frac{dx}{dt}$, and apply the rules.
+We start with the instantaneous velocity definition $v=\frac{d}{dt}x$, and apply the rules.
 \startformula\startmathalignment
 \NC v	\NC = \textfrac{d}{dt} x						\NR
 \NC		\NC = \textfrac{d}{dt} (x_0 + v_0t)				\NR
@@ -54,7 +116,7 @@ An object's momentum $p$ at time $t$ is given by the equation
 Where $p_0$ and $F_0$ are constants. ($p_0$ is the object's starting momentum). Use the derivative rules to find the force $F$ acting on the object at any time $t$.
 
 \startsolution
-Force is the rate of momentum change $F=\frac{dp}{dt}$.
+Force is the rate of momentum change $F=\frac{d}{dt}p$.
 \startformula
 	F = \textfrac{d}{dt} p = \textfrac{d}{dt} (p_0 + F_0 t) = F_0
 \stopformula
@@ -66,7 +128,7 @@ At any time $t$, the force $F$ is the constant force $F_0$. This is constant for
 \startexample[ex:DerivativeConstantF]
 An object's position $x$ at time $t$ is given by the equation
 \startformula
-	x = x_0 + v_0 t + \half a t^2
+	x = x_0 + v_0 t + \half a_0 t^2
 \stopformula
 Where $x_0$ and $v_0$ and $a_0$ are constants. Use the derivative rules to find the object's velocity $v$ and the force acting on the object at any time $t$.
 \startsolution
@@ -77,7 +139,7 @@ We start with the instantaneous velocity definition $v=\frac{dx}{dt}$, and apply
 \NC		\NC = \textfrac{d}{dt} x_0 + \textfrac{d}{dt} v_0t  + \half a_0 t^2	\NR
 \NC		\NC = 0 + v_0\textfrac{d}{dt} t	 + \half a_0 \textfrac{d}{dt} t^2	\NR
 %\NC		\NC = v_0 + \half a 2 t										\NR
-\NC		\NC = v_0 + at												\NR
+\NC		\NC = v_0 + a_0t												\NR
 \stopmathalignment\stopformula
 This velocity is not constant – the object is accelerating. (The object's initial velocity is $v_0$.) The momentum is also changing.
 \startformula 
@@ -85,7 +147,7 @@ This velocity is not constant – the object is accelerating. (The object's init
 \stopformula	
 Using the derivative rules we find the force $F$ acting on the object at any time $t$.
 \startformula
-	F = \textfrac{d}{dt} p = \textfrac{d}{dt} (mv_0 + mat_0) = ma_0
+	F = \textfrac{d}{dt} p = \textfrac{d}{dt} (mv_0 + ma_0t) = ma_0
 \stopformula
 At any time $t$, the force $F$ is 
 \startformula
@@ -98,9 +160,13 @@ Since $m$ and $a_0$ are constants, this is constant force motion. The constant f
 \section{Other problem ideas}
 Resistance forces are often proportional to velocity, resulting in function with negative powers. Find the force acting on an objects whose velocity is $v = c/t$. Find the force acting on an object whose position is $x = x_0 - c/t$ (The object approaches $x_0$, but never quite reaches it due to the slowing.)
 
-\section{Local slopes are partial derivatives}
+All of this works with any coordinates, so it would be good to have examples with $y$ and $\theta$ as functions of $t$. Several coordinates can be part of the same problem, giving velocity and force components, as well as angular velocity and torque.
 
-For a pendulum it would be nice to take a derivative of $\cos(\theta)$, but we don’t need chain rule in that case, and we can do it graphically.
+I considered problems using $F = \frac{d}{dx}H$, but these did not seem to provide a useful bridge from time derivatives to the partial derivatives below. In fact, it seems to blur the distinction in counter productive ways.
+
+%\section{Local slopes are partial derivatives}
+%
+%Finding a pendulum's equations of motion symbolically requires the derivative of the potential energy $U = -mgR\cos(\theta)$. We don’t need chain rule in that case, but we do need $\frac{d}{d\theta}\cos(\theta) = -\sin(\theta)$. However, this problem is easy to solve with a diagram, which is probably better than doing it symbolically anyway.
 
 
 \stoptext
