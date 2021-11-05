@@ -26,14 +26,14 @@ v = \ddt x
 \stopformula
 This formula looks very similar to the instantaneous velocity definition above. However, the definition above was a ratio of two small numbers find the instantaneous velocity at a specific moment. The derivative $\ddt$ takes the function $x$ and gives a new function $v$. The examples below will show how the derivative $\ddt$ acts on the function to its right and replaces it with a new function.
 
-You will be able to perform all of the derivatives you need with just three rules.
-First, we need to know the derivatives of some simple functions. For a constant function, like $x = 1$, the slope is zero at every time, so derivative is zero.
+You will be able to perform all of the derivatives you need with just four rules.
+First, the derivative of  a constant function (like $x = 3\units{m}$) is \emph{zero} because the rate of change is zero. This is the \keyterm{constant rule}.
 \startuseMPgraphic{graph::xconst} % I'd like to add minor ticks, 0.667mm long.
 	path xpos;
-	xpos := (0,1) -- (4.4,1);
-draw begingraph(4.4cm,2cm);
-	setrange(origin, 4.4, 2);
-	for y=0, 1, 2 :
+	xpos := (0,3) -- (4.4,3);
+draw begingraph(4.4cm,4cm);
+	setrange(origin, 4.4, 4);
+	for y=0, 1, 2, 3, 4 :
 		itick.lft(formatted("$@g$", y), y);
 		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
 		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
@@ -43,22 +43,28 @@ draw begingraph(4.4cm,2cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("$x$"),OUT);
+	glabel.lft(textext("$x$ (m)") rotated 90, OUT);
 	glabel.bot(textext("$t$"), OUT);
 	gdraw(xpos) withpen pencircle scaled 0.8pt;
-	glabel.top("$x=1$",0.5);
+	glabel.top("$x=3\units{m}$",0.5);
 	glabel.bot("$v=0$",0.5);
 endgraph;
 \stopuseMPgraphic
-\startplacefigure[location=margin, reference=fig:xconst, title={The function $x=1$ is a constant. The velocity $v=\ddt x$ is zero at all times.}]
+\startplacefigure[location=margin, reference=fig:xconst, title={The function $x=3\units{m}$ is a constant. The velocity $v=\ddt x$ is zero at all times.}]
 \small\reuseMPgraphic{graph::xconst}
 \stopplacefigure
 \startformula
-	\ddt 1 = 0
+	\ddt \text{const.} = 0
 \stopformula
-The function $x=1$ is shown in \in{figure}[fig:xconst]. The velocity $v$ is the slope, given by the derivative. (We are ignoring units until we have some building blocks. Don't panic. Units will be back soon.)
+For example, the function $x=3\units{m}$ is shown in \in{figure}[fig:xconst]. The velocity $v$ is the slope, given by the derivative, which is zero.
 
-For a function that is a sloped straight line, like $x = t$, the derivative is the line's slope. The slope is the same at all times, so the derivative is the same at all times, as in \in{figure}[fig:xlin].
+The next rule gives the derivative of functions that are powers of $t$, like $t^2$, $t^{-1}$, or $t^1 = t$. The derivatives of these powers is given by the \keyterm{power rule}. 
+\startformula
+	\ddt t^n = nt^{n-1}
+\stopformula
+
+For a function that is a sloped straight line, like $x = t$, the derivative is the line's slope. (We are ignoring units \emph{briefly}.)
+The slope is the same at all times, so the derivative is the same at all times, as in \in{figure}[fig:xlin]. This slope is given by the power rule with $n=1$. 
 \startuseMPgraphic{graph::xlin} % I'd like to add minor ticks, 0.667mm long.
 	path xpos;
 	xpos := (0,0) -- (5,5);
@@ -91,9 +97,9 @@ endgraph;
 \small\reuseMPgraphic{graph::xlin}
 \stopplacefigure
 \startformula
-	\ddt t = 1
+	\ddt t = \ddt t^1 = 1t^{1-1} = 1t^0 = 1
 \stopformula
-For a parabola, like $x = t^2$, the slope is different at different locations, so the derivative is a new function. \in{Figure}[fig:xquad] shows the function $x=t^2$ and some slopes, which can be found using the derivative.
+For a parabola, like $x = t^2$, the slope is different at different locations, so the derivative is a new function. \in{Figure}[fig:xquad] shows the function $x=t^2$ and some slopes, which can be found using the power rule with $n=2$.
 \startuseMPgraphic{graph::xquad} % I'd like to add minor ticks, 0.667mm long.
 	path xpos;
 	xpos := (-3,9) ..controls (-1,-3) and (1,-3).. (3,9);
@@ -129,20 +135,16 @@ endgraph;
 \small\reuseMPgraphic{graph::xquad}
 \stopplacefigure
 \startformula
-	\ddt t^2 = 2t.
+	\ddt t^2 = 2t^{2-1} = 2t^1 = 2t
 \stopformula
-These are all examples of the \keyterm{power rule}.
-\startformula
-	\ddt t^n = nt^{n-1}
-\stopformula
-This rule works for any power, including negative powers (like $x = 1/t = t^{-1}$) and fractional powers, (like $x = \sqrt{t} = t^{\onehalf}$).
+The power rule works for any power, including negative powers (like $x = 1/t = t^{-1}$) and fractional powers (like $x = \sqrt{t} = t^{\onehalf}$).
 
 \startexample[ex:DerivativeConstantV]
 Find $\ddt t^3$.
 \startsolution
 Use the product rule with $n=3$.
 \startformula
-	\ddt t^3 = 3 t^{3-1} = 2t^2
+	\ddt t^3 = 3 t^{3-1} = 3t^2
 \stopformula
 \stopsolution
 \stopexample
@@ -156,36 +158,37 @@ Use the product rule with $n=\onehalf$.
 \stopsolution
 \stopexample
 
-The second rule says that when a function is multiplied by some constant, its slope is multiplied by the same constant. For any function of time $f$ muliplied by a constant $a$ we use the \keyterm{constant product rule}.
+The third rule says that when a function is multiplied by some constant, its slope is multiplied by the same constant. This constant multiplier is called a \emph{coefficient}. For any function of time $f$ muliplied by a coefficient $a$ we use the \keyterm{coefficient rule}.
 \startformula
 	\ddt af  = a \ddt f
 \stopformula
 On the left, the derivative is acting on $af$. On the right the derivative is only acting on $f$. We often say that we have pulled the constant $a$ out of the derivative.
-The coefficient $a$ will typically have units. (Yay, units!) For example, if an object's momentum is given by the formula $p = (14\units{kg\.m/s^2})\,t$, we can find the force, which is the derivative of momentum.
+The coefficient $a$ will typically have units. (Yay, units!) For example, if an object's momentum is given by the formula $p = (14\units{kg\.m/s^3})\,t^2$, we can find the force, which is the derivative of momentum.
 \startformula
 	F = \ddt p
-		= \ddt (14\units{kg\.m/s^2})\,t
-		= (14\units{kg\.m/s^2}) \ddt t
-		= 14\units{kg\.m/s^2} 
+		= \ddt (14\units{kg\.m/s^3})\,t^2
+		= (14\units{kg\.m/s^3}) \ddt t^2
+		= (28\units{kg\.m/s^3})\,t 
 \stopformula
-In the third expression, the derivative is acting on $(14\units{kg\.m/s^2})\,t$. We pull the constant $(14\units{kg\.m/s^2})$ out of the derivative to get the fourth expression, where the derivative is acting on $t$.  We then find $\ddt t$ using the power rule with $n=1$.
+In the third expression, the derivative is acting on $(14\units{kg\.m/s^3})\,t^2$. We pull the constant $(14\units{kg\.m/s^3})$ out of the derivative to get the fourth expression, where the derivative is acting on $t^2$.  We then find $\ddt t^2$ using the power rule with $n=2$.
 
-The final rule is for functions added together. The slope of the sum is equal to the sum of the slopes. For any two functions of time $f$ and $g$ we use the \keyterm{sum rule}.
+The fourth and final rule is for functions added together. The slope of the sum is equal to the sum of the slopes. For any two functions of time $f$ and $g$ we use the \keyterm{sum rule}.
 \startformula
 	\ddt (f+g) = \ddt f + \ddt g
 \stopformula
 For example, if an object's vertical position is given by the formula $y = (12\units{m/s})\,t - (4.9\units{m/s^2})\,t^2$, we can find the vertical component of its velocity.
 \startformula\startmathalignment
-\NC	v_y \NC = \ddt y													\NR
-\NC		\NC = \ddt \left[(12\units{m/s})\,t - (4.9\units{m/s^2})\,t^2\right]	\NR
-\NC		\NC = \ddt (12\units{m/s})\,t - \ddt (4.9\units{m/s^2})\,t^2			\NR
+\NC	v_y = \ddt y	
+		\NC = \ddt \left[(12\units{m/s})\,t - (4.9\units{m/s^2})\,t^2\right]	\NR
+\NC		\NC = \ddt (12\units{m/s})\,t - \ddt (4.9\units{m/s^2})\,t^2		\NR
 \NC		\NC = (12\units{m/s})\ddt t - (4.9\units{m/s^2}) \ddt t^2			\NR
 \NC		\NC = (12\units{m/s}) - (9.8\units{m/s^2})\,t						\NR
 \stopmathalignment\stopformula
+We used the sum rule, then the coefficient rule, and finally the power rule (twice) to find the velocity.
 
 The derivative can be used on any coordinate ($y$, $z$, $\theta$) to find the corresponding component of the velocity ($v_y$, $v_z$, $\omega$). The derivative can also be used to find any component of force from the corresponding component of the momentum.
 
-There are more derivative rules for more complicated functions, but the three rules above are all you need for this physics course. 
+There are more derivative rules for more complicated functions, but the four rules above are all you need for this physics course. 
 
 %We only need three rules for working with rates of change. In the rules below, $f$ and $g$ are functions of time, while $a$ and $n$ are constants.
 %\startformula\startmathalignment
@@ -208,8 +211,8 @@ Where $x_0$ and $v_0$ are constants. ($x_0$ is the object's starting position). 
 \startsolution
 We start with the instantaneous velocity definition $v=\frac{d}{dt}x$, and apply the rules.
 \startformula\startmathalignment
-\NC v	\NC = \ddt x					\NR
-\NC		\NC = \ddt (x_0 + v_0t)		\NR
+\NC v = \ddt x
+		\NC = \ddt (x_0 + v_0t)		\NR
 \NC		\NC = \ddt x_0 + \ddt v_0t	\NR
 \NC		\NC = 0 + v_0\ddt t			\NR
 \NC		\NC = v_0					\NR
@@ -243,10 +246,10 @@ An object's position $x$ at time $t$ is given by the equation
 \stopformula
 Where $x_0$ and $v_0$ and $a_0$ are constants. Find the object's velocity $v$ and the force acting on the object at any time $t$.
 \startsolution
-We start with the instantaneous velocity definition $v=\ddt x$, and apply the rules. Notice what happens to the \onehalf in the final term.
+We start with the instantaneous velocity definition $v=\ddt x$, and apply the rules. Notice what happens to the \onehalf\ in the final term.
 \startformula\startmathalignment
-\NC v \NC = \ddt x								\NR
-\NC		\NC = \ddt (x_0 + v_0t + \half a_0 t^2)		\NR
+\NC v = \ddt x
+		\NC = \ddt (x_0 + v_0t + \half a_0 t^2)		\NR
 \NC		\NC = \ddt x_0 + \ddt v_0t  + \half a_0 t^2	\NR
 \NC		\NC = 0 + v_0\ddt t	 + \half a_0 \ddt t^2	\NR
 %\NC		\NC = v_0 + \half a 2 t				\NR
@@ -254,17 +257,17 @@ We start with the instantaneous velocity definition $v=\ddt x$, and apply the ru
 \stopmathalignment\stopformula
 This velocity is not constant – the object is accelerating. (The object's initial velocity is $v_0$.) The momentum is also changing.
 \startformula 
-	p = mv = mv_0 + ma_0 t
+	p = mv = m(v_0 + a_0 t)
 \stopformula	
 Using the derivative rules we find the force $F$ acting on the object at any time $t$.
 \startformula
-	F = \ddt p = \ddt (mv_0 + ma_0t) = ma_0
+	F = \ddt p = \ddt m(v_0 + a_0t) = m\ddt (v_0 + a_0t) = ma_0
 \stopformula
 At any time $t$, the force $F$ is 
 \startformula
 	F = ma_0
 \stopformula
-Since $m$ and $a_0$ are constants, this is constant force motion. The constant force $F$ acting on the object causes the object's constant acceleration $a_0 = F/m$.
+Since $m$ and $a_0$ are constants, this is constant force motion. The constant force $F$ acting on the object causes the object's constant acceleration $a_0$.
 \stopsolution
 \stopexample
 
