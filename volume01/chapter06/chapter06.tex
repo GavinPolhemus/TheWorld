@@ -163,10 +163,13 @@ Energy is not directional, so it works very well for systems with parts move in 
 
 Unfortunately, kinetic energy is not enough. Since kinetic energy is not directional, it cannot give us the velocity components needed for the position update formulas. In the case of the cannon ball, we can easily use conservation of energy to find the cannon ball's speed at any height, but conservation of energy cannot tell us the velocity's direction, which we need the to correctly update the position. (In one dimension, where velocity has only one component, kinetic energy is often enough, but we will not use this one-dimensional trick.)
 
-Lagrange gave us a clue with his formula for converting Daniel Bernoulli's potential energy into Newtons force.
+\section{Lagrange's step in the right direction}
+
+Lagrange found the directional information we need not in the kinetic energy $K$, but hidden in the potential energy $U$. His equation for converting Daniel Bernoulli's potential energy into Newtons force contains a virtual displacement $\partial x$.
 \startformula
 	F\sub{Newton} = -\frac{\partial U}{\partial x}
 \stopformula
+The virtual displacement's direction can gives us directional information from $U$. 
 Remember that $\partial U$ is the small virtual change in the potential energy due to the small virtual displacement $\partial x$. If there are more coordinates, like $y$ for the cannon ball, then there are more direction for the virtual displacement. Lagrange found that he could get each component of Newton's force by choosing the correct direction for the virtual displacement. He found the $x$-component of Newton's force with a virtual displacement in the $x$-direction, the $y$-component with a virtual displacement in the $y$-direction, and so on for all the coordinates of the system. (These virtual displacements do not actually happen in the physical system, so Lagrange was free to imagine different virtual displacements to get the force's different components.)
 
 \startbuffer[cannondx]
@@ -215,13 +218,34 @@ The gravitational force's $x$-components is zero, as we knew. A small virtual di
 The gravitational force's $y$-component is $-mg$, again agreeing with what we knew. These two components give the gravitational force vector shown in \in{figure}[fig:cannonForce].
 While potential energy itself does not have a direction, Lagrange's procedure produces the force vector, which does have a direction.
 
+Keeping track of the different virtual changes $\partial U$ due to the different virtual displacements $\partial x$ and $\partial y$ can get confusing, but Lagrange has good news. The ratios $\partial U\!/\partial x$ and $\partial U\!/\partial y$ can be easily found using the same derivative rules that we learned for rates of change (like $v = dx/dt$). When computing $\partial U\!/\partial x$ we keep $y$ constant. When computing $\partial U\!/\partial y$ we keep $x$ constant.
+
+\startexample[ex:CannonDirivaties]
+Use Lagrange's equation and the derivative rules to find the force components $F_x$ and $F_y$ on the cannon ball.
+\startsolution
+The $x$ component of the force is given by Lagrange's equation with a virtual displacement in the $x$-direction.
+\startformula
+	F_x = -\frac{\partial U}{\partial x} = -\ppx U = -\ppx mgy = 0
+\stopformula
+When calculating $\partial U\!/\partial x$ we keep $y$ constant, which makes $mgy$ constant. The derivative of a constant is zero.
+
+The $y$ component of the force is given by Lagrange's equation with a virtual displacement in the $y$-direction.
+\startformula
+	F_y = = -\frac{\partial U}{\partial y} = -\ppy U = -\ppy mgy =  -mg\ppy y = -mg
+\stopformula
+After pulling the coefficient $mg$ out of the derivative, we compute $\ppy y$ using the power rule with $n=1$.
+\stopsolution
+\stopexample
+
+The ratios $\partial U\!/\partial x$ and $\partial U\!/\partial y$ are called partial derivatives of $U$ because we compute them allowing only one part of or coordinates (either $x$ or $y$) to change while other parts are kept constant. Computing partial derivatives is much easier than dealing with many tiny virtual displacements. As a result, Lagrange replaced many diagrams with partial derivatives.
+
 Lagrange's equations for the components of Newton's forces were totally unlike Newton's own methods for working with forces. Newton's \booktitle{Principia} is full of diagrams. Newton's calculations are done with graphical methods, and equations are few. In the preface to his \booktitle{Mécanique Analytique}, Lagrange explains his analytical method.
 \startblockquote
 No figures will be found in this work. The methods I present require neither constructions nor geometrical or mechanical arguments, but solely algebraic operations subject to a regular and uniform procedure. Those who appreciate mathematical analysis will see with pleasure mechanics becoming a new branch of it and hence, will recognize that I have enlarged its domain.
 \stopblockquote
-In \booktitle{Mécanique Analytique}, Lagrange used his powerful mathematical analysis to expand the his equation for Newton's forces into a procedure for analyzing any mechanical system, described using and coordinates. Starting with only the formulas for the system's total kinetic energy and total potential energy, Lagrange's \quotation{regular and uniform procedure} produces a complete set of equations of motion for the system. (Lagrange's equations of motion are a bit more tangled than our position and momentum update formulas, so we will not learn the details of his procedure.)
+In \booktitle{Mécanique Analytique}, Lagrange used his powerful mathematical analysis to expand the his equation for Newton's forces into a procedure for analyzing any mechanical system, described using any coordinates. Starting with only the formulas for the system's total kinetic energy and total potential energy, Lagrange's \quotation{regular and uniform procedure} produces a complete set of equations of motion for the system. (Lagrange's equations of motion are a bit more tangled than our position and momentum update formulas, so we will not learn the details of his procedure.)
 
-Lagrange's \booktitle{Mécanique Analytique} was a stunning achievement, unlike anything physics had seen before. Lagrange was viewed as a hero in France under King Louis \convertnumber{KR}{16}. Luckily, his fame transcended the turbulent – often violent – politics of France following the French Revolution in 1789. He continued to play a leading role in the advancement of science and mathematics in France even as governments rose and fell around him.
+Lagrange's \booktitle{Mécanique Analytique} was a stunning achievement, unlike anything physics had seen before. Lagrange was viewed as a hero in France under King Louis \convertnumber{KR}{16}. Luckily, his fame transcended the turbulent – often violent – politics of France following the French Revolution in 1789. As governments rose and fell around him, Lagrange continued to play a leading role in the advancement of science and mathematics in France.
 
 \section{Hamilton's canonical equations of motion}
 
@@ -238,47 +262,136 @@ Trinity College had adopted the continental notation in 1812, a bit ahead of Cam
 Hamilton wrote two groundbreaking papers on mechanics, \booktitle{On A General Method In Dynamics} in 1834 and \booktitle{Second Essay On A General Method In Dynamics} in 1835. Hamilton's general method produces the equations of motion for any problem in mechanics, just like Lagrange's procedure, but Hamilton's general method is much easier to understand and execute.
 We will study Hamilton's general method in this chapter. First, we will learn to produce equations of motion from a system's total energy formula. Then, we will learn some methods of solving these equations of motion in specific examples. In \in{Chapter}[ch:Rotation], Hamilton's general method will explain the compound motions of planets, and in \in{Chapter}[ch:Waves] it will reveal the compound vibrations of a musical string.
 
-Hamilton's general method brings together the big ideas of position, momentum, and energy in surprisingly simple way. Hamilton found that he did not need two separate formulas for kinetic energy and potential energy, one formula for the total energy is enough. (He chose the symbol $H$ for total energy, which we have adopted.) Hamilton also recognized momentum's importance, and used momentum in his formula for total energy. For example, he would write the total energy for a cart on a spring like this:
+Hamilton's general method brings together the big ideas of position, momentum, and energy in surprisingly simple way. Hamilton found that he did not need two separate formulas for kinetic energy and potential energy, one formula for the total energy is enough. (He chose the symbol $H$ for total energy, which we have adopted.) Hamilton also recognized momentum's importance, and used momentum in his formula for total energy. For example, to describe the cart-on-a-spring system in \in{figure}[fig:HamiltonSpringCart], Hamilton would write the total energy
+\startbuffer[HamiltonSpringCart]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			]
+	\path (0,0) pic {cart}node[above = 5mm]{$m$};
+	\draw[decorate,decoration={coil,segment length=3.6pt}] (-24,2.5) --node[above=3pt] {$k$} (-6,2.5);
+    \stopaxis
+\stopbuffer
+
+\marginTikZ{}{HamiltonSpringCart}{A cart connected to an ideal spring.} % vskip, name, caption
 \startformula
-  H = \frac{p^2}{2m} + \half kx^2
+  H = \textfrac{1}{2m}p^2 + \textfrac{k}{2}x^2. %\frac{p^2}{2m} + \half kx^2
 \stopformula
-Euler and Lagrange used velocity rather than momentum, writing kinetic energy as $K=\onehalf mv^2$. Using velocity is reasonable, but it caused the update formulas to get tangled. Hamilton discovered that using momentum allowed him to separate the update formulas, making the equations of motion much easier understand and solve.
+The coefficients $1/2m$ and $k/2$ are constants. The dynamical variables $p$ and $x$ describe the system's changing momentum and position.
+Euler and Lagrange used velocity rather than momentum, writing kinetic energy as $K=\onehalf mv^2$. Using velocity is reasonable, but it caused the update formulas to get tangled. Hamilton discovered that using momentum allowed him to separate the update formulas, making the equations of motion much easier understand and solve. When a system's total energy is written in Hamilton's form, with positions and momenta, it is called the system's \keyterm{Hamiltonian}.
 
 %\section{Hamilton's momentum update formula}
 
 %Hamilton's momentum update formula uses and idea similar to Lagrange's equation, 
 
-Hamilton followed Daniel Bernoulli's advice and described all interactions in terms of energy, not it terms of Newton's force. There is a bit of an obstacle to this approach. Lagrange's equation tells us how to find Newton's force from potential energy, but it does not tell us how to go the other way. In fact, some forces – like friction – cannot be described using potential energy and must be left outside the system. We will use $F$ only for these external forces. Any interaction that can be described using potential energy will be included in the energy formula.
+Hamilton followed Daniel Bernoulli's advice and described all interactions as potential energy, not Newtonian forces. There is a bit of an obstacle to this approach. Lagrange's equation tells us how to convert to Newton's force from potential energy, but it does not tell us how to convert the other way. In fact, some forces (like friction) cannot be described using potential energy and must be left as outside forces acting on the system. We will use $F$ only for these external forces. Any interaction that can be described using potential energy will be included in the energy formula.
 
 The system's total energy $H$ and the the external force $F$ come together in Hamilton's momentum update formula.
 \startformula[eq:Hamilton2]
-	dp = \left(-\frac{\partial H}{\partial x} + F \right) dt
+	dp = \left(-\ppx H + F \right) dt
 \stopformula
-The parts of this new formula should be reassuringly familiar. If our system has only external forces, no energy, this would be Newton's momentum update formula, $dp = F\,dt$. The new term on the right looks almost identical to Lagrange's equation, $F\sub{Newton} = -\partial U/\partial x$, but Hamilton replaces the potential energy $U$ with the total energy $H$. This replacement will be essential when using curved coordinates, like the polar coordinate used to describe orbits, but it has no effect in most of the systems we have studied.
+Parts of this new formula should be reassuringly familiar. For a system with only external forces (no energy) this is Newton's momentum update formula, $dp = F\,dt$. The new term on the right looks almost identical to Lagrange's equation, $F\sub{Newton} = -\partial U/\partial x$, but Hamilton replaces the potential energy $U$ with the total energy $H$. This replacement will be essential when using curved coordinates, like the polar coordinate used to describe orbits.%, but it has no effect in most of the systems we have studied.
+
+To see Hamilton's procedure in action, let us find the momentum update formula for the familiar cart-on-a-spring system. First, put the system's Hamiltonian into Hamilton's momentum update formula. The spring is included in the system, so there are no external forces.
+\startformula
+	dp = \left( -\ppx H + \cancel{F} \right) dt
+		%= -\ppx H dt
+		= -\ppx \left( \textfrac{1}{2m}p^2 + \textfrac{k}{2}x^2 \right) dt
+\stopformula
+Use the sum rule and then the coefficient rule to pull the coefficients out of the partial derivatives.
+\startformula\startmathalignment
+\NC	dp	\NC = -\left( \ppx  \textfrac{1}{2m}p^2 + \ppx\textfrac{k}{2}x^2 \right) dt		\NR
+\NC		\NC = -\left( \textfrac{1}{2m} \ppx p^2 + \textfrac{k}{2} \ppx x^2 \right) dt	\NR
+\stopmathalignment\stopformula
+When calculating the partial derivative $\partial/\partial x$, the variable $p$ is constant. Therefore, the constant rule for derivatives tells us that the first term in parenthesis is zero. The second term is found using the power rule with $n=2$.
+\startformula
+	dp = -\left( 0 + \textfrac{k}{2} 2x^{(2-1)} \right) dt
+		= - kx\,dt
+\stopformula
+This is the correct position update formula that we found before using Hooke's law. 
+
+Hamilton found that the total energy $H$ also produces the position update formula. 
+\startformula
+	dx = \pp{p} H\,dt
+\stopformula
+This formula is not familiar, but it is easy to use.
+\startexample[ex:CannonDirivaties]
+Use Hamilton's position update formula to find the position update formula for the cart-on-a-spring system in \in{figure}[fig:HamiltonSpringCart].
+\startsolution
+Put the cart-on-a-spring Hamiltonian into Hamilton's position update formula. Then use derivative rules to pull the coefficients out of the partial derivatives.
+\startformula
+	dx = \pp{p} H\,dt
+		= \pp{p} \left( \textfrac{1}{2m}p^2 + \textfrac{k}{2}x^2 \right) dt
+		= \left( \textfrac{1}{2m} \pp{p} p^2 +\textfrac{k}{2}\pp{p}x^2 \right) dt
+\stopformula
+When calculating the partial derivative $\partial/\partial p$, the variable $x$ is constant. Therefore, the constant rule for derivatives tells us that the second term in parenthesis is zero. The first term is found using the power rule with $n=2$.
+\startformula
+	dx = \left( \textfrac{1}{2m} 2 p^{(2-1)} +0 \right) dt
+		= \textfrac{1}{m} p\,dt
+\stopformula
+This is the familiar position update formula $dx = v\,dt$ with the velocity $v = p/m$.
+\stopsolution
+\stopexample
 
 
-When calculating $\partial H/\partial x$, we are looking at the virtual change $\partial H$ in the total energy due only to the virtual displacement 
-
-
-
-
+\section{Playing with the equations' formatting}
 
 \startformula
-	dx = \frac{\partial H}{\partial p_x} dt
+	dx = \frac{\partial H}{\partial p}\,dt
 	\qquad
 	dp = \left(-\frac{\partial H}{\partial x} + F \right) dt
 \stopformula
 
+\startformula
+	dx = \pp{p} H\,dt
+	\qquad
+	dp = \left(-\ppx H + F \right) dt
+\stopformula
+\startformula
+	dx_i = \pp{p_i} H\,dt
+	\qquad
+	dp_i = \left(-\pp{x_i} H + F_i \right) dt
+\stopformula
+\startformula
+	d\theta = \pp{p_\theta} H\,dt
+	\qquad
+	dp_\theta = \left(-\ppth H + F_\theta \right) dt
+\stopformula
 
 \startformula\startalign[m=2,distance=5em]
-\NC dx		\NC = \frac{p_x}{m}\,dt
+\NC dx		\NC = \frac{\partial H}{\partial p_x}\,dt
 \NC 	dp_x		\NC = \left(-\frac{\partial H}{\partial x} + F_x \right)	 dt\NR
-\NC dy		\NC = \frac{p_y}{m}\,dt
+\NC dy		\NC = \frac{\partial H}{\partial p_y}\,dt
 \NC 	dp_y		\NC = \left(-\frac{\partial H}{\partial y} + F_y \right) dt	\NR
-\NC d\theta	\NC = \frac{p_\theta}{I}\,dt
+\NC d\theta	\NC = \frac{\partial H}{\partial p_\theta}\,dt
 \NC 	dp_\theta	\NC = \left(-\frac{\partial H}{\partial \theta} + F_\theta \right) dt	\NR
 \stopalign\stopformula
 
+
+\section{Hamilton's total triumph}
+
+\startformula\startmathalignment
+\NC	dH	\NC = \frac{\partial H}{\partial x}\,dx + \frac{\partial H}{\partial p}\,dp	\NR
+\NC		\NC = \frac{\partial H}{\partial x}\frac{\partial H}{\partial p}\,dt
+				+ \frac{\partial H}{\partial p}\left(-\frac{\partial H}{\partial x} + F \right) dt	\NR
+\NC		\NC = \frac{\partial H}{\partial x}\frac{\partial H}{\partial p}\,dt
+				- \frac{\partial H}{\partial p}\frac{\partial H}{\partial x}\,dt
+					+ F\,\frac{\partial H}{\partial p}\,dt	\NR
+\NC		\NC = F\,dx	\NR
+\stopmathalignment\stopformula
+
+\startformula\startmathalignment
+\NC	dH	\NC = \sum_i^n \left[ \frac{\partial H}{\partial x_i}\,dx_i + \frac{\partial H}{\partial p_i}\,dp_i \right]	\NR
+\NC		\NC = \sum_i^n \left[ \frac{\partial H}{\partial x_i}\frac{\partial H}{\partial p_i}\,dt
+				+ \frac{\partial H}{\partial p_i}\left(-\frac{\partial H}{\partial x_i} + F_i \right) dt \right]	\NR
+\NC		\NC = \sum_i^n \left[ \frac{\partial H}{\partial x_i}\frac{\partial H}{\partial p_i}\,dt
+				- \frac{\partial H}{\partial p_i}\frac{\partial H}{\partial x_i}\,dt
+					+ F_i\,\frac{\partial H}{\partial p_i}\,dt \right]	\NR
+\NC		\NC = \sum_i^n F_i\,dx_i	\NR
+\stopmathalignment\stopformula
 
 \subject{Notes}
 %\placefootnotes[criterium=chapter]
