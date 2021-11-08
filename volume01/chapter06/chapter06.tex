@@ -492,17 +492,18 @@ Before we apply Hamilton's method to the quadrivium problems, we need a couple s
 
 A pendulum's position is naturally described by the angle it makes with the vertical. \in{Figure}[fig:GalileoPendulumAngle] shows a pendulum with its angular position in radians. We will find the pendulum's equations of motion using the angular coordinate $\theta$, and the \keyterm{angular momentum} $p_\theta$. First, we will find the Hamiltonian. Then, we will use Hamilton's equations to find the update formulas for $\theta$ and $p_\theta$.
 
-The Hamiltonian is the pendulum's total energy. When working with the the angle it is convenient to set the pivot at the height $h=0$, making the pendulum's height negative whenever it is below the pivot, as shown in \in{figure}[fig:GalileoPendulumAngle]. The pendulum's potential energy is then $U = -mgR\cos(\theta)$. The pendulum's rotational kinetic energy (\at{p.}[eq.Krot]) is $K = \half I\omega^2$, where the moment of inertial $I$ plays the role of rotational mass. Unfortunately, this is written in terms of angular velocity $\omega$. The Hamiltonian must be written in terms of angular momentum $p_\theta$. The obvious guess is $K = p_\theta^2/2I$, where $I$ again plays the role of rotational mass. This guess is correct, and the Hamiltonian is
+The Hamiltonian is the pendulum's total energy. When working with the the angle it is convenient to set the pivot at  height $h=0$, making the pendulum's height negative whenever it is below the pivot, as shown in \in{figure}[fig:GalileoPendulumAngle]. The pendulum's potential energy is then $U = -mgR\cos(\theta)$. The pendulum's rotational kinetic energy (\at{p.}[eq.Krot]) is $K = \onehalf I\omega^2$, where the moment of inertial $I$ plays the role of rotational mass. Unfortunately, this is written in terms of angular velocity $\omega$. The Hamiltonian must be written in terms of angular momentum $p_\theta$. The obvious guess is $K = p_\theta^2/2I$, where $I$ again plays the role of rotational mass. This guess is correct. The Hamiltonian is
 \startformula
   H = \textfrac{1}{2I}p_\theta^2 - mgR\cos(\theta).
 \stopformula
 The first term – the rotational kinetic energy – will be necessary whenever we use an angular coordinate. It would be good to remember. The second term is specific to the potential energy of a pendulum.
 
-Now that we have the Hamiltonian, we can use Hamiltons equations to find the equations of motion. These will be the update formulas for $\theta$ and $p_\theta$.
+Now that we have the Hamiltonian, we can use Hamilton's equations to find the equations of motion. %These will be the update formulas for $\theta$ and $p_\theta$.
+(No external forces)
 \startformula
 	d\theta = \pp{p_\theta} H\,dt
 	\qquad
-	dp_\theta = \left(-\ppth H + F_\theta \right) dt
+	dp_\theta = \left(-\ppth H + \cancel{F_\theta} \right) dt
 \stopformula
 We will find the angle update formula first.
 \startformula
@@ -511,8 +512,8 @@ We will find the angle update formula first.
 		= \left( \textfrac{1}{2I} \pp{p_\theta} p_\theta^2 - 0 \right) dt
 		= \textfrac{1}{I} p_\theta\,dt
 \stopformula
-This is the usual position update formula for angular motion $\theta = \omega\,dt$ with angular velocity $\omega = p_\theta / I$.
-The angular momentum $p_\theta$ is related to the angular velocity in the same way that Newton's momentum is related to velocity.
+This is the position update formula for angular motion, $d\theta = \omega\,dt$, with angular velocity $\omega = p_\theta / I$.
+We see that angular momentum $p_\theta$ is related to the angular velocity in the same way that Newton's momentum is related to velocity.
 \startformula
 	p_\theta = I\omega
 \stopformula
@@ -520,12 +521,16 @@ All of the steps above will be relevant to any problem with an angular coordinat
 
 We begin, of course, with Hamilton's momentum update formula and apply the derivative rules.
 \startformula
-	dp_\theta = \left( -\ppth H + \cancel{F} \right) dt
+	dp_\theta %= \left( -\ppth H + \cancel{F} \right) dt
 		%= -\ppth H dt
 		= -\ppth \left( \textfrac{1}{2I}p_\theta^2 - mgR\cos(\theta) \right) dt
 		= mgR \ppth \cos(\theta)\,dt
 \stopformula
-Completing this calculation requires one calculus fact: $\ppth \cos(\theta) = -\sin(\theta)$. (In a calculus course you would learn the derivatives of many special functions. You do not need to learn them here.) With this fact we can finish the calculation.
+Completing this calculation requires one calculus fact:
+\startformula
+	\ppth \cos(\theta) = -\sin(\theta)
+\stopformula
+(In a calculus course you would learn the derivatives of many special functions. You do not need to learn them here.) With this fact we can finish the calculation.
 \startformula
 dp_\theta %= mgR \ppth \cos(\theta)\,dt
 	= -mgR \sin(\theta)\,dt
@@ -536,7 +541,7 @@ dp_\theta %= mgR \ppth \cos(\theta)\,dt
 %\NC		\NC = mgR \ppth \cos(\theta)\,dt	\NR
 %\NC		\NC = -mgR \sin(\theta)\,dt	\NR
 %\stopmathalignment\stopformula
-This is the usual momentum update formula $p_\theta = F_\theta\,dt$ with the angular force $F_\theta = -mgR\sin(\theta)$. The angular force is usually called \keyterm{torque}.%, and is often represented by $\tau$ (the greek letter tau).
+This is the usual momentum update formula $p_\theta = F_\theta\,dt$ with an external angular force $F_\theta = -mgR\sin(\theta)$. Angular force is called \keyterm{torque}.%, and is often represented by $\tau$ (the greek letter tau).
 
 \section{Throwing Newton's globes}
 \startbuffer[TikZ:ThrowNewtonGlobes]
