@@ -149,7 +149,7 @@ The cart's velocity is $v=p/m$ and the force is given by Hooke's law, $F = -kx$.
 	\qquad
 	dp = -kx\,dt
 \stopformula
-In this case the momentum changes depend on the position. The change is always toward the central equilibrium and $x=0$. %Solving with by doing repeated updates produces simple ha
+In this case the momentum changes depend on the position. The change is always toward the central equilibrium at $x=0$. %Solving with by doing repeated updates produces simple ha
 \stopsolution
 \stopexample
 
@@ -317,7 +317,7 @@ Hamilton found that the total energy $H$ also produces the position update formu
 \startformula
 	dx = \pp{p} H\,dt
 \stopformula
-This formula is not familiar, but it is easy to use.
+This formula is not familiar, but with your new derivative skills it will be easy to use.
 \startexample[ex:CannonDirivaties]
 Use Hamilton's position update formula to find the position update formula for the cart-on-a-spring system in \in{figure}[fig:HamiltonSpringCart].
 \startsolution
@@ -336,14 +336,296 @@ This is the familiar position update formula $dx = v\,dt$ with the velocity $v =
 \stopsolution
 \stopexample
 
+Hamilton's general method produces the complete equations of motion for any mechanical system from the system's Hamiltonian – the system's total energy written in terms of the positions and momenta. Hamilton's method is a favorite with physicists because of its power, beauty, and practicality. The method it is also excellent for students. Writing the Hamiltonian is often fairly easy, even for complicated system; the method often requires only basic skills with derivatives; and the equations of motion are separated into their most useful form. Hamilton's method is not necessary for a simple system like the cart on a spring, but it is ideal for our quadrivium problems. 
 
-\section{Playing with the equations' formatting}
+Before we apply Hamilton's method to the quadrivium problems, we need a couple specific skills. In the next section, we will find angular equations of motion for the familiar pendulum. In the following section, we will look at a system with several degrees of freedom. Hamilton's method produces equations of motion that we can completely solve to find the system's compound motion. 
+
+\section{Angular coordinates, angular momentum, and torque}
+
+\startbuffer[TikZ:GalileoPendulumAngle]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+%	\draw [help lines, xstep=8, ystep=.34] (-4.3,0) grid (4.3,4.3); % Background grid
+%	\draw (-4.3,-0.5) rectangle (4.3,4.5); % Border
+	% h axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0)
+				node[left]{
+					\pgfmathparse{
+						10-10*\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,4pt);
+			},
+		}
+	] (-4.3,4) -- (-4.3,0);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1mm with {
+				\draw (0,0) -- (0, -2pt);
+			},
+		}
+	] (-4.3,0) --node[sloped,above=5mm]{$h$ (cm)} (-4.3,4);
+	% U axis
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 6.8mm with {
+				\draw (0,0)
+				node[right]{
+					\pgfmathparse{
+						0.1*(1-\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						})
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				} -- (0,-4pt);
+			},
+		}
+	] (4.3,4) -- (4.3,-0.082);
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 3.4mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (4.3,-0.082) --node[sloped, below=6mm]{$U$ (J)} (4.3,4);
+	\fill (0,4) circle[radius=.4mm]; % Pivot
+%	\node at (0,0) [above left]{B}; % Bottom
+	\draw[middlegray] (0,4) -- (0,3); % Central vertical
+	\draw[middlegray] (0,2) -- (0,0); % Central vertical
+%	\node at (-3.2,1.6) [above=2mm]{C}; % Left
+%	\node at (3.2,1.6) [above=1mm]{D}; % Right
+%	\fill (0,2) circle[radius=.4mm]node[left]{E}; % 2nd nail
+%	\fill (0,1) circle[radius=.4mm]node[left]{F}; % 3nd nail
+%	\node at (1.833,1.6) [above=1mm]{G}; % Right
+%	\node at (0.98,1.6) [above=1mm]{I}; % Right
+	\draw[middlegray] (-4.0,4) -- (4.0,4); % x axis
+	\draw[middlegray] (-4.0,0.8) -- (4.0,0.8); % horizontal at max height
+	% Pendulum path
+	\draw[middlegray] (0,0) arc[start angle=270, end angle=360, radius=4cm];
+	\draw[middlegray] (0,0) arc[start angle=270, end angle=180, radius=4cm];
+	\draw[<->] (-0.6,4) --node[sloped, below, pos = 0.6]{$R\cos(\theta)$} (-0.6,0.8); % height
+	% Theta marks
+	% Positive on the right
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0) -- (0,-4pt)
+				node[below,transform shape]{
+					\pgfmathparse{
+						-1+\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				};
+			},
+		}
+	] (0,3) arc[start angle=270, end angle=360, radius=1cm];
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 0.998mm with {
+				\draw (0,0) -- (0,-2pt);
+			},
+		}
+	] (0,3) arc[start angle=270, end angle=360, radius=1cm];
+	% Negative on the left
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 1cm with {
+				\draw (0,0) -- (0,4pt)
+				node[below, transform shape, rotate=180]{
+					\pgfmathparse{
+						1-\pgfkeysvalueof{%
+							/pgf/decoration/mark info/sequence number%
+						}
+					}
+					\pgfmathprintnumber{\pgfmathresult}
+				};
+			},
+		}
+	] (0,3) arc[start angle=270, end angle=180, radius=1cm];
+	\draw[
+		postaction={decorate},
+		decoration={
+			markings, % Main marks
+			mark=between positions 0 and 1 step 0.998mm with {
+				\draw (0,0) -- (0,2pt);
+			},
+		}
+	] (0,3) arc[start angle=270, end angle=180, radius=1cm];
+	\node at (0,3) [below=5mm]{$\theta$ (rad)};
+	% Pendulum
+	\draw[thick] (0,4) --node[sloped,above]{$R$} (2.4,0.8); % String
+	\draw[ball color=white] (2.4,0.8) circle[radius=2mm]; % Ball , opacity=.5
+	\fill (2.4,0.8) circle[radius=.4mm]; % CoM
+	%\draw[very thick, ->] (-3.2,1.6) ++(-3mm,4mm) -- ++(6mm,-8mm)node[above right]{$\partial s$}; % ds
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[bottom][fig:GalileoPendulumAngle] % location
+{The pendulum's height is measured from the pivot, so height and potential energy are negative as long as the pendulum is below the pivot.}	 % caption text
+{\noindent\typesetbuffer[TikZ:GalileoPendulumAngle]} % figure contents
+
+A pendulum's position is naturally described by the angle it makes with the vertical. \in{Figure}[fig:GalileoPendulumAngle] shows a pendulum with its angular position in radians. We will find the pendulum's equations of motion using the angular coordinate $\theta$, and the \keyterm{angular momentum} $p_\theta$. First, we will find the Hamiltonian. Then, we will use Hamilton's equations to find the update formulas for $\theta$ and $p_\theta$.
+
+The Hamiltonian is the pendulum's total energy. When working with the the angle it is convenient to set the pivot at the height $h=0$, making the pendulum's height negative whenever it is below the pivot, as shown in \in{figure}[fig:GalileoPendulumAngle]. The pendulum's potential energy is then $U = -mgR\cos(\theta)$. The pendulum's rotational kinetic energy (\at{p.}[eq.Krot]) is $K = \half I\omega^2$, where the moment of inertial $I$ plays the role of rotational mass. Unfortunately, this is written in terms of angular velocity $\omega$. The Hamiltonian must be written in terms of angular momentum $p_\theta$. The obvious guess is $K = p_\theta^2/2I$, where $I$ again plays the role of rotational mass. This guess is correct, and the Hamiltonian is
+\startformula
+  H = \textfrac{1}{2I}p_\theta^2 - mgR\cos(\theta).
+\stopformula
+The first term – the rotational kinetic energy – will be necessary whenever we use an angular coordinate. It would be good to remember. The second term is specific to the potential energy of a pendulum.
+
+Now that we have the Hamiltonian, we can use Hamiltons equations to find the equations of motion. These will be the update formulas for $\theta$ and $p_\theta$.
+\startformula
+	d\theta = \pp{p_\theta} H\,dt
+	\qquad
+	dp_\theta = \left(-\ppth H + F_\theta \right) dt
+\stopformula
+We will find the angle update formula first.
+\startformula
+	d\theta %= \pp{p_\theta} H\,dt
+		= \pp{p_\theta} \left(\textfrac{1}{2I}p_\theta^2 - mgR\cos(\theta) \right) dt
+		= \left( \textfrac{1}{2I} \pp{p_\theta} p_\theta^2 - 0 \right) dt
+		= \textfrac{1}{I} p_\theta\,dt
+\stopformula
+This is the usual position update formula for angular motion $\theta = \omega\,dt$ with angular velocity $\omega = p_\theta / I$.
+The angular momentum $p_\theta$ is related to the angular velocity in the same way that Newton's momentum is related to velocity.
+\startformula
+	p_\theta = I\omega
+\stopformula
+All of the steps above will be relevant to any problem with an angular coordinate. The momentum update formula, which we turn to next, is a bit trickier and specific to the pendulum. Follow the process, but you will not need to reproduce the details in your own calculations.
+
+We begin, of course, with Hamilton's momentum update formula and apply the derivative rules.
+\startformula
+	dp_\theta = \left( -\ppth H + \cancel{F} \right) dt
+		%= -\ppth H dt
+		= -\ppth \left( \textfrac{1}{2I}p_\theta^2 - mgR\cos(\theta) \right) dt
+		= mgR \ppth \cos(\theta)\,dt
+\stopformula
+Completing this calculation requires one calculus fact: $\ppth \cos(\theta) = -\sin(\theta)$. (In a calculus course you would learn the derivatives of many special functions. You do not need to learn them here.) With this fact we can finish the calculation.
+\startformula
+dp_\theta %= mgR \ppth \cos(\theta)\,dt
+	= -mgR \sin(\theta)\,dt
+\stopformula
+%\startformula\startmathalignment
+%\NC	dp_\theta	\NC = -\left( \ppth  \textfrac{1}{2I}p_\theta^2 - \ppth mgR\cos(\theta) \right) dt		\NR
+%\NC		\NC = -\left( \textfrac{1}{2I} \ppx p_\theta^2 - mgR \ppth \cos(\theta) \right) dt	\NR
+%\NC		\NC = mgR \ppth \cos(\theta)\,dt	\NR
+%\NC		\NC = -mgR \sin(\theta)\,dt	\NR
+%\stopmathalignment\stopformula
+This is the usual momentum update formula $p_\theta = F_\theta\,dt$ with the angular force $F_\theta = -mgR\sin(\theta)$. The angular force is usually called \keyterm{torque}.%, and is often represented by $\tau$ (the greek letter tau).
+
+\section{Throwing Newton's globes}
+\startbuffer[TikZ:ThrowNewtonGlobes]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage
+\def\angles{522,504,...,-90}
+\starttikzpicture% tikz code
+	\clip (-14,-4) rectangle (2.5,1.7);% Clipping Rectangle
+	\foreach \T in \angles {% Dumbbells
+		\draw[-{Straight Barb[scale length=.5]}] ({-3.14*(\T+18)/120},{-((\T-200)/200)^2}) -- ({-3.14*\T/120},{-((\T-218)/200)^2})pic[{}
+		-{},rotate={\T},opacity={.5-(\T/1200)}]{dumbbell};
+	}
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+%\placefigure[margin][fig:spinningmoving] % location
+%{As the joined globes revolve, their center moves uniformly in a straight line.}	% caption text
+%{\noindent\typesetbuffer[TikZ:spinningmoving]} % figure contents
+
+\placefigure[margin][fig:ThrowNewtonGlobes] % location
+{Newton's joined globes move in three coordinates, $x$, $y$, and $\theta$. They revolve with constant angular velocity $\omega$ as their center follows a parabolic path like the cannon ball.}	% caption text
+{\vskip5.1in\hbox{\starttikzpicture
+	\draw[white] (0,0)-- ++(5,0); % Sky to make height better
+\stoptikzpicture}}
+
+\placewidefloat[bottom,none]
+{This is its caption I need to fix.}
+{\hbox{\noindent\typesetbuffer[TikZ:ThrowNewtonGlobes]}} % figure contents
+\startformula
+  H = \textfrac{1}{2m}p_x^2 + \textfrac{1}{2m}p_y^2 + \textfrac{1}{2I}p_\theta^2 + mgy.
+\stopformula
 
 \startformula
-	dx = \frac{\partial H}{\partial p}\,dt
-	\qquad
-	dp = \left(-\frac{\partial H}{\partial x} + F \right) dt
+	dp_x = \left( -\ppx H + \cancel{F} \right) dt
+		%= -\ppx H dt
+		= -\ppx \left( \textfrac{1}{2m}p_x^2 + \textfrac{1}{2m}p_y^2 + \textfrac{1}{2I}p_\theta^2 + mgy \right) dt
+		= 0
 \stopformula
+Solve: $p_x = p_{0x} = m v_{0x}$.
+
+\startformula
+	dx = \pp{p_x} H\,dt
+		= \pp{p_x} \left( \textfrac{1}{2m}p_x^2 + \textfrac{1}{2m}p_y^2 + \textfrac{1}{2I}p_\theta^2 + mgy \right) dt
+		= \textfrac{1}{m} p_x\,dt
+\stopformula
+The momentum $p_x$ is a constant of the motion, but we do not treat it as a constant when calculating the partial derivative $\pp{p_x}$. Partial derivatives compare virtual changes which do not necessarily happen in the real system. In this case, we are considering the virtual momentum change $\partial p_x$ even though the actual momentum change $d p_x$ is zero.
+
+Solve: $x = x_0 + v_{0x} t$.
+
+\startformula
+	dp_\theta = \left( -\ppth H + \cancel{F} \right) dt
+		%= -\ppx H dt
+		= -\ppth \left( \textfrac{1}{2m}p_x^2 + \textfrac{1}{2m}p_y^2 + \textfrac{1}{2I}p_\theta^2 + mgy \right) dt
+		= 0
+\stopformula
+Solve: $p_\theta = p_{0\theta} = I\omega_{0}$.
+
+\startformula
+	d\theta = \pp{p_\theta} H\,dt
+		= \pp{p} \left( \textfrac{1}{2m}p_x^2 + \textfrac{1}{2m}p_y^2 + \textfrac{1}{2I}p_\theta^2 + mgy \right) dt
+		= \textfrac{1}{m} p\,dt
+\stopformula
+Solve: $\theta = \theta_0 + \omega_0 t$.
+
+\startformula
+	dp_y = \left( -\ppx H + \cancel{F} \right) dt
+		%= -\ppx H dt
+		= -\ppy \left( \textfrac{1}{2m}p_x^2 + \textfrac{1}{2m}p_y^2 + \textfrac{1}{2I}p_\theta^2 + mgy \right) dt
+		= -mg\,dt
+\stopformula
+
+Solve: $p_y = p_{0y} - mgt = m(v_{0y} - gt)$.
+
+\startformula
+	dy = \pp{p_y} H\,dt
+		= \pp{p_y} \left( \textfrac{1}{2m}p_x^2 + \textfrac{1}{2m}p_y^2 + \textfrac{1}{2I}p_\theta^2 + mgy \right) dt
+		= \textfrac{1}{m} p_y\,dt
+\stopformula
+Solve: $y = y_0 + v_{0y}t - \half mgt^2$.
+
+\stopchapter
+\stopcomponent
+
+
+\section{Playing with the equations' formatting}
 
 \startformula
 	dx = \pp{p} H\,dt
@@ -355,21 +637,6 @@ This is the familiar position update formula $dx = v\,dt$ with the velocity $v =
 	\qquad
 	dp_i = \left(-\pp{x_i} H + F_i \right) dt
 \stopformula
-\startformula
-	d\theta = \pp{p_\theta} H\,dt
-	\qquad
-	dp_\theta = \left(-\ppth H + F_\theta \right) dt
-\stopformula
-
-\startformula\startalign[m=2,distance=5em]
-\NC dx		\NC = \frac{\partial H}{\partial p_x}\,dt
-\NC 	dp_x		\NC = \left(-\frac{\partial H}{\partial x} + F_x \right)	 dt\NR
-\NC dy		\NC = \frac{\partial H}{\partial p_y}\,dt
-\NC 	dp_y		\NC = \left(-\frac{\partial H}{\partial y} + F_y \right) dt	\NR
-\NC d\theta	\NC = \frac{\partial H}{\partial p_\theta}\,dt
-\NC 	dp_\theta	\NC = \left(-\frac{\partial H}{\partial \theta} + F_\theta \right) dt	\NR
-\stopalign\stopformula
-
 
 \section{Hamilton's total triumph}
 
