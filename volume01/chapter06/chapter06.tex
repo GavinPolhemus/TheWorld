@@ -338,6 +338,9 @@ This is the familiar position update formula $dx = v\,dt$ with the velocity $v =
 
 Hamilton's general method produces the complete equations of motion for any mechanical system from the system's Hamiltonian – the system's total energy written in terms of the positions and momenta. Hamilton's method is a favorite with physicists because of its power, beauty, and practicality. The method it is also excellent for students. Writing the Hamiltonian is often fairly easy, even for complicated system; the method often requires only basic skills with derivatives; and the equations of motion are separated into their most useful form. Hamilton's method is not necessary for a simple system like the cart on a spring, but it is ideal for our quadrivium problems. 
 
+\stopchapter
+\stopcomponent
+
 Before we apply Hamilton's method to the quadrivium problems, we need a couple specific skills. In the next section, we will find angular equations of motion for the familiar pendulum. In the following section, we will look at a system with several degrees of freedom. Hamilton's method produces equations of motion that we can completely solve to find the system's compound motion. 
 
 \section{Angular coordinates, angular momentum, and torque}
@@ -541,9 +544,14 @@ dp_\theta %= mgR \ppth \cos(\theta)\,dt
 %\NC		\NC = mgR \ppth \cos(\theta)\,dt	\NR
 %\NC		\NC = -mgR \sin(\theta)\,dt	\NR
 %\stopmathalignment\stopformula
-This is the usual momentum update formula $p_\theta = F_\theta\,dt$ with an external angular force $F_\theta = -mgR\sin(\theta)$. Angular force is called \keyterm{torque}.%, and is often represented by $\tau$ (the greek letter tau).
+This is the usual momentum update formula $p_\theta = F_\theta\,dt$ with an external angular force $F_\theta = -mgR\sin(\theta)$. Angular force is called \keyterm{torque}. %, and is often represented by $\tau$ (the greek letter tau).
+The torque is negative when the angle $\theta$ is positive, and the torque is positive when $\theta$ is negative. The resulting change $dp_\theta$ in the angular momentum is always toward the equilibrium at $\theta = 0$, much like the cart on a spring. Both systems oscillate in a similar manner.
+
+The $\sin(\theta)$ in the momentum update formula makes the pendulum's equations of motion difficult to solve by hand. A computer using the equations of motion to do rapid, repeated updates would be the best way to model the pendulums behavior precisely.
 
 \section{Throwing Newton's globes}
+Our final example combines two earlier examples. We return to the cannon ball moving in the $x$ and $y$-directions, but we replace the cannon ball with Newton's connected globes from \in{Chapter}[ch:VisViva] (\at{pp.}[GlobesStart]--\at[GlobesStop]). These globes rotate about their center of mass. Their orientation is described by the angle $\theta$ that the rod makes with the horizon.
+\in{Figure}[fig:ThrowNewtonGlobes] shows a bit of the globes' complicated motion. We could begin drawing angles and coordinates, but this could become a mess quite quickly. Instead, we will embrace Hamilton's analytical method. 
 \startbuffer[TikZ:ThrowNewtonGlobes]
 \environment env_physics
 \environment env_TikZ
@@ -574,17 +582,33 @@ This is the usual momentum update formula $p_\theta = F_\theta\,dt$ with an exte
 \placewidefloat[bottom,none]
 {This is its caption I need to fix.}
 {\hbox{\noindent\typesetbuffer[TikZ:ThrowNewtonGlobes]}} % figure contents
+First, we must write the Hamiltonian. This includes three contributions to the kinetic energy, one from each of the three momenta $p_x$, $p_y$, and $p_\theta$. The only potential energy contribution comes from the height $y$ of center of mass. 
+
 \startformula
   H = \textfrac{1}{2m}p_x^2 + \textfrac{1}{2m}p_y^2 + \textfrac{1}{2I}p_\theta^2 + mgy.
 \stopformula
+Take a moment to be sure that you know what each term in the Hamiltonian represents. Notice that the $p_\theta$ term has the moment of inertia $I$ in place of the mass.
 
+From the Hamiltonian we will find six equations of motion – three update formulas for the three coordinates $x$, $y$, and $\theta$, and three update formulas for the there momenta $p_x$, $p_y$, and $p_\theta$. We will find the momentum update formulas first, beginning with $p_x$.
 \startformula
 	dp_x = \left( -\ppx H + \cancel{F} \right) dt
 		%= -\ppx H dt
 		= -\ppx \left( \textfrac{1}{2m}p_x^2 + \textfrac{1}{2m}p_y^2 + \textfrac{1}{2I}p_\theta^2 + mgy \right) dt
 		= 0
 \stopformula
-Solve: $p_x = p_{0x} = m v_{0x}$.
+None of the terms in the Hamiltonian depend on the horizontal position $x$ so the change $dp_x$ in the horizontal momentum is always zero. This means that $p_x$ is a constant of the motion, just as it was for the cannon ball.
+
+A similar simplification happens with the update formula for the angular momentum $p_\theta$.
+\startformula
+	dp_\theta = \left( -\ppth H + \cancel{F} \right) dt
+		%= -\ppx H dt
+		= -\ppth \left( \textfrac{1}{2m}p_x^2 + \textfrac{1}{2m}p_y^2 + \textfrac{1}{2I}p_\theta^2 + mgy \right) dt
+		= 0
+\stopformula
+None of the terms in the Hamiltonian depend on the angle $\theta$ so the change $dp_\theta$ in the angular momentum is always zero. This means that $p_\theta$ is a constant of the motion. 
+%Solve: $p_\theta = p_{0\theta} = I\omega_{0}$.
+
+%Solve: $p_x = p_{0x} = m v_{0x}$.
 
 \startformula
 	dx = \pp{p_x} H\,dt
@@ -595,13 +619,6 @@ The momentum $p_x$ is a constant of the motion, but we do not treat it as a cons
 
 Solve: $x = x_0 + v_{0x} t$.
 
-\startformula
-	dp_\theta = \left( -\ppth H + \cancel{F} \right) dt
-		%= -\ppx H dt
-		= -\ppth \left( \textfrac{1}{2m}p_x^2 + \textfrac{1}{2m}p_y^2 + \textfrac{1}{2I}p_\theta^2 + mgy \right) dt
-		= 0
-\stopformula
-Solve: $p_\theta = p_{0\theta} = I\omega_{0}$.
 
 \startformula
 	d\theta = \pp{p_\theta} H\,dt
