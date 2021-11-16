@@ -26,7 +26,123 @@ What matters to me is not merely to impart to the reader what I have to say, but
 
 \Initial{H}{amilton's equations} are the final formulation of classical mechanics, uniting the four disciplines of the quadrivium. In this chapter, we will use Hamilton's formulation to solve the great ancient puzzle of astronomy – the motion of the planets.
 
-Since the Moon, Sun, and Earth are all circular – the most perfect shape – the Pythagoreans believed that all all celestial bodies circle Earth, a model that ran into conflicts with observations immediately. To explain the planet's erratic motions across the sky, ancient astronomers introduced compound motion into their models, so that the planets moved on circles which were themselves being carried by other circles. Hamilton's formulation is ideally suited for compound motion, as we have seen in two important examples – projectile motion and the motion of Newton's connected globes, explained by Du Châtelet.
+Since the Moon, Sun, and Earth are all circular – the most perfect shape – the Pythagoreans believed that all all celestial bodies circle Earth, a model that ran into conflicts with observations immediately. To explain the planet's erratic motions across the sky, ancient astronomers introduced compound motion into their models, so that the planets moved on circles which were themselves being carried by other circles.
+
+Kepler, at the age of 23, became interested in astronomy for a simple reason: it was his job. He had been studying for priesthood, but he also loved mathematics. He received an unexpected invitation to teach mathematics and astronomy at the school in Graz, Austria. After a bit of hesitation, he accepted.
+
+In 1595, after his first year of teaching, he was struck by a novel idea: perhaps the planets' orbits were exactly the right sizes to fit inside nested Platonic solids. This idea is wrong, but given the close connection between geometry and astronomy, it was not an especially outlandish proposal in the sixteenth century. More controversial was the fact that he nested these polygons with the Sun at the center and Earth in orbit (in a spherical shell between the model's icosahedron and dodecahedron). In 1597, he published a small book with his heliocentric model and sent copies to prominent astronomers, including Galileo. Galileo sent an encouraging reply, but it is not clear if he ever read the book before his own adventure with the spyglass fourteen years later.
+
+The book did catch the attention of another astronomer, Tycho de Brahe. Tycho had been making precise observations of the positions of stars and planets for 35 years. After a spat with King Christian of Denmark in 1597, Tycho moved his formidable arsenal of observing equipment to a castle near Prague, where he became Imperial Mathematicus for Emperor Rudolf II. Even with the best assistants, Tycho was struggling to make a coherent mathematical model from his mountain of data. He did not believe Kepler's model was the solution, but Tycho recognized the young astronomer's tremendous mathematical skill and creativity. Kepler, in return, recognized Tycho's observations as the only firm foundation for his model.
+Tycho invited Kepler to collaborate, but guarded his data jealously. Kepler expressed interest, and even made a visit, but was reluctant to leave his position in Graz.
+
+In 1600, events intervened. Kepler was expelled from Graz in a religious purge. Tycho's top assistant left after failing to explain Mars's orbit. Kepler joined Tycho's team and Tycho granted access to his treasury of Mars observations. Kepler said he would explain Mars's orbit in eight days. Kepler worked diligently for eight months. Tycho died, and Kepler succeeded him is Imperial Mathematics in 1601, still without a solution for Mars's orbit.
+
+\section{Kepler's first attempts}
+
+Kepler recounts his struggle with Mars in his revolutionary \booktitle{New Astronomy.} His first model for Mars's orbit uses a perfect circle and constant angular velocity \quotation{in imitation of the ancients.} He combines these two ancient ideas in a novel way. He chooses a perfect circle for the orbit of Mars, but places that circle so that the Sun is not at the center. This matches the shape of Mars's orbit quite well. To get the correct speed, he uses constant angular velocity, but not around the circle's center, or around the Sun, but instead around a third point called the equant, shown in \in{figure}[fig:KeplerMarsAncients]. Constant angular velocity around the equant gives Mars a changing velocity along its orbit. When Mars is closer to the equant – and farther from the Sun – it will move along its orbit more slowly. When it is farther from the equant – and closer to the Sun – it will move more quickly.
+
+\startbuffer[TikZ:KeplerMarsAncients]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startpolaraxis
+ [	xticklabels=\empty,
+ 	ytick={0,0.5,...,2.5},
+ 	yticklabels={{},{},$100\units{Gm}$,{},$200\units{Gm}$,{}},
+ 	minor y tick num={4},
+	% yminorgrids=true,
+	hide x axis,
+	ymax = 2.5,
+	scale only axis=true, width={10cm},
+ 	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
+	major grid style = {middlegray},
+ 	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
+ ]
+    \addplot [ % Mars area at aphelion
+        draw=none, fill=black!20,
+        domain={156.08-4.36}:{156.08+4.36},
+        samples=20,
+    ]
+        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
+    ;
+    \addplot [ % Mars area at perihelion
+        draw=none, fill=black!20,
+        domain={336.08-6.35}:{336.08+6.35},
+        samples=20,
+    ]
+        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
+    ;
+    \addplot [ % Mars
+    	name path=Mars,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {2.259/(1+0.0934*cos(x-336.08))}
+  [yshift=1pt, xshift=1.1pt]
+    node[pos=0.25] {\Mars}
+    ;
+	\node [name path=Sun] at (0,0) {\Sun}node[below=1mm]{Sun};
+	\filldraw (156.08,0.213) circle[radius=.8pt]node[below left=0mm]{Orbit's center};
+	\filldraw (156.08,0.426) circle[radius=.8pt]node[above right]{Equant};
+	\draw  ({156.08-4.36},{2.259/(1+0.0934*cos(156.08-4.36-336.08))}) -- ({336.08-6.35},{2.259/(1+0.0934*cos(336.08-6.35-336.08))});
+	\draw  ({156.08+4.36},{2.259/(1+0.0934*cos(156.08+4.36-336.08))}) -- ({336.08+6.35},{2.259/(1+0.0934*cos(336.08+6.35-336.08))});
+\stoppolaraxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[top][fig:KeplerMarsAncients] % location
+{Kepler's model of Mars's orbit using a perfect circle, off center, and a constant angular velocity about an equant. The lines show the equal angle about the equant over two different $20\units{day}$ durations. The same angle produces a larger displacement on the side farther from the equant – and closer to the Sun. This model failed.}	 % caption text
+{\noindent\typesetbuffer[TikZ:KeplerMarsAncients]} % figure contents
+
+Before he could check this model he needed to determine the obit's center and radius and the equant's location. He used four of Tycho's observations in an extremely laborious calculation, explained in chapter 16 of \booktitle{New Astronomy.} At one point in the explanation he exclaims,
+
+\startblockquote
+If this wearisome method has filled you with loathing, it should more properly fill you with compassion for me, as I have gone through it at least seventy times at the expense of a great deal of time, and you will cease to wonder that the fifth year has now gone by since I took up Mars\dots.%, although the year of 1603 was nearly all given over to optical investigations.% Kepler1609 p190
+\stopblockquote
+We still have these calculations, in Kepler's small handwriting, filling nine hundred pages.
+
+Then, to confirm the model, he used it to predict Mars's location on the dates of six other observations, and compared them to Tycho's records. This again required tremendous labor. All of the predictions agreed with the observations to remarkable precision. Tycho's observations were not perfect, of course, but they could be trusted to within two minutes of an arc. A minute of arc is one sixtieth of a degree. The full Moon's apparent diameter is about thirty minutes of arc, or half of a degree, so Tycho's observations were accurate to within about one fifteenth of the Moon's apparent diameter. Prior observations, going back to the Babylonians, were good only to ten minutes of an arc. Kepler's prediction for Mars's location matched Tycho's observations with an error of less than two minutes, exactly the range of error expected based on the observations' precision. These exciting results are presented in Kepler's chapter 18.
+
+Chapter 19 begins, \quotation{Who would have thought it possible? This hypothesis, so closely in agreement with [chapter 18's] observations is nonetheless false\dots.} % Kepler1609 p208
+Kepler then explains, in methodical detail, that a few additional predictions disagreed with Tycho's observations by up to eight minutes of an arc, or about one quarter of the Moon's apparent diameter. This is a tiny error! Prior to Tycho's observations, such an error could be attributed to the observations. But Tycho's observations were good to two minutes. A difference of eight minutes could only mean the failure of the model.
+
+After year's of work, Kepler responds to this devastating verdict with the most moving passage I have found in any science text.
+\startblockquote
+Since the divine benevolence has vouchsafed us Tycho Brahe, a most diligent observer, from whose observations the $8'$ error of this [model] is shown in Mars, it is fitting that we with thankful mind both acknowledge and honor this favor of God. For it is in this that we shall carry on, to find at length the true form of the celestial motions, supported as we are by the proofs showing our suppositions to be fallacious. In what follows, I shall myself, to the best of my ability, lead the way for others on this road. For if I had thought I could ignore eight minutes\dots I would have already made enough of a correction in Ch.~16. Now, because they could not be ignored, these eight minutes alone will have led the way to the reformation of all of astronomy\dots.% Kepler1609 p211
+\stopblockquote
+If I had to point to a single moment when the old philosophical reasoning gave way to a new scientific practice, it would be this moment – when Kepler, after years of calculation, confronts the data proving his failure, gives thanks, and starts over.
+
+\section{Kepler's area law}
+Kepler could have continued \quotation{in imitation of the ancients} by adding a small extra wheel to the orbital motion or by adding a mysterious oscillation to the already mysterious equant. Instead, he recognized that a fundamental assumptions of his model must be wrong.
+\startblockquote
+Therefore, something among those things we had assumed must be false. But what was assumed was: that the orbit upon which the planet moves is a perfect circle; and that there exists some unique point\dots about which point Mars describes equal angles in equal times. Therefore, of these, one or the other or perhaps both are false, for the observations used are not false.
+% Kepler1609 p209-10
+\stopblockquote
+In chapter 20 he shows any attempt to use an equant will conflict with the observations.
+\startblockquote
+The blame for the discrepancy\dots(I am repeating this over and over so that it will be remembered) falls entirely upon the faulty assumptions deliberately entertained by me, in common with Tycho and all who have ever devised hypotheses. For the necessary consequence of this enquiry is that there is no single fixed point\dots about which the planet always sweeps out equal angles in equal times.
+\stopblockquote
+The model's failure for Mars called into question Kepler's model for Earth's motion, which also used a perfectly circular orbit and constant angular velocity. Kepler could not possibly make any progress in determining the position of Mars from Tycho's observations if he did not even know Earth's location, since Earth is where Tycho made the observations.
+Kepler continued to believe that Earth's orbit is a perfect circle, slightly off center from the Sun (\in{fig.}[fig:KeplerTerestrial]), but he needed to find a new rule for the Earth's speed. To do this he again used Tycho's observations of Mars, but this time he reversed them to find the direction Earth would be seen from an observatory on Mars. This seems like a waste of time, since Mars position is also uncertain, but by using multiple observations of Mars when it was known to be in the same position, Kepler was nonetheless able to find Earth's motion. The details of the epic calculations are all in chapters 22 through 31 of \booktitle{New Astronomy}. 
+
+Knowing Earth's positions, and therefore its speed along its orbit, Kepler sought a mathematical model. Breaking with tradition, he did not seek inspiration in abstract geometry. Instead, he considers possible physical causes for the motion. \quotation{Physicists, prick your ears\dots for we are going to invade your territory.} % Koestler p 329
+He no longer searches for imaginary wheels or imaginary points like the equant. Instead he looks for an explanation in the objects themselves, specifically in the Sun and planets.
+
+\quotation{The power that moves the planets resides in the Sun,} he suggests, and its strength diminishes as the planet gets farther away, decreasing the planet's speed. He attempts to develop this physical idea into a mathematical model and – after considerable stumbling – discovers that at all along its orbit, Earth sweeps out \emph{equal areas in equal times.}
+
+For Earth's nearly centered orbit there is only a tiny difference between a constant angular velocity (which sweeps out equal angles in equal times) and Kepler's new law of equal areas in equal times. Tycho's precise observations confirmed the tiny effect of Kepler's new area law for Earth's motion.
+
+Kepler's area law, discovered first for Earth, is true for all planets. The effect is most pronounced for Mercury, which has the most off-center orbit. Two shaded areas in \in{figure}[fig:KeplerTerestrial] show the areas swept out by Mercury during two equal times. The shaded, pie-shaped area above the Sun shows the area swept out by Mercury during the twenty days when it is closest to the Sun. The shaded area below shows the area swept out during the twenty days when Mercury is farthest from the Sun. The upper pie-slice has a smaller radius but a larger angle due to Mercury's higher speed near the Sun. The lower pie slice has a larger radius but  and a smaller angle due to Mercury's lower speed farther from the Sun. The two resulting areas are exactly the same.
+
+Kepler's area law is known by two other names. It is also called Kepler's Second Law, even though it was discovered before his other two laws, which we will get to shortly.
+
+
+Hamilton's formulation is ideally suited for compound motion.%, as we have seen in two important examples – projectile motion and the motion of Newton's connected globes, explained by Du Châtelet.
 
 Galileo first explained projectile motion as the combination of uniform horizontal motion (constant $v_x$) with vertical free-fall motion. To Galileo, circular motion was as natural as linear motion, so he saw no obstacle to combining circular motion with linear motion. For example, he argues in \booktitle{Two World Systems} that an object dropped down a very deep well will continue to move about the Earth's center with uniform circular motion (constant $\omega$) as it free-falls to Earth's center.
 
@@ -174,118 +290,7 @@ Motion in the $\theta$ direction (keeping $r$ constant) does not change a planet
 
 We will use conservation of energy and conservation of angular momentum to explain three features of the planets' orbits. First, we will explain each planet's changing speed. Second, we will study the orbit's shape. Third, we will explain the relationship between the orbital periods of different planets. In each case we will look at the answer first, and then understand how it comes about, because this is what actually happened. Before Euler's angular momentum, before Bernoulli's potential energy and Leibniz's \visviva, before Newton's laws, even before Galileo's new science of motion, a complete mathematical model of planetary orbits was put forward Johannes Kepler. The model's simplicity and incredible precision made it a gold-standard test for every physical theory that followed.
 
-\section{Kepler's first attempts}
-
-Kepler, at the age of 23, became interested in astronomy for a simple reason: it was his job. He had been studying for priesthood, but he also loved mathematics. He received an unexpected invitation to teach mathematics and astronomy at the school in Graz, Austria. After a bit of hesitation, he accepted.
-
-In 1595, after his first year of teaching, he was struck by a novel idea: perhaps the planets' orbits were exactly the right sizes to fit inside nested Platonic solids. This idea is wrong, but given the close connection between geometry and astronomy, it was not an especially outlandish proposal in the sixteenth century. More controversial was the fact that he nested these polygons with the Sun at the center and Earth in orbit (in a spherical shell between the model's icosahedron and dodecahedron). In 1597, he published a small book with his heliocentric model and sent copies to prominent astronomers, including Galileo. Galileo sent an encouraging reply, but it is not clear if he ever read the book before his own adventure with the spyglass fourteen years later.
-
-The book did catch the attention of another astronomer, Tycho de Brahe. Tycho had been making precise observations of the positions of stars and planets for 35 years. After a spat with King Christian of Denmark in 1597, Tycho moved his formidable arsenal of observing equipment to a castle near Prague, where he became Imperial Mathematicus for Emperor Rudolf II. Even with the best assistants, Tycho was struggling to make a coherent mathematical model from his mountain of data. He did not believe Kepler's model was the solution, but Tycho recognized the young astronomer's tremendous mathematical skill and creativity. Kepler, in return, recognized Tycho's observations as the only firm foundation for his model.
-Tycho invited Kepler to collaborate, but guarded his data jealously. Kepler expressed interest, and even made a visit, but was reluctant to leave his position in Graz.
-
-In 1600, events intervened. Kepler was expelled from Graz in a religious purge. Tycho's top assistant left after failing to explain Mars's orbit. Kepler joined Tycho's team and Tycho granted access to his treasury of Mars observations. Kepler said he would explain Mars's orbit in eight days. Kepler worked diligently for eight months. Tycho died, and Kepler succeeded him is Imperial Mathematics in 1601, still without a solution for Mars's orbit.
-
-Kepler recounts his struggle with Mars in his revolutionary \booktitle{New Astronomy.} His first model for Mars's orbit uses a perfect circle and constant angular velocity \quotation{in imitation of the ancients.} He combines these two ancient ideas in a novel way. He chooses a perfect circle for the orbit of Mars, but places that circle so that the Sun is not at the center. This matches the shape of Mars's orbit quite well. To get the correct speed, he uses constant angular velocity, but not around the circle's center, or around the Sun, but instead around a third point called the equant, shown in \in{figure}[fig:KeplerMarsAncients]. Constant angular velocity around the equant gives Mars a changing velocity along its orbit. When Mars is closer to the equant – and farther from the Sun – it will move along its orbit more slowly. When it is farther from the equant – and closer to the Sun – it will move more quickly.
-
-\startbuffer[TikZ:KeplerMarsAncients]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage\small
-\starttikzpicture% tikz code
-\startpolaraxis
- [	xticklabels=\empty,
- 	ytick={0,0.5,...,2.5},
- 	yticklabels={{},{},$100\units{Gm}$,{},$200\units{Gm}$,{}},
- 	minor y tick num={4},
-	% yminorgrids=true,
-	hide x axis,
-	ymax = 2.5,
-	scale only axis=true, width={10cm},
- 	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
-	major grid style = {middlegray},
- 	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
- ]
-    \addplot [ % Mars area at aphelion
-        draw=none, fill=black!20,
-        domain={156.08-4.36}:{156.08+4.36},
-        samples=20,
-    ]
-        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
-    ;
-    \addplot [ % Mars area at perihelion
-        draw=none, fill=black!20,
-        domain={336.08-6.35}:{336.08+6.35},
-        samples=20,
-    ]
-        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
-    ;
-    \addplot [ % Mars
-    	name path=Mars,
-        thick,
-        domain=0:360,
-        samples=600,
-    ]
-        {2.259/(1+0.0934*cos(x-336.08))}
-  [yshift=1pt, xshift=1.1pt]
-    node[pos=0.25] {\Mars}
-    ;
-	\node [name path=Sun] at (0,0) {\Sun}node[below=1mm]{Sun};
-	\filldraw (156.08,0.213) circle[radius=.8pt]node[below left=0mm]{Orbit's center};
-	\filldraw (156.08,0.426) circle[radius=.8pt]node[above right]{Equant};
-	\draw  ({156.08-4.36},{2.259/(1+0.0934*cos(156.08-4.36-336.08))}) -- ({336.08-6.35},{2.259/(1+0.0934*cos(336.08-6.35-336.08))});
-	\draw  ({156.08+4.36},{2.259/(1+0.0934*cos(156.08+4.36-336.08))}) -- ({336.08+6.35},{2.259/(1+0.0934*cos(336.08+6.35-336.08))});
-\stoppolaraxis
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
-
-\placetextfloat[top][fig:KeplerMarsAncients] % location
-{Kepler's model of Mars's orbit using a perfect circle, off center, and a constant angular velocity about an equant. The lines show the equal angle about the equant over two different $20\units{day}$ durations. The same angle produces a larger displacement on the side farther from the equant – and closer to the Sun. This model failed.}	 % caption text
-{\noindent\typesetbuffer[TikZ:KeplerMarsAncients]} % figure contents
-
-Before he could check this model he needed to determine the obit's center and radius and the equant's location. He used four of Tycho's observations in an extremely laborious calculation, explained in chapter 16 of \booktitle{New Astronomy.} At one point in the explanation he exclaims,
-
-\startblockquote
-If this wearisome method has filled you with loathing, it should more properly fill you with compassion for me, as I have gone through it at least seventy times at the expense of a great deal of time, and you will cease to wonder that the fifth year has now gone by since I took up Mars\dots.%, although the year of 1603 was nearly all given over to optical investigations.% Kepler1609 p190
-\stopblockquote
-We still have these calculations, in Kepler's small handwriting, filling nine hundred pages.
-
-Then, to confirm the model, he used it to predict Mars's location on the dates of six other observations, and compared them to Tycho's records. This again required tremendous labor. All of the predictions agreed with the observations to remarkable precision. Tycho's observations were not perfect, of course, but they could be trusted to within two minutes of an arc. A minute of arc is one sixtieth of a degree. The full Moon's apparent diameter is about thirty minutes of arc, or half of a degree, so Tycho's observations were accurate to within about one fifteenth of the Moon's apparent diameter. Prior observations, going back to the Babylonians, were good only to ten minutes of an arc. Kepler's prediction for Mars's location matched Tycho's observations with an error of less than two minutes, exactly the range of error expected based on the observations' precision. These exciting results are presented in Kepler's chapter 18.
-
-Chapter 19 begins, \quotation{Who would have thought it possible? This hypothesis, so closely in agreement with [chapter 18's] observations is nonetheless false\dots.} % Kepler1609 p208
-Kepler then explains, in methodical detail, that a few additional predictions disagreed with Tycho's observations by up to eight minutes of an arc, or about one quarter of the Moon's apparent diameter. This is a tiny error! Prior to Tycho's observations, such an error could be attributed to the observations. But Tycho's observations were good to two minutes. A difference of eight minutes could only mean the failure of the model.
-
-After year's of work, Kepler responds to this devastating verdict with the most moving passage I have found in any science text.
-\startblockquote
-Since the divine benevolence has vouchsafed us Tycho Brahe, a most diligent observer, from whose observations the $8'$ error of this [model] is shown in Mars, it is fitting that we with thankful mind both acknowledge and honor this favor of God. For it is in this that we shall carry on, to find at length the true form of the celestial motions, supported as we are by the proofs showing our suppositions to be fallacious. In what follows, I shall myself, to the best of my ability, lead the way for others on this road. For if I had thought I could ignore eight minutes\dots I would have already made enough of a correction in Ch.~16. Now, because they could not be ignored, these eight minutes alone will have led the way to the reformation of all of astronomy\dots.% Kepler1609 p211
-\stopblockquote
-If I had to point to a single moment when the old philosophical reasoning gave way to a new scientific practice, it would be this moment – when Kepler, after years of calculation, confronts the data proving his failure, gives thanks, and starts over.
-
-\section{Kepler's area law}
-Kepler could have continued \quotation{in imitation of the ancients} by adding a small extra wheel to the orbital motion or by adding a mysterious oscillation to the already mysterious equant. Instead, he recognized that a fundamental assumptions of his model must be wrong.
-\startblockquote
-Therefore, something among those things we had assumed must be false. But what was assumed was: that the orbit upon which the planet moves is a perfect circle; and that there exists some unique point\dots about which point Mars describes equal angles in equal times. Therefore, of these, one or the other or perhaps both are false, for the observations used are not false.
-% Kepler1609 p209-10
-\stopblockquote
-In chapter 20 he shows any attempt to use an equant will conflict with the observations.
-\startblockquote
-The blame for the discrepancy\dots(I am repeating this over and over so that it will be remembered) falls entirely upon the faulty assumptions deliberately entertained by me, in common with Tycho and all who have ever devised hypotheses. For the necessary consequence of this enquiry is that there is no single fixed point\dots about which the planet always sweeps out equal angles in equal times.
-\stopblockquote
-The model's failure for Mars called into question Kepler's model for Earth's motion, which also used a perfectly circular orbit and constant angular velocity. Kepler could not possibly make any progress in determining the position of Mars from Tycho's observations if he did not even know Earth's location, since Earth is where Tycho made the observations.
-Kepler continued to believe that Earth's orbit is a perfect circle, slightly off center from the Sun (\in{fig.}[fig:KeplerTerestrial]), but he needed to find a new rule for the Earth's speed. To do this he again used Tycho's observations of Mars, but this time he reversed them to find the direction Earth would be seen from an observatory on Mars. This seems like a waste of time, since Mars position is also uncertain, but by using multiple observations of Mars when it was known to be in the same position, Kepler was nonetheless able to find Earth's motion. The details of the epic calculations are all in chapters 22 through 31 of \booktitle{New Astronomy}. 
-
-Knowing Earth's positions, and therefore its speed along its orbit, Kepler sought a mathematical model. Breaking with tradition, he did not seek inspiration in abstract geometry. Instead, he considers possible physical causes for the motion. \quotation{Physicists, prick your ears\dots for we are going to invade your territory.} % Koestler p 329
-He no longer searches for imaginary wheels or imaginary points like the equant. Instead he looks for an explanation in the objects themselves, specifically in the Sun and planets.
-
-\quotation{The power that moves the planets resides in the Sun,} he suggests, and its strength diminishes as the planet gets farther away, decreasing the planet's speed. He attempts to develop this physical idea into a mathematical model and – after considerable stumbling – discovers that at all along its orbit, Earth sweeps out \emph{equal areas in equal times.}
-
-For Earth's nearly centered orbit there is only a tiny difference between a constant angular velocity (which sweeps out equal angles in equal times) and Kepler's new law of equal areas in equal times. Tycho's precise observations confirmed the tiny effect of Kepler's new area law for Earth's motion.
-
-Kepler's area law, discovered first for Earth, is true for all planets. The effect is most pronounced for Mercury, which has the most off-center orbit. Two shaded areas in \in{figure}[fig:KeplerTerestrial] show the areas swept out by Mercury during two equal times. The shaded, pie-shaped area above the Sun shows the area swept out by Mercury during the twenty days when it is closest to the Sun. The shaded area below shows the area swept out during the twenty days when Mercury is farthest from the Sun. The upper pie-slice has a smaller radius but a larger angle due to Mercury's higher speed near the Sun. The lower pie slice has a larger radius but  and a smaller angle due to Mercury's lower speed farther from the Sun. The two resulting areas are exactly the same.
-
-Kepler's area law is known by two other names. It is also called Kepler's Second Law, even though it was discovered before his other two laws, which we will get to shortly. Kepler's area law is also identical to conservation of angular momentum, which we introduced earlier. We will use conservation of angular momentum to find the same changing angular speeds that Kepler found using his area law. Just as Kepler uses the Sun as the center for his area law, we will use the Sun as the center of our coordinate system when using conservation of angular momentum.
+Kepler's area law is also identical to conservation of angular momentum, which we introduced earlier. We will use conservation of angular momentum to find the same changing angular speeds that Kepler found using his area law. Just as Kepler uses the Sun as the center for his area law, we will use the Sun as the center of our coordinate system when using conservation of angular momentum.
 
 Since the Sun is at the center, the Earth's angular momentum is determined by its motion around the Sun, as if the Earth were being spun about the Sun on the end of a very long light rod. The moment of inertia for such an arrangement is
 \startformula
@@ -307,9 +312,57 @@ As the planet speeds up and slows down, its kinetic energy increases and decreas
 \startformula
 	K_\theta = \frac{L^2}{2I} = \frac{L^2}{2mr^2}
 \stopformula 
-I've added a $\theta$ subscript to remind us that $K_\theta$ is the kinetic energy due to motion in the $\theta$-direction. The angular momentum $L$ in the formula remains constant throughout the Earth's orbit, but the moment of inertia changes, which then changes the kinetic energy. As Earth gets slightly closer to the Sun on one side of its orbit, $m$ and $I$ both decrease slightly, making the kinetic energy $K_\theta$ increase.
+I've added a $\theta$ subscript to remind us that $K_\theta$ is the kinetic energy due to motion in the $\theta$-direction. The angular momentum $L$ in the formula remains constant throughout the Earth's orbit, but the moment of inertia changes, which then changes the kinetic energy. As Earth gets slightly closer to the Sun on one side of its orbit, $r$ and $I$ both decrease slightly, making the kinetic energy $K_\theta$ increase.
 
-Although the change in $r$ is relatively small, the change in Earth's kinetic energy is huge! Where dose all of all of that energy come from? It comes from a decrease in the gravitational potential energy $U$.
+\startbuffer[U3D]
+\startaxis[
+ 	  %axis line shift=1cm,
+	   %axis lines*=left,
+   hide x axis,
+    hide y axis,
+    hide z axis,
+        axis lines=center,
+        axis on top,
+	 view={0}{45},
+        width = 7cm,
+    %z post scale = {1},
+        clip mode = individual,
+]
+%    \addplot3 [
+%        mesh, color = middlegray,
+%        z buffer=sort,
+%        samples=9,
+%        domain=0.1:1,
+%        y domain=0:2*pi,
+%](
+%{x * cos(deg(y))}, {x * sin(deg(y))}, {-10}
+%    );
+    \addplot3 [
+        surf, faceted color = middlegray, color = gray,
+        z buffer=sort,
+        samples=5,
+        domain=1:3,
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {-13.27/x}
+    );
+    \node at (-1.8,-1,-8) {$U$};
+    \draw[->] (0,0,0) --node[above, pos = 0.98]{$r$} (3,0,0);
+    \draw[shade, ball color = white] (0,0,0) circle[radius=1.2mm]node[above=0.8mm] {\Sun};
+    \draw[shade, ball color = darkgray] (0.5546,0,0) circle[radius=0.2mm]node[above] {\Mercury};
+    \draw[shade, ball color = darkgray] (1.082,0,0) circle[radius=0.6mm]node[above] {\Venus};
+    %\draw[] (1.5,0,0) -- (1.5,0,-8.874);
+    \draw[shade, ball color = darkgray] (1.496,0,0) circle[radius=0.6mm]node[above=0.8mm] {\Earth};
+    \draw[shade, ball color = darkgray] (2.259,0,0) circle[radius=0.4mm]node[above=0.7mm] {\Mars};
+\stopaxis
+\stopbuffer
+
+\marginTikZ{}{U3D}{A planet's gravitational potential energy depends on its distance $r$ from the Sun. A planet released from rest would accelerate toward lower potential energy, crashing into the Sun!} % vskip, name, caption
+
+
+
+Although the change in $r$ is relatively small, the change in Earth's kinetic energy is huge! Where does all of all of that energy come from? It comes from a decrease in the gravitational potential energy $U$.
 \startformula
 	U = -G\frac{mM_\Sun}{r}
 \stopformula
@@ -323,14 +376,14 @@ As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases a
 \startTEXpage\small
 \starttikzpicture% tikz code
 \startaxis
- [	x={2cm},y={.5cm},
-   %title={Cart's Energy $H=K+U\sub{s}+U\sub{g}$},
+ [	width=11cm,y={.5cm},
    xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
-   xmin=0, xmax=5,
+   xmin=0, xmax=3,
    minor x tick num=4,
-   ylabel={Energy ($m\sci{8}\units{J/kg}$)},
+   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
    ymin=-10, ymax=6,
    minor y tick num=3,
+   clip mode = individual,
  ]
 % \addplot[ % Us
 %   thick,
@@ -344,7 +397,7 @@ As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases a
 %\ifprintanswers
 \addplot[ % axis
    thick,
-   domain=0:5,
+   domain=0:3,
    samples=2
   ]
   {0}
@@ -353,7 +406,7 @@ As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases a
   ;
 \addplot[ % Ug
    thick,
-   domain=0.5:5,
+   domain=0.5:3,
    samples=150
   ]
   {-13.3/x}
@@ -369,30 +422,30 @@ As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases a
 %  ;
 \addplot[ % K angular Earth
    thin,
-   domain=0.5:5,
+   domain=1:3,
    samples=150
   ]
   {9.926/x^2}
   %[yshift=8pt]
-    node[above, pos=0.95] {$K_\theta=\frac{L^2}{2mr^2}$}
+    node[above right=0mm, pos=0.7] {$K_\theta=\frac{L^2}{2mr^2}$}
   ;
 \addplot[ % K angular Earth
    thin,
-   domain=0.5:5,
+   domain=0.5:3,
    samples=150
   ]
   {(-13.27/x)+(9.926/x^2)}
   %[yshift=8pt]
-    node[above right,pos=0.75] {$K_\theta + U$}
+    node[above right,pos=0.6] {$U + K_\theta$}
   ;
 \addplot[ % E Earth
-   very thick,
+   ultra thick,
    domain=1.471:1.521,
    samples=2
   ]
   {-4.437}
   %[yshift=10pt]
-    node[below, pos=0.5] {Earth}
+    node[below, pos=0.5] {$H = U + K_\theta + K_r$}
   ;
 %\addplot[ % K angular Mars
 %   thin,
@@ -412,6 +465,9 @@ As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases a
 %  [yshift=10pt]
 %    node[pos=0.5] {$E$}
 %  ;
+    \draw[->] (0,7) --node[above, pos=.98]{$r$} (3,7);
+    \draw[shade, ball color = white] (0,7) circle[radius=2.4mm]node[above =2mm] {\Sun}; % Sun
+    \draw[shade, ball color = darkgray] (1.5,7) circle[radius=1.2mm]node[above=0.8mm] {\Earth}; % Earth
 \stopaxis
 \stoptikzpicture
 \stopTEXpage
@@ -421,6 +477,7 @@ As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases a
 {Earth's rotational kinetic energy $K_\theta$ and potential energy $U$ plotted as functions of the distance from the Sun $r$. The sum $K_\theta+U$ cradles Earth at its minimum. $U$ prevents Earth from leaving the solar system, while $K_\theta$ keeps it from spiraling into the Sun. Earth is always also moving the the $\theta$ direction (not shown) as it orbits the Sun.}	 % caption text
 {\noindent\typesetbuffer[TikZ:EnergyGraphKU]} % figure contents
 
+
 Why does Earth not just keep spiraling inward towards the Sun, losing potential energy and gaining kinetic energy as it meets a fiery doom? This is an interesting story that requires a closer look at the energy graph in \in{figure}[fig:EnergyGraphKU]. The plots of $K_\theta$ and $U$ are nearly opposites, but there is a very important difference in their shapes. The potential energy $U$ is inversely proportional to the distance $r$ while the rotational kinetic energy $K_\theta$ is inversely proportional to $r^2$.
 \startformula
 	U\sim \frac{1}{r} \qquad K \sim \frac{1}{r^2}
@@ -429,10 +486,96 @@ When $r$ is very small, $r^2$ is much smaller than $r$, making $K_\theta$ much l
 
 Somewhere in the middle is a minimum which cradles Earth. Earth rocks gently in this minimum, losing potential energy $U$ and gaining rotational kinetic energy $K_\theta$ as it moves slightly towards the Sun on one side of its orbit, then losing $K_\theta$ and gaining $U$ is it moves away again on the other side.
 
+\startbuffer[UK3D]
+\startaxis[
+   hide x axis,
+    hide y axis,
+    hide z axis,
+        axis lines=center,
+        axis on top,
+	 view={0}{45},
+        width = 7cm,
+    z post scale = {1.67},
+        clip mode = individual,
+]
+    \addplot3 [
+        surf, faceted color = lightgray, color = white,
+        z buffer=sort,
+        samples=5,
+        domain=1:3,
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {-13.27/x}
+    );
+    \path (-1.8,-1,-8)node {$U$};
+    \addplot3 [
+        surf, faceted color = middlegray, color = gray,
+        z buffer=sort,
+        samples=5,
+        domain=1:3,
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {(-13.27/x)+(9.926/x^2)}
+    );
+    \node at (-2.4,1.8,-1.8) {$U + K_\theta$};
+    \addplot3 [
+        thick,
+        domain=0:2*pi,
+        samples=49,
+        samples y=1,
+   ](
+        {1.5*sin(deg(x))},
+        {1.5*cos(deg(x))},
+        {-4.437}
+    );
+    \addplot3 [
+        surf, faceted color = middlegray, color = gray,
+        z buffer=sort,
+        samples=2,
+        domain=0.75:1,
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {(-13.27/x)+(9.926/x^2)}
+    );
+    \draw[->] (0,0,0) --node[above, pos=.98]{$r$} (3,0,0);
+    \draw[shade, ball color = white] (0,0,0) circle[radius=1.2mm]node[above=0.8mm] {\Sun}; % Sun
+    %\draw[] (1.5,0,0) -- (1.5,0,-4.437);
+    \draw[shade, ball color = darkgray] (1.5,0,0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(15)},{1.5*sin(15)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(30)},{1.5*sin(30)},0) circle[radius=0.6mm]node[above right] {\Earth};
+    \draw[shade, ball color = darkgray] ({1.5*cos(45)},{1.5*sin(45)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(60)},{1.5*sin(60)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(75)},{1.5*sin(75)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] (0,1.5,0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(105)},{1.5*sin(105)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(120)},{1.5*sin(120)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(135)},{1.5*sin(135)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(150)},{1.5*sin(150)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(165)},{1.5*sin(165)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] (-1.5,0,0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(15)},{-1.5*sin(15)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(30)},{-1.5*sin(30)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(45)},{-1.5*sin(45)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(60)},{-1.5*sin(60)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(75)},{-1.5*sin(75)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] (0,-1.5,0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(105)},{-1.5*sin(105)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(120)},{-1.5*sin(120)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(135)},{-1.5*sin(135)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(150)},{-1.5*sin(150)},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({1.5*cos(165)},{-1.5*sin(165)},0) circle[radius=0.6mm];
+\stopaxis
+\stopbuffer
+
+\marginTikZ{\vskip 2in}{UK3D}{A planet with angular momentum will not crash into the Sun, it will orbit.} % vskip, name, caption
+
 Now that we understand Earth's changing speed in terms of angular momentum and energy, let's return to Kepler. 
 With his new area law, Kepler had more precise positions for Earth, and returned to the problem of Mars. His new effort is described in Book Five of \booktitle{New Astronomy}.
 
-Mars's more off-center orbit provides a more difficult challenge for Kepler's area law. The obit areas in \in{figure}[fig:KeplerTerestrial] show the areas swept out by Mars in the twenty days when it is farthest from the Sun (right) and the twenty days when it is closest (left). Once again, equal areas are swept out in equal times. Kepler checked areas along other parts of Mars's orbit, and all confirmed his area law.
+Mars's more off-center orbit provides a more difficult challenge for Kepler's area law. The orbit areas in \in{figure}[fig:KeplerTerestrial] show the areas swept out by Mars in the twenty days when it is farthest from the Sun (right) and the twenty days when it is closest (left). Once again, equal areas are swept out in equal times. Kepler checked areas along other parts of Mars's orbit, and all confirmed his area law.
 
 The areas swept out by Mars are not the same as the areas swept out by Mercury. Both planets have constant angular momentum, but Mars's angular momentum is much greater than Mercury's. (This is true even if we correct for Mars's larger mass.) Mars sweeps out about twice the area that Mercury does in the same time. You can roughly check this by measuring the areas in \in{figure}[fig:KeplerTerestrial].
 
@@ -446,14 +589,23 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 \startTEXpage\small
 \starttikzpicture% tikz code
 \startaxis
- [	x={2cm},y={2cm},
-   %title={Cart's Energy $H=K+U\sub{s}+U\sub{g}$},
+% [	x={2cm},y={2cm},
+%   %title={Cart's Energy $H=K+U\sub{s}+U\sub{g}$},
+%   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
+%   xmin=0, xmax=5,
+%   minor x tick num=4,
+%   ylabel={Energy ($m\sci{8}\units{J/kg}$)},
+%   ymin=-4, ymax=0,
+%   minor y tick num=3,
+% ]
+ [	width=11cm,y={1cm},
    xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
-   xmin=0, xmax=5,
+   xmin=0, xmax=3,
    minor x tick num=4,
-   ylabel={Energy ($m\sci{8}\units{J/kg}$)},
-   ymin=-4, ymax=0,
-   minor y tick num=3,
+   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
+   ymin=-8, ymax=0,
+   minor y tick num=9,
+   clip mode = individual,
  ]
 % \addplot[ % Us
 %   thick,
@@ -467,7 +619,7 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 %\ifprintanswers
 \addplot[ % axis
    thick,
-   domain=0:5,
+   domain=0:3,
    samples=2
   ]
   {0}
@@ -476,7 +628,7 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
   ;
 \addplot[ % Ug
    thick,
-   domain=3:5,
+   domain=1.5:3,
    samples=150
   ]
   {-13.3/x}
@@ -519,12 +671,12 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 %  ;
 \addplot[ % K angular Mars
    thin,
-   domain=1:5,
+   domain=1:3,
    samples=150
   ]
   {(-13.27/x)+(14.99/x^2)}
   %[yshift=8pt]
-    node[below left,pos=0.45] {$K_\theta + U$}
+    node[below left,pos=0.45] {$U + K_\theta$}
   ;
 \addplot[ % E Mars
    very thick,
@@ -533,9 +685,18 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
   ]
   {-2.912}
  % [yshift=10pt]
-    node[below, pos=0.5] {$H = U + K_\theta + K_r$}
-    node[above, pos=0.5] {Mars}
+    node[above, pos=0.5] {$H = U + K_\theta + K_r$}
+    %node[above, pos=0.5] {Mars}
   ;
+    \draw[->] (0,0.5) --node[above, pos=.98]{$r$} (3,0.5);
+    \draw[shade, ball color = white] (0,0.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
+    \filldraw[black!20] ({2.259/(1-0.0934*cos(120))},0.5) circle[radius=1.2mm];
+    \filldraw[black!15] (2.259,0.5) circle[radius=1.2mm];
+    \filldraw[black!20] ({2.259/(1-0.0934*cos(60))},0.5) circle[radius=1.2mm];
+    \filldraw[black!30] ({2.259/(1-0.0934*cos(30))},0.5) circle[radius=1.2mm];
+    \filldraw[black!30] ({2.259/(1-0.0934*cos(150))},0.5) circle[radius=1.2mm];
+    \filldraw[black!40] (2.067,0.5) circle[radius=1.2mm];
+    \draw[shade, ball color = darkgray] (2.492,0.5) circle[radius=1.2mm]node[above=0.8mm] {\Mars};
 \stopaxis
 \stoptikzpicture
 \stopTEXpage
@@ -545,6 +706,121 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 {Mars's energy graph. The sum $K_\theta+U$ cradles Mars at its minimum. Mars oscillates between approximately $r\sub{min}=2\units{Gm}$ and $r\sub{max}=2.5\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
 {\noindent\typesetbuffer[TikZ:EnergyGraphKUH]} % figure contents
 
+\startbuffer[UKMars3D]
+\startaxis[
+   hide x axis,
+    hide y axis,
+    hide z axis,
+        axis lines=center,
+        axis on top,
+	 view={0}{45},
+        width = 7cm,
+    z post scale = {1.67},
+        clip mode = individual,
+]
+    \addplot3 [
+        surf, faceted color = lightgray, color = white,
+        z buffer=sort,
+        samples=5,
+        domain=1:3,
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {-13.27/x}
+    );
+    \path (-1.8,-1,-8)node {$U$};
+    \addplot3 [
+        surf, faceted color = middlegray, color = gray,
+        z buffer=sort,
+        samples=2,
+        domain=2.492:3,
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {(-13.27/x)+(15/x^2)}
+    );
+    \addplot3 [
+        surf, faceted color = white, color = white,
+        z buffer=sort,
+        samples=2,
+        domain=2.067:2.492,
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {-2.912}
+    );
+    \addplot3 [
+        surf, faceted color = middlegray, color = gray,
+        z buffer=sort,
+        samples=2,
+        domain=1.5:2.067, % 2.067
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {(-13.27/x)+(15/x^2)}
+    );
+    \addplot3 [
+        surf, faceted color = middlegray, color = gray,
+        z buffer=sort,
+        samples=2,
+        domain=2.492:3,
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {(-13.27/x)+(15/x^2)}
+    );
+    \node at (1.8,-2.4,-4.2) {$U + K_\theta$};
+    \addplot3 [
+        thick,
+        domain=0:2*pi,
+        samples=49,
+        samples y=1,
+   ](
+        {(2.259/(1-0.0934*cos(deg(x))))*cos(deg(x))}, % -336.08
+        {(2.259/(1-0.0934*cos(deg(x))))*sin(deg(x))}, % -336.08
+        {-2.912}
+    );
+    \addplot3 [
+        surf, faceted color = middlegray, color = gray,
+        z buffer=sort,
+        samples=2,
+        domain=1.12:1.5, % 2.067
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {(-13.27/x)+(15/x^2)}
+    );
+    \draw[->] (0,0,0) --node[above, pos=.98]{$r$} (3,0,0);
+    \draw[shade, ball color = white] (0,0,0) circle[radius=1.2mm]node[above=1mm] {\Sun}; % Sun
+    %\draw[] (1.5,0,0) -- (1.5,0,-4.437);
+    \draw[shade, ball color = darkgray] (2.492,0,0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(15)/(1-0.0934*cos(15))},{2.259*sin(15)/(1-0.0934*cos(15))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(30)/(1-0.0934*cos(30))},{2.259*sin(30)/(1-0.0934*cos(30))},0) circle[radius=0.6mm]node[above right] {\Mars};
+    \draw[shade, ball color = darkgray] ({2.259*cos(45)/(1-0.0934*cos(45))},{2.259*sin(45)/(1-0.0934*cos(45))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(60)/(1-0.0934*cos(60))},{2.259*sin(60)/(1-0.0934*cos(60))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(75)/(1-0.0934*cos(75))},{2.259*sin(75)/(1-0.0934*cos(75))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] (0,2.259,0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(105)/(1-0.0934*cos(105))},{2.259*sin(105)/(1-0.0934*cos(105))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(120)/(1-0.0934*cos(120))},{2.259*sin(120)/(1-0.0934*cos(120))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(135)/(1-0.0934*cos(135))},{2.259*sin(135)/(1-0.0934*cos(135))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(150)/(1-0.0934*cos(150))},{2.259*sin(150)/(1-0.0934*cos(150))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(165)/(1-0.0934*cos(165))},{2.259*sin(165)/(1-0.0934*cos(165))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] (-2.067,0,0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(15)/(1-0.0934*cos(15))},{-2.259*sin(15)/(1-0.0934*cos(15))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(30)/(1-0.0934*cos(30))},{-2.259*sin(30)/(1-0.0934*cos(30))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(45)/(1-0.0934*cos(45))},{-2.259*sin(45)/(1-0.0934*cos(45))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(60)/(1-0.0934*cos(60))},{-2.259*sin(60)/(1-0.0934*cos(60))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(75)/(1-0.0934*cos(75))},{-2.259*sin(75)/(1-0.0934*cos(75))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] (0,-2.259,0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(105)/(1-0.0934*cos(105))},{-2.259*sin(105)/(1-0.0934*cos(105))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(120)/(1-0.0934*cos(120))},{-2.259*sin(120)/(1-0.0934*cos(120))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(135)/(1-0.0934*cos(135))},{-2.259*sin(135)/(1-0.0934*cos(135))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(150)/(1-0.0934*cos(150))},{-2.259*sin(150)/(1-0.0934*cos(150))},0) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] ({2.259*cos(165)/(1-0.0934*cos(165))},{-2.259*sin(165)/(1-0.0934*cos(165))},0) circle[radius=0.6mm];
+\stopaxis
+\stopbuffer
+
+\marginTikZ{\vskip 1.5in}{UKMars3D}{A planet with angular momentum will not crash into the Sun, it will orbit.} % vskip, name, caption
 
 
 \section{Orbits are elliptical}
@@ -562,7 +838,7 @@ Ellipses are circles squashed symmetrically, no pointier at one end than the oth
 Kepler starts over again, using his table of twenty-eight distances. While considering these distances, he was playing around with another calculation and stumbled upon the number $1.00429$, which reminded him of one of the distances, which was off of the circle by $0.00432$. \quotation{It was as if I were awakened from a sleep to see a new light\dots.} % Kepler p407
 He tried the same formula for other observations and it again gave the right distances! He did not realize that formula gives the distances on an ellipse, since he had simply stumbled on the formula while doing something else. As a result, he put these correct distances at the wrong positions and produced an orbit that was \quotation{chubby-faced} and did not match the observations. He therefore abandoned the formula to try something entirely new – an ellipse!
 \startblockquote
-Why should I mince words? The truch of Nature, which I had rejected and chased away, returned by stealth through the backdoor, disguising itself to be accepted. That is to say, I laid [the distance formula] aside, and fell back on ellipses, believing that this was quite a different hypothesis, whereas the two, as I will prove in the next chapter, are one and the same\dots.% Keostler p388
+Why should I mince words? The truth of Nature, which I had rejected and chased away, returned by stealth through the backdoor, disguising itself to be accepted. That is to say, I laid [the distance formula] aside, and fell back on ellipses, believing that this was quite a different hypothesis, whereas the two, as I will prove in the next chapter, are one and the same\dots.% Keostler p388
 \stopblockquote
 The ellipse provided exactly the formula he had stumbled upon and then abandoned. The ellipse also provided the correct angles and unlocked a wealth of geometric knowledge from ancient geometers. \quotation{Oh, ridiculous me!} %Kepler1609 p430
 
