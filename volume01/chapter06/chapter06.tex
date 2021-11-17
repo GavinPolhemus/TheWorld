@@ -116,7 +116,7 @@ Putting this together with Galileo's position update formulas gives the cannon b
 \NC dy	\NC = \frac{p_y}{m}\,dt	\NC dp_y	\NC = -mg\,dt	\NR
 \stopalign\stopformula
 Equations of motion must provide a formula to update each coordinate and each momentum. For the two dimensional motion of the cannon ball we must have four update formulas. The right side of the formulas can include known constants (like $m$ and $g$) and the current coordinates and momenta. For the cannon ball's equations of motion, we see that the momentum update formulas contain only constants, and the position update formulas contain constants and momentum components. (I replaced the velocity components with their momentum equivalents.) These are good equations of motion.
-%In the the words of Lagrange, these are good equations of motion because they are \quotation{all of the necessary equations for the solution of [the] problem."
+%In the words of Lagrange, these are good equations of motion because they are \quotation{all of the necessary equations for the solution of [the] problem."
 
 
 \startexample[ex:EoMSHO] Write the equation of motion for the system of the cart (mass $m$) and spring (stiffness $k$) shown in \in{figure}[fig:EoMSHO].
@@ -249,7 +249,7 @@ Lagrange's \booktitle{Mécanique Analytique} was a stunning achievement, unlike 
 
 \section{Hamilton's canonical equations of motion}
 
-While physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring French mathematical revolution transforming physics.
+While physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring the French mathematical revolution transforming physics.
 They remained paralyzed by a fanatic devotion to Newton’s cumbersome, geometric methods and continued to hold a grudge over the Leibniz’s calculus and \visviva. This problem persisted until 1812, when a group of young undergraduate students at Cambridge started the Analytical Society, partly as a joke, to study the methods of French analysis. They learned to solve problems using the continental notation and even translated a few important French books and papers into English. The club met for a few years and essentially disappeared after its members graduated and left Cambridge in 1817.
 
 That probably would have been the end of this little revolt, except that one of the members, George Peacock, was appointed in 1817 to write questions for the rigorous Mathematical Tripos exam taken by all third year mathematics students at Cambridge. He audaciously wrote his questions using the continental notation. This caused a bit of grumbling among the faculty, but they did not interfere. Surprisingly, Peacock was asked to write questions again in 1819. Students recognized this as a complete surrender by the Newtonian faculty. From there, the adoption of continental notation and methods in England was quite swift. Newton remained a revered figure, but his 150 year old dispute with Leibniz was finally laid to rest. %Cannell p. 38
@@ -289,7 +289,7 @@ Euler and Lagrange used velocity rather than momentum, writing kinetic energy as
 
 Hamilton followed Daniel Bernoulli's advice and described all interactions as potential energy, not Newtonian forces. There is a bit of an obstacle to this approach. Lagrange's equation tells us how to convert to Newton's force from potential energy, but it does not tell us how to convert the other way. In fact, some forces (like friction) cannot be described using potential energy and must be left as outside forces acting on the system. We will use $F$ only for these external forces. Any interaction that can be described using potential energy will be included in the energy formula.
 
-The system's total energy $H$ and the the external force $F$ come together in Hamilton's momentum update formula.
+The system's total energy $H$ and the external force $F$ come together in Hamilton's momentum update formula.
 \startformula[eq:Hamilton2]
 	dp = \left(-\ppx H + F \right) dt
 \stopformula
@@ -336,7 +336,7 @@ This is the familiar position update formula $dx = v\,dt$ with the velocity $v =
 \stopsolution
 \stopexample
 
-Hamilton's general method produces the complete equations of motion for any mechanical system from the system's Hamiltonian – the system's total energy written in terms of the positions and momenta. Hamilton's method is a favorite with physicists because of its power, beauty, and practicality. The method it is also excellent for students. Writing the Hamiltonian is often fairly easy, even for complicated system; the method often requires only basic skills with derivatives; and the equations of motion are separated into their most useful form. Hamilton's method is not necessary for a simple system like the cart on a spring, but it is ideal for our quadrivium problems. 
+Hamilton's general method produces the complete equations of motion for any mechanical system from the system's Hamiltonian – the system's total energy written in terms of the positions and momenta. Hamilton's method is a favorite with physicists because of its power, beauty, and practicality. The method is also excellent for students. Writing the Hamiltonian is often fairly easy, even for complicated systems; the method often requires only basic skills with derivatives; and the equations of motion are separated into their most useful form. Hamilton's method is not necessary for a simple system like the cart on a spring, but it is ideal for our quadrivium problems. 
 
 \stopchapter
 \stopcomponent
@@ -495,7 +495,7 @@ Before we apply Hamilton's method to the quadrivium problems, we need a couple s
 
 A pendulum's position is naturally described by the angle it makes with the vertical. \in{Figure}[fig:GalileoPendulumAngle] shows a pendulum with its angular position in radians. We will find the pendulum's equations of motion using the angular coordinate $\theta$, and the \keyterm{angular momentum} $p_\theta$. First, we will find the Hamiltonian. Then, we will use Hamilton's equations to find the update formulas for $\theta$ and $p_\theta$.
 
-The Hamiltonian is the pendulum's total energy. When working with the the angle it is convenient to set the pivot at  height $h=0$, making the pendulum's height negative whenever it is below the pivot, as shown in \in{figure}[fig:GalileoPendulumAngle]. The pendulum's potential energy is then $U = -mgR\cos(\theta)$. The pendulum's rotational kinetic energy (\at{p.}[eq.Krot]) is $K = \onehalf I\omega^2$, where the moment of inertial $I$ plays the role of rotational mass. Unfortunately, this is written in terms of angular velocity $\omega$. The Hamiltonian must be written in terms of angular momentum $p_\theta$. The obvious guess is $K = p_\theta^2/2I$, where $I$ again plays the role of rotational mass. This guess is correct. The Hamiltonian is
+The Hamiltonian is the pendulum's total energy. When working with the angle it is convenient to set the pivot at  height $h=0$, making the pendulum's height negative whenever it is below the pivot, as shown in \in{figure}[fig:GalileoPendulumAngle]. The pendulum's potential energy is then $U = -mgR\cos(\theta)$. The pendulum's rotational kinetic energy (\at{p.}[eq.Krot]) is $K = \onehalf I\omega^2$, where the moment of inertial $I$ plays the role of rotational mass. Unfortunately, this is written in terms of angular velocity $\omega$. The Hamiltonian must be written in terms of angular momentum $p_\theta$. The obvious guess is $K = p_\theta^2/2I$, where $I$ again plays the role of rotational mass. This guess is correct. The Hamiltonian is
 \startformula
   H = \textfrac{1}{2I}p_\theta^2 - mgR\cos(\theta).
 \stopformula
