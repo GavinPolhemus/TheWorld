@@ -24,13 +24,72 @@ What matters to me is not merely to impart to the reader what I have to say, but
 	\stopalignment
 }
 
-\Initial{H}{amilton's equations} are the final formulation of classical mechanics, uniting the four disciplines of the quadrivium. In this chapter, we will use Hamilton's formulation to solve the great ancient puzzle of astronomy – the motion of the planets.
+\Initial{J}{ohannes Kepler,} at the age of 23, became interested in astronomy for a simple reason: it was his job. He had been studying for priesthood, but he also loved mathematics. In 1594, he received an unexpected invitation to teach mathematics and astronomy at the school in Graz, Austria.
+Although Kepler had never thought of becoming an astronomer, he had taken the required astronomy courses at the University of Tübingen. He understood the Ptolemaic and Copernican systems (\at{pp.}[AncientWorldModels]-\at[AncientWorldModelsEnd]), both based on uniform circular motions. After a bit of hesitation, he accepted the invitation.
+ 
+%Since the Moon, Sun, and Earth are all circular – the most perfect shape – the Pythagoreans believed that all all celestial bodies circle Earth, a model that ran into conflicts with observations immediately. To explain the planet's erratic motions across the sky, ancient astronomers introduced compound motion into their models, so that the planets moved on circles which were themselves being carried by other circles.
 
-Since the Moon, Sun, and Earth are all circular – the most perfect shape – the Pythagoreans believed that all all celestial bodies circle Earth, a model that ran into conflicts with observations immediately. To explain the planet's erratic motions across the sky, ancient astronomers introduced compound motion into their models, so that the planets moved on circles which were themselves being carried by other circles.
+\placefigure[margin][fig:Kepler1596system]{Woodcut from Kepler's \booktitle{Mysterium Cosmographicum} showing his early model of the solar system based on the five platonic solids.} {\externalfigure[Kepler1596system][width=\rightmarginwidth]}
 
-Kepler, at the age of 23, became interested in astronomy for a simple reason: it was his job. He had been studying for priesthood, but he also loved mathematics. He received an unexpected invitation to teach mathematics and astronomy at the school in Graz, Austria. After a bit of hesitation, he accepted.
+After his first year of teaching, he was struck by a novel idea: perhaps the planets' orbits were exactly the right sizes to fit inside nested Platonic solids, as shown in \in{figure}[fig:Kepler1596system]. This idea is wrong, but given the close connection between geometry and astronomy, it was not an especially outlandish proposal in the sixteenth century. More controversial was the fact that he nested these polygons with the Sun at the center and Earth in orbit (in a spherical shell between the model's icosahedron and dodecahedron). In 1597, he published a small book exuberantly announcing his heliocentric model.
 
-In 1595, after his first year of teaching, he was struck by a novel idea: perhaps the planets' orbits were exactly the right sizes to fit inside nested Platonic solids. This idea is wrong, but given the close connection between geometry and astronomy, it was not an especially outlandish proposal in the sixteenth century. More controversial was the fact that he nested these polygons with the Sun at the center and Earth in orbit (in a spherical shell between the model's icosahedron and dodecahedron). In 1597, he published a small book with his heliocentric model and sent copies to prominent astronomers, including Galileo. Galileo sent an encouraging reply, but it is not clear if he ever read the book before his own adventure with the spyglass fourteen years later.
+
+
+
+Galileo first explained projectile motion as the combination of uniform horizontal motion (constant $v_x$) with vertical free-fall motion. To Galileo, circular motion was as natural as linear motion, so he saw no obstacle to combining circular motion with linear motion. For example, he argues in \booktitle{Two World Systems} that an object dropped down a very deep well will continue to move about the Earth's center with uniform circular motion (constant $\omega$) as it free-falls to Earth's center.
+
+In fact, circular motion requires a force – as Descartes and Newton taught us – to bend the path away from natural straight motion. For example, the Moon is kept in a circular orbit around Earth by the constant pull of Earth's gravity. Earth's gravity does not simultaneously produce free-fall motion, bringing the Moon crashing down – thankfully.
+
+
+\startbuffer[U3D]
+\startaxis[
+ 	  %axis line shift=1cm,
+	   %axis lines*=left,
+   hide x axis,
+    hide y axis,
+    hide z axis,
+        axis lines=center,
+        axis on top,
+	 view={0}{45},
+        width = 7cm,
+    %z post scale = {1},
+        clip mode = individual,
+]
+%    \addplot3 [
+%        mesh, color = middlegray,
+%        z buffer=sort,
+%        samples=9,
+%        domain=0.1:1,
+%        y domain=0:2*pi,
+%](
+%{x * cos(deg(y))}, {x * sin(deg(y))}, {-10}
+%    );
+    \addplot3 [
+        surf, faceted color = middlegray, color = gray,
+        z buffer=sort,
+        samples=6,
+        domain=2.5:15,
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {-13.27/x}
+    );
+    \node at (-8,-6,-2.5) {$U$};
+    \draw[->] (0,0,0) --node[below, pos = 0.98]{$r$} (16,0,0);
+    \draw[shade, ball color = white] (0,0,0) circle[radius=.6mm]node[above=0.8mm] {\Sun};
+    \draw[shade, ball color = darkgray] (0.5546,0,0) circle[radius=0.2mm]node[below] {\Mercury};
+    \draw[shade, ball color = darkgray] (1.082,0,0) circle[radius=0.3mm]node[above] {\Venus};
+    %\draw[] (1.5,0,0) -- (1.5,0,-8.874);
+    \draw[shade, ball color = darkgray] (1.496,0,0) circle[radius=0.3mm]node[below=0.4mm] {\Earth};
+    \draw[shade, ball color = darkgray] (2.259,0,0) circle[radius=0.25mm]node[above=0.7mm] {\Mars};
+    \draw[shade, ball color = darkgray] (7.76,0,0) circle[radius=0.4mm]node[above] {\Jupiter};
+    \draw[shade, ball color = darkgray] (14.23,0,0) circle[radius=0.4mm]node[above] {\Saturn};
+\stopaxis
+\stopbuffer
+
+\marginTikZ{}{U3D}{A planet's gravitational potential energy depends on its distance $r$ from the Sun. A planet released from rest would accelerate toward lower potential energy, crashing into the Sun!} % vskip, name, caption
+
+Kepler sent copies of \booktitle{Mysterium Cosmographicum} to prominent astronomers, including Galileo. Galileo sent an encouraging reply, but it is not clear if he ever read the book before his own adventure with the spyglass fourteen years later.
 
 The book did catch the attention of another astronomer, Tycho de Brahe. Tycho had been making precise observations of the positions of stars and planets for 35 years. After a spat with King Christian of Denmark in 1597, Tycho moved his formidable arsenal of observing equipment to a castle near Prague, where he became Imperial Mathematicus for Emperor Rudolf II. Even with the best assistants, Tycho was struggling to make a coherent mathematical model from his mountain of data. He did not believe Kepler's model was the solution, but Tycho recognized the young astronomer's tremendous mathematical skill and creativity. Kepler, in return, recognized Tycho's observations as the only firm foundation for his model.
 Tycho invited Kepler to collaborate, but guarded his data jealously. Kepler expressed interest, and even made a visit, but was reluctant to leave his position in Graz.
@@ -61,20 +120,20 @@ Kepler recounts his struggle with Mars in his revolutionary \booktitle{New Astro
 	major grid style = {middlegray},
  	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
  ]
-    \addplot [ % Mars area at aphelion
-        draw=none, fill=black!20,
-        domain={156.08-4.36}:{156.08+4.36},
-        samples=20,
-    ]
-        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
-    ;
-    \addplot [ % Mars area at perihelion
-        draw=none, fill=black!20,
-        domain={336.08-6.35}:{336.08+6.35},
-        samples=20,
-    ]
-        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
-    ;
+%    \addplot [ % Mars area at aphelion
+%        draw=none, fill=black!20,
+%        domain={156.08-4.36}:{156.08+4.36},
+%        samples=20,
+%    ]
+%        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
+%    ;
+%    \addplot [ % Mars area at perihelion
+%        draw=none, fill=black!20,
+%        domain={336.08-6.35}:{336.08+6.35},
+%        samples=20,
+%    ]
+%        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
+%    ;
     \addplot [ % Mars
     	name path=Mars,
         thick,
@@ -96,24 +155,25 @@ Kepler recounts his struggle with Mars in his revolutionary \booktitle{New Astro
 \stopbuffer
 
 \placetextfloat[top][fig:KeplerMarsAncients] % location
-{Kepler's model of Mars's orbit using a perfect circle, off center, and a constant angular velocity about an equant. The lines show the equal angle about the equant over two different $20\units{day}$ durations. The same angle produces a larger displacement on the side farther from the equant – and closer to the Sun. This model failed.}	 % caption text
+{Kepler's model of Mars's orbit using a perfect circle, off center, and a constant angular velocity about an equant. The lines show the equal angle about the equant over two different $20\units{day}$ durations. The same angle produces a larger displacement on the side farther from the equant – and closer to the Sun. This model failed. (A gigameter is one billion meters: $1\units{Gm} = 10^9\units{m}$).}	 % caption text
 {\noindent\typesetbuffer[TikZ:KeplerMarsAncients]} % figure contents
 
 Before he could check this model he needed to determine the obit's center and radius and the equant's location. He used four of Tycho's observations in an extremely laborious calculation, explained in chapter 16 of \booktitle{New Astronomy.} At one point in the explanation he exclaims,
 
 \startblockquote
-If this wearisome method has filled you with loathing, it should more properly fill you with compassion for me, as I have gone through it at least seventy times at the expense of a great deal of time, and you will cease to wonder that the fifth year has now gone by since I took up Mars\dots.%, although the year of 1603 was nearly all given over to optical investigations.% Kepler1609 p190
+If this wearisome method has filled you with loathing, it should more properly fill you with compassion for me, as I have gone through it at least seventy times at the expense of a great deal of time, and you will cease to wonder that the fifth year has now gone by since I took up Mars\dots.%, although the year of 1603 was nearly all given over to optical investigations.
+\autocite{p.~190.}{Kepler1609}
 \stopblockquote
 We still have these calculations, in Kepler's small handwriting, filling nine hundred pages.
 
-Then, to confirm the model, he used it to predict Mars's location on the dates of six other observations, and compared them to Tycho's records. This again required tremendous labor. All of the predictions agreed with the observations to remarkable precision. Tycho's observations were not perfect, of course, but they could be trusted to within two minutes of an arc. A minute of arc is one sixtieth of a degree. The full Moon's apparent diameter is about thirty minutes of arc, or half of a degree, so Tycho's observations were accurate to within about one fifteenth of the Moon's apparent diameter. Prior observations, going back to the Babylonians, were good only to ten minutes of an arc. Kepler's prediction for Mars's location matched Tycho's observations with an error of less than two minutes, exactly the range of error expected based on the observations' precision. These exciting results are presented in Kepler's chapter 18.
+Then, to confirm the model, he used it to predict Mars's location on the dates of six other observations, and compared them to Tycho's records. This again required tremendous labor. All of the predictions agreed with the observations to remarkable precision. Tycho's observations were not perfect, of course, but they could be trusted to within two minutes of an arc. A minute of arc is one sixtieth of a degree. The full Moon's apparent diameter is about thirty minutes of arc, or half of a degree, so Tycho's observations were accurate to within about one fifteenth of the Moon's apparent diameter. Prior observations, going back to the Babylonians, were good only to ten minutes of an arc. Kepler's prediction for Mars's location matched Tycho's observations with an error of less than two minutes – exactly the range of error expected based on the observations' precision. These exciting results are presented in Kepler's chapter 18.
 
-Chapter 19 begins, \quotation{Who would have thought it possible? This hypothesis, so closely in agreement with [chapter 18's] observations is nonetheless false\dots.} % Kepler1609 p208
+Chapter 19 begins, \quotation{Who would have thought it possible? This hypothesis, so closely in agreement with [chapter 18's] observations, is nonetheless false\dots.}\autocite{p.~208.}{Kepler1609}
 Kepler then explains, in methodical detail, that a few additional predictions disagreed with Tycho's observations by up to eight minutes of an arc, or about one quarter of the Moon's apparent diameter. This is a tiny error! Prior to Tycho's observations, such an error could be attributed to the observations. But Tycho's observations were good to two minutes. A difference of eight minutes could only mean the failure of the model.
 
-After year's of work, Kepler responds to this devastating verdict with the most moving passage I have found in any science text.
+After years of work, Kepler responds to this devastating verdict with the most moving passage I have found in any science text.
 \startblockquote
-Since the divine benevolence has vouchsafed us Tycho Brahe, a most diligent observer, from whose observations the $8'$ error of this [model] is shown in Mars, it is fitting that we with thankful mind both acknowledge and honor this favor of God. For it is in this that we shall carry on, to find at length the true form of the celestial motions, supported as we are by the proofs showing our suppositions to be fallacious. In what follows, I shall myself, to the best of my ability, lead the way for others on this road. For if I had thought I could ignore eight minutes\dots I would have already made enough of a correction in Ch.~16. Now, because they could not be ignored, these eight minutes alone will have led the way to the reformation of all of astronomy\dots.% Kepler1609 p211
+Since the divine benevolence has vouchsafed us Tycho Brahe, a most diligent observer, from whose observations the $8'$ error of this [model] is shown in Mars, it is fitting that we with thankful mind both acknowledge and honor this favor of God. For it is in this that we shall carry on, to find at length the true form of the celestial motions, supported as we are by the proofs showing our suppositions to be fallacious. In what follows, I shall myself, to the best of my ability, lead the way for others on this road. For if I had thought I could ignore eight minutes\dots I would have already made enough of a correction in Ch.~16. Now, because they could not be ignored, these eight minutes alone will have led the way to the reformation of all of astronomy\dots.\autocite{p.~211.}{Kepler1609}
 \stopblockquote
 If I had to point to a single moment when the old philosophical reasoning gave way to a new scientific practice, it would be this moment – when Kepler, after years of calculation, confronts the data proving his failure, gives thanks, and starts over.
 
@@ -121,77 +181,19 @@ If I had to point to a single moment when the old philosophical reasoning gave w
 Kepler could have continued \quotation{in imitation of the ancients} by adding a small extra wheel to the orbital motion or by adding a mysterious oscillation to the already mysterious equant. Instead, he recognized that a fundamental assumptions of his model must be wrong.
 \startblockquote
 Therefore, something among those things we had assumed must be false. But what was assumed was: that the orbit upon which the planet moves is a perfect circle; and that there exists some unique point\dots about which point Mars describes equal angles in equal times. Therefore, of these, one or the other or perhaps both are false, for the observations used are not false.
-% Kepler1609 p209-10
+\autocite{pp.~209-10.}{Kepler1609}
 \stopblockquote
 In chapter 20 he shows any attempt to use an equant will conflict with the observations.
 \startblockquote
-The blame for the discrepancy\dots(I am repeating this over and over so that it will be remembered) falls entirely upon the faulty assumptions deliberately entertained by me, in common with Tycho and all who have ever devised hypotheses. For the necessary consequence of this enquiry is that there is no single fixed point\dots about which the planet always sweeps out equal angles in equal times.
+The blame for the discrepancy\dots(I am repeating this over and over so that it will be remembered) falls entirely upon the faulty assumptions deliberately entertained by me, in common with Tycho and all who have ever devised hypotheses. For the necessary consequence of this enquiry is that there is no single fixed point\dots about which the planet always sweeps out equal angles in equal times.\autocite{pp.~215-16.}{Kepler1609}
 \stopblockquote
 The model's failure for Mars called into question Kepler's model for Earth's motion, which also used a perfectly circular orbit and constant angular velocity. Kepler could not possibly make any progress in determining the position of Mars from Tycho's observations if he did not even know Earth's location, since Earth is where Tycho made the observations.
-Kepler continued to believe that Earth's orbit is a perfect circle, slightly off center from the Sun (\in{fig.}[fig:KeplerTerestrial]), but he needed to find a new rule for the Earth's speed. To do this he again used Tycho's observations of Mars, but this time he reversed them to find the direction Earth would be seen from an observatory on Mars. This seems like a waste of time, since Mars position is also uncertain, but by using multiple observations of Mars when it was known to be in the same position, Kepler was nonetheless able to find Earth's motion. The details of the epic calculations are all in chapters 22 through 31 of \booktitle{New Astronomy}. 
+Kepler continued to believe that Earth's orbit is a perfect circle, slightly off center from the Sun (\in{fig.}[fig:KeplerTerestrial]), but he needed to find a new rule for the Earth's speed. To do this he again used Tycho's observations of Mars, but this time he reversed them to find the direction Earth would be seen from an observatory on Mars. This seems like a waste of time, since Mars position is also uncertain, but by using multiple observations of Mars when it was known to be in the same position, Kepler was nonetheless able to find Earth's motion. The details of the epic calculations fill chapters 22 through 31 of \booktitle{New Astronomy}. 
 
-Knowing Earth's positions, and therefore its speed along its orbit, Kepler sought a mathematical model. Breaking with tradition, he did not seek inspiration in abstract geometry. Instead, he considers possible physical causes for the motion. \quotation{Physicists, prick your ears\dots for we are going to invade your territory.} % Koestler p 329
+Knowing Earth's positions, and therefore its speed along its orbit, Kepler sought a mathematical model. Breaking with tradition, he did not seek inspiration in abstract geometry. Instead, he considers possible physical causes for the motion. \quotation{Physicists, prick your ears\dots for we are going to invade your territory.}\autocite{p.~329.}{Kepler1609} 
 He no longer searches for imaginary wheels or imaginary points like the equant. Instead he looks for an explanation in the objects themselves, specifically in the Sun and planets.
 
-\quotation{The power that moves the planets resides in the Sun,} he suggests, and its strength diminishes as the planet gets farther away, decreasing the planet's speed. He attempts to develop this physical idea into a mathematical model and – after considerable stumbling – discovers that at all along its orbit, Earth sweeps out \emph{equal areas in equal times.}
-
-For Earth's nearly centered orbit there is only a tiny difference between a constant angular velocity (which sweeps out equal angles in equal times) and Kepler's new law of equal areas in equal times. Tycho's precise observations confirmed the tiny effect of Kepler's new area law for Earth's motion.
-
-Kepler's area law, discovered first for Earth, is true for all planets. The effect is most pronounced for Mercury, which has the most off-center orbit. Two shaded areas in \in{figure}[fig:KeplerTerestrial] show the areas swept out by Mercury during two equal times. The shaded, pie-shaped area above the Sun shows the area swept out by Mercury during the twenty days when it is closest to the Sun. The shaded area below shows the area swept out during the twenty days when Mercury is farthest from the Sun. The upper pie-slice has a smaller radius but a larger angle due to Mercury's higher speed near the Sun. The lower pie slice has a larger radius but  and a smaller angle due to Mercury's lower speed farther from the Sun. The two resulting areas are exactly the same.
-
-Kepler's area law is known by two other names. It is also called Kepler's Second Law, even though it was discovered before his other two laws, which we will get to shortly.
-
-
-Hamilton's formulation is ideally suited for compound motion.%, as we have seen in two important examples – projectile motion and the motion of Newton's connected globes, explained by Du Châtelet.
-
-Galileo first explained projectile motion as the combination of uniform horizontal motion (constant $v_x$) with vertical free-fall motion. To Galileo, circular motion was as natural as linear motion, so he saw no obstacle to combining circular motion with linear motion. For example, he argues in \booktitle{Two World Systems} that an object dropped down a very deep well will continue to move about the Earth's center with uniform circular motion (constant $\omega$) as it free-falls to Earth's center.
-
-In fact, circular motion requires a force – as Descartes and Newton taught us – to bend the path away from natural straight motion. For example, the Moon is kept in a circular orbit around Earth by the constant pull of Earth's gravity. Earth's gravity does not simultaneously produce free-fall motion, bringing the Moon crashing down – thankfully.
-
-Perhaps in situations that naturally involve circular motions, like orbits, we could find an angular momentum, similar to the linear momentum, that stays constant in the absence of external angular forces. This approach was eventually worked out in the highly abstract physics of the eighteenth century, but for our astronomical questions the treatment will be almost identical to the momentum you already know and love.
-
-An object's angular momentum is represented by $L$, and it is connected to rotational kinetic energy in the same way that momentum is connected to center-of-mass kinetic energy. Recall that we had two formulas for kinetic energy, one using velocity and the other using momentum.
-\startformula
-	K = \half mv^2 = \frac{p^2}{2m}
-\stopformula
-Likewise, rotational kinetic energy can be written in terms of angular velocity $\omega$ or angular momentum $L$. Write these formulas in the same form as above.
-\startformula
-	K = \half I\omega^2 = \frac{L^2}{2I}
-\stopformula
-In the angular formulas the moment of inertia appears in place of the mass. Mass gives an object inertia, or resistance to changing motion. The moment of inertia provides a resistance to changing angular motion. The formula for rotational kinetic energy in terms of angular momentum will be extremely valuable.
-
-Solving that last equation gives the angular momentum formula.
-\startformula
-	L = I\omega
-\stopformula
-This looks very similar to the momentum formula $p=mv$. In both cases the momentum is the product of the objects \quotation{inertia} and its velocity. This analogy between linear and angular quantities is shown in \in{table}[T:LinearAngular].
-
-\placetable
-    [margin]
-    [T:LinearAngular]
-    {The ingredients of linear and angular momentum}
-    {\vskip18pt\small%\hbox{
-	\starttabulate[|lw(1.75cm)|cw(1.75cm)|c|]
-\FL[2]%\toprule
-\NC				\NC Linear		\NC Angular 		\NR
-\HL
-\NC Velocity		\NC \ $v$		\NC $\omega$		\NR
-\NC Inertia		\NC \ $m$		\NC $I$			\NR
-\NC Momentum	\NC $p=mv$	\NC $L=I\omega$	\NR
-\LL[2]%\bottomrule
-    \stoptabulate}
-
-
- The angular version of force is called torque and is represented by $\tau$ (tau). Torque is a twisting force that will cause something to gain angular momentum. This leads to the third great conservation law of mechanics, conservation of angular momentum. 
-\startformula
-	L\si + \tau\Delta t = L\sf
-\stopformula
-
-We would like to explain the planets' motions around the Sun using angular momentum and energy. Orbits of the inner four planets – Mercury, Venus, Earth, and Mars – are shown in \in{figure}[fig:KeplerTerestrial]. While we could work in cartesian coordinates, the solar system is much easier to describe with polar coordinates, and this has been the tradition since before cartesian coordinates were invented. Each planet's gravitational potential energy is determined by its distance from the sun, the $r$ coordinate. Since we will be using conservation of angular momentum, we will need to know the torque, which turns out to be zero! Hamilton's equation works with any coordinates, and for angular coordinates it gives the torque.
-\startformula
-	\tau = -\frac{\Delta U}{\Delta\theta}
-\stopformula
-Motion in the $\theta$ direction (keeping $r$ constant) does not change a planets' potential energy, so there is no force pushing the planets in the $\theta$ direction. The only force is the gravitational force in the negative $r$ direction, directly toward the Sun. The planets do exert forces on each other but these are extremely small compared to the force of the Sun's gravity, so we will ignore them.
+\quotation{The power that moves the planets resides in the Sun,}\autocite{p.~278.}{Kepler1609} he suggests, and its strength diminishes as the planet gets farther away, decreasing the planet's speed. He attempts to develop this physical idea into a mathematical model and – after considerable stumbling – discovers that at all along its orbit, Earth sweeps out \emph{equal areas in equal times.}
 
 \startbuffer[TikZ:KeplerTerestrial]
 \environment env_physics
@@ -288,6 +290,64 @@ Motion in the $\theta$ direction (keeping $r$ constant) does not change a planet
 {The orbits of the inner planets. The orbits of Mercury and Mars are noticeably off-center. The gray pie-slices show the angle covered in $20\units{days}$ by Mars and Mercury when they are closest and farthest from the Sun. Notice that both the angle and the distance are greater when the planet is closer to the Sun. Both the angular velocity and the speed are greater when closer to the Sun.}	 % caption text
 {\noindent\typesetbuffer[TikZ:KeplerTerestrial]} % figure contents
 
+For Earth's nearly centered orbit there is only a tiny difference between a constant angular velocity (which sweeps out equal angles in equal times) and Kepler's new law of equal areas in equal times. Tycho's precise observations confirmed the tiny effect of Kepler's new area law for Earth's motion.
+
+Kepler's area law, discovered first for Earth, is true for all planets. The effect is most pronounced for Mercury, which has the most off-center orbit. Two shaded areas in \in{figure}[fig:KeplerTerestrial] show the areas swept out by Mercury during two equal times. The shaded, pie-shaped area above the Sun shows the area swept out by Mercury during the twenty days when it is closest to the Sun. The shaded area below shows the area swept out during the twenty days when Mercury is farthest from the Sun. The upper pie-slice has a smaller radius and a larger angle due to Mercury's higher speed near the Sun. The lower pie slice has a larger radius and a smaller angle due to Mercury's lower speed farther from the Sun. The two resulting areas are exactly the same.
+
+Kepler's area law is known by two other names. It is also called Kepler's Second Law, even though it was discovered before his other two laws, which we will get to shortly.
+
+Hamilton's equations are the final formulation of classical mechanics, uniting the four disciplines of the quadrivium. In this chapter, we will use Hamilton's formulation to solve the great ancient puzzle of astronomy – the motion of the planets.
+
+
+Hamilton's formulation is ideally suited for compound motion.%, as we have seen in two important examples – projectile motion and the motion of Newton's connected globes, explained by Du Châtelet.
+
+
+
+Perhaps in situations that naturally involve circular motions, like orbits, we could find an angular momentum, similar to the linear momentum, that stays constant in the absence of external angular forces. This approach was eventually worked out in the highly abstract physics of the eighteenth century, but for our astronomical questions the treatment will be almost identical to the momentum you already know and love.
+
+An object's angular momentum is represented by $L$, and it is connected to rotational kinetic energy in the same way that momentum is connected to center-of-mass kinetic energy. Recall that we had two formulas for kinetic energy, one using velocity and the other using momentum.
+\startformula
+	K = \half mv^2 = \frac{p^2}{2m}
+\stopformula
+Likewise, rotational kinetic energy can be written in terms of angular velocity $\omega$ or angular momentum $L$. Write these formulas in the same form as above.
+\startformula
+	K = \half I\omega^2 = \frac{L^2}{2I}
+\stopformula
+In the angular formulas the moment of inertia appears in place of the mass. Mass gives an object inertia, or resistance to changing motion. The moment of inertia provides a resistance to changing angular motion. The formula for rotational kinetic energy in terms of angular momentum will be extremely valuable.
+
+Solving that last equation gives the angular momentum formula.
+\startformula
+	L = I\omega
+\stopformula
+This looks very similar to the momentum formula $p=mv$. In both cases the momentum is the product of the objects \quotation{inertia} and its velocity. This analogy between linear and angular quantities is shown in \in{table}[T:LinearAngular].
+
+\placetable
+    [margin]
+    [T:LinearAngular]
+    {The ingredients of linear and angular momentum}
+    {\vskip18pt\small%\hbox{
+	\starttabulate[|lw(1.75cm)|cw(1.75cm)|c|]
+\FL[2]%\toprule
+\NC				\NC Linear		\NC Angular 		\NR
+\HL
+\NC Velocity		\NC \ $v$		\NC $\omega$		\NR
+\NC Inertia		\NC \ $m$		\NC $I$			\NR
+\NC Momentum	\NC $p=mv$	\NC $L=I\omega$	\NR
+\LL[2]%\bottomrule
+    \stoptabulate}
+
+
+ The angular version of force is called torque and is represented by $\tau$ (tau). Torque is a twisting force that will cause something to gain angular momentum. This leads to the third great conservation law of mechanics, conservation of angular momentum. 
+\startformula
+	L\si + \tau\Delta t = L\sf
+\stopformula
+
+We would like to explain the planets' motions around the Sun using angular momentum and energy. Orbits of the inner four planets – Mercury, Venus, Earth, and Mars – are shown in \in{figure}[fig:KeplerTerestrial]. While we could work in cartesian coordinates, the solar system is much easier to describe with polar coordinates, and this has been the tradition since before cartesian coordinates were invented. Each planet's gravitational potential energy is determined by its distance from the sun, the $r$ coordinate. Since we will be using conservation of angular momentum, we will need to know the torque, which turns out to be zero! Hamilton's equation works with any coordinates, and for angular coordinates it gives the torque.
+\startformula
+	\tau = -\frac{\Delta U}{\Delta\theta}
+\stopformula
+Motion in the $\theta$ direction (keeping $r$ constant) does not change a planets' potential energy, so there is no force pushing the planets in the $\theta$ direction. The only force is the gravitational force in the negative $r$ direction, directly toward the Sun. The planets do exert forces on each other but these are extremely small compared to the force of the Sun's gravity, so we will ignore them.
+
 We will use conservation of energy and conservation of angular momentum to explain three features of the planets' orbits. First, we will explain each planet's changing speed. Second, we will study the orbit's shape. Third, we will explain the relationship between the orbital periods of different planets. In each case we will look at the answer first, and then understand how it comes about, because this is what actually happened. Before Euler's angular momentum, before Bernoulli's potential energy and Leibniz's \visviva, before Newton's laws, even before Galileo's new science of motion, a complete mathematical model of planetary orbits was put forward Johannes Kepler. The model's simplicity and incredible precision made it a gold-standard test for every physical theory that followed.
 
 Kepler's area law is also identical to conservation of angular momentum, which we introduced earlier. We will use conservation of angular momentum to find the same changing angular speeds that Kepler found using his area law. Just as Kepler uses the Sun as the center for his area law, we will use the Sun as the center of our coordinate system when using conservation of angular momentum.
@@ -314,7 +374,7 @@ As the planet speeds up and slows down, its kinetic energy increases and decreas
 \stopformula 
 I've added a $\theta$ subscript to remind us that $K_\theta$ is the kinetic energy due to motion in the $\theta$-direction. The angular momentum $L$ in the formula remains constant throughout the Earth's orbit, but the moment of inertia changes, which then changes the kinetic energy. As Earth gets slightly closer to the Sun on one side of its orbit, $r$ and $I$ both decrease slightly, making the kinetic energy $K_\theta$ increase.
 
-\startbuffer[U3D]
+\startbuffer[Uterrestrial3D]
 \startaxis[
  	  %axis line shift=1cm,
 	   %axis lines*=left,
@@ -355,11 +415,12 @@ I've added a $\theta$ subscript to remind us that $K_\theta$ is the kinetic ener
     %\draw[] (1.5,0,0) -- (1.5,0,-8.874);
     \draw[shade, ball color = darkgray] (1.496,0,0) circle[radius=0.6mm]node[above=0.8mm] {\Earth};
     \draw[shade, ball color = darkgray] (2.259,0,0) circle[radius=0.4mm]node[above=0.7mm] {\Mars};
+    %\draw[shade, ball color = darkgray] (7.76,0,0) circle[radius=0.4mm]node[above=0.7mm] {\Jupiter};
+    %\draw[shade, ball color = darkgray] (14.23,0,0) circle[radius=0.4mm]node[above=0.7mm] {\Saturn};
 \stopaxis
 \stopbuffer
 
-\marginTikZ{}{U3D}{A planet's gravitational potential energy depends on its distance $r$ from the Sun. A planet released from rest would accelerate toward lower potential energy, crashing into the Sun!} % vskip, name, caption
-
+\marginTikZ{}{Uterrestrial3D}{A planet's gravitational potential energy depends on its distance $r$ from the Sun. A planet released from rest would accelerate toward lower potential energy, crashing into the Sun!} % vskip, name, caption
 
 
 Although the change in $r$ is relatively small, the change in Earth's kinetic energy is huge! Where does all of all of that energy come from? It comes from a decrease in the gravitational potential energy $U$.
@@ -384,6 +445,7 @@ As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases a
    ymin=-10, ymax=6,
    minor y tick num=3,
    clip mode = individual,
+		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
  ]
 % \addplot[ % Us
 %   thick,
@@ -474,7 +536,7 @@ As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases a
 \stopbuffer
 
 \placetextfloat[top][fig:EnergyGraphKU] % location
-{Earth's rotational kinetic energy $K_\theta$ and potential energy $U$ plotted as functions of the distance from the Sun $r$. The sum $K_\theta+U$ cradles Earth at its minimum. $U$ prevents Earth from leaving the solar system, while $K_\theta$ keeps it from spiraling into the Sun. Earth is always also moving the the $\theta$ direction (not shown) as it orbits the Sun.}	 % caption text
+{Earth's rotational kinetic energy $K_\theta$ and potential energy $U$ plotted as functions of the distance from the Sun $r$. The sum $U +K_\theta$ cradles Earth at its minimum. $U$ prevents Earth from leaving the solar system, while $K_\theta$ keeps it from spiraling into the Sun. Earth is always also moving the the $\theta$ direction (not shown) as it orbits the Sun.}	 % caption text
 {\noindent\typesetbuffer[TikZ:EnergyGraphKU]} % figure contents
 
 
@@ -589,15 +651,6 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 \startTEXpage\small
 \starttikzpicture% tikz code
 \startaxis
-% [	x={2cm},y={2cm},
-%   %title={Cart's Energy $H=K+U\sub{s}+U\sub{g}$},
-%   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
-%   xmin=0, xmax=5,
-%   minor x tick num=4,
-%   ylabel={Energy ($m\sci{8}\units{J/kg}$)},
-%   ymin=-4, ymax=0,
-%   minor y tick num=3,
-% ]
  [	width=11cm,y={1cm},
    xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
    xmin=0, xmax=3,
@@ -606,6 +659,7 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
    ymin=-8, ymax=0,
    minor y tick num=9,
    clip mode = individual,
+		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
  ]
 % \addplot[ % Us
 %   thick,
@@ -703,7 +757,7 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 \stopbuffer
 
 \placetextfloat[top][fig:EnergyGraphKUH] % location
-{Mars's energy graph. The sum $K_\theta+U$ cradles Mars at its minimum. Mars oscillates between approximately $r\sub{min}=2\units{Gm}$ and $r\sub{max}=2.5\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
+{Mars's energy graph. The sum $U + K_\theta$ cradles Mars at its minimum. Mars oscillates between approximately $r\sub{min}=2\units{Gm}$ and $r\sub{max}=2.5\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
 {\noindent\typesetbuffer[TikZ:EnergyGraphKUH]} % figure contents
 
 \startbuffer[UKMars3D]
@@ -825,22 +879,22 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 
 \section{Orbits are elliptical}
 \startblockquote
-With the eccentricity and the [orbit's radius] established with the utmost certainty, it might appear strange to an astronomer that there remains yet another impediment in the way of astronomy's triumph\dots. Nevertheless\dots.% Kepler1609 p336
+With the eccentricity and the [orbit's radius] established with the utmost certainty, it might appear strange to an astronomer that there remains yet another impediment in the way of astronomy's triumph\dots. Nevertheless\dots. \autocite{p.~336.}{Kepler1609}
 \stopblockquote
 During the years of work on the orbits of Mars and Earth, Kepler had developed unmatched skill in geometry and computation. He was testing many more predictions against Tycho's observations. The area law provided the correct speed for Mars along its orbit, but in some places the orbit was deviating from a circle.
-Having already abandoned constant angular velocity, Kepler was forced to also abandon the ancient's circular orbits. \quotation{The orbit of the planet is not a circle but of an oval shape.} %Kepler1609 p338
+Having already abandoned constant angular velocity, Kepler was forced to also abandon the ancient's circular orbits. \quotation{The orbit of the planet is not a circle but of an oval shape.} \autocite{p.~338.}{Kepler1609}
 
 This presented a huge computational challenge. All of Kepler's geometrical methods depend on the geometry of a circle. He needed to find a new shape, but did not know what it should be. He tried some slightly pointy egg shapes, but needed to study many more observations to determine exactly how long and pointy the egg should be.
 
-At one point in this dreadful analysis he writes to a friend, \quotation{if only the shape were a perfect ellipse all of the answers could be found in Archimedes' and Appollonius' works.} %Koestler p335
-Ellipses are circles squashed symmetrically, no pointier at one end than the other. These had been studied extensively by the ancient Greeks. Almost anything that could be done with a circle had also been worked out for ellipses, which would make Kepler's work much easier. Alas, for his egg shape almost nothing was known. Kepler struggled to make progress. The struggle with the egg fills eleven chapters (45-55) of \booktitle{New Astronomy.} In the process he computes an impressive table of twenty-eight different observations of Mars, from 1582 to 1595, with Mars's distance from the Sun, position along its orbit, predicted position in the sky, its observed position, and the error. Many of the errors were several minutes – huge errors by Kepler's standards – causing the egg to \quotation{go up in smoke.} % Kepler p406
+At one point in this dreadful analysis he writes to a friend, \quotation{if only the shape were a perfect ellipse all of the answers could be found in Archimedes' and Appollonius' works.}\autocite{v. \convertnumber{KR}{14} p.~409.}{KeplerGW}
+Ellipses are circles squashed symmetrically, no pointier at one end than the other. These had been studied extensively by the ancient Greeks. Almost anything that could be done with a circle had also been worked out for ellipses, which would make Kepler's work much easier. Alas, for his egg shape almost nothing was known. Kepler struggled to make progress. The struggle with the egg fills eleven chapters (45-55) of \booktitle{New Astronomy.} In the process he computes an impressive table of twenty-eight different observations of Mars, from 1582 to 1595, with Mars's distance from the Sun, position along its orbit, predicted position in the sky, its observed position, and the error. Many of the errors were several minutes – huge errors by Kepler's standards – causing the egg to \quotation{go up in smoke.}\autocite{p.~406.}{Kepler1609}
 
-Kepler starts over again, using his table of twenty-eight distances. While considering these distances, he was playing around with another calculation and stumbled upon the number $1.00429$, which reminded him of one of the distances, which was off of the circle by $0.00432$. \quotation{It was as if I were awakened from a sleep to see a new light\dots.} % Kepler p407
-He tried the same formula for other observations and it again gave the right distances! He did not realize that formula gives the distances on an ellipse, since he had simply stumbled on the formula while doing something else. As a result, he put these correct distances at the wrong positions and produced an orbit that was \quotation{chubby-faced} and did not match the observations. He therefore abandoned the formula to try something entirely new – an ellipse!
+Kepler starts over again, using his table of twenty-eight distances. While considering these distances, he was playing around with another calculation and stumbled upon the number $1.00429$, which reminded him of one of the distances, which was off of the circle by $0.00432$. \quotation{It was as if I were awakened from a sleep to see a new light\dots.}\autocite{p.~407.}{Kepler1609}
+He tried the same formula for other observations and it again gave the right distances! He did not realize that formula gives the distances on an ellipse, since he had simply stumbled on the formula while doing something else. As a result, he put these correct distances at the wrong positions and produced an orbit that was \quotation{puff-cheeked}\autocite{p.~428.}{Kepler1609} and did not match the observations. He therefore abandoned the formula to try something entirely new – an ellipse!
 \startblockquote
-Why should I mince words? The truth of Nature, which I had rejected and chased away, returned by stealth through the backdoor, disguising itself to be accepted. That is to say, I laid [the distance formula] aside, and fell back on ellipses, believing that this was quite a different hypothesis, whereas the two, as I will prove in the next chapter, are one and the same\dots.% Keostler p388
+Why should I mince words? The truth of Nature, which I had rejected and chased away, returned by stealth through the backdoor, disguising itself to be accepted. That is to say, I laid [the distance formula] aside, and fell back on ellipses, believing that this was quite a different hypothesis, whereas the two, as I will prove in the next chapter, are one and the same\dots.\autocite{p.~388.}{Kepler1609}
 \stopblockquote
-The ellipse provided exactly the formula he had stumbled upon and then abandoned. The ellipse also provided the correct angles and unlocked a wealth of geometric knowledge from ancient geometers. \quotation{Oh, ridiculous me!} %Kepler1609 p430
+The ellipse provided exactly the formula he had stumbled upon and then abandoned. The ellipse also provided the correct angles and unlocked a wealth of geometric knowledge from ancient geometers. \quotation{Oh, ridiculous me!} \autocite{p.~430.}{Kepler1609}
 
 Kepler finishes \booktitle{New Astronomy} with a detailed discussion of ellipses' properties and their application to Mars's orbit. His woodcut diagram is shown in \in{figure}[fig:Kepler1609Urania]. Kepler had finally triumphed over Mars.
 
@@ -1000,10 +1054,10 @@ Kepler believed that his mathematical model of Mars's motion – the area law on
 
 When Newton presented his laws of motion and gravity in the \booktitle{Principia,} almost eighty years after \booktitle{New Astronomy}, his first application of those laws is a proof of Kepler's area law. Newton goes on to show that elliptical orbits arise only from a force that is inversely proportional to the squared distance. Even a tiny change in the force formula causes the elliptical orbit's long axis to rotate slowly, so that over time the planet traces a flower pattern rather than a simple ellipse.
 
-Many planet's orbits do rotate slowly due to the slight pull of other planets. By 1859 it became clear that only Mercury's obit rotates in a way that cannot be caused by other planets. This anomaly was not explained until 1915, when Albert Einstein was developing his own geometric model of gravity. For eight years, Einstein had been struggling to build his theory theory of curved space-time. In the final month, he discovered that his emerging theory predicts a slightly different force than Newton's theory near the Sun. Einstein computed the effect on Mercury's orbit and found it exactly matched the well know anomaly in Mercury's orbit. He recalls, \quotation{for a few days, I was beside myself with joyous excitement.} % Pais SitL p.253
+Many planet's orbits do rotate slowly due to the slight pull of other planets. By 1859 it became clear that only Mercury's obit rotates in a way that cannot be caused by other planets. This anomaly was not explained until 1915, when Albert Einstein was developing his own geometric model of gravity. For eight years, Einstein had been struggling to build his theory theory of curved space-time. In the final month, he discovered that his emerging theory predicts a slightly different force orbit Newton's theory near the Sun. Einstein computed the effect on Mercury's orbit and found it exactly matched the well know anomaly in Mercury's orbit. He recalls, \quotation{for a few days, I was beside myself with joyous excitement.} % Pais SitL p.253
 Two weeks later he completed the theory of General Relativity.
 
-Kepler's model survived for over three-hundred years – from before Galileo's \booktitle{Starry Messenger} until Einstein's great achievement in the twentieth century.
+Kepler's model survived for over three-hundred years – from before Galileo's \booktitle{Starry Messenger} until Einstein's greatest achievement in the twentieth century.
 
 \section{Harmonies of the World}
 
@@ -1011,7 +1065,7 @@ Having mastered the geometry of orbits, Kepler next attempted to unite the quadr
 
 It must be admitted that in the early seventeenth century explaining astronomy with music was no more fanciful than introducing ellipses. However, ellipses have survived rigorous observations while the musical speculations have not. The book does contain one remarkable gem, which has come to be known as Kepler's third law. In studying the periods and sizes of the the planets' orbits.
 \startblockquote
-I first believed I was dreaming... But it is absolutely certain and exact that the ratio which exists between the period times of any two planets is precisely the ratio of the 3/2th power of the mean distance.
+I first believed I was dreaming... But it is absolutely certain and exact that the ratio which exists between the period times of any two planets is precisely the ratio of the 3/2th power of the mean distance.\autocite{p.~180.}{Kepler1619}
 \stopblockquote
 This ratio can be used to related the periods and radii of any two planets' orbits.
 \startformula
@@ -1021,12 +1075,12 @@ where $T_1$ and $a_1$ are the period and radius of one planet's orbit, while $T_
 
 Kepler believed that the 3/2th power was a sign of a musical perfect fifth. It is not. Nonetheless, Newton showed that this ratio is also a consequence of his theories of motion and gravity. Kepler's three laws remain a remarkable achievement of insight and determination.
 
-%\subject{Notes}
-%%\placefootnotes[criterium=chapter]
-%\placenotes[endnote][criterium=chapter]
-%
-%%\subject{Bibliography}
-%%        \placelistofpublications
+\subject{Notes}
+%\placefootnotes[criterium=chapter]
+\placenotes[endnote][criterium=chapter]
+
+%\subject{Bibliography}
+%        \placelistofpublications
 
 \blank[.5in]
 \startblockquote\it
