@@ -24,21 +24,16 @@ What matters to me is not merely to impart to the reader what I have to say, but
 	\stopalignment
 }
 
-\Initial{J}{ohannes Kepler,} at the age of 23, became interested in astronomy for a simple reason: it was his job. He had been studying for priesthood, but he also loved mathematics. In 1594, he received an unexpected invitation to teach mathematics and astronomy at the school in Graz, Austria.
-Although Kepler had never thought of becoming an astronomer, he had taken the required astronomy courses at the University of Tübingen. He understood the Ptolemaic and Copernican systems (\at{pp.}[AncientWorldModels]-\at[AncientWorldModelsEnd]), both based on uniform circular motions. After a bit of hesitation, he accepted the invitation.
+\Initial{J}{ohannes Kepler,} at the age of 23, became interested in astronomy for a simple reason: it was his job. He had been studying for priesthood, but he also loved mathematics. Before is graduation in the spring 1594, he received an unexpected invitation to teach mathematics and astronomy at the school in Graz, Austria.
+Although Kepler had never thought of becoming an astronomer, he had taken the required astronomy courses at the University of Tübingen. He understood the Ptolemaic and Copernican systems (\at{pp.}[AncientWorldModels]-\at[AncientWorldModelsEnd]). After a bit of hesitation, he accepted the invitation.
  
 %Since the Moon, Sun, and Earth are all circular – the most perfect shape – the Pythagoreans believed that all all celestial bodies circle Earth, a model that ran into conflicts with observations immediately. To explain the planet's erratic motions across the sky, ancient astronomers introduced compound motion into their models, so that the planets moved on circles which were themselves being carried by other circles.
 
 \placefigure[margin][fig:Kepler1596system]{Woodcut from Kepler's \booktitle{Mysterium Cosmographicum} showing his early model of the solar system based on the five platonic solids.} {\externalfigure[Kepler1596system][width=\rightmarginwidth]}
 
-After his first year of teaching, he was struck by a novel idea: perhaps the planets' orbits were exactly the right sizes to fit inside nested Platonic solids, as shown in \in{figure}[fig:Kepler1596system]. This idea is wrong, but given the close connection between geometry and astronomy, it was not an especially outlandish proposal in the sixteenth century. More controversial was the fact that he nested these polygons with the Sun at the center and Earth in orbit (in a spherical shell between the model's icosahedron and dodecahedron). In 1597, he published a small book exuberantly announcing his heliocentric model.
-
-
-
-
-Galileo first explained projectile motion as the combination of uniform horizontal motion (constant $v_x$) with vertical free-fall motion. To Galileo, circular motion was as natural as linear motion, so he saw no obstacle to combining circular motion with linear motion. For example, he argues in \booktitle{Two World Systems} that an object dropped down a very deep well will continue to move about the Earth's center with uniform circular motion (constant $\omega$) as it free-falls to Earth's center.
-
-In fact, circular motion requires a force – as Descartes and Newton taught us – to bend the path away from natural straight motion. For example, the Moon is kept in a circular orbit around Earth by the constant pull of Earth's gravity. Earth's gravity does not simultaneously produce free-fall motion, bringing the Moon crashing down – thankfully.
+During his second summer in Graz, Kepler was struck by a novel idea: perhaps the planets' orbits were exactly the right sizes to fit inside nested Platonic solids, as shown in \in{figure}[fig:Kepler1596system]. This idea is wrong, but given the close connection between geometry and astronomy, it was not an especially outlandish proposal in the sixteenth century. More controversial was the fact that he nested these polygons with the Sun at the center and Earth in orbit (in a spherical shell between the model's icosahedron and dodecahedron).
+Kepler did not think that these spheres and shapes were physical objects in the solar system. Rather, he viewed them as a mathematical plan for the solar system.
+In 1597, he published \booktitle{Mysterium Cosmographicum}, a small book exuberantly announcing his heliocentric model.
 
 
 \startbuffer[U3D]
@@ -89,6 +84,195 @@ In fact, circular motion requires a force – as Descartes and Newton taught us 
 
 \marginTikZ{}{U3D}{A planet's gravitational potential energy depends on its distance $r$ from the Sun. A planet released from rest would accelerate toward lower potential energy, crashing into the Sun!} % vskip, name, caption
 
+
+Kepler's \quotation{drinking cup}\autocite{Described in a letter to Friedrich, Duke of Wuerttemberg, 27 Feb.~1596. v.~\convertnumber{KR}{13} p.~50.}{KeplerGW} model in \in{figure}[fig:Kepler1596system] looks similar to our energy graph in \in{figure}[fig:U3D]. This three dimensional energy graph will allow us to understand the planets'  two dimensional orbits. The vertical axis in our energy graph is energy, as usual. \in{Figure}[fig:U3D] shows the planets' gravitational potential energy, which is very negative near the Sun and rises toward zero far away.
+\startformula
+	U = -G\frac{mM}{r}
+\stopformula
+We will use $m$ for the mass of a planet and $M$ for the much larger mass of the Sun.
+
+In \booktitle{Mysterium Cosmographicum}, Kepler argued that the Sun is the driver of the Solar System's motions. Earlier models were driven by many moving spheres, but in Kepler's model, the spheres are not physical. Kepler's heliocentric view of the Sun's physical importance matches our energy graph. The Sun produces the huge potential energy well that holds the much lighter planets in their orbits. (The Sun is about one-thousand times more massive that Jupiter, the largest planet.)
+
+The six planets known to Kepler are show at the correct distances along the $r$-axis on the energy graph. Notice how these distances approximately match the distances in Kepler's model. The  four inner planets – Mercury, Venus, Earth, and Mars – are quite close together. Jupiter and Saturn are much further out.
+The planets' full orbits are shown in \in{figure}[fig:VisiblePlanets]. The scale in \in{figure}[fig:VisiblePlanets] shows $r$, the distance from the Sun.% and $\theta$ the angle measured around the Sun. (These are commonly called \keyterm{polar coordinates}.)
+
+\startbuffer[TikZ:VisiblePlanets]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startpolaraxis
+ [	xticklabels=\empty,
+ 	ytick={0,5,...,15},
+ 	yticklabels={{},{},$1\units{Tm}$,{}},
+ 	minor y tick num={4},
+	% yminorgrids=true,
+	hide x axis,
+	ymax = 15,
+	scale only axis=true, width={11cm},
+ 	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
+	major grid style = {middlegray},
+	clip = false,
+ 	%ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
+ ]
+%    \addplot [ % Mars area at aphelion
+%        draw=none, fill=black!20,
+%        domain={156.08-4.36}:{156.08+4.36},
+%        samples=20,
+%    ]
+%        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
+%    ;
+%    \addplot [ % Mars area at perihelion
+%        draw=none, fill=black!20,
+%        domain={336.08-6.35}:{336.08+6.35},
+%        samples=20,
+%    ]
+%        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
+%    ;
+%    \addplot [ % Mercury area at perihelion
+%        draw=none, fill=black!20,
+%        domain={77.46-59.63}:{77.46+59.63},
+%        samples=80,
+%    ]
+%        {0.5546/(1+0.20564*cos(x-77.46))}--(0,0)
+%    ;
+%    \addplot [ % Mercury area at aphelion
+%        draw=none, fill=black!20,
+%        domain={257.46-33.24}:{257.46+33.24},
+%        samples=20,
+%    ]
+%        {0.5546/(1+0.20564*cos(x-77.46))}--(0,0)
+%    ;
+  	\node [name path=Sun] at (0,0) {\Sun};
+    \addplot [ % Mercury
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {0.5546/(1+0.20564*cos(x-77.46))}
+  [yshift=-.5pt]
+    node[pos=0.375] {\Mercury}
+    ;
+    \addplot [ % Venus
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {1.082/(1+0.00676*cos(x-131.77))}
+  [yshift=-1.7pt]
+    node[pos=0.167] {\Venus}
+    ;
+    \addplot [ % Earth
+    	name path=Earth,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {1.496/(1+0.0167*cos(x-102.93))}
+    node[pos=0.25] {\Earth}
+    ;
+    \addplot [ % Mars
+    	name path=Mars,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {2.259/(1+0.0934*cos(x-336.08))}
+  [yshift=1pt, xshift=1.1pt]
+    node[pos=0.625] {\Mars}
+    ;
+    \addplot [ % Jupiter
+    	name path=Jupiter,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {7.76/(1+0.04854*cos(x-14.27))}
+  %[yshift=1pt, xshift=1.1pt]
+    node[below=0mm, pos=0.8] {\Jupiter}
+    ;
+    \addplot [ % Saturn
+    	name path=Saturn,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {14.23/(1+0.05551*cos(x-92.86))}
+  %[yshift=1pt, xshift=1.1pt]
+    node[above, pos=0.2] {\Saturn}
+    ;
+%    \addplot [ % Uranus
+%    	name path=Uranus,
+%        thick,
+%        domain=0:360,
+%        samples=600,
+%    ]
+%        {28.642/(1+0.04686*cos(x-172.43))}
+%  %[yshift=1pt, xshift=1.1pt]
+%    node[below, pos=0.2] {\Uranus}
+%    ;
+%    \addplot [ % Neptune
+%    	name path=Neptune,
+%        thick,
+%        domain=0:360,
+%        samples=600,
+%    ]
+%        {44.981/(1+0.00895*cos(x-46.68))}
+%  %[yshift=1pt, xshift=1.1pt]
+%    node[below, pos=0.2] {\Neptune}
+%    ;
+%    \addplot [ % Halley
+%    	name path=Halley,
+%        thick,
+%        domain=0:360,
+%        samples=600,
+%    ]
+%        {1.7246/(1+0.96714*cos(x+52.91))}
+%  %[yshift=1pt, xshift=1.1pt]
+%    node[above right, pos=0.32] {Halley's Comet}
+%    ;
+\stoppolaraxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[top][fig:VisiblePlanets] % location
+{The orbits of the six visible planets. (A terameter is one trillion meters: $1\units{Tm} = 10^{12}\units{m}$).}	 % caption text
+{\noindent\typesetbuffer[TikZ:VisiblePlanets]} % figure contents
+
+A planet following a circular orbit with the Sun at the center moves with uniform circular motion.
+Although uniform circular motion was considered natural in Kepler's time, Descartes and Newton taught us that circular motion requires a central force to bend the planet's path into an orbit.
+The force required depends on the planet's momentum $p$ and angular velocity $\omega$, as given by the centripetal force formula (\at{p.}[eq:centripetalforce])
+\startformula
+	F = \omega p
+\stopformula
+Using $p = mv$ and $v = \omega r$ for circular motion, we find.
+\startformula
+	F = m\omega^2 r
+\stopformula
+The centripetal force formula gives the force required to produce the circular motion, but does not tell us the source of that force. For orbits in the solar system this force is the gravitational force exerted by the Sun, the force directed towards lower gravitational potential energy in \in{figure}[fig:U3D]. The strength of the gravitational force is given by Newton's universal law of gravitation (\at{p.}[eq:UniversalGrav]).
+\startformula
+	F %= -\pp{r} U
+		%= -\pp{r} \left(-G\frac{mM}{r}\right)
+		%= GmM \pp{r} \left(r^{-1}\right)
+		%= GmM \left(-1r^{-2}\right)
+		= -G\frac{mM}{r^2}
+\stopformula
+The \emph{magnitude} of this gravitational force is the centripetal force above, allowing us to fined the planet's angular velocity.
+\startformula\startmathalignment
+\NC	\cancel{m}\omega^2 r	\NC = G\frac{\cancel{m}M}{r^2}	\NR
+\NC	\omega				\NC = \sqrt{\frac{GM}{r^3}}	\NR
+\stopmathalignment\stopformula
+The planet's distance determines its angular velocity, with much higher angular velocities closer to the Sun. Higher angular velocities give shorter periods.
+\startformula
+	T = \frac{2\pi}{\omega}
+\stopformula
+Mercury's orbit takes only 88 days. Venus orbits in 225 days. Earth's orbit is 365 days. Mars' orbit is 687 days. The outer planets' orbits are far longer – nearly twelve years for Jupiter's orbit and almost thirty years for Saturn.
+The planet's mass has no effect on its angular velocity. % The Sun's strong gravitational pull on these inner planets bends their paths into small, fast orbits.
+
+Kepler's own calculations showed that his model was not as accurate as he had originally hoped. However, he correctly recognized the Sun's important role as the center and the physical driver of the solar system.
 Kepler sent copies of \booktitle{Mysterium Cosmographicum} to prominent astronomers, including Galileo. Galileo sent an encouraging reply, but it is not clear if he ever read the book before his own adventure with the spyglass fourteen years later.
 
 The book did catch the attention of another astronomer, Tycho de Brahe. Tycho had been making precise observations of the positions of stars and planets for 35 years. After a spat with King Christian of Denmark in 1597, Tycho moved his formidable arsenal of observing equipment to a castle near Prague, where he became Imperial Mathematicus for Emperor Rudolf II. Even with the best assistants, Tycho was struggling to make a coherent mathematical model from his mountain of data. He did not believe Kepler's model was the solution, but Tycho recognized the young astronomer's tremendous mathematical skill and creativity. Kepler, in return, recognized Tycho's observations as the only firm foundation for his model.
@@ -97,8 +281,6 @@ Tycho invited Kepler to collaborate, but guarded his data jealously. Kepler expr
 In 1600, events intervened. Kepler was expelled from Graz in a religious purge. Tycho's top assistant left after failing to explain Mars's orbit. Kepler joined Tycho's team and Tycho granted access to his treasury of Mars observations. Kepler said he would explain Mars's orbit in eight days. Kepler worked diligently for eight months. Tycho died, and Kepler succeeded him is Imperial Mathematics in 1601, still without a solution for Mars's orbit.
 
 \section{Kepler's first attempts}
-
-Kepler recounts his struggle with Mars in his revolutionary \booktitle{New Astronomy.} His first model for Mars's orbit uses a perfect circle and constant angular velocity \quotation{in imitation of the ancients.} He combines these two ancient ideas in a novel way. He chooses a perfect circle for the orbit of Mars, but places that circle so that the Sun is not at the center. This matches the shape of Mars's orbit quite well. To get the correct speed, he uses constant angular velocity, but not around the circle's center, or around the Sun, but instead around a third point called the equant, shown in \in{figure}[fig:KeplerMarsAncients]. Constant angular velocity around the equant gives Mars a changing velocity along its orbit. When Mars is closer to the equant – and farther from the Sun – it will move along its orbit more slowly. When it is farther from the equant – and closer to the Sun – it will move more quickly.
 
 \startbuffer[TikZ:KeplerMarsAncients]
 \environment env_physics
@@ -115,7 +297,7 @@ Kepler recounts his struggle with Mars in his revolutionary \booktitle{New Astro
 	% yminorgrids=true,
 	hide x axis,
 	ymax = 2.5,
-	scale only axis=true, width={10cm},
+	scale only axis=true, width={11cm},
  	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
 	major grid style = {middlegray},
  	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
@@ -157,6 +339,9 @@ Kepler recounts his struggle with Mars in his revolutionary \booktitle{New Astro
 \placetextfloat[top][fig:KeplerMarsAncients] % location
 {Kepler's model of Mars's orbit using a perfect circle, off center, and a constant angular velocity about an equant. The lines show the equal angle about the equant over two different $20\units{day}$ durations. The same angle produces a larger displacement on the side farther from the equant – and closer to the Sun. This model failed. (A gigameter is one billion meters: $1\units{Gm} = 10^9\units{m}$).}	 % caption text
 {\noindent\typesetbuffer[TikZ:KeplerMarsAncients]} % figure contents
+
+\noindent
+Kepler recounts his struggle with Mars in his revolutionary \booktitle{New Astronomy.} His first model for Mars's orbit uses a perfect circle and constant angular velocity \quotation{in imitation of the ancients.} He combines these two ancient ideas in a novel way. He chooses a perfect circle for the orbit of Mars, but places that circle so that the Sun is not at the center. This matches the shape of Mars's orbit quite well. To get the correct speed, he uses constant angular velocity, but not around the circle's center, or around the Sun, but instead around a third point called the equant, shown in \in{figure}[fig:KeplerMarsAncients]. Constant angular velocity around the equant gives Mars a changing velocity along its orbit. When Mars is closer to the equant – and farther from the Sun – it will move along its orbit more slowly. When it is farther from the equant – and closer to the Sun – it will move more quickly.
 
 Before he could check this model he needed to determine the obit's center and radius and the equant's location. He used four of Tycho's observations in an extremely laborious calculation, explained in chapter 16 of \booktitle{New Astronomy.} At one point in the explanation he exclaims,
 
@@ -210,7 +395,7 @@ He no longer searches for imaginary wheels or imaginary points like the equant. 
 	% yminorgrids=true,
 	hide x axis,
 	ymax = 2.5,
-	scale only axis=true, width={10cm},
+	scale only axis=true, width={11cm},
  	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
 	major grid style = {middlegray},
  	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
@@ -886,7 +1071,7 @@ Having already abandoned constant angular velocity, Kepler was forced to also ab
 
 This presented a huge computational challenge. All of Kepler's geometrical methods depend on the geometry of a circle. He needed to find a new shape, but did not know what it should be. He tried some slightly pointy egg shapes, but needed to study many more observations to determine exactly how long and pointy the egg should be.
 
-At one point in this dreadful analysis he writes to a friend, \quotation{if only the shape were a perfect ellipse all of the answers could be found in Archimedes' and Appollonius' works.}\autocite{v. \convertnumber{KR}{14} p.~409.}{KeplerGW}
+At one point in this dreadful analysis he writes to a friend, \quotation{if only the shape were a perfect ellipse all of the answers could be found in Archimedes' and Appollonius' works.}\autocite{v.~\convertnumber{KR}{14} p.~409.}{KeplerGW}
 Ellipses are circles squashed symmetrically, no pointier at one end than the other. These had been studied extensively by the ancient Greeks. Almost anything that could be done with a circle had also been worked out for ellipses, which would make Kepler's work much easier. Alas, for his egg shape almost nothing was known. Kepler struggled to make progress. The struggle with the egg fills eleven chapters (45-55) of \booktitle{New Astronomy.} In the process he computes an impressive table of twenty-eight different observations of Mars, from 1582 to 1595, with Mars's distance from the Sun, position along its orbit, predicted position in the sky, its observed position, and the error. Many of the errors were several minutes – huge errors by Kepler's standards – causing the egg to \quotation{go up in smoke.}\autocite{p.~406.}{Kepler1609}
 
 Kepler starts over again, using his table of twenty-eight distances. While considering these distances, he was playing around with another calculation and stumbled upon the number $1.00429$, which reminded him of one of the distances, which was off of the circle by $0.00432$. \quotation{It was as if I were awakened from a sleep to see a new light\dots.}\autocite{p.~407.}{Kepler1609}
@@ -921,7 +1106,7 @@ Kepler believed that his mathematical model of Mars's motion – the area law on
 	% yminorgrids=true,
 	hide x axis,
 	ymax = 45,
-	scale only axis=true, width={10cm},
+	scale only axis=true, width={11cm},
  	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
 	major grid style = {middlegray},
 	clip = false,
