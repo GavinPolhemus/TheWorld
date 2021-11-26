@@ -535,16 +535,120 @@ He no longer searches for imaginary wheels or imaginary points like the equant. 
 
 For Earth's nearly centered orbit there is only a tiny difference between a constant angular velocity (which sweeps out equal angles in equal times) and Kepler's new law of equal areas in equal times. Tycho's precise observations confirmed the tiny effect of Kepler's new area law for Earth's motion.
 
-Kepler's area law, discovered first for Earth, is true for all planets. The effect is most pronounced for Mercury, which has the most off-center orbit. Two shaded areas in \in{figure}[fig:KeplerTerestrial] show the areas swept out by Mercury during two equal times. The shaded, pie-shaped area above the Sun shows the area swept out by Mercury during the twenty days when it is closest to the Sun. The shaded area below shows the area swept out during the twenty days when Mercury is farthest from the Sun. The upper pie-slice has a smaller radius and a larger angle due to Mercury's higher speed near the Sun. The lower pie slice has a larger radius and a smaller angle due to Mercury's lower speed farther from the Sun. The two resulting areas are exactly the same.
+Kepler's area law, discovered first for Earth, is true for all planets. The effect is most pronounced for Mercury, which has the most eccentric orbit. Two shaded areas in \in{figure}[fig:KeplerTerestrial] show the areas swept out by Mercury during two equal times. The shaded, pie-shaped area above the Sun shows the area swept out by Mercury during the twenty days when it is closest to the Sun. The shaded area below shows the area swept out during the twenty days when Mercury is farthest from the Sun. The upper pie-slice has a smaller radius and a larger angle due to Mercury's higher speed near the Sun. The lower pie slice has a larger radius and a smaller angle due to Mercury's lower speed farther from the Sun. The two resulting areas are exactly the same.
 
+Kepler's mysterious area law provides an interesting challenge for any theory of motion. Newton, to show the power of his laws of motion, takes on this challenge in Proposition 1 of the \booktitle{Pricipia}, where he proves the area law using geometric methods. Euler and Lagrange offered new perspectives on this law in their formulations of mechanics. We will explain the area law using Hamilton's method, which is ideally suited to the orbital motions of the solar system. In the process, we will find a new, useful conservation law and a practical method for solving equations of motions.
+
+\section{Conservation of angular momentum}
+Kepler's area law can be written as an area update formula.
+\startformula
+	dA = (\text{const.})\,dt,
+\stopformula
+where $dA$ is a small change in area that occurs during the short duration $dt$, as shown in \in{figure}[fig:dA]. Kepler observed that equal areas are swept out in equal times, so the coefficient relating the area to the time must be a constant.
+
+\startbuffer[dA]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startpolaraxis
+ [	xticklabels=\empty,
+ 	ytick={0,0.5,...,1.5},
+ 	yticklabels={{},{},$100\units{Gm}$,{}},
+ 	minor y tick num={1},
+	% yminorgrids=true,
+	hide x axis,
+	ymax = 1.6,
+	scale only axis=true, width={5.5cm},
+ 	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
+	major grid style = {middlegray},
+ 	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
+	clip mode = individual,
+ ]
+    \addplot [ % Mars area at perihelion
+        draw=none, fill=black!20,
+        domain={60}:{64.93},
+        samples=5,
+    ]
+        {1.496/(1+0.0167*cos(x-102.93))}--(0,0)
+    ;
+%    \addplot [ % Venus
+%        thick,
+%        domain=0:360,
+%        samples=600,
+%    ]
+%        {1.082/(1+0.00676*cos(x-131.77))}
+%  [yshift=-1.3pt]
+%    node[pos=0.25] {\Venus}
+%    ;
+    \addplot [ % Earth
+    	name path=Earth,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {1.496/(1+0.0167*cos(x-102.93))}
+    node[pos=0.25] {\Earth}
+    ;
+    \addplot [ % theta
+        ->,
+        domain=0:63,
+        samples=30,
+    ]
+        {0.5}
+    node[above right=0pt, pos=0.5] {\theta}
+    ;
+	\node [name path=Sun] at (0,0) {\Sun};% node[below=1mm]{Sun};
+	\node [right] at (60,1.1) {$dA$};% node[below=1mm]{Sun};
+	%\node [below right] at (60,0.75) {$r$};% node[below=1mm]{Sun};
+	\node [white] at (225,2.12) {.}; % To make the bounding box slightly bigger
+	\draw[]  (60, 1.48) -- (60, 1.6);
+	\draw[]  (64.93, 1.48) -- (64.93, 1.6);
+	\draw[->]  (55, 1.55) -- (60, 1.55);
+	\draw[->]  (69.93, 1.55) -- (64.93, 1.55)node[above right]{$r\,d\theta$};
+	%\draw[]  (0, 0) -- (150, 0.1);
+	%\draw[->]  (150, 0.08) --node[left]{$r$} (67, 1.48);
+	\draw[->]  (0, 0) --node[above left]{$r$} (62.46, 1.48);
+\stoppolaraxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\marginTikZ{}{dA}{The small area $dA$ swept out by Earth during a small duration $dt$. } % vskip, name, caption
+
+To use Hamilton's method, we need a coordinate system to describe the motion. We will use the astronomers' coordinates $r$ and $\theta$ in \in{figure}[fig:dA]: $r$ is the distance from the Sun and $\theta$ is the angle measured around the Sun. These are  called \keyterm{polar coordinates}. The equations of motion will simplify nicely in polar coordinates.
+
+In polar coordinates, the small area swept out by a planet is a long, thin triangle, with length $r$ and width $r\,d\theta$. The triangle's area is
+\startformula
+	dA = \half (r)(r\,d\theta)
+		= \half r^2\,d\theta.
+\stopformula
+We will use Hamilton's method to find the position update formula for $d\theta$.
+%In order to match Kepler's area law, the small steps $d\theta$ will need to be bigger when $r$ is smaller, and smaller when $r$ is larger, so that the changes $dA$ are always equal in equal times.
+
+The most challenging part of Hamilton's method is writing the system's total energy in terms of positions and momenta. For planetary orbits, there are three contributions to the total energy: the gravitational potential energy $U$, the kinetic energy $K_\theta$ due to the planet's motion around the Sun in the $\theta$-direction, and the kinetic energy $K_r$ due to any motion toward or away from the Sun in the $r$-direction.
+\startformula
+	H = K_r + K_\theta + U
+\stopformula
+The gravitational potential energy is especially simple in polar coordinates, since it only depends or the distance $r$, not on the angle $\theta$.
+\startformula
+	U = -G\frac{mM}{r}
+\stopformula
+
+The kinetic energy's radial part $K_r$ can be written in terms of the radial momentum $p_r$.
+\startformula
+	K_r = \frac{p_r}{2m}
+\stopformula
+The kinetic energy's angular part can be written in term of the \keyterm{angular momentum} $p_\theta$. Angular momentum is a new type of momentum associated with angular motion like rotation or orbits. Euler and others developed special methods  for working with angular quantities, but Hamilton's method treats angular coordinates and momenta just like any other coordinates and momenta. 
+
+
+
+
+
+\section{Most this section will be replaced by Hamilton's method}
 Kepler's area law is known by two other names. It is also called Kepler's Second Law, even though it was discovered before his other two laws, which we will get to shortly.
-
-Hamilton's equations are the final formulation of classical mechanics, uniting the four disciplines of the quadrivium. In this chapter, we will use Hamilton's formulation to solve the great ancient puzzle of astronomy – the motion of the planets.
-
-
-Hamilton's formulation is ideally suited for compound motion.%, as we have seen in two important examples – projectile motion and the motion of Newton's connected globes, explained by Du Châtelet.
-
-
 
 Perhaps in situations that naturally involve circular motions, like orbits, we could find an angular momentum, similar to the linear momentum, that stays constant in the absence of external angular forces. This approach was eventually worked out in the highly abstract physics of the eighteenth century, but for our astronomical questions the treatment will be almost identical to the momentum you already know and love.
 
