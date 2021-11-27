@@ -540,7 +540,130 @@ Kepler's area law, discovered first for Earth, is true for all planets. The effe
 Kepler's mysterious area law provides an interesting challenge for any theory of motion. Newton, to show the power of his laws of motion, takes on this challenge in Proposition 1 of the \booktitle{Pricipia}, where he proves the area law using geometric methods. Euler and Lagrange offered new perspectives on this law in their formulations of mechanics. We will explain the area law using Hamilton's method, which is ideally suited to the orbital motions of the solar system. In the process, we will find a new, useful conservation law and a practical method for solving equations of motions.
 
 \section{Conservation of angular momentum}
-Kepler's area law can be written as an area update formula.
+To use Hamilton's method, we need a coordinate system to describe the motion. We will use the astronomers' coordinates $r$ and $\theta$ in \in{figure}[fig:dA], with the Sun at the center. These are  called \keyterm{polar coordinates}. The equations of motion will simplify nicely in polar coordinates.
+
+\startbuffer[polar]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startpolaraxis
+ [	xticklabels=\empty,
+ 	ytick={0,0.5,...,1.5},
+ 	yticklabels={{},{},$100\units{Gm}$,{}},
+ 	minor y tick num={1},
+	% yminorgrids=true,
+	hide x axis,
+	ymax = 1.6,
+	scale only axis=true, width={5.5cm},
+ 	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
+	major grid style = {middlegray},
+ 	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
+	clip mode = individual,
+ ]
+%    \addplot [ % Mars area at perihelion
+%        draw=none, fill=black!20,
+%        domain={60}:{64.93},
+%        samples=5,
+%    ]
+%        {1.496/(1+0.0167*cos(x-102.93))}--(0,0)
+%    ;
+%    \addplot [ % Venus
+%        thick,
+%        domain=0:360,
+%        samples=600,
+%    ]
+%        {1.082/(1+0.00676*cos(x-131.77))}
+%  [yshift=-1.3pt]
+%    node[pos=0.25] {\Venus}
+%    ;
+    \addplot [ % Earth
+    	name path=Earth,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {1.496/(1+0.0167*cos(x-102.93))}
+    node[pos=0.1667] {\Earth}
+    ;
+    \addplot [ % theta
+        ->,
+        domain=0:63,
+        samples=30,
+    ]
+        {0.5}
+    node[above right=0pt, pos=0.5] {\theta}
+    ;
+	\node [name path=Sun] at (0,0) {\Sun};% node[below=1mm]{Sun};
+%	\node [right] at (60,1.1) {$dA$};% node[below=1mm]{Sun};
+	%\node [below right] at (60,0.75) {$r$};% node[below=1mm]{Sun};
+	\node [white] at (225,2.12) {.}; % To make the bounding box slightly bigger
+%	\draw[]  (60, 1.48) -- (60, 1.6);
+%	\draw[]  (64.93, 1.48) -- (64.93, 1.6);
+%	\draw[->]  (55, 1.55) -- (60, 1.55);
+%	\draw[->]  (69.93, 1.55) -- (64.93, 1.55)node[above right]{$r\,d\theta$};
+	%\draw[]  (0, 0) -- (150, 0.1);
+	%\draw[->]  (150, 0.08) --node[left]{$r$} (67, 1.48);
+	\draw[->]  (0, 0) --node[above left]{$r$} (60, 1.48);
+\stoppolaraxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\marginTikZ{}{polar}{Earth's position in polar coordinates $r$ and $\theta$.} % vskip, name, caption
+
+
+The most challenging part of Hamilton's method is writing the system's total energy in terms of positions and momenta. For planetary orbits, there are three contributions to the total energy: the gravitational potential energy $U$, the kinetic energy $K_\theta$ due to the planet's motion around the Sun in the $\theta$-direction, and the kinetic energy $K_r$ due to any motion toward or away from the Sun in the $r$-direction.
+\startformula
+	H = K_r + K_\theta + U
+\stopformula
+The gravitational potential energy is especially simple in polar coordinates, since it only depends on the planet's distance $r$ from the Sun, not on the angle $\theta$.
+\startformula
+	U = -G\frac{mM}{r}
+\stopformula
+
+The kinetic energy's radial part $K_r$ can be written in terms of the radial momentum $p_r$, as usual.
+\startformula
+	K_r = \frac{p_r^2}{2m}
+\stopformula
+Similarly, the kinetic energy's angular part can be written in terms of the \keyterm{angular momentum} $p_\theta$. However, when we work with an angular coordinate, the mass in the denominator is replaced by the moment of inertial $I$. 
+\startformula
+	K_r = \frac{p_\theta^2}{2I}
+\stopformula
+Angular momentum $p_\theta$ is a new type of momentum associated with angular motion like rotation or orbits. Euler and others developed special methods for working with angular quantities, but Hamilton's method treats angular coordinates and momenta just like any others. 
+
+The moment of inertial $I$ should be familiar from the formula for rotational kinetic energy in \in{Chapter}[ch:VisViva] (\at{p.}[eq.Krot]). There, we described an object's moment of inertia as the total $mr^2$ for all parts of the object. Planets in orbit can be treated as a single part at the distance $r$ from the Sun.
+\startformula
+	I = mr^2
+\stopformula
+Even though the Earth is spherical, we do not use the formula for a sphere's moment of inertia, the way we would for rolling problems. Earth is engaged in two circular motions: spinning about its axis and revolving around the Sun. Hamilton's formulation allows us to treat those as separate motions. To study Earth's rotation about its axis, we would use the moment of inertia of a sphere. Here, we will study only Earth's revolution about the Sun, for which we should treat Earth as a small mass at the end of a very long rod from the center. For this motion the momentum of inertia is $I=mr^2$.
+
+We can now assemble the complete Hamiltonian for an orbiting planet. The Hamiltonian is somewhat intimidating, but notice all of the familiar parts.
+\startformula
+	H = \frac{p_r^2}{2m} + \frac{p_\theta^2}{2mr^2} - G\frac{mM}{r}
+\stopformula
+The Hamiltonian contains the coordinate $r$, the momenta $p_r$ and $p_\theta$, and several constants ($m$, $M$, $G$, and $2$). This are the allowed ingredients in a good Hamiltonian. The coordinate $\theta$ is also allowed, but it does not appear.
+
+Now we can follow Hamilton's method to find the equations of motion. Since Kepler first discovered his area law for the angular motion, we will look at the angular equations of motion first as well. The angular momentum update formula is especially simple because there are no outside forces and the coordinate $\theta$ does not appear in the Hamiltonian, allowing us to immediately use the constant rule for derivatives!
+\startformula
+	dp_\theta = \left(-\ppth H + F_\theta \right)dt = 0
+\stopformula
+The angular momentum does not change. It is a \keyterm{constant of the motion}. The planet may speed up and slow down as its distance from the Sun changes, but the angular momentum $p_\theta$ remains constant.
+
+The position update formula for $\theta$ is almost as easy. Only the second term in the Hamiltonian contains the angular momentum $p_\theta$ so the other terms can be eliminated from the updated formula using the constant rule.
+\startformula
+	d\theta = \pp{p_\theta} H\,dt
+		= \frac{\partial}{\partial p_\theta}
+			\left( \frac{p_\theta^2}{2mr^2} \right)dt
+		%= \frac{1}{2mr^2} \pp{p_\theta} p_\theta^2\,dt
+		%= \frac{1}{2mr^2} (2 p_\theta^{2-1})\,dt
+		= \frac{p_\theta}{mr^2}\,dt
+\stopformula
+Even as the angular momentum remains constant, the size of the angular steps $d\theta$ change as the planet moves closer and farther from the Sun. The angular steps are larger when the planet is closer to the Sun and $r$ smaller; the angular steps are smaller when the planet is farther from the Sun and $r$ is larger – exactly the changes in speed that Kepler sought to model first with the equant and then with his constant area law.
+
+To see how our $\theta$ update formula compares with Kepler's area law, we can write the area law as an area update formula.
 \startformula
 	dA = (\text{const.})\,dt,
 \stopformula
@@ -590,16 +713,16 @@ where $dA$ is a small change in area that occurs during the short duration $dt$,
         samples=600,
     ]
         {1.496/(1+0.0167*cos(x-102.93))}
-    node[pos=0.25] {\Earth}
+    node[pos=0.1804] {\Earth}
     ;
-    \addplot [ % theta
-        ->,
-        domain=0:63,
-        samples=30,
-    ]
-        {0.5}
-    node[above right=0pt, pos=0.5] {\theta}
-    ;
+%    \addplot [ % theta
+%        ->,
+%        domain=0:63,
+%        samples=30,
+%    ]
+%        {0.5}
+%    node[above right=0pt, pos=0.5] {\theta}
+%    ;
 	\node [name path=Sun] at (0,0) {\Sun};% node[below=1mm]{Sun};
 	\node [right] at (60,1.1) {$dA$};% node[below=1mm]{Sun};
 	%\node [below right] at (60,0.75) {$r$};% node[below=1mm]{Sun};
@@ -608,43 +731,27 @@ where $dA$ is a small change in area that occurs during the short duration $dt$,
 	\draw[]  (64.93, 1.48) -- (64.93, 1.6);
 	\draw[->]  (55, 1.55) -- (60, 1.55);
 	\draw[->]  (69.93, 1.55) -- (64.93, 1.55)node[above right]{$r\,d\theta$};
-	%\draw[]  (0, 0) -- (150, 0.1);
-	%\draw[->]  (150, 0.08) --node[left]{$r$} (67, 1.48);
-	\draw[->]  (0, 0) --node[above left]{$r$} (62.46, 1.48);
+	\draw[]  (0, 0) -- (150, 0.1);
+	\draw[<->]  (150, 0.08) --node[left]{$r$} (67, 1.48);
+	%\draw[->]  (0, 0) --node[above left]{$r$} (62.46, 1.48);
 \stoppolaraxis
 \stoptikzpicture
 \stopTEXpage
 \stopbuffer
 
-\marginTikZ{}{dA}{The small area $dA$ swept out by Earth during a small duration $dt$. } % vskip, name, caption
+\marginTikZ{}{dA}{The small area $dA$ swept out by Earth during a small duration $dt$.} % vskip, name, caption
 
-To use Hamilton's method, we need a coordinate system to describe the motion. We will use the astronomers' coordinates $r$ and $\theta$ in \in{figure}[fig:dA]: $r$ is the distance from the Sun and $\theta$ is the angle measured around the Sun. These are  called \keyterm{polar coordinates}. The equations of motion will simplify nicely in polar coordinates.
-
-In polar coordinates, the small area swept out by a planet is a long, thin triangle, with length $r$ and width $r\,d\theta$. The triangle's area is
+In polar coordinates, the small area swept out by a planet is a long, thin triangle, with length $r$ and width $r\,d\theta$. The thin triangle's area is
 \startformula
 	dA = \half (r)(r\,d\theta)
 		= \half r^2\,d\theta.
 \stopformula
-We will use Hamilton's method to find the position update formula for $d\theta$.
-%In order to match Kepler's area law, the small steps $d\theta$ will need to be bigger when $r$ is smaller, and smaller when $r$ is larger, so that the changes $dA$ are always equal in equal times.
-
-The most challenging part of Hamilton's method is writing the system's total energy in terms of positions and momenta. For planetary orbits, there are three contributions to the total energy: the gravitational potential energy $U$, the kinetic energy $K_\theta$ due to the planet's motion around the Sun in the $\theta$-direction, and the kinetic energy $K_r$ due to any motion toward or away from the Sun in the $r$-direction.
+We calculated the update $d\theta$ using Hamilton's method, and we can use it here.
 \startformula
-	H = K_r + K_\theta + U
+	dA = \half \cancel{r^2}\frac{p_\theta}{m\cancel{r^2}}\,dt.
+		= \frac{p_\theta}{2m}\,dt.
 \stopformula
-The gravitational potential energy is especially simple in polar coordinates, since it only depends or the distance $r$, not on the angle $\theta$.
-\startformula
-	U = -G\frac{mM}{r}
-\stopformula
-
-The kinetic energy's radial part $K_r$ can be written in terms of the radial momentum $p_r$.
-\startformula
-	K_r = \frac{p_r}{2m}
-\stopformula
-The kinetic energy's angular part can be written in term of the \keyterm{angular momentum} $p_\theta$. Angular momentum is a new type of momentum associated with angular motion like rotation or orbits. Euler and others developed special methods  for working with angular quantities, but Hamilton's method treats angular coordinates and momenta just like any other coordinates and momenta. 
-
-
-
+Since the angular momentum $p_\theta$ is a constant of the motion, this is exactly Kepler's area law stating that equal areas $dA$ are swept out in equal times $dt$. Conservation of angular momentum, which we discovered using Hamilton's method, was first discovered by Kepler as his area law.
 
 
 \section{Most this section will be replaced by Hamilton's method}
@@ -677,9 +784,9 @@ This looks very similar to the momentum formula $p=mv$. In both cases the moment
 \FL[2]%\toprule
 \NC				\NC Linear		\NC Angular 		\NR
 \HL
-\NC Velocity		\NC \ $v$		\NC $\omega$		\NR
+\NC Velocity	\NC \ $v$		\NC $\omega$		\NR
 \NC Inertia		\NC \ $m$		\NC $I$			\NR
-\NC Momentum	\NC $p=mv$	\NC $L=I\omega$	\NR
+\NC Momentum	\NC $p=mv$	\NC $p_\theta=I\omega$	\NR
 \LL[2]%\bottomrule
     \stoptabulate}
 
@@ -699,13 +806,6 @@ We will use conservation of energy and conservation of angular momentum to expla
 
 Kepler's area law is also identical to conservation of angular momentum, which we introduced earlier. We will use conservation of angular momentum to find the same changing angular speeds that Kepler found using his area law. Just as Kepler uses the Sun as the center for his area law, we will use the Sun as the center of our coordinate system when using conservation of angular momentum.
 
-Since the Sun is at the center, the Earth's angular momentum is determined by its motion around the Sun, as if the Earth were being spun about the Sun on the end of a very long light rod. The moment of inertia for such an arrangement is
-\startformula
-	I = mr^2,
-\stopformula
-where $m$ is Earth's mass and $r$ is the radial coordinate measured as distance from the Sun, as in \in{figure}[fig:KeplerTerestrial].
-
-Even though the Earth is spherical, we do not use the formula for a sphere's moment of inertia, the way we would for rolling problems. Earth is engaged in two circular motions: spinning about its axis and revolving around the Sun. Hamilton's formulation allows us to treat those as separate motions. To study Earth's rotation about its axis, we would use the moment of inertia of a sphere. Here, we will study only Earth's revolution about the Sun, for which we should treat Earth as a small mass at the end of a very long rod from the center. For this motion the momentum of inertia is $I=mr^2$.
 
 As we described at earlier in the chapter, Hamilton's equations tell us that there is no torque pushing Earth around in its orbit, therefore the angular momentum $L=I\omega$ is constant. Kepler told us that Earth's angular velocity changes as it gets slightly closer to the Sun on one side of its orbit and then slightly farther away on the other. How does Earth's angular velocity $\omega$ change if the angular momentum $L$ remains constant? The angular velocity changes because the moment of inertia changes! Putting Earth's moment of inertia $I=mr^2$ into the angular momentum formula gives 
 \startformula
