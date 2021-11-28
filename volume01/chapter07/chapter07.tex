@@ -540,7 +540,8 @@ Kepler's area law, discovered first for Earth, is true for all planets. The effe
 Kepler's mysterious area law provides an interesting challenge for any theory of motion. Newton, to show the power of his laws of motion, takes on this challenge in Proposition 1 of the \booktitle{Pricipia}, where he proves the area law using geometric methods. Euler and Lagrange offered new perspectives on this law in their formulations of mechanics. We will explain the area law using Hamilton's method, which is ideally suited to the orbital motions of the solar system. In the process, we will find a new, useful conservation law and a practical method for solving equations of motions.
 
 \section{Conservation of angular momentum}
-To use Hamilton's method, we need a coordinate system to describe the motion. We will use the astronomers' coordinates $r$ and $\theta$ in \in{figure}[fig:dA], with the Sun at the center. These are  called \keyterm{polar coordinates}. The equations of motion will simplify nicely in polar coordinates.
+We will describe the planets' motions with the astronomers' coordinates $r$ and $\theta$ in \in{figure}[fig:dA], with the Sun at the center. These are called \keyterm{polar coordinates}.
+Hamilton's method is ideally suited to these curved coordinates, and the equations of motion will simplify nicely.
 
 \startbuffer[polar]
 \environment env_physics
@@ -634,25 +635,25 @@ Similarly, the kinetic energy's angular part can be written in terms of the \key
 \stopformula
 Angular momentum $p_\theta$ is a new type of momentum associated with angular motion like rotation or orbits. Euler and others developed special methods for working with angular quantities, but Hamilton's method treats angular coordinates and momenta just like any others. 
 
-The moment of inertial $I$ should be familiar from the formula for rotational kinetic energy in \in{Chapter}[ch:VisViva] (\at{p.}[eq.Krot]). There, we described an object's moment of inertia as the total $mr^2$ for all parts of the object. Planets in orbit can be treated as a single part at the distance $r$ from the Sun.
+The moment of inertial $I$ should be familiar from the formula for rotational kinetic energy in \in{Chapter}[ch:VisViva] (\at{p.}[eq.Krot]). There, we described an object's moment of inertia as the total $mr^2$ for all parts of the object. Orbiting planets are just one part at distance $r$ from the Sun.
 \startformula
 	I = mr^2
 \stopformula
-Even though the Earth is spherical, we do not use the formula for a sphere's moment of inertia, the way we would for rolling problems. Earth is engaged in two circular motions: spinning about its axis and revolving around the Sun. Hamilton's formulation allows us to treat those as separate motions. To study Earth's rotation about its axis, we would use the moment of inertia of a sphere. Here, we will study only Earth's revolution about the Sun, for which we should treat Earth as a small mass at the end of a very long rod from the center. For this motion the momentum of inertia is $I=mr^2$.
+Earth is spherical, but we do not use the formula for a sphere's moment of inertia, the way we would for rolling problems. Earth is engaged in two circular motions: spinning about its axis and revolving around the Sun. Hamilton's formulation allows us to treat those as separate motions. To study Earth's rotation about its axis, we would use the moment of inertia of a sphere. Here, we will study only Earth's revolution about the Sun, for which we should treat Earth as a single, small mass far from the center. For this motion the momentum of inertia is $I=mr^2$.
 
-We can now assemble the complete Hamiltonian for an orbiting planet. The Hamiltonian is somewhat intimidating, but notice all of the familiar parts.
+Now we assemble the complete Hamiltonian for an orbiting planet. The Hamiltonian is intimidating, but notice the familiar parts.
 \startformula
 	H = \frac{p_r^2}{2m} + \frac{p_\theta^2}{2mr^2} - G\frac{mM}{r}
 \stopformula
-The Hamiltonian contains the coordinate $r$, the momenta $p_r$ and $p_\theta$, and several constants ($m$, $M$, $G$, and $2$). This are the allowed ingredients in a good Hamiltonian. The coordinate $\theta$ is also allowed, but it does not appear.
+The Hamiltonian contains the coordinate $r$, the momenta $p_r$ and $p_\theta$, and several constants ($m$, $M$, $G$, and $2$). These are the allowed ingredients in a good Hamiltonian. The coordinate $\theta$ is also allowed, but it does not appear.
 
 Now we can follow Hamilton's method to find the equations of motion. Since Kepler first discovered his area law for the angular motion, we will look at the angular equations of motion first as well. The angular momentum update formula is especially simple because there are no outside forces and the coordinate $\theta$ does not appear in the Hamiltonian, allowing us to immediately use the constant rule for derivatives!
 \startformula
-	dp_\theta = \left(-\ppth H + F_\theta \right)dt = 0
+	dp_\theta = \left(-\ppth H + \cancel{F_\theta} \right)dt = 0
 \stopformula
-The angular momentum does not change. It is a \keyterm{constant of the motion}. The planet may speed up and slow down as its distance from the Sun changes, but the angular momentum $p_\theta$ remains constant.
+The angular momentum does not change – it is a \keyterm{constant of the motion}. The planet may speed up and slow down as its distance from the Sun changes, but the angular momentum $p_\theta$ remains constant.
 
-The position update formula for $\theta$ is almost as easy. Only the second term in the Hamiltonian contains the angular momentum $p_\theta$ so the other terms can be eliminated from the updated formula using the constant rule.
+The position update formula for $\theta$ is almost as easy. Only the second term in the Hamiltonian contains the angular momentum $p_\theta$ so the other terms can be eliminated from the update formula using the constant rule.
 \startformula
 	d\theta = \pp{p_\theta} H\,dt
 		= \frac{\partial}{\partial p_\theta}
@@ -661,7 +662,7 @@ The position update formula for $\theta$ is almost as easy. Only the second term
 		%= \frac{1}{2mr^2} (2 p_\theta^{2-1})\,dt
 		= \frac{p_\theta}{mr^2}\,dt
 \stopformula
-Even as the angular momentum remains constant, the size of the angular steps $d\theta$ change as the planet moves closer and farther from the Sun. The angular steps are larger when the planet is closer to the Sun and $r$ smaller; the angular steps are smaller when the planet is farther from the Sun and $r$ is larger – exactly the changes in speed that Kepler sought to model first with the equant and then with his constant area law.
+Even as the angular momentum remains constant, the size of the angular steps $d\theta$ change as the planet moves closer and farther from the Sun. The angular steps are larger when the planet is closer to the Sun and $r$ smaller; the angular steps are smaller when the planet is farther from the Sun and $r$ is larger – exactly the speeds Kepler sought to model – first with the equant, and then with his constant area law.
 
 To see how our $\theta$ update formula compares with Kepler's area law, we can write the area law as an area update formula.
 \startformula
@@ -753,65 +754,7 @@ We calculated the update $d\theta$ using Hamilton's method, and we can use it he
 \stopformula
 Since the angular momentum $p_\theta$ is a constant of the motion, this is exactly Kepler's area law stating that equal areas $dA$ are swept out in equal times $dt$. Conservation of angular momentum, which we discovered using Hamilton's method, was first discovered by Kepler as his area law.
 
-
-\section{Most this section will be replaced by Hamilton's method}
-Kepler's area law is known by two other names. It is also called Kepler's Second Law, even though it was discovered before his other two laws, which we will get to shortly.
-
-Perhaps in situations that naturally involve circular motions, like orbits, we could find an angular momentum, similar to the linear momentum, that stays constant in the absence of external angular forces. This approach was eventually worked out in the highly abstract physics of the eighteenth century, but for our astronomical questions the treatment will be almost identical to the momentum you already know and love.
-
-An object's angular momentum is represented by $L$, and it is connected to rotational kinetic energy in the same way that momentum is connected to center-of-mass kinetic energy. Recall that we had two formulas for kinetic energy, one using velocity and the other using momentum.
-\startformula
-	K = \half mv^2 = \frac{p^2}{2m}
-\stopformula
-Likewise, rotational kinetic energy can be written in terms of angular velocity $\omega$ or angular momentum $L$. Write these formulas in the same form as above.
-\startformula
-	K = \half I\omega^2 = \frac{L^2}{2I}
-\stopformula
-In the angular formulas the moment of inertia appears in place of the mass. Mass gives an object inertia, or resistance to changing motion. The moment of inertia provides a resistance to changing angular motion. The formula for rotational kinetic energy in terms of angular momentum will be extremely valuable.
-
-Solving that last equation gives the angular momentum formula.
-\startformula
-	L = I\omega
-\stopformula
-This looks very similar to the momentum formula $p=mv$. In both cases the momentum is the product of the objects \quotation{inertia} and its velocity. This analogy between linear and angular quantities is shown in \in{table}[T:LinearAngular].
-
-\placetable
-    [margin]
-    [T:LinearAngular]
-    {The ingredients of linear and angular momentum}
-    {\vskip18pt\small%\hbox{
-	\starttabulate[|lw(1.75cm)|cw(1.75cm)|c|]
-\FL[2]%\toprule
-\NC				\NC Linear		\NC Angular 		\NR
-\HL
-\NC Velocity	\NC \ $v$		\NC $\omega$		\NR
-\NC Inertia		\NC \ $m$		\NC $I$			\NR
-\NC Momentum	\NC $p=mv$	\NC $p_\theta=I\omega$	\NR
-\LL[2]%\bottomrule
-    \stoptabulate}
-
-
- The angular version of force is called torque and is represented by $\tau$ (tau). Torque is a twisting force that will cause something to gain angular momentum. This leads to the third great conservation law of mechanics, conservation of angular momentum. 
-\startformula
-	L\si + \tau\Delta t = L\sf
-\stopformula
-
-We would like to explain the planets' motions around the Sun using angular momentum and energy. Orbits of the inner four planets – Mercury, Venus, Earth, and Mars – are shown in \in{figure}[fig:KeplerTerestrial]. While we could work in cartesian coordinates, the solar system is much easier to describe with polar coordinates, and this has been the tradition since before cartesian coordinates were invented. Each planet's gravitational potential energy is determined by its distance from the sun, the $r$ coordinate. Since we will be using conservation of angular momentum, we will need to know the torque, which turns out to be zero! Hamilton's equation works with any coordinates, and for angular coordinates it gives the torque.
-\startformula
-	\tau = -\frac{\Delta U}{\Delta\theta}
-\stopformula
-Motion in the $\theta$ direction (keeping $r$ constant) does not change a planets' potential energy, so there is no force pushing the planets in the $\theta$ direction. The only force is the gravitational force in the negative $r$ direction, directly toward the Sun. The planets do exert forces on each other but these are extremely small compared to the force of the Sun's gravity, so we will ignore them.
-
-We will use conservation of energy and conservation of angular momentum to explain three features of the planets' orbits. First, we will explain each planet's changing speed. Second, we will study the orbit's shape. Third, we will explain the relationship between the orbital periods of different planets. In each case we will look at the answer first, and then understand how it comes about, because this is what actually happened. Before Euler's angular momentum, before Bernoulli's potential energy and Leibniz's \visviva, before Newton's laws, even before Galileo's new science of motion, a complete mathematical model of planetary orbits was put forward by Johannes Kepler. The model's simplicity and incredible precision made it a gold-standard test for every physical theory that followed.
-
-Kepler's area law is also identical to conservation of angular momentum, which we introduced earlier. We will use conservation of angular momentum to find the same changing angular speeds that Kepler found using his area law. Just as Kepler uses the Sun as the center for his area law, we will use the Sun as the center of our coordinate system when using conservation of angular momentum.
-
-
-As we described at earlier in the chapter, Hamilton's equations tell us that there is no torque pushing Earth around in its orbit, therefore the angular momentum $L=I\omega$ is constant. Kepler told us that Earth's angular velocity changes as it gets slightly closer to the Sun on one side of its orbit and then slightly farther away on the other. How does Earth's angular velocity $\omega$ change if the angular momentum $L$ remains constant? The angular velocity changes because the moment of inertia changes! Putting Earth's moment of inertia $I=mr^2$ into the angular momentum formula gives 
-\startformula
-	L = mr^2\omega.
-\stopformula
-This angular momentum stays constant. As Earth gets slightly closer to to the Sun on one side of its orbit, the distance $r$ decreases slightly and the angular velocity $\omega$ must increase slightly. Earth speeds up. As Earth gets farther from the Sun again on the other side of its orbit, $r$ increases slightly and $\omega$ must decrease slightly. Earth slows down. This is exactly the amount of speeding and slowing required to both maintain a constant angular momentum $L$ and to maintain equal areas swept out in equal times.
+Angular momentum works with any angular coordinate. Many common systems are best described using angular coordinates – a swinging pendulum, a spinning top, pulleys, gears, and more. Angular momentum is not always a constant of the motion. For a pendulum, the potential energy $U$ depends on the angle $\theta$, so its angular momentum changes, always in the direction toward equilibrium. For a gear, the neighboring gears exert an outside force $F_\theta$ (called \keyterm{torque}) that can alter the gear's angular momentum. In all these cases, use $K_\theta = p_\theta^2/2I$ and follow Hamilton's general method to find the equations of motion. Anything that spins, from a tumbling speck of dust to a spiral galaxy, can be modeled with angular momentum and Hamilton's method. 
 
 \section{Earth's orbital angular momentum and energy}
 
