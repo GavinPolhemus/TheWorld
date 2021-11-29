@@ -754,15 +754,17 @@ We calculated the update $d\theta$ using Hamilton's method, and we can use it he
 \stopformula
 Since the angular momentum $p_\theta$ is a constant of the motion, this is exactly Kepler's area law stating that equal areas $dA$ are swept out in equal times $dt$. Conservation of angular momentum, which we discovered using Hamilton's method, was first discovered by Kepler as his area law.
 
-Angular momentum works with any angular coordinate. Many common systems are best described using angular coordinates – a swinging pendulum, a spinning top, pulleys, gears, and more. Angular momentum is not always a constant of the motion. For a pendulum, the potential energy $U$ depends on the angle $\theta$, so its angular momentum changes, always in the direction toward equilibrium. For a gear, the neighboring gears exert an outside force $F_\theta$ (called \keyterm{torque}) that can alter the gear's angular momentum. In all these cases, use $K_\theta = p_\theta^2/2I$ and follow Hamilton's general method to find the equations of motion. Anything that spins, from a tumbling speck of dust to a spiral galaxy, can be modeled with angular momentum and Hamilton's method. 
+Angular momentum works with any angular coordinate. Many common systems are best described using angular coordinates – a swinging pendulum, a spinning top, pulleys, gears, and more. Angular momentum is not always a constant of the motion. For a pendulum, the potential energy $U$ depends on the angle $\theta$, so its angular momentum changes, always in the direction toward equilibrium. For a gear, the neighboring gears exert an outside force $F_\theta$ (called \keyterm{torque}) that can alter the gear's angular momentum. In all these cases, use $K_\theta = p_\theta^2/2I$ and follow Hamilton's general method to find the equations of motion. Anything that spins, from a tumbling speck of dust to a spiral galaxy, can be modeled with angular momentum and Hamilton's method.
 
-\section{Earth's orbital angular momentum and energy}
+Now that we understand Earth's changing speed in terms of angular momentum, let's return to Kepler. 
+With his new area law, Kepler had more precise positions for Earth, and returned to the problem of Mars. His new effort is described in Book Five of \booktitle{New Astronomy}.
 
-As the planet speeds up and slows down, its kinetic energy increases and decreases. This can be seen most clearly through the formula for rotational kinetic energy introduced earlier in this chapter.
-\startformula
-	K_\theta = \frac{L^2}{2I} = \frac{L^2}{2mr^2}
-\stopformula 
-I've added a $\theta$ subscript to remind us that $K_\theta$ is the kinetic energy due to motion in the $\theta$-direction. The angular momentum $L$ in the formula remains constant throughout the Earth's orbit, but the moment of inertia changes, which then changes the kinetic energy. As Earth gets slightly closer to the Sun on one side of its orbit, $r$ and $I$ both decrease slightly, making the kinetic energy $K_\theta$ increase.
+Mars's more off-center orbit provides a more difficult challenge for Kepler's area law. The orbit areas in \in{figure}[fig:KeplerTerestrial] show the areas swept out by Mars in the twenty days when it is farthest from the Sun (right) and the twenty days when it is closest (left). Once again, equal areas are swept out in equal times. Kepler checked areas along other parts of Mars's orbit, and all confirmed his area law.
+
+The areas swept out by Mars are not the same as the areas swept out by Mercury. Both planets have constant angular momentum, but Mars's angular momentum is much greater than Mercury's. (This is true even if we correct for Mars's larger mass.) Mars sweeps out about twice the area that Mercury does in the same time. You can roughly check this by measuring the areas in \in{figure}[fig:KeplerTerestrial].
+
+\section{Energy graphs for oribts}
+Each planet's orbit is a compound motion. The planet moves around the Sun in the $\theta$-direction while also approaching and receding from the Sun in the $r$-direction. In the last section, we found the surprisingly simple update formulas for the angular motion. In this section we turn our attention to the puzzling motion in the radial direction. Energy graphs will be essential.
 
 \startbuffer[Uterrestrial3D]
 \startaxis[
@@ -810,14 +812,10 @@ I've added a $\theta$ subscript to remind us that $K_\theta$ is the kinetic ener
 \stopaxis
 \stopbuffer
 
-\marginTikZ{}{Uterrestrial3D}{A planet's gravitational potential energy depends on its distance $r$ from the Sun. A planet released from rest would accelerate toward lower potential energy, crashing into the Sun!} % vskip, name, caption
+\marginTikZ{}{Uterrestrial3D}{The gravitational potential energy of the inner planets, with their approximate distances from the Sun. The inner planets' full orbits are shown in \in{figure}[fig:KeplerTerestrial].} % vskip, name, caption
 
-
-Although the change in $r$ is relatively small, the change in Earth's kinetic energy is huge! Where does all of all of that energy come from? It comes from a decrease in the gravitational potential energy $U$.
-\startformula
-	U = -G\frac{mM_\Sun}{r}
-\stopformula
-As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases as shown in the energy diagram in \in{figure}[fig:EnergyGraphKU]. The diagram only shows the $r$ coordinate, not the angle $\theta$. The Earth is always also moving in the $\theta$ direction as it orbits the Sun.
+The energy graph in \in{figure}[fig:Uterrestrial3D] shows the gravitational potential energy for the inner planets. Above the graph are the central Sun and the inner planet's at their approximate distances. The gravitational potential energy alone does not offer much insight into the orbits. It looks as if the planets will spiral down the deep potential well. Fortunately, this does not happen due to the planets' angular motion. 
+We can see the role of the angular motion by adding angular kinetic energy $K_\theta$ to each planet's energy graph.
 
 \startbuffer[TikZ:EnergyGraphKU]
 \environment env_physics
@@ -863,7 +861,7 @@ As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases a
   ]
   {-13.3/x}
   %[yshift=-10pt]
-    node[below right,pos=0.9] {$U=-G\frac{mM_\Sun}{r}$}
+    node[below right,pos=0.9] {$U=-G\frac{mM}{r}$}
   ;
 %\addplot[ % Circular Orbits
 %   thick, dotted,
@@ -879,7 +877,7 @@ As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases a
   ]
   {9.926/x^2}
   %[yshift=8pt]
-    node[above right=0mm, pos=0.7] {$K_\theta=\frac{L^2}{2mr^2}$}
+    node[above right=0mm, pos=0.7] {$K_\theta=\frac{p_\theta^2}{2mr^2}$}
   ;
 \addplot[ % K angular Earth
    thin,
@@ -925,18 +923,26 @@ As the distance $r$ decreases slightly, $K_\theta$ increases and $U$ decreases a
 \stopTEXpage
 \stopbuffer
 
-\placetextfloat[top][fig:EnergyGraphKU] % location
+\placetextfloat[bottom][fig:EnergyGraphKU] % location
 {Earth's rotational kinetic energy $K_\theta$ and potential energy $U$ plotted as functions of the distance from the Sun $r$. The sum $U +K_\theta$ cradles Earth at its minimum. $U$ prevents Earth from leaving the solar system, while $K_\theta$ keeps it from spiraling into the Sun. Earth is always also moving the $\theta$ direction (not shown) as it orbits the Sun.}	 % caption text
 {\noindent\typesetbuffer[TikZ:EnergyGraphKU]} % figure contents
 
+Earth's energy graph, in \in{figure}[fig:EnergyGraphKU], shows the angular kinetic energy $K_\theta$ along with the gravitational potential energy $U$. (This energy graph shows only the $r$-direction, not the $\theta$-direction.) The gravitational potential energy $U$ at the bottom should look familiar – rising toward zero far from the Sun and descending steeply close to the Sun.
+Earth's angular kinetic energy trends in the opposite direction – descending toward zero far from the Sun and rising steeply close to the Sun, as shown in \in{figure}[fig:EnergyGraphKU].
 
-Why does Earth not just keep spiraling inward towards the Sun, losing potential energy and gaining kinetic energy as it meets a fiery doom? This is an interesting story that requires a closer look at the energy graph in \in{figure}[fig:EnergyGraphKU]. The plots of $K_\theta$ and $U$ are nearly opposites, but there is a very important difference in their shapes. The potential energy $U$ is inversely proportional to the distance $r$ while the rotational kinetic energy $K_\theta$ is inversely proportional to $r^2$.
+Since gravitational potential energy and angular kinetic energy change in opposite directions, these energy changes balance when Earth's distance from the Sun changes slightly along its slightly eccentric orbit.
+As Earth moves slightly toward the Sun, some gravitational potential energy is converted to angular kinetic energy. As Earth recedes slightly away from the Sun, some angular kinetic energy is converted back to gravitational potential energy. (The angular momentum $p_\theta$ stays constant during these energy changes.)
+
+The angular kinetic energy graph is not \emph{exactly} the opposite the gravitational potential energy graph. The angular kinetic energy $K_\theta$ has $r^2$ in the denominator, while the gravitational potential energy $U$ has only $r$ in the denominator. This makes the angular kinetic energy's behavior a bit sharper than gravitational potential energy's. Angular kinetic energy rises more sharply close to the Sun, and falls off more sharply far away. As a result, there is only one distance where the changes in energy balance, so that the sum stays the same.
+
+The last curve on Earth's energy graph in \in{figure}[fig:EnergyGraphKU] is this sum of the gravitational potential energy and the angular kinetic energy.
 \startformula
-	U\sim \frac{1}{r} \qquad K \sim \frac{1}{r^2}
+	U + K_\theta = -G\frac{mM}{r} + \frac{p_\theta^2}{2mr^2}
 \stopformula
-When $r$ is very small, $r^2$ is much smaller than $r$, making $K_\theta$ much larger than $U$. When $r$ is very large, $r^2$ is much larger than $r$, making $K_\theta$ much smaller than $U$. $K_\theta$ is the dominant form of energy when $r$ is small, and $U$ is the dominant form of energy when $r$ is large. This change can be seen in the sum $U+K_\theta$ in the energy diagram (\in{fig.}[fig:EnergyGraphKU]). At small $r$ the sum rises like $K_\theta$, while at large $r$ it rises like $U$.
+This curve increases sharply close to the Sun, due to the sharp rise in the angular kinetic energy $K_\theta$. The curve also rises towards zero far from the Sun, where the sharper drop in angular kinetic energy allows the more persistent rise of gravitational potential energy $U$ to dominate.
 
-Somewhere in the middle is a minimum which cradles Earth. Earth rocks gently in this minimum, losing potential energy $U$ and gaining rotational kinetic energy $K_\theta$ as it moves slightly towards the Sun on one side of its orbit, then losing $K_\theta$ and gaining $U$ is it moves away again on the other side.
+In the middle is a minimum which cradles Earth, as shown by the Earth and Sun above the energy graph, and by the total energy $H$ marked at Earth's location on the graph.
+Earth rocks gently in this minimum, where the two energy curves' slopes are in balance. At this minimum, the slope of the total $U + K_\theta$ is zero. Earth's total energy $H$ is very close to this minimum value of $U+K_\theta$. (The contribution of Earth's radial kinetic energy $K_r$ is too small to be seen on this graph. In the next section, Mars will help us understand the role of $K_r$.) Earth does not have enough energy to climb either side of the $U+K_\theta$ minimum, so Earth's orbit is stable.
 
 \startbuffer[UK3D]
 \startaxis[
@@ -1022,16 +1028,11 @@ Somewhere in the middle is a minimum which cradles Earth. Earth rocks gently in 
 \stopaxis
 \stopbuffer
 
-\marginTikZ{\vskip 2in}{UK3D}{A planet with angular momentum will not crash into the Sun, it will orbit.} % vskip, name, caption
+\marginTikZ{}{UK3D}{Earth's full orbit around the Sun and Earth's energy graph. Earth's orbit is at the minimum of $U + K_\theta$.} % vskip, name, caption
 
-Now that we understand Earth's changing speed in terms of angular momentum and energy, let's return to Kepler. 
-With his new area law, Kepler had more precise positions for Earth, and returned to the problem of Mars. His new effort is described in Book Five of \booktitle{New Astronomy}.
+Earth's full orbit is shown on the energy graph in \in{figure}[fig:UK3D], where the $\theta$ direction has been restored. This graph reminds me again of Kepler's early drinking cup model, where Earth's orbit was confined to a spherical shell between two platonic solids (\at{p.}[fig:Kepler1596system]). In our energy graph, Earth's orbit is held between two competing energies. Rising gravitational potential energy surrounds Earth's orbit, preventing Earth from wandering out of the Solar System. Rising angular kinetic energy sits inside Earth's orbit, preventing Earth from spiraling into the Sun.
 
-Mars's more off-center orbit provides a more difficult challenge for Kepler's area law. The orbit areas in \in{figure}[fig:KeplerTerestrial] show the areas swept out by Mars in the twenty days when it is farthest from the Sun (right) and the twenty days when it is closest (left). Once again, equal areas are swept out in equal times. Kepler checked areas along other parts of Mars's orbit, and all confirmed his area law.
-
-The areas swept out by Mars are not the same as the areas swept out by Mercury. Both planets have constant angular momentum, but Mars's angular momentum is much greater than Mercury's. (This is true even if we correct for Mars's larger mass.) Mars sweeps out about twice the area that Mercury does in the same time. You can roughly check this by measuring the areas in \in{figure}[fig:KeplerTerestrial].
-
-Mars's off-center orbit also leads to a more interesting energy graph, shown in \in{figure}[fig:EnergyGraphKUH]. Mars's energy graph shows the total energy $H$, including the kinetic energy $K_r$ due to Mars's motion in the $r$-direction. The total energy $H$ is slightly higher than the minimum of $K_\theta+U$, allowing Mars to oscillate over a significant range of distances from approximately $r\sub{min}=2\units{Gm}$ to $r\sub{max}=2.5\units{Gm}$. These turning points in the energy graph are same maximum and minimum distances of Mars's orbit shown in \in{figure}[fig:KeplerTerestrial]. If you look closely at Earth's energy graph (\in{fig.}[fig:EnergyGraphKU]) you will see that it is also a small line segment showing the Earth's range of distances from the Sun.
+The gravitational potential energy graph is the same shape for every planet, but the relative size of the angular kinetic energy hill in the middle of the graph depends on the planet's angular momentum. Greater angular momentum increases the size of this hill, called the \keyterm{centrifugal barrier}. A larger centrifugal barrier pushes the planet's orbit farther out from the Sun, as we will see for Mars. Less angular momentum produces a smaller centrifugal barrier, allowing the orbit to be closer to the Sun, as for Mercury. The size of the centrifugal barrier is different for each planet, giving their orbits different sizes in the same gravitational potential energy well.
 
 \startbuffer[TikZ:EnergyGraphKUH]
 \environment env_physics
@@ -1150,6 +1151,10 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 {Mars's energy graph. The sum $U + K_\theta$ cradles Mars at its minimum. Mars oscillates between approximately $r\sub{min}=2\units{Gm}$ and $r\sub{max}=2.5\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
 {\noindent\typesetbuffer[TikZ:EnergyGraphKUH]} % figure contents
 
+Mars's more eccentric orbit leads to a more interesting energy graph, shown in \in{figure}[fig:EnergyGraphKUH]. Mars's energy graph shows the total energy $H$, including the kinetic energy $K_r$ due to Mars's motion in the $r$-direction. The total energy $H$ is slightly higher than the minimum of $K_\theta+U$, allowing Mars to oscillate over a significant range of distances from approximately $r\sub{min}=2\units{Gm}$ to $r\sub{max}=2.5\units{Gm}$, as shown by the range of Mars positions above the energy graph. These turning points in the energy graph are same maximum and minimum distances of Mars's orbit shown in \in{figure}[fig:KeplerTerestrial]. If you look closely at Earth's energy graph (\in{fig.}[fig:EnergyGraphKU]) you will see that it is also a small line segment showing the Earth's range of distances from the Sun.
+
+Mars's full energy graph is shown in \in{figure}[fig:UKMars3D]. The orbit's eccentricity is clearly visible. The extra radial kinetic energy $K_r$ responsible for this eccentric motion has raised the total energy $H$ above the $U + K_\theta$ minimum, as if some water (shown in white) had been added to the moat around the central centrifugal barrier. As Mars circles the Sun, its orbit (shown in black) crosses this moat between the outer shore at $r_max$ on the right side of the centrifugal barrier, and the inner shore at $r_min$ on the left side of the centrifugal barrier. 
+
 \startbuffer[UKMars3D]
 \startaxis[
    hide x axis,
@@ -1264,8 +1269,11 @@ Mars's off-center orbit also leads to a more interesting energy graph, shown in 
 \stopaxis
 \stopbuffer
 
-\marginTikZ{\vskip 1.5in}{UKMars3D}{A planet with angular momentum will not crash into the Sun, it will orbit.} % vskip, name, caption
+\marginTikZ{}{UKMars3D}{A planet with angular momentum will not crash into the Sun, it will orbit.} % vskip, name, caption
 
+If Mars were somehow given more radial kinetic energy $K_r$, the total energy $H$ would be higher, raising the level of the moat. This would make the moat wider. Mars's orbit, still traveling between the two shores, would be even more eccentric.
+
+The energy graph shows the full compound motion discovered by Kepler. The Sun's mass produces the gravitational potential energy well that keeps the planets from leaving the solar system. Each planet's conserved angular momentum produces a centrifugal barrier that keeps the planet from spiraling into the Sun. The balance between the gravitational potential energy and the centrifugal barrier determines the approximate radius of the orbit. Additional radial kinetic energy determines the orbit's eccentricity.
 
 \section{Orbits are elliptical}
 \startblockquote
