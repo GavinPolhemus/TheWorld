@@ -1612,6 +1612,123 @@ The good news is that these formulas are almost identical to the formulas for ci
 \stopformula
 You can use these to find formulas for $\epsilon$ and $b$ as well, but we will not need them.
 
+\startbuffer[TikZ:EnergyGraphKUHMercury]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startaxis
+ [	width=11cm,y={1cm},
+   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
+   xmin=0, xmax=3,
+   minor x tick num=4,
+   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
+   ymin=-8, ymax=0,
+   minor y tick num=9,
+   clip mode = individual,
+		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+ ]
+% \addplot[ % Us
+%   thick,
+%   domain=10:20,
+%   samples=51
+%  ]
+%  {((x-20)^2/200)}
+%  [xshift=9pt]
+%    node[pos=0.03] {$U\sub{s}$}
+%  ;
+%\ifprintanswers
+\addplot[ % axis
+   thick,
+   domain=0:3,
+   samples=2
+  ]
+  {0}
+%  [yshift=10pt]
+%    node[pos=0.5] {$U$}
+  ;
+\addplot[ % Ug
+   thick,
+   domain=1.5:3,
+   samples=150
+  ]
+  {-13.3/x}
+  %[yshift=-10pt]
+    node[below right,pos=0.6] {$U$}
+  ;
+%\addplot[ % Circular Orbits
+%   thick, dotted,
+%   domain=0.5:5,
+%   samples=150
+%  ]
+%  {-6.65/x}
+%  ;
+%\addplot[ % K angular Earth
+%   thin,
+%   domain=0.5:5,
+%   samples=150
+%  ]
+%  {9.926/x^2}
+%  %[yshift=8pt]
+%    node[above, pos=0.95] {$K_\theta$}
+%  ;
+%\addplot[ % K angular Earth
+%   thin,
+%   domain=0.5:5,
+%   samples=150
+%  ]
+%  {(-13.27/x)+(9.926/x^2)}
+%  %[yshift=8pt]
+%    node[above right,pos=0.75] {$K_\theta + U$}
+%  ;
+%\addplot[ % E Earth
+%   very thick,
+%   domain=1.471:1.521,
+%   samples=2
+%  ]
+%  {-4.437}
+%  %[yshift=10pt]
+%    node[below, pos=0.5] {Earth}
+%  ;
+\addplot[ % K angular Mars
+   thin,
+   domain=1:3,
+   samples=150
+  ]
+  {(-13.27/x)+(14.99/x^2)}
+  %[yshift=8pt]
+    node[below left,pos=0.45] {$U + K_\theta$}
+  ;
+\addplot[ % E Mars
+   very thick,
+   domain=2.067:2.492,
+   samples=2
+  ]
+  {-2.912}
+ % [yshift=10pt]
+    node[above, pos=0.5] {$H = U + K_\theta + K_r$}
+    %node[above, pos=0.5] {Mars}
+  ;
+    \draw[->] (0,0.5) --node[above, pos=.98]{$r$} (3,0.5);
+    \draw[shade, ball color = white] (0,0.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
+    \filldraw[black!20] ({2.259/(1-0.0934*cos(120))},0.5) circle[radius=1.2mm];
+    \filldraw[black!15] (2.259,0.5) circle[radius=1.2mm];
+    \filldraw[black!20] ({2.259/(1-0.0934*cos(60))},0.5) circle[radius=1.2mm];
+    \filldraw[black!30] ({2.259/(1-0.0934*cos(30))},0.5) circle[radius=1.2mm];
+    \filldraw[black!30] ({2.259/(1-0.0934*cos(150))},0.5) circle[radius=1.2mm];
+    \filldraw[black!40] (2.067,0.5) circle[radius=1.2mm];
+    \draw[shade, ball color = darkgray] (2.492,0.5) circle[radius=1.2mm]node[above=0.8mm] {\Mars};
+\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[top][fig:EnergyGraphKUHMercury] % location
+{Mercury's energy graph. The sum $U + K_\theta$ cradles Mercury at its minimum. Mercury oscillates between approximately $r\sub{min}=2\units{Gm}$ and $r\sub{max}=2.5\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
+{\noindent\typesetbuffer[TikZ:EnergyGraphKUHMercury]} % figure contents
+
 
 \section{Harmonies of the World}
 
