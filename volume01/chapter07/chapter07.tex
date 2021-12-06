@@ -317,7 +317,7 @@ The centripetal force formula gives the force required to produce the circular m
 		= -G\frac{mM}{r^2}
 \stopformula
 The \emph{magnitude} of this gravitational force is the centripetal force above, allowing us to find the planet's angular velocity.
-\startformula\startmathalignment
+\startformula\startmathalignment\pagereference[eq:AngularVelocityCircular]
 \NC	\cancel{m}\omega^2 r	\NC = G\frac{\cancel{m}M}{r^2}	\NR
 \NC	\omega				\NC = \sqrt{\frac{GM}{r^3}}	\NR
 \stopmathalignment\stopformula
@@ -631,7 +631,7 @@ The kinetic energy's radial part $K_r$ can be written in terms of the radial mom
 \stopformula
 Similarly, the kinetic energy's angular part can be written in terms of the \keyterm{angular momentum} $p_\theta$. However, when we work with an angular coordinate, the mass in the denominator is replaced by the moment of inertial $I$. 
 \startformula
-	K_r = \frac{p_\theta^2}{2I}
+	K_\theta = \frac{p_\theta^2}{2I}
 \stopformula
 Angular momentum $p_\theta$ is a new type of momentum associated with angular motion like rotation or orbits. Euler and others developed special methods for working with angular quantities, but Hamilton's method treats angular coordinates and momenta just like any others. 
 
@@ -754,7 +754,18 @@ We calculated the update $d\theta$ using Hamilton's method, and we can use it he
 \stopformula
 Since the angular momentum $p_\theta$ is a constant of the motion, this is exactly Kepler's area law stating that equal areas $dA$ are swept out in equal times $dt$. Conservation of angular momentum, which we discovered using Hamilton's method, was first discovered by Kepler as his area law.
 
-Angular momentum works with any angular coordinate. Many common systems are best described using angular coordinates – a swinging pendulum, a spinning top, pulleys, gears, and more. Angular momentum is not always a constant of the motion. For a pendulum, the potential energy $U$ depends on the angle $\theta$, so its angular momentum changes, always in the direction toward equilibrium. For a gear, the neighboring gears exert an outside force $F_\theta$ (called \keyterm{torque}) that can alter the gear's angular momentum. In all these cases, use $K_\theta = p_\theta^2/2I$ and follow Hamilton's general method to find the equations of motion. Anything that spins, from a tumbling speck of dust to a spiral galaxy, can be modeled with angular momentum and Hamilton's method.
+Angular momentum works with any angular coordinate. Many common systems are best described using angular coordinates – a swinging pendulum, a spinning top, pulleys, gears, and more. Angular momentum is not always a constant of the motion. For a pendulum, the potential energy $U$ depends on the angle $\theta$, so its angular momentum changes, always in the direction toward equilibrium. For a gear, the neighboring gears exert an outside force $F_\theta$ (called \keyterm{torque}) that can alter the gear's angular momentum. In all these cases, use $K_\theta = p_\theta^2/2I$ and follow Hamilton's general method to find the equations of motion. 
+%
+%The $\theta$ update formula produced by Hamilton's method is
+%\startformula
+%	d\theta = \frac{p_\theta}{I}\,dt.
+%\stopformula
+%The angular velocity in this update formula is $\omega = p_\theta/I$, which leads to a general formula for angular momentum.
+%\startformula
+%	p_\theta = I\omega
+%\stopformula
+%This is the angular version of Newton's momentum formula $p=mv$.
+Anything that spins, from a tumbling speck of dust to a spiral galaxy, can be modeled with angular momentum and Hamilton's method.
 
 Now that we understand Earth's changing speed in terms of angular momentum, let's return to Kepler. 
 With his new area law, Kepler had more precise positions for Earth, and returned to the problem of Mars. His new effort is described in Book Five of \booktitle{New Astronomy}.
@@ -1275,7 +1286,7 @@ If Mars were somehow given more radial kinetic energy $K_r$, the total energy $H
 
 The energy graph shows the full compound motion discovered by Kepler. The Sun's mass produces the gravitational potential energy well that keeps the planets from leaving the solar system. Each planet's conserved angular momentum produces a centrifugal barrier that keeps the planet from spiraling into the Sun. The balance between the gravitational potential energy and the centrifugal barrier determines the approximate radius of the orbit. Additional radial kinetic energy determines the orbit's eccentricity.
 
-\section{Orbits are elliptical}
+\section{Orbits are elliptic}
 \startblockquote
 With the eccentricity and the [orbit's radius] established with the utmost certainty, it might appear strange to an astronomer that there remains yet another impediment in the way of astronomy's triumph\dots. Nevertheless\dots. \autocite{p.~336.}{Kepler1609}
 \stopblockquote
@@ -1296,13 +1307,13 @@ The ellipse provided exactly the formula he had stumbled upon and then abandoned
 
 Kepler finishes \booktitle{New Astronomy} with a detailed discussion of ellipses' properties and their application to Mars's orbit. His woodcut diagram is shown in \in{figure}[fig:Kepler1609Urania]. Kepler had finally triumphed over Mars.
 
-\placefigure[margin][fig:Kepler1609Urania]{Woodcut from Kepler's \booktitle{New Astronomy} showing the elliptical orbit which explains the motion on Mars. The diagram includes Urania, the muse of astronomy, arriving on her 
+\placefigure[margin][fig:Kepler1609Urania]{Woodcut from Kepler's \booktitle{New Astronomy} showing the elliptic orbit which explains the motion on Mars. The diagram includes Urania, the muse of astronomy, arriving on her 
 triumphal chariot with a laurel wreath – a crown for Kepler to honor his victory over the war god, Mars.} {\externalfigure[Kepler1609Urania][width=\rightmarginwidth]}
 
 
 All that remained was to triumph over the process of getting \booktitle{New Astronomy} actually published, which took another four years.
 
-Kepler believed that his mathematical model of Mars's motion – the area law on an elliptic orbit – would apply to all of the planets. He was right. Telescopes, which were not available to Tycho or Kepler, allowed far more precise observations. Kepler's model continued to provided excellent predictions, not only for the planets' nearly circular orbits, but also for the highly elliptical orbits of comets like Halley's Comet, shown in \in{figure}[fig:HaleysComet]. 
+Kepler believed that his mathematical model of Mars's motion – the area law on an elliptic orbit – would apply to all of the planets. He was right. Telescopes, which were not available to Tycho or Kepler, allowed far more precise observations. Kepler's model continued to provided excellent predictions, not only for the planets' nearly circular orbits, but also for the highly elliptic orbits of comets like Halley's Comet, shown in \in{figure}[fig:HaleysComet]. 
 
 \startbuffer[TikZ:HaleysComet]
 \environment env_physics
@@ -1447,8 +1458,160 @@ Kepler believed that his mathematical model of Mars's motion – the area law on
 \stopbuffer
 
 \placetextfloat[bottom][fig:HaleysComet] % location
-{The elliptical orbits of all eight planets and Halley's Comet. The planet's orbits are nearly circular, but off-center. Halley's Comet's orbit is highly elliptical, brining it near Earth approximately every $76$ years. It's next appearance will be in 2061. ($1\units{Tm} = 10^{12}\units{m}$)}	 % caption text
+{The elliptic orbits of all eight planets and Halley's Comet. The planet's orbits are nearly circular, but off-center. Halley's Comet's orbit is highly elliptic, brining it near Earth approximately every $76$ years. It's next appearance will be in 2061. ($1\units{Tm} = 10^{12}\units{m}$)}	 % caption text
 {\noindent\typesetbuffer[TikZ:HaleysComet]} % figure contents
+
+
+\section{From a circle to an ellipse}
+% The first few paragraphs here should probably move to the last section, before "Kepler finishes New Astronomy with...." Right now it is here because I added it late.
+Kepler's distance formula, written in modern notation, is 
+\startformula
+	r = \frac{ r_0}{1+\epsilon \cos\theta}
+\stopformula
+\startuseMPgraphic{KeplerDistanceEllipse}
+draw fullcircle xyscaled (4.5cm,3.6cm) shifted (1.35cm,0);
+  path Radius, XAxis;
+  Radius := origin -- ((1.44cm/(1-0.6*cosd(30))),0cm) rotated 30;
+  XAxis := origin -- (3.6cm,0cm) ;
+drawarrow origin -- (-0.9cm,0cm);
+drawarrow origin -- (0cm,1.44cm);
+drawarrow XAxis;
+drawarrow origin -- (0cm,-1.44cm);
+drawarrow origin -- Radius;
+drawdot origin withpen pencircle scaled 3pt;
+%dotlabel.bot("Sun",origin);
+label.bot("$r\sub{min}$",(-0.5cm,0));
+label.bot("$r\sub{max}$",(0.8cm,0));
+label.rt("$r_0$",(0,1cm));
+label.rt("$r_0$",(0,-1cm));
+label.ulft("$r$",(1.7cm,1cm));
+  begingroup;
+    save anglelength ;
+    anglelength := 1cm ;
+    drawarrow anglebetween(XAxis, Radius, btex $\theta$ etex) ;  % draw 
+  endgroup;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:KeplerDistanceEllipse, title={The ellipse described by Kepler's distance formula.}]
+\small\vskip 2in
+\reuseMPgraphic{KeplerDistanceEllipse}
+\stopplacefigure
+
+\startuseMPgraphic{MathEllipse}
+draw fullcircle xyscaled (4.5cm,3.6cm) ;
+drawarrow origin -- (2.5cm,0cm);
+drawarrow origin -- (0cm,2.05cm);
+draw origin -- (-2.5cm,0cm);
+draw origin -- (0cm,-2.05cm);
+label.bot("$a$",(-1.25cm,0));
+label.bot("$a$",(1.25cm,0));
+label.lft("$b$",(0,1cm));
+label.lft("$b$",(0,-1cm));
+label.top("$x$",(2.45cm,0));
+label.rt("$y$",(0,2.0cm));
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:MathEllipse, title={The ellipse as commonly described by mathematicians.}]
+\small
+\reuseMPgraphic{MathEllipse}
+\stopplacefigure
+
+\noindent
+where $r_0$ gives the orbit's size and $\epsilon$ gives the orbit's eccentricity. As Kepler described, he did not recognize this formula as an ellipse, and you probably do not recognize it either. Even if you have studied ellipses is a mathematics course, you probably saw it described in terms of the semi-major axis $a$ and semi-minor axis $b$, as shown in \in{figure}[fig:MathEllipse]. These two shapes are the same, although it is not easy to prove. Kepler gives his proof in Chapter 59 of \booktitle{New Astronomy}.
+We would like to relate the orbit's size and eccentricity to the planet's angular momentum $p_\theta$ and total energy $H$. Before tackling these relations, let us return briefly to circular orbits.
+
+A centered, circular orbit has only one parameter: its radius $r$. The planet's angular momentum and total energy are directly related to this radius of the other constants ($G$, $M$, and $m$) are known. The angular momentum can be found from the angular velocity $\omega$.
+\startformula
+	p_\theta = I\omega
+\stopformula
+This is the angular version of Newton's momentum formula, $p=mv$. (This angular version comes from the $\theta$ update formula.)
+We use the angular velocity for circular orbit's (\at{p.}[eq:AngularVelocityCircular]).
+\startformula
+	p_\theta = mr^2\sqrt{\frac{GM}{r^3}} = m\sqrt{GMr}
+\stopformula
+Circular orbits with a larger radius $r$ have a greater angular angular momentum $p_\theta$.
+
+The planet's total energy can be found using the angular momentum. ($K_r$ is zero for circular orbits.)
+\startformula\startmathalignment
+\NC H	\NC = \cancel{K_r} + K_\theta + U			\NR
+\NC		\NC = \frac{p_\theta^2}{2I} - G\frac{mM}{r}	\NR
+\NC		\NC = \frac{m^2 GMr}{2mr^2} - G\frac{mM}{r}	\NR
+\NC		\NC = G\frac{mM}{2r} - G\frac{mM}{r}		\NR
+\NC		\NC = -G\frac{mM}{2r}						\NR
+\stopmathalignment\stopformula
+The total energy of a circular orbit is negative, and exactly half of the gravitational potential energy. 
+Circular orbits with a larger radius $r$ have a higher (less negative) total energy $H$.
+
+\startuseMPgraphic{graph::CircularH} % I'd like to add minor ticks, 0.667mm long.
+vardef U =
+	path p;
+		for x = 0.5 step 0.1 until 3.1:
+			y := -13.3/x; % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+vardef H =
+	path p;
+		for x = 0.2 step 0.1 until 3.1:
+			y := -13.3/(2x); % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+draw begingraph(4cm,5cm);
+	setrange(0,-20, 3, 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy per mass ($\sci{8}\units{J/kg}$)") rotated 90,OUT);
+	glabel.bot(textext("Distance from Sun $r$ ($\sci{11}\units{m}$)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.lrt("$U$",10);
+	gdraw(H) withpen pencircle scaled 1pt dashed withdots;
+	glabel.ulft("$H$",10);
+%	glabel(mydot,(80));
+%	glabel(mydot,(210));
+%	glabel(mydot,(340));
+%	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
+%	gdraw((6.37,0) -- (6.37,-2)) withpen pencircle scaled 0.8pt;
+	for y=0 step -2 until -20:%auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+endgraph shifted (0,-5cm);
+%  pickup pencircle scaled 0.8pt ;
+%  draw externalfigure "EarthEratosthenes.png" scaled 0.127 shifted (-6.37mm,-6.37mm) ;
+%  draw fullcircle scaled 12.74mm;
+%  drawarrow (13mm,0) -- (-0.5mm,0);
+%    dotlabel.ulft  ("", (13mm,0)) ;
+%  drawarrow (26mm,0) -- (22.625mm,0);
+%    dotlabel.top  ("$F\sub{Newton}$", (26mm,0)) ;
+%  drawarrow (39mm,0) -- (37.5mm,0);
+%    dotlabel.llft  ("", (39mm,0)) ;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:CircularH, title={A planet's total energy $H$ in a circular, centered orbit is exactly half of the planet's gravitational potential energy $U$.}]
+\small\reuseMPgraphic{graph::CircularH}
+\stopplacefigure
+
+The energy graph in \in{figure}[fig:CircularH] shows the gravitational potential energy and a dotted line at $-GMm/2r$. Each dot represents the total energy of a possible circular orbit. Dots toward the upper right represent larger orbits with greater angular momentum and higher energy. Dots toward the lower left represent smaller orbits with less angular momentum and lower energy.
+
+Elliptic orbits do not have a constant radius, so the formulas for angular momentum and total energy need to be modified to use the parameters of the ellipse – either $r$ and $\epsilon$ in Kepler's formula or $a$ and $b$ in the usual math description. The formulas are
+\startformula
+	p_\theta = m\sqrt{GMr_0}
+	\qquad
+	H = -G\frac{mM}{2a}.
+\stopformula
+The good news is that these formulas are almost identical to the formulas for circular orbits. The angular momentum is related to Kepler's $r_0$. Total energy is related to the semi-major axis $a$. The bad news is that one formula uses Kepler's description of the ellipse while the other uses the usual mathematics description. We do not need a complete conversion from one description to the other, but we do need to be able to find $r$ and $a$ in either case. The relations are:
+\startformula
+	r_0 = \frac{b^2}{a}
+	\qquad
+	a = \frac{r_0}{1-\epsilon^2}
+\stopformula
+You can use these to find formulas for $\epsilon$ and $b$ as well, but we will not need them.
+
 
 \section{Harmonies of the World}
 
@@ -1462,13 +1625,13 @@ This ratio can be used to related the periods and radii of any two planets' orbi
 \startformula
 \frac{T_1}{T_2} = \left(\frac{a_1}{a_2}\right)^{\threehalves}
 \stopformula
-where $T_1$ and $a_1$ are the period and radius of one planet's orbit, while $T_2$ and $a_2$ are those of the other. For elliptical orbits the radius is half of the ellipse's long axis. Formally, $a$ is called the semi-major axis.
+where $T_1$ and $a_1$ are the period and radius of one planet's orbit, while $T_2$ and $a_2$ are those of the other. For elliptic orbits the radius is half of the ellipse's long axis. Formally, $a$ is called the semi-major axis.
 
 Kepler believed that the \threehalves th power was a sign of a musical perfect fifth. It is not.
 
-When Newton presented his laws of motion and gravity in the \booktitle{Principia,} almost eighty years after \booktitle{New Astronomy}, his first application of those laws is a proof of Kepler's area law. Newton goes on to show that elliptical orbits arise only from a force that is inversely proportional to the squared distance. Finally, Newton showed that the \threehalves th power ratio between period and radius is also a consequence of his theories of motion and gravity. 
+When Newton presented his laws of motion and gravity in the \booktitle{Principia,} almost eighty years after \booktitle{New Astronomy}, his first application of those laws is a proof of Kepler's area law. Newton goes on to show that elliptic orbits arise only from a force that is inversely proportional to the squared distance. Finally, Newton showed that the \threehalves th power ratio between period and radius is also a consequence of his theories of motion and gravity. 
 
-Finally, Newton showed that even a tiny change in the gravitational force formula causes the elliptical orbit's long axis to rotate slowly, so that over time the planet traces a flower pattern rather than a simple ellipse.
+Finally, Newton showed that even a tiny change in the gravitational force formula causes the elliptic orbit's long axis to rotate slowly, so that over time the planet traces a flower pattern rather than a simple ellipse.
 Many planets' orbits do rotate slowly due to the slight pull of other planets. By 1859 it became clear that only Mercury's obit rotates in a way that cannot be caused by other planets. This anomaly was not explained until 1915, when Albert Einstein was developing his own geometric model of gravity. For eight years, Einstein had been struggling to build his theory of curved space-time. In the final month, he discovered that his emerging theory predicts a slightly different path for planets close to the Sun. Einstein computed the effect on Mercury's orbit and found it exactly matched the well know anomaly in Mercury's orbit. He recalls, \quotation{for a few days, I was beside myself with joyous excitement.} % Pais SitL p.253
 Two weeks later he completed the theory of General Relativity.
 
