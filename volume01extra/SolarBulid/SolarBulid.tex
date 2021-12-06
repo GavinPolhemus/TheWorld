@@ -1,0 +1,1212 @@
+% !TEX useOldSyncParser
+\startcomponent c_chapter01
+\project project_world
+\product prd_volume01
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+\starttext
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title=Solar System Model, reference=ch:SolarBuild]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The diagrams below are for the Solar System Model activity.
+
+\startbuffer[TikZ:KeplerTerestrial]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage%\small
+\starttikzpicture% tikz code
+\startpolaraxis
+ [	xticklabels=\empty,
+ 	ytick={0,1,...,2},
+ 	yticklabels={{},$100\units{Gm}$,$200\units{Gm}$},
+ 	minor y tick num={4},
+	% yminorgrids=true,
+	%hide x axis,
+	%y=4cm,%
+	ymax = 2.5,
+	scale only axis=true, width={20cm},
+ 	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
+	major grid style = {middlegray},
+ ]
+  \node [name path=Sun] at (0,0) {\Sun};
+  \addplot [ % Mercury
+      thick,
+      domain=0:360,
+      samples=600]
+    {0.5546/(1+0.20564*cos(x-77.46))}
+    [yshift=-.5pt]node[pos=0.25] {\Mercury};
+  \addplot [ % Venus
+      thick,
+      domain=0:360,
+      samples=600]
+    {1.082/(1+0.00676*cos(x-131.77))}
+    [yshift=-1.7pt]node[pos=0.25] {\Venus};
+  \addplot [ % Earth
+      thick,
+      domain=0:360,
+      samples=600]
+    {1.496/(1+0.0167*cos(x-102.93))}
+    node[pos=0.25] {\Earth};
+  \addplot [ % Mars
+      thick,
+      domain=0:360,
+      samples=600]
+    {2.259/(1+0.0934*cos(x-336.08))}
+    [yshift=1pt, xshift=1.1pt]node[pos=0.25] {\Mars};
+  \addplot [ % Halley
+      thick,
+      domain=-170:65,
+      samples=600]
+    {1.7246/(1+0.96714*cos(x+52.91))}
+    node[below left, pos=0.13]{Halley's Comet};
+    %node[above left, pos=0.9]{Halley's Comet};
+  \addplot [ % ʻOumuamua
+      thick,
+      domain=-250:10,
+      samples=600]
+    {0.843/(1+1.201*cos(x-242))}
+    node[above right, pos=0.05] {ʻOumuamua};
+\stoppolaraxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\typesetbuffer[TikZ:KeplerTerestrial]
+
+\startbuffer[TikZ:KeplerTerestrialBuild]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage%\small
+\starttikzpicture% tikz code
+\startpolaraxis
+ [	xticklabels=\empty,
+ 	ytick={0,1,...,2},
+ 	yticklabels={{},$100\units{Gm}$,$200\units{Gm}$},
+ 	minor y tick num={4},
+	% yminorgrids=true,
+	%hide x axis,
+	%y=4cm,%
+	ymax = 2.5,
+	scale only axis=true, width={20cm},
+ 	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
+	major grid style = {middlegray},
+ ]
+  \node [name path=Sun] at (0,0) {\Sun};
+  \addplot [ % Mercury
+      thick,
+      domain=0:360,
+      samples=600]
+    {0.5546/(1+0.20564*cos(x-77.46))}
+    [yshift=-.5pt]node[pos=0.5] {\Mercury};
+  \addplot [ % Mercury min
+      ultra thick,
+      domain=0:360,
+      samples=600]
+    {0.5546/(1+0.20564)};
+  \addplot [ % Mercury max
+      ultra thick,
+      domain=0:360,
+      samples=600]
+    {0.5546/(1-0.20564)};
+  \addplot [ % Venus
+      thin,
+      domain=0:360,
+      samples=600]
+    {1.082/(1+0.00676*cos(x-131.77))}
+    [yshift=-1.7pt]node[pos=0.125] {\Venus};
+  \addplot [ % Earth
+      thick,
+      domain=0:360,
+      samples=600]
+    {1.496/(1+0.0167*cos(x-102.93))}
+    node[pos=0.54] {\Earth};
+  \addplot [ % Earth min
+      thin,
+      domain=0:360,
+      samples=600]
+    {1.496/1.0167};
+  \addplot [ % Earth min
+      ultra thick,
+      domain=10:80,
+      samples=600]
+    {1.496/1.0167};
+  \addplot [ % Earth min
+      ultra thick,
+      domain=100:170,
+      samples=600]
+    {1.496/1.0167};
+  \addplot [ % Earth min
+      ultra thick,
+      domain=190:260,
+      samples=600]
+    {1.496/1.0167};
+  \addplot [ % Earth min
+      ultra thick,
+      domain=280:350,
+      samples=600]
+    {1.496/1.0167};
+  \draw[ultra thick] (0,{1.496/1.0167 - 0.25})node[right]{$0\degree$} -- (0,{1.496/1.0167 - 0.5});
+  \draw[ultra thick] (-10,{1.496/1.0167}) -- (0,{1.496/1.0167 - 0.5});
+  \draw[ultra thick] (10,{1.496/1.0167}) -- (0,{1.496/1.0167 - 0.5});
+  \draw[ultra thick, dotted] (-10,{1.496/1.0167}) -- (10,{1.496/1.0167});
+  \draw[ultra thick] (90,{1.496/1.0167 - 0.25})node[above]{$90\degree$} -- (90,{1.496/1.0167 - 0.5});
+  \draw[ultra thick] (80,{1.496/1.0167}) -- (90,{1.496/1.0167 - 0.5});
+  \draw[ultra thick] (100,{1.496/1.0167}) -- (90,{1.496/1.0167 - 0.5});
+  \draw[ultra thick, dotted] (80,{1.496/1.0167}) -- (100,{1.496/1.0167});
+  \draw[ultra thick] (180,{1.496/1.0167 - 0.25})node[left]{$180\degree$} -- (180,{1.496/1.0167 - 0.5});
+  \draw[ultra thick] (170,{1.496/1.0167}) -- (180,{1.496/1.0167 - 0.5});
+  \draw[ultra thick] (190,{1.496/1.0167}) -- (180,{1.496/1.0167 - 0.5});
+  \draw[ultra thick, dotted] (170,{1.496/1.0167}) -- (190,{1.496/1.0167});
+  \draw[ultra thick] (270,{1.496/1.0167 - 0.25})node[below]{$270\degree$} -- (270,{1.496/1.0167 - 0.5});
+  \draw[ultra thick] (260,{1.496/1.0167}) -- (270,{1.496/1.0167 - 0.5});
+  \draw[ultra thick] (280,{1.496/1.0167}) -- (270,{1.496/1.0167 - 0.5});
+  \draw[ultra thick, dotted] (260,{1.496/1.0167}) -- (280,{1.496/1.0167});
+  \addplot [ % Earth max
+      ultra thick,
+      domain=0:360,
+      samples=600]
+    {1.496/(1-0.0167)};
+  \addplot [ % Mars
+      thick,
+      domain=0:360,
+      samples=600]
+    {2.259/(1+0.0934*cos(x-336.08))}
+    [yshift=1pt, xshift=1.1pt]node[pos=0.25] {\Mars};
+  \addplot [ % Mars min
+      thin,
+      domain=0:360,
+      samples=600]
+    {2.259/(1+0.0934)};
+  \addplot [ % Mars min
+      ultra thick,
+      domain=10:80,
+      samples=600]
+    {2.259/(1+0.0934)};
+  \addplot [ % Mars min
+      ultra thick,
+      domain=100:170,
+      samples=600]
+    {2.259/(1+0.0934)};
+  \addplot [ % Mars min
+      ultra thick,
+      domain=190:260,
+      samples=600]
+    {2.259/(1+0.0934)};
+  \addplot [ % Mars min
+      ultra thick,
+      domain=280:350,
+      samples=600]
+    {2.259/(1+0.0934)};
+  \draw[ultra thick] (0,{2.259/1.0934 - 0.25})node[right]{$0\degree$} -- (0,{2.259/1.0934 - 0.5});
+  \draw[ultra thick] (-10,{2.259/1.0934}) -- (0,{2.259/1.0934 - 0.5});
+  \draw[ultra thick] (10,{2.259/1.0934}) -- (0,{2.259/1.0934 - 0.5});
+  \draw[ultra thick, dotted] (-10,{2.259/1.0934}) -- (10,{2.259/1.0934});
+  \draw[ultra thick] (90,{2.259/1.0934 - 0.25})node[above]{$90\degree$} -- (90,{2.259/1.0934 - 0.5});
+  \draw[ultra thick] (80,{2.259/1.0934}) -- (90,{2.259/1.0934 - 0.5});
+  \draw[ultra thick] (100,{2.259/1.0934}) -- (90,{2.259/1.0934 - 0.5});
+  \draw[ultra thick, dotted] (80,{2.259/1.0934}) -- (100,{2.259/1.0934});
+  \draw[ultra thick] (180,{2.259/1.0934 - 0.25})node[left]{$180\degree$} -- (180,{2.259/1.0934 - 0.5});
+  \draw[ultra thick] (170,{2.259/1.0934}) -- (180,{2.259/1.0934 - 0.5});
+  \draw[ultra thick] (190,{2.259/1.0934}) -- (180,{2.259/1.0934 - 0.5});
+  \draw[ultra thick, dotted] (170,{2.259/1.0934}) -- (190,{2.259/1.0934});
+  \draw[ultra thick] (270,{2.259/1.0934 - 0.25})node[below]{$270\degree$} -- (270,{2.259/1.0934 - 0.5});
+  \draw[ultra thick] (260,{2.259/1.0934}) -- (270,{2.259/1.0934 - 0.5});
+  \draw[ultra thick] (280,{2.259/1.0934}) -- (270,{2.259/1.0934 - 0.5});
+  \draw[ultra thick, dotted] (260,{2.259/1.0934}) -- (280,{2.259/1.0934});
+  \addplot [ % Mars max
+      ultra thick,
+      domain=0:360,
+      samples=600]
+    {2.259/(1-0.0934)};
+\stoppolaraxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\typesetbuffer[TikZ:KeplerTerestrialBuild]
+
+\startbuffer[TikZ:Halley]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage%\small
+\starttikzpicture% tikz code
+\startpolaraxis
+ [	xticklabels=\empty,
+ 	ytick={0,0.5,...,2.5},
+ 	yticklabels={{},{},$100\units{Gm}$,{},$200\units{Gm}$,{}},
+ 	minor y tick num={4},
+	% yminorgrids=true,
+	%hide x axis,
+	%y=4cm,%
+	ymax = 3,
+	scale only axis=true, width={24cm},
+ 	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
+	major grid style = {middlegray},
+ ]
+  \node [name path=Sun] at (0,0) {\Sun};
+  \addplot [ % Halley
+      ultra thick,
+      domain=-170:65,
+      samples=600]
+    {1.7246/(1+0.96714*cos(x+52.91))}
+    node[above left, pos=0.25]{Halley's Comet}
+    node[above left, pos=0.9]{Halley's Comet};
+  \addplot [ % Halley minimum
+      ultra thick,
+      domain=0:360,
+      samples=600]
+    {1.7246/(1+0.96714)};
+  \addplot [ % Edge cut
+      ultra thick,
+      domain=63:191,
+      samples=600]
+    {3};
+  \draw[ultra thick] (90,3) --node[right]{$90\degree$} (90,2.75);
+  \draw[ultra thick] (180,3) --node[above]{$180\degree$} (180,2.75);
+\stoppolaraxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\typesetbuffer[TikZ:Halley]
+
+\startbuffer[TikZ:ʻOumuamua]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage%\small
+\starttikzpicture% tikz code
+\startpolaraxis
+ [	xticklabels=\empty,
+ 	ytick={0,0.5,...,2.5},
+ 	yticklabels={{},{},$100\units{Gm}$,{},$200\units{Gm}$,{}},
+ 	minor y tick num={4},
+	% yminorgrids=true,
+	%hide x axis,
+	%y=4cm,%
+	ymax = 3,
+	scale only axis=true, width={24cm},
+ 	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
+	major grid style = {middlegray},
+ ]
+  \node [name path=Sun] at (0,0) {\Sun};
+  \addplot [ % ʻOumuamua
+      ultra thick,
+      domain=-250:10,
+      samples=600]
+    {0.843/(1+1.201*cos(x-242))}
+    node[above left, pos=0.9] {ʻOumuamua};
+  \addplot[ % ʻOumuamua minimum
+      ultra thick,
+      domain=0:360,
+      samples=600]
+    {0.843/(1+1.201)};
+  \addplot [ % Edge cut
+      ultra thick,
+      domain=8.75:115.25,
+      samples=600]
+    {3};
+  \draw[ultra thick] (90,3) --node[right]{$90\degree$} (90,2.75);
+\stoppolaraxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\typesetbuffer[TikZ:ʻOumuamua]
+
+\startbuffer[TikZ:EnergyGraphKUHDouble]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage%\small
+\starttikzpicture% tikz code
+\startaxis
+ [	x=4cm,y={1cm},
+   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
+   xmin=-3, xmax=3,
+   minor x tick num=1,
+   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
+   ymin=-14, ymax=4,
+   minor y tick num=9,
+   clip mode = individual,
+		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+ ]
+  \addplot[ % axis
+      thick,
+      domain=-3:3,
+      samples=2]
+    {0};
+  \addplot[ % Ug
+      thick,
+      domain=0.8:3,
+      samples=150]
+    {-13.3/x}
+    node[below right,pos=0.6] {$U$}
+    node[below right,pos=0.97] {$0\degree$};
+  \addplot[ % Ug left
+      thick,
+      domain=-0.8:-3,
+      samples=150]
+    {13.3/x}
+    node[below left,pos=0.6] {$U$}
+    node[below left,pos=0.97] {$90\degree$};
+  \addplot[ % K angular Mercury
+      thin,
+      domain=0.25:3,
+      samples=150]
+    {(-13.27/x)+(3.68/x^2)};
+  \addplot[ % K angular Mercury inner cut
+      ultra thick,
+      domain=0.3:0.46,
+      samples=150]
+    {(-13.27/x)+(3.68/x^2)};
+  \addplot[ % H Mercury
+      ultra thick,
+      domain=0.46:0.698,
+      samples=2]
+    {-11.457}
+    node[below, pos=0.5] {Mercury};
+  \addplot[ % K angular Mercury outer cut
+      ultra thick,
+      domain=0.698:0.9,
+      samples=150]
+    {(-13.27/x)+(3.68/x^2)};
+  \addplot[ % K angular Mercury left
+      thin,
+      domain=-0.25:-3,
+      samples=150]
+    {(13.27/x)+(3.68/x^2)};
+  \addplot[ % K angular Mercury inner cut left
+      ultra thick,
+      domain=-0.3:-0.46,
+      samples=150]
+    {(13.27/x)+(3.68/x^2)};
+  \addplot[ % H Mercury left
+      very thick,
+      domain=-0.46:-0.698,
+      samples=2]
+    {-11.457}
+    node[below, pos=0.5] {Mercury};
+  \addplot[ % K angular Mercury outer cut left
+      ultra thick,
+      domain=-0.698:-0.9,
+      samples=150]
+    {(13.27/x)+(3.68/x^2)};
+  \draw[ultra thick] % Mercury to Venus cut
+    (0.9,{(-13.27/0.9)+(3.68/0.9^2)}) -- (0.9,{(-13.27/0.9)+(7.179/0.9^2)});
+  \draw[ultra thick] % Mercury to Venus cut left
+    (-0.9,{(-13.27/0.9)+(3.68/0.9^2)}) -- (-0.9,{(-13.27/0.9)+(7.179/0.9^2)});
+  \addplot[ % K angular Venus
+      thin,
+      domain=0.47:3,
+      samples=150]
+    {(-13.27/x)+(7.179/x^2)};
+  \addplot[ % K angular Venus inner cut
+      ultra thick,
+      domain=0.9:1.3,
+      samples=150]
+    {(-13.27/x)+(7.179/x^2)};
+  \draw[ultra thick] (1.08,-7.132) -- (1.08,-6.132) % Venus orbit cut
+    node[below left, rotate=90] {Venus};
+  \addplot[ % K angular Venus left
+      thin,
+      domain=-0.47:-5,
+      samples=150]
+    {(13.27/x)+(7.179/x^2)};
+  \addplot[ % K angular Venus inner cut left
+      ultra thick,
+      domain=-0.9:-1.3,
+      samples=150]
+    {(13.27/x)+(7.179/x^2)};
+  \draw[ultra thick] (-1.08,-7.132) -- (-1.08,-6.132) % Venus orbit cut left
+    node[below left, rotate=90] {Venus};
+  \draw[ultra thick] % Venus to Earth cut
+    (1.3,{(-13.27/1.3)+(7.179/1.3^2)}) -- (1.3,{(-13.27/1.3)+(9.926/1.3^2)});
+  \draw[ultra thick] % Venus to Earth cut left
+    (-1.3,{(-13.27/1.3)+(7.179/1.3^2)}) -- (-1.3,{(-13.27/1.3)+(9.926/1.3^2)});
+  \addplot[ % K angular Earth
+      thin,
+      domain=0.6:5,
+      samples=150]
+    {(-13.27/x)+(9.926/x^2)};
+  \addplot[ % K angular Earth cut
+      ultra thick,
+      domain=1.3:1.8,
+      samples=150]
+    {(-13.27/x)+(9.926/x^2)};
+  \draw[ultra thick] ({1.471-0.02},-5.437) -- ({1.471-0.02},-4.437) % Earth orbit cut
+    node[below left, rotate=90] {Earth};
+  \addplot[ % K angular Earth left
+      thin,
+      domain=-0.6:-5,
+      samples=150]
+    {(13.27/x)+(9.926/x^2)};
+  \addplot[ % K angular Earth cut left
+      ultra thick,
+      domain=-1.3:-1.8,
+      samples=150]
+    {(13.27/x)+(9.926/x^2)};
+  \draw[ultra thick] ({-1.471+0.02},-5.437) -- ({-1.471+0.02},-4.437) % Earth orbit cut left
+    node[below left, rotate=90] {Earth};
+  \draw[ultra thick] % Earth to Mars cut
+    (1.8,{(-13.27/1.8)+(9.926/1.8^2)}) -- (1.8,{(-13.27/1.8)+(14.99/1.8^2)});
+  \draw[ultra thick] % Earth to Mars cut left
+    (-1.8,{(-13.27/1.8)+(9.926/1.8^2)}) -- (-1.8,{(-13.27/1.8)+(14.99/1.8^2)});
+  \addplot[ % K angular Mars
+      thin,
+      domain=0.89:3,
+      samples=150]
+    {(-13.27/x)+(14.99/x^2)};
+  \addplot[ % K angular Mars inner cut
+      ultra thick,
+      domain=1.8:2.067,
+      samples=150]
+    {(-13.27/x)+(14.99/x^2)};
+  \addplot[ % E Mars
+      ultra thick,
+      domain=2.067:2.492,
+      samples=2]
+    {-2.912}
+    node[below, pos=0.5] {Mars};
+  \addplot[ % K angular Mars outer cut
+      ultra thick,
+      domain=2.492:2.75,
+      samples=150]
+    {(-13.27/x)+(14.99/x^2)};
+  \draw[ultra thick] ({2.067-0.03},-3.912) -- ({2.067-0.03},-2.912); % Mars orbit cut
+  \addplot[ % K angular Mars left
+      thin,
+      domain=-0.89:-3,
+      samples=150]
+    {(13.27/x)+(14.99/x^2)};
+  \addplot[ % K angular Mars inner cut left
+      ultra thick,
+      domain=-1.8:-2.067,
+      samples=150]
+    {(13.27/x)+(14.99/x^2)};
+  \addplot[ % E Mars left
+      very thick,
+      domain=-2.067:-2.492,
+      samples=2]
+    {-2.912}
+    node[below, pos=0.5] {Mars};
+  \addplot[ % K angular Mars outer cut left
+      ultra thick,
+      domain=-2.492:-2.75,
+      samples=150]
+    {(13.27/x)+(14.99/x^2)};
+  \draw[ultra thick] ({-2.067+0.03},-3.912) -- ({-2.067+0.03},-2.912); % Mars orbit cut left
+  \addplot[ % K angular Halley's Comet
+      thin,
+      domain=0.7:5,
+      samples=150]
+    {(-13.27/x)+(11.44/x^2)};
+  \addplot[ % K angular Halley's Comet cut
+      ultra thick,
+      domain=0.724:0.877,
+      samples=150]
+    {(-13.27/x)+(11.44/x^2)};
+  \addplot[ % E Halley's Comet
+      thin,
+      domain=0.8767:3,
+      samples=2]
+    {-0.249}
+    node[below left, pos=1] {Halley's Comet};
+  \addplot[ % E Halley's Comet cut inner
+      ultra thick,
+      domain=0.8767:1,
+      samples=2]
+    {-0.249};
+  \draw[ultra thick] % Halley's to Mercury cut
+    (0.3,{(-13.27/0.3)+(3.68/0.3^2)}) -- (1,-0.249);
+  \addplot[ % K angular Halley's Comet left
+      thin,
+      domain=-0.7:-5,
+      samples=150]
+    {(13.27/x)+(11.44/x^2)};
+  \addplot[ % K angular Halley's Comet cut left
+      ultra thick,
+      domain=-0.724:-0.877,
+      samples=150]
+    {(13.27/x)+(11.44/x^2)};
+  \addplot[ % E Halley's Comet left
+      thin,
+      domain=-0.8767:-3,
+      samples=2]
+    {-0.249}
+    node[below right, pos=1] {Halley's Comet};
+  \addplot[ % E Halley's Comet cut inner left
+      ultra thick,
+      domain=-0.8767:-1,
+      samples=2]
+    {-0.249};
+  \draw[ultra thick] % Halley's to Mercury cut left
+    (-0.3,{(-13.27/0.3)+(3.68/0.3^2)}) -- (-1,-0.249);
+  \addplot[ % E Halley's Comet cut outer left
+      ultra thick,
+      domain=-2.75:-2.25,
+      samples=2]
+    {-0.249};
+  \draw[ultra thick] % Mars to ʻOumuamua cut
+    (2.75,{(-13.27/2.75)+(14.99/2.75^2)}) -- (1.5,3.486);
+  \draw[ultra thick] % Mars to Halley's cut left
+    (-2.75,{(-13.27/2.75)+(14.99/2.75^2)}) -- (-2.25,-0.249);
+  \draw[ultra thick] % Halley's to ʻOumuamua cut left
+    (-2.75,-0.249) -- (-2.25,3.486);
+  \addplot[ % K angular ʻOumuamua
+      thin,
+      domain=0.37:5,
+      samples=150]
+    {(-13.27/x)+(5.591/x^2)};
+  \addplot[ % K angular ʻOumuamua cut
+      ultra thick,
+      domain=0.37:0.383,
+      samples=150]
+    {(-13.27/x)+(5.591/x^2)};
+  \addplot[ % E ʻOumuamua
+      thin,
+      domain=0.383:3,
+      samples=2]
+    {3.486}
+    node[below, pos=0.75] {ʻOumuamua};
+  \addplot[ % E ʻOumuamua inner
+      ultra thick,
+      domain=0.383:0.724,
+      samples=2]
+    {3.486};
+  \addplot[ % E ʻOumuamua outer
+      ultra thick,
+      domain=1.5:3,
+      samples=2]
+    {3.486};
+  \addplot[ % K angular ʻOumuamua left
+      thin,
+      domain=-0.37:-5,
+      samples=150]
+    {(13.27/x)+(5.591/x^2)};
+  \addplot[ % K angular ʻOumuamua cut left
+      ultra thick,
+      domain=-0.37:-0.383,
+      samples=150]
+    {(13.27/x)+(5.591/x^2)};
+  \addplot[ % E ʻOumuamua left
+      thin,
+      domain=-0.383:-3,
+      samples=2]
+    {3.486}
+    node[below right, pos=01] {ʻOumuamua};
+  \addplot[ % E ʻOumuamua inner
+      ultra thick,
+      domain=-0.383:-0.724,
+      samples=2]
+    {3.486};
+  \addplot[ % E ʻOumuamua outer
+      ultra thick,
+      domain=-2.25:-2.75,
+      samples=2]
+    {3.486};
+  \draw[ultra thick] (-2.75,3.486) -- (-2.75,4); % ʻOumuamua edge tap
+  \draw[ultra thick, dotted] (0,-14) -- (0,4); % Center Fold
+%    \draw[shade, ball color = white] (0,0.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
+%    \filldraw[black!20] ({2.259/(1-0.0934*cos(120))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!15] (2.259,0.5) circle[radius=1.2mm];
+%    \filldraw[black!20] ({2.259/(1-0.0934*cos(60))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!30] ({2.259/(1-0.0934*cos(30))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!30] ({2.259/(1-0.0934*cos(150))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!40] (2.067,0.5) circle[radius=1.2mm];
+%    \draw[shade, ball color = darkgray] (2.492,0.5) circle[radius=1.2mm]node[above=0.8mm] {\Mars};
+\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\typesetbuffer[TikZ:EnergyGraphKUHDouble]
+
+
+\startbuffer[TikZ:EnergyGraphKUH]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startaxis
+ [	x=4cm,y={1cm},
+   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
+   xmin=0, xmax=3,
+   minor x tick num=1,
+   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
+   ymin=-13, ymax=4,
+   minor y tick num=9,
+   clip mode = individual,
+		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+ ]
+  \addplot[ % axis
+      thick,
+      domain=0:3,
+      samples=2]
+    {0};
+  \addplot[ % Ug
+      thick,
+      domain=0.8:3,
+      samples=150]
+    {-13.3/x}
+    node[below right,pos=0.6] {$U$};
+  \addplot[ % Circular Orbits
+      thick, dotted,
+      domain=0.5:5,
+      samples=150]
+    {-6.65/x};
+  \addplot[ % K angular Mercury
+      thin,
+      domain=0.25:5,
+      samples=150]
+    {(-13.27/x)+(3.68/x^2)};
+  \addplot[ % H Mercury
+      very thick,
+      domain=0.46:0.698,
+      samples=2]
+    {-11.457}
+    node[below, pos=0.5] {Mercury};
+  \addplot[ % K angular Venus
+      thin,
+      domain=0.47:5,
+      samples=150]
+    {(-13.27/x)+(7.179/x^2)};
+  \addplot[ % H Venus
+      very thick,
+      domain=1.075:1.089,
+      samples=2]
+    {-6.132}
+    node[below, pos=0.5] {Venus};
+  \addplot[ % K angular Earth
+      thin,
+      domain=0.6:5,
+      samples=150]
+    {(-13.27/x)+(9.926/x^2)};
+  \addplot[ % E Earth
+      very thick,
+     domain=1.471:1.521,
+     samples=2]
+   {-4.437}
+   node[below, pos=0.5] {Earth};
+  \addplot[ % K angular Mars
+      thin,
+      domain=0.89:3,
+      samples=150]
+    {(-13.27/x)+(14.99/x^2)};
+  \addplot[ % E Mars
+      very thick,
+      domain=2.067:2.492,
+      samples=2]
+    {-2.912}
+    node[below, pos=0.5] {Mars};
+  \addplot[ % K angular Halley's Comet
+      thin,
+      domain=0.7:5,
+      samples=150]
+    {(-13.27/x)+(11.44/x^2)};
+  \addplot[ % E Halley's Comet
+      very thick,
+      domain=0.8767:3,
+      samples=2]
+    {-0.249}
+    node[below, pos=0.5] {Halley's Comet};
+  \addplot[ % K angular ʻOumuamua
+      thin,
+      domain=0.37:5,
+      samples=150]
+    {(-13.27/x)+(5.591/x^2)};
+  \addplot[ % E ʻOumuamua
+      very thick,
+      domain=0.383:3,
+      samples=2]
+    {3.486}
+    node[below, pos=0.5] {ʻOumuamua};
+%    \draw[->] (0,0.5) --node[above, pos=.98]{$r$} (3,0.5);
+%    \draw[shade, ball color = white] (0,0.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
+%    \filldraw[black!20] ({2.259/(1-0.0934*cos(120))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!15] (2.259,0.5) circle[radius=1.2mm];
+%    \filldraw[black!20] ({2.259/(1-0.0934*cos(60))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!30] ({2.259/(1-0.0934*cos(30))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!30] ({2.259/(1-0.0934*cos(150))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!40] (2.067,0.5) circle[radius=1.2mm];
+%    \draw[shade, ball color = darkgray] (2.492,0.5) circle[radius=1.2mm]node[above=0.8mm] {\Mars};
+\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\typesetbuffer[TikZ:EnergyGraphKUH]
+
+\startbuffer[TikZ:EnergyGraphKUHDouble2]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage%\small
+\starttikzpicture% tikz code
+\startaxis
+ [	x=4cm,y={1cm},
+   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
+   xmin=-3, xmax=3,
+   minor x tick num=1,
+   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
+   ymin=-14, ymax=4,
+   minor y tick num=9,
+   clip mode = individual,
+		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+ ]
+  \addplot[ % axis
+      thick,
+      domain=-3:3,
+      samples=2]
+    {0};
+  \addplot[ % Ug
+      thick,
+      domain=0.8:3,
+      samples=150]
+    {-13.3/x}
+    node[below right,pos=0.6] {$U$}
+    node[below right,pos=0.96] {$180\degree$};
+  \addplot[ % Ug left
+      thick,
+      domain=-0.8:-3,
+      samples=150]
+    {13.3/x}
+    node[below left,pos=0.6] {$U$}
+    node[below left,pos=0.96] {$270\degree$};
+  \addplot[ % K angular Mercury
+      thin,
+      domain=0.25:3,
+      samples=150]
+    {(-13.27/x)+(3.68/x^2)};
+  \addplot[ % K angular Mercury inner cut
+      ultra thick,
+      domain=0.3:0.46,
+      samples=150]
+    {(-13.27/x)+(3.68/x^2)};
+  \addplot[ % H Mercury
+      ultra thick,
+      domain=0.46:0.698,
+      samples=2]
+    {-11.457}
+    node[below, pos=0.5] {Mercury};
+  \addplot[ % K angular Mercury outer cut
+      ultra thick,
+      domain=0.698:0.9,
+      samples=150]
+    {(-13.27/x)+(3.68/x^2)};
+  \addplot[ % K angular Mercury left
+      thin,
+      domain=-0.25:-3,
+      samples=150]
+    {(13.27/x)+(3.68/x^2)};
+  \addplot[ % K angular Mercury inner cut left
+      ultra thick,
+      domain=-0.3:-0.46,
+      samples=150]
+    {(13.27/x)+(3.68/x^2)};
+  \addplot[ % H Mercury left
+      very thick,
+      domain=-0.46:-0.698,
+      samples=2]
+    {-11.457}
+    node[below, pos=0.5] {Mercury};
+  \addplot[ % K angular Mercury outer cut left
+      ultra thick,
+      domain=-0.698:-0.9,
+      samples=150]
+    {(13.27/x)+(3.68/x^2)};
+  \draw[ultra thick] % Mercury to Venus cut
+    (0.9,{(-13.27/0.9)+(3.68/0.9^2)}) -- (0.9,{(-13.27/0.9)+(7.179/0.9^2)});
+  \draw[ultra thick] % Mercury to Venus cut left
+    (-0.9,{(-13.27/0.9)+(3.68/0.9^2)}) -- (-0.9,{(-13.27/0.9)+(7.179/0.9^2)});
+  \addplot[ % K angular Venus
+      thin,
+      domain=0.47:3,
+      samples=150]
+    {(-13.27/x)+(7.179/x^2)};
+  \addplot[ % K angular Venus inner cut
+      ultra thick,
+      domain=0.9:1.3,
+      samples=150]
+    {(-13.27/x)+(7.179/x^2)};
+  \draw[ultra thick] (1.08,-7.132) -- (1.08,-6.132) % Venus orbit cut
+    node[below left, rotate=90] {Venus};
+  \addplot[ % K angular Venus left
+      thin,
+      domain=-0.47:-5,
+      samples=150]
+    {(13.27/x)+(7.179/x^2)};
+  \addplot[ % K angular Venus inner cut left
+      ultra thick,
+      domain=-0.9:-1.3,
+      samples=150]
+    {(13.27/x)+(7.179/x^2)};
+  \draw[ultra thick] (-1.08,-7.132) -- (-1.08,-6.132) % Venus orbit cut left
+    node[below left, rotate=90] {Venus};
+  \draw[ultra thick] % Venus to Earth cut
+    (1.3,{(-13.27/1.3)+(7.179/1.3^2)}) -- (1.3,{(-13.27/1.3)+(9.926/1.3^2)});
+  \draw[ultra thick] % Venus to Earth cut left
+    (-1.3,{(-13.27/1.3)+(7.179/1.3^2)}) -- (-1.3,{(-13.27/1.3)+(9.926/1.3^2)});
+  \addplot[ % K angular Earth
+      thin,
+      domain=0.6:5,
+      samples=150]
+    {(-13.27/x)+(9.926/x^2)};
+  \addplot[ % K angular Earth cut
+      ultra thick,
+      domain=1.3:1.8,
+      samples=150]
+    {(-13.27/x)+(9.926/x^2)};
+  \draw[ultra thick] ({1.471-0.02},-5.437) -- ({1.471-0.02},-4.437) % Earth orbit cut
+    node[below left, rotate=90] {Earth};
+  \addplot[ % K angular Earth left
+      thin,
+      domain=-0.6:-5,
+      samples=150]
+    {(13.27/x)+(9.926/x^2)};
+  \addplot[ % K angular Earth cut left
+      ultra thick,
+      domain=-1.3:-1.8,
+      samples=150]
+    {(13.27/x)+(9.926/x^2)};
+  \draw[ultra thick] ({-1.471+0.02},-5.437) -- ({-1.471+0.02},-4.437) % Earth orbit cut left
+    node[below left, rotate=90] {Earth};
+  \draw[ultra thick] % Earth to Mars cut
+    (1.8,{(-13.27/1.8)+(9.926/1.8^2)}) -- (1.8,{(-13.27/1.8)+(14.99/1.8^2)});
+  \draw[ultra thick] % Earth to Mars cut left
+    (-1.8,{(-13.27/1.8)+(9.926/1.8^2)}) -- (-1.8,{(-13.27/1.8)+(14.99/1.8^2)});
+  \addplot[ % K angular Mars
+      thin,
+      domain=0.89:3,
+      samples=150]
+    {(-13.27/x)+(14.99/x^2)};
+  \addplot[ % K angular Mars inner cut
+      ultra thick,
+      domain=1.8:2.067,
+      samples=150]
+    {(-13.27/x)+(14.99/x^2)};
+  \addplot[ % E Mars
+      ultra thick,
+      domain=2.067:2.492,
+      samples=2]
+    {-2.912}
+    node[below, pos=0.5] {Mars};
+  \addplot[ % K angular Mars outer cut
+      ultra thick,
+      domain=2.492:2.75,
+      samples=150]
+    {(-13.27/x)+(14.99/x^2)};
+  \draw[ultra thick] ({2.067-0.03},-3.912) -- ({2.067-0.03},-2.912); % Mars orbit cut
+  \addplot[ % K angular Mars left
+      thin,
+      domain=-0.89:-3,
+      samples=150]
+    {(13.27/x)+(14.99/x^2)};
+  \addplot[ % K angular Mars inner cut left
+      ultra thick,
+      domain=-1.8:-2.067,
+      samples=150]
+    {(13.27/x)+(14.99/x^2)};
+  \addplot[ % E Mars left
+      very thick,
+      domain=-2.067:-2.492,
+      samples=2]
+    {-2.912}
+    node[below, pos=0.5] {Mars};
+  \addplot[ % K angular Mars outer cut left
+      ultra thick,
+      domain=-2.492:-3,
+      samples=150]
+    {(13.27/x)+(14.99/x^2)};
+  \draw[ultra thick] ({-2.067+0.03},-3.912) -- ({-2.067+0.03},-2.912); % Mars orbit cut left
+  \addplot[ % K angular Halley's Comet
+      thin,
+      domain=0.7:5,
+      samples=150]
+    {(-13.27/x)+(11.44/x^2)};
+  \addplot[ % K angular Halley's Comet cut
+      ultra thick,
+      domain=0.724:0.877,
+      samples=150]
+    {(-13.27/x)+(11.44/x^2)};
+  \addplot[ % E Halley's Comet
+      thin,
+      domain=0.8767:3,
+      samples=2]
+    {-0.249}
+    node[below left, pos=1] {Halley's Comet};
+  \addplot[ % E Halley's Comet cut inner
+      ultra thick,
+      domain=0.8767:1,
+      samples=2]
+    {-0.249};
+  \draw[ultra thick] % Halley's to Mercury cut
+    (0.3,{(-13.27/0.3)+(3.68/0.3^2)}) -- (1,-0.249);
+  \addplot[ % K angular Halley's Comet left
+      thin,
+      domain=-0.7:-5,
+      samples=150]
+    {(13.27/x)+(11.44/x^2)};
+  \addplot[ % K angular Halley's Comet cut left
+      ultra thick,
+      domain=-0.724:-0.877,
+      samples=150]
+    {(13.27/x)+(11.44/x^2)};
+  \addplot[ % E Halley's Comet left
+      thin,
+      domain=-0.8767:-3,
+      samples=2]
+    {-0.249}
+    node[below right, pos=1] {Halley's Comet};
+  \addplot[ % E Halley's Comet cut inner left
+      ultra thick,
+      domain=-0.8767:-1,
+      samples=2]
+    {-0.249};
+  \draw[ultra thick] % Halley's to Mercury cut left
+    (-0.3,{(-13.27/0.3)+(3.68/0.3^2)}) -- (-1,-0.249);
+  \addplot[ % E Halley's Comet cut outer
+      ultra thick,
+      domain=2.75:2.25,
+      samples=2]
+    {-0.249};
+%  \draw[ultra thick] % Mars to ʻOumuamua cut
+%    (2.75,{(-13.27/2.75)+(14.99/2.75^2)}) -- (1.5,3.486);
+  \draw[ultra thick] % Mars to Halley's cut
+    (2.75,{(-13.27/2.75)+(14.99/2.75^2)}) -- (2.25,-0.249);
+%  \draw[ultra thick] % Halley's to ʻOumuamua cut left
+%    (-2.75,-0.249) -- (-2.25,3.486);
+  \addplot[ % K angular ʻOumuamua
+      thin,
+      domain=0.37:5,
+      samples=150]
+    {(-13.27/x)+(5.591/x^2)};
+  \addplot[ % K angular ʻOumuamua cut
+      ultra thick,
+      domain=0.37:0.383,
+      samples=150]
+    {(-13.27/x)+(5.591/x^2)};
+  \addplot[ % E ʻOumuamua
+      thin,
+      domain=0.383:3,
+      samples=2]
+    {3.486}
+    node[below left, pos=1] {ʻOumuamua};
+  \addplot[ % E ʻOumuamua inner
+      ultra thick,
+      domain=0.383:0.724,
+      samples=2]
+    {3.486};
+%  \addplot[ % E ʻOumuamua outer
+%      ultra thick,
+%      domain=1.5:3,
+%      samples=2]
+%    {3.486};
+  \addplot[ % K angular ʻOumuamua left
+      thin,
+      domain=-0.37:-5,
+      samples=150]
+    {(13.27/x)+(5.591/x^2)};
+  \addplot[ % K angular ʻOumuamua cut left
+      ultra thick,
+      domain=-0.37:-0.383,
+      samples=150]
+    {(13.27/x)+(5.591/x^2)};
+  \addplot[ % E ʻOumuamua left
+      thin,
+      domain=-0.383:-3,
+      samples=2]
+    {3.486}
+    node[below right, pos=01] {ʻOumuamua};
+  \addplot[ % E ʻOumuamua inner
+      ultra thick,
+      domain=-0.383:-0.724,
+      samples=2]
+    {3.486};
+%  \addplot[ % E ʻOumuamua outer
+%      ultra thick,
+%      domain=-2.25:-2.75,
+%      samples=2]
+%    {3.486};
+  \draw[ultra thick] (2.75,-0.249) -- (2.75,0) -- (3,0); % Halley's edge tap
+  \draw[ultra thick, dotted] (0,-14) -- (0,4); % Center Fold
+%    \draw[shade, ball color = white] (0,0.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
+%    \filldraw[black!20] ({2.259/(1-0.0934*cos(120))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!15] (2.259,0.5) circle[radius=1.2mm];
+%    \filldraw[black!20] ({2.259/(1-0.0934*cos(60))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!30] ({2.259/(1-0.0934*cos(30))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!30] ({2.259/(1-0.0934*cos(150))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!40] (2.067,0.5) circle[radius=1.2mm];
+%    \draw[shade, ball color = darkgray] (2.492,0.5) circle[radius=1.2mm]node[above=0.8mm] {\Mars};
+\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\typesetbuffer[TikZ:EnergyGraphKUHDouble2]
+
+
+\startbuffer[TikZ:HaleysComet]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startpolaraxis
+ [	xticklabels=\empty,
+ 	ytick={0,5,...,45},
+ 	yticklabels={{},{},$1\units{Tm}$,{},$2\units{Tm}$,{},$3\units{Tm}$,{},$4\units{Tm}$,{}},
+ 	minor y tick num={4},
+	% yminorgrids=true,
+	hide x axis,
+	ymax = 45,
+	scale only axis=true, width={11cm},
+ 	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
+	major grid style = {middlegray},
+	clip = false,
+ 	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
+ ]
+%    \addplot [ % Mars area at aphelion
+%        draw=none, fill=black!20,
+%        domain={156.08-4.36}:{156.08+4.36},
+%        samples=20,
+%    ]
+%        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
+%    ;
+%    \addplot [ % Mars area at perihelion
+%        draw=none, fill=black!20,
+%        domain={336.08-6.35}:{336.08+6.35},
+%        samples=20,
+%    ]
+%        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
+%    ;
+%    \addplot [ % Mercury area at perihelion
+%        draw=none, fill=black!20,
+%        domain={77.46-59.63}:{77.46+59.63},
+%        samples=80,
+%    ]
+%        {0.5546/(1+0.20564*cos(x-77.46))}--(0,0)
+%    ;
+%    \addplot [ % Mercury area at aphelion
+%        draw=none, fill=black!20,
+%        domain={257.46-33.24}:{257.46+33.24},
+%        samples=20,
+%    ]
+%        {0.5546/(1+0.20564*cos(x-77.46))}--(0,0)
+%    ;
+%  	\node [name path=Sun] at (0,0) {\Sun};
+    \addplot [ % Mercury
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {0.5546/(1+0.20564*cos(x-77.46))}
+  %[yshift=-.5pt]
+    %node[pos=0.25] {\Mercury}
+    ;
+    \addplot [ % Venus
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {1.082/(1+0.00676*cos(x-131.77))}
+  %[yshift=-1.7pt]
+    %node[pos=0.25] {\Venus}
+    ;
+    \addplot [ % Earth
+    	name path=Earth,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {1.496/(1+0.0167*cos(x-102.93))}
+    %node[pos=0.25] {\Earth}
+    ;
+    \addplot [ % Mars
+    	name path=Mars,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {2.259/(1+0.0934*cos(x-336.08))}
+  %[yshift=1pt, xshift=1.1pt]
+    node[below=0mm, pos=0.75] {\Mars}
+    ;
+    \addplot [ % Jupiter
+    	name path=Jupiter,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {7.76/(1+0.04854*cos(x-14.27))}
+  %[yshift=1pt, xshift=1.1pt]
+    node[below=0mm, pos=0.8] {\Jupiter}
+    ;
+    \addplot [ % Saturn
+    	name path=Saturn,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {14.23/(1+0.05551*cos(x-92.86))}
+  %[yshift=1pt, xshift=1.1pt]
+    node[above, pos=0.2] {\Saturn}
+    ;
+    \addplot [ % Uranus
+    	name path=Uranus,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {28.642/(1+0.04686*cos(x-172.43))}
+  %[yshift=1pt, xshift=1.1pt]
+    node[below, pos=0.2] {\Uranus}
+    ;
+    \addplot [ % Neptune
+    	name path=Neptune,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {44.981/(1+0.00895*cos(x-46.68))}
+  %[yshift=1pt, xshift=1.1pt]
+    node[below, pos=0.2] {\Neptune}
+    ;
+    \addplot [ % Halley
+    	name path=Halley,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {1.7246/(1+0.96714*cos(x+52.91))}
+  %[yshift=1pt, xshift=1.1pt]
+    node[above right, pos=0.32] {Halley's Comet}
+    ;
+\stoppolaraxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+%\placetextfloat[bottom][fig:HaleysComet] % location
+%{The elliptical orbits of all eight planets and Halley's Comet. The planet's orbits are nearly circular, but off-center. Halley's Comet's orbit is highly elliptical, brining it near Earth approximately every $76$ years. It's next appearance will be in 2061. ($1\units{Tm} = 10^{12}\units{m}$)}	 % caption text
+%{\noindent\typesetbuffer[TikZ:HaleysComet]} % figure contents
+\typesetbuffer[TikZ:HaleysComet]
+
+
+\stoptext
+\stopcomponent
