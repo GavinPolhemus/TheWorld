@@ -749,7 +749,7 @@ In polar coordinates, the small area swept out by a planet is a long, thin trian
 		= \half r^2\,d\theta.
 \stopformula
 We calculated the update $d\theta$ using Hamilton's method, and we can use it here.
-\startformula
+\startformula\pagereference[eq:AreaUpdate]
 	dA = \half \cancel{r^2}\frac{p_\theta}{m\cancel{r^2}}\,dt.
 		= \frac{p_\theta}{2m}\,dt.
 \stopformula
@@ -1621,12 +1621,12 @@ You can use these to find formulas for $\epsilon$ and $b$ as well, but we will n
 \startTEXpage\small
 \starttikzpicture% tikz code
 \startaxis
- [	width=11cm,y={1cm},
+ [	width=11cm,y={0.5cm},
    xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
-   xmin=0, xmax=3,
+   xmin=0, xmax=1.5,
    minor x tick num=4,
    ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
-   ymin=-8, ymax=0,
+   ymin=-15, ymax=0,
    minor y tick num=9,
    clip mode = individual,
 		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
@@ -1643,7 +1643,7 @@ You can use these to find formulas for $\epsilon$ and $b$ as well, but we will n
 %\ifprintanswers
 \addplot[ % axis
    thick,
-   domain=0:3,
+   domain=0:1.5,
    samples=2
   ]
   {0}
@@ -1652,20 +1652,29 @@ You can use these to find formulas for $\epsilon$ and $b$ as well, but we will n
   ;
 \addplot[ % Ug
    thick,
-   domain=1.5:3,
+   domain=0.8:1.5,
    samples=150
   ]
   {-13.3/x}
   %[yshift=-10pt]
     node[below right,pos=0.6] {$U$}
   ;
-%\addplot[ % Circular Orbits
-%   thick, dotted,
-%   domain=0.5:5,
-%   samples=150
-%  ]
-%  {-6.65/x}
-%  ;
+  \addplot[ % Circular Orbits
+      thick, dotted,
+      domain=0.4:1.5,
+      samples=150]
+    {-6.65/x};
+  \addplot[ % K angular Mercury
+      thin,
+      domain=0.25:1.5,
+      samples=150]
+    {(-13.27/x)+(3.68/x^2)};
+  \addplot[ % H Mercury
+      very thick,
+      domain=0.46:0.698,
+      samples=2]
+    {-11.457};
+%    node[below, pos=0.5] {Mercury};
 %\addplot[ % K angular Earth
 %   thin,
 %   domain=0.5:5,
@@ -1693,41 +1702,45 @@ You can use these to find formulas for $\epsilon$ and $b$ as well, but we will n
 %  %[yshift=10pt]
 %    node[below, pos=0.5] {Earth}
 %  ;
-\addplot[ % K angular Mars
-   thin,
-   domain=1:3,
-   samples=150
-  ]
-  {(-13.27/x)+(14.99/x^2)}
-  %[yshift=8pt]
-    node[below left,pos=0.45] {$U + K_\theta$}
-  ;
-\addplot[ % E Mars
-   very thick,
-   domain=2.067:2.492,
-   samples=2
-  ]
-  {-2.912}
- % [yshift=10pt]
-    node[above, pos=0.5] {$H = U + K_\theta + K_r$}
-    %node[above, pos=0.5] {Mars}
-  ;
-    \draw[->] (0,0.5) --node[above, pos=.98]{$r$} (3,0.5);
-    \draw[shade, ball color = white] (0,0.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
-    \filldraw[black!20] ({2.259/(1-0.0934*cos(120))},0.5) circle[radius=1.2mm];
-    \filldraw[black!15] (2.259,0.5) circle[radius=1.2mm];
-    \filldraw[black!20] ({2.259/(1-0.0934*cos(60))},0.5) circle[radius=1.2mm];
-    \filldraw[black!30] ({2.259/(1-0.0934*cos(30))},0.5) circle[radius=1.2mm];
-    \filldraw[black!30] ({2.259/(1-0.0934*cos(150))},0.5) circle[radius=1.2mm];
-    \filldraw[black!40] (2.067,0.5) circle[radius=1.2mm];
-    \draw[shade, ball color = darkgray] (2.492,0.5) circle[radius=1.2mm]node[above=0.8mm] {\Mars};
+%\addplot[ % K angular Mars
+%   thin,
+%   domain=1:3,
+%   samples=150
+%  ]
+%  {(-13.27/x)+(14.99/x^2)}
+%  %[yshift=8pt]
+%    node[below left,pos=0.45] {$U + K_\theta$}
+%  ;
+%\addplot[ % E Mars
+%   very thick,
+%   domain=2.067:2.492,
+%   samples=2
+%  ]
+%  {-2.912}
+% % [yshift=10pt]
+%    node[above, pos=0.5] {$H = U + K_\theta + K_r$}
+%    %node[above, pos=0.5] {Mars}
+%  ;
+    \draw[] (0.5546,{(-13.27/0.5546)+(3.68/0.5546^2)}) -- (0.5546,0)node[above]{$r_0\,$};
+    \draw[] (0.46,-11.457) -- (0.46,0)node[above]{$r\sub{min}$};
+    \draw[] (0.698,-11.457) -- (0.698,0)node[above]{$r\sub{max}$};
+    \draw[] ({(0.698+0.46)/2},-11.457) -- ({(0.698+0.46)/2},0)node[above]{$\,_{\phantom{0}}a$};
+    \draw[->] (0,1.5) --node[above, pos=.98]{$r$} (1.5,1.5);
+    \draw[shade, ball color = white] (0,1.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
+    \filldraw[black!20] ({0.5546/(1+0.20564*cos(120))},1.5) circle[radius=1.2mm];
+    \filldraw[black!15] ({0.5546},1.5) circle[radius=1.2mm];
+    \filldraw[black!20] ({0.5546/(1+0.20564*cos(60))},1.5) circle[radius=1.2mm];
+    \filldraw[black!30] ({0.5546/(1+0.20564*cos(30))},1.5) circle[radius=1.2mm];
+    \filldraw[black!30] ({0.5546/(1+0.20564*cos(150))},1.5) circle[radius=1.2mm];
+    \filldraw[black!40] ({0.5546/(1+0.20564)},1.5) circle[radius=1.2mm];
+    \draw[shade, ball color = darkgray] ({0.5546/(1-0.20564)},1.5) circle[radius=1.2mm]node[above=0.8mm] {\Mercury};
 \stopaxis
 \stoptikzpicture
 \stopTEXpage
 \stopbuffer
 
 \placetextfloat[top][fig:EnergyGraphKUHMercury] % location
-{Mercury's energy graph. The sum $U + K_\theta$ cradles Mercury at its minimum. Mercury oscillates between approximately $r\sub{min}=2\units{Gm}$ and $r\sub{max}=2.5\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
+{Mercury's energy graph. The sum $U + K_\theta$ cradles Mercury at its minimum. Mercury oscillates between approximately $r\sub{min}=0.46\units{Gm}$ and $r\sub{max}=0.70\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
 {\noindent\typesetbuffer[TikZ:EnergyGraphKUHMercury]} % figure contents
 
 
@@ -1747,7 +1760,29 @@ where $T_1$ and $a_1$ are the period and radius of one planet's orbit, while $T_
 
 Kepler believed that the \threehalves th power was a sign of a musical perfect fifth. It is not.
 
-When Newton presented his laws of motion and gravity in the \booktitle{Principia,} almost eighty years after \booktitle{New Astronomy}, his first application of those laws is a proof of Kepler's area law. Newton goes on to show that elliptic orbits arise only from a force that is inversely proportional to the squared distance. Finally, Newton showed that the \threehalves power ratio between period and radius is also a consequence of his theories of motion and gravity. 
+A planet's period can be calculated directly using Kepler's area law to fill the area of an elliptic orbit. The area $A$ of an ellipse is easiest to see in the standard mathematical description.
+\startformula
+	A = \pi ab
+\stopformula
+We saw Kepler's area law stated as an area update formula (p.\at[eq:AreaUpdate]).
+\startformula
+	dA = \frac{p_\theta}{2m}\,dt
+\stopformula
+Since the all of the dA are the same size, this total area $A$ covered during the orbit's period $T$ is
+\startformula
+	A = \frac{p_\theta}{2m}\,T
+\stopformula
+Using the area of an ellipse, the formula for the planet's angular momentum, and the relation $r_0=b^2/a$, we can calculate the period $T$
+\startformula\startmathalignment
+\NC	\pi ab	\NC = \frac{\cancel{m}\sqrt{GMr_0}}{2\cancel{m}}\,T \NR
+\NC	\pi a\cancel{b}	\NC = \frac{\cancel{b}}{2}\sqrt{\frac{GM}{a}}\,T \NR
+%\NC	2\pi a^{\threehalves}	\NC = \sqrt{GM}\,T \NR
+\NC	T \NC = \frac{2\pi}{\sqrt{GM}}\,a^{\threehalves}	\NR
+\stopmathalignment\stopformula
+
+A planet's orbital period is proportional to the orbit's semi-major axis $a$ raised to the three-halves power.
+
+When Newton presented his laws of motion and gravity in the \booktitle{Principia,} almost eighty years after \booktitle{New Astronomy}, his first application of those laws is a proof of Kepler's area law. Newton goes on to show that elliptic orbits arise only from a force that is inversely proportional to the squared distance. Finally, Newton showed that the \threehalves\ power ratio between period and radius is also a consequence of his theories of motion and gravity. 
 
 Finally, Newton showed that even a tiny change in the gravitational force formula causes the elliptic orbit's long axis to rotate slowly, so that over time the planet traces a flower pattern rather than a simple ellipse.
 Many planets' orbits do rotate slowly due to the slight pull of other planets. By 1859 it became clear that only Mercury's orbit rotates in a way that cannot be caused by other planets. This anomaly was not explained until 1915, when Albert Einstein was developing his own geometric model of gravity. For eight years, Einstein had been struggling to build his theory of curved space-time. In the final month, he discovered that his emerging theory predicts a slightly different path for planets close to the Sun. Einstein computed the effect on Mercury's orbit and found it exactly matched the well know anomaly in Mercury's orbit. He recalls, \quotation{for a few days, I was beside myself with joyous excitement.}
