@@ -34,7 +34,7 @@
 %\showframe
 
 \setuplayout[
-  topspace=.5in,
+  topspace=.25in,
   backspace=1in,
   height=middle,
   width=middle,
@@ -45,29 +45,27 @@
   margin=0.5in,
   margindistance=0.25in,
 ]
-	
-\setuppagenumbering
-	[location=bottom]
 
-\setuptabulate[header=text, EQ={=}, unit=.33em, blank=3cm]
+\definetext [title:header:text] [header]
+  [{\hfill Name _________________________ Period _____}]
 
-%\setupheader[text][]
-\setupheadertexts[][{Name: \hl[12]\; Period: \hl[2]}]%[Name:\rule{2in}{.4pt} Period:\rule{.25in}{.4pt}]
+\setuphead[title][
+	header=title:header:text,
+	alternative=middle,
+	textdistance=2in,
+	style=\tfc,
+	after={\startalignment[center]
+      \blank[small]
+      {\tf LCHS Physics}
+      \blank[3*big]
+      \stopalignment},]
 
-\define\jwst{{\sc jwst}}
+\setuppagenumbering[location=footer]
+
+
 
 \starttext
-%\showlayout[in,cm]
-
-\startalignment[center]
-  %\blank[5*big] % Does not do anything
-    {\tfc The Mars Bus}
-  \blank[small]
-    {\tf LCHS Physics}
-%  \blank[small]
-%    {\tf \currentdate[month,day,{, },year]}
-  \blank[3*big]
-\stopalignment
+\starttitle[title=The Mars Bus]
 
 One proposal for taking people to Mars involves a \quotation{space bus} in a permanent orbit that passes close to the orbits of both Earth and Mars.
 
@@ -203,4 +201,6 @@ What would the period of the bus's orbit about the sun be?  (Ignore the gravitat
 \stopbuffer
 
 \typesetbuffer[TikZ:EnergyGraphKUH]
+
+\stoptitle
 \stoptext
