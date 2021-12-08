@@ -69,15 +69,16 @@
   \blank[3*big]
 \stopalignment
 
-One proposal for taking people to Mars involves a ``space bus'' in a permanent orbit that passes close to the orbits of both Earth and Mars.
+One proposal for taking people to Mars involves a \quotation{space bus} in a permanent orbit that passes close to the orbits of both Earth and Mars.
 
 \startalignment[center]
+\dontleavehmode
 \externalfigure[TestFigBus][width=6cm]
 \stopalignment
 
 What would the period of the bus's orbit about the sun be?  (Ignore the gravitational force that the planets exert on the bus.)
 
-{\bf Useful Information:} The radius of the Earth's orbit is $1.50\sci{11}\units{m}$.  The radius of the Mars's orbit is $2.28\sci{11}\units{m}$.  One year is $3.16\sci{7}\units{s}$. 
+{\bf Useful Information:} You can assume the orbits are centered circles. The radius of the Earth's orbit is $1.50\sci{11}\units{m}$.  The radius of the Mars's orbit is $2.28\sci{11}\units{m}$.  One year is $3.16\sci{7}\units{s}$. 
 %\begin{choices}
 %	\item $1.4 \units{years}$ \correct
 %	\item $1.9 \units{years}$ 
@@ -86,4 +87,120 @@ What would the period of the bus's orbit about the sun be?  (Ignore the gravitat
 %	\item $1.8 \units{years}$ 
 %\end{choices}
 
+\startbuffer[TikZ:EnergyGraphKUH]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startaxis
+ [	x=4cm,y={2cm},
+   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
+   xmin=0, xmax=3,
+   minor x tick num=1,
+   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
+   ymin=-6, ymax=0,
+   minor y tick num=9,
+   clip mode = individual,
+		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+ ]
+  \addplot[ % axis
+      thick,
+      domain=0:3,
+      samples=2]
+    {0};
+  \addplot[ % Ug
+      thick,
+      domain=2:3,
+      samples=150]
+    {-13.3/x}
+    node[below right,pos=0.6] {$U$};
+  \addplot[ % Circular Orbits
+      thick, dotted,
+      domain=1.1:5,
+      samples=150]
+    {-6.65/x};
+%  \addplot[ % K angular Mercury
+%      thin,
+%      domain=0.25:5,
+%      samples=150]
+%    {(-13.27/x)+(3.68/x^2)};
+%  \addplot[ % H Mercury
+%      very thick,
+%      domain=0.46:0.698,
+%      samples=2]
+%    {-11.457}
+%    node[below, pos=0.5] {Mercury};
+%  \addplot[ % K angular Venus
+%      thin,
+%      domain=0.47:5,
+%      samples=150]
+%    {(-13.27/x)+(7.179/x^2)};
+%  \addplot[ % H Venus
+%      very thick,
+%      domain=1.075:1.089,
+%      samples=2]
+%    {-6.132}
+%    node[below, pos=0.5] {Venus};
+  \addplot[ % K angular Earth
+      thin,
+      domain=0.7:5,
+      samples=150]
+    {(-13.27/x)+(9.926/x^2)};
+  \addplot[ % E Earth
+      very thick,
+     domain=1.471:1.521,
+     samples=2]
+   {-4.437}
+   node[below, pos=0.5] {Earth};
+  \addplot[ % K angular Mars
+      thin,
+      domain=0.89:3,
+      samples=150]
+    {(-13.27/x)+(14.99/x^2)};
+  \addplot[ % E Mars
+      very thick,
+      domain=2.067:2.492,
+      samples=2]
+    {-2.912}
+    node[above, pos=0.5] {Mars};
+  \addplot[ % K angular Bus
+      thin,
+      domain=0.7:5,
+      samples=150]
+    {(-13.27/x)+(11.6275/x^2)};
+  \addplot[ % E Bus
+      very thick,
+      domain=1.521:2.067,
+      samples=2]
+    {-3.6984}
+    node[above, pos=0.5] {Bus};
+%  \addplot[ % K angular ʻOumuamua
+%      thin,
+%      domain=0.37:5,
+%      samples=150]
+%    {(-13.27/x)+(5.591/x^2)};
+%  \addplot[ % E ʻOumuamua
+%      very thick,
+%      domain=0.383:3,
+%      samples=2]
+%    {3.486}
+%    node[below, pos=0.5] {ʻOumuamua};
+    \draw[->] (1.521,-4.437) --node[left, pos=.5]{First Burn} (1.521,-3.6984);
+    \draw[->] (2.067,-3.6984) --node[right, pos=.5]{Second Burn} (2.067,-2.912);
+%    \draw[shade, ball color = white] (0,0.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
+%    \filldraw[black!20] ({2.259/(1-0.0934*cos(120))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!15] (2.259,0.5) circle[radius=1.2mm];
+%    \filldraw[black!20] ({2.259/(1-0.0934*cos(60))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!30] ({2.259/(1-0.0934*cos(30))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!30] ({2.259/(1-0.0934*cos(150))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!40] (2.067,0.5) circle[radius=1.2mm];
+%    \draw[shade, ball color = darkgray] (2.492,0.5) circle[radius=1.2mm]node[above=0.8mm] {\Mars};
+\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\typesetbuffer[TikZ:EnergyGraphKUH]
 \stoptext
