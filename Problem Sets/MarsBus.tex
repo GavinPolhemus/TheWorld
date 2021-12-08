@@ -1,0 +1,89 @@
+\environment env_physics
+\environment env_MetaPost
+
+% Fonts
+%
+\setupbodyfont [libertinus]%
+% Old style numerals in text
+%\definefontfeature[default][default][
+%	pnum=yes, % proportial numbers
+%	onum=yes, % oldstyle numbers
+%	itlc=yes, % italic correction
+%]
+\setupbodyfont [libertinus,11pt]% Old style numerals in text
+\definefontfeature[default][default][
+	pnum=yes, % proportial numbers
+	onum=yes, % oldstyle numbers
+	itlc=yes, % italic correction
+]
+\definefontfeature[smallcaps][default][ % smallcaps
+  %lnum=no,
+  smcp=yes, % smallcaps
+	script=latn,
+]
+\definefontfeature[normnum][default][ % normal proportional numbers
+  onum=no,pnum=yes,tnum=yes,
+]
+\definefontfeature[tabnum][default][ % tabular numbers
+  onum=no,pnum=no,tnum=yes,
+]
+
+%\setupinterlinespace[line=2.6ex]
+
+\setuppapersize[letter]
+%\showframe
+
+\setuplayout[
+  topspace=.5in,
+  backspace=1in,
+  height=middle,
+  width=middle,
+  header=0.25in,
+  headerdistance=0.25in,
+  footer=0.25in,
+  footerdistance=0.25in,
+  margin=0.5in,
+  margindistance=0.25in,
+]
+	
+\setuppagenumbering
+	[location=bottom]
+
+\setuptabulate[header=text, EQ={=}, unit=.33em, blank=3cm]
+
+%\setupheader[text][]
+\setupheadertexts[][{Name: \hl[12]\; Period: \hl[2]}]%[Name:\rule{2in}{.4pt} Period:\rule{.25in}{.4pt}]
+
+\define\jwst{{\sc jwst}}
+
+\starttext
+%\showlayout[in,cm]
+
+\startalignment[center]
+  %\blank[5*big] % Does not do anything
+    {\tfc The Mars Bus}
+  \blank[small]
+    {\tf LCHS Physics}
+%  \blank[small]
+%    {\tf \currentdate[month,day,{, },year]}
+  \blank[3*big]
+\stopalignment
+
+One proposal for taking people to Mars involves a ``space bus'' in a permanent orbit that passes close to the orbits of both Earth and Mars.
+
+\startalignment[center]
+\externalfigure[TestFigBus][width=6cm]
+\stopalignment
+
+What would the period of the bus's orbit about the sun be?  (Ignore the gravitational force that the planets exert on the bus.)
+
+{\bf Useful Information:} The radius of the Earth's orbit is $1.50\sci{11}\units{m}$.  The radius of the Mars's orbit is $2.28\sci{11}\units{m}$.  One year is $3.16\sci{7}\units{s}$. 
+%\begin{choices}
+%	\item $1.4 \units{years}$ \correct
+%	\item $1.9 \units{years}$ 
+%	\item $1.2 \units{years}$ 
+%	\item $2.2 \units{years}$ 
+%	\item $1.8 \units{years}$ 
+%\end{choices}
+
+\stoptext
