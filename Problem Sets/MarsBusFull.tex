@@ -1,0 +1,303 @@
+\environment env_physics
+\environment env_MetaPost
+\environment env_TikZ
+
+% Fonts
+%
+\setupbodyfont [libertinus]%
+% Old style numerals in text
+%\definefontfeature[default][default][
+%	pnum=yes, % proportial numbers
+%	onum=yes, % oldstyle numbers
+%	itlc=yes, % italic correction
+%]
+\setupbodyfont [libertinus,11pt]% Old style numerals in text
+\definefontfeature[default][default][
+	pnum=yes, % proportial numbers
+	onum=yes, % oldstyle numbers
+	itlc=yes, % italic correction
+]
+\definefontfeature[smallcaps][default][ % smallcaps
+  %lnum=no,
+  smcp=yes, % smallcaps
+	script=latn,
+]
+\definefontfeature[normnum][default][ % normal proportional numbers
+  onum=no,pnum=yes,tnum=yes,
+]
+\definefontfeature[tabnum][default][ % tabular numbers
+  onum=no,pnum=no,tnum=yes,
+]
+
+%\setupinterlinespace[line=2.6ex]
+
+\setuppapersize[letter]
+%\showframe
+
+\setuplayout[
+  topspace=.5in,
+  backspace=1in,
+  height=middle,
+  width=middle,
+  header=0.15in,
+  headerdistance=0in,
+  footer=0.25in,
+  footerdistance=0.25in,
+  margin=0.5in,
+  margindistance=0.25in,
+]
+
+\definetext [title:header:text] [header]
+  [{\hfill Name \expandafter{\hl[12]}\quad Period \expandafter{\hl[2]}}]
+
+\setuphead[title][
+	header=title:header:text,
+	alternative=middle,
+	before={},
+	style=\tfc,
+	after={\startalignment[center]
+      \blank[small]
+      {\tf LCHS Physics}
+      \blank[2*big]
+      \stopalignment},]
+
+\setuppagenumbering[location=footer]
+
+% Indenting
+\setupindenting[yes,medium]
+
+\starttext
+\starttitle[title=The Mars Bus 2]
+\noindent
+One proposal for taking people to Mars involves a \quotation{space bus} in a permanent orbit that passes close to the orbits of both Earth and Mars. The bus would have many of the things that travelers need for the long trip – life support systems, exercise bikes, chess sets, etc. Launching and landing all of that stuff on every trip would waste a tremendous amount of energy. Having it in a regular orbit is easy!
+The bus's orbit is aligned so that it arrives at Mars when Mars's eccentric orbit brings it closer to the Sun.
+
+\startbuffer[TikZ:KeplerTerestrial]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startpolaraxis[
+    hide axis,
+    xticklabels=\empty,
+ 	ytick={0,1,...,2},
+ 	yticklabels=\empty,
+ 	%yticklabels={{},$100\units{Gm}$,$200\units{Gm}$},
+ 	minor y tick num={4},
+	% yminorgrids=true,
+	%hide x axis,
+	%y=4cm,%
+	ymax = 2.5,
+	scale only axis=true, width={8cm},
+ 	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
+	%major grid style = {middlegray},
+	grid=none,
+ ]
+  \node [name path=Sun] at (0,0) {\Sun};
+  \node [below] at (0,0) {Sun};
+%  \addplot [ % Mercury
+%      thick, middlegray,
+%      domain=0:360,
+%      samples=600]
+%    {0.5546/(1+0.20564*cos(x-77.46))}
+%    [yshift=-.5pt]node[pos=0.25] {\Mercury};
+%  \addplot [ % Venus
+%      thick, middlegray,
+%      domain=0:360,
+%      samples=600]
+%    {1.082/(1+0.00676*cos(x-131.77))}
+%    [yshift=-1.7pt]node[pos=0.25] {\Venus};
+  \addplot [ % Earth
+      thick,
+      domain=0:360,
+      samples=600]
+    {1.496/(1+0.0167*cos(x-102.93))}
+    node[below, pos=0.25] {Earth}
+    node[pos=0.25] {\Earth};
+  \addplot [ % Mars
+      thick,
+      domain=0:360,
+      samples=600]
+    {2.259/(1+0.0934*cos(x-336.08))}
+    node[below, pos=0.25] {Mars}
+    [yshift=1pt, xshift=1.1pt]node[pos=0.25] {\Mars};
+  \addplot [ % Bus
+      thick,
+      domain=0:360,
+      samples=600]
+    {1.737/(1-0.1656*cos(x))}
+    node[above left = 1mm, pos=0.25]{Bus}
+	[yshift=-3pt]pic[rotate=30, scale=.5, pos=.25] {cart};%node[above = 5mm]{$m$};
+    %node[above left, pos=0.9]{Halley's Comet};
+%  \addplot [ % ʻOumuamua
+%      thick,
+%      domain=-250:10,
+%      samples=600]
+%    {0.843/(1+1.201*cos(x-242))}
+%    node[above right, pos=0.05] {ʻOumuamua};
+\stoppolaraxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\blank
+\startalignment[center]
+\dontleavehmode
+\typesetbuffer[TikZ:KeplerTerestrial]
+\stopalignment
+\blank\noindent
+You would like to visit Mars, so you consult the bus map above.
+The planets and bus orbit counter-clockwise. You will catch the bus when it is close to Earth on the left, at a distance of $1.49\sci{11}\units{m}$ from the Sun. You will get off of the bus when it is close to Mars on the right, $2.08\sci{11}\units{m}$ from the Sun.
+\blank%\noindent
+1. How long will you be on the bus?
+\blank[2in]\noindent
+\vfill
+\startalignment[center]
+\dontleavehmode
+(Over)
+\stopalignment
+\page\noindent
+You would like to visit Mars, so you hitch a ride to space with some friends. They get you out far enough that you are free of Earth's gravity, but you are still orbiting the Sun at a distance of $1.49\sci{11}\units{m}$ (the same distance as Earth) in a circular orbit. Preparing to catch the bus, you put on your spacesuit, equipped with small rockets. You and your spacesuit have a mass of $150\units{kg}$
+
+\blank
+2. What is your total energy in this orbit, wearing your spacesuit? 
+\blank[1.5in]\noindent
+You thank your friends, step outside, and fire your rockets to match the space bus's orbit.
+\blank
+3. What energy will you have once you are orbiting alongside the space bus?
+\blank[1.5in]\noindent
+You get on the bus and play lots of chess with fellow travelers. As you approach Mars, you put on your spacesuit, get off the bus, and fire your rockets again to match the orbit of Mars. 
+\blank
+4. What energy will you have once you are orbiting alongside Mars?
+(Remember: Mars's orbit is elliptic, with a perihelion at $2.07\sci{11}\units{m}$ and aphelion at $2.49\sci{11}\units{m}$ from the Sun.)
+\blank[1.5in]\noindent
+After successfully hitching a ride on a ship headed to the Martian surface, you take a minute to create the energy graph below, showing your specific energy (energy per mass) during your trip. Check that these match the energies you calculated above!
+%\begin{choices}
+%	\item $1.4 \units{years}$ \correct
+%	\item $1.9 \units{years}$ 
+%	\item $1.2 \units{years}$ 
+%	\item $2.2 \units{years}$ 
+%	\item $1.8 \units{years}$ 
+%\end{choices}
+
+\startbuffer[TikZ:EnergyGraphKUH]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startaxis
+ [	x=5cm,y={2cm},
+   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
+   xmin=0, xmax=3,
+   minor x tick num=1,
+   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
+   ymin=-5, ymax=-2,
+   minor y tick num=9,
+   clip mode = individual,
+		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+ ]
+  \addplot[ % axis
+      thick,
+      domain=0:3,
+      samples=2]
+    {0};
+  \addplot[ % Ug
+      thick,
+      domain=2:3,
+      samples=150]
+    {-13.3/x}
+    node[below right,pos=0.6] {$U$};
+  \addplot[ % Circular Orbits
+      thick, dotted,
+      domain=1.1:5,
+      samples=150]
+    {-6.65/x};
+%  \addplot[ % K angular Mercury
+%      thin,
+%      domain=0.25:5,
+%      samples=150]
+%    {(-13.27/x)+(3.68/x^2)};
+%  \addplot[ % H Mercury
+%      very thick,
+%      domain=0.46:0.698,
+%      samples=2]
+%    {-11.457}
+%    node[below, pos=0.5] {Mercury};
+%  \addplot[ % K angular Venus
+%      thin,
+%      domain=0.47:5,
+%      samples=150]
+%    {(-13.27/x)+(7.179/x^2)};
+%  \addplot[ % H Venus
+%      very thick,
+%      domain=1.075:1.089,
+%      samples=2]
+%    {-6.132}
+%    node[below, pos=0.5] {Venus};
+  \addplot[ % K angular Earth
+      thin,
+      domain=0.7:5,
+      samples=150]
+    {(-13.27/x)+(9.926/x^2)};
+  \addplot[ % E Earth
+      very thick,
+     domain=1.471:1.521,
+     samples=2]
+   {-4.437}
+   node[below, pos=0.5] {Earth};
+  \addplot[ % K angular Mars
+      thin,
+      domain=0.89:3,
+      samples=150]
+    {(-13.27/x)+(14.99/x^2)};
+  \addplot[ % E Mars
+      very thick,
+      domain=2.067:2.492,
+      samples=2]
+    {-2.912}
+    node[above, pos=0.5] {Mars};
+  \addplot[ % K angular Bus
+      thin,
+      domain=0.7:5,
+      samples=150]
+    {(-13.27/x)+(11.6275/x^2)};
+  \addplot[ % E Bus
+      very thick,
+      domain=1.521:2.067,
+      samples=2]
+    {-3.6984}
+    node[above, pos=0.5] {Bus};
+%  \addplot[ % K angular ʻOumuamua
+%      thin,
+%      domain=0.37:5,
+%      samples=150]
+%    {(-13.27/x)+(5.591/x^2)};
+%  \addplot[ % E ʻOumuamua
+%      very thick,
+%      domain=0.383:3,
+%      samples=2]
+%    {3.486}
+%    node[below, pos=0.5] {ʻOumuamua};
+    \draw[->] (1.521,-4.437) --node[left, pos=.7]{First Burn} (1.521,-3.6984);
+    \draw[->] (2.067,-3.6984) --node[right, pos=.5]{Second Burn} (2.067,-2.912);
+%    \draw[shade, ball color = white] (0,0.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
+%    \filldraw[black!20] ({2.259/(1-0.0934*cos(120))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!15] (2.259,0.5) circle[radius=1.2mm];
+%    \filldraw[black!20] ({2.259/(1-0.0934*cos(60))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!30] ({2.259/(1-0.0934*cos(30))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!30] ({2.259/(1-0.0934*cos(150))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!40] (2.067,0.5) circle[radius=1.2mm];
+%    \draw[shade, ball color = darkgray] (2.492,0.5) circle[radius=1.2mm]node[above=0.8mm] {\Mars};
+\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\typesetbuffer[TikZ:EnergyGraphKUH]
+
+\stoptitle
+\stoptext
