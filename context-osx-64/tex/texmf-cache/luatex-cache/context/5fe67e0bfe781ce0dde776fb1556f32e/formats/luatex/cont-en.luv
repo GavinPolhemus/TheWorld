@@ -1,9 +1,0 @@
-return {
- ["enginebanner"]="This is LuaTeX, Version 1.13.0 (TeX Live 2021)",
- ["formatbanner"]="2021.08.24 22:16",
- ["formatid"]=0,
- ["functionality"]=7420,
- ["luaversion"]=0x1.5333333333333p+2,
- ["sourcefile"]="context.mkiv",
- ["sourcehash"]="f014b19871c2bc97d536c000239d461e",
-}

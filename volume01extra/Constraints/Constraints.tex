@@ -1,9 +1,10 @@
-% !TEX useOldSyncParser
+% !TEX useAlternatePath
+% !TEX useConTeXtSyncParser
+
 \startcomponent c_chapter01
 \project project_world
 \product prd_volume01
 
-\setupsynctex[state=start,method=max] % "method=max" or "min"
 \starttext
 
 
@@ -76,7 +77,7 @@ The geometric story appears to be this. The $e^\mu_\alpha$ are differential form
 
 Hamiltonian methods are excellent for a full relativistic treatment. The key is to allow the particle to move in four dimensions while geting rid of the Hamiltonian all together. Replace the Hamiltonian with a single constraint that keeps the particle on shell.
 \startformula
-	{\cal H }= \half g^{\mu\nu}(\pi_mu - eA_mu)(\pi_nu - eA_nu) = \half m^2
+	{\cal H }= \half g^{\mu\nu}(\pi_\mu - eA_\mu)(\pi_\nu - eA_\nu) = \half m^2
 \stopformula
 This is a single constraint involving momenta and positions (through $A_\mu$). This will lead to one unknown multiplier, but this multiplier can be set to one, fixing the parametrization of the the particle path. (MTW \booktitle{Gravitation,} pp.~488--489, 654, 897--901 and Lanczos \booktitle{The Variational Principles of Mechanics,} pp.~319--320, 327--336)
 
