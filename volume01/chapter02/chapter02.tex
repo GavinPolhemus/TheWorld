@@ -1,3 +1,4 @@
+% !TEX useAlternatePath
 % !TEX useConTeXtSyncParser
 \startcomponent c_chapter02
 \project project_world
@@ -435,22 +436,14 @@ The displacement is negative because the cart is moving in the negative directio
 
 \noindent
 %We have seen displacements before, primarily in Chapter \in[ch:Music]. For vibrations the displacement was always the change in position measured from the central position.
-%The distance between the starting point and the ending point is the absolute value of the displacement, $\abs{\Delta x}$.
-The distance traveled by the object, called the \keyterm{path length}, is represented by $s$. The path does not have to be straight; it could go back and forth, like the curving letter $s$. (Straight lengths, like the length of a rod, are often represented by the straight letter $l$.)
-If the object’s path is straight then $s=\abs{\Delta x}$, but if the path is bent the distance traveled will be longer.%, $s>\abs{\Delta x}$.
-%The absolute value of the displacement is the \keyterm{distance}, which is always positive. The symbol for distance is simply $\abs{\Delta x}$.
-%\highlightbox{
+In \in{example}[ex:CartDisp], the \keyterm{distance} traveled by the cart is $24.0\units{cm}$.
+Distance is the displacement's absolute value, $\abs{\Delta x}$.
+For the cart in \in{example}[ex:CartDisp], the distance traveled is
 \startformula
-	s \geq \abs{\Delta x}
+	\abs{\Delta x} = \abs{-24.0\units{cm}} = 24.0\units{cm}.
 \stopformula
-The shortest path between two points is a straight line, and the length of that path is $\abs{\Delta x}$.
-%}
-%Taking the absolute value removes the information about the
+Distance does not tell us anything about direction, so we will find displacements more useful.
 
-%The distance traveled does not tell us anything about the direction of travel. In example \in[ex:CartDisp], the distance traveled by the cart is
-%\startformula
-%	\abs{\Delta x} = \abs{-24.0\units{cm}} = 24.0\units{cm}.
-%\stopformula
 
 The greatest power of physics is not in explaining the physical world, but in making predictions. Often these predictions relate to changes, such as changes in position.
 If we know where the cart starts, $x\sub{i}$, and know its displacement, $\Delta x$, we can predict its final position, $x\sub{f}$. Start with the displacement formula and solve for $x\sub{f}$.
@@ -527,9 +520,9 @@ The velocity of the cart is $-24\units{cm/s}$, negative because the cart is movi
 \noindent
 Velocity is a \keyterm{vector}. All vectors are represented by straight arrows like the one in figure \in[fig:CartVel]. Vectors have a direction, which is obviously the arrow’s direction, and a \keyterm{magnitude}, which is represented by the arrow’s length. Diagrams must have a scale for converting the arrow’s length to the vector’s magnitude, as in figure \in[fig:CartVel].
 
-The magnitude of velocity $v$ is the absolute value $\abs{v}$, which is the \keyterm{speed}. Speed is always positive for a moving object, independent of the motion’s direction. The familiar formula for constant speed is \quotation{distance over time.} In our language speed is actually \quotation{distance over duration,} where the distance is the path length. (For constant velocity motion the path is straight, so $s=\abs{\Delta x}$.)
+The magnitude of velocity $v$ is the absolute value $\abs{v}$, which is the \keyterm{speed}. Speed is always positive for a moving object, independent of the motion’s direction. The familiar formula for speed is \quotation{distance over time.} In our language, speed is \quotation{distance over duration.}
 \startformula
-	\abs{v} = \frac{s}{\Delta t} = \frac{\abs{\Delta x}}{\Delta t}
+	\abs{v} = \frac{\abs{\Delta x}}{\Delta t}
 \stopformula
 If the object is moving, both distance and duration are positive, so the formula gives a positive speed. If the object is not moving, the displacement, distance, and speed are all zero.
 
@@ -1207,8 +1200,6 @@ Galileo was able to analyze constant force motion using some very clever geometr
 
 These algebraic methods weren’t developed until the late seventeenth century, when Isaac Newton and Gottfried Leibniz invented calculus to deal with changing velocities and other issues in mechanics. Newton’s calculus was built on the Galileo’s geometric methods. Leibniz’s calculus, based on algebra, proved more practical. I encourage you to learn Leibniz’s calculus, but in the meantime there are two practical tricks we will adopt for finding instantaneous velocity.
 
-The first trick is to choose initial and final times very close together, so that the velocity is \emph{almost} constant for the duration. This is illustrated on the ball’s accelerated motion graph in figure \in[fig:BallRollsDown]. To find the instantaneous velocity at $t=0.50\units{s}$, we chose points just before and after that time for our initial and final measurements. The curve between the points has a nearly constant slope, so finding the slope with those points will give a good estimate of the instantaneous velocity at $0.50\units{s}$.
-
 \startbuffer[BallRollsDown]
 	\startaxis[
 		footnotesize,
@@ -1258,6 +1249,8 @@ The first trick is to choose initial and final times very close together, so tha
 
 \marginTikZ{}{BallRollsDown}{The velocity starts small (small slope) and becomes large (large slope). The small rise, $dx$, and run, $dt$, can be used to accurately estimate the velocity at $t=0.50\units{s}$.} % vskip, name, caption
 
+The first trick is to choose initial and final times very close together, so that the velocity is \emph{almost} constant for the duration. This is illustrated on the ball’s accelerated motion graph in figure \in[fig:BallRollsDown]. To find the instantaneous velocity at $t=0.50\units{s}$, we chose points just before and after that time for our initial and final measurements. The curve between the points has a nearly constant slope, so finding the slope with those points will give a good estimate of the instantaneous velocity at $0.50\units{s}$.
+
 
 Leibniz introduced a neat notation for these small triangles, replacing the big $\Delta$ with a small $d$ to remind us to replace the big triangle with a small one, as shown in figure \in[fig:BallRollsDown]. Using Leibniz’s notation, the instantaneous velocity is
 \startformula
@@ -1267,192 +1260,6 @@ Leibniz introduced a neat notation for these small triangles, replacing the big 
 How small is small enough? It depends. You will usually want an answer that is correct to two or three significant figures, which means the slope should not change more than a few percent between the initial and final time. If the triangle has no visible curvature on the hypotenuse, then it is probably small enough. The triangle in figure \in[fig:BallRollsDown] appears to be small enough. Use this method when you have precise positions at specific times, like you would find in a data table.
 
 %[I think it is worth using $dx$ and $dt$ to remind them that these are small.]
-
-
-The second trick uses a \keyterm{tangent}, which is a straight line passing through a point on the curve in exactly the same direction that the curve passes through that point, as in figure \in[fig:velocityTangent].
-Leibniz’s little triangle is similar to
-the triangle made by the tangent, so the ratio $dx/dt$ is equal to the tangent’s $\Delta x/\Delta t$.
-%The slope of the tangent is gives the velocity of the cart at the point where the tangent touches the cart’s graph.
-
-\startbuffer[velocityTangent]
-	\startaxis[
-		footnotesize,
-		width=2.25in,%\marginparwidth,
-		y={1mm},%x={1cm},
-		xlabel={$t$ (s)},
-		xmin=0, xmax=1,
-		%xtick={0,0.2,...,1},
-		xtick distance=0.2,
-		minor x tick num=3,
-		ylabel={$x$ (cm)},
-		%ytick={30,31,...,37},
-		ymin=0, ymax=50,
-		minor y tick num=4,
-		clip mode=individual
-		]
-		%\addplot[thick,domain=-0.5:2,samples=2]{7+12*x};
-		\addplot[thick,domain=0:1,samples=51]{3+(50*x^2)};
-		%\addplot[thick,domain=3:3.5,samples=2]{35};
-		\draw [very thin](0.5,0) -- (0.5, 15.5);
-		\draw [thin](0.19,0) --node[sloped, below]{tangent at $t=0.50\units{s}$} (1, 40.5);
-		\fill(0.5,15.5) circle[radius=.4mm];
-		\draw [-{Straight Barb[scale length=1.3]}, thick](0.45, 18) --node[above]{$dt$} (0.55,18);
-		\draw [-{Straight Barb}, thick](0.45,13) --node[left]{$dx$} (0.45, 18);
-		\draw [-{Straight Barb[scale length=1.3]}, thick](0.19,40.5) --node[above]{tangent’s $\Delta t$} (1,40.5);
-		\draw [-{Straight Barb}, thick](0.19,0) --node[sloped, above]{tangent’s $\Delta x$} (0.19,40.5);
-	\stopaxis
-\stopbuffer
-
-\marginTikZ{}{velocityTangent}{The ball’s velocity at time $t=0.50\units{s}$ is the slope of the tangent drawn at that time.} % vskip, name, caption
-
-\highlightbox{
-\startformula[eq:vTangent]
-	v = \frac{dx}{dt}
-		= \frac{\text{tangent’s $\Delta x$}}{\text{tangent’s $\Delta t$}}
-		%= \text{slope}
-\stopformula
-}
-The tangent’s $\Delta x$ and $\Delta t$ should be found using the points where the tangent reaches the boundary of the graph. This will give the most accurate value for the instantaneous velocity. Use this method when finding velocity from a graph.
-
-%tangents drawn at different points along the curve will have different slopes, giving the different velocities at each of the points.
-%	\caption[Velocity from tangent]{
-%	The velocity at time $t_1$ is the slope of the tangent drawn through the position at $t_1$. The velocity at $t_2$ is less because the slope of the tangent at $t_2$ is less. The object is slowing down.
-%	}
-
-\startexample[ex:velocityTangentEx]
-	Use the graph in figure \in[fig:BallRollsDown] to find the velocity of the ball at time $t=0.50\units{s}$. \startsolution The most accurate method in this case is to draw a tangent. First, use a straight edge and the tick marks at the top and bottom of the graph to find the vertical line at $t=0.50\units{s}$. I have marked the point where this line intersects the graph with a dot. (I have also removed the $dx$ and $dt$ vectors, which we do not need.)
-
-Then draw a tangent through this point in the same direction as the graph goes through the point. Do this carefully! A slight error in the direction will cause a significant error in the slope calculation. Write the coordinates of the points where the tangent reaches the boundary of the graph.
-Finally, use the coordinates to calculate the velocity.
-\startformula\startmathalignment%\label{eq:vTangent}
-\NC	v	\NC = \frac{\text{tangent’s $\Delta x$}}{\text{tangent’s $\Delta t$}}\NR
-\NC		\NC = \frac{40.5\units{cm}-0.0\units{cm}}{1.00\units{s}-0.19\units{s}}	\NR
-\NC		\NC = \frac{40.5\units{cm}}{0.81\units{s}}	\NR
-\NC		\NC = \answer{50.\units{cm/s}}
-		%= \text{slope}
-\stopmathalignment\stopformula
-At $t=0.50\units{s}$, the ball’s velocity is $50.\units{cm/s}$.
-\stopsolution
-
-\startbuffer[velocityTangentEx]
-	\startaxis[
-		footnotesize,
-		width=2.25in,%\marginparwidth,
-		y={1mm},%x={1cm},
-		xlabel={$t$ (s)},
-		xmin=0, xmax=1,
-		%xtick={0,0.2,...,1},
-		xtick distance=0.2,
-		minor x tick num=3,
-		ylabel={$x$ (cm)},
-		%ytick={30,31,...,37},
-		ymin=0, ymax=50,
-		minor y tick num=4,
-		clip mode=individual
-		]
-		%\addplot[thick,domain=-0.5:2,samples=2]{7+12*x};
-		\addplot[thick,domain=0:1,samples=51]{3+(50*x^2)};
-		%\addplot[thick,domain=3:3.5,samples=2]{35};
-		\draw [very thin](0.5,0) --node[rotate=90, above]{$t=0.50\units{s}$} (0.5, 50);
-		\fill(0.5,15.5) circle[radius=.4mm];
-		\fill(0.19,0) circle[radius=.6mm]node[fill=white,above right=1mm, xshift=3mm]{($0.19\units{s}$, $0.0\units{cm}$)};
-		\fill(1,40.5) circle[radius=.6mm]node[fill=white,left=1mm]{($1.00\units{s}$, $40.5\units{cm}$)};
-		\draw [thin](0.19,0) -- (1, 40.5);
-		%\draw [->, thick](0.45, 18) --node[above]{$dt$} (0.55,18);
-		%\draw [->, thick](0.45,13) --node[left]{$dx$} (0.45, 18);
-		%\draw [->, thick](0.19,40.5) --node[above]{run} (1,40.5);
-		%\draw [->, thick](0.19,0) --node[rotate=90,above]{rise} (0.19,40.5);
-	\stopaxis
-\stopbuffer
-
-\marginTikZ{}{velocityTangentEx}{\rm\!Solution for example \in[ex:velocityTangentEx].} % vskip, name, caption
-
-\stopexample
-
-\startbuffer[RockDropGraph]
-	\startaxis[
-		footnotesize,
-		width=2.25in,%\marginparwidth,
-		y={0.5mm},%x={1cm},
-		xlabel={$t$ (s)},
-		xmin=0, xmax=5,
-		%xtick={0,0.2,...,1},
-		xtick distance=1,
-		minor x tick num=9,
-		ylabel={$y$ (m)},
-		%ytick={30,31,...,37},
-		ymin=0, ymax=100,
-		ytick distance=10,
-		minor y tick num=9,
-		clip mode=individual
-		]
-		%\addplot[thick,domain=-0.5:2,samples=2]{7+12*x};
-		\addplot[thick,domain=0:4.165,samples=51]{85-(4.9*x^2)};
-		%\addplot[thick,domain=3:3.5,samples=2]{35};
-		%\draw [very thin](0.5,0) -- (0.5, 15.5);
-		%\draw [thin](2.082,100) -- (4.165, 0);
-		%\fill(4.165,0) circle[radius=.4mm];
-		%\draw [->, thick](0.45, 18) --node[above]{$dt$} (0.55,18);
-		%\draw [->, thick](0.45,13) --node[left]{$dx$} (0.45, 18);
-		%\draw [->, thick](2.082,0) --node[above]{run} (4.165,0);
-		%\draw [->, thick](2.082,100) --node[rotate=-90,pos=.6,above]{rise} (2.082,0);
-	\stopaxis
-\stopbuffer
-
-\marginTikZ{}{RockDropGraph}{The rock’s height.} % vskip, name, caption
-
-
-\startexample[ex:RockDrop] A rock is dropped from the $85\units{m}$ tall tower in Florence. The vertical position of the rock, represented by the variable $y$, is shown as a function of time in figure \in[fig:RockDropGraph]. Estimate the velocity of the rock just before it strikes the ground.
-
-\startsolution
-	As in the previous example, the most accurate method is to draw a tangent, this time through the point where the graph reaches $y=0$ at the bottom boundary. Drawing the tangent here is tricky! Draw the tangent so it hits the point from the same direction as the curve, as shown it figure \in[fig:RockDropEx].
-Next, find the coordinates where the tangent meets the boundary.
-Finally, use the coordinates to find the velocity.
-\startformula\startmathalignment%\label{eq:vTangent}
-\NC	v	\NC = \frac{\text{tangent’s $\Delta x$}}{\text{tangent’s $\Delta t$}}\NR
-\NC		\NC = \frac{0\units{m}-100\units{m}}{4.2\units{s}-2.1\units{s}}	\NR
-\NC		\NC = \frac{-100\units{m}}{2.1\units{s}}	\NR
-\NC		\NC = \answer{-48\units{m/s}}
-		%= \text{slope}
-\stopmathalignment\stopformula
-The rock strikes the ground with a velocity of $-48\units{m/s}$, negative because it is going down.
-\stopsolution
-\stopexample
-
-\startbuffer[RockDropEx]
-	\startaxis[
-		footnotesize,
-		width=2.25in,%\marginparwidth,
-		y={0.5mm},%x={1cm},
-		xlabel={$t$ (s)},
-		xmin=0, xmax=5,
-		%xtick={0,0.2,...,1},
-		xtick distance=1,
-		minor x tick num=9,
-		ylabel={$y$ (m)},
-		%ytick={30,31,...,37},
-		ymin=0, ymax=100,
-		ytick distance=10,
-		minor y tick num=9,
-		clip mode=individual
-		]
-		%\addplot[thick,domain=-0.5:2,samples=2]{7+12*x};
-		\addplot[thick, domain=0:4.165,samples=51]{85-(4.9*x^2)};
-		%\addplot[thick, domain=3:3.5,samples=2]{35};
-		%\draw [very thin](0.5,0) -- (0.5, 15.5);
-		\draw [thin](2.082,100) -- (4.165, 0);
-		\fill(4.165,0) circle[radius=.4mm];
-		%\draw [->, thick](0.45, 18) --node[above]{$dt$} (0.55,18);
-		%\draw [->, thick](0.45,13) --node[left]{$dx$} (0.45, 18);
-		%\draw [->, thick](2.082,0) --node[above]{run} (4.165,0);
-		%\draw [->, thick](2.082,100) --node[rotate=-90,pos=.6,above]{rise} (2.082,0);
-		%\fill(0.19,0) circle[radius=.6mm];
-		\fill(4.165,0) circle[radius=.6mm]node[above left, xshift=-1mm]{($4.2\units{s}$, $0\units{m}$)};
-		\fill(2.082,100) circle[radius=.6mm]node[below right, xshift=1mm]{($2.1\units{s}$, $100\units{m}$)};
-	\stopaxis
-\stopbuffer
-
-\marginTikZ{}{RockDropEx}{\!Solution for example \in[ex:RockDrop].} % vskip, name, caption
 
 
 \section{Compound motion}
@@ -1469,6 +1276,8 @@ Let us return now to the puzzle of the falling rock. We know that the rock is ac
 	{\sc Simp.} I am not sure about its not being straight; but I understand well that it would have to be inclined and different from the straight perpendicular one it would describe on a motionless earth.\autocite{pp.~223-224}{Galileo1632}
 \stopblockquote
 
+\noindent
+Is this compound motion to be expected? It is! Before the rock is released, it is carried eastward – along with the tower – by Earth’s rotation. After the rock is released, the only force on the rock is gravity, pulling directly toward Earth’s center and causing the rock to fall. Gravity has no effect on the rock’s horizontal motion, so even as the rock falls it continues to the east – along with the tower – and lands at the tower’s base, as shown in figure \in[fig:RockDropGalileo].
 
 \placewidefloat
   [top,none]
@@ -1495,9 +1304,6 @@ Let us return now to the puzzle of the falling rock. We know that the rock is ac
 {\vskip36pt\hbox{\noindent\starttikzpicture
 	\draw[white] (0,0)-- ++(5,0.2); % Sky to make height better
 \stoptikzpicture}}
-
-\noindent
-Is this compound motion to be expected? It is! Before the rock is released it is carried eastward, along with the tower, by Earth’s rotation. After the rock is released the only force on the rock is gravity, pulling directly toward Earth’s center and causing the rock to fall. Gravity has no effect on the rock’s horizontal motion, so even as the rock falls it continues to the east, along with the tower, and lands at the tower’s base, as shown in figure \in[fig:RockDropGalileo].
 
 \startblockquote
 	{\sc Salv.} First, it is clear that these two motions (namely, the circular around the center and the straight toward the center) are neither contrary nor incompatible nor destructive of each other; for the moving body has no repugnance toward such motion; you yourself already granted that its repugnance is to motion which takes it farther from the center, so it follows necessarily that the moving body has neither repugnance nor propensity to motion that takes it neither farther from nor closer to the center, and consequently there is no reason for any decrease in the power impressed on it\dots . %Moreover, the cause of motion is not a single one, which might diminish on account of the new action; instead there are to distinct causes, of which
@@ -1905,157 +1711,157 @@ Second, the units should be treated carefully. When a component is squared, the 
 
 Actually, there is one, and only one, vector with a magnitude of zero. It is called the zero vector and it is written $\vec{0}=\components{0,0}$. The zero vector has no direction, since its length is zero, so it is drawn simply as a dot, not an arrow.
 
-Figure \in[fig:BallOffTablePath] shows the entire path of the ball, rather than just showing the ball’s position at a few times. The path is drawn as a sequence of tiny displacement arrows, each showing the ball’s displacement during $0.01\units{s}$. As the ball approaches the edge of the elevated plane, the arrows are very short because the ball does not travel far during each $0.01\units{s}$. As the ball falls the speed increases and the arrows get proportionally longer.
-
-\startbuffer[BallOffTablePath]
-	\startaxis[
-		footnotesize,
-		%width=2.20in, scale only axis,
-		x={1mm},y={1mm},
-		xlabel={$x$ (cm)},
-		xmin=0,xmax=39.5,
-		ylabel={$y$ (cm)},
-		ymin=0,ymax=45,
-		minor x tick num=4,
-		axis x line=bottom,
-		minor y tick num=4,
-		axis y line=left,
-		tick align=outside,
-		x axis line style={-},
-		y axis line style={-},
-		clip = false,
-		legend style={draw=none,at={(1,1)},anchor=south east},
-		]
-		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
-		\fill(0,48) circle[radius=.4mm][opacity=.2];
-		\draw[shade, ball color = white] (12,43.1) circle[radius=3][opacity=.2];
-		\fill(12,43.1) circle[radius=.4mm][opacity=.2];
-		\draw[shade, ball color = white] (24,28.4) circle[radius=3][opacity=.2];
-		\fill(24,28.4) circle[radius=.4mm][opacity=.2];
-  		\node[coordinate, pin distance=0pt, pin=30:{$\scriptstyle ds$}] at (24.6,27.4) {};
-		\draw[shade, ball color = white] (36,3.9) circle[radius=3][opacity=.2];
-		\fill(36,3.9) circle[radius=.4mm][opacity=.2];
-		\fill [on layer={axis background}] (-1.5,0) rectangle (39.5,-1.5)[opacity=.1];
-		\fill [on layer={axis background}] (-1.5,0) rectangle (0,45)[opacity=.1];
-		\fill [on layer={axis background}] (-1.5,45) rectangle (-7.5,43.5)[opacity=.1];
-		\draw[thin] (-2,45)--(0,45);
-		\draw[thin] (-7.5,45)--(-5.5,45);
+%Figure \in[fig:BallOffTablePath] shows the entire path of the ball, rather than just showing the ball’s position at a few times. The path is drawn as a sequence of tiny displacement arrows, each showing the ball’s displacement during $0.01\units{s}$. As the ball approaches the edge of the elevated plane, the arrows are very short because the ball does not travel far during each $0.01\units{s}$. As the ball falls the speed increases and the arrows get proportionally longer.
+%
+%\startbuffer[BallOffTablePath]
+%	\startaxis[
+%		footnotesize,
+%		%width=2.20in, scale only axis,
+%		x={1mm},y={1mm},
+%		xlabel={$x$ (cm)},
+%		xmin=0,xmax=39.5,
+%		ylabel={$y$ (cm)},
+%		ymin=0,ymax=45,
+%		minor x tick num=4,
+%		axis x line=bottom,
+%		minor y tick num=4,
+%		axis y line=left,
+%		tick align=outside,
+%		x axis line style={-},
+%		y axis line style={-},
+%		clip = false,
+%		legend style={draw=none,at={(1,1)},anchor=south east},
+%		]
+%		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
+%		\fill(0,48) circle[radius=.4mm][opacity=.2];
+%		\draw[shade, ball color = white] (12,43.1) circle[radius=3][opacity=.2];
+%		\fill(12,43.1) circle[radius=.4mm][opacity=.2];
+%		\draw[shade, ball color = white] (24,28.4) circle[radius=3][opacity=.2];
+%		\fill(24,28.4) circle[radius=.4mm][opacity=.2];
+%  		\node[coordinate, pin distance=0pt, pin=30:{$\scriptstyle ds$}] at (24.6,27.4) {};
+%		\draw[shade, ball color = white] (36,3.9) circle[radius=3][opacity=.2];
+%		\fill(36,3.9) circle[radius=.4mm][opacity=.2];
+%		\fill [on layer={axis background}] (-1.5,0) rectangle (39.5,-1.5)[opacity=.1];
+%		\fill [on layer={axis background}] (-1.5,0) rectangle (0,45)[opacity=.1];
+%		\fill [on layer={axis background}] (-1.5,45) rectangle (-7.5,43.5)[opacity=.1];
+%		\draw[thin] (-2,45)--(0,45);
+%		\draw[thin] (-7.5,45)--(-5.5,45);
+%%	  	\addlegendimage{
+%%	  		legend image code/.code={\draw[thick,|-|](0cm,0cm)--(0.5cm,0cm);}
+%% 		};
+%%		\addlegendentry{$=1\units{m/s}$};
+%	  	\addlegendimage{empty legend};
+%		\addlegendentry{$dt=0.01\units{s}$}
+%  \foreach \T in {-0.06,-0.05,...,-0.01}{
+%    \addplot[samples=2, domain={\T}:{\T+0.01},
+%	no markers,
+%	variable=\t,
+%	-{Straight Barb[scale length=.5]},
+%	]
+%	({120*t}, {48});
+%  }
+%  \foreach \T in {0,0.01,...,0.29}{
+%    \addplot[samples=2, domain={\T}:{\T+0.01},
+%  	no markers,
+% 	variable=\t,
+%	-{Straight Barb[scale length=.5]},
+%    ]
+%    ({120*t}, {48-490*t^2});
+%  }
+%  	% \draw[thick,->] (24,28.4) --node[above right]{$\scriptstyle2.3\units{m/s}$} (30,18.42);
+%	\stopaxis
+%\stopbuffer
+%
+%\marginTikZ{}{BallOffTablePath}{Small displacements trace the ball’s path. The length of these displacements is the small distance $ds$ that the ball travels in the short time $dt = 0.01\units{s}$. The small distances get larger as the ball falls and its speed increases.} % vskip, name, caption
+%
+%Using Leibniz’s notation, these short times are $dt$ and the short distances are $ds$. (Recall that $s$ is path length, so $ds$ is the small distance added to the path.) Based on figure \in[fig:BallOffTablePath], the lengths do not change much from one displacement to the next, so the $ds$ and $dt$ are small enough to determine the instantaneous speed using \quotation{distance over duration.}
+%\startformula
+%	\vabs{\vec{v}} = \frac{ds}{dt}
+%\stopformula
+%
+%\startexample[ex:BallOffTablePathSpeed] Using figure \in[fig:BallOffTablePath], find the ball’s speed at $t=0.20\units{s}$. Add the velocity vector to the diagram.
+%\startsolution
+%	The arrows around $t=0.20\units{s}$ are about $2.3\units{mm}$ long. (It is helpful to measure the total length of several arrows centered at $t=0.02\units{s}$ to get an average.) Since the diagram is drawn at one-tenth scale, these arrows represent a distance of $ds=2.3\units{cm}$. The speed, \quotation{distance over duration,} is
+%\startformula
+%	\vabs{\vec{v}} = \frac{ds}{dt}
+%		= \frac{2.3\units{cm}}{0.01\units{s}}
+%		= 2.3\units{m/s}.
+%\stopformula
+%The velocity vector on the diagram must point in the direction of motion, which is tangent to the path. Draw the tangent lightly, and then make a bold arrow whose length represents $2.3\units{m/s}$. Since the scale is $5\units{mm}=1\units{m/s}$, that would be an arrow $1.15\units{cm}$ long, as shown in figure \in[fig:BallOffTablePathSpeed].
+%\stopsolution
+%\stopexample
+%
+%\startbuffer[BallOffTablePathSpeed]
+%	\startaxis[
+%		footnotesize,
+%		%width=2.20in, scale only axis,
+%		x={1mm},y={1mm},
+%		xlabel={$x$ (cm)},
+%		xmin=0,xmax=39.5,
+%		ylabel={$y$ (cm)},
+%		ymin=0,ymax=45,
+%		minor x tick num=4,
+%		axis x line=bottom,
+%		minor y tick num=4,
+%		axis y line=left,
+%		tick align=outside,
+%		x axis line style={-},
+%		y axis line style={-},
+%		clip = false,
+%		legend style={draw=none,at={(1,1)},anchor=south east},
+%		]
+%		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
+%		\fill(0,48) circle[radius=.4mm];%[opacity=.2];
+%		\draw[shade, ball color = white] (12,43.1) circle[radius=3][opacity=.2];
+%		\fill(12,43.1) circle[radius=.4mm];%[opacity=.2];
+%		\draw[shade, ball color = white] (24,28.4) circle[radius=3][opacity=.2];
+%		\fill(24,28.4) circle[radius=.4mm];%[opacity=.2];
+%		\draw[shade, ball color = white] (36,3.9) circle[radius=3][opacity=.2];
+%		\fill(36,3.9) circle[radius=.4mm];%[opacity=.2];
+%		\fill [on layer={axis background}] (-1.5,0) rectangle (39.5,-1.5)[opacity=.1];
+%		\fill [on layer={axis background}] (-1.5,0) rectangle (0,45)[opacity=.1];
+%		\fill [on layer={axis background}] (-1.5,45) rectangle (-7.5,43.5)[opacity=.1];
+%		\draw[thin] (-2,45)--(0,45);
+%		\draw[thin] (-7.5,45)--(-5.5,45);
 %	  	\addlegendimage{
 %	  		legend image code/.code={\draw[thick,|-|](0cm,0cm)--(0.5cm,0cm);}
 % 		};
 %		\addlegendentry{$=1\units{m/s}$};
-	  	\addlegendimage{empty legend};
-		\addlegendentry{$dt=0.01\units{s}$}
-  \foreach \T in {-0.06,-0.05,...,-0.01}{
-    \addplot[samples=2, domain={\T}:{\T+0.01},
-	no markers,
-	variable=\t,
-	-{Straight Barb[scale length=.5]},
-	]
-	({120*t}, {48});
-  }
-  \foreach \T in {0,0.01,...,0.29}{
-    \addplot[samples=2, domain={\T}:{\T+0.01},
-  	no markers,
- 	variable=\t,
-	-{Straight Barb[scale length=.5]},
-    ]
-    ({120*t}, {48-490*t^2});
-  }
-  	% \draw[thick,->] (24,28.4) --node[above right]{$\scriptstyle2.3\units{m/s}$} (30,18.42);
-	\stopaxis
-\stopbuffer
-
-\marginTikZ{}{BallOffTablePath}{Small displacements trace the ball’s path. The length of these displacements is the small distance $ds$ that the ball travels in the short time $dt = 0.01\units{s}$. The small distances get larger as the ball falls and its speed increases.} % vskip, name, caption
-
-Using Leibniz’s notation, these short times are $dt$ and the short distances are $ds$. (Recall that $s$ is path length, so $ds$ is the small distance added to the path.) Based on figure \in[fig:BallOffTablePath], the lengths do not change much from one displacement to the next, so the $ds$ and $dt$ are small enough to determine the instantaneous speed using \quotation{distance over duration.}
-\startformula
-	\vabs{\vec{v}} = \frac{ds}{dt}
-\stopformula
-
-\startexample[ex:BallOffTablePathSpeed] Using figure \in[fig:BallOffTablePath], find the ball’s speed at $t=0.20\units{s}$. Add the velocity vector to the diagram.
-\startsolution
-	The arrows around $t=0.20\units{s}$ are about $2.3\units{mm}$ long. (It is helpful to measure the total length of several arrows centered at $t=0.02\units{s}$ to get an average.) Since the diagram is drawn at one-tenth scale, these arrows represent a distance of $ds=2.3\units{cm}$. The speed, \quotation{distance over duration,} is
-\startformula
-	\vabs{\vec{v}} = \frac{ds}{dt}
-		= \frac{2.3\units{cm}}{0.01\units{s}}
-		= 2.3\units{m/s}.
-\stopformula
-The velocity vector on the diagram must point in the direction of motion, which is tangent to the path. Draw the tangent lightly, and then make a bold arrow whose length represents $2.3\units{m/s}$. Since the scale is $5\units{mm}=1\units{m/s}$, that would be an arrow $1.15\units{cm}$ long, as shown in figure \in[fig:BallOffTablePathSpeed].
-\stopsolution
-\stopexample
-
-\startbuffer[BallOffTablePathSpeed]
-	\startaxis[
-		footnotesize,
-		%width=2.20in, scale only axis,
-		x={1mm},y={1mm},
-		xlabel={$x$ (cm)},
-		xmin=0,xmax=39.5,
-		ylabel={$y$ (cm)},
-		ymin=0,ymax=45,
-		minor x tick num=4,
-		axis x line=bottom,
-		minor y tick num=4,
-		axis y line=left,
-		tick align=outside,
-		x axis line style={-},
-		y axis line style={-},
-		clip = false,
-		legend style={draw=none,at={(1,1)},anchor=south east},
-		]
-		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
-		\fill(0,48) circle[radius=.4mm];%[opacity=.2];
-		\draw[shade, ball color = white] (12,43.1) circle[radius=3][opacity=.2];
-		\fill(12,43.1) circle[radius=.4mm];%[opacity=.2];
-		\draw[shade, ball color = white] (24,28.4) circle[radius=3][opacity=.2];
-		\fill(24,28.4) circle[radius=.4mm];%[opacity=.2];
-		\draw[shade, ball color = white] (36,3.9) circle[radius=3][opacity=.2];
-		\fill(36,3.9) circle[radius=.4mm];%[opacity=.2];
-		\fill [on layer={axis background}] (-1.5,0) rectangle (39.5,-1.5)[opacity=.1];
-		\fill [on layer={axis background}] (-1.5,0) rectangle (0,45)[opacity=.1];
-		\fill [on layer={axis background}] (-1.5,45) rectangle (-7.5,43.5)[opacity=.1];
-		\draw[thin] (-2,45)--(0,45);
-		\draw[thin] (-7.5,45)--(-5.5,45);
-	  	\addlegendimage{
-	  		legend image code/.code={\draw[thick,|-|](0cm,0cm)--(0.5cm,0cm);}
- 		};
-		\addlegendentry{$=1\units{m/s}$};
-	  	\addlegendimage{empty legend};
-		\addlegendentry{$\!\!\!\!\!\!\!dt=0.01\units{s}$}
-  \foreach \T in {-0.06,-0.05,...,-0.01}{
-    \addplot[samples=2, domain={\T}:{\T+0.01},
-	no markers,
-	variable=\t,
-	-{Straight Barb[scale length=.5]},
-	]
-	({120*t}, {48});
-  }
-  \foreach \T in {0,0.01,...,0.29}{
-    \addplot[samples=2, domain={\T}:{\T+0.01},
-  	no markers,
- 	variable=\t,
-	-{Straight Barb[scale length=.5]},
-    ]
-    ({120*t}, {48-490*t^2});
-  }
-		% Velocity at t=0s
-   		\draw[thick,->] (0,48) --node[above right,pos=.3]{$\scriptstyle1.2\units{m/s}$} (6,48);
-		% Velocity at .1s
-   		\draw[thick,->] (12,43.1) --node[above right]{$\scriptstyle1.5\units{m/s}$} (18,38.1);%
-   		% Velocity at .2s
-    	\draw[thick,->] (24,28.4) --node[above right]{$\scriptstyle2.3\units{m/s}$} (30,18.42);
-   		% Velocity at .3s
-		%\startpgfinterruptboundingbox
-   		\draw[thick,->] (36,3.9) --node[left, pos=.75]{$\scriptstyle3.2\units{m/s}$} (42,-10.8);
-		%\stoppgfinterruptboundingbox
-	\stopaxis
-\stopbuffer
-
-\marginTikZ{}{BallOffTablePathSpeed}{Velocity vectors are tangent to the path. The speed is determined by the length of the displacement vectors, as in example \in[ex:BallOffTablePathSpeed].} % vskip, name, caption
-
-\noindent
-The velocity vectors are always straight and tangent to the path, pointing in the direction of motion. If the small displacements are shown along the path, the speed can be determined. Thus, the velocity vector can be drawn with the correct direction and magnitude, as shown in figure \in[fig:BallOffTablePathSpeed].
+%	  	\addlegendimage{empty legend};
+%		\addlegendentry{$\!\!\!\!\!\!\!dt=0.01\units{s}$}
+%  \foreach \T in {-0.06,-0.05,...,-0.01}{
+%    \addplot[samples=2, domain={\T}:{\T+0.01},
+%	no markers,
+%	variable=\t,
+%	-{Straight Barb[scale length=.5]},
+%	]
+%	({120*t}, {48});
+%  }
+%  \foreach \T in {0,0.01,...,0.29}{
+%    \addplot[samples=2, domain={\T}:{\T+0.01},
+%  	no markers,
+% 	variable=\t,
+%	-{Straight Barb[scale length=.5]},
+%    ]
+%    ({120*t}, {48-490*t^2});
+%  }
+%		% Velocity at t=0s
+%   		\draw[thick,->] (0,48) --node[above right,pos=.3]{$\scriptstyle1.2\units{m/s}$} (6,48);
+%		% Velocity at .1s
+%   		\draw[thick,->] (12,43.1) --node[above right]{$\scriptstyle1.5\units{m/s}$} (18,38.1);%
+%   		% Velocity at .2s
+%    	\draw[thick,->] (24,28.4) --node[above right]{$\scriptstyle2.3\units{m/s}$} (30,18.42);
+%   		% Velocity at .3s
+%		%\startpgfinterruptboundingbox
+%   		\draw[thick,->] (36,3.9) --node[left, pos=.75]{$\scriptstyle3.2\units{m/s}$} (42,-10.8);
+%		%\stoppgfinterruptboundingbox
+%	\stopaxis
+%\stopbuffer
+%
+%\marginTikZ{}{BallOffTablePathSpeed}{Velocity vectors are tangent to the path. The speed is determined by the length of the displacement vectors, as in example \in[ex:BallOffTablePathSpeed].} % vskip, name, caption
+%
+%\noindent
+%The velocity vectors are always straight and tangent to the path, pointing in the direction of motion. If the small displacements are shown along the path, the speed can be determined. Thus, the velocity vector can be drawn with the correct direction and magnitude, as shown in figure \in[fig:BallOffTablePathSpeed].
 
 % During the first half of this duration, the ball is falling more slowly than it is at $t=0.20\units{s}$. During the second half it is falling faster. These two effects
 
@@ -2172,8 +1978,9 @@ Galileo’s \booktitle{Two New Sciences} describes one more type of motion that 
 	Pulling each ball aside from the perpendicular, I let them go at the same instant, and they, falling along the circumferences of circles having these equal strings for radii, passed beyond the perpendicular and returned along the same path. This free oscillation repeated a hundred times showed clearly that the heavy ball maintains so nearly the period of the light ball that neither in a hundred swings nor even in a thousand will the former anticipate the latter by as much as a single moment, so perfectly do they keep step.\autocite{p.~307}{Galileo1638}
 \stopblockquote
 
-Galileo also noted that the pendulum’s period does not depend on the size of the arc through which the pendulum swings. A pendulum, like the one described above, will swing with the same period whether it swings a centimeter in each direction, or 20 centimeters. Galileo thought the period remains the same even if the ball is released from a point nearly as high as the pivot, but he was wrong about this. Very large swings do take slightly longer. The period is that same for all amplitudes that are considerably smaller than the length of the string.
-Mechanical clocks use pendulums because the pendulum’s period is consistent over a range of amplitudes. The most accurate pendulum clocks use a long pendulum that swings through a small angle, since small angles give the most accurate period.
+Galileo also noted that the pendulum’s period does not depend on the size of the arc through which the pendulum swings.
+A pendulum, like the one described above, will swing with the same period whether it swings a centimeter in each direction, or 20 centimeters.
+(This is only true if the amplitude is considerably smaller than the length of the string, which will be the case in our examples.)
 
 The central point of the motion is called the \keyterm{equilibrium point}. If the pendulum is not swinging, then it is motionless at the equilibrium point. %When the pendulum is set in motion, the initial displacement is measured from the equilibrium point.
 Figures \in[fig:PendulumLeadCork] and \in[fig:PendulumLargeSmallA] show the motion for some of Galileo’s experiments, all of which have the same period. %These graphs look like the graphs of displacement vs.~time for the musical vibrations in Chapter \in[ch:Music]. The difference is the size of the amplitudes and the length of the periods.
@@ -2444,7 +2251,7 @@ That is why it is necessary to examine how [the movement] can cause the same str
 \stopblockquote
 Mersenne seems to have discovered another example of compound motion, combining five or six different motions simultaneously, each with different frequencies, all in perfect, simple ratios. This is indeed difficult to imagine — so difficult it confounded the best physicists and mathematicians for nearly two centuries!
 
-Astronomy studies the planetary motions over vast expanses of time and space. Galileo demonstrated that these motions could be understood by studying the motions of simple objects in laboratory experiments. Mersenne did the same for the tiny, rapid motions of musical instruments. They thus merged the four paths of the quadrivium into one path, the study of motion. Kepler, Galileo, and Mersenne only took the first steps on that path. We will follow the path to its intended destination — a universal, mathematical model of motion capable of explaining the motions of astronomy, music, and everything in between.
+Astronomy studies the planetary motions over vast expanses of time and space. Galileo demonstrated that these motions could be understood by studying the motions of simple objects in laboratory experiments. Mersenne did the same for the tiny, rapid motions of musical instruments. They thus merged the four paths of the quadrivium into one path, the study of motion. Kepler, Galileo, and Mersenne took the first steps on this path. We will follow the path to its intended destination — a universal, mathematical model of motion capable of explaining the motions of astronomy, music, and everything in between.
 
 Galileo remained active in research and mentored students at his villa until his death in 1642 at the age of 77. 
 Following Galileo, many natural philosophers sought to quantify the amount of motion in an object. Several interesting ideas emerged, leading to a decades-long feud known as the \visviva\ debate.

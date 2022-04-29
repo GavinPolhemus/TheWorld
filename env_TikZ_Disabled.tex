@@ -1,0 +1,253 @@
+\startenvironment env_TikZ_Disabled
+
+%\usemodule[tikz]			% TikZ module for diagrams
+%\usepgflibrary[shapes.misc]	% Node shapes for ConTeXt and pure pgf
+%\usetikzlibrary[shapes.arrows]
+%\usemodule[pgfplots]			% PGFPlots module for graphs
+%\pgfplotsset{compat=1.17}		% Required to get new any features that could cause compatibility issues.
+%\usetikzlibrary[arrows.meta,backgrounds]
+%\usetikzlibrary[decorations.text]
+%\usetikzlibrary[decorations.markings]
+%\usetikzlibrary[angles] % quotes syntax broken in ConTeXt.
+%\usetikzlibrary[math]
+%\usepgfplotslibrary[groupplots] % groupplot has unconventional commands in ConTeXt, fixed below
+%\unexpanded\def\startgroupplot{\groupplot}
+%\unexpanded\def\stopgroupplot{\endgroupplot}
+%
+%\usepgfplotslibrary[fillbetween]
+%\usetikzlibrary[pgfplots.polar]
+%
+%\tikzset{>/.tip=Latex} % The tip drawn by -> will be the LaTeX tip.
+%\tikzset{tips=proper} % Arrows with zero length will not have heads. 
+%\tikzset{help lines/.style=lightgray}
+%
+%% This didn't work, I don't know why.
+%%\pgfplotsset{
+%%		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+%%		major grid style = {middlegray},
+%%}
+%
+%% Redefined footnote size graphs, replacing LaTeX style commands with ConTeXt commands.
+%\pgfplotsset{
+%    footnotesize/.style={
+%		width=5cm,
+%		height=,
+%		%legend style={font=\switchtobodyfont[8pt]},
+%		%tick label style={font=\switchtobodyfont[8pt]},
+%		%label style={font=\switchtobodyfont[8pt]},
+%		%title style={font=\switchtobodyfont[8pt]},
+%		every axis title shift=0pt,
+%		max space between ticks=15,
+%		every mark/.append style={mark size=8},
+%		major tick length=0.1cm,
+%		minor tick length=0.066cm,
+%		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+%		major grid style = {middlegray},
+%	},
+%}
+
+% Specifically for TikZ figures
+
+\startbuffer[starttikz]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+   \startTEXpage\small
+   \starttikzpicture[thick]
+\stopbuffer
+
+\startbuffer[stoptikz]
+   \stoptikzpicture
+   \stopTEXpage
+\stopbuffer
+
+% The \marginTikZ command has three arguments.
+% #1 Usually a vertical space command, but could be anything
+% #2 Buffer's name, also used as reference name
+% #3 Caption contents
+
+\define[3]\marginTikZ{
+  \startplacefigure[location=margin, reference=fig:#2, title={#3}]
+    #1[TikZ Figures Disabled]%\typesetbuffer[starttikz,#2,stoptikz]
+  \stopplacefigure
+}
+
+%% Cart and a block on a track
+%
+%% Side view
+%\pgfplotsset{margin cart track/.style={
+%	footnotesize,
+%	%width=\marginparwidth, scale only axis,
+%	x={1mm},y={1mm},
+%	xlabel={\m{x} (cm)},
+%	xmin=-0.5,xmax=49.5,
+%	ymin=0,ymax=6.1,
+%	hide y axis,
+%	%xticklabel={\relax},
+%	minor x tick num=4,
+%	axis x line=bottom,
+%	tick align=outside,
+%	x axis line style={-}
+%}}
+%\pgfplotsset{big diagram cart track/.style={
+%	%\fill [black!10] (0,0) rectangle (13.6,-.15);
+%	%footnotesize,
+%	x={1mm},y={1mm},
+%	xlabel={\m{x} (cm)},
+%	xmin=-1,xmax=151,
+%	ymin=-10,ymax=35,
+%	hide y axis,
+%	minor x tick num=4,
+%	axis x line=bottom,
+%	tick align = outside,
+%	x axis line style={-}
+%}}
+%\tikzset{
+%	cart/.pic={
+%		\startscope[transparency group]
+%		\filldraw  [fill=black!20, semithick]
+%			(-6mm,1mm)
+%			{[rounded corners=1mm]--(-6mm,5mm)
+%			--(6mm,5mm)}
+%			--(6mm,1mm)
+%			--cycle;
+%		\filldraw (-4mm,1mm) circle[radius=1mm];
+%		\filldraw(4mm,1mm) circle[radius=1mm];
+%		\fill(0mm,2.5mm) circle[radius=.4mm];
+%		\stopscope
+%	}
+%}
+%\tikzset{
+%	block/.pic={
+%		\filldraw  [fill=black!20, rounded corners=1mm, semithick]
+%			(-3mm,0mm) rectangle (3mm,5mm);
+%		\fill[fill=black] (0mm,2.5mm) circle[radius=.4mm];
+%	}
+%}
+%\tikzset{
+%	pics/pendulum/.style={
+%		code = {
+%			\coordinate (-center) at (0mm,-245mm);
+%			\draw[color=black!#1, thick] (-center) -- (0mm,0mm);
+%			\fill[fill=white] (-center) circle[radius=3mm];
+%			\path[ball color=white, opacity={#1/100}] (-center) circle[radius=3mm];
+%			\draw[draw=black!#1] (-center) circle[radius=3mm];
+%			\fill[fill=black!#1] (-center) circle[radius=.4mm];
+%			\fill[fill=black] (0mm,0mm) circle[radius=.4mm];
+%		}
+%	}
+%}
+%\tikzset{
+%	pics/small pendulum/.style={
+%		code = {
+%			\coordinate (-center) at (0mm,-245mm);
+%			\draw[color=black!#1, thick] (-center) -- (0mm,0mm);
+%			\fill[fill=white] (-center) circle[radius=2mm];
+%			\path[ball color=white, opacity={#1/100}] (-center) circle[radius=2mm];
+%			\draw[draw=black!#1] (-center) circle[radius=2mm];
+%			\fill[fill=black!#1] (-center) circle[radius=.4mm];
+%			\fill[fill=black] (0mm,0mm) circle[radius=.4mm];
+%		}
+%	}
+%}
+%\tikzset{
+%	dumbbell/.pic={
+%		\startscope[transparency group]
+%		\draw[ultra thick,black!67] (1.5cm,0) -- (-1.5cm,0);
+%		\draw[shade, ball color = black] (-1.5cm,0) circle[radius=.125cm];
+%		\draw[shade, ball color = gray] (1.5cm,0) circle[radius=.125cm];
+%		\stopscope
+%	}
+%}
+%\tikzset{
+%	dumbbell31/.pic={
+%		\startscope[transparency group]
+%		\draw[ultra thick,black!67] (1.5cm,0) -- (-1.5cm,0);
+%		\draw[shade, ball color = black] (-1.6cm,0) circle[radius=.18cm];
+%		\draw[shade, ball color = gray] (1.6cm,0) circle[radius=.125cm];
+%		\stopscope
+%	}
+%}
+%\tikzset{
+%	dumbbell31CoM/.pic={
+%		\startscope[transparency group]
+%		\draw[ultra thick,black!67] (2.4cm,0) -- (-0.8cm,0);
+%		\draw[shade, ball color = black] (-0.8cm,0) circle[radius=.18cm];
+%		\draw[shade, ball color = gray] (2.4cm,0) circle[radius=.125cm];
+%		\stopscope
+%	}
+%}
+%\tikzset{
+%	RightHandOut/.pic={
+%		\draw[thick] (-.2cm,0)
+%			-- (-0.2cm,1.2cm) arc [start angle=180, end angle=0, radius=0.2cm]
+%			-- (0.2,-1.0) -- (1.2,-1.0) arc [start angle=90, end angle=-90, radius=0.2cm]
+%			-- (-1.0,-1.4) arc [start angle=-90, end angle=-180, radius=0.4cm]
+%			-- (-1.4,0) ;
+%		\draw[thick] (0.2,-1.0) arc [start angle=0, end angle=135, x radius=0.6cm, y radius=0.4cm];
+%		\draw[thick] (-0.4cm,0) circle[radius=0.2cm];
+%		\draw[thick] (-0.8cm,0) circle[radius=0.2cm];
+%		\draw[thick] (-1.2cm,0) circle[radius=0.2cm];
+%		\node at (0.4cm,-1.2cm) {\small\m{\vec F}};
+%		\draw[thick,->] (0.7cm,-1.2cm) -- (1.3cm,-1.2cm);
+%		\node at (0,0.1cm) {\small\m{q\vec v}};
+%		\draw[thick,->] (0,0.4cm) -- (0,1.3cm);
+%		\node at (-0.7cm,-0.4cm) {\small\m{\vec B}};
+%		\node at (-0.4cm,0) {\small•};
+%		\node at (-0.8cm,0) {\small•};
+%		\node at (-1.2cm,0) {\small•};
+%	}
+%}
+%\tikzset{
+%	RightHandIn/.pic={
+%		\draw[thick] (.2cm,0)
+%			-- (0.2cm,1.2cm) arc [start angle=0, end angle=180, radius=0.2cm]
+%			-- (-0.2,-1.0) -- (-1.2,-1.0) arc [start angle=90, end angle=270, radius=0.2cm]
+%			-- (1.0,-1.4) arc [start angle=-90, end angle=0, radius=0.4cm]
+%			-- (1.4,0) arc [start angle=0, end angle=180, radius=0.2cm]
+%			arc [start angle=0, end angle=180, radius=0.2cm]
+%			arc [start angle=0, end angle=180, radius=0.2cm];
+%		\node at (-0.4cm,-1.2cm) {\small\m{\vec F}};
+%		\draw[thick,->] (-0.7cm,-1.2cm) -- (-1.3cm,-1.2cm);
+%		\node at (0,0.1cm) {\small\m{q\vec v}};
+%		\draw[thick,->] (0,0.4cm) -- (0,1.3cm);
+%		\node at (0.7cm,-0.4cm) {\small\m{\vec B}};
+%		\node at (0.4cm,0) {\small\times};
+%		\node at (0.8cm,0) {\small\times};
+%		\node at (1.2cm,0) {\small\times};
+%	}
+%}
+%\tikzset{
+%	argyleruler/.pic={
+%		\startscope[transparency group]
+%		\filldraw  [fill=black!30, semithick]
+%			(0mm,0mm) rectangle (20mm,10mm);
+%		\foreach \x in {0,10}{
+%			\fill [black!20](\x mm,5mm) -- ++(5mm,5mm) -- ++(5mm,-5mm) -- ++(-5mm,-5mm) --cycle;
+%			\draw [white, thick](\x mm,0mm) -- ++(10mm,10mm);
+%			\draw [white, thick](\x mm,10mm) -- ++(10mm,-10mm);
+%		}
+%		\foreach \x in {1,2,...,19}{
+%			\draw (\x mm,0mm) -- ++(0mm,.5mm);
+%			\draw (\x mm,10mm) -- ++(0mm,-.5mm);
+%		}
+%		\foreach \x in {10,20}{
+%			\draw (\x mm,0mm) -- ++(0mm,1mm);
+%			\draw (\x mm,10mm) -- ++(0mm,-1mm);
+%		}
+%		\draw [semithick]
+%			(0mm,0mm) rectangle (20mm,10mm);
+%		\stopscope
+%	}
+%}
+%
+%
+%\tikzset{
+%	clock/.pic={
+%		\draw[fill=white] (0,0) circle[radius=1.6mm];
+%		\draw (0,0.12) -- ++(0,-.12) -- ++(30:.09);
+%	}
+%}
+
+\stopenvironment

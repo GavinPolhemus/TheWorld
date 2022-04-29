@@ -62,41 +62,16 @@
    \stopTEXpage
 \stopbuffer
 
+% The \marginTikZ command has three arguments.
+% #1 Usually a vertical space command, but could be anything
+% #2 Buffer's name, also used as reference name
+% #3 Caption contents
+
 \define[3]\marginTikZ{
   \startplacefigure[location=margin, reference=fig:#2, title={#3}]
     #1\typesetbuffer[starttikz,#2,stoptikz]
   \stopplacefigure
 }
-
-% The \cancel command below has been replaced by a Metapost version.
-% Cancel command for use in equations. Perhaps one command can work in both italic and roman.
-%\tikzset{cancel/.style={
-%	cross out, draw, semithick, % "cross out" or "strike out"
-%	inner sep=0pt,outer sep=0pt,
-%	anchor=text
-%}}
-%\define[1]\cancel{
-%	\ifmmode
-%		\mathchoice
-%		{\tikz[baseline] \node[cancel]{\m{\displaystyle #1}};}
-%		{\tikz[baseline] \node[cancel]{\m{\textstyle #1}};}
-%		{\tikz[baseline] \node[cancel]{\m{\scriptstyle #1}};}
-%		{\tikz[baseline] \node[cancel]{\m{\scriptscriptstyle #1}};}
-%	\else
-%    	\tikz[baseline] \node[cancel]{#1};
-%	\fi
-%}
-%\define[1]\ucan{
-%	\ifmmode
-%		\mathchoice
-%		{\tikz[baseline] \node[cancel]{\m{\rm \displaystyle #1}};}
-%		{\tikz[baseline] \node[cancel]{\m{\rm \textstyle #1}};}
-%		{\tikz[baseline] \node[cancel]{\m{\rm \scriptstyle #1}};}
-%		{\tikz[baseline] \node[cancel]{\m{\rm \scriptscriptstyle #1}};}
-%	\else
-%    	\tikz[baseline] \node[cancel]{#1};
-%	\fi
-%}
 
 % Cart and a block on a track
 
