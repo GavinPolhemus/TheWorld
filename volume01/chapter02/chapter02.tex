@@ -1,5 +1,6 @@
 % !TEX useAlternatePath
 % !TEX useConTeXtSyncParser
+
 \startcomponent c_chapter02
 \project project_world
 \product prd_volume01
@@ -26,7 +27,7 @@
 % objection to Galileo’s heliocentric cosmology:
 Earth does not \emph{seem} to be moving. A person on a galloping horse could never be convinced that the horse is standing still; the evidence of motion is overwhelming. The rider can see that she is moving, feel the motion, even hear the wind. If Earth is spinning and moving – and in the heliocentric model it spins and moves with tremendous speed – how could  that motion go unnoticed by everyone on Earth?
 
-Luckily, Galileo knew a few things about motion. Before his adventure with the telescope, Galileo had studied motion carefully, probably more carefully than anyone before him.
+Luckily, Galileo knew a few things about motion. Before his adventures with the telescope, Galileo had studied motion carefully, probably more carefully than anyone before him.
 Galileo employed the empirical methods that his father, Vincenzo, had used in musical research.
 Galileo quantified all of his ideas about motion in terms of distances traveled and the time elapsed. He then developed methods for accurately measuring time. Finally, he subjected all of his ideas to experimental tests, refining his ideas and methods based on the results.
 
@@ -40,7 +41,7 @@ You may notice that the commentator’s Italian name, Simplicio, sounds like \qu
 	{\sc Salv.} As the strongest reason, everyone produces the one from heavy bodies, which when falling down from on high move in a straight line perpendicular to the earth’s surface. This is regarded as an unanswerable argument that the earth is motionless. For, if it were in a state of diurnal [\ie~daily] rotation, and a rock were dropped from the top of a tower, then during the time taken by the rock in its fall, the tower (being carried by the earth’s turning), would advance many hundreds of cubits toward the east and the rock should hit the ground that distance away from the tower’s base. \autocite{p.~215}{Galileo1632}
 \stopblockquote
 
-A rock naturally falls downward, toward the Earth’s center, as shown in figure \in[fig:RockDropGeocentric]. This natural downward motion can be blocked by an obstacle, like the ground or a table, or even reversed by a person lifting the rock. However, as soon the obstacle or outside force is removed the natural downward motion resumes. These facts, solemnly stated by Aristotle and gleefully confirmed by toddlers everywhere, demand that the rock falls straight down.
+A rock naturally falls downward, toward Earth’s center, as shown in figure \in[fig:RockDropGeocentric]. This natural downward motion can be blocked by an obstacle, like the ground or a table, or even reversed by a person lifting the rock. However, as soon the obstacle or outside force is removed the natural downward motion resumes. These facts, solemnly stated by Aristotle and gleefully confirmed by toddlers everywhere, demand that the rock falls straight down.
 
 \startbuffer[RockDropGeocentric]
 		\draw[shade, ball color = gray] (1.75,10.2) circle[radius=.1cm][opacity=.2];
@@ -67,7 +68,7 @@ A rock naturally falls downward, toward the Earth’s center, as shown in figure
 \placewidefloat
   [bottom,none]
   {This is its caption I need to fix.}
-{\hbox{\noindent\starttikzpicture	% tikz code
+{\hbox{\noindent\small\starttikzpicture	% tikz code
 		\draw[shade, ball color = gray] (.4,1.155) circle[radius=.02cm][opacity=.2];
 		\draw[shade, ball color = gray] (.4,1.0925) circle[radius=.02cm][opacity=.4];
 		\draw[shade, ball color = gray] (.4,.905) circle[radius=.02cm][opacity=.6];
@@ -197,9 +198,10 @@ To understand how Galileo used this insight to solve the problem of the falling 
 
 \marginTikZ{}{levelrollingball}{A meter stick, marked in centimeters, is used to determine the position of the ball as it rolls. The ball’s position is shown at one second intervals.} % vskip, name, caption
 
+\noindent
 A meter stick has been placed below the rolling ball in figure \in[fig:levelrollingball].
 %The marks start with $0\units{cm}$ at one end and go to $45\units{cm}$ at the other.
-The marks on the meter stick allow us to identify the ball’s position, represented by the variable $x$.
+Marks on the meter stick identify the ball’s position, represented by the variable $x$.
 %\footnote{This track has zero at one end and only positive numbers, so the address is a measurement of how far the cart is from the \quotation{zero} end of the track. It would be perfectly acceptable for the track to have zero in the middle with positive numbers on one side and negative on the other. In that case positive addresses would give the distance to one side of track’s center, while negative numbers would give the distances on the other side. If my track extended in both directions to the horizon, I would certainly want to put zero near where I was working and measure distances from there.}
 These positions, measured at the ball’s center, are listed in table \in[T:levelroll]. The graph in figure \in[fig:LevelRollGraph], shows the ball’s position as a function of time. Notice that the axes of graph are not labeled $x$ and $y$ as they typically are in math class. Here the horizontal axis is the time $t$, and the vertical axis is the position $x$.
 
@@ -256,20 +258,19 @@ These positions, measured at the ball’s center, are listed in table \in[T:leve
 \marginTikZ{}{LevelRollGraph}{A graph of the ball’s position as a function of time.
  A top view of the rolling ball is shown at each second.} % vskip, name, caption
 
-The diagram, table, and graph all present the same information about the ball’s motion. Diagrams are especially easy to understand, and you should frequently sketch diagrams to add clarity to your solutions. The table is especially useful when collecting significant amounts of data in laboratory investigations.
-The diagram and the table give locations at a few specific times, but the graph shows the location of the ball at every moment.
+The diagram, table, and graph all present the same information about the ball’s motion. Diagrams are especially easy to understand, and you should frequently sketch diagrams to add clarity to your solutions. A table is especially useful when collecting data in laboratory investigations.
+The diagram and table give locations at a few specific times, but the graph shows the location of the ball at every moment.
 We will frequently use the detailed information in position vs.\ time graphs  to understand motion.
 
 \startexample[ex:cartblockgraphexample]
 	Use the graph in figure \in[fig:LevelRollGraph] to find the position of the ball at time $t=2.50\units{s}$.
 \startsolution
 First, draw a vertical line at $t=2.50\units{s}$. (I have removed the background illustrations.)
-Where the vertical line intersects the graph, I have drawn a dot. Through this point draw a horizontal line
+Where the vertical line intersects the graph, I have drawn a dot. Through this point draw a horizontal line.
 
-\centeraligned{
+\centeraligned{\small
 \starttikzpicture
 	\startaxis[
-		footnotesize,
 		width=2.20in,
 		y={1mm}, %x={1cm},
 		xlabel={$t$ (s)},
@@ -296,7 +297,6 @@ Where the vertical line intersects the graph, I have drawn a dot. Through this p
 \quad
 \starttikzpicture
 	\startaxis[
-		footnotesize,
 		width=2.20in,
 		y={1mm}, %x={1cm},
 		xlabel={$t$ (s)},
@@ -326,14 +326,14 @@ At $t=2.50\units{s}$ the ball’s position is $37.0\units{cm}$.
 \stopsolution
 \stopexample
 
-A \keyterm{displacement} is a change in position. In figure \in[fig:BallLevelArows], the ball’s displacements are shown as arrows extending from the ball’s position at one time to its position at a later time. The displacement’s length must be the actual distance moved by the ball. When the ball moves $12\units{cm}$ to the right, the displacement should be $12\units{cm}$ long, extending from center to center, and pointing to the right.
+A \keyterm{displacement} is a change in position. In figure \in[fig:BallLevelArows], the ball’s displacements are shown as arrows extending from the ball’s position at one time to its position at a later time. The displacement’s length must be the actual distance moved by the ball. When the ball moves $12\units{cm}$ to the right, the displacement should be $12\units{cm}$ long, extending from center to center and pointing to the right.
 
 Like position, displacement can be quantified. %The number needs to give not only this distance moved by the object, but also the direction.
 Our meter stick has numbers increasing to the right, so we will use positive displacements to describe motions to the right and negative displacements to describe motions to the left. For example, a movement of $12\units{cm}$ to the right will be represented by a displacement of $12\units{cm}$, while a movement of $12\units{cm}$ to the left will be represented by a displacement of $-12\units{cm}$.
 
 \placefigure[margin][fig:BallLevelArows] % location, label
 {Displacements are represented by vectors that show both the direction and distance of movement.}	% caption text
-{\noindent $t=0\units{s}$ to $t=1\units{s}$\\
+{\noindent\small $t=0\units{s}$ to $t=1\units{s}$\\
 \starttikzpicture[baseline]%
 	\fill [black!10] (0,0) rectangle (5,-.15);
 	\startaxis[margin cart track,	xlabel={}]
@@ -368,6 +368,7 @@ Our meter stick has numbers increasing to the right, so we will use positive dis
 \stoptikzpicture%
 }
 
+%The symbol for displacement is $\Delta x$. The capital greek delta ($\Delta$) means change. 
 Displacement is calculated by taking the difference between the final position, $x\sub{f}$, and the initial position, $x\sub{i}$.
 \highlightbox{
 \startformula
@@ -379,7 +380,7 @@ Notice the order: \emph{final minus initial}. Use this order even if it produces
 \startexample[ex:BlockDisp]
 	A block is moved from the $3.0\units{cm}$ position to the $12.0\units{cm}$ position. What is the block’s displacement due to this move?
 \startsolution The initial position is $3.0\units{cm}$, so $x\sub{i} = 3.0\units{cm}$. Likewise, $x\sub{f} = 12.0\units{cm}$. Use these values in the displacement formula.
-\startformula\startmathalignment[m=2,distance=2em]%Notice distance=2em
+\startformula\startmathalignment[m=2,distance=1em,align={1:right,2:left,3:right,4:left}]%Notice distance=2em
 	\NC \Delta x \NC = x\sub{f} - x\sub{i}
 				\NC \NC \text{Start with the displacement formula.} \NR
 	\NC 	\NC = 12.0\units{cm} - 3.0\units{cm}
@@ -445,18 +446,13 @@ For the cart in \in{example}[ex:CartDisp], the distance traveled is
 Distance does not tell us anything about direction, so we will find displacements more useful.
 
 
-The greatest power of physics is not in explaining the physical world, but in making predictions. Often these predictions relate to changes, such as changes in position.
-If we know where the cart starts, $x\sub{i}$, and know its displacement, $\Delta x$, we can predict its final position, $x\sub{f}$. Start with the displacement formula and solve for $x\sub{f}$.
+Physics' greatest power is prediction. Predictions often relate to changes, such as changes in position.
+If we know the cart's initial position, $x\sub{i}$, and know its displacement, $\Delta x$, we can predict its final position, $x\sub{f}$. Initial position plus displacement gives the final position.
 \startformula
-\startmathalignment[m=2,distance=2em]%Notice distance=2em
-	\NC	\Delta x	\NC= x\sub{f} - x\sub{i}	\NC	\NC	\text{Displacement formula.}	 \NR
-	\NC	 x\sub{i} + \Delta x \NC= x\sub{f} - \cancel{x\sub{i}} + \cancel{x\sub{i}}
-									\NC	\NC \text{Add $x\sub{i}$ to both sides.}\NR
-	\NC	 x\sub{i} + \Delta x \NC= x\sub{f}	\NC	\NC \text{Initial plus change is final.}
-\stopmathalignment
+	 x\sub{i} + \Delta x \NC= x\sub{f}
 \stopformula
-The initial position plus the displacement gives the final position. Notice  that the sign of the displacement is necessary to get the correct final position. If the cart starts at $20\units{cm}$ and %moves a \emph{distance} of $5\units{cm}$ it could end up at $25\units{cm}$, $15\units{cm}$ or (by changing direction) anywhere in between. If the \emph{displacement} is
-is displaced $5\units{cm}$ then it moves in the positive direction and will end at $25\units{cm}$. A displacement of $-5\units{cm}$ would move the cart form $20\units{cm}$ to $15\units{cm}$. %Many important physics laws have the form \quotation{initial plus change is final.}
+Notice that the sign of the displacement is necessary to get the correct final position. If the cart starts at $20\units{cm}$ and %moves a \emph{distance} of $5\units{cm}$ it could end up at $25\units{cm}$, $15\units{cm}$ or (by changing direction) anywhere in between. If the \emph{displacement} is
+is displaced $5\units{cm}$, then it moves in the positive direction and will end at $25\units{cm}$. A displacement of $-5\units{cm}$ would move the cart form $20\units{cm}$ to $15\units{cm}$. %Many important physics laws have the form \quotation{initial plus change is final.}
 (When we have mathematical models for more interesting systems, we will make more interesting predictions!)
 
 \section{Uniform motion and constant velocity}
@@ -471,20 +467,19 @@ The constant ratio of $\Delta x$ to $\Delta t$ is the \keyterm{velocity}.
 \stopformula
 }%\end{shaded}
 We will remember velocity as \quotation{displacement over duration.}
-Outside forces can change an object’s velocity, but as long as it moves freely the velocity will be constant.
+Outside forces can change an object’s velocity, but as long as it moves freely its velocity will be constant.
 
 %We will always calculate the amount of time elapsed $\Delta t$ as a positive number by subtracting the initial time $t\si$ from the final time $t\sf$.  (The equations still work when going backward in time, but it gets confusing.)
 \startexample
 	Students make a video of a cart rolling on a track. Watching the video they see at $t=1.00\units{s}$ the cart’s position is $40.0\units{cm}$ and at $t=1.10\units{s}$ the cart’s position is $16.0\units{cm}$.
-	 What is the velocity of the cart over those two seconds?
-	% KK In example 3.4, It might be helpful for students to see the same table format you used earlier in table 3.1.
+	 What is the cart's velocity?
 \startsolution A table helps organize the numbers from the question.
 \startformula\startmathalignment[m=2,distance=2em]%Notice distance=2em
 	\NC	t\sub{i} \NC= 1.00\units{s} \NC x\sub{i} \NC= 40.0\units{cm} \NR
 	\NC	t\sub{f} \NC= 1.10\units{s} \NC x\sub{f} \NC= 16.0\units{cm}
 \stopmathalignment\stopformula
 	Use these values in the velocity formula.
-\startformula\startmathalignment[m=2,distance=2em]%Notice distance=2em
+\startformula\startmathalignment[m=2,distance=2em,align={1:right,2:left,3:right,4:left}]%Notice distance=2em
 	\NC	v = \frac{\Delta x}{\Delta t} \NC= \frac{x\sub{f} - x\sub{i}}{t\sub{f}-t\sub{i}} \NC\NC
 			\text{Velocity formula}\NR
 	\NC		\NC= \frac{16.0\units{cm} - 40.0\units{cm}}{1.10\units{s}-1.00\units{s}} \NC\NC
@@ -520,24 +515,20 @@ The velocity of the cart is $-24\units{cm/s}$, negative because the cart is movi
 \noindent
 Velocity is a \keyterm{vector}. All vectors are represented by straight arrows like the one in figure \in[fig:CartVel]. Vectors have a direction, which is obviously the arrow’s direction, and a \keyterm{magnitude}, which is represented by the arrow’s length. Diagrams must have a scale for converting the arrow’s length to the vector’s magnitude, as in figure \in[fig:CartVel].
 
-The magnitude of velocity $v$ is the absolute value $\abs{v}$, which is the \keyterm{speed}. Speed is always positive for a moving object, independent of the motion’s direction. The familiar formula for speed is \quotation{distance over time.} In our language, speed is \quotation{distance over duration.}
+The magnitude of velocity is \keyterm{speed}, found by taking the velocity's absolute value, $\abs{v}$. Speed is always positive for a moving object, independent of the motion’s direction. The familiar formula for speed is \quotation{distance over time.} In our language, speed is \quotation{distance over duration.}
 \startformula
 	\abs{v} = \frac{\abs{\Delta x}}{\Delta t}
 \stopformula
-If the object is moving, both distance and duration are positive, so the formula gives a positive speed. If the object is not moving, the displacement, distance, and speed are all zero.
+%If the object is moving, both distance and duration are positive, so the formula gives a positive speed. If the object is not moving, the displacement, distance, and speed are all zero.
 
 %Speed is the quantity shown on a car’s speedometer. The speedometer shows a positive value when you drive to school and still shows a positive value when you drive home. A velocimeter would have to give a positive value when traveling one direction, and a negative value when traveling the other way.
 
-With an initial position and a constant velocity, you can easily predict an object’s position at a later time. First, use the velocity formula to find the displacement.
-\startformula\startmathalignment[m=2,distance=2em]%Notice distance=2em
-	\NC	v		\NC = \frac{\Delta x}{\Delta t}	\NC\NC \text{Velocity formula}	\NR
-	\NC	v\Delta t	\NC = \frac{\Delta x}{\cancel{\Delta t}}\cancel{\Delta t}	\NC\NC \text{Multiply both sides by duration.}		\NR
-	\NC	\Delta x	\NC = v\Delta t		\NC\NC \text{Reverse to get displacement on the left.}
-%\label{eq:DxvDt}
-\stopmathalignment\stopformula
-The displacement is the velocity multiplied by the duration. The direction of the velocity determines the direction of the displacement. If the velocity is negative, the displacement will be in the negative direction; if the velocity is positive, the displacement will be in the positive direction.
-
-Then, add the displacement to the initial position to find the final position.
+With an initial position and a constant velocity, you can easily predict an object’s position at a later time. The object's displacement is its velocity times the duration of its motion.
+\startformula
+	\Delta x	\NC = v\Delta t
+\stopformula
+%(The direction of the velocity determines the direction of the displacement. If the velocity is negative, the displacement will be in the negative direction; if the velocity is positive, the displacement will be in the positive direction.)
+Add this displacement to the object's initial position to find its final position.
 \highlightbox{
 \startformula
 	x\si + v \Delta t = x\sf %\tag*{\txx Position update formula}
@@ -562,7 +553,7 @@ This is the extremely useful \keyterm{position update formula} for constant velo
     \stopaxis
 \stopbuffer
 
-\marginTikZ{}{CartUpdateEx}{The initial position and constant velocity of the cart in example
+\marginTikZ{}{CartUpdateEx}{The cart's initial position and constant velocity in example
 \in[ex:CartUpdate].} % vskip, name, caption
 
 
@@ -592,20 +583,22 @@ The final position is $22\units{cm}$, as shown in figure \in[fig:CartUpdateFinal
     \stopaxis
 \stopbuffer
 
-\marginTikZ{}{CartUpdateFinal}{The displacement of the cart in example
+\marginTikZ{}{CartUpdateFinal}{The cart's displacement in example
 \in[ex:CartUpdate] is $-8.0\units{cm}$, taking it to a final position of $32\units{cm}$.} % vskip, name, caption
 
 
 \noindent
-Since we will often use position vs.~time graphs to show objects’ motion, we will  often get the object’s velocity from these graphs. The position vs.~time graph for constant velocity motion is always a straight line, like the graph for the rolling ball in figure \in[fig:ConstVelocity] (reproduced from fig.~\in[fig:LevelRollGraph]). The \quotation{rise} and \quotation{run} are shown by arrows on the graph.
-The \quotation{rise} on the graph is the displacement of the ball, $\Delta x$, on the vertical axis. The \quotation{run} is the duration, $\Delta t$, on the horizontal axis. Velocity is \quotation{displacement over time} which is the slope, \quotation{rise over run,} of the graph.
-\startformula
-	v = \frac{\Delta x}{\Delta t}
-		= \frac{\text{rise}}{\text{run}}
-		= \text{slope}
-\stopformula
-Keep in mind that the displacement $\Delta x$ can be either positive or negative. If the graph is sloped downward, then $\Delta x$ is negative and the velocity is negative. The \quotation{rise} arrow should point down if the displacement is negative.
+Since we will often use position vs.~time graphs to show objects’ motion, we will  often get the object’s velocity from these graphs. The position vs.~time graph for constant velocity motion is always a straight line, like the graph for the rolling ball in figure \in[fig:ConstVelocity] (reproduced from fig.~\in[fig:LevelRollGraph]).
 
+%The \quotation{rise} and \quotation{run} are shown by arrows on the graph.
+%The \quotation{rise} on the graph is the displacement of the ball, $\Delta x$, on the vertical axis. The \quotation{run} is the duration, $\Delta t$, on the horizontal axis. Velocity is \quotation{displacement over time} which is the slope, \quotation{rise over run,} of the graph.
+%\startformula
+%	v = \frac{\Delta x}{\Delta t}
+%		= \frac{\text{rise}}{\text{run}}
+%		= \text{slope}
+%\stopformula
+%Keep in mind that the displacement $\Delta x$ can be either positive or negative. If the graph is sloped downward, then $\Delta x$ is negative and the velocity is negative. The \quotation{rise} arrow should point down if the displacement is negative.
+%
 \startbuffer[ConstVelocity]
 	\startaxis[
 		footnotesize,
@@ -627,20 +620,20 @@ Keep in mind that the displacement $\Delta x$ can be either positive or negative
 		\addplot[thick,domain=0:3,samples=2]{7+12*x};
 		%\addplot[thick,domain=2:3,samples=21]{35-4*(x-3)^2};
 		%\addplot[thick,domain=3:3.5,samples=2]{35};
-		\draw [-{Straight Barb[scale length=1.5]}, thick](0, 43) --node[below]{$\text{run}=\Delta t$} (3,43);
-		\draw [-{Straight Barb}, thick](0,7) --node[below,pos=.55,rotate=90]{$\text{rise}=\Delta x$} (0, 43);
-		\fill(0,7) circle[radius=.4mm];
-		\fill(3,43) circle[radius=.4mm];
+		%\draw [-{Straight Barb[scale length=1.5]}, thick](0, 43) --node[below]{$\text{run}=\Delta t$} (3,43);
+		%\draw [-{Straight Barb}, thick](0,7) --node[below,pos=.55,rotate=90]{$\text{rise}=\Delta x$} (0, 43);
+		%\fill(0,7) circle[radius=.4mm];
+		%\fill(3,43) circle[radius=.4mm];
 	\stopaxis
 \stopbuffer
 
-\marginTikZ{}{ConstVelocity}{Velocity is the slope of the position vs.\ time graph. Both $\Delta x$ and $\Delta t$ are drawn as vectors to emphasize that they are directional. $\Delta x$ can be positive or negative, depending on the direction. We will always draw $\Delta t$ pointing toward the future.} % vskip, name, caption
+\marginTikZ{}{ConstVelocity}{The position vs.\ time graph for the ball rolling on a level surface.} % vskip, name, caption
 
 
 %We have been using algebra as our mathematical language, expressing the relationships between quantities as equations. There are no equations in Galileo’s scientific works, instead there are geometric constructions. His geometric methods are amazing, but not as practical as algebraic methods developed later. The description of the relationship between position, time and velocity that is contained in a equations (\in[eq:1Dv]) and (\in[eq:1Dxup]) above requires six pages of definitions, axioms, theorems, and proofs in Galileo’s \booktitle{Two New Sciences}.
 
 \startexample[ex:velocityEx]
-Find the ball's velocity from the graph in \in{figure}[fig:ConstVelocity].
+Find the ball's velocity from the graph in \in{figure}[fig:velocityEx].
 
 \startbuffer[velocityEx]
 	\startaxis[
@@ -678,7 +671,7 @@ Find the ball's velocity from the graph in \in{figure}[fig:ConstVelocity].
 \marginTikZ{}{velocityEx}{\rm Finding the velocity for example \in[ex:velocityEx].} % vskip, name, caption
 
 
-\startsolution The velocity is constant, so we will use the velocity formula for uniform motion. On the graph in figure \in[fig:velocityEx] I added coordinates for the points where the line reaches the border. I included units because they help ensure that the values go into the right part of the velocity formula.
+\startsolution The velocity is constant, so we will use the velocity formula for uniform motion. On the graph in figure \in[fig:velocityEx], I added coordinates for the points where the line reaches the border. I included units because they help ensure that the values go into the right part of the velocity formula.
 \startformula%\label{eq:vTangent}
 	v = \frac{\Delta x}{\Delta t}
 		= \frac{43\units{cm}-7\units{cm}}{3\units{s}-0\units{s}}
@@ -690,13 +683,14 @@ The ball’s velocity is $12.0\units{cm/s}$.
 \stopexample
 
 When calculating the velocity from the graph, avoid the common mistake of counting graph squares. This often works in math classes but it will not work here. For example, seeing a graph go up four squares and over five you may conclude the velocity is $v=\fourfifths= 0.8$. This is not correct – it does not even have the correct units! You must use the values on the $x$-axis and $t$-axis to do the calculation. Those will give the correct slope with the correct units.
-Many students learn in math class that the slope is $\frac{y_2-y_1}{x_2-x_1}$. This formula should not be used in physics because $x$ and $y$ are rarely the horizontal and vertical coordinates. In the graphs above the coordinates are $t$ and $x$, where $x$ is the \emph{vertical} coordinate rather than the horizontal one. Remember \quotation{rise over run} and use the graph’s axes to determine the correct values and units. Using the axis units in the calculation to confirms the correct units for the slope.
+
+Many students learn in math class that the slope is $\frac{y_2-y_1}{x_2-x_1}$. This formula should not be used in physics because $x$ and $y$ are rarely the horizontal and vertical coordinates. In the graphs above, the coordinates are $t$ and $x$, with $x$ as the \emph{vertical} coordinate rather than the horizontal one. Remember $v = \Delta x / \Delta t$ and use the graph’s axes to determine the correct values and units. %Use the axis units in the calculation to confirm the correct units for the slope.
 
 We will often set $t\si = 0$ to simplify calculations. In this case we use $x_0$ to represent the position at $t=0$. The position at any time $t$ is represented simply by $x$. With this notation, we have a position formula for constant velocity.
 \startformula
 	x = x_0 + vt.
 \stopformula
-You might not recognize it immediately, but this is the equation for a straight line. Compare this constant velocity formula to the usual math class equation for a straight line: $y=mx+b$, shown in \in{figure}[fig:linearmath]. Since constant velocity motion gives the equation for a straight line, we say that $x$ is a linear function of $t$ when the motion is uniform. This linear function is shown in \in{figure}[fig:linearposition] for comparison.
+You might not recognize it immediately, but this is the formula for a straight line. Compare this constant velocity formula to the usual math class formula for a straight line: $y=mx+b$, shown in \in{figure}[fig:linearmath]. Since constant velocity motion gives the equation for a straight line, we say that $x$ is a linear function of $t$ when the motion is uniform. This linear function is shown in \in{figure}[fig:linearposition] for comparison.
 
 \startbuffer[linearmath]
 	\startaxis[
@@ -722,38 +716,67 @@ You might not recognize it immediately, but this is the equation for a straight 
 	\stopaxis
 \stopbuffer
 
-\marginTikZ{}{linearmath}{The function $y=mx + b$ as you might see it in math class.} % vskip, name, caption
+\marginTikZ{}{linearmath}{The formula for a line $y=mx + b$ as taught in math class.} % vskip, name, caption
 
 \startbuffer[linearposition]
 	\startaxis[
 		footnotesize,
 		width=2.25in,%\marginparwidth,
 		y={1mm},%x={1cm},
-		xlabel={$t$},
+		xlabel={$t$ (s)},
 		xmin=0, xmax=3,
-		xtick={0},
-		ylabel={$x$},
+		xtick={-1,0,...,3},
+		minor x tick num=9,
+		ylabel={$x$ (cm)},
 		ymin=0, ymax=50,
-		ytick={0},
-		ytick pos=left,
-		extra y ticks={7},
-		extra y tick labels={$x_0$},
+		minor y tick num=4,
 		clip mode=individual,
 		]
+%		\addplot[thick,domain=-0.5:2,samples=2]{40};
+%		\addplot[thick,domain=2:3,samples=21]{44-4*(x-3)^2};
+%		\addplot[thick,domain=3:3.5,samples=2]{44};
+		%\addplot[thick,domain=-0.75:0,samples=2]{7};
 		\addplot[thick,domain=0:3,samples=2]{7+12*x}
-		node[pos=.5, above, sloped]{$\text{slope}=v$}
-		;
+			node[pos=.5, above, sloped]{$v=12\units{cm/s}$};
+		%\addplot[thick,domain=2:3,samples=21]{35-4*(x-3)^2};
+		%\addplot[thick,domain=3:3.5,samples=2]{35};
+%		\draw [thin](2,0) -- (2, 40);
+%		\draw [thin](0,0) -- (0, 40);
+		%\draw [thin] (2.5, 0) -- (2.5, 40); %node[above, rotate=90]{$t=2.50\units{s}$}
+		\fill(0,7) circle[radius=.5mm]node[right=2mm]{$x_0 = 7\units{cm}$};
+%		\fill(3,43) circle[radius=.5mm]node[left=2mm]{($3\units{s}$, $43\units{cm}$)};
+%		\draw [thin] (-.75, 31) -- (2.5,31); %node[above, pos= .6]{$x=31.0\units{cm}$}
+%		\draw [thin] (-.75, 7) -- (2.5,7); %node[above, pos= .6]{$x=31.0\units{cm}$}
+%		\draw [->, thick](-0.5, 49) --node[below]{$\text{run}=\Delta t$} (3.5,49);
+%		\draw [->, thick](-0.5,1) --node[below,pos=.55,rotate=90]{$\text{rise}=\Delta x$} (-0.5, 49);
 	\stopaxis
 \stopbuffer
 
-\marginTikZ{}{linearposition}{The position vs.~time graph $x=x_0 + vt$ for initial position $x_0$ and constant velocity $v$.} % vskip, name, caption
+\marginTikZ{}{linearposition}{\rm The formula for the rolling ball's position is also a line.} % vskip, name, caption
 
-
-
-
-So far, we have considered motion along a straight path. Position can also be measured along a curved path. Displacement, distance, velocity, speed along the curved path are all calculated using the same formulas as along straight paths. %In practice, curved tracks do not work quite as well due to increased friction.
-%The path can be almost any shape, but in practice the paths are usually straight or circular.
-Circular paths are especially important.
+%\startbuffer[linearposition]
+%	\startaxis[
+%		footnotesize,
+%		width=2.25in,%\marginparwidth,
+%		y={1mm},%x={1cm},
+%		xlabel={$t$},
+%		xmin=0, xmax=3,
+%		xtick={0},
+%		ylabel={$x$},
+%		ymin=0, ymax=50,
+%		ytick={0},
+%		ytick pos=left,
+%		extra y ticks={7},
+%		extra y tick labels={$x_0$},
+%		clip mode=individual,
+%		]
+%		\addplot[thick,domain=0:3,samples=2]{7+12*x}
+%		node[pos=.5, above, sloped]{$\text{slope}=v$}
+%		;
+%	\stopaxis
+%\stopbuffer
+%
+%\marginTikZ{}{linearposition}{The position vs.~time graph $x=x_0 + vt$ for initial position $x_0$ and constant velocity $v$.} % vskip, name, caption
 
 % Exercises
 \section{Uniform circular motion and constant angular velocity}
@@ -777,30 +800,24 @@ Salviati and Simplicio’s discussion of the rolling ball leads them to consider
 \placefigure[margin][fig:SailEarth]
 {A ball rolls and a ship sails with constant velocity on the idealized smooth surface of Earth’s land and oceans. Remaining a constant distance from Earth’s center, their motion is neither accelerated nor diminished by the force of gravity.}
 {\externalfigure[earth][width=144pt]}
+\placetextfloat[bottom][fig:DialogueSolarSystem]{Galileo’s schematic map of the Solar System, with Jupiter’s moons, from \booktitle{Dialogue on the Two Chief World Systems, Ptolemaic and Copernican}.\autocite{p.~238}{Galileo1632}} {\externalfigure[DialogueSolarSystem][width=\textwidth]}
+
 \noindent
 Galileo saw circular motion and straight motion as equally natural – both would continue endlessly unless an outside force acted to end the motion, as illustrated in \in{figure}[fig:SailEarth].
 %A straight road on Earth is actually bent slightly downward along Earth’s spherical surface. Far larger circles are traced out by the Moon as it orbits Earth and the planets as they orbit the Sun.
 %The motions along these circles is easily expressed in terms of the radius and period of the orbits.
 %Galileo and his readers knew that while \booktitle{Two New Sciences} only used examples on Earth, the same insights applied to the circular paths of objects in the Solar System.
 
-% Text image
-\placetextfloat[bottom][fig:DialogueSolarSystem]{Galileo’s schematic map of the Solar System, with Jupiter’s moons, from \booktitle{Dialogue on the Two Chief World Systems, Ptolemaic and Copernican}.\autocite{p.~238}{Galileo1632}} {\externalfigure[DialogueSolarSystem][width=\textwidth]}
-
 Planets and moons in Galileo’s heliocentric model follow circular paths at constant speed, as shown in figure \in[fig:DialogueSolarSystem]. Planets circle the Sun, while moons circle Earth and Jupiter. 
-Speed along these circular paths can be calculated using \quotation{distance over duration.} The distance traveled in a single cycle is the orbit's circumference. The cycle's duration is the orbit's period. Using the new notation introduced in this chapter, the speed of an object in uniform circular motion is
+Speed along these circular paths can be calculated using \quotation{distance over duration.} The distance traveled in a single cycle is the orbit's circumference, found from the orbit's radius, $R$. The cycle's duration is the orbit's period. Using the new notation introduced in this chapter, the speed of an object in uniform circular motion is
 \startformula[eq:vT]
-	\abs{v} %= \frac {\abs{\Delta x}}{\Delta t}
-		= \frac{s}{\Delta t}
-		= \frac{2\pi R}{T}.
+	\abs{v} = \frac{2\pi R}{T}.
 \stopformula
 This is equivalent to the formula in \in{Chapter}[ch:Music], used to find the speed of the tower in \in{example}[ex:EarthSurfaceSpeed].
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:RadiansEarthSpeed]
 Earth’s distance from the Sun is $1.50\sci{11}\units{m}$. What is Earth’s speed in its orbit about the Sun?
-\placefigure[margin][fig:DialogueSolarSystemEarth]
-{Galileo's schematic map edited to show only the Sun (labeled O), Earth (A), and the Moon (shown as a full moon at N and as a new moon at P). The radius of Earth's orbit about the Sun is $1.50\sci{11}\units{m}$.}
-{\externalfigure[DialogueSolarSystemEarth][width=144pt]}
 \startsolution
 The radius of Earth’s orbit around the Sun is $1.50\sci{11}\units{m}$, as shown in \in{figure}[fig:DialogueSolarSystemEarth].
 \startformula\startmathalignment
@@ -817,6 +834,10 @@ The radius of Earth’s orbit around the Sun is $1.50\sci{11}\units{m}$, as show
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\placefigure[margin][fig:DialogueSolarSystemEarth]
+{Galileo's schematic map edited to show only the Sun (labeled O), Earth (A), and the Moon (shown as a full moon at N and as a new moon at P). The radius of Earth's orbit about the Sun is $1.50\sci{11}\units{m}$.}
+{\externalfigure[DialogueSolarSystemEarth][width=144pt]}
 
 %The previous example required a rather tedious unit conversion from years to seconds. We can simplify this step by finding the number of seconds in a year.
 %\startformula
@@ -845,7 +866,7 @@ When we study the rotation of solid objects – like Earth – displacement and 
 While the object's different parts travel different distances, all parts travel through the same angle as the object rotates. Working with angles will immensely simplify the study of rotating solid objects.
 
 % Florence: 43°46′17″N 11°15′15″E
-\startplacefigure[location=margin, reference=fig:FlorenceCircle2, title={Florence circles Earth's axis every day, following a circle of radius $R = 4600\units{km}$.}]
+\startplacefigure[location=margin, reference=fig:FlorenceCircle2, title={Florence circles Earth's axis every day, following a circle of radius $R = 4600\units{km}$.}] \small
 \startMPcode
   pickup pencircle scaled 0.8pt ;
   draw externalfigure "EarthNorthPole.png" scaled 0.498 shifted (-2.5cm,-2.5cm) ;
@@ -889,7 +910,7 @@ Radians are able to do this because an angle’s measure in radians is defined b
 \stopformula
 Of course, $s$ and $r$ are both lengths and should have the same units, so the units on the right cancel out. However, you need angular units for $\theta$ on the left. Radians cheerfully step in to provide the units. You don’t have to do anything else, but if you wish to convert to other angular units, you can.
 
-\startplacefigure[location=margin, reference=fig:EarthAlexandria.pdf, title={The cities in \in{examples}[ex:RadiansLatitude] and \in[ex:RadiansEratosthenes].}]
+\startplacefigure[location=margin, reference=fig:EarthAlexandria.pdf, title={The cities in \in{examples}[ex:RadiansLatitude] and \in[ex:RadiansEratosthenes].}]\small
 \startMPcode
   %begingroup ;
   pickup pencircle scaled 0.8pt ;
@@ -935,7 +956,7 @@ Latitude and longitude are measured in degrees. Latitude goes from $0\degree$ at
 % Alexandria: 31°12′N 29°55′E
 % Syene: 24°05′20″N 32°53′59″E
 
-\startplacefigure[location=margin, reference=fig:RadiansLatitude, title={Florence's latitude is the angle $\theta$.}]
+\startplacefigure[location=margin, reference=fig:RadiansLatitude, title={Florence's latitude is the angle $\theta$.}]\small
 \startMPcode
   pickup pencircle scaled 0.8pt ;
   draw externalfigure "EarthFlorence.png" scaled 0.498 shifted (-2.5cm,-2.5cm) ;
@@ -1001,7 +1022,7 @@ On a summer bicycle tour of Egypt you decide to reproduce Eratosthenes’ measur
 % Alexandria: 31°12′N 29°55′E
 % Syene: 24°05′20″N 32°53′59″E
 
-\startplacefigure[location=margin, reference=fig:RadiansEratosthenes, title={Measuring Earth's diameter on your bike tour of Egypt.}]
+\startplacefigure[location=margin, reference=fig:RadiansEratosthenes, title={Measuring Earth's diameter on your bike tour of Egypt.}]\small
 \startMPcode
   pickup pencircle scaled 0.8pt ;
   draw externalfigure "EarthEratosthenes.png" scaled 0.498 shifted (-2.5cm,-2.5cm) ;
@@ -1072,7 +1093,7 @@ Although the parts have different velocities, they all share the same angular ve
 \startexample[ex:EarthRotation]
 Find Earth's angular velocity in radians per hour. Earth rotates eastward, as shown in \in{figure}[fig:EarthRotation].
 % Florence: 43°46′17″N 11°15′15″E
-\startplacefigure[location=margin, reference=fig:EarthRotation, title={Earth rotates about its axis with angular velocity $\omega$.}]
+\startplacefigure[location=margin, reference=fig:EarthRotation, title={Earth rotates about its axis with angular velocity $\omega$.}]\small
 \startMPcode
   pickup pencircle scaled 0.8pt ;
   draw externalfigure "EarthNorthPole.png" scaled 0.498 shifted (-2.5cm,-2.5cm) ;
@@ -1113,7 +1134,7 @@ The \scaps{si} units for $v$ on the left are $\unit{m/s}$. The units on the righ
 \startexample[ex:FlorenceRotation]
 Find the speed of the tower in Florence using the angular velocity from \in{example}[ex:EarthRotation]. Florence is $4600\units{km}$ from Earth's axis.
 % Florence: 43°46′17″N 11°15′15″E
-\startplacefigure[location=margin, reference=fig:FlorenceCircle1, title={Florence circles Earth's axis every day, following a circle of radius $R = 4600\units{km}$.}]
+\startplacefigure[location=margin, reference=fig:FlorenceCircle1, title={Florence circles Earth's axis every day, following a circle of radius $R = 4600\units{km}$.}]\small
 \startMPcode
   pickup pencircle scaled 0.8pt ;
   draw externalfigure "EarthNorthPole.png" scaled 0.498 shifted (-2.5cm,-2.5cm) ;
@@ -1198,11 +1219,10 @@ Galileo was able to analyze constant force motion using some very clever geometr
 \LL[2]%\bottomrule
 \stoptabulate}
 
-These algebraic methods weren’t developed until the late seventeenth century, when Isaac Newton and Gottfried Leibniz invented calculus to deal with changing velocities and other issues in mechanics. Newton’s calculus was built on the Galileo’s geometric methods. Leibniz’s calculus, based on algebra, proved more practical. I encourage you to learn Leibniz’s calculus, but in the meantime there are two practical tricks we will adopt for finding instantaneous velocity.
+These algebraic methods weren’t developed until the late seventeenth century, when Isaac Newton and Gottfried Leibniz invented calculus to deal with changing velocities and other issues in mechanics. Newton’s calculus was built on the Galileo’s geometric methods. Leibniz’s calculus, based on algebra, proved more practical.
 
 \startbuffer[BallRollsDown]
 	\startaxis[
-		footnotesize,
 		width=2.25in,%\marginparwidth,
 		y={1mm},%x={1cm},
 		xlabel={$t$ (s)},
@@ -1249,7 +1269,7 @@ These algebraic methods weren’t developed until the late seventeenth century, 
 
 \marginTikZ{}{BallRollsDown}{The velocity starts small (small slope) and becomes large (large slope). The small rise, $dx$, and run, $dt$, can be used to accurately estimate the velocity at $t=0.50\units{s}$.} % vskip, name, caption
 
-The first trick is to choose initial and final times very close together, so that the velocity is \emph{almost} constant for the duration. This is illustrated on the ball’s accelerated motion graph in figure \in[fig:BallRollsDown]. To find the instantaneous velocity at $t=0.50\units{s}$, we chose points just before and after that time for our initial and final measurements. The curve between the points has a nearly constant slope, so finding the slope with those points will give a good estimate of the instantaneous velocity at $0.50\units{s}$.
+Leibniz chose initial and final times very close together, so that the velocity is \emph{almost} constant for the duration. This is illustrated on the ball’s accelerated motion graph in figure \in[fig:BallRollsDown]. To find the instantaneous velocity at $t=0.50\units{s}$, we chose points just before and after that time for our initial and final measurements. The curve between the points has a nearly constant slope, so finding the slope with those points will give a good estimate of the instantaneous velocity at $0.50\units{s}$.
 
 
 Leibniz introduced a neat notation for these small triangles, replacing the big $\Delta$ with a small $d$ to remind us to replace the big triangle with a small one, as shown in figure \in[fig:BallRollsDown]. Using Leibniz’s notation, the instantaneous velocity is
@@ -1257,9 +1277,35 @@ Leibniz introduced a neat notation for these small triangles, replacing the big 
 	v = \frac{dx}{dt}.
 \stopformula
 
-How small is small enough? It depends. You will usually want an answer that is correct to two or three significant figures, which means the slope should not change more than a few percent between the initial and final time. If the triangle has no visible curvature on the hypotenuse, then it is probably small enough. The triangle in figure \in[fig:BallRollsDown] appears to be small enough. Use this method when you have precise positions at specific times, like you would find in a data table.
+How small is small enough? It depends. You will usually want an answer that is correct to two or three significant figures, which means the slope should not change more than a few percent between the initial and final time. If the triangle has no visible curvature on the hypotenuse, then it is probably small enough. The triangle in figure \in[fig:BallRollsDown] appears to be small enough. 
 
-%[I think it is worth using $dx$ and $dt$ to remind them that these are small.]
+Acceleration complicates our efforts to predict an object’s future position. The position update formula, $x\si + v\Delta t = x\sf$, only works if the velocity remains constant throughout the duration $\Delta t$. However, we can still succeed by focusing on a short duration $dt$ during which the velocity changes very little. During this short duration the position changes by small amount $dx$, given by
+\startformula
+dx = v\,dt.
+\stopformula
+If we know the velocity at each time, even if the velocity is changing, we can break the time into many brief steps. We then proceed through these steps, updating the position each step by adding the small changes calculated above. If the steps are small enough this process can be quite accurate – and also quite tedious.
+
+%\startexample
+%Find the ball’s position at $t=0.21\units{s}$.
+%\startsolution
+%This is just after $t=0.20\units{s}$, when the position is $\coordinates{24,28}\unit{cm}$. This is a small enough time that the velocity will not change significantly, so we are going to use a single short time step $dt = 0.01\units{s}$. The small changes in position are
+%\startformula\startmathalignment[m=2,distance=2em]
+%\NC dx	\NC = v_x\,dt		\NC dy	\NC = v_y\,dt	\NR
+%\NC		\NC = (1.2\units{m/\ucan{s}})(0.01\,\ucan{s})
+%						\NC		\NC = (-2.0\units{m/\ucan{s}})(0.01\,\ucan{s})	\NR
+%\NC		\NC = 1.2\units{cm}	\NC		\NC = -2.0\units{cm}
+%\stopmathalignment\stopformula
+%Then update the coordinates.
+%\startformula\startmathalignment[m=2,distance=2em]
+%\NC x	\NC = 24\units{cm} + 1.2\units{cm}
+%						\NC y	\NC = 28\units{cm} - 2.0\units{cm}	\NR
+%\NC		\NC = 25\units{cm}	\NC		\NC = 26\units{cm}				\NR
+%\stopmathalignment\stopformula
+%The position at $t=0.21\units{s}$ is $\coordinates{25,26}\unit{cm}$.
+%\stopsolution
+%\stopexample
+
+Computers are able to perform these update calculations quickly and accurately for many tiny steps.  Computer simulations using this repeated update method are especially valuable in situations where experiments are difficult, like collisions between galaxies. Simulations have become the third pillar of physics research, alongside experiments and theory. Simulations must also predict the objects’ velocities, a challenge that we will begin to address with Newton’s laws in the next chapter.
 
 
 \section{Compound motion}
@@ -1282,7 +1328,7 @@ Is this compound motion to be expected? It is! Before the rock is released, it i
 \placewidefloat
   [top,none]
   {This is its caption I need to fix.}
-{\hbox{\noindent\starttikzpicture	% tikz code
+{\hbox{\noindent\small\starttikzpicture	% tikz code
 		\draw[shade, ball color = gray] (.4,1.155) circle[radius=.02cm][opacity=.2];
 		\draw[shade, ball color = gray] (4.3,1.0925) circle[radius=.02cm][opacity=.4];
 		\draw[shade, ball color = gray] (8.2,.905) circle[radius=.02cm][opacity=.6];
@@ -1323,7 +1369,7 @@ Finally, the butterflies and flies will continue their flights indifferently tow
 The cause of all these correspondences of effects is the fact that the ship's motion is common to all the things contained in it, and to the air also.
 	\autocite{p.~216--218}{Galileo2001}
 \stopblockquote
-If you have ever been on a large ship, you know that when the motion is uniform, there is no way to determine if the ship is moving without looking outside. You may have experienced the same thing on a bus, train or airplane when it is traveling with a constant velocity. Shared motion, even when it is hundreds of miles per hour, is not perceptible without an outside reference. Everyone on Earth shares Earth's rapid motion, which we can only recognize by looking beyond Earth to the stars.
+If you have ever been on a large ship, you know that when the motion is uniform, there is no way to determine if the ship is moving without looking outside. You may have experienced the same thing on a bus, train, or airplane when it is traveling with a constant velocity. Shared motion, even when it is hundreds of miles per hour, is not perceptible without an outside reference. Everyone on Earth shares Earth's rapid motion, which we can only recognize by looking beyond Earth to the stars.
 
 The necessity of studying the relative motion, revealed by Galileo, became known as \keyterm{Galilean relativity}. While not as well known as its twentieth-century descendants, Einstein’s special and general relativity, Galilean relativity resolved the conflict between Earth’s apparent motionlessness and the direct astronomical evidence for Earth’s rapid motion – both its daily rotation and its annual revolution around the Sun.
 
@@ -1518,9 +1564,8 @@ The horizontal velocity is $1.2\units{m/s}$.
 \stopsolution
 \stopexample
 
-The vertical motion of the ball is accelerated. To find the vertical velocity at a specific time we should use one of the instantaneous velocity methods, either by using very small changes in $t$ and $y$ or by computing the slope of the tangent. Unfortunately, we do not have enough information in the table or on the diagram to execute either of these methods. The times listed in the table are far enough apart that the velocity is changing significantly with each step, so the changes are not small. The tangent needs to be drawn on the position vs.~time graph, but figure \in[fig:BallOffTable] shows only position, not time. If we drew a tangent on figure \in[fig:BallOffTable], its slope would \emph{not} be the velocity.
-
-In spite of these limitations, we can make a good approximation of the velocity by choosing the initial and final times judiciously.
+The vertical motion of the ball is accelerated. To find the vertical velocity at a specific time we should use the instantaneous velocity method with very small changes in $t$ and $y$. Unfortunately, the times listed in the table are far enough apart that the velocity changes significantly with each step.
+However, we can make a good approximation of the velocity by choosing the initial and final times judiciously.
 
 \startexample[ex:BallOffTableVely] Estimate the ball’s vertical velocity at $t=0.20\units{s}$.
 \startsolution
@@ -1552,8 +1597,6 @@ The little arrow on $\vec{v}$ indicates that it is a vector with multiple compon
 	The ball’s velocity at $t=0.2\units{s}$ is approximately $\components{1.2,-2.4}\unit{m/s}$.
 \stopsolution
 \stopexample
-
-When the motion is confined to only one dimension there is no need to distinguish between the vector and its one component – they are the same! In more than one dimension we need to distinguish the vector $\vec{v}$ from its components $v_x$ and $v_y$. In this case, a $v$ without any decoration is ambiguous. A $v$ with multiple decorations, like $\vec {v}_x$, is nonsense.
 
 \startbuffer[BallOffTableVelComp]
 	\startaxis[
@@ -1621,6 +1664,7 @@ When the motion is confined to only one dimension there is no need to distinguis
 
 \marginTikZ{}{BallOffTableVelComp}{The velocity’s components at $0.20\units{s}$. The horizontal component is the same at all times, while the vertical component, starting from zero, becomes increasingly negative.} % vskip, name, caption
 
+\noindent
 The velocity’s components $v_x$ and $v_y$ are used to draw the velocity vector in figure \in[fig:BallOffTableVelComp]. The rightward and downward components, drawn to scale, combine to produce the velocity that is down and to the right. The vector representing the velocity is straight, pointing in the direction of the velocity of the velocity at the instant $t=0.20\units{s}$. The vector does not curve along the path.
 
 Speed is the magnitude of the velocity vector, represented by $\vabs{\vec v}$. Since the velocity vector is the hypotenuse of the right triangle in figure \in[fig:BallOffTableVelComp], its magnitude can be found using the Pythagorean theorem.
@@ -1710,6 +1754,8 @@ There are three important things to notice about the speed calculation. First, c
 Second, the units should be treated carefully. When a component is squared, the answer’s units are squared units: $(-2.0\units{m/s})^2 = 4.0\units{m^2\!/s^2}$. The parenthesis are needed to show that both the number and the units are squared. When the square root is taken in the last step, the units get un-squared, giving units of $\unit{m/s}$ again in the final answer. Third, the components can be negative, but their squares are always positive. The sum is always a sum of these positive squares. The magnitude is therefore always positive.
 
 Actually, there is one, and only one, vector with a magnitude of zero. It is called the zero vector and it is written $\vec{0}=\components{0,0}$. The zero vector has no direction, since its length is zero, so it is drawn simply as a dot, not an arrow.
+
+When the motion is confined to only one dimension there is no need to distinguish between the vector and its one component – they are the same! In more than one dimension we need to distinguish the vector $\vec{v}$ from its components $v_x$ and $v_y$. In this case, a $v$ without any decoration is ambiguous. A $v$ with multiple decorations, like $\vec {v}_x$, is nonsense.
 
 %Figure \in[fig:BallOffTablePath] shows the entire path of the ball, rather than just showing the ball’s position at a few times. The path is drawn as a sequence of tiny displacement arrows, each showing the ball’s displacement during $0.01\units{s}$. As the ball approaches the edge of the elevated plane, the arrows are very short because the ball does not travel far during each $0.01\units{s}$. As the ball falls the speed increases and the arrows get proportionally longer.
 %
@@ -1864,34 +1910,6 @@ Actually, there is one, and only one, vector with a magnitude of zero. It is cal
 %The velocity vectors are always straight and tangent to the path, pointing in the direction of motion. If the small displacements are shown along the path, the speed can be determined. Thus, the velocity vector can be drawn with the correct direction and magnitude, as shown in figure \in[fig:BallOffTablePathSpeed].
 
 % During the first half of this duration, the ball is falling more slowly than it is at $t=0.20\units{s}$. During the second half it is falling faster. These two effects
-
-Acceleration complicates our efforts to predict an object’s future position. The position update formulas, $x\si + v_x\Delta t = x\sf$ and $y\si + v_y\Delta t = y\sf$, only work if the velocity remains constant throughout the duration $\Delta t$. However, we can still succeed by focusing on a short duration $dt$ during which the velocity changes very little. During this short duration the coordinates change by small amounts
-\startformula
-dx = v_x\,dt	\qquad	dy = v_y\,dt
-\stopformula
-If we know the velocity at each time, even if the velocity is changing, we can break the time into many brief steps. We then proceed through these steps, updating the position each step by adding the small changes calculated above. If the steps are small enough this process can be quite accurate, and also quite tedious.
-
-\startexample
-Find the ball’s position at $t=0.21\units{s}$.
-\startsolution
-This is just after $t=0.20\units{s}$, when the position is $\coordinates{24,28}\unit{cm}$. This is a small enough time that the velocity will not change significantly, so we are going to use a single short time step $dt = 0.01\units{s}$. The small changes in position are
-\startformula\startmathalignment[m=2,distance=2em]
-\NC dx	\NC = v_x\,dt		\NC dy	\NC = v_y\,dt	\NR
-\NC		\NC = (1.2\units{m/\ucan{s}})(0.01\,\ucan{s})
-						\NC		\NC = (-2.0\units{m/\ucan{s}})(0.01\,\ucan{s})	\NR
-\NC		\NC = 1.2\units{cm}	\NC		\NC = -2.0\units{cm}
-\stopmathalignment\stopformula
-Then update the coordinates.
-\startformula\startmathalignment[m=2,distance=2em]
-\NC x	\NC = 24\units{cm} + 1.2\units{cm}
-						\NC y	\NC = 28\units{cm} - 2.0\units{cm}	\NR
-\NC		\NC = 25\units{cm}	\NC		\NC = 26\units{cm}				\NR
-\stopmathalignment\stopformula
-The position at $t=0.21\units{s}$ is $\coordinates{25,26}\unit{cm}$.
-\stopsolution
-\stopexample
-
-Computers are able to perform these update calculations quickly and accurately for many tiny steps.  Computer simulations using this repeated update method are especially valuable in situations where experiments are difficult, like collisions between galaxies. Simulations have become the third pillar of physics research, alongside experiments and theory. Simulations must also predict the objects’ velocities, a challenge that we will begin to address with Newton’s laws in the next chapter.
 
 Galileo did not use vectors in his work, because vectors were not developed until the nineteenth century! They are so incredibly helpful that we will use them every chance we get, allowing us to do things that Galileo, Newton, and Leibnitz could not.
 

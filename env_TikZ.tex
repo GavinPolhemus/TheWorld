@@ -19,13 +19,12 @@
 
 \tikzset{>/.tip=Latex} % The tip drawn by -> will be the LaTeX tip.
 \tikzset{tips=proper} % Arrows with zero length will not have heads. 
-\tikzset{help lines/.style=lightgray}
+\tikzset{help lines/.style=middlegray}
 
-% This didn't work, I don't know why.
-%\pgfplotsset{
-%		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
-%		major grid style = {middlegray},
-%}
+\pgfplotsset{
+		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+		major grid style = {middlegray},
+}
 
 % Redefined footnote size graphs, replacing LaTeX style commands with ConTeXt commands.
 \pgfplotsset{
@@ -80,7 +79,7 @@
 	footnotesize,
 	%width=\marginparwidth, scale only axis,
 	x={1mm},y={1mm},
-	xlabel={\m{x} (cm)},
+	xlabel={$x$ (cm)},
 	xmin=-0.5,xmax=49.5,
 	ymin=0,ymax=6.1,
 	hide y axis,
@@ -94,7 +93,7 @@
 	%\fill [black!10] (0,0) rectangle (13.6,-.15);
 	%footnotesize,
 	x={1mm},y={1mm},
-	xlabel={\m{x} (cm)},
+	xlabel={$x$ (cm)},
 	xmin=-1,xmax=151,
 	ymin=-10,ymax=35,
 	hide y axis,
@@ -189,11 +188,11 @@
 		\draw[thick] (-0.4cm,0) circle[radius=0.2cm];
 		\draw[thick] (-0.8cm,0) circle[radius=0.2cm];
 		\draw[thick] (-1.2cm,0) circle[radius=0.2cm];
-		\node at (0.4cm,-1.2cm) {\small\m{\vec F}};
+		\node at (0.4cm,-1.2cm) {\small$\vec F$};
 		\draw[thick,->] (0.7cm,-1.2cm) -- (1.3cm,-1.2cm);
-		\node at (0,0.1cm) {\small\m{q\vec v}};
+		\node at (0,0.1cm) {\small$q\vec v$};
 		\draw[thick,->] (0,0.4cm) -- (0,1.3cm);
-		\node at (-0.7cm,-0.4cm) {\small\m{\vec B}};
+		\node at (-0.7cm,-0.4cm) {\small$\vec B$};
 		\node at (-0.4cm,0) {\small•};
 		\node at (-0.8cm,0) {\small•};
 		\node at (-1.2cm,0) {\small•};
@@ -208,11 +207,11 @@
 			-- (1.4,0) arc [start angle=0, end angle=180, radius=0.2cm]
 			arc [start angle=0, end angle=180, radius=0.2cm]
 			arc [start angle=0, end angle=180, radius=0.2cm];
-		\node at (-0.4cm,-1.2cm) {\small\m{\vec F}};
+		\node at (-0.4cm,-1.2cm) {\small$\vec F$};
 		\draw[thick,->] (-0.7cm,-1.2cm) -- (-1.3cm,-1.2cm);
-		\node at (0,0.1cm) {\small\m{q\vec v}};
+		\node at (0,0.1cm) {\small$q\vec v$};
 		\draw[thick,->] (0,0.4cm) -- (0,1.3cm);
-		\node at (0.7cm,-0.4cm) {\small\m{\vec B}};
+		\node at (0.7cm,-0.4cm) {\small$\vec B$};
 		\node at (0.4cm,0) {\small\times};
 		\node at (0.8cm,0) {\small\times};
 		\node at (1.2cm,0) {\small\times};
