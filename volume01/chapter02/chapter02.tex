@@ -489,7 +489,7 @@ Outside forces can change an object’s velocity, but as long as it moves freely
 	\NC		\NC= \answer{-2.4\units{m/s}} \NC\NC
 			%\text{Answer in a box}
 \stopmathalignment\stopformula
-The velocity of the cart is $-24\units{cm/s}$, negative because the cart is moving in the negative direction, as shown in figure \in[fig:CartVel].
+The velocity of the cart is $-2.4\units{m/s}$, negative because the cart is moving in the negative direction, as shown in figure \in[fig:CartVel].
 \stopsolution
 \stopexample
 
@@ -690,7 +690,11 @@ We will often set $t\si = 0$ to simplify calculations. In this case we use $x_0$
 \startformula
 	x = x_0 + vt.
 \stopformula
-You might not recognize it immediately, but this is the formula for a straight line. Compare this constant velocity formula to the usual math class formula for a straight line: $y=mx+b$, shown in \in{figure}[fig:linearmath]. Since constant velocity motion gives the equation for a straight line, we say that $x$ is a linear function of $t$ when the motion is uniform. This linear function is shown in \in{figure}[fig:linearposition] for comparison.
+You might not recognize it immediately, but this is the formula for a straight line. Compare this constant velocity formula to the usual math class formula for a straight line: $y=mx+b$, shown in \in{figure}[fig:linearmath], with initial value $b$ and slope $m$. The position formula for constant velocity has initial value $x_0$ and the slope $v$. For the case of the rolling ball, the position formula becomes
+\startformula
+	x = 7\units{cm} + 12\units{cm/s}\cdot t.
+\stopformula
+The position vs.\ time graph of this straight-line formula is shown in \in{figure}[fig:linearposition].
 
 \startbuffer[linearmath]
 	\startaxis[
@@ -809,11 +813,10 @@ Galileo saw circular motion and straight motion as equally natural – both woul
 %Galileo and his readers knew that while \booktitle{Two New Sciences} only used examples on Earth, the same insights applied to the circular paths of objects in the Solar System.
 
 Planets and moons in Galileo’s heliocentric model follow circular paths at constant speed, as shown in figure \in[fig:DialogueSolarSystem]. Planets circle the Sun, while moons circle Earth and Jupiter. 
-Speed along these circular paths can be calculated using \quotation{distance over duration.} The distance traveled in a single cycle is the orbit's circumference, found from the orbit's radius, $R$. The cycle's duration is the orbit's period. Using the new notation introduced in this chapter, the speed of an object in uniform circular motion is
+In \in{Chapter}[ch:Music], we learned to calculate speed along these circular paths using \quotation{distance over duration} (\at{p.}[eq:vT]). With our new symbol for speed, $\abs{v}$, this formula becomes
 \startformula[eq:vT]
 	\abs{v} = \frac{2\pi R}{T}.
 \stopformula
-This is equivalent to the formula in \in{Chapter}[ch:Music], used to find the speed of the tower in \in{example}[ex:EarthSurfaceSpeed].
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:RadiansEarthSpeed]
@@ -859,9 +862,9 @@ The radius of Earth’s orbit around the Sun is $1.50\sci{11}\units{m}$, as show
 %				\answer{30.0\units{km/s}}
 %	\end{align*}
 %Since the last significant digit is always uncertain, this answer matches the one we found before. Using the approximation doesn’t always work so nicely, but it always helps. Just remember that it cannot be used in problems requiring four or more significant figures.
-
 %}
 
+\noindent
 When we study the rotation of solid objects – like Earth – displacement and speed are not as useful. A rotating object's different parts travel different distances at different speeds. Parts near the axis travel more slowly along smaller circles while objects farther from the center travel along longer circles at higher speed. For example, a tower built at the equator will travel Earth's entire circumference every $24$ hours, while the tower in Florence completes a smaller circumference in the same time, as shown in \in{figure}[fig:FlorenceCircle2].
 While the object's different parts travel different distances, all parts travel through the same angle as the object rotates. Working with angles will immensely simplify the study of rotating solid objects.
 
@@ -892,8 +895,14 @@ Angles can be measured in cycles, degrees, or radians. These angular units are r
 \startformula
 	1\units{cyc} = 360\degree= 2\pi\units{rad}.
 \stopformula
-Degrees have been a common choice for physicists and astronomers as well as for non-specialists. Cycles are also common. In fact, you used cycles when studying the circular motion of planets and moons.
-Degrees are familiar and cycles are sensible, but I want to introduce you to your new best friend: radians. You probably recognize radians from a math class, but it is possible you didn’t really hit it off. In physics you will work with radians, and it is going to be great. Radians will help you work through difficult issues with angular units, but not in a demanding way like other units. If you need angular units, radian will cheerfully jump in to help. If you want to do something with other units, radians will stay out of your way.
+Degrees have been a common choice for physicists and astronomers as well as for non-specialists. Cycles are also common.
+In fact, you used cycles when studying the circular motion of planets and moons.
+Degrees are familiar and cycles are sensible, but I want to introduce you to your new best friend: radians. 
+You probably recognize radians from a math class, but it is possible you didn’t really hit it off.
+In physics you will work with radians, and it will be great.
+Radians will help you work through difficult issues with angular units, but not in a demanding way like other units.
+If you need angular units, radian will cheerfully jump in to help.
+If you want to do something with other units, radians will stay out of your way.
 
 \startbuffer[radians]
 \draw (5,0) coordinate (A) --node[below]{$r$} (0,0) coordinate (B) -- (4,3) coordinate (C)
@@ -1002,7 +1011,7 @@ Florence’s latitude is $43.8\unit{\degree N}$. Thanks, radians!
 When you don’t need angular units anymore, radians will step out gracefully.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:RadiansEratosthenes]
-On a summer bicycle tour of Egypt you decide to reproduce Eratosthenes’ measurement of Earth’s radius (see p.\at[fig:EarthRadius]). Eratosthenes measured the shadow in Alexandria to be one fiftieth of a circle, or $0.020\units{cyc}$. (On the trip, you confirm that this measurement is good to two significant figures.)  After carefully calibrating your odometer you measure the distance between Alexandria and the well in Syene to be $800\units{km}$, or $8.0\sci{5}\units{m}$. Based on your measurements, what is Earth’s radius?
+On a summer bicycle tour of Egypt you decide to reproduce Eratosthenes’ measurement of Earth’s radius (see p.\at[fig:EarthRadius]). Eratosthenes measured the shadow in Alexandria to be one fiftieth of a circle, or $0.020\units{cyc}$. (On the trip, you confirm that this measurement is good to two significant figures.)  After carefully calibrating your odometer, you measure the distance between Alexandria and the well in Syene to be $800\units{km}$, or $8.0\sci{5}\units{m}$. Based on your measurements, what is Earth’s radius?
 
 %\startbuffer[RadiansEratosthenes]
 %\clip (-1.5,-3) rectangle (3.5,3);% Clipping Rectangle
@@ -1078,7 +1087,7 @@ Since we only need kilometers for our units, radians just disappeared. You found
 Whenever you need angular units, put in radians. If you need $1/\unit{rad}$ or $\unit{rad^2}$, put it in. Afterward, convert to other angular units if you need to. If you have angular units you don’t need, convert them to radians and let them disappear. No other unit works like this. There when you need them, gone when you don’t, radians are the best!
 
 
-When an object rotates, its many parts move with different speeds – in many different directions – as they circle the axis. What the parts share is the angle that they travel around the axis. This angle is the \keyterm{angular displacement}, $\Delta\theta$, which is computed like other displacements.
+When an object rotates, its many parts move with different speeds, in many different directions, as they circle the axis. What the parts share is the angle that they travel around the axis. This angle is the \keyterm{angular displacement}, $\Delta\theta$, which is computed like other displacements.
 \startformula
 	\Delta \theta = \theta\sf - \theta\si
 \stopformula
@@ -1124,7 +1133,7 @@ Every $24$ hours Earth rotates through one revolution, which is $2\pi$ radians. 
 %\stopformula
 %The only things new in angular displacement and angular velocity are the symbols and flexibility with units. By tradition, $N$ and $f$ always use cycles, while $\theta$ and $\omega$ can use any angular units.
 
-With the help of our new friend radians, we can relate a rotating object’s many speeds to its one angular velocity $\omega$. Consider a part that is distance $r$ from the center of mass, so that it travels along a circle of radius $r$ around the center of mass as the object rotates. When the object rotates though an angular displacement of $\Delta\theta$ the part moves along the circle a distance $s = r\Delta\theta$. The part’s speed is therefore,
+With the help of our new friend radians, we can relate a rotating object’s many speeds to its one angular velocity $\omega$. Consider a part that is distance $r$ from the axis, so that it travels along a circle of radius $r$ as the object rotates. When the object rotates though an angular displacement of $\Delta\theta$ the part moves along the circle a distance $s = r\Delta\theta$. The part’s speed is therefore,
 \pagereference[eq:angularvelocity]
 \startformula
 	\abs{v} = \frac{s}{\Delta t} = \frac{r\Delta\theta}{\Delta t} = r\frac{\Delta\theta}{\Delta t} = r\omega.
@@ -1165,7 +1174,7 @@ Find the speed of the tower in Florence using the angular velocity from \in{exam
 \stopMPcode
 \stopplacefigure
 \startsolution
-The formula for the speed of circular motion will provide the answer, with the help of several unit conversions.
+Use the formula for the speed of circular motion and convert the units.
 \startformula
 	\abs{v} = r\omega
 		= 4.6\sci{6}\units{m}\cdot 0.262\units{\ucan{rad}/\ucan{hr}}
@@ -1178,7 +1187,7 @@ The formula for the speed of circular motion will provide the answer, with the h
 
 \section[sec:AccMotion]{Accelerated motion and instantaneous velocity}
 
-Everything you have learned about uniform motion can be adapted to situations where the velocity is changing, like the rock dropped from the tower or the ball on the incline, shown in figure \in[fig:inclineacceleratingball]. Since the velocity is changing from one instant to the next, we must adjust the velocity formula to calculate the \keyterm{instantaneous velocity}, the velocity at a particular instant.
+Everything you have learned about uniform motion can be adapted to situations where the velocity is changing, like the rock dropped from the tower or the ball on the incline, shown in \in{figure}[fig:inclineacceleratingball]. Since the velocity is changing from one instant to the next, we must adjust the velocity formula to calculate the \keyterm{instantaneous velocity}, the velocity at a particular instant.
 
 \startbuffer[inclineacceleratingball]
 	\startaxis[margin cart track,
@@ -1187,39 +1196,62 @@ Everything you have learned about uniform motion can be adapted to situations wh
 		clip=false,
 		]
 		\draw[shade, ball color = white] (3,3) circle[radius=3][opacity=.2];
-		\fill(3,3) circle[radius=.4mm][opacity=.2];
+		\fill[color = white] (3.5,3) circle[radius=3];
+			\draw[shade, ball color = white] (3.5,3) circle[radius=3][opacity=.267];
+		\fill[color = white] (5,3) circle[radius=3];
+			\fill(3,3) circle[radius=.4mm][opacity=.2];
+			\fill[color = white] (3.5,3) circle[radius=.4mm];
+			\fill(3.5,3) circle[radius=.4mm][opacity=.267];
+			\draw[shade, ball color = white] (5,3) circle[radius=3][opacity=.333];
 		\fill[color = white] (7.5,3) circle[radius=3];
-		\draw[shade, ball color = white] (7.5,3) circle[radius=3][opacity=.4];
-		\fill(7.5,3) circle[radius=.4mm][opacity=.4];
-		\draw[shade, ball color = white] (21,3) circle[radius=3][opacity=.6];
-		\fill(21,3) circle[radius=.4mm][opacity=.6];
+			\fill(5,3) circle[radius=.4mm][opacity=.333];
+			\draw[shade, ball color = white] (7.5,3) circle[radius=3][opacity=.4];
+			\fill(7.5,3) circle[radius=.4mm][opacity=.4];
+		\fill[color = white] (11,3) circle[radius=3];
+			\draw[shade, ball color = white] (11,3) circle[radius=3][opacity=.467];
+			\fill(11,3) circle[radius=.4mm][opacity=.467];
+		\fill[color = white] (15.5,3) circle[radius=3];
+			\draw[shade, ball color = white] (15.5,3) circle[radius=3][opacity=.533];
+			\fill(15.5,3) circle[radius=.4mm][opacity=.533];
+		\fill[color = white] (21,3) circle[radius=3];
+			\draw[shade, ball color = white] (21,3) circle[radius=3][opacity=.6];
+			\fill(21,3) circle[radius=.4mm][opacity=.6];
+		\draw[shade, ball color = white] (27.5,3) circle[radius=3][opacity=.667];
+			\fill(27.5,3) circle[radius=.4mm][opacity=.667];
+		\draw[shade, ball color = white] (35,3) circle[radius=3][opacity=.733];
+			\fill(35,3) circle[radius=.4mm][opacity=.733];
 		\draw[shade, ball color = white] (43.5,3) circle[radius=3];
-		\fill(43.5,3) circle[radius=.4mm];
-%		\pic at (7,0) {cart};
-%		\pic at (40,0) {block};
+			\fill(43.5,3) circle[radius=.4mm];
 \fill [on layer={axis background}] (-0.5,0) rectangle (49.5,-1.5)[opacity=.1];
     \stopaxis
 \stopbuffer
 
-\marginTikZ{}{inclineacceleratingball}{The ball rolls down an incline with ever increasing speed. The ball’s position is shown every $0.30\units{s}$.} % vskip, name, caption
+\marginTikZ{\vskip3.3in}{inclineacceleratingball}{A ball's speed increases at it rolls down an incline. The ball’s position is shown at $0.1\units{s}$ intervals.} % vskip, name, caption
 
 As Galileo explained, changing velocity is always caused by an outside force. In Galileo’s examples, the outside force is gravity, which exerts a constant, downward force.
-Galileo was able to analyze constant force motion using some very clever geometric tricks. We will skip the geometric methods and use algebraic methods instead.
+Galileo was able to analyze constant force motion using some very clever geometric tricks.
+We would like to analyze motion even when the force is changing. For this, we need tools developed in the late seventeenth century, when Isaac Newton and Gottfried Leibniz invented calculus to deal with changing velocities. Newton’s calculus was built on the Galileo’s geometric methods. Leibniz’s calculus, based on algebra, proved more practical.
+
+Leibniz chose initial and final times very close together, so that the velocity is \emph{almost} constant for the brief duration. This is illustrated on the ball’s accelerated motion graph in \in{figure}[fig:BallRollsDown]. To find the instantaneous velocity at $t=0.50\units{s}$, we choose points just before and after that time for our initial and final measurements. The curve between the points has a nearly constant slope, so finding the slope with those points will give a good estimate of the instantaneous velocity at $0.50\units{s}$.
 
 \placetable[margin][T:inclineroll] % Label
-    {The rolling ball’s positions listed at one second intervals.} % Caption
+    {The rolling ball’s positions listed at $0.1\units{s}$ intervals.} % Caption
     {\vskip9pt\small\starttabulate[|c|c|]
 \FL[2]%\toprule
 \NC Time ($t$)		\NC Position ($x$)				\NR
 \HL
-\NC $0.0\units{s}$	\NC $\phantom{0}3.0\units{cm}$	\NR
-\NC $0.3\units{s}$	\NC $\phantom{0}7.5\units{cm}$				\NR
-\NC $0.6\units{s}$	\NC $21.0\units{cm}$				\NR
-\NC $0.9\units{s}$	\NC $43.5\units{cm}$				\NR
+\NC $0.00\units{s}$	\NC $\phantom{0}3.0\units{cm}$	\NR
+\NC $0.10\units{s}$	\NC $\phantom{0}3.5\units{cm}$	\NR
+\NC $0.20\units{s}$	\NC $\phantom{0}5.0\units{cm}$	\NR
+\NC $0.30\units{s}$	\NC $\phantom{0}7.5\units{cm}$	\NR
+\NC $0.40\units{s}$	\NC $11.0\units{cm}$			\NR
+\NC $0.50\units{s}$	\NC $15.5\units{cm}$			\NR
+\NC $0.60\units{s}$	\NC $21.0\units{cm}$			\NR
+\NC $0.70\units{s}$	\NC $27.5\units{cm}$			\NR
+\NC $0.80\units{s}$	\NC $35.0\units{cm}$			\NR
+\NC $0.90\units{s}$	\NC $43.5\units{cm}$			\NR
 \LL[2]%\bottomrule
 \stoptabulate}
-
-These algebraic methods weren’t developed until the late seventeenth century, when Isaac Newton and Gottfried Leibniz invented calculus to deal with changing velocities and other issues in mechanics. Newton’s calculus was built on the Galileo’s geometric methods. Leibniz’s calculus, based on algebra, proved more practical.
 
 \startbuffer[BallRollsDown]
 	\startaxis[
@@ -1236,76 +1268,37 @@ These algebraic methods weren’t developed until the late seventeenth century, 
 		minor y tick num=4,
 		clip mode=individual
 		]
-		%\startscope[opacity=.3, transparency group] % Don’t know why this didn’t work
-		\draw[opacity=.3, shade, ball color = white] (0,3) circle[radius=3mm];
-		\fill[opacity=.3](0,3) circle[radius=.4mm];
-		\draw  [opacity=.3, semithick]({-.4/3},-4) -- ({-.4/3},52);
-		\draw  [opacity=.3, semithick]({.4/3},-4) -- ({.4/3},52);
-		\draw[opacity=.3, shade, ball color = white] (0.3,7.5) circle[radius=3mm];
-		\fill[opacity=.3](0.3,7.5) circle[radius=.4mm];
-		\draw  [opacity=.3, semithick]({.3-.4/3},-4) -- ({.3-.4/3},52);
-		\draw  [opacity=.3, semithick]({.3+.4/3},-4) -- ({.3+.4/3},52);
-		\draw[opacity=.3, shade, ball color = white] (0.6,21) circle[radius=3mm];
-		\fill[opacity=.3](0.6,21) circle[radius=.4mm];
-		\draw  [opacity=.3, semithick]({.6-.4/3},-4) -- ({.6-.4/3},52);
-		\draw  [opacity=.3, semithick]({.6+.4/3},-4) -- ({.6+.4/3},52);
-		\draw[opacity=.3, shade, ball color = white] (0.9,43.5) circle[radius=3mm];
-		\fill[opacity=.3](0.9,43.5) circle[radius=.4mm];
-		\draw  [opacity=.3, semithick]({.9-.4/3},-4) -- ({.9-.4/3},52);
-		\draw  [opacity=.3, semithick]({.9+.4/3},-4) -- ({.9+.4/3},52);
-		%\stopscope
-		%\addplot[thick,domain=-0.5:2,samples=2]{7+12*x};
 		\addplot[thick,domain=0:1,samples=51]{3+(50*x^2)};
-		%\addplot[thick,domain=3:3.5,samples=2]{35};
 		\draw [very thin](0.5,0) -- (0.5, 15.5);
-		%\draw [thin](2,32) -- (3, 36);
 		\fill(0.5,15.5) circle[radius=.4mm];
-		\draw [-{Straight Barb[scale length=1.3]}, thick](0.45, 18) --node[above]{$dt$} (0.55,18);
-		\draw [-{Straight Barb}, thick](0.45,13) --node[left]{$dx$} (0.45, 18);
-		%\draw [->, thick](2,36) --node[below]{run} (3,36);
-		%\draw [->, thick](2,32) --node[right]{rise} (2,36);
+		\draw [-{Straight Barb[scale length=1.3]}, thick](0.4, 21) --node[above]{$dt$} (0.6,21);
+		\draw [-{Straight Barb}, thick](0.4,11) --node[left]{$dx$} (0.4, 21);
 	\stopaxis
 \stopbuffer
 
-\marginTikZ{}{BallRollsDown}{The velocity starts small (small slope) and becomes large (large slope). The small rise, $dx$, and run, $dt$, can be used to accurately estimate the velocity at $t=0.50\units{s}$.} % vskip, name, caption
+\marginTikZ{}{BallRollsDown}{The rolling ball's position vs.\ time graph shows the ball's velocity starting small (small slope) and becoming large (large slope). The small $dx$ and $dt$ can be used to accurately estimate the velocity at $t=0.50\units{s}$.} % vskip, name, caption
 
-Leibniz chose initial and final times very close together, so that the velocity is \emph{almost} constant for the duration. This is illustrated on the ball’s accelerated motion graph in figure \in[fig:BallRollsDown]. To find the instantaneous velocity at $t=0.50\units{s}$, we chose points just before and after that time for our initial and final measurements. The curve between the points has a nearly constant slope, so finding the slope with those points will give a good estimate of the instantaneous velocity at $0.50\units{s}$.
-
-
-Leibniz introduced a neat notation for these small triangles, replacing the big $\Delta$ with a small $d$ to remind us to replace the big triangle with a small one, as shown in figure \in[fig:BallRollsDown]. Using Leibniz’s notation, the instantaneous velocity is
+Leibniz introduced a neat notation for instantaneous velocity. He replaced the big $\Delta$ with a small $d$ as a reminder to use small changes in position and time, as shown in \in{figure}[fig:BallRollsDown]. Using Leibniz’s notation, the instantaneous velocity is
 \startformula
 	v = \frac{dx}{dt}.
 \stopformula
 
 How small is small enough? It depends. You will usually want an answer that is correct to two or three significant figures, which means the slope should not change more than a few percent between the initial and final time. If the triangle has no visible curvature on the hypotenuse, then it is probably small enough. The triangle in figure \in[fig:BallRollsDown] appears to be small enough. 
 
-Acceleration complicates our efforts to predict an object’s future position. The position update formula, $x\si + v\Delta t = x\sf$, only works if the velocity remains constant throughout the duration $\Delta t$. However, we can still succeed by focusing on a short duration $dt$ during which the velocity changes very little. During this short duration the position changes by small amount $dx$, given by
-\startformula
-dx = v\,dt.
-\stopformula
-If we know the velocity at each time, even if the velocity is changing, we can break the time into many brief steps. We then proceed through these steps, updating the position each step by adding the small changes calculated above. If the steps are small enough this process can be quite accurate – and also quite tedious.
-
-%\startexample
-%Find the ball’s position at $t=0.21\units{s}$.
-%\startsolution
-%This is just after $t=0.20\units{s}$, when the position is $\coordinates{24,28}\unit{cm}$. This is a small enough time that the velocity will not change significantly, so we are going to use a single short time step $dt = 0.01\units{s}$. The small changes in position are
-%\startformula\startmathalignment[m=2,distance=2em]
-%\NC dx	\NC = v_x\,dt		\NC dy	\NC = v_y\,dt	\NR
-%\NC		\NC = (1.2\units{m/\ucan{s}})(0.01\,\ucan{s})
-%						\NC		\NC = (-2.0\units{m/\ucan{s}})(0.01\,\ucan{s})	\NR
-%\NC		\NC = 1.2\units{cm}	\NC		\NC = -2.0\units{cm}
-%\stopmathalignment\stopformula
-%Then update the coordinates.
-%\startformula\startmathalignment[m=2,distance=2em]
-%\NC x	\NC = 24\units{cm} + 1.2\units{cm}
-%						\NC y	\NC = 28\units{cm} - 2.0\units{cm}	\NR
-%\NC		\NC = 25\units{cm}	\NC		\NC = 26\units{cm}				\NR
-%\stopmathalignment\stopformula
-%The position at $t=0.21\units{s}$ is $\coordinates{25,26}\unit{cm}$.
-%\stopsolution
-%\stopexample
-
-Computers are able to perform these update calculations quickly and accurately for many tiny steps.  Computer simulations using this repeated update method are especially valuable in situations where experiments are difficult, like collisions between galaxies. Simulations have become the third pillar of physics research, alongside experiments and theory. Simulations must also predict the objects’ velocities, a challenge that we will begin to address with Newton’s laws in the next chapter.
+\startexample[ex:BallRoolDownVel] Estimate the rolling ball’s velocity at $t=0.50\units{s}$. Use the graph in \in{figure}[fig:BallRollsDown] or the values in \in{table}[T:inclineroll].
+\startsolution
+	The best choice of times is $t\si=0.40\units{s}$ and $t\sf=0.60\units{s}$, equally preceding and following the target time.
+	\startformula
+		v_y = \frac{\Delta y}{\Delta t}
+			%= \frac{y\sf - y\si}{t\sf - t\si}
+			= \frac{21.0\units{cm} - 11.0\units{cm}}{0.60\units{s} - 0.40\units{s}}
+			= \frac{10.0\ucan{cm}}{0.20\units{s}}
+					\left(\frac{1\units{m}}{100\ucan{cm}}\right)
+			= 0.50\units{m/s}
+	\stopformula
+The vertical velocity at $t=0.50\units{s}$ is approximately $0.50\units{m/s}$.
+\stopsolution
+\stopexample
 
 
 \section{Compound motion}
@@ -1326,7 +1319,7 @@ Let us return now to the puzzle of the falling rock. We know that the rock is ac
 Is this compound motion to be expected? It is! Before the rock is released, it is carried eastward – along with the tower – by Earth’s rotation. After the rock is released, the only force on the rock is gravity, pulling directly toward Earth’s center and causing the rock to fall. Gravity has no effect on the rock’s horizontal motion, so even as the rock falls it continues to the east – along with the tower – and lands at the tower’s base, as shown in figure \in[fig:RockDropGalileo].
 
 \placewidefloat
-  [top,none]
+  [bottom,none]
   {This is its caption I need to fix.}
 {\hbox{\noindent\small\starttikzpicture	% tikz code
 		\draw[shade, ball color = gray] (.4,1.155) circle[radius=.02cm][opacity=.2];
@@ -1347,7 +1340,7 @@ Is this compound motion to be expected? It is! Before the rock is released, it i
 
 \placefigure[margin][fig:RockDropGalileo] % location
 {As the rock falls, its eastward motion keeps it close to the tower. Gravity pulls the rock toward Earth’s center, bending the rock’s path downward without decreasing its eastward motion. The rock lands at the tower’s base.}	% caption text
-{\vskip36pt\hbox{\noindent\starttikzpicture
+{\vskip6.4in\hbox{\noindent\starttikzpicture
 	\draw[white] (0,0)-- ++(5,0.2); % Sky to make height better
 \stoptikzpicture}}
 
@@ -1371,7 +1364,8 @@ The cause of all these correspondences of effects is the fact that the ship's mo
 \stopblockquote
 If you have ever been on a large ship, you know that when the motion is uniform, there is no way to determine if the ship is moving without looking outside. You may have experienced the same thing on a bus, train, or airplane when it is traveling with a constant velocity. Shared motion, even when it is hundreds of miles per hour, is not perceptible without an outside reference. Everyone on Earth shares Earth's rapid motion, which we can only recognize by looking beyond Earth to the stars.
 
-The necessity of studying the relative motion, revealed by Galileo, became known as \keyterm{Galilean relativity}. While not as well known as its twentieth-century descendants, Einstein’s special and general relativity, Galilean relativity resolved the conflict between Earth’s apparent motionlessness and the direct astronomical evidence for Earth’s rapid motion – both its daily rotation and its annual revolution around the Sun.
+The necessity of studying the relative motion, revealed by Galileo, became known as \keyterm{Galilean relativity}.
+Galilean relativity resolved the conflict between Earth’s apparent motionlessness and the direct astronomical evidence for Earth’s rapid motion – both its daily rotation and its annual revolution around the Sun.
 
 %[Experimental tests: Dropping the rock from the top of a mast on a moving ship. Dropping something in a car, bus, or plane.]
 
@@ -1437,7 +1431,7 @@ In \booktitle{Two New Sciences}, Galileo describes \quotation{a new science of m
 
 
 \noindent
-A ball rolling off of the elevated plane displays projectile motion in figure \in[fig:BallOffTable]. Two meter sticks, one horizontal and one vertical, measure the ball’s horizontal and vertical positions as it falls. %Salviati does not give the height of the elevated plane or the speed of the particle. I placed the elevated plane $45\units{cm}$ above the ground and gave the ball an initial velocity of $1.20\units{m/s}$.
+A ball rolling off an elevated plane displays projectile motion in figure \in[fig:BallOffTable]. Two meter sticks, one horizontal and one vertical, measure the ball’s horizontal and vertical positions as it falls. %Salviati does not give the height of the elevated plane or the speed of the particle. I placed the elevated plane $45\units{cm}$ above the ground and gave the ball an initial velocity of $1.20\units{m/s}$.
 
 \placetable[margin][T:BallOffTable] % Label
     {The ball’s position as it falls.} % Caption
@@ -1448,10 +1442,10 @@ A ball rolling off of the elevated plane displays projectile motion in figure \i
 \NC $t$ 			\NC $x$	\NC $y$				\NR
 %\NC (s) 			\NC (cm)						\NR
 \HL
-\NC $0.00\units{s}$	\NC $\phantom{0}0.0\units{cm}$	\NC $48.0\units{cm}$		\NR
-\NC $0.10\units{s}$	\NC $12.0\units{cm}$		\NC $43.0\units{cm}$				\NR
-\NC $0.20\units{s}$	\NC $24.0\units{cm}$		\NC $28.0\units{cm}$				\NR
-\NC $0.30\units{s}$	\NC $36.0\units{cm}$		\NC $\phantom{0}4.0\units{cm}$	\NR
+\NC $0.00\units{s}$	\NC $\phantom{0}0\units{cm}$	\NC $48\units{cm}$		\NR
+\NC $0.10\units{s}$	\NC $12\units{cm}$		\NC $43\units{cm}$				\NR
+\NC $0.20\units{s}$	\NC $24\units{cm}$		\NC $28\units{cm}$				\NR
+\NC $0.30\units{s}$	\NC $36\units{cm}$		\NC $\phantom{0}4\units{cm}$	\NR
 \LL[2]%\bottomrule
 \stoptabulate}
 
@@ -1525,17 +1519,16 @@ Coordinates are often written as a pair, $\coordinates{x,y}$. From the table we 
 	\stopaxis
 \stopbuffer
 
-\marginTikZ{}{BallOffTableDisplacement}{The horizontal displacement is $\Delta x=12\unit{cm}$ for each step. The vertical displacements, $\Delta y$, become increasingly negative.} % vskip, name, caption
+\marginTikZ{}{BallOffTableDisplacement}{The horizontal displacement is $\Delta x=12\units{cm}$ for each step. The vertical displacements, $\Delta y$, become increasingly negative.} % vskip, name, caption
 
 
-Figure \in[fig:BallOffTableDisplacement] shows the ball’s displacement from $t=0.10\units{s}$ to $t=0.20\units{s}$. During that time the ball moves horizontally from
- $x\si=12\units{cm}$ to $x\sf=24\units{cm}$. The change in the $x$ coordinate is therefore
+Figure \in[fig:BallOffTableDisplacement] shows the ball’s horizontal and vertical displacements, calculated from the ball's positions. For example, the horizontal displacement during the interval from $t=0.10\units{s}$ to $t=0.20\units{s}$ is
 \startformula
-	\Delta x = x\sf - x\si = 24.0\units{cm} - 12.0\units{cm} = 12.0\units{cm}.
+	\Delta x = x\sf - x\si = 24\units{cm} - 12\units{cm} = 12\units{cm}.
 \stopformula
-Similarly, the change in the $y$ coordinate is
+Similarly, the the vertical displacement during the same interval is
 \startformula
-	\Delta y = y\sf - y\si = 28.0\units{cm} - 43.0\units{cm} = -15.0\units{cm}.
+	\Delta y = y\sf - y\si = 28\units{cm} - 43\units{cm} = -15\units{cm}.
 \stopformula
 
 The ball’s horizontal and vertical displacements can be used to find the ball’s horizontal and vertical velocities, {\txx $v_x$} and $v_y$. %(No subscript is necessary when the motion is restricted to only one dimension.)
@@ -1547,8 +1540,8 @@ Each velocity is computed exactly as in one dimension. The ball’s horizontal m
 	\startformula
 	v_x = \frac{\Delta x}{\Delta t}
 		%= \frac{x\sf - x\si}{t\sf - t\si}
-		= \frac{36\units{cm}-12\units{cm}}{0.30\units{s}-0.10\units{s}}
-		= \frac{24\ucan{cm}}{0.20\units{s}}
+		= \frac{36\units{cm}-0\units{cm}}{0.30\units{s}-0.00\units{s}}
+		= \frac{36\ucan{cm}}{0.30\units{s}}
 				\left(\frac{1\units{m}}{100\ucan{cm}}\right)
 		= 1.2\units{m/s}
 	\stopformula
@@ -1564,37 +1557,59 @@ The horizontal velocity is $1.2\units{m/s}$.
 \stopsolution
 \stopexample
 
-The vertical motion of the ball is accelerated. To find the vertical velocity at a specific time we should use the instantaneous velocity method with very small changes in $t$ and $y$. Unfortunately, the times listed in the table are far enough apart that the velocity changes significantly with each step.
-However, we can make a good approximation of the velocity by choosing the initial and final times judiciously.
+The ball's vertical motion is accelerated. To find the vertical velocity at a specific time, we use the instantaneous velocity formula,
+\startformula
+	v_y = \frac{dy}{dt},
+\stopformula
+with small changes $dt$ and $dy$.
+
+%Unfortunately, the times listed in the table are far enough apart that the velocity changes significantly with each step.
+%However, we can make a good approximation of the velocity by choosing the initial and final times judiciously.
 
 \startexample[ex:BallOffTableVely] Estimate the ball’s vertical velocity at $t=0.20\units{s}$.
 \startsolution
 	The best choice of times, from our limited options, is $t\si=0.10\units{s}$ and $t\sf=0.30\units{s}$, equally preceding and following the target time.
 	\startformula
-		v_y = \frac{\Delta y}{\Delta t}
+		v_y = \frac{dy}{dt}
 			%= \frac{y\sf - y\si}{t\sf - t\si}
 			= \frac{4\units{cm} - 43\units{cm}}{0.30\units{s} - 0.10\units{s}}
 			= \frac{-39\ucan{cm}}{0.20\units{s}}
 					\left(\frac{1\units{m}}{100\ucan{cm}}\right)
 			= -2.0\units{m/s}
 	\stopformula
-The vertical velocity at $t=0.2\units{s}$ is approximately $-2.4\units{m/s}$.
+The vertical velocity at $t=0.20\units{s}$ is approximately $-2.0\units{m/s}$.
 \stopsolution
 \stopexample
 
+%\noindent
+%An object's motion in three dimensions is described by three coordinates: $x$, $y$, and $z$. If we know these coordinates, we can find the instantaneous velocities in each direction.
+%\startformula
+%	v_x = \frac{dx}{dt}
+%	\qquad
+%	v_y = \frac{dy}{dt}
+%	\qquad
+%	v_z = \frac{dz}{dt}
+%	\qquad
+%\stopformula
+
+
 \section{Vectors}
-The horizontal and vertical velocities, $v_x$ and $v_y$, are the \keyterm{components} of the velocity vector, whose symbol is $\vec{v}$. The velocity vector is often written as a pair of components,
+The ball's horizontal and vertical velocities can be combined to produce a single velocity vector pointing in the direction of the ball's motion, as shown in \in{figure}[fig:BallOffTableVelComp]. The ball's rightward and downward velocities combine to produce an angled velocity vector pointed to the right and down. %This directional vector is represented by the symbol $\vec{v}$.
+
+To completely describe the velocity vector, we list its \keyterm{components}.
+
 \startformula
-	\vec v = \components{v_x,v_y}.
+	\vec v = \components{v_x,v_y}
 \stopformula
 The little arrow on $\vec{v}$ indicates that it is a vector with multiple components. Notice the angle brackets used for the velocity vector. A position’s coordinates are in parenthesis, while a vector’s components are in angle brackets. %We will encounter more vectors soon.
 
-\startexample[ex:BallOffTableVel] Estimate the ball’s velocity at $t=0.20\units{s}$.
+
+\startexample[ex:BallOffTableVel] What is the ball’s velocity $\vec v$ at $t=0.20\units{s}$.
 \startsolution
-	The velocity’s components were found in examples \in[ex:BallOffTableVelx] and \in[ex:BallOffTableVely].	\startformula
+	The velocity’s components, $v_x$ and $v_y$, were found in examples \in[ex:BallOffTableVelx] and \in[ex:BallOffTableVely].	\startformula
 		\vec{v} = \components{v_x,v_y} = \components{1.2\units{m/s},-2.0\units{m/s}}
 	\stopformula
-	The ball’s velocity at $t=0.2\units{s}$ is approximately $\components{1.2,-2.4}\unit{m/s}$.
+	The ball’s velocity at $t=0.2\units{s}$ is approximately $\components{1.2,-2.0}\unit{m/s}$.
 \stopsolution
 \stopexample
 
@@ -1665,19 +1680,19 @@ The little arrow on $\vec{v}$ indicates that it is a vector with multiple compon
 \marginTikZ{}{BallOffTableVelComp}{The velocity’s components at $0.20\units{s}$. The horizontal component is the same at all times, while the vertical component, starting from zero, becomes increasingly negative.} % vskip, name, caption
 
 \noindent
-The velocity’s components $v_x$ and $v_y$ are used to draw the velocity vector in figure \in[fig:BallOffTableVelComp]. The rightward and downward components, drawn to scale, combine to produce the velocity that is down and to the right. The vector representing the velocity is straight, pointing in the direction of the velocity of the velocity at the instant $t=0.20\units{s}$. The vector does not curve along the path.
+The velocity vectors in \in{figure}[fig:BallOffTableVelComp] are straight, pointing in the direction of the velocity at each specific time. Velocity vectors do not curve along the path.
 
 Speed is the magnitude of the velocity vector, represented by $\vabs{\vec v}$. Since the velocity vector is the hypotenuse of the right triangle in figure \in[fig:BallOffTableVelComp], its magnitude can be found using the Pythagorean theorem.
 %\highlightbox{
 \startformula
-	\vabs{\vec v} = \sqrt{v_x^2+v_y^2}.
+	\vabs{\vec v} = \sqrt{v_x^2+v_y^2}
 \stopformula
 %}%\end{shaded}
 In this formula for speed, the double bars indicate this is not a simple absolute value – it is a vector’s magnitude, which must be computed by squaring the components, adding those squares, and taking the square root of the sum. The magnitude of any vector can be found this way.% Or calculating the components’ squares’ sum’s square root.
 
 \startexample[ex:BallFallSpeed] Estimate the ball’s speed at $t=0.20\units{s}$.
 \startsolution
-Speed is the magnitude of the velocity vector $\components{1,2,-2.4}\unit{m/s}$, found in the Exercises above.
+Speed is the magnitude of the velocity vector $\components{1.2,-2.0}\unit{m/s}$, found in \in{example}[ex:BallOffTableVel] above.
 \startformula
 \startmathalignment
 \NC	\vabs{\vec v}	\NC= \sqrt{v_x^2+v_y^2}	\NR
@@ -1753,9 +1768,9 @@ Sometimes vectors are labeled using only their length, as in figure \in[fig:Ball
 There are three important things to notice about the speed calculation. First, calculating a vector’s magnitude in two dimensions is more complicated than calculating in one dimension, where the magnitude is simply the absolute value.
 Second, the units should be treated carefully. When a component is squared, the answer’s units are squared units: $(-2.0\units{m/s})^2 = 4.0\units{m^2\!/s^2}$. The parenthesis are needed to show that both the number and the units are squared. When the square root is taken in the last step, the units get un-squared, giving units of $\unit{m/s}$ again in the final answer. Third, the components can be negative, but their squares are always positive. The sum is always a sum of these positive squares. The magnitude is therefore always positive.
 
-Actually, there is one, and only one, vector with a magnitude of zero. It is called the zero vector and it is written $\vec{0}=\components{0,0}$. The zero vector has no direction, since its length is zero, so it is drawn simply as a dot, not an arrow.
+There is only one vector with a magnitude of zero. It is the \keyterm{zero vector,} written $\vec{0}=\components{0,0}$. The zero vector has no direction, since its length is zero, so it is drawn simply as a dot, not an arrow.
 
-When the motion is confined to only one dimension there is no need to distinguish between the vector and its one component – they are the same! In more than one dimension we need to distinguish the vector $\vec{v}$ from its components $v_x$ and $v_y$. In this case, a $v$ without any decoration is ambiguous. A $v$ with multiple decorations, like $\vec {v}_x$, is nonsense.
+When the motion is confined to only one dimension, there is no need to distinguish between the vector and its one component – they are the same! In more than one dimension we need to distinguish the vector $\vec{v}$ from its components $v_x$ and $v_y$. In this case, a $v$ without any decoration is ambiguous. A $v$ with multiple decorations, like $\vec {v}_x$, is nonsense.
 
 %Figure \in[fig:BallOffTablePath] shows the entire path of the ball, rather than just showing the ball’s position at a few times. The path is drawn as a sequence of tiny displacement arrows, each showing the ball’s displacement during $0.01\units{s}$. As the ball approaches the edge of the elevated plane, the arrows are very short because the ball does not travel far during each $0.01\units{s}$. As the ball falls the speed increases and the arrows get proportionally longer.
 %
@@ -1911,10 +1926,16 @@ When the motion is confined to only one dimension there is no need to distinguis
 
 % During the first half of this duration, the ball is falling more slowly than it is at $t=0.20\units{s}$. During the second half it is falling faster. These two effects
 
-Galileo did not use vectors in his work, because vectors were not developed until the nineteenth century! They are so incredibly helpful that we will use them every chance we get, allowing us to do things that Galileo, Newton, and Leibnitz could not.
+In three dimensions, the velocity vector has three components, $\vec v = \components{v_x, v_y, v_z}$. Speed is this vector's magnitude.
+\startformula
+	\vabs{\vec v} = \sqrt{v_x^2 + v_y^2 + v_z^2}
+\stopformula
+
+Galileo did not use vectors in his work, because vectors were not developed until the nineteenth century.
+They are so incredibly helpful that we will use them every chance we get, allowing us to do things that Galileo, Newton, and Leibnitz could not.
 
 \section[sec:SHO]{Simple harmonic motion}
-Galileo’s \booktitle{Two New Sciences} describes one more type of motion that will be extremely useful in the coming chapters – the motion of a \keyterm{pendulum}, made by hanging a ball on the end of a length of string (fig. \in[fig:Pendulum]). When the ball swings, it oscillates along an arc. Galileo discovered that the period of a pendulum is surprisingly consistent. In \booktitle{Two New Sciences}, Salviati describes the experiment.
+Galileo’s \booktitle{Two New Sciences} describes one more type of motion that will be extremely useful in the coming chapters – the motion of a \keyterm{pendulum}, made by hanging a ball on a string (fig. \in[fig:Pendulum]). When the ball swings, it oscillates along an arc. Galileo discovered that the period of a pendulum is surprisingly consistent. In \booktitle{Two New Sciences}, Salviati describes the experiment.
 
 \startbuffer[Pendulum]
 	\startaxis[
@@ -1998,27 +2019,28 @@ Galileo’s \booktitle{Two New Sciences} describes one more type of motion that 
 
 Galileo also noted that the pendulum’s period does not depend on the size of the arc through which the pendulum swings.
 A pendulum, like the one described above, will swing with the same period whether it swings a centimeter in each direction, or 20 centimeters.
-(This is only true if the amplitude is considerably smaller than the length of the string, which will be the case in our examples.)
+(This is only true if the arc's length is considerably shorter than the string's length, which will be the case in our examples.)
 
-The central point of the motion is called the \keyterm{equilibrium point}. If the pendulum is not swinging, then it is motionless at the equilibrium point. %When the pendulum is set in motion, the initial displacement is measured from the equilibrium point.
-Figures \in[fig:PendulumLeadCork] and \in[fig:PendulumLargeSmallA] show the motion for some of Galileo’s experiments, all of which have the same period. %These graphs look like the graphs of displacement vs.~time for the musical vibrations in Chapter \in[ch:Music]. The difference is the size of the amplitudes and the length of the periods.
+The central point of the motion is called the \keyterm{equilibrium point}. If the pendulum is not swinging, then it is motionless at the equilibrium point.
+Figures \in[fig:PendulumLeadCork] and \in[fig:PendulumLargeSmallA] show the motion for some of Galileo’s experiments, all of which have the same period.
 
-The oscillating motion of a pendulum is called \keyterm{simple harmonic motion}, and anything that moves in this manner is called a \keyterm{simple harmonic oscillator}. Simple harmonic oscillators are  common. The musical strings and pipes in Chapter \in[ch:Music] were all simple harmonic oscillators, with frequencies much higher than a pendulum’s. Like the pendulum,
-good musical instruments oscillate with the same frequency, producing the same pitch, whether played quietly (small amplitude) or loudly (large amplitude). However, playing the instrument extremely loudly, with an amplitude that threatens to damage the instrument, can distort the sound by changing the frequency. %All simple harmonic oscillators share the property that the frequency (and period) of their oscillations are unaffected by the oscillations’ amplitude, provided that the amplitude is not too large.
+The oscillating motion of a pendulum is called \keyterm{simple harmonic motion}, and anything that moves in this manner is called a \keyterm{simple harmonic oscillator}. Simple harmonic oscillators are  common. The musical strings and pipes in \in{Chapter}[ch:Music] were all simple harmonic oscillators, with frequencies much higher than a pendulum’s. Like the pendulum,
+good musical instruments oscillate with the same frequency, producing the same pitch, whether played quietly (small amplitude) or loudly (large amplitude).
+For all simple harmonic motion, the period $T$ is the time required for the motion to repeat (\in{figure}[fig:PendulumLeadCork]), and the amplitude $A$ is the maximum displacement from the equilibrium point (\in{figure}[fig:PendulumLargeSmallA]).
 
-Simple harmonic motion is accelerated motion. When the pendulum is released, it speeds up as it approaches the center, slows down on the other side, stops momentarily, and then begins accelerating back toward the center. %The highest speed is at the equilibrium point.
-%(The amplitude is the distance from the equilibrium point to either of the turning points.)
-On the position vs.~time graph, the changing velocity can be seen as the changing slope.
-%At the turning points, the highest and lowest points on the graph, a tangent would be horizontal, with zero slope and therefore zero velocity.
-The steepest slope, and therefore highest speed, occurs when the pendulum passes through the equilibrium point. This maximum speed can be found using a tangent drawn through the point where the graph has the greatest positive slope. Figure \in[fig:vmax] has been expanded to show one period. If drawn carefully, the tangent hits the boundaries of the graph a distance of $\pi A$ from the equilibrium point. The maximum speed can be calculated from those values with the formula for instantaneous velocity.
+Simple harmonic motion is accelerated motion.
+When the pendulum is released, it speeds up as it approaches the center, slows down on the other side, stops momentarily, and then begins accelerating back toward the center.
+The pendulum's changing velocity can be seen as the changing slope on the position vs.~time graph.
+The steepest slope, and therefore highest speed, occurs when the pendulum passes through the equilibrium point. This maximum speed is
+
 \startformula[eq:vmaxT]\pagereference[eq:vmaxT]
 	\abs{v}\sub{max} %= \frac{dx}{dt}
-		= \frac{\text{tangent’s $\Delta x$}}{\text{tangent’s $\Delta t$}}
-		= \frac{2\pi A}{T}
+		= \frac{2\pi A}{T}.
 \stopformula
+This maximum speed formula looks just like the speed formula for uniform circular motion (p.~\at[eq:vT]), but with the circle's radius $R$ replaced by the oscillation's amplitude $A$. This maximum speed formula works for any simple harmonic oscillator.
 
-\startbuffer[PendulumLargeSmallA]
-	\matrix{
+\startbuffer[PendulumLargeSmallA]%
+	\matrix{%
 	\startaxis[
 		footnotesize,
 		width=2.25in,%\marginparwidth,
@@ -2036,12 +2058,14 @@ The steepest slope, and therefore highest speed, occurs when the pendulum passes
    		extra y tick style={grid=major},
 		clip mode=individual,
 		]
+  		\draw [<->]({4.5*3.14}, 25) --  ({4.5*3.14}, 30);
+  		\draw [middlegray]({4*3.14}, 30) -- ({5*3.14}, 30);
 		\addplot[thick,smooth,domain=0:20,samples=801]{25+5*cos(2*deg(x))};
 		\node[below left] at (axis description cs:1,1) {$A=5\units{cm}$};
   		\draw [{<[scale=0.7]}-{>[scale=0.7]}](3.14, 32) -- node[fill=white,inner sep=1pt]{$T$}  (6.29, 32);
   		\draw [](3.14, 30) -- (3.14, 33);
   		\draw [](6.29, 30) -- (6.29, 33);
-	\stopaxis\\
+	\stopaxis\\%
 	\startaxis[
 		footnotesize,
 		width=2.25in,%\marginparwidth,
@@ -2059,18 +2083,20 @@ The steepest slope, and therefore highest speed, occurs when the pendulum passes
    		extra y tick style={grid=major},
 		clip mode=individual,
 		]
+  		\draw [<->]({4.5*3.14}, 25) --  ({4.5*3.14}, 40);
+  		\draw [middlegray]({4*3.14}, 40) -- ({5*3.14}, 40);
 		\addplot[thick,smooth,domain=0:20,samples=801]{25+15*cos(2*deg(x))};
 		\node[below left] at (axis description cs:1,1) {$A=15\units{cm}$};
   		\draw [{<[scale=0.7]}-{>[scale=0.7]}](3.14, 42) -- node[fill=white,inner sep=1pt]{$T$}  (6.29, 42);
   		\draw [](3.14, 40) -- (3.14, 43);
   		\draw [](6.29, 40) -- (6.29, 43);
-	\stopaxis\\
+	\stopaxis\\%
 	};
 \stopbuffer
 
 \marginTikZ{}{PendulumLargeSmallA}{The pendulum’s period is the same for large and small amplitudes.} % vskip, name, caption
 
-\startbuffer[vmax]
+\startbuffer[vmax]%
 	\startaxis[
 		footnotesize,
 		width=2.25in,%\marginparwidth,
@@ -2080,8 +2106,8 @@ The steepest slope, and therefore highest speed, occurs when the pendulum passes
 		%xticklabels=\empty,
 		minor x tick num=4,
 		ylabel={$x$ (cm)},
-	  	every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90, anchor=center},
-		ymin=-10, ymax=60,
+	  	%every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90, anchor=center},
+		ymin=10, ymax=40,
 		minor y tick num=4,
 	   	extra y ticks={25},
 	   	extra y tick labels=\empty,
@@ -2089,39 +2115,22 @@ The steepest slope, and therefore highest speed, occurs when the pendulum passes
 		clip mode=individual,
 		]
 		\addplot[thick, smooth, domain=0:3.14,samples=101]{25-10*sin(2*deg(x))};
-		\draw [->, thick](0,{25+31.42}) --node[below, pos=.45]{$\text{tangent’s $\Delta t$} = T$} (3.14,{25+31.42});
-		\draw [->, thick](0,{25-31.42}) --node[below, pos=.6, xshift=2.5pt, fill=white, sloped]{$\text{tangent’s $\Delta x$} = 2\pi A$} (0,{25+31.42});
+		\draw [<->, thick](0,20) --node[fill=white, inner sep=2pt,pos=.67]{$T$} (3.14,20);
+		%\draw [->, thick](0,{25-31.42}) --node[below, pos=.6, xshift=2.5pt, fill=white, sloped]{$\text{tangent’s $\Delta x$} = 2\pi A$} (0,{25+31.42});
   		\draw [<->](2.356, 25) -- node[fill=white, inner sep=2pt]{$A$}  (2.356, 35);
-  		\draw [<->](0.785, 25) -- node[fill=white, inner sep=2pt]{$A$}  (0.785, 15);
-  		\draw [<->](0.55, 25) -- node[fill=white, inner sep=2pt, pos=.45]{$\pi A$}  (0.55, -6.416);
-  		\draw [middlegray](0, -6.416) -- (0.6, -6.416);
-  		\draw [<->](2.749, 25) -- node[fill=white, inner sep=2pt]{$\pi A$}  (2.749, 56.416);
-		\draw [thin](0,{25-31.42}) -- (3.14, {25+31.42});
-		\fill(1.57,25) circle[radius=.4mm];
+  		%\draw [<->](0.785, 25) -- node[fill=white, inner sep=2pt]{$A$}  (0.785, 15);
+  		%\draw [<->](0.55, 25) -- node[fill=white, inner sep=2pt, pos=.45]{$\pi A$}  (0.55, -6.416);
+  		%\draw [middlegray](0, -6.416) -- (0.6, -6.416);
+  		%\draw [<->](2.749, 25) -- node[fill=white, inner sep=2pt]{$\pi A$}  (2.749, 56.416);
+		%\draw [thin](0,{25-31.42}) -- (3.14, {25+31.42});
+		%\fill(1.57,25) circle[radius=.4mm];
 	\stopaxis
 \stopbuffer
 
 \marginTikZ{}{vmax}{A $2.45\units{m}$ long pendulum has the convenient period of $T=3.14\units{s}$. One period is shown. The pendulum’s maximum velocity is the slope of the tangent through the steepest point on the graph.} % vskip, name, caption
 
-
-\noindent While we have discussed the motion of a pendulum, this maximum speed formula works for any simple harmonic oscillator.
-%The mamximum speed of and simple harmonic motion is
-%
-%%\highlightbox{
-%\startformula
-%	\abs{v}\sub{max} = \frac{2\pi A}{T}.
-%\stopformula
-%%}
-%A larger amplitude requires a larger maximum velocity because the object must cover a greater distance between $x=A$ and $x=-A$ in the same time. A larger period allows for a smaller maximum velocity because the object has more time to cover the same distance.
-
-%In oscillating motion, the velocity is constantly changing. It is zero briefly at each end of the motion, where $x=A$ or $x=-A$. At those point the object stops momentarily as it changes direction to return to the center. The minimum velocity is the negative of the maximum velocity. This occurs when the object is moving through the center with the maximum speed, but in the negative direction.
-%\startformula
-%	v\sub{min} = -v\sub{max} = -\frac{2\pi A}{T}
-%	\label{eq:vminT}
-%\stopformula
-
 \startexample[ex:PendulumMaxVel]
-We reproduce Galileo’s pendulum using a length of $2.45\units{m}$, which has the convenient period $T=3.14\units{s}$. We then set the pendulum in motion with an amplitude $A=10.0\units{cm}$, as shown in figure \in[fig:vmax].
+We reproduce Galileo’s pendulum using a string length $R = 2.45\units{m}$, which has the convenient period $T=3.14\units{s}$. We then set the pendulum in motion with an amplitude $A=10.0\units{cm}$, as shown in figure \in[fig:vmax].
 What is the pendulum’s maximum speed?
 	\startsolution
 	Use the maximum speed formula for simple harmonic motion.
@@ -2137,20 +2146,8 @@ The pendulum’s maximum velocity is $20.0\units{cm/s}$.
 \stopsolution
 \stopexample
 
-\noindent In this example we could have used the tangent drawn in figure \in[fig:vmax]. Notice that the tangent’s $\Delta x$ is
-\startformula
-	\text{tangent’s $\Delta x$} = 56.4\units{cm} - (-6.4\units{cm})
-		= 62.8\units{cm},
-\stopformula
-which is equal to
-\startformula
-	2\pi A = 2\pi\cdot 10.0\units{cm} = 62.8\units{cm}.
-\stopformula
-Putting this into the instantaneous velocity formula gives the same result of $\abs{v}\sub{max} = 20.0\units{cm/s}$.
-%The points where the curve makes its steepest descent (at $x=0$) are just as steep as the points of steepest assent (also at $x=0$), but the slope at the descending points is negative rather than positive, again showing that $v\sub{min} = - v\sub{max}$.
-
-For a simple pendulum like Galileo’s, calculating the maximum speed of the balls is simple, but there is one potential pitfall to avoid. Since the ball swings along an arc whose radius is the string’s length, you may be tempted to use the speed formula for uniform circular motion (p.~\at[eq:vT]) with the string’s length for the radius $R$. This would be a mistake, because the motion is not uniform!
-The motion of the pendulum is simple harmonic. Always use maximum speed formula for simple harmonic motion to determine the maximum speed of a swinging pendulum.
+Calculating a pendulum's maximum speed is simple, but there is one pitfall to avoid. Since the ball swings along an arc whose radius is the string’s length, you may be tempted to use the speed formula for uniform circular motion (p.~\at[eq:vT]), with the string’s length for the radius $R$. This would be a mistake, because the motion is not uniform!
+The pendulum's motion is simple harmonic. For simple harmonic motion, always use the motion's amplitude $A$ in the maximum speed formula.
 
 \section{Four paths become one}
 
@@ -2254,7 +2251,7 @@ Johannes Kepler\pagereference[NewAstronomy] – who had access to new, very prec
 {The orbits of the inner planets, as discovered by Johannes Kepler. The orbits of Mercury and Mars are noticeably off-center. The gray pie-slices show the angle covered in $20\units{days}$ by Mars and Mercury when they are closest and farthest from the Sun. Each planet's speed and angular velocity are greatest when the planet is closest to the Sun. The orbits appear circular, but Kepler discovered a slight flattening, making the orbits elliptical.}	 % caption text
 {\noindent\typesetbuffer[TikZ:KeplerCompound]} % figure contents
 
-Marin Mersenne\pagereference[MersenneString] applied Galileo's new science of motion to the rapid vibrations of musical instruments. Mersenne had studied the ancient treatises on music and was a trained musician himself. He also studied the recent works of Vincenzo, Kepler, and Galileo, and he adopted their method of mathematical modeling checked against careful observations and experiments.
+Marin Mersenne\pagereference[MersenneString], working in France during the generation after Galileo, applied Galileo's new science of motion to the rapid vibrations of musical instruments. Mersenne had studied the ancient treatises on music and was a trained musician himself. He also studied the recent works of Vincenzo, Kepler, and Galileo, and he adopted their method of mathematical modeling checked against careful observations and experiments.
 
 Mersenne noted a remarkable behavior in the sound of any single string. 
 \quotation{The struck or sounded string\dots makes at least five different tones at the same time.}
@@ -2269,11 +2266,16 @@ That is why it is necessary to examine how [the movement] can cause the same str
 \stopblockquote
 Mersenne seems to have discovered another example of compound motion, combining five or six different motions simultaneously, each with different frequencies, all in perfect, simple ratios. This is indeed difficult to imagine — so difficult it confounded the best physicists and mathematicians for nearly two centuries!
 
-Astronomy studies the planetary motions over vast expanses of time and space. Galileo demonstrated that these motions could be understood by studying the motions of simple objects in laboratory experiments. Mersenne did the same for the tiny, rapid motions of musical instruments. They thus merged the four paths of the quadrivium into one path, the study of motion. Kepler, Galileo, and Mersenne took the first steps on this path. We will follow the path to its intended destination — a universal, mathematical model of motion capable of explaining the motions of astronomy, music, and everything in between.
+Astronomy studies the planetary motions over vast expanses of time and space.
+Galileo demonstrated that these motions could be understood by studying the motions of simple objects in laboratory experiments.
+Mersenne did the same for the tiny, rapid motions of musical instruments.
+They thus merged the four paths of the quadrivium into one path: the study of motion.
+Kepler, Galileo, and Mersenne took the first steps on this path.
+We will follow the path to its intended destination — a universal, mathematical model of motion capable of explaining the motions of astronomy, music, and everything in between.
 
-Galileo remained active in research and mentored students at his villa until his death in 1642 at the age of 77. 
-Following Galileo, many natural philosophers sought to quantify the amount of motion in an object. Several interesting ideas emerged, leading to a decades-long feud known as the \visviva\ debate.
-In the next two chapters, we will explore these ideas, navigate through the debate, and arrive at an unexpected resolution.
+%Galileo remained active in research and mentored students at his villa until his death in 1642 at the age of 77. 
+%Following Galileo, many natural philosophers sought to quantify the amount of motion in an object. Several interesting ideas emerged, leading to a decades-long feud known as the \visviva\ debate.
+%In the next two chapters, we will explore these ideas, navigate through the debate, and arrive at an unexpected resolution.
 
 \subject{Notes}
 \blank

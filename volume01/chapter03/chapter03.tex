@@ -1801,6 +1801,24 @@ To see the gradual affect of the gravitational force, let’s look at the cannon
 %\stopsolution
 %\stopexample
 
+Acceleration complicates our efforts to predict an object’s future position. The position update formula for constant velocity, $x\si + v\Delta t = x\sf$, only works if the velocity remains constant throughout the duration $\Delta t$. However, we can still succeed by focusing on a short duration $dt$ during which the velocity changes very little. During this short duration, the position changes by small amount $dx$, given by the position update formula for accelerated motion.
+\startformula
+dx = v\,dt
+\stopformula
+If we know the velocity at each time, even if the velocity is changing, we can break the time into many brief steps. We then proceed through these steps, updating the position each step by adding the small changes calculated above. With small steps, this process can be quite accurate – and quite tedious!
+
+Computers are able to perform these update calculations quickly and accurately for many tiny steps.  Computer simulations using this repeated update method are especially valuable in situations where experiments are difficult, like collisions between galaxies. Simulations have become the third pillar of physics research, alongside experiments and theory. Simulations must also predict the objects’ velocities, a challenge that we will begin to address with Newton’s laws in the next chapter.
+
+In three dimensions, if we know the object's velocities and its initial position, we can predict its future positions through repeated position updates.
+\startformula
+	dx = v_x\,dt
+	\qquad
+	dy = v_y\,dt
+	\qquad
+	dz = v_z\,dt
+	\qquad
+\stopformula
+We will typically only need two coordinates, keeping book-keeping to a minimum.
 
 \section{Circular motion and centripetal force}
 Newton confirmed Galileo’s description of projectile motion, but offered a dramatically different view of circular motion. Galileo viewed circular motion as natural. Newton, following Descartes, recognized that only straight motion is natural – a force is required to bend an object’s path into a circle. A bent path is always evidence that some force is acting.
