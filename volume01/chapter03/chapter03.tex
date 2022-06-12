@@ -1,4 +1,6 @@
+% !TEX useAlternatePath
 % !TEX useConTeXtSyncParser
+
 \startcomponent c_chapter03
 \project project_world
 \product prd_volume01
@@ -67,11 +69,19 @@ Christiaan Huygens, who was well versed in Cartesian philosophy, produced a diff
 % De Motu Corporum Ex Percussione
 Huygens explained that the \emph{direction} of the quantity of motion must be taken into account. He also found the quantity $mv^2$ is conserved in collisions with a good bounce (called \emph{elastic collisions}). The quantity $mv^2$ is not conserved in collisions with a poor bounce (called \emph{inelastic collisions}).
 
-About that time, the recently established Royal Society in London put out a request for papers on the topic of collisions. Isaac Newton relates the results of that request, accompanied by the diagram shown in figure \ref{fig:PrincipiaPendula}.
+About that time, the recently established Royal Society in London put out a request for papers on the topic of collisions. Isaac Newton relates the results of that request, accompanied by the diagram shown in \in{figure}[fig:PrincipiaPendula].
 
 \placefigure[margin][fig:PrincipiaPendula] % Location, Label
 {This diagram from Newton’s \booktitle{Principia} shows how simple pendulums were used to study collisions.\autocite{p.~22.}{Newton1726}} % Caption
 {\externalfigure[PrincipiaPendulaCollision][width=144pt]} % File
+
+\placefigure[margin][fig:GravesandeCollider] % Location, Label
+{An apparatus for collision experiments described in Willem ’s Gravesande’s \booktitle{Elements of Mathematical Physics}, published in 1720. (The ’s preceding his last name is not a typo.)\autocite{p.~83.}{Gravesande1720}} % Caption
+{\externalfigure[GravesandeCollider][width=144pt]} % File
+
+\placefigure[margin][fig:GravesandeData] % location
+{Data collected using the apparatus above.\autocite{p.~90.}{Gravesande1720}}	% caption text
+{\externalfigure[GravesandeData][width=144pt]} % File
 
 \startblockquote
 	Sir Christopher Wren, Dr. John Wallis, and Mr. Christiaan Huygens, easily the foremost geometers of the previous generation, independently found the rules of the collisions and reflections of hard bodies, and communicated them to the Royal Society at nearly the same time, entirely agreeing with one another (as to these rules); and Wallis was indeed the first to publish what had been found, followed by Wren and Huygens. But Wren additionally proved the truth of these rules before the Royal Society by means of an experiment with pendulums, which the eminent Mariotte soon after thought worthy to be made the subject of a whole book.\autocite{p.~424–425.}{Newton1999}
@@ -81,7 +91,7 @@ About that time, the recently established Royal Society in London put out a requ
 %Measuring the ball’s masses and their velocities before and after the collision allowed the experimenters to test different formulas for the quantity of motion.
 %
 %While masses are easy to measure, accurately measuring velocity is more difficult. Wren’s demonstration solves the velocity problem through clever use of the pendulum properties we learned from Galileo in the last section of Chapter \ref{ch:Motion}.
-Wren's demonstration was so wonderful that we are going to look at exactly how it worked. You could easily build your own pendulums, as I have, to perform these experiments yourself.
+Wren's demonstration was so wonderful that we are going to look at exactly how it worked. You could easily build your own pendulums, as I have, to perform these experiments yourself. An example from an early Newtonian textbook is shown in \in{figure}[fig:GravesandeCollider], with sample data shown in \in{figure}[fig:GravesandeData].
 
 \startbuffer[PendulumCollisionWren]
 	\matrix{
@@ -141,7 +151,7 @@ Wren's demonstration was so wonderful that we are going to look at exactly how i
 
 \marginTikZ{}{PendulumCollisionWren}{{The larger ball is pulled to the side and released (top). It swings to the center, striking the smaller ball (middle). After the collision, the balls slow to a stop (bottom).}} % vskip, name, caption
 
-Two balls are hung from identical long strings so that they are barely touching, as shown in Newton’s illustration (fig.~\ref{fig:PrincipiaPendula}). One of the balls is pulled to the side and released (fig.~\ref{fig:PendulumCollisionWren}). The location where it is released determines the speed with which it strikes the other ball. Until the collision, the motion of the ball is simple harmonic, though only for one quarter-period.  The quarter-period motion can be seen in figure~\ref{fig:PendulumCollisionWrenGraph}. The maximum speed formula for simple harmonic motion (p.~\pageref{eq:vmaxT}) gives the speed of the incoming ball as it arrives at the collision.
+Two balls are hung from identical long strings so that they are barely touching, as shown in Newton’s illustration (fig.~\ref{fig:PrincipiaPendula}). One of the balls is pulled to the side and released (fig.~\ref{fig:PendulumCollisionWren}). The location where it is released determines the speed with which it strikes the other ball. Until the collision, the motion of the ball is simple harmonic, though only for one-quarter period.  The quarter period motion can be seen in figure~\ref{fig:PendulumCollisionWrenGraph}. The maximum speed formula for simple harmonic motion (p.~\pageref{eq:vmaxT}) gives the speed of the incoming ball as it arrives at the collision.
 
 \startbuffer[PendulumCollisionWrenGraph]
 	\startaxis[
@@ -193,7 +203,7 @@ Two balls are hung from identical long strings so that they are barely touching,
 \startexample[ex:PendulumCollisionWren1]
 	Suppose Wren’s demonstration was done using pendulums with periods of 3.14 seconds. %The larger, left ball has a mass of 75 grams, while the smaller, right ball has a mass of 25 grams.
 	The larger ball is pulled back a distance of 15.0 centimeters and released to strike the smaller ball, as shown in figure~\ref{fig:PendulumCollisionWren}. What is the larger ball’s velocity as it arrives at the collision? 	\startsolution
-To find the speed at the collision point, we use the formula for the maximum speed of simple harmonic motion. The amplitude is the ball’s initial distance from its equilibrium point, $A=15.0\units{cm}$. (Vector notation is not required for one dimensional problems. For these I will continue to use $\abs{v}$ for speed and $v$ for velocity.)
+To find the speed at the collision point, we use the maximum speed formula for simple harmonic motion. The amplitude is the ball’s initial distance from its equilibrium point, $A=15.0\units{cm}$. (Vector notation is not required for one dimensional problems. For these I will continue to use $\abs{v}$ for speed and $v$ for velocity.)
 	\startformula
 		\abs{v}\sub{max} = \frac{2\pi A}{T}
 			= \frac{2\cancel{\pi}\cdot15.0\units{cm}}{\cancel{3.14}\units{s}}
@@ -229,7 +239,7 @@ Both of the velocities are to the right, which is positive. The velocity of the 
 \stopsolution
 \stopexample
 
-\noindent Since pendulums will be colliding frequently in this chapter, we will save work later by incorporating $A=\Delta x$ into the speed formula to get a formula for the pendulum collision velocities.
+\noindent Since pendulums will be colliding frequently in this chapter, we will save work later by incorporating $A=\Delta x$ into the speed formula to get a formula for pendulum collision velocities.
 \startformula
 	v = \frac{2\pi\,\Delta x}{T}
 \stopformula
@@ -383,9 +393,9 @@ The direction of the pendulum’s velocity $v$ is the direction of the pendulum�
 %
 
 
-The rules of collision required close attention to the direction of motion. Newton took note of this in his most important work, \booktitle{Philosophi\ae\ Naturalis Principia Mathematica}, where he made direction central to the study of all motion. Newton introduced his own quantity of motion $m\vec{v}$. This is a directional quantity. In one dimension, Newton’s quantity of motion is found by multiplying the mass, which is always positive, by the velocity, which can be positive or negative depending on the direction of motion. The resulting quantity of motion is positive for objects moving in the positive direction and negative for objects moving in the negative direction, just like velocity. This directional quantity of motion is the cornerstone of Newton’s physics.
+The rules of collision required close attention to the direction of motion. Newton took note of this in his most important work, \booktitle{Philosophi\ae\ Naturalis Principia Mathematica}, where he made direction central to the study of all motion. Newton introduced his own quantity of motion $m\vec{v}$. This is a directional quantity. In one dimension, Newton’s quantity of motion is found by multiplying the mass, which is always positive, by the velocity, which can be positive or negative depending on the direction of motion. The resulting quantity of motion is positive for objects moving in the positive direction and negative for objects moving in the negative direction. This directional quantity of motion is the cornerstone of Newton’s physics.
 
-Like Descartes, Newton did not write a formula for his quantity of motion. If he had, he would have written $mv$, just like Descartes, because vectors had not been invented. This ambiguity between speed and velocity caused tremendous confusion for decades. We are going to avoid that confusion by using vector notation. Before we dive into the mathematics of vectors, let us take a moment to note another promising replacement for Descartes’s disappointing $mv$.
+Like Descartes, Newton did not write a formula for his quantity of motion. If he had, he would have written $mv$, just like Descartes, because vectors had not been invented. This ambiguity between speed and velocity caused tremendous confusion for decades. We will avoid that confusion by using vectors. Before we dive into the mathematics of vectors, let us take a moment to note another promising replacement for Descartes’s disappointing $mv$.
 
 %We have been using one dimensional language, but Newton understood this to work just as well in two or three dimensions. We will continue to use one dimensional language because all of the important ideas and many experiments require only one dimension. We will return to two and three dimensional language toward the end of the chapter.
 
@@ -397,7 +407,7 @@ The science community was rather skeptical of Leibniz’s \textit{vis viva}, whi
 %The \textit{quantitas motus} was the cornerstone of Newton’s comprehensive formulation of mechanics, put forth in the \booktitle{Philosophi\ae\ Naturalis Principia Mathematica}. The \booktitle{Principia} does not mention $mv^2$, so, they reasoned, the \textit{vis viva} must be incorrect. Given the tremendous stature of Newton, Leibniz’s $mv^2$ was largely dismissed in favor of Newton’s $mv$.
 Even without the endorsement of the scientific community, Leibniz’s formula for \textit{vis viva} made useful predictions for many practical applications. Engineers and chemists adopted his formula and tested it in many experiments involving friction, fluids, and heat – things that scientists tried to avoid in motion experiments. The practical value of \textit{vis viva} suggested that it was both correct and important.
 
-A rift developed between Leibniz’s supporters, who used $mv^2$, and Newton’s supporters, who used $mv$. Newton’s supporters were called the Cartesians because of the similarity between Newton’s formula $m\vec{v}$ and Descartes’s $mv$. Fittingly, they sometimes included direction, as Newton taught them, and sometimes they did not, reverting to Descartes’ directionless quantity of motion. It was a mess.
+A rift developed between Leibniz’s supporters, who used $mv^2$, and Newton’s supporters, who used $mv$. Newton’s supporters were called the Cartesians, because Descartes' formula was also $mv$. Fittingly, the Cartesians sometimes included direction, as Newton taught them, and sometimes they did not, reverting to Descartes’ directionless quantity of motion. It was a mess.
 
 % Was Leibniz describing something new, or was he simply using the wrong formula for the quantity of motion?
 
@@ -406,13 +416,6 @@ Unfortunately, the \textit{vis viva} debate instead devolved into a battle of eg
 This unproductive turn was, in part, due to human nature, but conflicting experimental results also contributed to the confusion. Some experiments supported the formula $mv$ while others supported the formula $mv^2$.
 In the long run, the acrimonious debate did lead to ingenious experiments, careful analysis, and eventually to profound insights.
 The unexpected resolution became the foundation for all physics that followed.
-\placefigure[margin][fig:GravesandeCollider] % Location, Label
-{An apparatus for collision experiments described in Willem ’s Gravesande’s \booktitle{Elements of Mathematical Physics}, published in 1720. (The ’s preceding his last name is not a typo.)\autocite{p.~83.}{Gravesande1720}} % Caption
-{\externalfigure[GravesandeCollider][width=144pt]} % File
-
-%\placefigure[margin][fig:GravesandeData] % location
-%{Data collected using the apparatus above.\autocite{p.~90.}{Gravesande1720}}	% caption text
-%	\marginfig{GravesandeData}
 
 In this chapter, we will study Newton’s directional quantity of motion, which is now called momentum.
 His \booktitle{Principia} will be our guide.
@@ -457,8 +460,10 @@ The symbol $\vec{p}$ represents momentum. Using our mathematical language, Newto
 \stopformula
 %}
 
-This is a vector equation, which means that both sides of the equation are directional.
-In one dimension, the momentum is found by multiplying the velocity by the mass. Since the mass is always positive, the momentum will be positive if the velocity is positive, and the momentum will be negative is the velocity is negative. The momentum always points in the same direction as the velocity.
+Both sides of this equation are directional.
+Mass is always positive, so an object's momentum always points in the same direction as its velocity.
+In one dimension, the object's momentum is positive if its velocity is positive, its momentum is negative if its velocity is negative, and its momentum is zero if its velocity is zero.
+
 
 \startbuffer[CartVelotictyToMomentumEx]
 	\fill [black!10] (0,0) rectangle (4.9,-.15);
@@ -510,13 +515,13 @@ In one dimension, the momentum is found by multiplying the velocity by the mass.
 		v = -60\units{cm/s} = -60\sci{-2}\units{m/s} = -0.60\units{m/s}
 	\stopformula
 	To calculate the momentum, use the momentum formula.
- 	\startformula\startmathalignment
-	\NC	p \NC = mv \NR
-	\NC		\NC = (800\units{g})(-0.60\units{m/s}) \NR
-	\NC		\NC = \answer{-480\units{g\.m/s}}
-	\stopmathalignment\stopformula
+ 	\startformula
+	  p \NC = mv
+	    = (800\units{g})(-0.60\units{m/s})
+	    = \answer{-480\units{g\.m/s}}
+	\stopformula
 	The momentum of the cart is $-480\units{g\.m/s}$, as shown in \in{figure}[fig:CartMomentumEx].
-	The negative answer indicates that the momentum is in the negative direction. Other acceptable answers are $-48000\units{g\.cm/s}$ and $-0.48\units{kg\.m/s}$. Do not mix scientific notation and SI prefixes (for example $-4.8\sci{4}\units{g\.cm/s}$), since it is needlessly confusing.
+	The negative answer indicates that the momentum is in the negative direction. Other acceptable answers are $-48000\units{g\.cm/s}$ and $-0.48\units{kg\.m/s}$. Do not mix scientific notation and SI prefixes (for example, $-4.8\sci{4}\units{g\.cm/s}$), since it is needlessly confusing.
 	%KK-Do the students know what SI prefixes are?
 \stopsolution
 \stopexample
@@ -527,6 +532,14 @@ After defining momentum, Newton explains that momentum is an extensive quantity,
 \startblockquote
 	The momentum of a whole is the sum of the momenta of the individual parts, and thus if a body is twice as large as another and has equal velocity there is twice as much momentum, and if it has twice the velocity there is four times as much momentum. \autocite{p.~44. \quotation{Quantity of motion,} \quotation{motion} changed to \quotation{momentum.}}{Newton1999}
 \stopblockquote
+
+\noindent
+Taken to the extreme, the momentum of an object is the sum of the momenta of all of the atoms that make up the object.
+When a car moves, every one of its atoms has some momentum. The total momentum of the car is the sum of the momenta of all of the atoms making up the car.
+A locomotive traveling at the same velocity has far more atoms, so it also has far more momentum.
+Displacement and velocity are \textit{not} extensive. If every atom in a cart is displaced by $30\units{cm}$ then the whole cart is displaced by $30\units{cm}$. You do not add the displacements of all of the atoms to get the displacement of the cart. Likewise, if every atom in the locomotive has a velocity of $-10\units{m/s}$, then the whole locomotive has a velocity of $-10\units{m/s}$. % The momentum in each atom of the cart or locomotive is quite small. They must be added to give object’s total momentum.
+Objects moving together have the same velocity (fig. \ref{fig:CartBlockVelocity}), but can have different momenta (fig. \ref{fig:CartMomentum}).
+The extensive and directional nature of Newton’s momentum makes it an extremely powerful tool for understanding motion.
 
 \startbuffer[CartBlockVelocity]
 	\fill [black!10] (0,0) rectangle (4.9,-.15);
@@ -549,14 +562,6 @@ After defining momentum, Newton explains that momentum is an extensive quantity,
 \stopbuffer
 
 \marginTikZ{}{CartBlockVelocity}{Velocity vectors are shown for the cart and the block. The block is riding atop the cart, so the block and the cart have the same velocity.} % vskip, name, caption
-
-\noindent
-Taken to the extreme, the momentum of an object is the sum of the momenta of all of the atoms that make up the object.
-When a car moves, every one of its atoms has some momentum. The total momentum of the car is the sum of the momenta of all of the atoms making up the car.
-A locomotive traveling at the same velocity has far more atoms, so it also has far more momentum.
-Displacement and velocity are \textit{not} extensive. If every atom in a cart is displaced by $30\units{cm}$ then the whole cart is displaced by $30\units{cm}$. You do not add the displacements of all of the atoms to get the displacement of the cart. Likewise, if every atom in the locomotive has a velocity of $-10\units{m/s}$, then the whole locomotive has a velocity of $-10\units{m/s}$. % The momentum in each atom of the cart or locomotive is quite small. They must be added to give object’s total momentum.
-Objects moving together have the same velocity (fig. \ref{fig:CartBlockVelocity}), but can have different momenta (fig. \ref{fig:CartMomentum}).
-The extensive and directional nature of Newton’s momentum makes it an extremely powerful tool for understanding motion.
 
 \startbuffer[CartMomentum]
 	\fill [black!10] (0,0) rectangle (4.9,-.15);
@@ -711,7 +716,7 @@ Return to the collision described in Examples \ref{ex:PendulumCollisionWren1} an
 	\NC		\NC = \answer{-23.1\units{g\.m/s}}
 	\stopmathalignment\stopformula
 	The large ball received an impulse of $-23.1\units{g\.m/s}$.
-	While the large ball continued to move in the positive direction, it received an impulse in the negative direction, opposite its motion. This impulse slowed the large ball, but was not enough change its direction.
+	While the large ball continued to move in the positive direction, it received an impulse in the negative direction, opposite its motion. This impulse slowed the large ball, but was not enough to stop or reverse its motion.
 \stopsolution
 \stopexample
 
@@ -855,26 +860,25 @@ The following example shows how to convert newtons in a typical momentum update 
 \marginTikZ{}{BlockSlideEx}{A block with initial momentum $p\si$ slides to a stop.} % vskip, name, caption
 
 \startexample[ex:BlockSlide]
-A block with an initial momentum of $p\si=150\units{g\.m/s}$ slides on a track, as shown in \in{figure}[fig:BlockSlideEx]. The friction with the track produces a gentle backwards force of $-0.30\units{N}$. (Negative because it opposes the block’s positive velocity.) How long will it take for the block to come to a stop?
+A block with an initial momentum of $p\si=150\units{g\.m/s}$ slides on a track, as shown in \in{figure}[fig:BlockSlideEx]. The friction with the track produces a gentle backward force of $-0.30\units{N}$. (Negative because it opposes the block’s positive velocity.) How long will it take for the block to come to a stop?
 \startsolution
 This one-dimensional problem can be solved with the momentum update formula. There is only one force, $F\sn=-0.30\units{N}$. The block comes to rest so the final momentum is $p\sf=0$. Solve to find the duration of the slide, $\Delta t$.
 	\startformula\startmathalignment
-	\NC	p\si + F\sn\Delta t \NC = p\sf \NR
-	\NC	F\Delta t \NC = \cancel{p\sf} - p\si \NR
-	\NC	\Delta t \NC = \frac{-p\si}{F} \NR
-	\NC		\NC = \frac{-p\si}{F} \NR
-	\NC		\NC = \frac{-150\units{\ucan{g}\.\ucan{m}/\ucan{s}}}{-0.30\units{\ucan{kg}\.\ucan{m}/s^{\ucan{2}}}}
-				\left(\frac{1\units{\cancel{kg}}}{1000\units{\cancel{g}}}\right) \NR
-	\NC		\NC = \answer{0.50\units{s}}
+	\NC	p\si + F\sn\Delta t \NC = \cancel{p\sf} \NR
+	%\NC	F\Delta t \NC = \cancel{p\sf} - p\si \NR
+	\NC	\Delta t \NC = \frac{-p\si}{F}
+	  = \frac{-150\units{\ucan{g}\.\ucan{m}/\ucan{s}}}{-0.30\units{\ucan{kg}\.\ucan{m}/s^{\ucan{2}}}}
+				\left(\frac{1\units{\cancel{kg}}}{1000\units{\cancel{g}}}\right)
+	  = \answer{0.50\units{s}}
 	\stopmathalignment\stopformula
 	The block slides for $0.50\units{s}$ before friction brings it to a stop.
 \stopsolution
 \stopexample
 
+\noindent
 Newton gives credit to Galileo for the first and second laws. This attribution is probably too generous. Galileo viewed circular motion as perfectly natural. Descartes recognized that without an outside force an object will always move in a straight line, not a circle. Descartes’s straight line motion became Newton’s first law. Galileo also did not quantify the role of mass in his impetus, so he was only able to analyze motions that are independent of mass: free fall and projectile motion. Descartes quantified motion, but incorrectly. Newton’s directional momentum made his second law truly original.
 
 \section{Newton’s third law and conservation of momentum}
-
 Newton’s third law is entirely original.
 The third law does not relate directly to an object’s motion, but instead describes the reciprocity between the impulses or forces that two objects exert on each other. The word \textit{actioni}, or \quotation{action,} in the third law refers equally well to either impulse or force.
 \placefigure[margin,none]{}{\small
@@ -887,16 +891,16 @@ The third law does not relate directly to an object’s motion, but instead desc
 	\textit{To any action there is always an equal and opposite reaction; in other words, the actions of two bodies upon each other are always equal and always opposite in directions.}\autocite{p.~417.}{Newton1999}
 \stopblockquote
 Newton immediately illustrates his third law with some examples.
-\startblockquote
-	Whatever presses or draws something else is pressed or drawn just as much by it. If anyone presses a stone with a finger, the finger is also pressed by the stone. If a horse draws a stone tied to a rope, the horse will (so to speak) also be drawn back equally toward the stone, for the rope, stretched out at both ends, will urge the horse toward the stone and the stone toward the horse by one and the same endeavor to go slack and will impede the forward motion of the one as much as it promotes the forward motion of the other. If some body impinging upon another body changes the momentum of that body in any way by its own force, then, by the force of the other body (because of the equality of their mutual pressure), it also will in turn undergo the same change in its own momentum in the opposite direction. By means of these actions, equal changes occur in the momenta, not in the velocities – that is, of course, if the bodies are not impeded by anything else. For the changes in velocities that likewise occur in opposite directions are inversely proportional to the masses because the momenta are changed equally. This law is valid also for attractions\dots.\autocite{p.~417. \quotation{Motion}  changed to \quotation{momentum,} \quotation{motions} to \quotation{momenta.}}{Newton1999}%, as will be proved in the next scholium.
-\stopblockquote
-
 \placefigure[margin][] % Location, Label
 {} % Caption
 {\externalfigure[finger][width=144pt]} % File
 \placefigure[margin][] % Location, Label
 {} % Caption
 {\externalfigure[horse][width=144pt]} % File
+
+\startblockquote
+	Whatever presses or draws something else is pressed or drawn just as much by it. If anyone presses a stone with a finger, the finger is also pressed by the stone. If a horse draws a stone tied to a rope, the horse will (so to speak) also be drawn back equally toward the stone, for the rope, stretched out at both ends, will urge the horse toward the stone and the stone toward the horse by one and the same endeavor to go slack and will impede the forward motion of the one as much as it promotes the forward motion of the other. If some body impinging upon another body changes the momentum of that body in any way by its own force, then, by the force of the other body (because of the equality of their mutual pressure), it also will in turn undergo the same change in its own momentum in the opposite direction. By means of these actions, equal changes occur in the momenta, not in the velocities – that is, of course, if the bodies are not impeded by anything else. For the changes in velocities that likewise occur in opposite directions are inversely proportional to the masses because the momenta are changed equally. This law is valid also for attractions\dots.\autocite{p.~417. \quotation{Motion}  changed to \quotation{momentum,} \quotation{motions} to \quotation{momenta.}}{Newton1999}%, as will be proved in the next scholium.
+\stopblockquote
 
 \noindent
 Newton provides these examples because the third law is quite surprising and easily misunderstood. It is reasonable to think that you throw a stone by exerting a greater force on the stone than the stone exerts on you. Newton informs us that this intuition is \emph{wrong}. The forces are \emph{equal} and opposite.
@@ -905,7 +909,7 @@ The stone moves because you exert a force on the stone, and there is no opposing
 
 The stone exerts an equal and opposite force on you, but you are standing on the ground. The ground, through friction, exerts a force \emph{on you} opposing any motion. The force exerted by the ground \emph{on you} cancel’s the force of the stone \emph{on you}, so you do not move.
 
-Throw a stone while floating in space, and you will find yourself drifting backwards with a momentum equal and opposite to the stone’s forward momentum. In this case, you have thrown the stone, and the stone has also thrown you.
+Throw a stone while floating in space, and you will find yourself drifting backward with a momentum equal and opposite to the stone’s forward momentum. In this case, you have thrown the stone, and the stone has also thrown you.
 
 %Newton’s third law is a crucial piece of the motion puzzle.
 
@@ -1161,15 +1165,13 @@ which will still be sixteen. Depending on the amount of momentum transferred, th
 Conservation of momentum does not determine how much momentum is transferred. Conservation of momentum only tells us that the transfer does not change the total momentum. Some objects bounce better than others, which causes a greater transfer of momentum. We will return to this issue in Chapter \ref{ch:VisViva}, where we will find the limits on how much momentum can be transferred.
 
 If the objects stick together, then we can calculate the final velocity.
-The two bodies stuck together act as one body with a mass that is the total mass. In Newton’s example, the total mass of $A$ and $B$ is $m\sub{total} = m_A + m_B = 1+3 = 4$. We can use this mass to find their velocity after the collision.
+The two bodies stuck together act as one body with a mass that is the total mass. In Newton’s example, the total mass of $A$ and $B$ is $m\sub{total} = m_A + m_B = 1+3 = 4$. We can use this mass to find their velocity after the collision.\pagereference[NewtonInelasticSpeed]
 \startformula\startmathalignment
-\NC	p\sf \NC = m\sub{total} v\sf	\NR
-\NC	v\sf \NC = \frac{p\sf}{m\sub{total}}	\NR
-\NC	v\sf \NC = \frac{16}{4}	\NR
-\NC	v\sf \NC = 4			\NR %\answer{4}
+\NC  p\sf \NC = m\sub{total} v\sf         \NR
+\NC  v\sf \NC = \frac{p\sf}{m\sub{total}}
+    = \frac{16}{4}
+    = 4
 \stopmathalignment\stopformula
-\pagereference[NewtonInelasticSpeed]
-
 A collision where the objects stick together is called \emph{totally inelastic}. Newton's example could have resulted in a totally inelastic collision, as shown in \in{figure}[fig:NewtonInelasticCollision]. The position vs.\ time graph for this inelastic collision (\in{fig.}[fig:NewtonInelasticCollisionGraph]) shows the two balls moving together after the collision.
 
 \startbuffer[NewtonInelasticCollision]
@@ -1284,20 +1286,19 @@ A collision where the objects stick together is called \emph{totally inelastic}.
 	The first part of this problem can be solved using conservation of momentum to find $p\sub{f}$. Since there are no external forces changing the momentum of the carts, $F\sn\Delta t=0$.
 	\startformula\startmathalignment
 	\NC	p\si + \cancel{F\sn\Delta t} \NC = p\sf\NR
-	\NC	p\sub{$A$i} + \cancel{p\sub{$B$i}} \NC = p\sub{$A$f} + p\sub{$B$f}
+	\NC	p\sub{$A$i} + \cancel{p\sub{$B$i}} \NC = p\sf  \NR
 	\stopmathalignment\stopformula
-	Initially only one cart is moving. I have called that cart $A$, with initial momentum $p\sub{$A$i}$. The other cart, cart $B$, is not moving initially so its initial momentum is zero. The final momentum is the total final momentum of both carts together.
-
-	Next, insert the momentum formula, $p=mv$, for each momentum. Cart $A$ has mass $m_A=800\units{g}$ and cart $B$ mass $m_B=1600\units{g}$. The initial velocity of cart $A$ is $v\si=-60\units{cm/s}$. Both carts have the same final velocity $v\sf$, which we are trying to find.
+	Initially, only one cart is moving. I have called that cart $A$, with initial momentum $p\sub{$A$i}$. Cart $B$'s, initial momentum is zero.
+	The final momentum is the momentum of the connected carts, $p\sub{f}$.
+	
+	Next, insert the momentum formula, $p=mv$, for each momentum. Cart $A$ has mass $m_A=800\units{g}$ and initial velocity $v\si=-60\units{cm/s}$. The connected carts have mass $M = m_A + m_B = 2400\units{g}$ and final velocity $v\sf$, which we are trying to find.
 	\startformula\startmathalignment
-	\NC		m_A v\si \NC = m_A v\sf + m_B v\sf	\NR
-	\NC		m_A v\si \NC = (m_A + m_B) v\sf	\NR
-	%\NC	(m_A + m_B) v\sf \NC = m_A v\si	\NR
-	\NC		v\sf  \NC =  \frac{m_A}{(m_A + m_B)} v\si	\NR
-	\NC			\NC =  \frac{800\units{g}}{(800\units{g} + 1600\units{g})}(-0.60\units{m/s})	\NR
-	\NC			\NC = -0.20\units{m/s}	\NR
+	\NC		m_A v\si \NC = M v\sf	\NR
+	\NC		v\sf  \NC =  \frac{m_A}{M} v\si
+		 =  \frac{800\units{g}}{2400\units{g}}(-0.60\units{m/s})
+			= -0.20\units{m/s}	\NR
 	\stopmathalignment\stopformula
-	The final velocity of the stuck-together carts is $-0.20\units{m/s}$, which can also be expressed as $-20\units{cm/s}$. This is one third of the initial velocity $v\sub{i}=-60\units{cm/s}$ because the initial momentum is now being used to move three times as much mass. The minus sign tells us the final velocity, like the initial velocity, is in the negative direction.
+The final velocity of the stuck-together carts is $-0.20\units{m/s}$, which can also be expressed as $-20\units{cm/s}$. This is one third of the initial velocity $v\sub{i}=-60\units{cm/s}$ because the initial momentum is now being used to move three times as much mass. The minus sign tells us the final velocity, like the initial velocity, is in the negative direction.
 \stopsolution
 \stopexample
 
@@ -1305,9 +1306,13 @@ A collision where the objects stick together is called \emph{totally inelastic}.
 
 Galileo, recognizing the tremendous power of his new telescopes, immediately turned them skyward to study the heavenly bodies and observe their motions. Newton, recognizing the tremendous power of his new laws of motion, immediately applied them to the heavenly bodies, explaining the motions that Galileo observed.
 
-These heavenly motions are quite unlike the collisions that inspired Newton’s laws. In a collision momentum changes suddenly when the objects make contact. A planet’s momentum changes gradually due to the constant gravitational force of the Sun. Without this gravitational force, every planet would travel in a straight line with a constant speed, leaving the Sun far behind. Instead, the Sun’s gravitational force constantly changes the direction of each planet’s momentum, bending the planet’s path and holding the planet in perpetual orbit about the Sun.
+These heavenly motions are quite unlike the collisions that inspired Newton’s laws.
+In a collision, momentum changes suddenly when the objects make contact.
+A planet’s momentum changes gradually due to the constant gravitational force of the Sun.
+Without this gravitational force, every planet would travel in a straight line with a constant speed, leaving the Sun far behind.
+Instead, the Sun’s gravitational force constantly changes the direction of each planet’s momentum, bending the planet’s path and holding the planet in perpetual orbit about the Sun.
 
-The moons of Jupiter are held in orbit by Jupiter’s gravitational force, while our moon is held in orbit by Earth’s gravitational force. Earth’s gravitational force is ever present not only for the moon, but for everything near Earth, including each of us. We will start our study of gravity here, on Earth’s surface. Once we mastered the tremendous power of vectors, we too will turn our attention to the heavens.
+The moons of Jupiter are held in orbit by Jupiter’s gravitational force, while our moon is held in orbit by Earth’s gravitational force. Earth’s gravitational force is ever present not only for the moon, but for everything near Earth, including each of us. We will start our study of gravity here, on Earth’s surface. Once we master the tremendous power of vectors, we too will turn our attention to the heavens.
 
 Let’s look first at Galileo’s example of the ball rolling off an edge and falling due to the force of gravity. Figure
 \ref{fig:BallOffTableVel2} shows the velocity vectors from Chapter \ref{ch:Motion}. To apply Newton’s laws to these velocities requires some basic mathematical operations with vectors. In particular, we must be able to multiply a vector by a number, as in the momentum formula $\vec{p}=m\vec{v}$, and we must be able to add vectors, as in the law of conservation of momentum $\vec p\si + \vec F\Delta t = \vec p\sf$.
