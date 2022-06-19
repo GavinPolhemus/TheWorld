@@ -1307,15 +1307,18 @@ The final velocity of the stuck-together carts is $-0.20\units{m/s}$, which can 
 Galileo, recognizing the tremendous power of his new telescopes, immediately turned them skyward to study the heavenly bodies and observe their motions. Newton, recognizing the tremendous power of his new laws of motion, immediately applied them to the heavenly bodies, explaining the motions that Galileo observed.
 
 These heavenly motions are quite unlike the collisions that inspired Newton’s laws.
-In a collision, momentum changes suddenly when the objects make contact.
-A planet’s momentum changes gradually due to the constant gravitational force of the Sun.
+In a collision, momentum changes \emph{suddenly} when the objects make contact.
+A planet’s momentum changes \emph{gradually} due to the constant gravitational force of the Sun.
 Without this gravitational force, every planet would travel in a straight line with a constant speed, leaving the Sun far behind.
 Instead, the Sun’s gravitational force constantly changes the direction of each planet’s momentum, bending the planet’s path and holding the planet in perpetual orbit about the Sun.
 
-The moons of Jupiter are held in orbit by Jupiter’s gravitational force, while our moon is held in orbit by Earth’s gravitational force. Earth’s gravitational force is ever present not only for the moon, but for everything near Earth, including each of us. We will start our study of gravity here, on Earth’s surface. Once we master the tremendous power of vectors, we too will turn our attention to the heavens.
+Jupiter's moons are held in orbit by Jupiter’s gravitational force, while our Moon is held in orbit by Earth’s gravitational force.
+Earth’s gravitational force is ever present not only for the moon, but for everything near Earth, including each of us.
+We will start our study of gravity here, on Earth’s surface. Once we master the tremendous power of vectors, we too will turn our attention to the heavens.
 
 Let’s look first at Galileo’s example of the ball rolling off an edge and falling due to the force of gravity. Figure
-\ref{fig:BallOffTableVel2} shows the velocity vectors from Chapter \ref{ch:Motion}. To apply Newton’s laws to these velocities requires some basic mathematical operations with vectors. In particular, we must be able to multiply a vector by a number, as in the momentum formula $\vec{p}=m\vec{v}$, and we must be able to add vectors, as in the law of conservation of momentum $\vec p\si + \vec F\Delta t = \vec p\sf$.
+\ref{fig:BallOffTableVel2} shows the velocity vectors from Chapter \ref{ch:Motion}, \in{figure}[fig:BallOffTableVelComp].
+Applying Newton’s laws to these velocities requires some basic mathematical operations with vectors. In particular, we must be able to multiply a vector by a number, as in the momentum formula $\vec{p}=m\vec{v}$, and we must be able to add vectors, as in the law of conservation of momentum $\vec p\si + \vec F\Delta t = \vec p\sf$.
 
 \startbuffer[BallOffTableVel2]
 	\startaxis[
@@ -1386,8 +1389,20 @@ Let’s look first at Galileo’s example of the ball rolling off an edge and fa
 
 Multiplying vectors by numbers works in a very natural way. For example, multiplying a vector by $2$ doubles the vector’s length while keeping the vector’s direction the same. If vector $\vec v$ is the vector with magnitude of $2.3\units{m/s}$ in figure~\ref{fig:BallOffTableVel2}, then the vector $2\vec v$ would have a magnitude of $4.6\units{m/s}$ and would point in the same direction as $\vec v$. The vector’s components would double as well. Since $\vec v = \components{1.2,-2.0}\unit{m/s}$, doubling the vector gives $2\vec v = \components{2.4,-2.0}\unit{m/s}$.
 
-Finding momentum is not quite as easy as doubling. The ball in figure~\ref{fig:BallOffTableVel2} has mass $m=150\units{g}$. The momentum $\vec p = m \vec v$ has a magnitude of $(150\units{g})(2.3\units{m/s}) = 345\units{g\.m/s}$ and points in the same direction as $\vec v$, as shown in figure~\ref{fig:BallOffTableMomentum}. The figure also shows the momentum vector’s components.
-\startformula\startmathalignment[m=2,distance=2em]
+Finding momentum is simmilar. The ball in figure~\ref{fig:BallOffTableVel2} has mass $m=150\units{g}$. The momentum $\vec p$ has a magnitude of $(150\units{g})(2.3\units{m/s}) = 345\units{g\.m/s}$ and points in the same direction as $\vec v$, as shown in figure~\ref{fig:BallOffTableMomentum}.
+Momentum vectors and velocity vectors have different units, so they need different scales. Our diagrams will have either velocity vectors or momentum vectors, but not both, so there will only be one vector scale on each diagram.
+
+
+The figure also shows the momentum vector’s components, calculated in the next example.
+\startexample[ex:BallOffTableMomentum]
+Use the velocity vector's components in \in{figure}[fig:BallOffTableVel2] to find the momentum vector's components, shown in \in{figure}[fig:BallOffTableMomentum].
+
+\startsolution
+Start with the momentum formula $\vec p = m\vec v$ and immediately break it into component equations. Use these component equation to find the components of $\vec p$.
+\startformula
+	\vec p = m\vec v
+\stopformula
+\startformula\startmathalignment[m=2,distance=2em,align={1:right,2:left,3:right,4:left}]
 \NC	p_x \NC = mv_x \NC  p_y \NC = mv_y	\NR
 \NC		\NC = (150\units{g})(1.2\units{m/s})
 				\NC 	\NC = (150\units{g})(-2.0\units{m/s})	\NR
@@ -1397,6 +1412,9 @@ Finding momentum is not quite as easy as doubling. The ball in figure~\ref{fig:B
 \startformula
 	\vec p = \components{180,-300}\unit{g\.m/s}
 \stopformula
+The ball’s momentum is $\vec{p}\components{180,-300}\unit{g\.m/s}$. You can check that the momentum vector's magnitude is $\vabs{\smash{\vec{p}}} = 345\units{g\.m/s}$.
+\stopsolution
+\stopexample
 
 \startbuffer[BallOffTableMomentum]
 	\startaxis[
@@ -1465,81 +1483,22 @@ Finding momentum is not quite as easy as doubling. The ball in figure~\ref{fig:B
 \marginTikZ{}{BallOffTableMomentum}{Momentum vectors point in the direction of motion, like the velocity vectors in figure \ref{fig:BallOffTableVel2}. %The momentum’s magnitude and components are the mass times the speed and the velocity’s components. The momentum arrows require a new scale.
 } % vskip, name, caption
 
-
 \noindent
-Momentum vectors and velocity vectors have different units, so they need different scales. Our diagrams will have either velocity vectors or momentum vectors, but not both, so there will only be one vector scale on each diagram.
-
-\startexample[ex:cannonpv]
-	A cannon fires a $40\units{kg}$ cannon ball at an upward angle so that its initial momentum is $\vec p\si = \components{1600, 1200}\unit{kg\.m/s}$, as shown in figure~\in[fig:cannonp]. Find the cannon ball’s initial velocity and speed.
-
-\startbuffer[cannonp]
-%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
-%\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
-\draw[shade, ball color = black] (0.78,.61) circle[radius=.05cm]; % Ball
-\fill[fill=black!70] (0.76,0.47)-- ++(-.12,.16)-- ++(-.51,-.32)-- ++(0.18,-0.24)-- cycle; % Cannon Barrel
-\fill[fill = black!70] (0.22,0.19) circle[radius=0.15cm]; % Cannon Back
-\draw[fill=gray] (0,0)-- ++(0,0.05)-- ++(.2,.2)-- ++(.2,0)-- ++(.2,-.2)-- ++(0,-0.05)-- cycle; % Cannon Base
-\draw[fill = black!70] (0.3,0.25) circle[radius=0.05cm]; % Cannon Pivot
-\shade[top color=gray] (0,-.04) rectangle (5,0); % Ground
-\draw (0,0)--(5,0);
-\draw[thick,->] (0.78,0.61)--node[above, sloped]{$\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum
-\stopbuffer
-
-\marginTikZ{}{cannonp}{A cannon ball is fired with the momentum shown (ex.~\in[ex:cannonpv]).} % vskip, name, caption
-
-\startsolution
-Start with the momentum formula $\vec p = m\vec v$ and immediately break it into component equations. Solve each component equation for the components of $\vec v$.
+Vector multiplication is also used to find the impulse vector from the force vector.
 \startformula
-	\vec p = m\vec v
+	\vec{J} = \vec{F}\sn\Delta
 \stopformula
-\startformula\startmathalignment[m=2,distance=2em]
-\NC	p_x	\NC = mv_x
-			\NC	p_y	\NC = mv_y							\NR
-\NC	v_x	\NC = \frac{p_x}{m}
-			\NC	v_y	\NC = \frac{p_y}{m}						\NR
-\NC		\NC = \frac{1600\units{kg\.m/s}}{40\units{kg}}
-			\NC		\NC = \frac{1200\units{kg\.m/s}}{40\units{kg}}	\NR
-\NC		\NC = 40\units{m/s}
-			\NC		\NC = 30\units{m/s}						\NR
-\stopmathalignment\stopformula
-Combine the components into the velocity vector $\vec v$.
-\startformula
-	\vec v = \components{40,30}\unit{m/s}
-\stopformula
-The cannon ball’s speed $v$ is the magnitude of its velocity $\vec v$.
-\startformula
-	v = \vabs{\vec{v}}
-		= \sqrt{v_x^2 + v_y^2}
-		= \sqrt{(40\units{m/s})^2 + (30\units{m/s})^2}
-%		= \sqrt{6400\unit{m^2/s^2} + 3600\unit{m^2/s^2}}
-%		= \sqrt{10000\unit{m^2/s^2}}
-		= 50\units{m/s}
-\stopformula
-The cannon ball’s velocity is $\components{40,30}\unit{m/s}$. Its speed is $50\units{m/s}$.
+The force vector $\vec{F}$ is multiplied by the duration $\Delta t$ (a number) to give the impulse vector $\vec{J}$. Any vector can be multiplied by any number to give a new vector.
 
-\startbuffer[cannonv]
-%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
-%\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
-\draw[shade, ball color = black] (0.78,.61) circle[radius=.05cm]; % Ball
-\fill[fill=black!70] (0.76,0.47)-- ++(-.12,.16)-- ++(-.51,-.32)-- ++(0.18,-0.24)-- cycle; % Cannon Barrel
-\fill[fill = black!70] (0.22,0.19) circle[radius=0.15cm]; % Cannon Back
-\draw[fill=gray] (0,0)-- ++(0,0.05)-- ++(.2,.2)-- ++(.2,0)-- ++(.2,-.2)-- ++(0,-0.05)-- cycle; % Cannon Base
-\draw[fill = black!70] (0.3,0.25) circle[radius=0.05cm]; % Cannon Pivot
-\shade[top color=gray] (0,-.04) rectangle (5,0); % Ground
-\draw (0,0)--(5,0);
-\draw[thick,->] (0.78,0.61)--node[above, sloped]{$\scriptstyle \vec v = \components{40, 30}\unit{m/s}$} ++(2.4,1.8); % Momentum
-\stopbuffer
-
-\marginTikZ{}{cannonv}{The cannon ball’s velocity found in example~\in[ex:cannonpv].} % vskip, name, caption
-
-\stopsolution
-\stopexample
-
-The conservation of momentum equation includes vector multiplication. The net force vector $\vec F\sn$ is multiplied by the duration $\Delta t$. The resulting impulse vector is added to the initial momentum vector $\vec p_i$ to get the final momentum vector $\vec p\sf$.
+Newton taught us that this impulse vector is added to the initial momentum vector $\vec{p}\si$ to predict the final momentum vector $\vec{p}\sf$.
 \startformula
 	\vec{p}\si +\vec{F}\sn\Delta t = \vec{p}\sf
 \stopformula
-When Newton introduces his second law he provides a helpful diagram, which I have reproduced and adorned with vector notation in figure~\ref{fig:AddVecParallogram}. This diagram shows an object’s initial momentum $\vec p\si$ horizontal and to the right. The object receives an impulse $\vec{F}\sn\Delta t$ which is down and slightly to the right. The initial momentum and the impulse are added to produce the final momentum $\vec{p}\sf$ which is down and far to the right, as shown. Newton combines the vectors by producing a parallelogram from the initial momentum and the impulse. In this parallelogram method, the final momentum is the diagonal of the parallelogram.
+To illustrate this vector addition, Newton provides a helpful diagram, which I have reproduced and adorned with vector notation in figure~\ref{fig:AddVecParallogram}.
+This diagram shows an object’s initial momentum $\vec p\si$, which is horizontal and to the right.
+The object receives an impulse $\vec{F}\sn\Delta t$, which is down and slightly to the right.
+The initial momentum and the impulse are added to produce the final momentum $\vec{p}\sf$, which is down and far to the right, as shown.
+Newton adds the vectors by producing a parallelogram from the initial momentum and the impulse. In this parallelogram method, the final momentum is the diagonal of the parallelogram, extending from the original vectors' starting point to the opposite corner.
 
 \startbuffer[AddVecParallogram]
 		x={1cm},y={1cm},
@@ -1552,7 +1511,8 @@ When Newton introduces his second law he provides a helpful diagram, which I hav
 
 \marginTikZ{}{AddVecParallogram}{Newton’s parallelogram method for adding vectors.} % vskip, name, caption
 
-Another method for adding the vectors is to arrange them tip-to-tail as shown in figure~\ref{fig:AddVecTipTail}. Here the added vectors are drawn in sequence. First, draw the initial momentum vector, $\vec p\si$, going to the right. Then, starting at that vector's tip, draw the impulse, $\vec J$, going down and slightly farther to the right. The final momentum vector is the straight vector that starts where the initial momentum starts and ends where the impulse vector ends. This tip-to-tail method gets its name from the fact that the tip of the initial momentum vector is where we place the tail of the impulse vector.
+Another method for adding the vectors is to arrange them tip-to-tail as shown in figure~\ref{fig:AddVecTipTail}. Here the added vectors are drawn in sequence. First, draw the initial momentum vector, $\vec p\si$, going to the right. Then, starting at that vector's tip, draw the impulse, $\vec{F}\sn\Delta t$, going down and slightly farther to the right. The final momentum vector is the straight vector that starts where the initial momentum starts and ends where the impulse vector ends. This tip-to-tail method gets its name from the fact that the tip of the initial momentum vector is where we place the tail of the impulse vector.
+Any two vectors can be added using either the parallelogram method or the tip-to-tail method.
 
 \startbuffer[AddVecTipTail]
 		x={1cm},y={1cm},
@@ -1565,9 +1525,10 @@ Another method for adding the vectors is to arrange them tip-to-tail as shown in
 
 \marginTikZ{}{AddVecTipTail}{The tip-to-tail method for adding vectors.} % vskip, name, caption
 
-In the tip-to-tail method it is easy to see that the $x$-component of the initial momentum added to the $x$-component of the impulse gives the $x$-component of the final momentum, and likewise for the $y$-components. When working with components it will be useful to break Newton’s second law into component equations (dropping \quotation{net} to reduce clutter).
+In the tip-to-tail method it is easy to see that the $x$-component of the initial momentum added to the $x$-component of the impulse gives the $x$-component of the final momentum, and likewise for the $y$-components.
+When working with components, it will be useful to break Newton’s second law into component equations (dropping \quotation{net} to reduce clutter).
 \startformula
-		\vec p\si + \vec{F}\Delta t = \vec p\sf
+		\vec p\si + \vec{F}\sn\Delta t = \vec p\sf
 \stopformula
 \startformula
 	p\sub{i,$x$} + F_x\Delta t = p\sub{i,$x$} \qquad p\sub{i,$y$} + F_y\Delta t = p\sub{f,$y$}
@@ -1575,260 +1536,190 @@ In the tip-to-tail method it is easy to see that the $x$-component of the initia
 
 %\section{Gravitational force}
 %Once the ball has rolled off the edge, the force acting on it is the Earth’s gravitational force.
-The rock dropped from the tower, the ball rolling off the edge, and the cannon ball are all projectiles. No longer in contact with anything else, their motion is bent downward by the constant gravitational force exerted by Earth below.
- Earth does not exert the same force on everything.
+The rock dropped from the tower and the ball rolling off the edge are both projectiles. No longer in contact with anything else, their motion is bent downward by the constant gravitational force exerted by Earth below.
+Earth does not exert the same force on everything.
 Massive things are heavy because Earth exerts a large force on them. Objects with little mass are light because Earth exerts a small force on them. The magnitude of the gravitational force is $mg$, where $g=9.8\units{m/s^2}$. The force is downward, which is the negative $y$-direction, so the gravitational force vector is
 \startformula
 	\vec F = \components{0,-mg}.
 \stopformula
-\startexample[ex:cannonballFg]
-	Find the gravitational force on a $40.\units{kg}$ cannon ball.
+\startexample[ex:ballFg]
+	Find the gravitational force on Galileo's rolling ball.
 	\startsolution
 	The the magnitude of the gravitational force is $mg$.
 	\startformula
-		mg = (40.\units{kg})(9.8\units{m/s^2}) = 392\units{kg\.m/s^2} = 390\units{N}
+		mg = (150\units{g})(9.8\units{m/s^2}) = 1.47\units{kg\.m/s^2} = 1.47\units{N}
 	\stopformula
 	The gravitational force is downward, in the negative $y$-direction.
 \startformula
-	\vec F = \components{0, mg} = \components{0,-390}\unit{N}
+	\vec F = \components{0, -mg} = \components{0,-1.47}\unit{N}
 \stopformula
 \stopsolution
 \stopexample
-The gravitational force is the only significant force acting on the falling rock, the ball rolling off the edge, and the cannon ball. For all of these objects the net force $\vec F\sn$ is simply the gravitational force.
-%An object traveling through the air with great speed, like the cannon ball, will experience a significant force from the air resisting the object’s motion. The example below includes this resisting force, which must be added to the gravitational force to find the net force. %The forces must be added as vectors to find the net force vector. The net force is then used in the law of conservation of momentum, requiring another vector addition to find the final momentum.
+The gravitational force is the only significant force acting on the falling rock and the ball rolling off the edge.
+For these objects, the net force $\vec F\sn$ is simply the gravitational force.
 
-\startexample[ex:cannonpf]
-% Text image
-\placetextfloat[bottom][fig:cannonpf]
-{The cannon ball’s momentum changes due to the force of gravity and the air’s resisting force in example~\in[ex:cannonpf].
-}	% caption text
-{\noindent\small\starttikzpicture
-%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
-%\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
-\draw[shade, ball color = black] (0.78,.61) circle[radius=.05cm]; % Ball initial
-\fill[fill=black!70] (0.76,0.47)-- ++(-.12,.16)-- ++(-.51,-.32)-- ++(0.18,-0.24)-- cycle; % Cannon Barrel
-\fill[fill = black!70] (0.22,0.19) circle[radius=0.15cm]; % Cannon Back
-\draw[fill=gray] (0,0)-- ++(0,0.05)-- ++(.2,.2)-- ++(.2,0)-- ++(.2,-.2)-- ++(0,-0.05)-- cycle; % Cannon Base
-\draw[fill = black!70] (0.3,0.25) circle[radius=0.05cm]; % Cannon Pivot
-\shade[top color=gray] (0,-.2) rectangle (10.8,0); % Ground
-\draw (0,0)--(10.8,0);
-\draw[thick,->] (0.78,0.61)--node[above, sloped]{$\vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum
-\draw (0.78,0.61) parabola [bend pos=0] bend +(6.75,2.53) +(6.75,2.53); % Trajectory
-\filldraw[white] (5.28,2.86) rectangle (7.53,3.14); % Trajectory
-\draw[shade, ball color = black] (5.28,2.86) circle[radius=.05cm]; % Ball final
-\draw[thick,->] (5.28,2.86)--node[above, sloped]{$\vec p\sf = ?$} ++(2.4,0.6); % Momentum
-\stoptikzpicture}
-	A cannon fires a $40\units{kg}$ cannon ball with a speed of $50\units{m/s}$. The ball is fired at an upward angle so that its initial momentum is $\vec p\si = \components{1600, 1200}\unit{kg\.m/s}$, as shown in figure~\in[fig:cannonpf]. While it is in the air gravity exerts a downward force $\vec F = \components{0, -390}\unit{N}$. %The ball encounters some resistance to moving through the air, which exerts a backward force of approximately $F\sub{air} = \components{-40, -30}\unit{N}$.
-What is the cannon ball’s momentum $2.0\units{s}$ after it is fired? (Ignore air resistance.)
-\startsolution
-%We will solve this problem in two steps. First, we will find the net force acting on the cannon ball, $\vec F\sn = \vec F_g + \vec F\sub{air}$. Then we will use conservation of momentum to find the final momentum.
-%Compute the net force by breaking the vector equation into component equations.
-%\startformula
-%	\vec F\sn = \vec F_g + \vec F\sub{air}
-%\stopformula
-%\startformula\startmathalignment[m=2,distance=2em]
-%\NC	F\sub{net,$x$}	\NC = F_{g,x} + F\sub{air,$x$}
-%		\NC	F\sub{net,$y$}	\NC = F_{g,y} + F\sub{air,$y$}	\NR
-%\NC				\NC = 0 + (-40\units{N})
-%		\NC				\NC = (-390\units{N}) - (-30\units{N})			\NR
-%\NC				\NC = -40\units{N}
-%		\NC				\NC = -420\units{N}
-%\stopmathalignment\stopformula
-%Combine the components into the vector $\vec F\sn$.
-%\startformula
-%	\vec F\sn = \components{-40,-420}\unit{m/s}
-%\stopformula
-We will solve this problem using the conservation of momentum equation, broken into components equations. (Here we drop the \quotation{net.}) First the $x$-component:
-\startformula\startmathalignment
-\NC	p\sub{i,$x$} + F_x\Delta t
-	\NC = 1600\units{kg\.m/s} + (0\units{N})(2\units{s})			\NR
-\NC	\NC = 1600\units{kg\.m/s}	= p\sub{f,$x$}
-%	\NC = 1600\units{kg\.m/s} + (-40\units{N})(2.0\units{s})		\NR
-%\NC	\NC = 1600\units{kg\.m/s} + (-40\units{kg\.m/s^2})(2.0\units{s})	\NR
-%NC	\NC = 1520\units{kg\.m/s}	= p\sub{f,$x$}
-\stopmathalignment\stopformula
-Since the gravitational force’s $x$-component is zero, the $x$-component of the momentum is unchanged. The $y$-component does change due to the downward force of gravity.
+\startexample[ex:Ballpf]
+	The $150\units{g}$ ball rolls off of the table with an initial momentum  $\vec{p}\si = \components{180,0}\unit{g\.m/s}$. What is the ball’s momentum $0.20\units{s}$ later?
+	\startsolution
+	We will find this using Newton’s second law, which we will more commonly call the conservation of momentum equation. The impulse is due to the gravitational force $\vec F$, so we will use all of the tools from this section.
+	\startformula
+	\NC	\vec p\si + \vec F\Delta t = \vec p\sf
+	\stopformula
+Break this equation into components and calculate. First, the $x$-direction which has no force.
+\startformula
+	p\sub{i,$x$} + F_x \Delta t
+		= 180\units{g\.m/s} + 0
+		= 180\units{g\.m/s}
+		= p\sub{f,$x$}
+\stopformula
+Second, the $y$-direction which has no initial momentum.
 \startformula\startmathalignment
 \NC	p\sub{i,$y$} + F_y\Delta t
-	\NC = 1200\units{kg\.m/s} + (-390\units{N})(2.0\units{s})		\NR
-\NC	\NC = 420\units{kg\.m/s}	= p\sub{f,$y$}
+	\NC = 0 + (-mg)\Delta t	\NR
+\NC	\NC = -(150\units{g})(9.8\units{m/s^{2}})(0.20\units{s})	\NR
+\NC	\NC = -(294\units{g\.m/s})
+	= p\sub{f,$y$}
 \stopmathalignment\stopformula
-Combine the components to make the final momentum vector (and round to two significant figures).
+Combine the components to get the final momentum vector $\vec p\sub{f}$.
 \startformula
-	\vec p\sf = \components{1600,420}\unit{kg\.m/s}
+	\vec p\sf = \components{180,-290}\unit{g\.m/s}
 \stopformula
-Two seconds after leaving the cannon, the ball’s momentum is $\vec p\sf = \components{1600,420}\unit{kg\.m/s}$, as shown in \in{figure}[fig:cannonconservepf], where $\vec p\si$ and $\vec J$ are added by the tip-to-tail method.
-The cannon ball's motion is shown in \in{figure}[fig:cannonpfanswer].
+This is approximately the momentum shown in figure~\ref{fig:BallOffTableMomentum} for the ball $0.20\units{s}$. (Rounding in calculations can cause small differences in the last significant digit, as seen  in the difference between $290\units{g\.m/s}$ above and  $300\units{g\.m/s}$ in figure~\ref{fig:BallOffTableMomentum}. Both answers are acceptable.)
 \stopsolution
-
-\startbuffer[cannonFgFa]
-\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
-\filldraw (0,0) circle[radius=.02cm]; % Ball cm
-\draw[thick,->] (0,0)--node[above]{$\vec p\si$} ++(2.4,1.8); % Momentum
-\draw[thick,->] (0,0)--node[right]{$\vec F = \components{0, -390}\unit{N}$} ++(0,-1.96); % Fg
-%\draw[thick,->] (0,0)--node[above left]{$\scriptstyle \vec F\sub{air} = \components{-40, -30}\unit{N}$} ++(-0.4,-0.3); % Fa
-\stopbuffer
-
-\marginTikZ{\vskip1.5in}{cannonFgFa}{The force of gravity and the resisting force of air on the cannon ball in example~\in[ex:cannonpf]. The air’s resisting force is opposite the ball’s motion} % vskip, name, caption
-
-%\placefigure[margin][fig:cannonFnet] % location
-%{To find the net force, add the force of gravity and the resisting force of air using the tip-to-tail method. The net force is almost directly downward.}	% caption text
-%{\noindent\starttikzpicture
-%\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
-%\filldraw (0,0) circle[radius=.02cm]; % Ball cm
-%%\draw[thick,->] (0.78,0.61)--node[above]{$\scriptstyle \vec p\si$} ++(2.4,1.8); % Momentum
-%\draw[thick,->] (0,0)--node[right]{$\scriptstyle \vec F_g = \components{0, -390}\unit{N}$} ++(0,-3.92); % Fg
-%\draw[thick,->] (0,-3.92)--node[below right]{$\scriptstyle \vec F\sub{air} = \components{-40, -30}\unit{N}$} ++(-0.4,-0.3); % Fa
-%\draw[thick,->] (0,0)--node[left]{$\scriptstyle \vec F\sn = \components{-40, -420}\unit{N}$} ++(-0.4,-4.22); % Fn
-%\stoptikzpicture}
-
-\startbuffer[cannonconservepf]
-\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
-\filldraw (0,0) circle[radius=.02cm]; % Ball cm
-\draw[thick,->] (0,0)--node[above, sloped, pos=.6]{$\scriptstyle \vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum initial
-\draw[thick,->] (2.4,1.8)--node[right]{$\vec F\sn \Delta t$} +(0,-1.17); % Fnet
-\draw[thick,->] (0,0)--node[below, sloped, pos=.7]{$\scriptstyle \vec p\sf = \components{1600, 420}\unit{kg\cdot m/s}$} ++(2.4,0.63); % pf
-\stopbuffer
-
-\marginTikZ{}{cannonconservepf}{Using conservation of momentum to find the final momentum of the cannon ball in example~\in[ex:cannonpf].} % vskip, name, caption
-
-\placetextfloat[bottom][fig:cannonpfanswer]
-{The cannon ball’s initial momentum and its momentum two seconds later in example~\in[ex:cannonpf]
-}	% caption text
-{\noindent\small\starttikzpicture
-%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
-%\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
-\draw[shade, ball color = black] (0.78,.61) circle[radius=.05cm]; % Ball initial
-\fill[fill=black!70] (0.76,0.47)-- ++(-.12,.16)-- ++(-.51,-.32)-- ++(0.18,-0.24)-- cycle; % Cannon Barrel
-\fill[fill = black!70] (0.22,0.19) circle[radius=0.15cm]; % Cannon Back
-\draw[fill=gray] (0,0)-- ++(0,0.05)-- ++(.2,.2)-- ++(.2,0)-- ++(.2,-.2)-- ++(0,-0.05)-- cycle; % Cannon Base
-\draw[fill = black!70] (0.3,0.25) circle[radius=0.05cm]; % Cannon Pivot
-\shade[top color=gray] (0,-.2) rectangle (10.8,0); % Ground
-\draw (0,0)--(10.8,0);
-\draw[thick,->] (0.78,0.61)--node[above, sloped]{$\vec p\si = \components{1600, 1200}\unit{kg\cdot m/s}$} ++(2.4,1.8); % Momentum
-\draw (0.78,0.61) parabola [bend pos=0] bend +(6.75,2.53) +(6.75,2.53); % Trajectory
-\filldraw[white] (5.28,2.86) rectangle (7.53,3.14); % Trajectory
-\draw[shade, ball color = black] (5.28,2.86) circle[radius=.05cm]; % Ball final
-\draw[thick,->] (5.28,2.86)--node[above, sloped]{$\vec p\sf = \components{1500, 360}\unit{kg\cdot m/s}$} ++(2.4,0.6); % Momentum
-\stoptikzpicture}
 \stopexample
-%The previous example multiple forces which had to be added as vectors to find the net force vector. Similarly, for a systems of multiple objects add the momenta as vectors to find the total momentum vector. For example, in a collision between objects moving in different directions the initial momentum of the system is the vector sum of all of the objects’ momentum vectors.
 
-%Galileo persistently urges us to consider situation without accidental impediments like air resistance. Even in the case of the fast cannon ball, the effect of the air resistance was small. For an object moving through the air slowly, like Galileo’s ball rolling off the edge, the air resistance can be ignored. In the example of the rock dropped the tower, the rock moves with great speed due to the Earth’s rotation, but air resistance can again be ignored because the air also moves with Earth’s rotation, right along with the tower and the rock.
+Galileo argued that the rock’s tendency to fall in no way diminishes its horizontal motion, which continues naturally, allowing it to keep up with the moving tower even as it falls. Newton’s law of conservation of momentum gives us a new insight into Galileo’s argument. According to Newton, the rock has horizontal momentum before it is dropped because it is being carried along with the tower by Earth’s rotation. When the rock is released it falls due to the downward gravitational force. This force gives the rock an increasing downward component to the rock’s momentum, but it does not alter the horizontal component, just as we saw for the falling ball in the previous example.
 
-Galileo argued that the rock’s tendency to fall in no way diminishes its horizontal motion, which continues naturally, allowing it to keep up with the moving tower even as it falls. Newton’s law of conservation of momentum gives us a new insight into Galileo’s argument. According to Newton, the rock has horizontal momentum before it is dropped because it is being carried along with the tower by Earth’s rotation. When the rock is released it falls due to the downward gravitational force. This force gives the rock an increasing downward component to the rock’s momentum, but it does not alter the horizontal component, just as we saw for the cannon ball in the previous example.
+\section{Equations of motion}
+Gravity's constant pull causes accelerated motion. The falling ball's momentum changes gradually, which we see as a gradual change in the ball's velocity.
+Acceleration complicates our efforts to predict the ball's future position. The position update formula for constant velocity (\at{p.}[eq:positionupdate]) only works if the velocity remains constant throughout the duration $\Delta t$. However, we can still succeed by focusing on a short duration $dt$ during which the ball's velocity changes very little. During this short duration, the ball's coordinates change by small amounts $dx$ and $dy$, given by the position update formulas for accelerated motion.
+\startformula
+dx = v_x\,dt \qquad dy = v_y\,dt
+\stopformula
+During the short duration $dt$ the ball's momentum is also changing. The momentum's small changes are given by the momentum update formulas for accelerated motion.
+\startformula
+dp_x = F_x\,dt \qquad dp_y = F_y\,dt
+\stopformula
+We then predict the motion by taking many, many baby steps! Here is how it would work for the falling ball.
 
-To see the gradual affect of the gravitational force, let’s look at the cannon ball’s motion in small steps. Figure~\in[fig:cannonds] shows the cannon ball’s momentum and the downward gravitational force acting on it during its flight. Initially the momentum is to the right and upward. During a short duration $dt$ the momentum changes by a small amount $\vec F dt$. This continues, with the momentum changing an additional amount $\vec F dt$ during each short duration $dt$, as shown in figure~\in[fig:cannondp]. The changing momentum causes the cannon ball’s path to bend downward, as shown in figure~\in[fig:cannonds]. Newton’s momentum and the law of conservation of momentum give an explanation for the compound motion of projectiles described by Galileo.
-%\placefigure[margin][fig:cannonFg] % location
-%{The force of gravity acting downward on the cannon ball. The air’s resisting force is small enough to ignore.
-%}	% caption text
-%{\noindent\vskip.75in\starttikzpicture
-%\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
-%\filldraw (0,0) circle[radius=.02cm]; % Ball cm
-%\draw[thick,->] (0,0)--node[above]{$\vec p\si$} ++(2.4,1.8); % Momentum
-%\draw[thick,->] (0,0)--node[right]{$\vec F\sn = \vec F_g$} ++(0,-1.96); % Fg
-%\stoptikzpicture}
+The ball reaches the edge of table, where its position and momentum are
+\startformula
+\coordinates{x,y} = \coordinates{0,48}\unit{cm},
+\qquad
+\vec{p} = \components{180,0}\unit{gm\.m/s}.
+\stopformula
+We use this momentum to find the ball's velocity's components.
+\startformula
+v_x = \frac{p_x}{m} = 1.2\units{m/s},
+\qquad
+v_y = \frac{p_y}{m} = 0\units{m/s},
+\stopformula
+We now take our fist baby step using the position and momentum update formulas to find the small changes $dx$, $dy$, $dp_x$, and $dp_y$.
+The position update formulas require the velocity components we just calculated.
+The momentum update formulas use the constant gravitational force $\vec{F}=\components{0,-1.47}\unit{N}$.
+We update the ball's coordinates $x$ and $y$ by adding the small changes $dx$ and $dy$.
+We update the momentum by adding the small changes $dp_x$ and $dp_y$.
 
+With the ball's new position and momentum we are ready to take another baby step. We use the ball's new momentum to find new velocity components. Then we use the update formulas to find new small changes in position and momentum. This allows us to update the ball's position and momentum again.
 
-\placefigure[margin][fig:cannonds] % location
-{The curving path of a cannon ball, initially rising and eventually falling due to the downward gravitational force. The horizontal motion continues, unaffected by gravity, as Galileo observed.}	% caption text
-{\vskip2in\hbox{\starttikzpicture
-	\draw[white] (0,0)-- ++(5,0); % Sky to make height better
-\stoptikzpicture}}
+We repeat the process of calculating the ball's velocity and updating its position and momentum as many times as necessary to predict the ball's motion all the way to the floor.
+With small steps, this process can be quite accurate – and quite tedious!
 
-\placewidefloat
-  [top,none]
-  {This is its caption I need to fix.}
-{\hbox{\small\starttikzpicture	% tikz code
-%\draw[->,ultra thick] (12,1.5) -- node[above, pos=.6]{$p\si$}(13,1.5);
-%\shade[right color=gray,left color=white] (.6,.24) rectangle (0.9,.26);
-\draw[shade, ball color = black][opacity=0.25] (0.78,.61) circle[radius=.05cm]; % Ball initial
-\fill[fill=black!70] (0.76,0.47)-- ++(-.12,.16)-- ++(-.51,-.32)-- ++(0.18,-0.24)-- cycle; % Cannon Barrel
-\fill[fill = black!70] (0.22,0.19) circle[radius=0.15cm]; % Cannon Back
-\draw[fill=gray] (0,0)-- ++(0,0.05)-- ++(.2,.2)-- ++(.2,0)-- ++(.2,-.2)-- ++(0,-0.05)-- cycle; % Cannon Base
-\draw[fill = black!70] (0.3,0.25) circle[radius=0.05cm]; % Cannon Pivot
-\shade[top color=gray] (0,-.2) rectangle (16.7,0); % Ground
-\draw (0,0)--(16.7,0);
-\draw[thick,->][opacity={0.25}] (0.78,0.61)-- ++(2.4,1.8); % Momentum
-\draw[thick,->][opacity=0.25] (0.78,0.61)-- ++(0,-1.96); % Fg
-\draw (0.78,0.61) parabola [bend pos=0] bend +(6.75,2.53) +(13.5,0); % Trajectory
-\foreach \T in {1,2,3,4,5}{% Balls
-	\draw[shade, ball color = black][opacity={(5+\T)/20}] ({0.78+\T*2.25},{0.61+\T*1.6875-\T*\T*0.28125}) circle[radius=.05cm]; % Balls
-	\draw[thick,->][opacity={(5+\T)/20}] ({0.78+\T*2.25},{0.61+\T*1.6875-\T*\T*0.28125})-- ++(2.4,{1.8-\T*0.6}); % Momentum
-	\draw[thick,->][opacity={(5+\T)/20}] ({0.78+\T*2.25},{0.61+\T*1.6875-\T*\T*0.28125})-- ++(0,-1.96); % Fg
-}
-\draw[shade, ball color = black] (14.28,0.616) circle[radius=.05cm]; % Ball final
-\draw[thick,->] (14.28,0.61)--node[below left]{$\scriptstyle \vec p$} ++(2.4,-1.8); % Momentum
-\draw[thick,->] (14.28,0.61)--node[left]{$\vec F$} ++(0,-1.96); % Fg
-\stoptikzpicture}}
-
-\startbuffer[cannondp]
-\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
-\filldraw (0,0) circle[radius=.02cm]; % Ball cm
-\draw[thick,->][opacity=0.25] (0,0)-- ++(2.4,1.8); % Momentum initial
-\foreach \T in {1,2,3,4,5}{% Balls
-	\draw[thick,->][opacity={(5+\T)/20}] (0,0)-- ++(2.4,{1.8-\T*0.6}); % Momentum
-	\draw[thick,->][opacity={(5+\T)/20}] (2.4,{2.4-\T*0.6})-- +(0,-0.6); % Fnet
-}
-\draw[thick,->] (2.4,-1.2)--node[right]{$\vec F\sn dt$} +(0,-0.6); % Fnet
-\draw[thick,->] (0,0)--node[below left]{$\vec p$} ++(2.4,-1.8); % pf
+\startbuffer[Ballds]
+	\startaxis[
+		footnotesize,
+		%width=\marginparwidth, scale only axis,
+		x={1mm},y={1mm},
+		xlabel={$x$ (cm)},
+		xmin=0,xmax=39.5,
+		ylabel={$y\,/\units{cm}$},
+		ymin=0,ymax=45,
+		minor x tick num=4,
+		axis x line=bottom,
+		minor y tick num=4,
+		axis y line=left,
+		tick align=outside,
+		x axis line style={-},
+		y axis line style={-},
+		clip = false,
+		legend style={draw=none,at={(1,1)},anchor=south east,yshift = 1ex},
+		]
+		\draw[shade, ball color = white] (0,48) circle[radius=3][opacity=.2];
+		\fill(0,48) circle[radius=.4mm][opacity=.2];
+		\draw[shade, ball color = white] (12,43.1) circle[radius=3][opacity=.4];
+		\fill(12,43.1) circle[radius=.4mm][opacity=.4];
+		\draw[shade, ball color = white] (24,28.4) circle[radius=3][opacity=.6];
+		\fill(24,28.4) circle[radius=.4mm][opacity=.6];
+		\draw[shade, ball color = white] (36,3.9) circle[radius=3];
+		\fill(36,3.9) circle[radius=.4mm];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (39.5,-1.5)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,0) rectangle (0,45)[opacity=.1];
+		\fill [on layer={axis background}] (-1.5,45) rectangle (-7.5,43.5)[opacity=.1];
+		\draw[thin] (-2,45)--(0,45);
+		\draw[thin] (-7.5,45)--(-5.5,45);
+		% Velocity at t=0s
+		\draw[thick,->] (0,48) --node[right]{$\vec{F}$} ++(0,-19.6);
+   		\draw[thick,->] (0,48) --node[above,]{$\vec{p}$} (9,48);
+		% Velocity at .1s
+		\draw[thick,->] (12,43.1) --node[right]{$\vec{F}$} ++(0,-19.6);
+   		\draw[thick,->] (12,43.1) --node[above right,]{$\vec{p}$} (21,35.6);
+   		% Velocity at .2s
+		\draw[thick,->] (24,28.4) --node[left]{$\vec{F}$} ++(0,-19.6);
+   		\draw[thick,->] (24,28.4) --node[above right,]{$\vec{p}$} (33,13.43);
+   		% Velocity at .3s
+		%\startpgfinterruptboundingbox
+		\draw[thick,->] (36,3.9) --node[left,pos=0.6]{$\vec{F}$} ++(0,-19.6);
+		\draw[thick,->] (36,3.9) --node[above right,]{$\vec{p}$} +(9,-22.05);
+		%\stoppgfinterruptboundingbox
+		% Legend
+   		\addlegendimage{
+	  	legend image code/.code={\draw[thick,|-|](-0.5cm,0cm)--(0cm,0cm);}
+ 		};
+		\addlegendentry{$=100\units{g\.m/s}$}
+	\stopaxis
 \stopbuffer
 
-\marginTikZ{}{cannondp}{Using conservation of momentum to find the final momentum of the cannon ball in example~\in[ex:cannonpf].} % vskip, name, caption
+\marginTikZ{}{Ballds}{The ball's momentum $\vec{p}$ gradually changes in the direction of the gravitational force $\vec{F}$, which is always directly downward.
+} % vskip, name, caption
 
-%\startexample[]
-%	The $150\units{g}$ ball rolls off of the table with an initial momentum  $\vec{p}\si = \components{180,0}\unit{g\.m/s}$. What is the ball’s momentum $0.20\units{s}$ later?
-%	\startsolution
-%	We will find this using Newton’s second law, which we will more commonly call the conservation of momentum equation. The impulse is due to the gravitational force $\vec F$, so we will use all of the tools from this section.
-%	\startformula
-%	\NC	\vec p\si + \vec F\Delta t = \vec p\sf
-%	\stopformula
-%Break this equation into components and calculate. First, the $x$-direction which has no force.
+\startbuffer[Balldp]
+\draw[thin, shade, ball color = white] (0,0) circle[radius=3mm]; % Ball
+\filldraw (0,0) circle[radius=.4mm]; % Ball cm
+\draw[thick,->][opacity=0.25] (0,0)-- ++(0.9,0); % Momentum initial
+\foreach \T in {1,2}{% Balls
+	\draw[thick,->][opacity={(5+\T)/20}] (0,0)-- ++(0.9,{-\T*0.735}); % Momentum
+	\draw[thick,->][opacity={(5+\T)/20}] (0.9,{0.735-\T*0.735})-- +(0,-0.735); % Fnet
+}
+\draw[thick,->] (0.9,-1.47)--node[right,pos=.4]{$\vec F\,dt$} +(0,-0.735); % Fnet
+\draw[thick,->] (0,0)--node[below left]{$\vec p$} ++(0.9,-2.205); % pf
+\stopbuffer
+
+\marginTikZ{}{Balldp}{During each short duration $dt$ the ball's momentum $\vec{p}$ changes by the small amount $\vec{F}\,dt$, producing the accelerated motion in \in{figure}[fig:Ballds]} % vskip, name, caption
+
+To see the gradual affect of the gravitational force, let’s look at the ball’s motion in small steps. 
+Figure~\in[fig:Ballds] shows the ball’s momentum and the downward gravitational force acting on it during its flight. Initially the momentum is to the right. During a short duration $dt$ the momentum changes by a small amount $\vec F dt$. This continues, with the momentum changing an additional amount $\vec F dt$ during each short duration $dt$, as shown in figure~\in[fig:Balldp]. The changing momentum causes the ball’s path to bend downward, as shown in figure~\in[fig:Ballds].
+
+
+Computers are able to perform these update calculations quickly and accurately for many tiny steps.  Computer simulations using this repeated update method are especially valuable in situations where experiments are difficult, like collisions between galaxies. Simulations have become the third pillar of physics research, alongside experiments and theory. 
+
+The position and momentum update formulas together are known as the \keyterm{equations of motion}, and they work just as well when the force is also changing. The equations of motion allow us to attack one of our most important problems — the motions of planets and moons. For these celestial objects the force's direction changes as the object orbits.
+
+%
+%In three dimensions, if we know the object's velocities and its initial position, we can predict its future positions through repeated position updates.
 %\startformula
-%	p\sub{i,$x$} + F_x \Delta t
-%		= 180\units{g\.m/s} + 0
-%		= 180\units{g\.m/s}
-%		= p\sub{f,$x$}
+%	dx = v_x\,dt
+%	\qquad
+%	dy = v_y\,dt
+%	\qquad
+%	dz = v_z\,dt
+%	\qquad
 %\stopformula
-%Second, the $y$-direction which has no initial momentum.
-%\startformula\startmathalignment
-%\NC	p\sub{i,$y$} + F_y\Delta t
-%	\NC = 0 + (-mg)\Delta t	\NR
-%\NC	\NC = -(150\units{g})(9.8\units{m/s^{2}})(0.20\units{s})	\NR
-%\NC	\NC = -(294\units{g\.m/s})
-%	= p\sub{f,$y$}
-%\stopmathalignment\stopformula
-%Combine the components to get the final momentum vector $\vec p\sub{f}$.
-%\startformula
-%	\vec p\sf = \components{180,-290}\unit{g\.m/s}
-%\stopformula
-%This is approximately the momentum shown in figure~\ref{fig:BallOffTableMomentum} for the ball $0.20\units{s}$. (Rounding in calculations can cause small differences in the last significant digit, as seen  in the difference between $290\units{g\.m/s}$ above and  $300\units{g\.m/s}$ in figure~\ref{fig:BallOffTableMomentum}. Both answers are acceptable.)
-%\stopsolution
-%\stopexample
-
-Acceleration complicates our efforts to predict an object’s future position. The position update formula for constant velocity, $x\si + v\Delta t = x\sf$, only works if the velocity remains constant throughout the duration $\Delta t$. However, we can still succeed by focusing on a short duration $dt$ during which the velocity changes very little. During this short duration, the position changes by small amount $dx$, given by the position update formula for accelerated motion.
-\startformula
-dx = v\,dt
-\stopformula
-If we know the velocity at each time, even if the velocity is changing, we can break the time into many brief steps. We then proceed through these steps, updating the position each step by adding the small changes calculated above. With small steps, this process can be quite accurate – and quite tedious!
-
-Computers are able to perform these update calculations quickly and accurately for many tiny steps.  Computer simulations using this repeated update method are especially valuable in situations where experiments are difficult, like collisions between galaxies. Simulations have become the third pillar of physics research, alongside experiments and theory. Simulations must also predict the objects’ velocities, a challenge that we will begin to address with Newton’s laws in the next chapter.
-
-In three dimensions, if we know the object's velocities and its initial position, we can predict its future positions through repeated position updates.
-\startformula
-	dx = v_x\,dt
-	\qquad
-	dy = v_y\,dt
-	\qquad
-	dz = v_z\,dt
-	\qquad
-\stopformula
-We will typically only need two coordinates, keeping book-keeping to a minimum.
+%We will typically only need two coordinates, keeping book-keeping to a minimum.
 
 \section{Circular motion and centripetal force}
 Newton confirmed Galileo’s description of projectile motion, but offered a dramatically different view of circular motion. Galileo viewed circular motion as natural. Newton, following Descartes, recognized that only straight motion is natural – a force is required to bend an object’s path into a circle. A bent path is always evidence that some force is acting.
 
-As an example, the moon does not travel in a straight line, but instead orbits Earth. The motion is approximately uniform circular, as shown in figure~\in[fig:MoonMomentum1]. Since the speed is constant, the momentum’s magnitude is also constant. The momentum’s direction is changing, always tangent to the circular path. Figure~\in[fig:MoonMomentum2] shows the changing momentum $p$ and the small changes $dp$. These momentum changes must be due to a force acting in the direction of the changes, as shown in figure~\in[fig:MoonMomentum3]. The direction of the force is changing, always staying perpendicular to the momentum. This bends the Moon’s path without changing its speed. Since the force is perpendicular to the path, it is aways directed toward the center of the circle, as shown it figure~\in[fig:MoonMomentum4]
+As an example, the moon does not travel in a straight line, but instead orbits Earth. The motion is approximately uniform circular, as shown in figure~\in[fig:MoonMomentum1]. Since the speed is constant, the momentum’s magnitude is also constant. The momentum’s direction is changing, always tangent to the circular path. Figure~\in[fig:MoonMomentum2] shows the changing momentum $\vec{p}$ and the small changes $d\vec{p}$. These momentum changes must be due to a force acting in the direction of the changes, as shown in figure~\in[fig:MoonMomentum3]. The direction of the force is changing, always staying perpendicular to the momentum. This bends the Moon’s path without changing its speed. Since the force is perpendicular to the path, it is aways directed toward the center of the circle, as shown it figure~\in[fig:MoonMomentum4]
 
 The circular motion does not cause a force toward the center. Rather, the force causes the circular motion. Any circular motion we observe, such as the motions of moons around planets or planets around the Sun, must be due to a force pulling the orbiting object toward the center of its orbit.
 
@@ -1846,13 +1737,13 @@ The circular motion does not cause a force toward the center. Rather, the force 
 		 arc [start angle=\T, end angle={\T-10}, radius=4cm];
 	}
 		\draw[-{Straight Barb[scale length=.5]},ultra thick] (-30:4cm)% Label last segment
-		 arc [start angle=-30, end angle={-40}, radius=4cm]node[above=1.5mm]{$ds$};
+		 arc [start angle=-30, end angle={-40}, radius=4cm];%node[above=1.5mm]{$ds$};
 	\foreach \T in {-10,-20,-30}{% Draw vectors
 		\draw[][opacity={(20-\T)/100}] (0,0) -- (\T:4cm);
 		\draw[thick,->][opacity={(20-\T)/100}] (\T:4cm) -- ++({\T-90}:3cm);
 	}
 	\draw (0,0) --node[below left]{$R$} (-40:4cm);% Final vectors
-	\draw[thick,->] (-40:4cm) --node[left=1mm, pos=.7]{$p$} ++({-130}:3cm);
+	\draw[thick,->] (-40:4cm) --node[left=1mm, pos=.7]{$\vec{p}$} ++({-130}:3cm);
 		\path (-50:4cm) coordinate (A) -- (0,0) coordinate (B) -- (4cm,0) coordinate (C)
 pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.5cm] {angle};
 \stopbuffer
@@ -1868,8 +1759,8 @@ pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.
 		\draw[thick,->][opacity={(20-\T)/100}] ({\T-90}:3cm) -- ({\T-100}:3cm);
 	}
 	%\draw (0,0) --node[below left]{$R$} (-40:4cm);
-	\draw[thick,->] (0,0) --node[left=2mm, pos=.6]{$p$} ({-130}:3cm);
-	\draw[thick,->] ({-120}:3cm) --node[below left]{$dp$} ({-130}:3cm);
+	\draw[thick,->] (0,0) --node[left=2mm, pos=.6]{$\vec{p}$} ({-130}:3cm);
+	\draw[thick,->] ({-120}:3cm) --node[below left]{$d\vec{p}$} ({-130}:3cm);
 		\path (-140:4cm) coordinate (A) -- (0,0) coordinate (B) -- (0,-4cm) coordinate (C)
 pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.5cm] {angle};
 \stopbuffer
@@ -1886,8 +1777,8 @@ pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.
 		\draw[thick,->][opacity={(20-\T)/100}] ({\T-90}:3cm) -- ++({\T+180}:2cm);
 	}
 	%\draw (0,0) --node[below left]{$R$} (-40:4cm);
-	\draw[thick,->] (0,0) --node[left=2mm]{$p$} ({-130}:3cm);
-	\draw[thick,->] ({-130}:3cm) --node[above right]{$F$} ++({140}:2cm);
+	\draw[thick,->] (0,0) --node[left=2mm]{$\vec{p}$} ({-130}:3cm);
+	\draw[thick,->] ({-130}:3cm) --node[above right]{$\vec{F}$} ++({140}:2cm);
 \stopbuffer
 
 \marginTikZ{}{MoonMomentum3}{The small momentum changes $d\vec p$ are produced by the force $\vec F$, which is tangent to the arc and therefore perpendicular to the momentum $\vec p$.} % vskip, name, caption
@@ -1911,8 +1802,8 @@ pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.
 		\draw[thick,->][opacity={(20-\T)/100}] (\T:4cm) -- ++({\T+180}:2cm);
 	}
 	%\draw (0,0) --node[below left]{$R$} (-40:4cm);% Final vectors
-	\draw[thick,->] (-40:4cm) --node[left=1mm, pos=.7]{$p$} ++({-130}:3cm);
-	\draw[thick,->] (-40:4cm) --node[left=3mm]{$F$} ++({140}:2cm);
+	\draw[thick,->] (-40:4cm) --node[left=1mm, pos=.7]{$\vec{p}$} ++({-130}:3cm);
+	\draw[thick,->] (-40:4cm) --node[left=3mm]{$\vec{F}$} ++({140}:2cm);
 \stopbuffer
 
 \marginTikZ{}{MoonMomentum4}{As the Moon circles Earth, the force on the Moon is always toward Earth, perpendicular to the momentum, changing the momentum’s direction but not the speed.} % vskip, name, caption
@@ -1926,7 +1817,7 @@ The tip of the momentum vector in \in{figure}[fig:MoonMomentum2] is also moving 
 \startformula\pagereference[eq:centripetalforce]
 	F = p\omega = \frac{pv}{R}
 \stopformula
-The last term in this extremely useful \emph{centripetal force formula} was found by the replacement $\omega = v/R$. Whenever you encounter an object traveling along a circular path, you should use the centripetal force formula to find the force directed toward the circle’s center. This is not a vector equation; it only relates the magnitude of the force $F$ to the magnitude of the momentum $p$. The correct directions are shown in \in{figure}[fig:MoonMomentum4].
+This is the extremely useful \emph{centripetal force formula}. Whenever you encounter an object traveling along a circular path, you should use the centripetal force formula to find the force directed toward the circle’s center. This is not a vector equation; it only relates the magnitude of the force $F$ to the magnitude of the momentum $p$. The correct directions are shown in \in{figure}[fig:MoonMomentum4].
 
 Newton used the centripetal force formula to understand the orbits of moons and planets, leading to his discovery of universal law for gravitational forces. We will return to this law in Chapter~\in[ch:PotentialEnergy].
 
@@ -1937,7 +1828,9 @@ Experiments with fast particles in the twentieth century have shown that
 Newton’s formula for momentum, $m\vec{v}$, is not accurate for particles traveling close to the speed of light, $3\sci{8}\units{m/s}$. For lower speeds, this equation is extremely accurate, even at $3\sci{7}\units{m/s}$, one tenth of the speed of light, Newton’s formula has an error of less than $0.5\%$. Do not hesitate to use Newton’s $m\vec{v}$ unless you are working with particles traveling faster than $10^7\units{m/s}$. Einstein discovered the correct formula for all speeds. We will learn his momentum formula when we study high speed particles in Volume II.
 
 You may be wondering what happened to the famous $\vec{F}=m\vec{a}$, which is usually called Newton’s second law. We did not introduce $\vec{F}=m\vec{a}$ for three reasons. First, that is not what Newton actually said. Second, $\vec{F}=m\vec{a}$ is not actually correct. To get from Newton’s second law to $\vec{F}=m\vec{a}$ you need to use the momentum formula, $\vec{p}=m\vec{v}$. As was just mentioned, $\vec{p}=m\vec{v}$ fails for very high speeds. Newton’s second law, \emph{as he originally stated it,} is correct for all speeds, even the speed of light. When we study interactions between fast particles in Volume II %Part \ref{part:Particles}
- we will still use Newton’s version of his second law. Third, in my experience students find momentum much easier to understand than acceleration. We will keep our focus on momentum rather than acceleration.
+ we will still use Newton’s version of his second law.
+Third, students find momentum much easier to understand than acceleration.
+We will keep our focus on momentum rather than acceleration.
 
 \section{Newton’s momentum and the Cartesian’s quantity of motion}
 %Newton’s achievements were celebrated as revolutionary in his own time, and  three centuries of hindsight only makes his triumph more impressive.
