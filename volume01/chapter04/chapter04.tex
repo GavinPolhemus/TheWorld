@@ -1,4 +1,6 @@
+% !TEX useAlternatePath
 % !TEX useConTeXtSyncParser
+
 \startcomponent c_chapter04
 \project project_world
 \product prd_volume01
@@ -22,7 +24,7 @@ You must early on accustom your mind to think, and to be self-sufficient. You wi
 	\rightaligned{1706–1749}}
 
 %[Findent=-.4em, Nindent=.9em]
-\Initial{L}{eibniz} was not satisfied with Newton’s momentum because it failed to achieve the basic goal of Descartes’s quantity of motion, which was to quantify the total motion of a system with many moving parts.
+\Initial{L}{eibniz was not satisfied with Newton’s momentum} because it failed to achieve the basic goal of Descartes’s quantity of motion, which was to quantify the total motion of a system with many moving parts.
 %A system of many moving parts has a greater quantity of motion than a system in which all of the parts are at rest. Momentum completely fails to make this basic distinction.
 
 \startbuffer[TikZ:restingballs]
@@ -62,8 +64,13 @@ You must early on accustom your mind to think, and to be self-sufficient. You wi
 \LL[2]%\bottomrule
     \stoptabulate}
 
-Consider two cannon balls resting harmlessly on the ground and two others fired directly toward each other at great speed (\in{figure}[fig:restingballs] and \in{}[fig:firedballs]). Descartes and Newton would agree that the resting cannon balls have no motion (\in{table}[T:restingballs]). They would disagree about the moving cannon balls (\in{table}[T:firedballs]). Descartes’s quantity of motion is positive for each moving cannon ball. Therefore, according to Descartes, the total quantity of motion for the moving cannon balls is large. Newton, however, taught us to consider the direction of the motion.
-Both moving cannon balls have momentum, but one’s momentum is positive while the other’s momentum is negative. The total momentum is \emph{zero} -- exactly the same as the total momentum of the two motionless cannon balls.
+Imagine two cannon balls resting harmlessly on the ground and two others fired directly toward each other at great speed (\in{figure}[fig:restingballs] and \in{}[fig:firedballs]).
+Descartes and Newton would agree that the resting cannon balls have no motion (\in{table}[T:restingballs]).
+They would disagree about the moving cannon balls (\in{table}[T:firedballs]).
+Descartes’s quantity of motion, $m\abs{v}$, is positive for each moving cannon ball.
+Therefore, according to Descartes, the total quantity of motion for the moving cannon balls is large. 
+Newton, however, taught us to consider the direction of the motion.
+Both moving cannon balls have momentum, $mv$, but one ball’s momentum is positive while the other ball’s momentum is negative. The total momentum is \emph{zero} -- exactly the same as the total momentum of the two motionless cannon balls.
 \placetable
     [margin]
     [T:firedballs]
@@ -118,8 +125,8 @@ Both moving cannon balls have momentum, but one’s momentum is positive while t
 {\noindent\typesetbuffer[TikZ:firedballs]} % figure contents
 
 Clearly, the moving cannon balls have \emph{something} which the resting cannon balls lack.
-Descartes’s quantity of motion is a reasonable guess, but collision experiments contradicted the predictions based on Descartes’s quantity of motion.
-Newton’s momentum gives correct predictions for collisions, but momentum fails to distinguish between the large motion of the moving cannon balls and the lack of motion in the resting cannon balls.
+Descartes’s quantity of motion is a reasonable guess, but collision experiments contradicted Descartes’s predictions.
+Newton’s momentum gives correct predictions for collisions, but momentum fails to distinguish between the moving cannon balls' large motion and the resting cannon balls' lack of motion.
 
 Like Newton, Leibniz sought inspiration in the laws of collision demonstrated with pendulum collisions. He was especially impressed by Huygens, who had given a detailed analysis of these collisions.
 \startblockquote
@@ -131,7 +138,8 @@ Contrary to Newton, Leibniz adopted Huygen’s conserved quantity $mv^2$ as the 
 Two cannon balls sitting in the field will have a total $mv^2$ equal to zero, as all agree they must  (\in{table}[T:restingballs]).
 The two cannon balls fired straight at each other will have tremendous total $mv^2$, as Leibniz thought they must due to their motion (\in{table}[T:firedballs]).
 
-Leibniz viewed $mv^2$ as the true measure of motion and called it the \visviva, or \quote{living force.} He elevated conservation of \visviva\ to the level of a universal law, claiming that it was conserved not only in elastic collisions, as Huygens had shown, but in all interactions.
+Leibniz viewed $mv^2$ as the true measure of motion and called it the \visviva, or \quote{living force.} 
+He elevated conservation of \visviva\ to the level of a universal law, claiming that it was conserved not only in elastic collisions, as Huygens had shown, but in all interactions.
 Leibniz first proposed the universal conservation law for $mv^2$ in 1686, the year before Newton published \booktitle{Principia}. Leibniz made \visviva\ one of the cornerstones of his comprehensive philosophy of the world, encompassing logic, physics, ethics, and even theology.
 
 %Following the publication of Newton’s \booktitle{Principia},
@@ -148,7 +156,10 @@ Thus if there are only two bodies, one of which proceeds in [a] direction\dots% 
 and the other in a contrary direction, from the quantity of motion of the first must be subtracted that of the second, and the remainder will be the total momentum. Now it will be found that the total momentum is conserved, or that there is as much momentum in the same direction before or after the impact. But it is also plain that this conservation does not correspond to that which is demanded of something absolute. For it may happen that the velocity, quantity of motion, and \visviva\ being very considerable, their momentum is null. This occurs when the two opposed bodies have their quantities of motion equal. In such case, according to the sense we have just given, there is no total momentum at all.\autocite{658. \quote{Quantity of progress} and \quote{progress} changed to \quote{momentum.} \quote{Force} changed to \textit{\quote{vis viva.}}}{Leibniz1691}
 \stopblockquote
 
-Leibniz did not suggest that momentum should be abandoned, but that the \visviva\ should also be considered. Let us look at the specific collision that Newton used as an example in his explanation of the conservation of momentum, shown in \in{figure}[fig:NewtonsExampleElastic]. In that one dimensional collision an object $A$ with a mass of $3$ and a velocity of $2$ was overtaken by a smaller object $B$ with a mass of $1$ and a speed of $10$. Newton found the total initial momentum was $6+10=16$. The total momentum was conserved in the collision, but Newton explained that this conservation could be achieved many different ways depending on how much momentum was transferred from ball $B$ to ball $A$ in the collision. Transferring $5$ of momentum would produce a final momentum of $15+1=16$. Transferring $8$ of momentum would produce a final momentum of $18-2=16$. Both of these outcomes, and many others, obey the law of conservation of momentum.
+Leibniz did not suggest that momentum should be abandoned, but that the \visviva\ should also be considered
+Let us look at the specific collision that Newton used as an example in his explanation of the conservation of momentum, shown in \in{figure}[fig:NewtonsExampleElastic].
+In that one-dimensional collision, an object $A$ with a mass of $3$ and a velocity of $2$ was overtaken by a smaller object $B$ with a mass of $1$ and a speed of $10$.
+Newton found the total initial momentum was $6+10=16$. The total momentum was conserved in the collision, but Newton explained that this conservation could be achieved many different ways depending on how much momentum was transferred from ball $B$ to ball $A$ in the collision. Transferring $5$ of momentum would produce a final momentum of $15+1=16$. Transferring $8$ of momentum would produce a final momentum of $18-2=16$. Both of these outcomes, and many others, obey the law of conservation of momentum.
 
 \startbuffer[TikZ:fig:NewtonsExampleElastic]
 \environment env_physics
@@ -280,14 +291,14 @@ Perhaps Leibniz’s \visviva\ can help us make a more specific prediction for th
 
 \section{Kinetic energy}
 
-Modern calculations do not use \visviva, but instead use \keyterm{kinetic energy}, which is half of the \visviva. The symbol for kinetic energy is $K$.
+Today, we do not use \visviva, but instead use \keyterm{kinetic energy}, which is half of the \visviva. The symbol for kinetic energy is $K$.
 %Leibniz’s \visviva\ is correct, but many calculations will be easier if we use the \keyterm{kinetic energy}, represented by the symbol $K$, which is half of the \visviva.
 %\highlightbox{%
 \startformula[eq:1DK]
 	K = \half mv^2
 \stopformula
 %}
-The factor of one-half is of no consequence for Leibniz. If his \visviva\ quantifies the \quote{absolute} motion of the system, then one-half of the \visviva\ will work just as well. Since we will use kinetic energy later, it is best to get in the habit of including the factor of one-half.
+The factor of one-half is of no consequence for Leibniz. If his \visviva\ quantifies the \quote{absolute} motion of the system, then one-half of the \visviva\ works just as well. Since we will use kinetic energy later, it is best to get in the habit of including the factor of one-half.
 
 \placetable[margin][T:NewtonCollisionBefore]
 {The momentum and kinetic energy before Newton’s example collision.}
@@ -312,7 +323,8 @@ and $B$'s is
 \startformula
 K=\half mv^2 = \half\cdot1\cdot10^2 = 50.
 \stopformula
-The total initial kinetic energy is $K\si=6+50=56$. The initial momenta, and kinetic energies for this collision are recorded in \in{table}[T:NewtonCollisionBefore].
+The two balls' total initial kinetic energy is $K\si=6+50=56$.
+The initial momenta and kinetic energies for this collision are recorded in \in{table}[T:NewtonCollisionBefore].
 
 Let us make a similar table showing the values after the collision. We will consider both of the outcomes mentioned above. First, consider the case with the larger momentum transfer, where ball $A$’s final momentum is $18$ and ball $B$’s is $-2$. Ball $A$’s final velocity is found from its momentum.
 	\startformula\startmathalignment
@@ -361,7 +373,11 @@ Leibniz describes what happens during an elastic collision.
 In Leibniz’s example, the speeds are the same after the collision as before, so the total kinetic energy also remains the same. In many elastic collisions each object does not retain the same velocity; one speeds up while the other slows down, as in Newton’s example. However, Huygens demonstrated the total $mv^2$ remains the same in all perfectly elastic collisions. Therefore, the total kinetic energy also remains the same.
 
 However, most collisions are not perfectly elastic, and some kinetic energy is lost. In these \keyterm{inelastic} collisions the final total kinetic energy is less than the initial kinetic energy.
-The effects of the inelastic collision can be seen by looking again at Newton’s example. In the case where ball $B$ only transfers $4$ of momentum to ball $A$, both balls are a little more sluggish after the collision due to the loss of kinetic energy, as shown in figures~\in[fig:NewtonsExampleInelastic] and \in[fig:PendulumCollisionGraph4]. (Compare to the bounces in fig.~\in[fig:NewtonsExampleElastic] and fig.~\in[fig:PendulumCollisionGraph3].) The kinetic energy lost in the collision can calculated by using the balls’ final momenta to find their velocities and then their kinetic energies. The intermediate step of finding the velocity is tedious, so it is worth finding the direct relationship between kinetic energy and momentum.
+The effects of the inelastic collision can be seen by looking again at Newton’s example.
+In the case where ball $B$ only transfers $4$ of momentum to ball $A$, both balls are a little more sluggish after the collision due to the loss of kinetic energy, as shown in figures~\in[fig:NewtonsExampleInelastic] and \in[fig:PendulumCollisionGraph4].
+(Compare to the bounces in fig.~\in[fig:NewtonsExampleElastic] and fig.~\in[fig:PendulumCollisionGraph3].) 
+The kinetic energy lost in the collision can be calculated by using the balls’ final momenta to find their velocities and then their kinetic energies.
+The intermediate step of finding the velocity is tedious, so it is worth finding the direct relationship between kinetic energy and momentum.
 %To get the greatest benefit from these two ideas it is helpful to relate momentum and kinetic energy directly.
 This is accomplished by replacing the velocity with momentum in the kinetic energy formula. Since $v= p/m$, this gives
 
@@ -528,9 +544,11 @@ Returning to Newton’s collision, $A$’s kinetic energy after the inelastic co
 \stopformula
 Confirm the remaining kinetic energies in \in{table}[T:NewtonCollisionAfter1]. After the inelastic collision the total kinetic energy is only 38, less than the 56 that the balls had before the collision. %Some of the energy has been \quotation{absorbed by the small parts which compose the mass} according to Leibniz.
 \Visviva, which is twice the kinetic energy, is also lost, dropping from 112 before the inelastic collision to only 76 after.
-However, notice that none of the momentum is lost. In an inelastic collision less momentum is transferred, but the total momentum stays the same. Inelastic collisions lose kinetic energy (and \visviva) but not momentum!
+However, notice that none of the momentum is lost.
+In an inelastic collision, less momentum is transferred, but the total momentum stays the same.
+Inelastic collisions lose kinetic energy (and \visviva) but not momentum!
 
-The loss of \visviva\ in inelastic collisions posed a mortal threat to Leibniz’s conservation of \visviva. Leibniz knew that Descartes’s quantity of motion was abandoned due to similar experimental failures. Like Descartes, Leibniz defended his theory anyway, arguing that \visviva\ is conserved even in experiments where it appeares to be lost. Leibniz did not invoke the unseen substances of Descartes, but instead sought to save \visviva within the objects themselves.
+The loss of \visviva\ in inelastic collisions posed a mortal threat to Leibniz’s conservation of \visviva. Leibniz knew that Descartes’s quantity of motion was abandoned due to similar experimental failures. Like Descartes, Leibniz defended his theory anyway, arguing that \visviva\ is conserved even in experiments where it appeares to be lost. Leibniz did not invoke the unseen substances of Descartes, but instead sought to save \visviva\ within the objects themselves.
 \startblockquote
 	%But it is necessary to admit, that although bodies must be thus naturally elastic in the sense which I have just explained, nevertheless
 	The elasticity often appears insufficient in the masses or bodies which we employ....
@@ -565,20 +583,6 @@ The total momentum -- due only to the atoms shared, nonrandom motion -- is visib
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:NewtonTotalInelastic]
-	In Newton’s collision example, one possible result is ball $B$ sticking to ball $A$ when they collide. In this case, what is their final kinetic energy and how much kinetic energy is lost?
-
-\startsolution
-After the collision, since ball $B$ sticks to ball $A$, they can be treated as a single object with a total mass $M = m_A + m_B =4$ and momentum $p=16$. (See \at{p.}[NewtonInelasticSpeed] for the discussion of momentum in this collision. \in{Figure}[fig:NewtonTotalInelastic] shows this collision performed with pendulums. The position vs.\ time graph is shown in \in{figure} [fig:PendulumCollisionGraph5].)
-
-The final kinetic energy can be calculated from either the final velocity or the final momentum. We use the final momentum.
-\startformula
-	K\sf	= \frac{p\sf^2}{2M}
-		= \frac{16^2}{2\cdot4}
-		= 32
-\stopformula
-The final kinetic energy is much less than the initial kinetic energy of 56. The kinetic energy lost is $K\si - K\sf = 56 - 32 = 24$. According to Leibniz, this kinetic energy is not lost to the universe but has gone into the balls’ constituent parts.
-\stopsolution
-
 
 \startbuffer[TikZ:NewtonTotalInelastic]
 \environment env_physics
@@ -706,13 +710,31 @@ The final kinetic energy is much less than the initial kinetic energy of 56. The
 {The position vs.~time graph for Newton’s totally inelastic collision.}	% caption text
 {\noindent\typesetbuffer[TikZ:PendulumCollisionGraph5]} % figure contents
 
+In Newton’s collision example, one possible result is ball $B$ sticking to ball $A$ when they collide. In this case, what is their final kinetic energy and how much kinetic energy is lost?
+
+\startsolution
+After the collision, since ball $B$ sticks to ball $A$, they can be treated as a single object with a total mass $M = m_A + m_B =4$ and momentum $p=16$. (See \at{p.}[NewtonInelasticSpeed] for the discussion of momentum in this collision. \in{Figure}[fig:NewtonTotalInelastic] shows this collision performed with pendulums. The position vs.\ time graph is shown in \in{figure} [fig:PendulumCollisionGraph5].)
+
+The final kinetic energy can be calculated from either the final velocity or the final momentum. We use the final momentum.
+\startformula
+	K\sf	= \frac{p\sf^2}{2M}
+		= \frac{16^2}{2\cdot4}
+		= 32
+\stopformula
+The final kinetic energy is much less than the initial kinetic energy of 56. The kinetic energy lost is $K\si - K\sf = 56 - 32 = 24$. According to Leibniz, this kinetic energy is not lost to the universe but has gone into the balls’ minute parts.
+\stopsolution
+
 \stopexample
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Leibniz recognized the truth of Newton’s momentum formula, even if he preferred his \visviva\ as an absolute measure of motion. His criticism of Descartes’s quantity of motion provoked a forceful defense from the Cartesians, who mistakenly pointed to Newton’s successful momentum as vindication. Over the next decade the \visviva\ debate became entangled with a bitter priority dispute between Newton and Leibniz over who had discovered calculus. Newton’s followers frequently viewed these debates as a question of loyalty rather than science.
+Leibniz recognized the truth of Newton’s momentum formula, even if he preferred his \visviva\ as an absolute measure of motion. His criticism of Descartes’s quantity of motion provoked a forceful defense from the Cartesians, who mistakenly pointed to Newton’s successful momentum as vindication. Over the next decade the \visviva\ debate became entangled with a bitter priority dispute between Newton and Leibniz over who had discovered calculus. Newton’s followers frequently viewed these debates as a question of loyalty rather than science. In England, where Newton was especially revered, \visviva\ was viewed with contempt.
 
-Some scientists did not take sides purely out of loyalty, but instead approached the question with rigorous calculations and careful experiments, as scientists should. The famous Swiss mathematician Johann Bernoulli was persuaded to switch camps by Leibniz’s mathematical arguments. Bernoulli became a dedicated and vocal advocate for Leibniz and \visviva.
+On the continent, some scientists did not take sides purely out of loyalty, but instead approached the question with rigorous calculations and careful experiments, as scientists should. 
+Johann Bernoulli, \pagereference[JBernoulli] a gifted young mathematician in Basel, Switzerland, began corresponding with the much older Leibniz in 1693.
+Bernoulli was one of the first mathematicians to master the new calculus.
+He rose to become professor of mathematics at the University of Basel, and was eventually recognized as one of the greatest mathematicians in Europe.
+Leibniz's mathematical arguments persuaded Bernoulli to become a dedicated and vocal advocate for Leibniz and \visviva.
 
 \placefigure[margin][fig:GravesandeDrop]
 	{’s Gravesande dropped spheres into soft clay from various heights to measure their \visviva. This digram appears in his 1740 textbook.\autocite{plate 32}{Gravesande1747}}
@@ -721,9 +743,16 @@ Some scientists did not take sides purely out of loyalty, but instead approached
 	{’s Gravesande used three spheres with the same radius for the above experiment. Two of them were hollow inside so that they had less mass than the solid one. Their masses were in the ratio 3:2:1.\autocite{plate 32}{Gravesande1747}}
 	{\externalfigure[GravesandeDropSpheres][width=144pt]}
 
-The Dutch scientist Willem ’s Gravesande designed experiments to compare impacts of different objects traveling at different speeds. %]
-He did this first by dropping balls into clay. He worked with a set of balls identical in size but different in mass, shown in figures \in[fig:GravesandeDrop] and \in[fig:GravesandeDropSpheres]. When any of these balls was dropped onto the clay it would land with an inelastic thud.
-’s Gravesande measured the size of the dent left in the clay to determine the impact’s effect. If a light, fast ball left the same size dent as a heavy, slow ball, then the two balls had produced the same effect. He thought the effect would be determined by the ball’s momentum $mv$, so that if the heavy ball’s mass is double the light ball’s mass, then the light ball’s velocity would have to be double the heavy ball’s velocity to make the same size dent. If the heavy ball was four times the mass of the light ball, then the light ball would need to be traveling four times as fast to produce the same effect.
+The Dutch scientist Willem ’s Gravesande was famous in Leiden for his lecture demonstrations. He published  excellent textbooks on Newtonian physics, the first appearing in 1720. These are filled with detailed woodcuts of his elegant experiments, like the pendulum collision apparatus on \at{p.}[fig:GravesandeCollider]. ('s Gravesande's diagrams directly inspired many experiments which I perform with my own physics students.)
+
+To test the competing quantities of motion, 's Gravesande designed experiments to compare impacts of different objects traveling at different speeds.
+He did this first by dropping balls into clay.
+He worked with a set of balls identical in size but different in mass, shown in figures \in[fig:GravesandeDrop] and \in[fig:GravesandeDropSpheres].
+A dropped ball would land with an inelastic thud, leaving a dent in the clay.
+’s Gravesande measured the size of the dent  to determine the impact’s effect.
+If a light, fast ball left the same size dent as a heavy, slow ball, then the two balls had produced the same effect.
+He thought the effect would be determined by the ball’s momentum $mv$, so that if the heavy ball’s mass is double the light ball’s mass, then the light ball’s velocity would have to be double the heavy ball’s velocity to make the same dent.
+If the heavy ball was four times the mass of the light ball, then the light ball would need to be traveling four times as fast to produce the same effect.
 
 When ’s Gravesande performed this experiment, the results surprised him. His experiments showed that if the heavy ball’s mass was four times the lighter ball’s mass, then the lighter ball would need to move only twice as fast to produce the same dent. This is  predicted by Leibniz’s formula $mv^2$. After confirming this for many different ratios of mass, ’s Gravesande concluded that he had been mistaken. He adopted \visviva\ as a measure of motion, and enthusiastically shared the discovery. His contribution arrived as the \visviva\ debate was at its peak in the 1720s.
 
@@ -731,18 +760,19 @@ When ’s Gravesande performed this experiment, the results surprised him. His e
 %	The 1720s saw the height of the argument in the English, French, and Dutch learned journals. In 1722, two articles in the \booktitle{Journal litt\'eraire} described Willem ’s Gravesande’s version of an experiment with copper and ceramic balls---bodies of different masses---falling into a clay-filled tray. He compared the depression they made as a way of quantifying the \quote{force} of one body colliding with another and confirming Leibniz’s concept.\autocite{185}{Zinsser2006}
 %\stopblockquote
 
-While ’s Gravesande’s evidence won a few converts, many scientists remained loyal to the Cartesian quantity of motion, largely out of devotion to Newton. In 1728, French scientist Dortous de Mairan made a case for the Cartesian formula in his discourses on the \quote{Estimation and the Measure of Motor Forces of Bodies.} His forceful argument convinced most scientists on the continent that \visviva\ was a failed idea.
-%\begin{marginfigure}%[2.5in]
-%	\marginfig{GravesandeDropCraters}
-%	\caption[Colliding Elastic Bodies]{Leibniz describes how two colliding objects are deformed during a collision, from \booktitle{A Specimen of Dynamics}.\autocite{}{Newton1726}}
-%	\label{fig:GravesandeDropCraters}%
-%\end{marginfigure}
+While ’s Gravesande’s evidence won a few converts, many scientists remained loyal to the Cartesian quantity of motion, largely out of devotion to Newton. In 1728, French scientist Dortous de Mairan made a case for the Cartesian formula in his discourses on the \quote{Estimation and the Measure of Motor Forces of Bodies.} His forceful argument convinced most scientists on the continent that \visviva\ was a failed idea.\pagereference[deMairan]
+
+De Mairan turned his attention elsewhere, studying the day-night cycles in certain plants.
+However, outside the academic science community, the \visviva\ concept was picking up steam.
+Now, we will turn our attention to the engineers. Later, we will return to de Mairan – with a humiliating surprise.
 
 \section{Work}
 Engineers in the eighteenth century were not reading academic papers about \visviva, they were building increasingly powerful and complex machines – water wheels, windmills, pumps – to perform important, difficult tasks like grinding grain and lifting water out of mines. Engineers sought to quantify each machine's usefulness in order to answer economic questions: If a small team of horses could run a mill grinding grain, could a windmill  or a water wheel achieve the same result at a lower cost? If a water wheel in town could grind a certain amount of grain, how much water could be pumped out of a mine in the hills using a similar water wheel there? These questions are answered by determining the \keyterm{work} done by the machine.
 
 I am sure you have done quite a bit of physical work and have some sense of what physical work is. 
-Lifting a heavy box or pushing a heavy cart requires work. In all cases work requires a force $F$ exerted over a displacement $\Delta x$. The resulting amount of work $W$ is simply the product of the force and the displacement.
+Lifting a heavy box or pushing a heavy cart requires work.
+In all cases, work requires a force $F$ exerted over a displacement $\Delta x$.
+The resulting amount of work $W$ is simply the product of the force and the displacement.
 \startformula
 	W = F\Delta x
 \stopformula
@@ -751,7 +781,8 @@ Lifting a heavy box or pushing a heavy cart requires work. In all cases work req
 %Sliding two refrigerators one meter requires twice as much work as sliding a single refrigerator one meter. If you slide the refrigerators one at a time, the work is twice as much because you do the work of sliding one refrigerator twice. If you push them one meter at the \emph{same} time, then you must push with twice as much force. Pushing with this double force accomplishes double the work in only one meter. Therefore, the work is proportional to the force. We conclude, $W = F\Delta x$. This argument was made many times by engineers and scientists during the \visviva\ debate, although I am not sure who argued it first.
 %During the \visviva\ debate, this was called effort, or the effect of the \visviva. We will use the current term: work.
 
-Since work is force times displacement, the \scaps{si} units for work are $\unit{N\.m}$. These units are so common that they have been given their own name – \keyterm{joules}. The symbol for a joule is J (not to be confused with the symbol for impulse, $J$ ). % and it is related to the other standard SI units by the definition
+Since work is force times displacement, the \scaps{si} units for work are $\unit{N\.m}$. These common units have their own name: \keyterm{joules}.
+The symbol for a joule is J (not to be confused with the symbol for impulse, $J$).
 \startformula
 	1\units{J}=1\units{N\.m}
 \stopformula
@@ -851,7 +882,7 @@ The work done by the horse is found using the work formula.
 %\stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In the example above we used positive values for both the force $F$ and the displacement $\Delta x$. These are correct if the horse pulls in the positive direction. If the horse instead pulls in the negative direction, then the force $F$ would be negative. The horse's displacement $\Delta x$ would also be negative. The work done by the horse would be
+In the example above, we used positive values for both the force $F$ and the displacement $\Delta x$. These are correct if the horse pulls in the positive direction. If the horse instead pulls in the negative direction, then the force $F$ would be negative. The horse's displacement $\Delta x$ would also be negative. The work done by the horse would be
 \startformula
 	W  = F\Delta x
 		= (-800\units{N})(-3300\units{m})
@@ -864,7 +895,17 @@ It is possible to do negative work. When the force and the displacement are in o
 
 \section{Conservation of energy}
 
-Engineers’ work and physicists’ \visviva\ were first linked by Daniel Bernoulli, son of the Swiss \visviva\ advocate Johann Bernoulli, mentioned earlier. D.~Bernoulli had undertaken a detailed study of fluid motion, and in the process he recognized that \visviva\ (or kinetic energy) is not the only type of energy. I am not going to list the other types of energy now – D.~Bernoulli will assist us with that in the next chapter. Here it is sufficient to know that there are other types of energy and only the total energy is conserved. D. Bernoulli used his conservation of energy principal to great effect in his groundbreaking  \booktitle{Hydrodynamica}, published in 1738.
+Engineers’ work and physicists’ \visviva\ were first linked by Daniel Bernoulli, son of the Swiss \visviva\ advocate Johann Bernoulli (\at{p.}[JBernoulli]).
+D.~Bernoulli studied medicine and anatomy at the universities of Basel, Heidelberg, and Strasbourg, but he also learned mathematics from his father and older brother, Nicolaus {\sc ii} Bernoulli.
+In 1725, Daniel and Nicolaus, who were great friends as well as brothers, accepted a joint invitation from Peter the Great to join the new St.~Petersburg Academy in Russia.
+Months after their arrival, Nicolaus caught a fever and died.
+He was replaced by Leonard Euler, another young student of Johann and friend of both Daniel and Nicolaus.
+
+In St.~Petersburg, Daniel undertook a detailed study of fluid motion, which lead him to recognize that \visviva\ (or kinetic energy) is not the only type of energy. His analysis produced many surprising predications, which he verified with experiments. In 1729, he began writing a book, \booktitle{Hydrodynamica}, about his findings. With the book only partially complete, and frustrated by censorship and disputes about his salary, D.~Bernoulli left St.~Petersburg Academy and returned to the University of Basel in 1733. His letters to Euler in the following years reported slow progress until the eventual publication of \booktitle{Hydrodynamica} in 1738.
+
+D.~Bernoulli used his conservation of energy principle to great effect in his groundbreaking  \booktitle{Hydrodynamica}. I will not introduce other types of energy now.
+(D.~Bernoulli will assist us with that in the next chapter.)
+For this chapter, simply know that there are other types of energy and only the total energy is conserved.
 
 The symbol for total energy is $H$. %, honoring William Rowan Hamilton, who we will meet in \in{Chapter}[ch:1Ddynamics].
 The conservation law for total energy $H$ looks very similar to the conservation law for momentum.
@@ -874,7 +915,11 @@ The conservation law for total energy $H$ looks very similar to the conservation
 Energy can be added or removed from a system through work $W$ done by outside forces.
 A person pushing a heavy cart does work, increasing the cart’s kinetic energy.
 
-Energy can also be added as heat $Q$ by cooking the cart over a fire, which increases the random, microscopic energy of the cart’s atoms and molecules. D. Bernoulli had some deep insights into how $Q$ related to the motion of the microscopic parts, but he could not calculate $Q$. The correct measurement of heat became one of the greatest challenges for physicists during the nineteenth century. We will return to this topic in Volume II. Until then, we will faithfully include $Q$ when writing the conservation of energy equation, but immediately cross it out because the heat transfer $Q$ is zero in mechanics problems. In mechanics, any change in a system’s total energy is due to outside forces doing work on the system.
+Energy can also be added as heat $Q$ by cooking the cart over a fire, which increases the random, microscopic energy of the cart’s atoms and molecules.
+D. Bernoulli had some deep insights into how $Q$ related to the motion of the microscopic parts.
+We will return to this topic in Volume II.
+Until then, we will faithfully include $Q$ when writing the conservation of energy equation, but immediately cross it out because the heat transfer $Q$ is zero in mechanics problems.
+In mechanics, any change in a system’s total energy is due to outside forces doing work on the system.
 
 %Leibniz’s did not know that the balls’ temperature is a measure of the microscopic random motion – higher temperature indicating greater microscopic \visviva. The loss of the balls’ \visviva\ to the microscopic parts causes an increase in temperature, but the increase is extremely small, far too small for seventeenth century experimenters to measure. The idea that the temperature is connected to microscopic \visviva\ appeared several times in the decades that followed, but was not widely accepted until the middle of the nineteenth century. We will return to this idea in Volume II.
 
@@ -912,7 +957,7 @@ The units are tricky. I made the substitution $1\units{J} = 1\units{N\.m}$ above
 		= \sqrt{1.44\units{m^2/s^2}}
 		= 1.2\units{m/s}
 \stopformula
-Your work gives the cart a speed of $1.2\units{m/s}$.
+Your work gives the cart $54\units{J}$ of kinetic energy and a speed of $1.2\units{m/s}$.
 \stopsolution\stopexample
 
 The example above required a new unit conversion for the cart's kinetic energy.
@@ -925,16 +970,23 @@ Here we see the useful energy unit conversions:
 \stopformula
 %Joules are the usual {\sc si} units for energy, while $\units{N\.m}$ are the units one expects from the work formula $W=F\Delta x$ and $\units{kg\.m^2/s^2}$ are the units one expects from the kinetic energy formula $K=\onehalf mv^2$.
 
-This is an appropriate place for me to make a frank confession: I have a terrible memory. I cannot remember these energy unit conversions. However, I do remember the work formula and the kinetic energy formula. They are short, and I have used each about one million times. Whenever I need energy unit conversions, I just remember the formulas $W=F\Delta x$ and $K=\onehalf mv^2$. The left sides have the energy unit $\units{J}$ while the right sides have the units $\units{N\.m}$ and $\units{kg\.m^2/s^2}$, respectively. When I am working with non-{\sc si} units, as I often do, these tricks give me the conversions in whatever crazy units I am using. Tricks like this made physics attractive to me at an early age! (A professor at The University of Chicago, where I earned my Ph.D., observed that I  passed the physics department's grueling candidacy exam without actually knowing much of anything. I took this as a vindication of my figure-it-out survival strategy.) 
+This is an appropriate place for me to make a frank confession: I have a terrible memory. I cannot remember these energy unit conversions.
+However, I do remember the work formula and the kinetic energy formula.
+They are short, and I have used each about one million times.
+Whenever I need energy unit conversions, I just remember the formulas $W=F\Delta x$ and $K=\onehalf mv^2$. 
+The left sides have the energy unit $\units{J}$ while the right sides have the units $\units{N\.m}$ and $\units{kg\.m^2/s^2}$, respectively
+When I am working with non-{\sc si} units, as I often do, these formulas give me the conversions in whatever crazy units I am using.
+Tricks like this made physics attractive to me at an early age!
+(A professor at The University of Chicago, where I earned my Ph.D., observed that I passed the physics department's grueling candidacy exam without actually knowing much of anything. I took this as a vindication of my figure-it-out survival strategy.) 
 
 %Energy will come in many different forms, with many different formulas, but the units can always be converted to joules.
 
-The rolling cart of the previous example, which you have given $54\units{J}$ of kinetic energy, will continue to roll at $1.2\units{m/s}$ until it is acted on by another force. Let us say that your destination is $8\units{m}$ from where you originally started pushing the cart. You will need to start slowing the cart some distance before reaching the destination. You will do this by pulling backward on the cart, opposing its forward motion. As the cart slows your force and the displacement will be in opposite directions. You will do negative work on the cart, reducing its kinetic energy to zero, as described in the next example.
+The rolling cart of the previous example, which you have given $54\units{J}$ of kinetic energy, will continue to roll at $1.2\units{m/s}$ until it is acted on by another force. Let us say that your destination is $8\units{m}$ from where you originally started pushing the cart. You will need to start slowing the cart some distance before reaching the destination. You will do this by pulling backward on the cart, opposing its forward motion. As the cart slows, your force and the displacement will be in opposite directions. You will do negative work on the cart, reducing its kinetic energy to zero, as described in the next example.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:CartWork2]
-The $75\units{kg}$ cart from \in{example}[ex:CartWork1] is coasting along the hallway with a $54\units{J}$ of energy. As you approach your destination, you begin pulling backward on the cart to slow it. You pull with a backward force of $18\units{N}$. How far does the cart roll before coming to a stop?
+The $75\units{kg}$ cart from \in{example}[ex:CartWork1] is coasting along the hallway with $54\units{J}$ of kinetic energy. As you approach your destination, you begin pulling backward on the cart to slow it. You pull with a backward force of $18\units{N}$. How far does the cart roll before coming to a stop?
 
 \startsolution
 We again use conservation of energy, this time as you slow the cart to a stop ($H\sf = K\sf = 0\units{J}$).
@@ -1080,7 +1132,7 @@ draw begingraph(4cm,3.5cm);
 endgraph;
 \stopuseMPgraphic
 
-\startplacefigure[location=margin, reference=fig:CartWork, title={The cart's energy as a function of position for \in{examples}[ex:CartWork1] and \in[ex:CartWork2]. The graph's slope is the force applied to the cart.}]
+\startplacefigure[location=margin, reference=fig:CartWork, title={The cart's energy graph for \in{examples}[ex:CartWork1] and \in[ex:CartWork2]. The graph's slope is the force applied to the cart.}]
 \small
 \reuseMPgraphic{graph::CartWork}
 \stopplacefigure
@@ -1095,47 +1147,37 @@ The plot in \in{figure}[fig:CartWork] shows the cart's energy as a function of p
 \stopformula
 The cart then coasts for the next $3\units{m}$. During this part of the journey you exert no force and the cart's kinetic energy remains constant. Again, your force, $0\units{N}$, is the energy graph's slope. Finally, during the last $3\units{m}$, you steadily reduce the cart's kinetic energy by exerting a force that opposes the cart's motion. This negative force, $-18\units{N}$, is the energy graph's slope during the final $3\units{m}$.
 
-\startuseMPgraphic{graph::CartPosition} % I'd like to add minor ticks, 0.667mm long.
-	path p;
-	p := (0,0) ..controls (0,1.11) and (0.66,2.22).. (2,3.33)
-		-- (5,5.83) ..controls (7,7.5) and (8,9.17).. (8,10.83);
-draw begingraph(4cm,4cm);
-	setcoords(linear, -linear);
-	setrange(origin, 8,12);
-	for y=auto.y:
-		itick.lft(formatted("$@g$", y), y);
-		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
-		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
-	endfor
-	for x=auto.x:
-		itick.top(formatted("$@g$", x), x);
-		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
-		itick.top(formatted("@s", ""), x) withcolor "middlegray";
-	endfor
-	glabel.lft(textext("$t$ (s)") rotated 90,OUT) ;
-	glabel.top(textext("$x$ (m)"), OUT);
-	gdraw(p) withpen pencircle scaled 0.8pt;
-endgraph;
-\stopuseMPgraphic
+%\startuseMPgraphic{graph::CartPosition} % I'd like to add minor ticks, 0.667mm long.
+%	path p;
+%	p := (0,0) ..controls (0,1.11) and (0.66,2.22).. (2,3.33)
+%		-- (5,5.83) ..controls (7,7.5) and (8,9.17).. (8,10.83);
+%draw begingraph(4cm,4cm);
+%	setcoords(linear, -linear);
+%	setrange(origin, 8,12);
+%	for y=auto.y:
+%		itick.lft(formatted("$@g$", y), y);
+%		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+%		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+%	endfor
+%	for x=auto.x:
+%		itick.top(formatted("$@g$", x), x);
+%		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+%		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+%	endfor
+%	glabel.lft(textext("$t$ (s)") rotated 90,OUT) ;
+%	glabel.top(textext("$x$ (m)"), OUT);
+%	gdraw(p) withpen pencircle scaled 0.8pt;
+%endgraph;
+%\stopuseMPgraphic
+%
+%\startplacefigure[location=margin, reference=fig:CartPosition, title={The cart's position as a function of time for \in{examples}[ex:CartWork1] and \in[ex:CartWork2]. The graph is rotated $90\degree$ clockwise so the position axis aligns with the position axis in \in{figure}[fig:CartWork]. As time increases (downward on the graph), the cart moves from $x=0\units{m}$ to $x=8\units{m}$, accelerating for the first few seconds, then coasting at a speed of $1.2\units{m/s}$, and finally decelerating over the last few seconds.}]
+%\small
+%\reuseMPgraphic{graph::CartPosition}
+%\stopplacefigure
 
-\startplacefigure[location=margin, reference=fig:CartPosition, title={The cart's position as a function of time for \in{examples}[ex:CartWork1] and \in[ex:CartWork2]. The graph is rotated $90\degree$ clockwise so the position axis aligns with the position axis in \in{figure}[fig:CartWork]. As time increases (downward on the graph), the cart moves from $x=0\units{m}$ to $x=8\units{m}$, accelerating for the first few seconds, then coasting at a speed of $1.2\units{m/s}$, and finally decelerating over the last few seconds.}]
-\small
-\reuseMPgraphic{graph::CartPosition}
-\stopplacefigure
-
-Energy vs.\ position graphs, like the one in \in{figure}[fig:CartWork], are extremely useful, and they will become more useful as we learn about more types of energy. Energy graphs work well with the position vs.\ time graphs we have seen so frequently. \in{Figure}[fig:CartPosition] shows the position vs. time graph for your trip pushing the cart of books. I have rotated the graph $90°$ clockwise to align the position axis with the position axis of the energy graph in \in{figure}[fig:CartWork] above. 
-(You may want to rotate the page for a minute so you can recognize the time and position axes.) The position vs.\ time graph shows the cart accelerating during the first few seconds as you push the cart the first $2\units{m}$. Then the position graph's slope is a constant $1.2\units{m/s}$ as the cart coasts for $3\units{m}$. Finally, the cart's velocity decreases as you bring it to a stop.
-
-On position vs.\ time graphs the story is always told from left to right – or from top to bottom if the graph is rotated. The story goes from earlier time to later time. Time never goes backwards!
-
-On energy graphs the story can go either direction. In \in{examples}[ex:CartWork1] and \in[ex:CartWork2], you pushed the cart from $x=0\units{m}$ to $x=8\units{m}$, left to right. You could just as easily push the cart from $x=8\units{m}$ to $x=0\units{m}$, right to left. \in{Figure}[fig:CartGraphs] shows the graphs for such a return trip, this time with a much lighter empty cart ($9\units{kg}$). Follow the story on the graphs.
-
-At $t=0\units{s}$ you are at $x=8\units{m}$. You push the empty cart in the negative direction with a gentle force $F=-9N$. You push for $2\units{m}$ in the negative direction, a displacement of $\Delta x = -2\units{m}$. The energy graph's slope is negative here. Since the displacement is also negative, you do positive work on the cart, and the cart's kinetic energy increases to $K = 18\units{J}$. 
-
-The cart then coasts in the negative direction with kinetic energy $K = 18\units{J}$. This kinetic energy is positive even though the cart is moving in the negative direction. Kinetic energy is \emph{always} positive!
-The empty cart's kinetic energy is much less than the full cart's $54\units{J}$ of energy in your earlier trip. However, the empty cart's speed is $2\units{m/s}$, greater than the heavy cart's, because the empty cart's mass is so much smaller. The empty cart's velocity is $-2\units{m/s}$ because it is moving in the negative direction. This is visible as a slope of $-2\units{m/s}$ on the position vs.\ time graph. (Rotate if you need to, so you can see the negative slope.)
-
-Finally, you stop the cart with a force $F=18\units{N}$ in the positive direction. This force is the same magnitude as the force you used to stop the full cart. Since the empty cart is much lighter, you are able to stop it is a much shorter distance, brining it to a stop at $x=0\units{m}$. The return trip with the empty cart takes less energy and less time than the first trip with the full, heavy cart.\pagereference[CartWorkEnding]
+Energy graphs, like the one in \in{figure}[fig:CartWork], are extremely useful, and they will become more useful as we learn about more types of energy.
+On these energy graphs, the story can go either direction. In \in{examples}[ex:CartWork1] and \in[ex:CartWork2], you pushed the cart from $x=0\units{m}$ to $x=8\units{m}$, left to right. You could just as easily push the cart from $x=8\units{m}$ to $x=0\units{m}$, right to left. \in{Figure}[fig:CartGraphs] shows the graphs for such a return trip, this time with a much lighter empty cart ($9\units{kg}$). Follow the story on the graphs.
+\pagereference[CartWorkEnding]
 
 \startuseMPgraphic{graph::CartGraphs} % I'd like to add minor ticks, 0.667mm long.
 	path H;
@@ -1167,46 +1209,54 @@ draw begingraph(4cm,1.5cm);
 	glabel(myarrow, 1.5) rotatedaround(point 1.5 of H, 180);
 	glabel(myarrow, 2.5) rotatedaround(point 2.5 of H, angle (-1,-1.8));
 endgraph;
-	path p;
-	p := (8,0) ..controls (8,0.66) and (7.33,1.33).. (6,2)
-		-- (1,4.5) ..controls (0.33,4.83) and (0,5.17).. (0,5.5);
-	picture myarrow;
-	myarrow := image(
-		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
-	);
-draw begingraph(4cm,2cm);
-	setcoords(linear, -linear);
-	setrange(origin, 8,6);
-	for y=auto.y:
-		itick.lft(formatted("$@g$", y), y);
-		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
-		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
-	endfor
-	for x=auto.x:
-		%itick.top(formatted("$@g$", x), x);
-		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
-		itick.top(formatted("@s", ""), x) withcolor "middlegray";
-	endfor
-	glabel.lft(textext("$t$ (s)") rotated 90,OUT) ;
-	%glabel.top(textext("$x$ (m)"), OUT);
-	gdraw(p) withpen pencircle scaled 0.8pt;
-endgraph shifted (0cm, -2.4cm);
+%	path p;
+%	p := (8,0) ..controls (8,0.66) and (7.33,1.33).. (6,2)
+%		-- (1,4.5) ..controls (0.33,4.83) and (0,5.17).. (0,5.5);
+%	picture myarrow;
+%	myarrow := image(
+%		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
+%	);
+%draw begingraph(4cm,2cm);
+%	setcoords(linear, -linear);
+%	setrange(origin, 8,6);
+%	for y=auto.y:
+%		itick.lft(formatted("$@g$", y), y);
+%		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+%		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+%	endfor
+%	for x=auto.x:
+%		%itick.top(formatted("$@g$", x), x);
+%		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+%		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+%	endfor
+%	glabel.lft(textext("$t$ (s)") rotated 90,OUT) ;
+%	%glabel.top(textext("$x$ (m)"), OUT);
+%	gdraw(p) withpen pencircle scaled 0.8pt;
+%endgraph shifted (0cm, -2.4cm);
 \stopuseMPgraphic
-
-\startplacefigure[location=margin, reference=fig:CartGraphs, title={The cart's energy as a function of position and position as a function of time as the empty cart is returned to $x=0$. These graphs are drawn to the same scale as \in{figures}[fig:CartWork] and \in[fig:CartPosition].}]
+\startplacefigure[location=margin, reference=fig:CartGraphs, title={The cart's energy graph as the empty cart is returned to $x=0$. This graph is drawn to the same scale as \in{figures}[fig:CartWork].}]
 \small
 \reuseMPgraphic{graph::CartGraphs}
 \stopplacefigure
 
+Initially, the empty cart is stationary at $x=8\units{m}$. By applying a gentle force in the negative direction ($F=-9N$), you push the cart $2\units{m}$ in the negative direction ($\Delta x = -2\units{m}$). By exerting a negative force through a negative displacement, you do positive work on the cart, increasing the cart's kinetic energy increases to $K = 18\units{J}$. 
+
+The cart then coasts in the negative direction with kinetic energy $K = 18\units{J}$. This kinetic energy is positive even though the cart is moving in the negative direction. Kinetic energy is \emph{always} positive!
+The empty cart's kinetic energy is much less than the full cart's $54\units{J}$ of energy during your earlier trip.
+I calculated the empty cart's speed using $K= \onehalf mv^2$ and found $\abs{v}= 2\units{m/s}$.
+The empty cart's speed is greater than the heavy cart's, because the empty cart's mass is so much smaller. The empty cart's velocity is $-2\units{m/s}$ because it is moving in the negative direction. 
+
+Finally, you stop the cart with a force $F=18\units{N}$ in the positive direction. This force is the same magnitude as the force you used to stop the full cart. Since the empty cart is much lighter, you are able to stop it is a much shorter distance, brining it to a stop at $x=0\units{m}$. The return trip with the empty cart takes less energy and less time than the first trip with the full, heavy cart.
+
 ’s Gravesande’s experiment provides another good example of positive and negative work, this time in the $y$-direction. A dropped ball is pulled downward by the gravitational force. The downward force is negative, and the downward displacement is also negative, so work done by the gravitational force is positive, increasing the ball’s kinetic energy.
 
-When the ball hits the clay, the clay exerts an upward force much greater than the gravitational force. The ball continues down a bit, making a dent in the clay, so there is a small negative displacement even as the clay is exerting a large positive force. The work done on the ball as it stops is the product of the positive force and the negative displacement. This negative work eliminates the ball's kinetic energy, brining it to a stop.
+When the ball hits the clay, the clay exerts an upward force much greater than the gravitational force. The ball continues down a bit, making a dent in the clay, so there is a small negative (downward) displacement even as the clay is exerting a large positive (upward) force. The work done on the ball as it stops is the product of the positive force and the negative displacement. This negative work eliminates the ball's kinetic energy, brining it to a stop.
 
 The size of the dent in the clay was proportional to the work done by the ball during the impact. Dents are harder to measure than displacements, but the idea is the same. His data showed that the work done was proportional to the ball's \visviva, not the ball's momentum.
 
 \section{Kinetic energy and work in three dimensions}
 
-Energy is not directional, so all types of energy are represented by scalars, not by vectors. Kinetic energy depends on an object’s speed, but not its direction. When working in two or three dimensions, $v$, is the speed.
+Energy is not directional, so all types of energy are represented by scalars, not by vectors. Kinetic energy depends on an object’s speed, but not its direction. When working in two or three dimensions, $v$ is the speed.
 \startformula
 v = \sqrt{v_x^2+v_y^2+v_z^2},
 \stopformula
@@ -1256,7 +1306,7 @@ You do $95\units{J}$ of work on the refrigerator. There is no way to know from t
 \stopexample
 
 Daniel Bernoulli linked engineers' work to physicists' \visviva\ through conservation of energy, and he demonstrated that this profound link could solve important and difficult problems in both physics and engineering. These ideas and others in his revolutionary \booktitle{Hydrodynamica} were accepted slowly by the physics community, and were not fully embraced until many year's after \booktitle{Hydrodynamica's} publication in 1738. Perhaps Bernoulli's ideas were too far ahead of his time, or perhaps the humble Bernoulli lacked the necessary gifts of self promotion.
-One idea, the conservation of \visviva, did gain rapid acceptance – but not primarily due to a Bernoulli's work.
+One idea, the conservation of \visviva, did gain rapid acceptance – but not initially due to a Bernoulli's work.
 
 \section{Vis viva revived}
 Leibnitz’s \visviva\ was given new life by a bold genius, Emilie Du Châtelet. %, who investigated both sides of the debate in great depth.
@@ -1264,15 +1314,17 @@ Emilie was born in 1706. Her wealthy father used his connections in the court of
 
 In 1740, at the age of thirty four, Du Châtelet wrote a physics book, \booktitle{Institutions de Physique} or \booktitle{Foundations of Physics}. She had been unable to find an introductory physics text for her son, so she wrote \booktitle{Foundations} for him. She explained Newtonian mechanics with great clarity and conviction. No reader could doubt her mastery and enthusiasm for Newton’s theory of motion.
 
-In the final chapter, Du Châtelet explains \visviva. She reminds her son of \quotation{the memoir that M.~de Mairan gave in 1728 to the Academy against \visviva\ that we read together, and in which the famous proceeding is explained with much clarity and eloquence.} She continues,
+In the final chapter, Du Châtelet explains \visviva. She reminds her son of \quotation{the memoir that M.~de Mairan gave in 1728 to the Academy against \visviva\ that we read together, and in which the famous proceeding is explained with much clarity and eloquence.}
+(You should also recall M.~de Mairan from \at{p.}[deMairan].)
+She continues,
 \startblockquote
 	As this work appears to me to be the most ingenious that has been produced against \visviva, I will pause to take the time to remind you here of some passages, and to refute them.\autocite{188}{DuChatelet1740}
 \stopblockquote
-Even as she refuted the Cartesian position, her mastery of Newtonian physics was on full display. In many  examples she first used Newtonian physics to predict what would happen. She then showed, based on this Newtonian analysis, that \visviva\ was also conserved, but Descartes’ quantity of motion was not.
+Even as she refutes the Cartesian position, her mastery of Newtonian physics is on full display. In many  examples, she first uses Newtonian physics to predict what will happen. She then showes, based on this Newtonian analysis, that \visviva\ will also be conserved, but Descartes’ quantity of motion will not.
 
 As her final argument of this type, Du Châtelet calls on the authority of Isaac Newton himself! In the forth and final edition of \booktitle{Opticks}, published in 1730, Newton included an essay on forces in nature. This famous essay became know by its unhelpful title: \booktitle{Query 31}. In it, Newton argues that the quantity of motion is \emph{not} conserved.
 \quotation{For from the various Composition of two Motions, ’tis very certain that there is not always the same quantity of Motion in the World.}
-He provides an example in which \quotation{two Globes joined by a slender Rod, revolve about their common Center of Gravity with Uniform Motion, while that Center moves on uniformly in a right Line\dots,} as shown in \in{figure}[fig:spinningmoving].\autocite{373}{Newton1730}\pagereference[GlobesStart] (The center of gravity is an idea we will return to later in this chapter. We will call it the center of mass.) These combined motions, once they are started, will continue uniformly without any external forces. In this situation,
+He provides an example in which \quotation{two Globes joined by a slender Rod, revolve about their common Center of Gravity with Uniform Motion [\in{figure}[fig:spinning]], while that Center moves on uniformly in a right Line\dots [\in{figure}[fig:spinningmoving]].}\autocite{373}{Newton1730}\pagereference[GlobesStart] (The center of gravity is an idea we will return to later in this chapter. We will call it the center of mass.) These combined motions, once they are started, will continue uniformly without any external forces. In this situation,
 \startbuffer[TikZ:spinning]
 \environment env_physics
 \environment env_TikZ
@@ -1430,14 +1482,13 @@ The kinetic energy is the same for both orientations, $K=2\units{J}$. With some 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Du Châtelet computed the \visviva, which is double the kinetic energy, and reached the same conclusion.
 \startblockquote
-It is easy to prove that the \visviva\ always remains the same, although the quantity of motion varies.\autocite{188}{DuChatelet1740}
+It is easy to prove that the \visviva\ always remains the same, although the quantity of motion varies.\autocite{188}{DuChatelet1740}\pagereference[GlobesStop]
 \stopblockquote
 You would be wise to wonder if Newton’s example or Du Châtelet’s choice of values are somehow special. Perhaps the symmetry of two masses or the match between the rotational and linear speeds causes the kinetic energy to balance in some way, keeping it constant. In fact, this example is not special.
 \startblockquote
 In all cases, and especially in that which I have just cited from M. Newton, the \visviva\ stay invariable. \autocite{199}{DuChatelet1740}
 \stopblockquote
-Any velocities, any masses, and any rigid shape will have a constant kinetic energy unless external forces do work on the object to change its energy. If the masses are different or if the shape is asymmetrical, then the center of mass is not necessarily in the geometric center, but the object still rotates naturally about its center of mass and kinetic energy is constant. (We will learn more about theses situations near the end of the chapter when we look more closely and rotational motion.) Du Châtelet knew these complicated cases worked as well, but the simple example above made her point quite clearly.\pagereference[GlobesStop]
-
+To see why the kinetic energy stays invariable in all cases, we must understand the kinetic energy of rotation.
 
 \section{Angular motion and rotational kinetic energy}
 While freely moving objects travel along straight lines, interactions cause an abundance of circular motions, from the orbits that dominate the solar system down to the everyday rotations of tops, wheels and even Earth itself. So far, we have studied circular motions using the same tools we use for linear motions, $\vec p = m\vec v$ for momentum and $K = \half mv^2$ for kinetic energy.
@@ -1487,7 +1538,7 @@ While freely moving objects travel along straight lines, interactions cause an a
 {\noindent\typesetbuffer[TikZ:rolling]} % figure contents
 
 
-Unfortunately, we are about to run into serious trouble because nearly all rotating objects have parts that are moving with many different velocities. Parts near the center of rotation complete small circles while parts far away  complete much larger circles in the same time. Figure~\in[fig:rolling] shows a typical example – a rolling disk. Parts near the top move faster, while parts near the ground are slower. Parts on the leading side are moving down toward the ground, while parts on the trailing side are moving upward. If you are skilled with vector calculus then you know just what to do, and you can skip the rest of this section. If you don’t have those skills, you will need some tools to handle momentum and energy in common situations like rolling. Specifically, we need a method for finding the total momentum and total kinetic energy of an object that is rotating and possibly moving at the same time.
+Unfortunately, we are about to run into serious trouble, because nearly all rotating objects have parts  moving with many different velocities. Parts near the center of rotation complete small circles while parts far away  complete much larger circles in the same time. Figure~\in[fig:rolling] shows a typical example – a rolling disk. Parts near the top move faster, while parts near the ground are slower. Parts on the leading side are moving down toward the ground, while parts on the trailing side are moving upward. If you are skilled with vector calculus then you know just what to do, and you can skip the rest of this section. If you don’t have those skills, you will need some tools to handle momentum and energy in common situations like rolling. Specifically, we need a method for finding the total momentum and total kinetic energy of an object that is rotating and possibly moving at the same time.
 
 The trick for momentum is quite simple: ignore the rotation and look only at the motion of the center. The total momentum of the wheel in figure~\in[fig:rolling] is $\vec p = m\vec v$, where $m$ is the wheel’s mass and $\vec v$ is the velocity of the wheel’s center, shown in figure~\in[fig:rollingcenter]. The rotation contributes nothing to the total momentum.
 
@@ -1514,7 +1565,7 @@ The trick for momentum is quite simple: ignore the rotation and look only at the
 
 Newton’s example with the connected globes illustrates how this trick works. The rotation contributes to each globe's velocity, but the contributions are exactly equal and opposite. If the rotation increases one globe's velocity, it decreases or reverses the other's. If it gives an upward component one globe's velocity it gives a downward component to the other's.  These equal and opposite contributions cancel in the total momentum. The situation is the same for any symmetrical object – like a disk, ball, or rod – where every bit of momentum on one side is canceled by an equal and opposite momentum on the opposite side. For example, every part of a wheel has a matching part on the opposite side, ensuring their momenta cancel.
 
-If the object is not symmetrical we force the issue by finding a point where the cancelation happens anyway. The simplest asymmetric case, and the only case you need to be able to do on you own, is two unequal globes connected by a rigid rod. In the spirit of Du Châtelet, we will consider simple masses $m\sub{A} = 3\units{kg}$ and $m\sub{B} = 1\units{kg}$, shown in \in{figure}[fig:spinning31]. Rotation about the rod’s midpoint gives equal and opposite velocities to the globes, but not equal and opposite momenta. The the heavy globe's momentum will be three times larger than the  lighter globe’s. These will not cancel in the total momentum.
+If the object is not symmetrical, we force the issue by finding a point where the cancelation happens anyway. The simplest asymmetric case, and the only case you need to be able to do on you own, is two unequal globes connected by a rigid rod. In the spirit of Du Châtelet, we will consider simple masses $m\sub{A} = 3\units{kg}$ and $m\sub{B} = 1\units{kg}$, shown in \in{figure}[fig:spinning31]. Rotation about the rod’s midpoint gives equal and opposite velocities to the globes, but not equal and opposite momenta. The the heavy globe's momentum will be three times larger than the  lighter globe’s. These will not cancel in the total momentum.
 
 \startbuffer[TikZ:spinning31]
 \environment env_physics
@@ -1580,7 +1631,7 @@ Every object has a center of mass, and will spin about this center without any n
 \stopformula
 where $\vec F\sn$ is the total of all external forces acting on any part of the object. The rotation can be totally ignored in momentum calculations.
 
-The rotation cannot be ignored in kinetic energy calculations. Rotation always increases the total kinetic energy. Even so, there is a trick that makes the calculation rather direct: simply add the kinetic energy due to the rotation to the kinetic energy of the center of mass to find the total kinetic energy.
+The rotation \emph{cannot} be ignored in kinetic energy calculations. Rotation always increases the total kinetic energy. Even so, there is a trick that makes the calculation rather direct: simply add the kinetic energy due to the rotation to the kinetic energy of the center of mass to find the total kinetic energy.
 \startformula
 	K = K\sub{CoM} + K\sub{rot}
 \stopformula
@@ -1627,28 +1678,7 @@ The total kinetic energy is $2\units{J}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The total kinetic energy calculated using $K = K\sub{CoM} + K\sub{rot}$ in this example matches the total energy calculated in example~\in[ex:NewtonGlobes] when we used the method $K = K\sub{A} + K\sub{B}$. This is a good sign!
 These two methods should give the same answer, but there is an important difference in the calculation. In \in{example}[ex:NewtonGlobes], we found the total kinetic energy in two specific orientations. Other orientations are more challenging.
-Using $K = K\sub{CoM} + K\sub{rot}$, we have replaced the complicated motion of the two globes with a very simple type of compound motion: uniform motion of the center of mass compounded with uniform circular motion about the center of mass. Each of type of uniform motion makes an unchanging contribution to the total kinetic energy, confirming Du Châtelet's assertion that the total \visviva\ always remains the same.
-
-%Using $K = K\sub{CoM} + K\sub{rot}$, the center of mass kinetic energy $K\sub{CoM}$ and the kinetic energy due to rotation $K\sub{rot}$ are both independent of the orientation. We find them once, and they stay the same throughout the motion
-
-In addition to the Newtonian arguments, Du Châtelet cited specific experiments, like ’s Gravesande’s, providing further evidence for momentum and \visviva\ – and evidence against Descartes’ quantity of motion. Du Châtelet understood the difference between Newton’s successful momentum and Descartes’ failed quantity of motion, and she drove a wedge between the two as she advanced he argument for \visviva.
-%Du Châtlet’s arguments must have confounded the Cartesians terribly. They viewed themselves as Newton’s defenders, but challenging her arguments for Leibniz’s \visviva\ would mean abandoning Newton as well!
-Fifty-three years after Newton’s \booktitle{Principia}, this reckoning was long overdue.
-
-
-Du Châtelet immediately faced two attacks. Even before \booktitle{Foundations} was published, her former tutor, Samuel König, falsely claimed the work was his and that Du Châtelet had simply taken his dictation to produce \booktitle{Foundations}. %König expected his claim was taken seriously because few intellectuals of the time could not imagine a woman producing a work of such sophistication.
-Historian Judith P.\ Zinsser describes the second challenge faced by Du Châtelet.
-\startblockquote
-	The second attack in the spring of 1741 came from Dortous de Mairan, newly appointed the secretary of the Academy of Sciences. Initially, he had thanked Du Châtelet for having sent him a copy of her book. Reading her final chapter, the explicit attack on his work, must have been an unwelcome surprise. Angered by the veiled sarcasm in which she had presented his views, he saw himself as the champion, not only of the Cartesian formula he had defended in 1728 against Bernoulli but also the Academy of Sciences, now challenged by a young noblewoman. He quickly formulated a pamphlet that he distributed throughout the Republic of Letters that portrayed Du Châtelet as a silly coquette, seduced by Leibnizian ideas when she should have accepted those of men wiser and better than she. Du Châtelet surprised him again, however, and answered his pamphlet point by point in a style contemporaries acknowledged was his equal in wit and daring. Probably at the insistence of his friends, Dortous de Mairan let the matter drop.\autocite{107--108}{Zinsser2009}
-\stopblockquote
-
-Du Châtelet composed her detailed response in only three weeks, demonstrating her brilliance and thereby removing any doubt that she was the true author of \booktitle{Foundations of Physics}.
-
-\startblockquote
-	The controversy, and the approval and acclaim for the \booktitle{Foundations} from mathematicians and physicists in England, France and Germany\dots secured Du Châtelet’s reputation as a member of the elite, intellectual world of the Republic of Letters.\autocite{108}{Zinsser2009}
-\stopblockquote
-
-Newton was already widely revered. Du Châtelet’s \booktitle{Foundations of Physics} made his physics widely understood. \booktitle{Foundations} cured the persistent confusion underlying the \visviva\ controversy and spread Leibniz’s insight to many who had dismissed him. Kinetic energy became a central concept in physics.
+Using $K = K\sub{CoM} + K\sub{rot}$, we have replaced the complicated motion of the two globes with a very simple type of compound motion: uniform motion of the center of mass compounded with uniform circular motion about the center of mass. Each of type of uniform motion makes an unchanging contribution to the total kinetic energy, confirming Du Châtelet's assertion that the total \visviva\ always remains the same for Newton's equal mass globes.
 
 Calculating rotational kinetic energy $K\sub{rot}$ for more complicated shapes is, of course, more complicated. The object’s different parts move at different speed depending on their distance from the axis of rotation. 
 As we learned in \in{Chapter}[ch:Motion], all of these different speeds are related to the object's angular velocity $\omega$. (\at{p.}[eq:angularvelocity])
@@ -1707,7 +1737,7 @@ The rotational kinetic energy is the hard part. First, we must find this object�
 \NC 			\NC = \half \left(m\sub{A}^{} r\sub{A}^2 + m\sub{B}^{} r\sub{B}^2\right)\omega^2		\NR
 \NC 			\NC = \half I\omega^2		\NR
 \stopmathalignment\stopformula
-where $I = \left(m\sub{A}^{}r\sub{A}^2 + m\sub{B}^{}r\sub{B}^2\right)$. Next we calculate $I$ and put that value in the simple formula for $K\sub{rot}= \half I\omega^2$ above.
+where $I = \left(m\sub{A}^{}r\sub{A}^2 + m\sub{B}^{}r\sub{B}^2\right)$. Next we calculate $I$ and put that value in the simple formula $K\sub{rot}= \half I\omega^2$ above.
 \startformula\startmathalignment
 \NC	I	\NC = m\sub{A}^{}r\sub{A}^2 + m\sub{B}^{}r\sub{B}^2						\NR
 \NC 		\NC = (3.0\units{kg})(0.25\units{m})^2 + (1.0\units{kg^2})(0.75\units{m})^2	\NR
@@ -1857,17 +1887,45 @@ The total kinetic energy is $110\units{J}$.
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Any velocities, any masses, and any rigid shape will have a constant kinetic energy unless external forces do work on the object to change its energy.
+Du Châtelet knew these complicated cases worked as well, but Newton's simple example made her point quite clearly (\at{p.}[GlobesStart]).
+%(\at{pp.}[GlobesStart]–\at[GlobesStop]).
+
+In addition to the Newtonian arguments, Du Châtelet provided further evidence for momentum and \visviva\ – and evidence against Descartes’ quantity of motion – by citing specific experiments like ’s~Gravesande’s. Du Châtelet understood the difference between Newton’s successful momentum and Descartes’ failed quantity of motion, and she drove a wedge between the two as she advanced he argument for \visviva.
+%Du Châtlet’s arguments must have confounded the Cartesians terribly. They viewed themselves as Newton’s defenders, but challenging her arguments for Leibniz’s \visviva\ would mean abandoning Newton as well!
+Fifty-three years after Newton’s \booktitle{Principia}, this reckoning was long overdue.
+
+
+Du Châtelet immediately faced two attacks. Even before \booktitle{Foundations} was published, her former tutor, Samuel König, falsely claimed the work was his and that Du Châtelet had simply taken his dictation to produce \booktitle{Foundations}. %König expected his claim was taken seriously because few intellectuals of the time could not imagine a woman producing a work of such sophistication.
+Historian Judith P.\ Zinsser describes the second challenge faced by Du Châtelet.
+\startblockquote
+	The second attack in the spring of 1741 came from Dortous de Mairan, newly appointed the secretary of the Academy of Sciences. Initially, he had thanked Du Châtelet for having sent him a copy of her book. Reading her final chapter, the explicit attack on his work, must have been an unwelcome surprise. Angered by the veiled sarcasm in which she had presented his views, he saw himself as the champion, not only of the Cartesian formula he had defended in 1728 against Bernoulli but also the Academy of Sciences, now challenged by a young noblewoman. He quickly formulated a pamphlet that he distributed throughout the Republic of Letters that portrayed Du Châtelet as a silly coquette, seduced by Leibnizian ideas when she should have accepted those of men wiser and better than she. Du Châtelet surprised him again, however, and answered his pamphlet point by point in a style contemporaries acknowledged was his equal in wit and daring. Probably at the insistence of his friends, Dortous de Mairan let the matter drop.\autocite{107--108}{Zinsser2009}
+\stopblockquote
+
+Du Châtelet composed her detailed response in only three weeks — with no help from König! – demonstrating her brilliance and thereby removing any doubt that she was the true author of \booktitle{Foundations of Physics}.
+
+\startblockquote
+	The controversy, and the approval and acclaim for the \booktitle{Foundations} from mathematicians and physicists in England, France and Germany\dots secured Du Châtelet’s reputation as a member of the elite, intellectual world of the Republic of Letters.\autocite{108}{Zinsser2009}
+\stopblockquote
+
+Newton was already widely revered. Du Châtelet’s \booktitle{Foundations of Physics} made his physics widely understood. \booktitle{Foundations} cured the persistent confusion underlying the \visviva\ controversy and spread Leibniz’s insight to many who had dismissed him. Kinetic energy became a central concept in physics.
+
 \section{Vis viva’s legacy}
 
 Du Châtelet continued to contribute to the physics community by producing a complete translation of Newton’s \booktitle{Principia} into French. In addition to translating the text, she translated the mathematics from Newton’s geometric calculus to Leibniz’s more powerful algebraic notation, making the text much more useful.  She also produced a commentary and updated all of the astronomical data and calculations. This monumental intellectual achievement was also a physical feat, as she worked seventeen hours a day – while pregnant – to complete what she called \quotation{my Newton.} Genius, nobility, wealth, and fame could not reduce the perils of pregnancy and childbirth for an older woman in the eighteenth century. At the age of 42, she feared that her work would be left unfinished if she let it slip past her due date.
 
-She was working after midnight when she went into labor. The birth was relatively easy. She retired to bed for a few days but continued to work, completing corrections on the printer's proofs and then sending all of her working papers  to the royal librarian. Then, on the sixth day, she developed a sudden headache and had trouble breathing. Perhaps a blood clot, formed during her time in bed, had broken free and lodged in her lungs. The royal physician and the most prominent doctors of the region were called, but they could offer only opiates for some relief. She died that night, September 10, 1749.
+Du Châtelet was working after midnight when she went into labor.
+The birth was relatively easy.
+She retired to bed for a few days but continued to work, completing corrections on the printer's proofs and then sending all of her working papers to the royal librarian.
+Then, on the sixth day, she developed a sudden headache and had trouble breathing.
+Perhaps a blood clot, formed during her time in bed, had broken free and lodged in her lungs.
+The royal physician and the most prominent doctors of the region were called, but they could offer only opiates for some relief. She died that night, September 10, 1749.
 
-Du Chatlâtet's translation and comentary contributed greatly to the advancement of physics on the continent, but was largely ignored in England where Newton was so revered that all of the universities stubbornly continued using his cumbersome geometric methods.
+Du Chatlâtet's translation and comentary helped advance physics on the continent, but it was largely ignored in England where the universities stubbornly continued using and teaching Newton's cumbersome geometric methods.
 
 On the continent, energy continued to play a central role in the advancing physics, as we will see, and it continues to be central today. High-energy experiments done in the twentieth century revealed that the formula $K=\onehalf mv^2$ is not correct for speeds close to the speed of light ($3\sci{8}\units{m/s}$), just like the formula for momentum. Also like the formula for momentum, this kinetic energy formula is \emph{extremely} accurate for lower speeds (anything less than $10^7\units{m/s}$). For higher speeds we will need the updated formulas in Volume II.
 
-Conservation of energy in its many forms is a bit more complicated that Leibniz’s original idea for conservation of \visviva, but added complexity also makes energy extremely useful. Food, fuel, and batteries all contain energy stored in other forms that can be converted into kinetic energy.
+Conservation of energy in its many forms is a bit more complicated than Leibniz’s original idea for conservation of \visviva, but added complexity also makes energy extremely useful. Food, fuel, and batteries all contain energy stored in other forms that can be converted into kinetic energy.
 
 The conservation laws for momentum and energy have survived every experimental test and are thought to be among the most fundamental laws of nature. They can be used in every situation, from the interactions of quarks inside a proton to the stretching of space and time over the vast scales of the cosmos. Learn them and use them. They are treasures.
 

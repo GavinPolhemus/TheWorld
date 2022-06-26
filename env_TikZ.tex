@@ -17,7 +17,8 @@
 \usepgfplotslibrary[fillbetween]
 \usetikzlibrary[pgfplots.polar]
 
-\tikzset{>/.tip=Latex} % The tip drawn by -> will be the LaTeX tip.
+\tikzset{>/.tip=Latex[round]} % The tip drawn by -> will be the LaTeX tip, round.
+%\tikzset{>/.tip=Stealth[inset=0pt, round]} % The tip drawn by -> will be similar to the MetaPost tip.
 \tikzset{tips=proper} % Arrows with zero length will not have heads. 
 \tikzset{help lines/.style=middlegray}
 
