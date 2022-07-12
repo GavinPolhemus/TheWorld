@@ -107,7 +107,7 @@
 \defineconversionset[bodypart:pagenumber][][numbers]
 %\defineconversionset[appendix:pagenumber][][Characters]
 \setupheadertexts[text][section][][][chapter]
-\setupheadertexts[margin][][\hfill\pagenumber][\pagenumber \hfill][] % HR: does \hfill work here at all? GP: It seems to.
+\setupheadertexts[margin][][\hfill\userpagenumber][\userpagenumber \hfill][]
 
 % Indenting
 \setupindenting[yes,medium]
@@ -119,6 +119,7 @@
 \definehighlight[textit][style=italicface]
 \definehighlight[scaps][style={\addff{smallcaps}}]
 \definehighlight[booktitle][style=italicface]
+\define\dash{|\,--\,|}
 \define\visviva{\emph{vis viva}}
 \define\Visviva{\emph{Vis viva}}
 
