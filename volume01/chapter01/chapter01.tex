@@ -169,60 +169,6 @@ Aristoxenus, in the fourth century \scaps{bc}, took a more experimental approach
 Mathematics was a useful guide, but Aristoxenus believed music is good if it sounds good.
 He shared his ideas in \booktitle{Harmonic Elements}. His book was ridiculed and then largely ignored by music theorists, but his ideas continued to be influential, as we will see.
 
-\startplacefigure[location=margin, reference=fig:TinyPiano, title={Ptolemy's octochord, with eight identical strings and seven movable bridges. One of Ptolemy's ingenious scales is shown with the strings' lengths. This scale later evolved into the modern C major scale. Below the ocotorchord are a keyboard and several modern representations of the C major scale.}]
-\startMPcode
-  pickup pencircle scaled 0.8pt ;
-  string Note, NoteName[], AltNote, AltNoteName[] ;
-  StringsWidth := 4cm ;
-  WholeWidth := StringsWidth/7 ;
-  HalfWidth := StringsWidth/12 ;
-  KeyboardDrop := WholeWidth+HalfWidth ;
-  path OctoBox, LowerSquare, WhiteKey, BlackKey ;
-  OctoBox := unitsquare xyscaled (9*WholeWidth,6cm+2*WholeWidth) shifted (-WholeWidth,-WholeWidth) ;
-  LowerSquare := fullsquare  yshifted -0.5 ;
-  WhiteKey := LowerSquare  xyscaled (WholeWidth,1.5cm) yshifted -KeyboardDrop ;
-  BlackKey := LowerSquare xyscaled (HalfWidth,1cm) yshifted -KeyboardDrop ;
-  i := 0 ;
-  for Note="C","D","E","F","G","A","B","C":
-    NoteName[i] := Note ;  
-    i := i+1 ;
-  endfor
-  i := 0 ;
-  for AltNote="Do","Re","Me","Fa","So","La","Ti","Do":
-    AltNoteName[i] := AltNote ;  
-    i := i+1 ;
-  endfor
-  i := 0 ;
-  for String=60,54,48,45,40,36,32,30:
-    StringLength[i] := String ;  
-    i := i+1 ;
-  endfor
-  for j=1,3,6,8,10:
-    x := WholeWidth + (j-2)*HalfWidth ;
-    filldraw BlackKey xshifted x ;
-  endfor
-    %draw (-2mm,0) -- (StringsWidth+2mm,0) ;
-    %draw (-2mm,60mm) -- (StringsWidth+2mm,60mm) ;
-  draw externalfigure "CmajScale.pdf" shifted (-0.87cm,-2.8cm-KeyboardDrop) ;
-  draw OctoBox ; fill OctoBox withcolor 0.9 ;
-  for j=0 upto 7:
-    x := j*WholeWidth ;
-	y := StringLength[j]*mm ;
-    draw (x,0) -- (x,60mm) ;
-    pickup pencircle scaled 4pt ;
-    drawdot (x,0) ; drawdot (x,60mm) ;
-    pickup pencircle scaled 1.6pt ;
-    if j>0: draw (x-2mm,y) -- (x+2mm,y) ; fi
-    pickup pencircle scaled 0.8pt ;
-    draw WhiteKey xshifted x ;
-    draw thefmttext.top("$@3.0f$",StringLength[j]) rotated 90 shifted (x-1mm,y/2);
-%    draw thefmttext.top("$@3.2f$",StringLength[j]) rotated 90 shifted (x-1mm,y/2);
-    label.top  (NoteName[j], (x,-1.5cm)) yshifted -KeyboardDrop ;  
-    label.bot  (AltNoteName[j], (x,-2.75cm)) yshifted -KeyboardDrop ;  
-  endfor
-\stopMPcode
-\stopplacefigure
-
 Ptolemy, writing near the end of the classical period in the second century \scaps{ce}, took a more balanced view, seeking to satisfy both sense and reason. 
 He performed experiments using an octochord, shown in \in{figure}[fig:TinyPiano].
 This instrument has eight identical strings, all tuned to the same note.
@@ -363,12 +309,11 @@ Ptolemy shared this treasure chest of consonant intervals in his great musical t
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 As Europe emerged into the Renaissance, musicians became more adventurous and began using thirds in their compositions. Music theorists reinvented the Ptolemaic scale, which became known as \keyterm{just intonation.} Then, part of the lost \booktitle{Harmonics} was found, adding Ptolemy’s authority to the system of just intonation. These developments were integrated into a sophisticated musical theory by the great Italian master Gioseffo Zarlino in \booktitle{Le Istitutioni harmoniche,} published in 1558.
+Zarlino fully embraced the Pythagorean idea that simple ratios produce consonant sounds, with Ptolemy's revision that simple ratios include numbers up to six.
 
 One of Zarlino’s most accomplished students was the musician Vincenzo Galilei.
-Galilei challenged the Pythagorean model by producing experimental evidence against it. In one experiment, he altered the tension in the strings by hanging different weights from them, as in figure \in[fig:GaffurioPythagorasStrings]. Increasing the weight increases the tension and raises the pitch. Using identical strings, Galilei found weights in the simple ratios of two-to-one and three-to-two produced dissonant pitches, but weights in the ratio of nine-to-four produced consonant pitches.
+Galilei challenged the role of simple ratios by producing experimental evidence against it. In one experiment, he altered the tension in the strings by hanging different weights from them, as in figure \in[fig:GaffurioPythagorasStrings]. Increasing the weight increases the tension and raises the pitch. Using identical strings, Galilei found weights in the simple ratios of two-to-one and three-to-two produced dissonant pitches, but weights in the ratio of nine-to-four produced consonant pitches.
 In another experiment, Galilei altered the weights of the strings themselves, comparing thick, heavy strings with thin light strings, all stretched to the same length and tension. Lighter strings produce a higher pitch than heavy strings. Again he found exactly the same results as he had for the hanging weights. Simple ratios do not always produce consonant pitches!
-
-
 
 \placefigure[margin][fig:GaffurioPythagorasStrings]{Pythagoras demonstrating consonant sounds in strings with different weights attached. This experiment does not produce the results that the Pythagoreans predicted. (Also from Franchino Gafurio’s \booktitle{Theoria musice.}} {\externalfigure[gaffurio_pythagoras_strings][width=\rightmarginwidth]}
 
@@ -384,21 +329,13 @@ This rate is called the \keyterm{frequency}.
 The mathematical model was refined to say \emph{simple frequency ratios produce consonant pitches}.
 Galilei’s experimental challenge brought about an extremely helpful clarification that turned attention from how the instrument is built to how it moves to produce sound.
 
-Frequency is a measure of how quickly the string’s motion is repeated.  Each repetition is called a \keyterm{cycle}, so frequency is measured in cycles per second.  The long, heavy strings in a grand piano vibrate with a frequency of a few dozen cycles per second, producing low pitches.  The shortest strings’ frequencies are thousands of cycles per second, producing high pitches.
+To use this new mathematical model of musical consonance, we must quantify frequency, which measures how quickly the instrument's vibrating motion is repeated.  Each repetition is called a \keyterm{cycle}, so frequency is measured in cycles per second.  The long, heavy strings in a grand piano vibrate with a frequency of a few dozen cycles per second, producing low pitches.  The shortest strings’ frequencies are thousands of cycles per second, producing high pitches.
 The unit of measure for frequency is \keyterm{hertz}, abbreviated as Hz.
 
 \startformula
 1\units{Hz} = 1\units{cyc/s}
 \stopformula
 Humans can hear a huge range of frequencies, from about from $5\units{Hz}$ up to $20{,}000\units{Hz}$.  The highest frequencies are only audible to young people.
-
-Many details of an instrument’s construction affect its sound by influencing the way it vibrates. Galilei’s experiments taught us that properties of the instruments, like length and tension, may affect the frequency of vibration in surprising ways.
-The frequency produced by a string or pipe is inversely proportional to the length, so a simple three-to-two ratio in lengths will produce a consonant two-to-three ratio of frequencies, as the Pythagoreans knew. However, the frequency produced by a string is proportional to the square root of the string’s tension. A simple two-to-three ratio of tensions produces a dissonant $\sqrt 2$-to-$\sqrt 3$ ratio of frequencies. A four-to-nine ratio of tensions produces a consonant two-to-three ratio of frequencies.
-We will eventually understand these surprising relationships through our new physics of motion.
-
-Nearly all instruments use lengths to produce pitches. Wind instruments use pipes cut to different lengths like an organ, stretched like a trombone, or made different lengths by covering and uncovering holes like a flute.
-String instruments have many strings like a piano (figure \in[fig:GrandPiano]) or a few strings that can be shortened with fingers like a violin. In all of these instruments, the frequencies are inversely proportional to the lengths.
-%Performance instruments are designed to produce a full, rich sound, while use different lengths to produce different frequencies, just like the different lengths of Pythagoras and Philolaus’ pipes.
 
 \placetable[margin][T:Frequencies] % Label
     {Frequencies of Zarlino's Just Intonation and Galelei's equal-tempered scales.} % Caption
@@ -413,42 +350,53 @@ String instruments have many strings like a piano (figure \in[fig:GrandPiano]) o
 \NC\dorecurse{3}{352}	\NC 	\NC 261.63	\NR
 \LL[2]%\bottomrule
 \stoptabulate}
-Just intonation does contain a couple of unwelcome surprises. The interval from D to A looks like a perfect fifth on the keyboard – three whole steps and one half step. However, the ratio of frequencies is not a consonant \threehalves\ ratio, instead it is a dissonant ratio:
-\startformula
-	\frac{440\units{Hz}}{297\units{Hz}}
-		= \frac{40}{27}.
-\stopformula
-This fifth is called the wolf fifth. If a composer puts this fifth in a piece, at the performance it will howl like a wolf! I will let you find the wolf forth hiding in the Ptolemaic scale. The wolf intervals can be avoided, and they are a small price to pay for the exciting selection of consonant thirds in the Ptolemaic scale.
 
+Many details of an instrument’s construction affect its sound by influencing the way it vibrates. Galilei’s experiments taught us that properties of the instruments, like length and tension, may affect the frequency of vibration in surprising ways.
+The frequency produced by a string or pipe is inversely proportional to the length, so a simple three-to-two ratio in lengths will produce a consonant two-to-three ratio of frequencies, as the Pythagoreans knew. However, the frequency produced by a string is proportional to the square root of the string’s tension. A simple two-to-three ratio of tensions produces a dissonant $\sqrt 2$-to-$\sqrt 3$ ratio of frequencies. A four-to-nine ratio of tensions produces a consonant two-to-three ratio of frequencies.
+We will eventually understand these surprising relationships through our new physics of motion.
+
+%Nearly all instruments use lengths to produce pitches. Wind instruments use pipes cut to different lengths like an organ, stretched like a trombone, or made different lengths by covering and uncovering holes like a flute.
+%String instruments have many strings like a piano (figure \in[fig:GrandPiano]) or a few strings that can be shortened with fingers like a violin. In all of these instruments, the frequencies are inversely proportional to the lengths.
+%Performance instruments are designed to produce a full, rich sound, while use different lengths to produce different frequencies, just like the different lengths of Pythagoras and Philolaus’ pipes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Galilei's irrational musical scale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Just intonation does contain a couple of unwelcome surprises. The interval from D to A looks like a perfect fifth on the keyboard – three whole steps and one half step. However, the ratio of frequencies is not a consonant \threehalves\ ratio, instead it is a dissonant ratio:
+\startformula
+	\frac{440\units{Hz}}{297\units{Hz}}
+		= \frac{40}{27}.
+\stopformula
+This fifth is called the wolf fifth. If a composer puts this fifth in a piece, at the performance it will howl like a wolf! I will let you find the wolf forth hiding in Zarlino's scale.
+(Ptolemy's scale had the same wolf ratios, hiding in slightly different places.)
+The wolf intervals can be avoided, but this limits composers' options considerably.
+%and they are a small price to pay for the exciting selection of consonant thirds in the Ptolemaic scale.
 
 \placefigure[margin][fig:TinyPianoCompleteEq]{The equal-tempered tuning is built from twelfth roots of two.} {\externalfigure[TinyPianoCompleteEq][width=\rightmarginwidth]}
 
-In addition to preforming the experiments with strings, Galilei proposed a radical alternative to Ptolemy's scale.
-Following a suggestion of Aristoxenus, Galilei divided the octave into twelve identical half steps. Galilei calculated that each half step would change the frequency by a factor of $\sqrt[12]{2}$. This method, called \keyterm{equal temperament,} is shown in figure \in[fig:TinyPianoCompleteEq]. All of the sharps and flats fit naturally into equal temperament.
+To eliminate the wolves, Galilei proposed a radical alternative to Zarlino's scale.
+Following a suggestion of Aristoxenus, Galilei divided the octave into twelve identical \keyterm{half steps.} Galilei calculated that each half step would change the frequency by a factor of $\sqrt[12]{2}$. This method, called \keyterm{equal temperament,} is shown in figure \in[fig:TinyPianoCompleteEq].
+The frequencies of the keyboard's black keys (the sharps and flats) fit naturally into equal temperament.
 
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startexample[ex:TinyPianoPyEx]
-Find the ratio for the whole step in equal temperament.
-\startsolution
-Two half steps make a whole step. We add the half steps by multiplying their ratios.
-\startformula
-	\text{half step} + \text{half step}
-		= \sqrt[12]{2} \times \sqrt[12]{2}
-		= 2^{\onetwelfth} \times 2^{\onetwelfth}
-		%= 2^{\twotwelfths}
-		= 2^{\onesixth}
-		= \sqrt[6]{2}
-\stopformula
-The equal-tempered whole step is $\sqrt[6]{2}$.
-\stopsolution
-\stopexample
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\startexample[ex:TinyPianoPyEx]
+%Find the ratio for the whole step in equal temperament.
+%\startsolution
+%Two half steps make a whole step. We add the half steps by multiplying their ratios.
+%\startformula
+%	\text{half step} + \text{half step}
+%		= \sqrt[12]{2} \times \sqrt[12]{2}
+%		= 2^{\onetwelfth} \times 2^{\onetwelfth}
+%		%= 2^{\twotwelfths}
+%		= 2^{\onesixth}
+%		= \sqrt[6]{2}
+%\stopformula
+%The equal-tempered whole step is $\sqrt[6]{2}$.
+%\stopsolution
+%\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:TinyPianoPyEx]
 Find the ratio for the equal-tempered perfect fifth.
 \startsolution
@@ -462,7 +410,7 @@ The perfect fifth is three whole steps and one half step, which is a total of se
 The equal-tempered perfect fifth is $2^{\seventwelfths}$. This is not a simple fraction, but it is very close to $3/2$, the ratio of a just perfect fifth. The equal-tempered perfect fifth sounds perfect to most listeners.
 \stopsolution
 \stopexample
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \placetable[margin][T:Intervals] % Label
     {Consonant intervals of the Ptolemy's scale and equal temperament.} % Caption
@@ -488,14 +436,25 @@ Many music purists were not impressed with equal temperament. Ptolemy's consonan
 Theorists and musicians experimented with several other tunings which sought to preserve as many perfect consonances as possible while keeping the wolves from becoming too disruptive. In the end, equal temperament became the standard. Nearly all western instruments are tuned to the equal-tempered scale.
 
 The success of equal temperament eliminated the Pythagorean simple ratios from music, yet it also represents a great triumph of for the Pythagorean’s mathematical model. The equal-tempered tuning succeeds because it produces frequency ratios that are very close to Pythagoras and Ptolemy’s simple ratios.
+Based on the experimental success of the equal-tempered scale, the mathematical model of musical consonance was revised again. \emph{Frequencies which approximate simple ratios are consonant.} Experiments show that ratios within about one percent of a simple ratio is good enough to sound consonant, although trained ears will notice the slight mismatch.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Frequency relations}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Consonance and dissonance, scales and tuning, intervals and musical math are all about ratios. The actual frequencies hardly matter. If Pythagoras and Philolaus’ pipes all had frequencies ten percent higher than the frequencies in figure \in[fig:PythagoreanPipesArrows] nothing about the ratios would change, and their demonstration of consonances and dissonances would work just as well. The same is true for any other instruments – as long as they are tuned in agreement when they play together.
-Ensuring that instruments can play together requires choosing specific frequencies and building instruments to produce those specific frequencies.
+Consonance, dissonance, scales, and tuning are all about ratios.
+The individual frequencies hardly matter.
+If all the frequencies in \in{figure}[T:Frequencies] were ten percent higher, nothing about the ratios would change.
+All of the consonant intervals would be just as consonant.
+%The same is true for any other instruments – as long as they are tuned in agreement when they play together.
+However, ensuring that instruments can play together requires choosing specific frequencies and building instruments to produce those specific frequencies.
 
-Audible frequencies are difficult to measure because the vibrations that produce audible sound are extremely fast. Even the lowest audible frequencies are many cycles per second. Marin Mersenne, in the generation after Galilei, was one of the first to carefully study the motions responsible for music. He determined the frequencies of audible pitches indirectly. First, he used a very long string vibrating at an inaudible $4\units{Hz}$, which was slow enough for him to measure. Then he increased the frequency by octaves until it was audible. Knowing that the frequency doubled with each octave allowed him to determine the audible frequency.
+Audible frequencies are difficult to measure because the vibrations that produce audible sound are extremely fast.
+Even the lowest audible frequencies are many cycles per second.
+Marin Mersenne, in the generation after Galilei, was one of the first to carefully study the motions responsible for music.
+He determined the frequencies of audible pitches indirectly.
+First, he used a very long string vibrating at an inaudible $4\units{Hz}$, which was slow enough for him to measure.
+Then he reduced the length by halves, which increased the pitch by octaves, until the string produced an audible  pitch.
+Knowing that the frequency doubled with each octave allowed him to determine the audible frequency.
 
 Whether the vibration is fast or slow, the most accurate way to find a vibration’s frequency is by timing a large number of cycles.
 The number of cycles is represented by $N$
@@ -598,7 +557,14 @@ Galileo and his friends proposed a return to the tradition of Greek theatrical m
 Before we investigate the Pythagorean’s mathematical model of the cosmos, there is one thing that I want you to remember: this model is terrible! Celestial objects do not circle Earth. Only the Moon goes around Earth, and none of the objects circle, they travel along ellipses. Some of these ellipses are close to circular, so a model made from circles could be a rough starting point for understanding the Solar System. A model in which all of the objects go around Earth is irredeemable. This became clear almost immediately to anyone making regular observations of the planets.
 
 % textwidth figure
-\placetextfloat[top][fig:Ptolemaicsystem]{The geocentric model from Peter Apian’s \booktitle{Cosmographia,} 1524. Earth sits motionless in the center while the heavens spin around it. The outermost sphere, labeled \emph{Primu Mobile} or \quotation{primary mover,} spins most quickly, dragging the inner spheres along at slightly slower rates. This diagram, like others in the coming pages, uses common symbols for the visible planets. Table \in[T:Astrosym] shows these symbols, as well as the symbols of two more recently discovered planets.} {\externalfigure[ptolemaicsystem][width=\textwidth]}
+\placetextfloat[bottom][fig:Ptolemaicsystem]{The geocentric model from Peter Apian’s \booktitle{Cosmographia,} 1524. Earth sits motionless in the center while the heavens spin around it. The outermost sphere, labeled \emph{Primu Mobile} or \quotation{primary mover,} spins most quickly, dragging the inner spheres along at slightly slower rates. This diagram, like others in the coming pages, uses common symbols for the visible planets. Table \in[T:Astrosym] shows these symbols, as well as the symbols of two more recently discovered planets.} {\externalfigure[ptolemaicsystem][width=\textwidth]}
+
+In the Pythagorean model (figure \in[fig:Ptolemaicsystem]) the Sun, Moon, planets, and stars all orbit the central, motionless Earth. This is a \keyterm{geocentric model}. (\quotation{Geo-} means Earth, so geocentric is \quotation{Earth centered.})
+The Sun completes one revolution around Earth every day. The Moon, which is closer to Earth takes slightly more than a day to complete a revolution, about twenty-four hours and fifty minutes. The stars, which are farther away, complete a revolution in slightly less time than the Sun, about twenty-three hours and fifty-six minutes.
+%This pattern of longer revolutions for closer objects and shorter revolutions for father objects holds for the planets Mars, Jupiter, and Saturn.
+%However, it only applies to their average revolution times.
+%All of these objects have complicated rhythms of speeding up and slowing down.
+
 
 \define[2]\Astro{\NC #2 \NC #1 } % starfont
 
@@ -606,7 +572,7 @@ Before we investigate the Pythagorean’s mathematical model of the cosmos, ther
     [margin,here]
     [T:Astrosym]
     {Astronomical Symbols for some important objects in our Solar System. Most of these symbols can be found in figure \in[fig:Ptolemaicsystem] above. The two outer planets, Uranus and Neptune, were discovered in 1781 and 1846, respectively.}
-{\vskip330pt\noindent
+{\noindent% \vskip330pt
 \starttabulate[|l|c|c|l|c|]
 \FL[2]
 \Astro{\Sun}{Sun}\NC
@@ -621,19 +587,13 @@ Before we investigate the Pythagorean’s mathematical model of the cosmos, ther
 \Astro{\Neptune}{Neptune}\NR
 \LL[2]
 \stoptabulate}
-In the Pythagorean model (figure \in[fig:Ptolemaicsystem]) the Sun, Moon, planets, and stars all orbit the central, motionless Earth. This is a \keyterm{geocentric model}. (\quotation{Geo-} means Earth, so geocentric is \quotation{Earth centered.})
-The Sun completes one revolution around Earth every day. The Moon, which is closer to Earth takes slightly more than a day to complete a revolution, about twenty-four hours and fifty minutes. The stars, which are farther away, complete a revolution in slightly less time than the Sun, about twenty-three hours and fifty-six minutes.
-%This pattern of longer revolutions for closer objects and shorter revolutions for father objects holds for the planets Mars, Jupiter, and Saturn.
-%However, it only applies to their average revolution times.
-%All of these objects have complicated rhythms of speeding up and slowing down.
-
 In the geocentric model, the Sun, Moon, and stars all behave reasonably, traveling at nearly constant rates rates from east to west while moving somewhat north and south with the seasons. The planets, in contrast, have the most erratic movements, speeding up and slowing down, sometimes falling behind but at times moving faster than the stars. Venus and Mercury seem to be tethered to the Sun, sometimes falling behind but then aways overtaking the Sun, leading for a while, and falling behind again.
 In addition, the planets get significantly brighter and then dimmer, as if they are approaching Earth and then receding away.
 
-These motions inspired ancient Greeks to try several completely different models of the world (referring to Earth and the visible heavens). The most obvious modification is to put Mercury and Venus in orbit around the Sun, explaining why they never stray far from the Sun, and also why they move closer and then farther from Earth. Another model of the world puts Mars, Jupiter and Saturn in large orbits around the Sun, explaining their erratic behavior.
-
 % textwidth figure
-\placetextfloat[top][fig:CopernicanSystem]{The heliocentric model in \booktitle{On the Revolutions of the Heavenly Spheres,} 1543. In this model the distant stars are immobile. Planets orbit the Sun, with inner planets orbiting more quickly than outer planets. The Moon is the one exception, orbiting Earth (\emph{Terra} in the diagram) rather than the Sun (\emph{Sol.}).} {\externalfigure[Copernican_heliocentrism_theory_diagram][width=\textwidth]}
+\placetextfloat[bottom][fig:CopernicanSystem]{The heliocentric model in \booktitle{On the Revolutions of the Heavenly Spheres,} 1543. In this model the distant stars are immobile. Planets orbit the Sun, with inner planets orbiting more quickly than outer planets. The Moon is the one exception, orbiting Earth (\emph{Terra} in the diagram) rather than the Sun (\emph{Sol.}).} {\externalfigure[Copernican_heliocentrism_theory_diagram][width=\textwidth]}
+
+These motions inspired ancient Greeks to try several completely different models of the world (referring to Earth and the visible heavens). The most obvious modification is to put Mercury and Venus in orbit around the Sun, explaining why they never stray far from the Sun, and also why they move closer and then farther from Earth. Another model of the world puts Mars, Jupiter and Saturn in large orbits around the Sun, explaining their erratic behavior.
 
 The most daring modification was proposed by Aristarchus in the third century \scaps{bc}. He allowed Earth to join the other planets orbiting the Sun, as shown in figure \in[fig:CopernicanSystem]. This is the \keyterm{heliocentric model}. (\quotation{Helio-} means Sun.) In this model Earth moves in two ways. It rotates around its own axis, completing one rotation every day, and it orbits the Sun, completing one revolution every year. All of the other known planets – Mercury, Venus, Mars, Jupiter, and Saturn – also orbit the Sun. (Since all of these planets appeared as tiny dots in the sky, no one knew if they were rotating. We now know that they all rotate.)
 In the heliocentric model, the Moon does not orbit the Sun like the other planets do; it orbits Earth, completing one revolution each lunar month (about $29\onehalf$ days).
@@ -677,7 +637,7 @@ Earth’s circumference is now known to be $40{,}000\units{km}$ (or $4.00\sci{7}
 
 \marginTikZ{}{EarthRadius}{Eratosthenes determined Earth’s size. The well’s depth and the post’s height are greatly exaggerated.}
 
-Astronomical measurements improved significantly over the next few centuries. The Babylonians, in particular, become master astronomers. They had been recording daily observations of the celestial motions since since the middle of the seventh century \scaps{bc} and continued into the first century \scaps{ad}. This approximately 800 year record was essential for Greek astronomers attempting to refine their model of the world.
+Astronomical measurements improved significantly over the next few centuries. The Babylonians, in particular, became master astronomers. They had been recording daily observations of the celestial motions since since the middle of the seventh century \scaps{bc} and continued into the first century \scaps{ad}. This approximately 800 year record was essential for Greek astronomers attempting to refine their model of the world.
 
 When Ptolemy attacked this problem, armed with the precise astronomical observations of the Babylonians, he produced a geocentric model with dozens of complicated, invisible wheels that moved the planets though their complex motions. Unlike his elegant system of intonation, his model of the world is insanely complex and arbitrary. He explained all of the details in the \booktitle{Almagest,} which was not lost. His geocentric model, the \keyterm{Ptolemaic system,} became the accepted model of the world through the middle ages.
 
@@ -721,7 +681,7 @@ This multitude of stars did not challenge any widely held view about the heavens
 
 Finally, Galileo relates his most amazing discovery.
 \startblockquote
-	There remains the matter that seems to me to deserve to be considered the most important in this work. That is, I should disclose and publish to the world the occasion of discovering and observing four planets never seen from the beginning of the world up to our own times, their positions, and the observations made during the last two months about their movements and their changes of magnitude. And I summon all astronomers to apply themselves to examine and determine their periodic times, which it has not been permitted me to achieve up to this day owing to the restriction of my time.\autocite{p.~67--68}{Galileo1610}
+	There remains the matter that seems to me to deserve to be considered the most important in this work. That is, I should disclose and publish to the world the occasion of discovering and observing four planets never seen from the beginning of the world up to our own times, their positions, and the observations made during the last two months about their movements and their changes of magnitude [brightness]. And I summon all astronomers to apply themselves to examine and determine their periodic times, which it has not been permitted me to achieve up to this day owing to the restriction of my time.\autocite{p.~67--68}{Galileo1610}
 \stopblockquote
 
 Galileo discovered these planets in the vicinity of Jupiter, observing three of them for the first time on January 7, 1610. Over the next few nights he observed them moving quickly around Jupiter, so that on some nights they appeared just to the east of Jupiter, and on other nights just to the west.
@@ -802,7 +762,7 @@ In practice, frequencies are rarely used to describe orbits and rotations becaus
 
 %\section{Amplitude and radius}
 
-Since period is the more common measure in astronomy, it is useful to solve the frequency relations for period, which gives the \keyterm{period relations}.
+Since period is the more common measure in astronomy, it is useful to solve the frequency relations for the period, $T$, which gives the \keyterm{period relations}.
 \startformula
 	T = \frac{1\units{cyc}\cdot \Delta t}{N} = \frac{1\units{cyc}}{f}
 \stopformula
