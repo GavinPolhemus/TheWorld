@@ -24,31 +24,30 @@ I earnestly ask that everything be read with an open mind and that the defects i
 	\stopalignment
 }
 
-%\sidebar{\epigraph{The things that so often vexed the minds of the ancient phillosophers\\And fruitlessly disturb the school with noisy debate\\We see right before our eyes, since mathematics drives away the cloud.\\Error and doubt no longer encumber us with mist;\\For the Keenness of a sublime intelligence has made it possible for us to enter\\The dewellings of the gods above and to climb the heights of heaven.}
-%{{\scshape Edm. Halley}\\? – ?}}
-
-%shifting focus to a more pressing question. the realization that first question is not why the stick continues to move after it leaves you hand, because it is perfectly natural for the stick to continue to move. Rather, it is necessary to ask why the stick eventually stops, for this requires some interaction that interferes with the sticks natural motion.
-
-%Having learned from Galileo that uniform motion requires no explanation, natural philosophers turned their attention to nonuniform motion.
-%Specifically, they sought to explain why the motion changes by the amount that it does?
-%Motion can change gradually or abruptly in response to many types of forces – the gentle force of the air, the relentless pull of gravity, or the sudden blow from a collision. %Starting from Galileo’s qualitative understanding of why motion changes, we will try to predict how much motion will change in response to outside forces.
-
 \Initial{G}{alileo’s correct reasoning about motion was this:} to get an object moving, you must give it some impetus.
-The object will continue moving with that impetus until it interacts with something else and either loses some portion of its impetus or gains some new impetus. Galileo did not have a formula for impetus, so this reasoning is purely qualitative. %\footnote{Recall Salviati’s question on page \pageref{SalvImpetus}: \quotation{So, if it were propelled by some impetus forcibly impressed on it, what would its motion be and how long would it last?}}
-To predict how much an object’s motion will change, the impetus idea needed to be replaced with something quantitative.
+The object will continue moving with that impetus until it interacts with something else and either loses some portion of its impetus or gains some new impetus.
+We would like to add this common-sense concept of impetus to Galileo's quantitative description of motion. 
+Common sense tells us that moving a boulder requires more impetus than moving a bean, and moving a boulder quickly requires more impetus than moving it slowly.
+However, Galileo did not provide us with a mathematical formula for impetus, so we cannot use impetus to  predict the motions of boulders, beans, or anything else.
 
-In 1644, six years after Galileo’s \booktitle{Two New Sciences}, Ren\'e Descartes presented his own ideas about motion in \booktitle{Principia Philosophi\ae }. As the title suggests, this book is philosophical and not based on experiments like Galileo’s. Descartes proposed a \quotation{quantity of motion} to replace impetus.
-A moving object’s quantity of motion, according to Descartes, is equal to the object’s mass times its speed. He gave an example of two objects, one small but fast and another large but slow, which have the same quantity of motion.
-
-\startblockquote
-When one part of matter is moved twice as fast as the other, and the other is twice as big as the former, the smaller has just as much motion as the greater.\autocite{p.~53. Translation by Paige Moore}{Descartes1644}
-\stopblockquote
-In modern mathematical language, Descartes’s quantity of motion is $m\vabs{\vec{v}}$.
+René Descartes took the next step by proposing a \keyterm{quantity of motion} in 1644, six years after Galileo’s \booktitle{Two New Sciences}.
+A moving object’s quantity of motion, according to Descartes, is equal to the object’s mass times its speed.
+%He gave an example of two objects, one small but fast and another large but slow, which have the same quantity of motion.
+%\startblockquote
+%When one part of matter is moved twice as fast as the other, and the other is twice as big as the former, the smaller has just as much motion as the greater.\autocite{p.~53. Translation by Paige Moore}{Descartes1644}
+%\stopblockquote
 Since mass and speed are positive, Descartes’s quantity of motion is alway positive for a moving object, regardless of the motion’s direction. The quantity of motion is zero only if the object is at rest. %The total quantity of motion for a collection of objects is positive if any of them are moving and zero only if all of them are at rest.
+(Descartes, as was his style, did not write a formula for his quantity of motion.
+In modern mathematical language, Descartes’s quantity of motion is $m\abs{v}$.)
+%Descartes could not have written this formula, because vectors had not been invented!
+%He would have written $mv$ where $v$ is the speed.
+%We are going to adopt this cleaner notation for speed while keeping the notation $\vec v$ for the velocity vector and $v_x$, $v_y$, and $v_z$ for the vector’s components.
 
-Descartes, as was his style, did not write out the formula for his quantity of motion. Even if he had, he certainly would not have written $m\vabs{\vec{v}}$, because vectors had not been invented! He would have written $mv$ where $v$ is the speed. We are going to adopt this cleaner notation for speed while keeping the notation $\vec v$ for the velocity vector and $v_x$, $v_y$, and $v_z$ for the vector’s components.
+Descartes' quantity of motion first appeared in \booktitle{Principles of Philosophy}, a philosophy textbook which he wrote to replace the current Aristotelian philosophy curriculum. The textbook's philosophy was adapted from Descartes' two earlier philosophical treatises, \booktitle{Discourse on Method}  and \booktitle{Meditations on First Philosophy}. The textbook's physics was based on Descartes earlier work, \booktitle{The World}, which he completed in 1633 but never published.
 
-In his \booktitle{Principia}, Descartes presented several applications of his quantity of motion, but he had stated the most important laws much earlier in \booktitle{The World}, completed in 1633 but not published in his lifetime. His first law is a concise restatement of Galileo’s observation that motion naturally continues.
+%Descartes' philosophy was not based on experiments like Galileo’s.
+
+In \booktitle{The World}, Descartes proposes two important laws of motion. His first law is a concise restatement of Galileo’s observation that motion naturally continues.
 \startblockquote
 	The first [law] is that each individual part of matter always continues to remain in the same state unless collision with others constrains it to change that state. That is to say, if the part\dots%has some size, it will never become smaller unless others divide it; if it is round or square, it will never change that shape without others forcing it to do so; if it
 	is stopped in some place, it will never depart from that place unless others chase it away; and if it has once begun to move, it will always continue with an equal force until others stop or retard it.\autocite{p.~61.}{Descartes1633}
@@ -93,7 +92,7 @@ About that time, the recently established Royal Society in London put out a requ
 %While masses are easy to measure, accurately measuring velocity is more difficult. Wren’s demonstration solves the velocity problem through clever use of the pendulum properties we learned from Galileo in the last section of Chapter \ref{ch:Motion}.
 Wren's demonstration was so wonderful that we are going to look at exactly how it worked. You could easily build your own pendulums, as I have, to perform these experiments yourself. An example from an early Newtonian textbook is shown in \in{figure}[fig:GravesandeCollider], with sample data shown in \in{figure}[fig:GravesandeData].
 
-\startbuffer[PendulumCollisionWren]
+\startbuffer[PendulumCollisionWren] 
 	\matrix{
 	\startaxis[
 		margin cart track,
@@ -245,7 +244,9 @@ Both of the velocities are to the right, which is positive. The velocity of the 
 \stopformula
 The velocity before the collision is determined from the displacement before the collision, which would be from the release point to the equilibium point. The velocity after the collision is determined from the displacement after the collision, which would be from the equilibrium point to the stopping point. This specialized formula is only for pendulum collisions.
 
-To give a full demonstration, Wren would have performed collisions with both balls moving before the collision, not just one. This presents the problem of how to time the swings so that the balls reach their equilibrium positions at the same time. However, Galileo taught us that pendulums’ periods are independent of the mass and the amplitude. The balls will each take the same amount of time, one-quarter period, to reach the central collision point, even if they are different masses and are pulled back different distances. To time the collision correctly, simply release the balls at the same time!
+To give a full demonstration, Wren would have performed collisions with both balls moving before the collision, not just one. This presents the problem of how to time the swings so that the balls reach their equilibrium positions at the same time.
+However, Galileo taught us that pendulums’ periods are independent of the mass and the amplitude (\at{p.}[sec:SHO]-\at[fig:PendulumLeadCork]).
+The balls will each take the same amount of time, one-quarter period, to reach the central collision point, even if they are different masses and are pulled back different distances. To time the collision correctly, simply release the balls at the same time!
 
 \startbuffer[PendulumCollision3]
 	\matrix{
@@ -393,13 +394,15 @@ The direction of the pendulum’s velocity $v$ is the direction of the pendulum�
 %
 
 
-The rules of collision required close attention to the direction of motion. Newton took note of this in his most important work, \booktitle{Philosophi\ae\ Naturalis Principia Mathematica}, where he made direction central to the study of all motion. Newton introduced his own quantity of motion $m\vec{v}$. This is a directional quantity. In one dimension, Newton’s quantity of motion is found by multiplying the mass, which is always positive, by the velocity, which can be positive or negative depending on the direction of motion. The resulting quantity of motion is positive for objects moving in the positive direction and negative for objects moving in the negative direction. This directional quantity of motion is the cornerstone of Newton’s physics.
-
-Like Descartes, Newton did not write a formula for his quantity of motion. If he had, he would have written $mv$, just like Descartes, because vectors had not been invented. This ambiguity between speed and velocity caused tremendous confusion for decades. We will avoid that confusion by using vectors. Before we dive into the mathematics of vectors, let us take a moment to note another promising replacement for Descartes’s disappointing $mv$.
+The rules of collision required close attention to the direction of motion. Newton took note of this in his most important work, \booktitle{Philosophi\ae\ Naturalis Principia Mathematica}, where he made direction central to the study of all motion. Newton introduced his a new quantity of motion equal to mass times velocity. Mass is always positive, but velocity can be positive or negative depending on the direction of motion.
+Newton's quantity of motion is therefore positive for objects moving in the positive direction and negative for objects moving in the negative direction. This directional quantity of motion is the cornerstone of Newton’s physics.
+(Newton, like Descartes, did not write a formula for his quantity of motion. 
+In modern mathematical language, Newton's quantity of motion is $mv$.)
+%If he had, he would have written $mv$, just like Descartes, because vectors had not been invented. This ambiguity between speed and velocity caused tremendous confusion for decades. We will avoid that confusion by using vectors. Before we dive into the mathematics of vectors, let us take a moment to note another promising replacement for Descartes’s disappointing $m\abs{v}$.
 
 %We have been using one dimensional language, but Newton understood this to work just as well in two or three dimensions. We will continue to use one dimensional language because all of the important ideas and many experiments require only one dimension. We will return to two and three dimensional language toward the end of the chapter.
 
-Gottfried Leibniz also admired the contributions of Huygens, Wallis, and Wren, and he began developing his own system of mechanics. Unlike Newton, Leibniz adopted Huygens’s formula $mv^2$ as the important quantity. Leibniz called $mv^2$ the \textit{vis viva} or \quotation{living force} and made it the basis of his own theory of motion. The \textit{vis viva} is much closer in spirit to Descartes’s original quantity of motion because $mv^2$ is positive for any motion and zero only for systems completely at rest, just like Descartes’s $mv$.
+Gottfried Leibniz also admired the contributions of Huygens, Wallis, and Wren, and he began developing his own system of mechanics. Unlike Newton, Leibniz adopted Huygens’s formula $mv^2$ as the important quantity. Leibniz called $mv^2$ the \textit{vis viva} or \quotation{living force} and made it the basis of his own theory of motion. The \textit{vis viva} is much closer in spirit to Descartes’s original quantity of motion because $mv^2$ is positive for any motion and zero only for systems completely at rest, just like Descartes’s $m\abs{v}$.
 
 The science community quickly accepted Newton’s theory of motion, although very few natural philosophers actually understood it. Newton’s many successful predictions and experimental verifications demonstrated the power of his methods, even to those who could not understand them.
 
@@ -407,7 +410,8 @@ The science community was rather skeptical of Leibniz’s \textit{vis viva}, whi
 %The \textit{quantitas motus} was the cornerstone of Newton’s comprehensive formulation of mechanics, put forth in the \booktitle{Philosophi\ae\ Naturalis Principia Mathematica}. The \booktitle{Principia} does not mention $mv^2$, so, they reasoned, the \textit{vis viva} must be incorrect. Given the tremendous stature of Newton, Leibniz’s $mv^2$ was largely dismissed in favor of Newton’s $mv$.
 Even without the endorsement of the scientific community, Leibniz’s formula for \textit{vis viva} made useful predictions for many practical applications. Engineers and chemists adopted his formula and tested it in many experiments involving friction, fluids, and heat – things that scientists tried to avoid in motion experiments. The practical value of \textit{vis viva} suggested that it was both correct and important.
 
-A rift developed between Leibniz’s supporters, who used $mv^2$, and Newton’s supporters, who used $mv$. Newton’s supporters were called the Cartesians, because Descartes' formula was also $mv$. Fittingly, the Cartesians sometimes included direction, as Newton taught them, and sometimes they did not, reverting to Descartes’ directionless quantity of motion. It was a mess.
+A rift developed between Leibniz’s supporters, who used $mv^2$, and Newton’s supporters. 
+Newton’s supporters were called the Cartesians, because they usually used Descartes' formula $m\abs{v}$ (rather than Newton's $mv$) and then dealt with the direction graphically. We will avoid this confusing method. The method certainly confused the Cartesians, who did not even realize that Newton and Descartes disagreed! The Cartesians would sometimes included direction. At other times they would ignore it. It was a mess.
 
 % Was Leibniz describing something new, or was he simply using the wrong formula for the quantity of motion?
 
@@ -419,7 +423,7 @@ The unexpected resolution became the foundation for all physics that followed.
 
 In this chapter, we will study Newton’s directional quantity of motion, which is now called momentum.
 His \booktitle{Principia} will be our guide.
-In Chapter \ref{ch:VisViva}, we will return to Liebniz’s \textit{vis viva}.
+In Chapter \ref{ch:VisViva}, we will consider Liebniz’s \textit{vis viva}.
 
 \section{Mass and momentum}
 Newton’s \booktitle{Principia} begins with two introductory chapters. The first chapter contains eight important definitions. The second chapter presents his famous three laws of motion. This introduction is followed by three books in which the laws are applied to everything from swinging pendulums and sinking stones to the orbits of planets.
@@ -633,7 +637,6 @@ Newton’s second law describes how the object’s momentum is altered by an imp
 \stopblockquote
 This law originated in collision experiments like those described at the beginning of the chapter. If one ball is released so that it strikes another ball at rest, then the ball at rest receives an impulse from the incoming ball. The ball at rest gains momentum due to the impulse, impelling it into motion.
 Greater impulse delivered by the incoming ball gives the ball at rest a proportionally greater momentum.
-
 The incoming ball also receives an impulse from the ball at rest. This impulse changes the incoming ball’s momentum. Since the direction of this impulse is opposite the direction of the incoming momentum, the impulse will decrease or even reverse the momentum of the incoming ball.
 
 The delivered impulse $\vec{J}$ is added to the ball’s initial momentum to produce the final momentum.
@@ -1389,10 +1392,8 @@ Applying Newton’s laws to these velocities requires some basic mathematical op
 
 Multiplying vectors by numbers works in a very natural way. For example, multiplying a vector by $2$ doubles the vector’s length while keeping the vector’s direction the same. If vector $\vec v$ is the vector with magnitude of $2.3\units{m/s}$ in figure~\ref{fig:BallOffTableVel2}, then the vector $2\vec v$ would have a magnitude of $4.6\units{m/s}$ and would point in the same direction as $\vec v$. The vector’s components would double as well. Since $\vec v = \components{1.2,-2.0}\unit{m/s}$, doubling the vector gives $2\vec v = \components{2.4,-2.0}\unit{m/s}$.
 
-Finding momentum is simmilar. The ball in figure~\ref{fig:BallOffTableVel2} has mass $m=150\units{g}$. The momentum $\vec p$ has a magnitude of $(150\units{g})(2.3\units{m/s}) = 345\units{g\.m/s}$ and points in the same direction as $\vec v$, as shown in figure~\ref{fig:BallOffTableMomentum}.
+Finding momentum is similar. The ball in figure~\ref{fig:BallOffTableVel2} has mass $m=150\units{g}$. The momentum $\vec p$ has a magnitude of $(150\units{g})(2.3\units{m/s}) = 345\units{g\.m/s}$ and points in the same direction as $\vec v$, as shown in figure~\ref{fig:BallOffTableMomentum}.
 Momentum vectors and velocity vectors have different units, so they need different scales. Our diagrams will have either velocity vectors or momentum vectors, but not both, so there will only be one vector scale on each diagram.
-
-
 The figure also shows the momentum vector’s components, calculated in the next example.
 \startexample[ex:BallOffTableMomentum]
 Use the velocity vector's components in \in{figure}[fig:BallOffTableVel2] to find the momentum vector's components, shown in \in{figure}[fig:BallOffTableMomentum].
@@ -1545,7 +1546,7 @@ Massive things are heavy because Earth exerts a large force on them. Objects wit
 \startexample[ex:ballFg]
 	Find the gravitational force on Galileo's rolling ball.
 	\startsolution
-	The the magnitude of the gravitational force is $mg$.
+	The magnitude of the gravitational force is $mg$.
 	\startformula
 		mg = (150\units{g})(9.8\units{m/s^2}) = 1.47\units{kg\.m/s^2} = 1.47\units{N}
 	\stopformula
@@ -1614,7 +1615,7 @@ v_x = \frac{p_x}{m} = 1.2\units{m/s},
 \qquad
 v_y = \frac{p_y}{m} = 0\units{m/s},
 \stopformula
-We now take our fist baby step using the position and momentum update formulas to find the small changes $dx$, $dy$, $dp_x$, and $dp_y$.
+We now take our first baby step using the position and momentum update formulas to find the small changes $dx$, $dy$, $dp_x$, and $dp_y$.
 The position update formulas require the velocity components we just calculated.
 The momentum update formulas use the constant gravitational force $\vec{F}=\components{0,-1.47}\unit{N}$.
 We update the ball's coordinates $x$ and $y$ by adding the small changes $dx$ and $dy$.
@@ -1700,7 +1701,7 @@ To see the gradual affect of the gravitational force, let’s look at the ball�
 Figure~\in[fig:Ballds] shows the ball’s momentum and the downward gravitational force acting on it during its flight. Initially the momentum is to the right. During a short duration $dt$ the momentum changes by a small amount $\vec F dt$. This continues, with the momentum changing an additional amount $\vec F dt$ during each short duration $dt$, as shown in figure~\in[fig:Balldp]. The changing momentum causes the ball’s path to bend downward, as shown in figure~\in[fig:Ballds].
 
 
-Computers are able to perform these update calculations quickly and accurately for many tiny steps.  Computer simulations using this repeated update method are especially valuable in situations where experiments are difficult, like collisions between galaxies. Simulations have become the third pillar of physics research, alongside experiments and theory. 
+Computers are able to perform these update calculations quickly and accurately over many tiny steps.  Computer simulations using this repeated update method are especially valuable in situations where experiments are difficult, like collisions between galaxies. Simulations have become the third pillar of physics research, alongside experiments and theory. 
 
 The position and momentum update formulas together are known as the \keyterm{equations of motion}, and they work just as well when the force is also changing. The equations of motion allow us to attack one of our most important problems — the motions of planets and moons. For these celestial objects the force's direction changes as the object orbits.
 
@@ -1724,86 +1725,86 @@ As an example, the moon does not travel in a straight line, but instead orbits E
 The circular motion does not cause a force toward the center. Rather, the force causes the circular motion. Any circular motion we observe, such as the motions of moons around planets or planets around the Sun, must be due to a force pulling the orbiting object toward the center of its orbit.
 
 \startbuffer[MoonMomentum1]
-	\clip (-0.5,-5) rectangle (4.5,4.1);
-	\draw[shade, ball color = white] (0,0) circle[radius=.4cm]node[above right=3mm]{Earth};% Earth
-	\foreach \T in {-10,-20,-30}{% Earlier Moons
-		\draw[shade, ball color = white][opacity={(20-\T)/100}] (\T:4cm) circle[radius=.2cm];
-		\fill(\T:4cm) circle[radius=.4mm][opacity={(20-\T)/100}];
+	\clip (-0.5,-4.1) rectangle (4.5,5);
+	\draw[shade, ball color = white] (0,0) circle[radius=.4cm]node[below right=3mm]{Earth};% Earth
+	\foreach \T in {10,20,30}{% Earlier Moons
+		\draw[shade, ball color = white][opacity={(20+\T)/100}] (\T:4cm) circle[radius=.2cm];
+		\fill(\T:4cm) circle[radius=.4mm][opacity={(20+\T)/100}];
 	}
-	\draw[shade, ball color = white] (-40:4cm) circle[radius=.2cm]node[left=2mm]{Moon};% Final Moon
+	\draw[shade, ball color = white] (40:4cm) circle[radius=.2cm]node[left=2mm]{Moon};% Final Moon
 	\fill(-40:4cm) circle[radius=.4mm];
-	\foreach \T in {180,170,...,-170}{% Draw path segments
+	\foreach \T in {-180,-170,...,170}{% Draw path segments
 		\draw[-{Straight Barb[scale length=.5]}] (\T:4cm)
-		 arc [start angle=\T, end angle={\T-10}, radius=4cm];
+		 arc [start angle=\T, end angle={\T+10}, radius=4cm];
 	}
-		\draw[-{Straight Barb[scale length=.5]},ultra thick] (-30:4cm)% Label last segment
-		 arc [start angle=-30, end angle={-40}, radius=4cm];%node[above=1.5mm]{$ds$};
-	\foreach \T in {-10,-20,-30}{% Draw vectors
-		\draw[][opacity={(20-\T)/100}] (0,0) -- (\T:4cm);
-		\draw[thick,->][opacity={(20-\T)/100}] (\T:4cm) -- ++({\T-90}:3cm);
+		\draw[-{Straight Barb[scale length=.5]},ultra thick] (30:4cm)% Label last segment
+		 arc [start angle=30, end angle={40}, radius=4cm];%node[above=1.5mm]{$ds$};
+	\foreach \T in {10,20,30}{% Draw vectors
+		\draw[][opacity={(20+\T)/100}] (0,0) -- (\T:4cm);
+		\draw[thick,->][opacity={(20+\T)/100}] (\T:4cm) -- ++({\T+90}:3cm);
 	}
-	\draw (0,0) --node[below left]{$R$} (-40:4cm);% Final vectors
-	\draw[thick,->] (-40:4cm) --node[left=1mm, pos=.7]{$\vec{p}$} ++({-130}:3cm);
-		\path (-50:4cm) coordinate (A) -- (0,0) coordinate (B) -- (4cm,0) coordinate (C)
-pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.5cm] {angle};
+	\draw (0,0) --node[above left]{$R$} (40:4cm);% Final vectors
+	\draw[thick,->] (40:4cm) --node[left=1mm, pos=.7]{$\vec{p}$} ++({130}:3cm);
+		\path (50:4cm) coordinate (C) -- (0,0) coordinate (B) -- (4cm,0) coordinate (A)
+pic [draw, ->, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.5cm] {angle};
 \stopbuffer
 
 \marginTikZ{}{MoonMomentum1}{The Moon orbits Earth with a constant speed. The moon’s momentum $\vec p$, always tangent to the path, has a constant magnitude $p$ but a changing direction.} % vskip, name, caption
 
 \startbuffer[MoonMomentum2]
-	\clip (-3.5,-3.1) rectangle (1.5,0.3);
+	\clip (-3.5,-0.3) rectangle (1.5,3.1);
 	\draw[shade, ball color = white] (0,0) circle[radius=.2cm]node[left=2mm]{Moon};% Moon
 	\fill(0,0) circle[radius=.4mm];
-	\foreach \T in {-10,-20,-30}{% Draw vectors
-		\draw[thick,->][opacity={(20-\T)/100}] (0,0) -- ({\T-90}:3cm);
-		\draw[thick,->][opacity={(20-\T)/100}] ({\T-90}:3cm) -- ({\T-100}:3cm);
+	\foreach \T in {10,20,30}{% Draw vectors
+		\draw[thick,->][opacity={(20+\T)/100}] (0,0) -- ({\T+90}:3cm);
+		\draw[thick,->][opacity={(20+\T)/100}] ({\T+90}:3cm) -- ({\T+100}:3cm);
 	}
 	%\draw (0,0) --node[below left]{$R$} (-40:4cm);
-	\draw[thick,->] (0,0) --node[left=2mm, pos=.6]{$\vec{p}$} ({-130}:3cm);
-	\draw[thick,->] ({-120}:3cm) --node[below left]{$d\vec{p}$} ({-130}:3cm);
-		\path (-140:4cm) coordinate (A) -- (0,0) coordinate (B) -- (0,-4cm) coordinate (C)
-pic [draw, <-, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.5cm] {angle};
+	\draw[thick,->] (0,0) --node[left=2mm, pos=.6]{$\vec{p}$} ({130}:3cm);
+	\draw[thick,->] (120:3cm) --node[above left]{$d\vec{p}$} ({130}:3cm);
+		\path (140:4cm) coordinate (C) -- (0,0) coordinate (B) -- (0,4cm) coordinate (A)
+pic [draw, ->, thick, angle eccentricity=1.2, pic text=$\omega$, angle radius=1.5cm] {angle};
 \stopbuffer
 
 \marginTikZ{}{MoonMomentum2}{Placing the momentum vectors at the same place show’s the arc produced by the small momentum changes $d\vec p$.} % vskip, name, caption
 
 \startbuffer[MoonMomentum3]
-	\clip (-3.5,-3) rectangle (1.5,0.3);
+	\clip (-3.5,-0.3) rectangle (1.5,3);
 	\draw[shade, ball color = white] (0,0) circle[radius=.2cm]node[left=2mm]{Moon};% Moon
 	\fill(0,0) circle[radius=.4mm];
-	\foreach \T in {-10,-20,-30}{% Draw vectors
+	\foreach \T in {10,20,30}{% Draw vectors
 		%\draw[][opacity={(20-\T)/100}] (0,0) -- (\T:4cm);
-		\draw[thick,->][opacity={(20-\T)/100}] (0,0) -- ({\T-90}:3cm);
-		\draw[thick,->][opacity={(20-\T)/100}] ({\T-90}:3cm) -- ++({\T+180}:2cm);
+		\draw[thick,->][opacity={(20+\T)/100}] (0,0) -- ({\T+90}:3cm);
+		\draw[thick,->][opacity={(20+\T)/100}] ({\T+90}:3cm) -- ++({\T-180}:2cm);
 	}
 	%\draw (0,0) --node[below left]{$R$} (-40:4cm);
-	\draw[thick,->] (0,0) --node[left=2mm]{$\vec{p}$} ({-130}:3cm);
-	\draw[thick,->] ({-130}:3cm) --node[above right]{$\vec{F}$} ++({140}:2cm);
+	\draw[thick,->] (0,0) --node[left=2mm]{$\vec{p}$} (130:3cm);
+	\draw[thick,->] (130:3cm) --node[below right]{$\vec{F}$} ++({-140}:2cm);
 \stopbuffer
 
 \marginTikZ{}{MoonMomentum3}{The small momentum changes $d\vec p$ are produced by the force $\vec F$, which is tangent to the arc and therefore perpendicular to the momentum $\vec p$.} % vskip, name, caption
 
 \startbuffer[MoonMomentum4]
-	\clip (-0.5,-5) rectangle (4.5,4.1);
-	\draw[shade, ball color = white] (0,0) circle[radius=.4cm]node[above right=3mm]{Earth};% Earth
-	\foreach \T in {-10,-20,-30}{% Earlier Moons
-		\draw[shade, ball color = white][opacity={(20-\T)/100}] (\T:4cm) circle[radius=.2cm];
-		\fill(\T:4cm) circle[radius=.4mm][opacity={(20-\T)/100}];
+	\clip (-0.5,-4.1) rectangle (4.5,5);
+	\draw[shade, ball color = white] (0,0) circle[radius=.4cm]node[below right=3mm]{Earth};% Earth
+	\foreach \T in {10,20,30}{% Earlier Moons
+		\draw[shade, ball color = white][opacity={(20+\T)/100}] (\T:4cm) circle[radius=.2cm];
+		\fill(\T:4cm) circle[radius=.4mm][opacity={(20+\T)/100}];
 	}
-	\draw[shade, ball color = white] (-40:4cm) circle[radius=.2cm]node[left=2mm]{Moon};% Final Moon
-	\fill(-40:4cm) circle[radius=.4mm];
-	\foreach \T in {180,170,...,-170}{% Draw path segments
+	\draw[shade, ball color = white] (40:4cm) circle[radius=.2cm]node[left=2mm]{Moon};% Final Moon
+	\fill(40:4cm) circle[radius=.4mm];
+	\foreach \T in {-180,-170,...,170}{% Draw path segments
 		\draw[-{Straight Barb[scale length=.5]}] (\T:4cm)
-		 arc [start angle=\T, end angle={\T-10}, radius=4cm];
+		 arc [start angle=\T, end angle={\T+10}, radius=4cm];
 	}
-	\foreach \T in {-10,-20,-30}{% Draw vectors
+	\foreach \T in {10,20,30}{% Draw vectors
 		%\draw[][opacity={(20-\T)/100}] (0,0) -- (\T:4cm);
-		\draw[thick,->][opacity={(20-\T)/100}] (\T:4cm) -- ++({\T-90}:3cm);
-		\draw[thick,->][opacity={(20-\T)/100}] (\T:4cm) -- ++({\T+180}:2cm);
+		\draw[thick,->][opacity={(20+\T)/100}] (\T:4cm) -- ++({\T+90}:3cm);
+		\draw[thick,->][opacity={(20+\T)/100}] (\T:4cm) -- ++({\T-180}:2cm);
 	}
 	%\draw (0,0) --node[below left]{$R$} (-40:4cm);% Final vectors
-	\draw[thick,->] (-40:4cm) --node[left=1mm, pos=.7]{$\vec{p}$} ++({-130}:3cm);
-	\draw[thick,->] (-40:4cm) --node[left=3mm]{$\vec{F}$} ++({140}:2cm);
+	\draw[thick,->] (40:4cm) --node[left=1mm, pos=.7]{$\vec{p}$} ++({130}:3cm);
+	\draw[thick,->] (40:4cm) --node[left=3mm]{$\vec{F}$} ++({-140}:2cm);
 \stopbuffer
 
 \marginTikZ{}{MoonMomentum4}{As the Moon circles Earth, the force on the Moon is always toward Earth, perpendicular to the momentum, changing the momentum’s direction but not the speed.} % vskip, name, caption
@@ -1829,7 +1830,7 @@ Newton’s formula for momentum, $m\vec{v}$, is not accurate for particles trave
 
 You may be wondering what happened to the famous $\vec{F}=m\vec{a}$, which is usually called Newton’s second law. We did not introduce $\vec{F}=m\vec{a}$ for three reasons. First, that is not what Newton actually said. Second, $\vec{F}=m\vec{a}$ is not actually correct. To get from Newton’s second law to $\vec{F}=m\vec{a}$ you need to use the momentum formula, $\vec{p}=m\vec{v}$. As was just mentioned, $\vec{p}=m\vec{v}$ fails for very high speeds. Newton’s second law, \emph{as he originally stated it,} is correct for all speeds, even the speed of light. When we study interactions between fast particles in Volume II %Part \ref{part:Particles}
  we will still use Newton’s version of his second law.
-Third, students find momentum much easier to understand than acceleration.
+Third, you will find momentum much easier to understand than acceleration.
 We will keep our focus on momentum rather than acceleration.
 
 \section{Newton’s momentum and the Cartesian’s quantity of motion}

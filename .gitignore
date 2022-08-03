@@ -11,6 +11,7 @@ m_k_i_v_*
 *.pdf
 *.pgf
 *.synctex
+*.lua
 /tmp/
 *.syncctx
 install.sh
