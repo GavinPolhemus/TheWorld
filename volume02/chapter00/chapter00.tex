@@ -1,0 +1,49 @@
+% !TEX useAlternatePath
+% !TEX useConTeXtSyncParser
+\startcomponent c_chapter00
+\project project_world
+\product prd_volume01
+
+\doifmode{*product}{\setupexternalfigures[directory={chapter01/images}]}
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+
+\starttext
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title=Invitation, reference=ch:Invitation]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\placefigure[margin,none]{}{\small
+	\startalignment[flushleft]
+For a short time,\dots allow your thoughts to wander beyond this world to view another, wholly new one, which I shall cause to unfold before it in imaginary spaces.
+	\stopalignment
+	\startalignment[flushright]
+	{\it The World, or a Treatise on Light}\\
+	{\sc Rene Descartes}\\
+	1596–1650
+	\stopalignment
+}
+
+%\Initial{I}{ would like you to undertake an ambitious project.} At first, it may seem impossible, but I am confident you can succeed.
+
+\Initial{A}{t the end} of the nineteenth century, physics faced a crisis.
+New technologies and techniques in optics and chemistry, along with the discovery of radioactivity, provided ways to explore the world more deeply\dash revealing object too small, too fast, or too far away to have been seen before. 
+These objects did not behave as our models predicted, prompting a long search for a new model. 
+To physicists at the time, the ground seemed to be crumbling beneath their feet.
+They could not know what, if anything, would survive from the old models.
+A century after that crisis, we do know: Conservation of energy and momentum survived. In 1923, Hamilton's method proved to be the key that could unlock microscopic world's new mysteries.
+
+
+
+
+
+\blank
+
+These chapters follow the most direct path to our modern understanding of the world.
+
+
+\stopchapter
+
+\stoptext
+
+\stopcomponent
