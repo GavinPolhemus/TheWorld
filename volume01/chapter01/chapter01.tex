@@ -169,6 +169,60 @@ Aristoxenus, in the fourth century \scaps{bc}, took a more experimental approach
 Mathematics was a useful guide, but Aristoxenus believed music is good if it sounds good.
 He shared his ideas in \booktitle{Harmonic Elements}. His book was ridiculed and then largely ignored by music theorists, but his ideas continued to be influential, as we will see.
 
+\startplacefigure[location=margin, reference=fig:TinyPiano, title={Ptolemy's octochord, with eight identical strings and seven movable bridges. One of Ptolemy's ingenious scales is shown with the strings' lengths. This scale later evolved into the modern C major scale. Below the ocotochord are a keyboard and several modern representations of the C major scale.}]
+\startMPcode
+  pickup pencircle scaled 0.4pt ;
+  string Note, NoteName[], AltNote, AltNoteName[] ;
+  StringsWidth := 4cm ;
+  WholeWidth := StringsWidth/7 ;
+  HalfWidth := StringsWidth/12 ;
+  KeyboardDrop := WholeWidth+HalfWidth ;
+  path OctoBox, LowerSquare, WhiteKey, BlackKey ;
+  OctoBox := unitsquare xyscaled (9*WholeWidth,6cm+2*WholeWidth) shifted (-WholeWidth,-WholeWidth) ;
+  LowerSquare := fullsquare  yshifted -0.5 ;
+  WhiteKey := LowerSquare  xyscaled (WholeWidth,1.5cm) yshifted -KeyboardDrop ;
+  BlackKey := LowerSquare xyscaled (HalfWidth,1cm) yshifted -KeyboardDrop ;
+  i := 0 ;
+  for Note="C","D","E","F","G","A","B","C":
+    NoteName[i] := Note ;  
+    i := i+1 ;
+  endfor
+  i := 0 ;
+  for AltNote="Do","Re","Me","Fa","So","La","Ti","Do":
+    AltNoteName[i] := AltNote ;  
+    i := i+1 ;
+  endfor
+  i := 0 ;
+  for String=60,54,48,45,40,36,32,30:
+    StringLength[i] := String ;  
+    i := i+1 ;
+  endfor
+  for j=1,3,6,8,10:
+    x := WholeWidth + (j-2)*HalfWidth ;
+    fill BlackKey xshifted x ;
+  endfor
+    %draw (-2mm,0) -- (StringsWidth+2mm,0) ;
+    %draw (-2mm,60mm) -- (StringsWidth+2mm,60mm) ;
+  draw externalfigure "CmajScale.pdf" shifted (-0.87cm,-2.8cm-KeyboardDrop) ;
+  draw OctoBox ; fill OctoBox withcolor 0.9 ;
+  for j=0 upto 7:
+    x := j*WholeWidth ;
+	y := StringLength[j]*mm ;
+    draw (x,0) -- (x,60mm) ;
+    pickup pencircle scaled 4pt ;
+    drawdot (x,0) ; drawdot (x,60mm) ;
+    pickup pencircle scaled 1.6pt ;
+    if j>0: draw (x-2mm,y) -- (x+2mm,y) ; fi
+    pickup pencircle scaled 0.8pt ;
+    draw WhiteKey xshifted x ;
+    draw thefmttext.top("$@3.0f$",StringLength[j]) rotated 90 shifted (x-1mm,y/2);
+%    draw thefmttext.top("$@3.2f$",StringLength[j]) rotated 90 shifted (x-1mm,y/2);
+    label.top  (NoteName[j], (x,-1.5cm)) yshifted -KeyboardDrop ;  
+    label.bot  (AltNoteName[j], (x,-2.75cm)) yshifted -KeyboardDrop ;  
+  endfor
+\stopMPcode
+\stopplacefigure
+
 Ptolemy, writing near the end of the classical period in the second century \scaps{ce}, took a more balanced view, seeking to satisfy both sense and reason. 
 He performed experiments using an octochord, shown in \in{figure}[fig:TinyPiano].
 This instrument has eight identical strings, all tuned to the same note.
@@ -337,19 +391,100 @@ The unit of measure for frequency is \keyterm{hertz}, abbreviated as Hz.
 \stopformula
 Humans can hear a huge range of frequencies, from about from $5\units{Hz}$ up to $20{,}000\units{Hz}$.  The highest frequencies are only audible to young people.
 
-\placetable[margin][T:Frequencies] % Label
-    {Frequencies of Zarlino's Just Intonation and Galelei's equal-tempered scales.} % Caption
-    {\vskip9pt\small\starttabulate[|l|c|c|]
-\FL[2]%\toprule
-\NC Just		\NC Equal-tempered				\NC Ratio		\NR
-\HL
-\NC 528	\NC 	\NC 523.25	\NR
-\NC 495	\NC 	\NC 493.88	\NR
-\NC 440	\NC		\NC 440.00	\NR
-\NC 396	\NC 	\NC 392.00	\NR
-\NC\dorecurse{3}{352}	\NC 	\NC 261.63	\NR
-\LL[2]%\bottomrule
-\stoptabulate}
+\startplacetable[location=margin, reference=fig:TinyPiano, title={Frequencies (Hz) of Zarlino's Just Intonation scale and Galelei's equal-tempered scale.}] % Caption
+\startMPcode
+  pickup pencircle scaled 0.8pt ;
+  string Note, NoteName[], FreqStr ;
+  KeyboardWidth := 20cm ;
+  WholeWidth := KeyboardWidth/52 ;
+  HalfWidth := 7*WholeWidth/12 ;
+%  KeyboardDrop := WholeWidth+HalfWidth ;
+  path RightSquare, WhiteKey, BlackKey ;
+  RightSquare := fullsquare  xshifted -0.5 ;
+  WhiteKey := RightSquare  xyscaled (13mm,WholeWidth) ;
+  BlackKey := RightSquare xyscaled (8mm,HalfWidth) ;
+  JustColx := 8mm ;
+  EqColx := 2.7cm ;
+  i := 0 ;
+  for Note="C","D","E","F","G","A","B","C":
+    NoteName[i] := Note ;  
+    i := i+1 ;
+  endfor
+  i := 0 ;
+  for NoteFreqBase=24,27,30,32,36,40,45:
+    NoteFreqJust[i] := (11/16)*NoteFreqBase ;  
+    i := i+1 ;
+  endfor
+  i := 0 ;
+  for HalfStep=-9,-7,-5,-4,-2,0,2:
+    NoteFreqEq[i] := (440/16)*(2**(HalfStep/12)) ;  
+    i := i+1 ;
+  endfor
+  i := 0 ;
+  for HalfStep=-8,-6,-3,-1,1:
+    AccidentHalfStepBase[i] := HalfStep ;  
+    AccidentFreqEq[i] := (440/16)*(2**(HalfStep/12)) ;  
+    i := i+1 ;
+  endfor
+    label.top  ("Note\strut", (-0.65cm,0)) ;  
+    label.top  ("Just\strut", (JustColx,0)) ;  
+    label.top  ("Equal-temp.\strut", (EqColx,0)) ;  
+  for BlackKeyNum=0 upto 35:
+    OctNum := (BlackKeyNum+4) div 5 ;
+    AccidentNum := (BlackKeyNum+4) mod 5 ;
+    FreqEq := AccidentFreqEq[AccidentNum]*(2**OctNum) ;
+    % FreqEq := NoteFreqEq[NoteNum]*(2**OctNum) ;
+    y := -((12*OctNum)+AccidentHalfStepBase[AccidentNum]+1)*HalfWidth ;
+    fill BlackKey yshifted y ;
+    if FreqEq<100:
+      draw thefmttext.rt("$@.3f$",FreqEq) shifted (EqColx+1mm,y) ;
+    elseif FreqEq<1000 :
+      draw thefmttext.rt("$@.2f$",FreqEq) shifted (EqColx+1mm,y) ;
+    else:
+      draw thefmttext.rt("$@.1f$",FreqEq) shifted (EqColx+1mm,y) ;
+    fi
+    %label.rt  (OctNum, (-1cm,y)) ;  
+    %label.rt  (AccidentNum, (-0.5cm,y)) ;  
+  endfor
+  for WhiteKeyNum=0 upto 51:
+    y := -(WhiteKeyNum+0.5)*WholeWidth ;
+    OctNum := (WhiteKeyNum+5) div 7 ;
+    NoteNum := (WhiteKeyNum+5) mod 7 ;
+    FreqJust := NoteFreqJust[NoteNum]*(2**OctNum) ;
+    FreqEq := NoteFreqEq[NoteNum]*(2**OctNum) ;
+    %FreqStr := thefmttext.lft("$@.1f$",FreqEq) ;
+    draw WhiteKey yshifted y ;
+    FreqJustInt := floor FreqJust ;
+    FreqJustFrac := FreqJust - FreqJustInt ;
+    draw thefmttext.lft("$@.0f$",FreqJustInt) shifted (JustColx+.8mm,y) ;
+    if FreqJustFrac == 1/2:
+      label.rt  ("$\onehalf$", (JustColx,y)) ;  
+    elseif FreqJustFrac == 1/4:
+      label.rt  ("$\onequarter$", (JustColx,y)) ;  
+    elseif FreqJustFrac == 3/4:
+      label.rt  ("$\threequarter$", (JustColx,y)) ;  
+    elseif FreqJustFrac == 1/8:
+      label.rt  ("$\oneeighth$", (JustColx,y)) ;  
+    elseif FreqJustFrac == 7/8:
+      label.rt  ("$\seveneighth$", (JustColx,y)) ;  
+    elseif FreqJustFrac == 15/16:
+      label.rt  ("$\fifteensixteenths$", (JustColx,y)) ;  
+    fi
+    if FreqEq<100:
+      draw thefmttext.lft("$@.3f$",FreqEq) shifted (EqColx-1mm,y) ;
+    elseif FreqEq<1000 :
+      draw thefmttext.lft("$@.2f$",FreqEq) shifted (EqColx-1mm,y) ;
+    else:
+      draw thefmttext.lft("$@.1f$",FreqEq) shifted (EqColx-1mm,y) ;
+    fi
+    label  (NoteName[NoteNum], (-1.05cm,y)) ;  
+%    label.rt  (WhiteKeyNum, (-1.5cm,y)) ;  
+%    label.rt  (OctNum, (-1cm,y)) ;  
+%    label.rt  (NoteNum, (-0.5cm,y)) ;  
+  endfor
+\stopMPcode
+\stopplacetable
+
 
 Many details of an instrument’s construction affect its sound by influencing the way it vibrates. Galilei’s experiments taught us that properties of the instruments, like length and tension, may affect the frequency of vibration in surprising ways.
 The frequency produced by a string or pipe is inversely proportional to the length, so a simple three-to-two ratio in lengths will produce a consonant two-to-three ratio of frequencies, as the Pythagoreans knew. However, the frequency produced by a string is proportional to the square root of the string’s tension. A simple two-to-three ratio of tensions produces a dissonant $\sqrt 2$-to-$\sqrt 3$ ratio of frequencies. A four-to-nine ratio of tensions produces a consonant two-to-three ratio of frequencies.
