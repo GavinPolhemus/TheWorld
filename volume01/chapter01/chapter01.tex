@@ -171,7 +171,7 @@ He shared his ideas in \booktitle{Harmonic Elements}. His book was ridiculed and
 
 \startplacefigure[location=margin, reference=fig:TinyPiano, title={Ptolemy's octochord, with eight identical strings and seven movable bridges. One of Ptolemy's ingenious scales is shown with the strings' lengths. This scale later evolved into the modern C major scale. Below the ocotochord are a keyboard and several modern representations of the C major scale.}]
 \startMPcode
-  pickup pencircle scaled 0.4pt ;
+  pickup pencircle scaled 0.8pt ;
   string Note, NoteName[], AltNote, AltNoteName[] ;
   StringsWidth := 4cm ;
   WholeWidth := StringsWidth/7 ;
@@ -208,12 +208,13 @@ He shared his ideas in \booktitle{Harmonic Elements}. His book was ridiculed and
   for j=0 upto 7:
     x := j*WholeWidth ;
 	y := StringLength[j]*mm ;
+    pickup pencircle scaled 0.8pt ;
     draw (x,0) -- (x,60mm) ;
     pickup pencircle scaled 4pt ;
     drawdot (x,0) ; drawdot (x,60mm) ;
     pickup pencircle scaled 1.6pt ;
     if j>0: draw (x-2mm,y) -- (x+2mm,y) ; fi
-    pickup pencircle scaled 0.8pt ;
+    pickup pencircle scaled 0.4pt ;
     draw WhiteKey xshifted x ;
     draw thefmttext.top("$@3.0f$",StringLength[j]) rotated 90 shifted (x-1mm,y/2);
 %    draw thefmttext.top("$@3.2f$",StringLength[j]) rotated 90 shifted (x-1mm,y/2);
@@ -383,17 +384,25 @@ This rate is called the \keyterm{frequency}.
 The mathematical model was refined to say \emph{simple frequency ratios produce consonant pitches}.
 Galilei’s experimental challenge brought about an extremely helpful clarification that turned attention from how the instrument is built to how it moves to produce sound.
 
-To use this new mathematical model of musical consonance, we must quantify frequency, which measures how quickly the instrument's vibrating motion is repeated.  Each repetition is called a \keyterm{cycle}, so frequency is measured in cycles per second.  The long, heavy strings in a grand piano vibrate with a frequency of a few dozen cycles per second, producing low pitches.  The shortest strings’ frequencies are thousands of cycles per second, producing high pitches.
-The unit of measure for frequency is \keyterm{hertz}, abbreviated as Hz.
+Many details of an instrument’s construction affect its sound by influencing the way it vibrates. Galilei’s experiments taught us that properties of the instruments, like length and tension, may affect the frequency of vibration in surprising ways.
+The frequency produced by a string or pipe is inversely proportional to the length, so a simple three-to-two ratio in lengths will produce a consonant two-to-three ratio of frequencies, as the Pythagoreans knew. However, the frequency produced by a string is proportional to the square root of the string’s tension. A simple two-to-three ratio of tensions produces a dissonant $\sqrt 2$-to-$\sqrt 3$ ratio of frequencies. A four-to-nine ratio of tensions produces a consonant two-to-three ratio of frequencies.
+We will eventually understand these surprising relationships through our new physics of motion.
+
+%Nearly all instruments use lengths to produce pitches. Wind instruments use pipes cut to different lengths like an organ, stretched like a trombone, or made different lengths by covering and uncovering holes like a flute.
+%String instruments have many strings like a piano (figure \in[fig:GrandPiano]) or a few strings that can be shortened with fingers like a violin. In all of these instruments, the frequencies are inversely proportional to the lengths.
+%Performance instruments are designed to produce a full, rich sound, while use different lengths to produce different frequencies, just like the different lengths of Pythagoras and Philolaus’ pipes.
+
+To use this revised mathematical model of musical consonance, we must quantify frequency, which measures how quickly the instrument's vibrating motion is repeated.  Each repetition is called a \keyterm{cycle}, so frequency is measured in cycles per second.  The long, heavy strings in a grand piano vibrate with a frequency of a few dozen cycles per second, producing low pitches.  The shortest strings’ frequencies are thousands of cycles per second, producing high pitches.
+The unit for frequency is \keyterm{hertz}, abbreviated as Hz.
 
 \startformula
 1\units{Hz} = 1\units{cyc/s}
 \stopformula
 Humans can hear a huge range of frequencies, from about from $5\units{Hz}$ up to $20{,}000\units{Hz}$.  The highest frequencies are only audible to young people.
 
-\startplacetable[location=margin, reference=fig:TinyPiano, title={Frequencies (Hz) of Zarlino's Just Intonation scale and Galelei's equal-tempered scale.}] % Caption
+\startplacetable[location=margin, reference=tab:Frequencies, title={Frequencies (Hz) of Zarlino's Just Intonation scale and Galelei's equal-tempered scale.}] % Caption
 \startMPcode
-  pickup pencircle scaled 0.8pt ;
+  pickup pencircle scaled 0.4pt ;
   string Note, NoteName[], FreqStr ;
   KeyboardWidth := 20cm ;
   WholeWidth := KeyboardWidth/52 ;
@@ -485,20 +494,35 @@ Humans can hear a huge range of frequencies, from about from $5\units{Hz}$ up to
 \stopMPcode
 \stopplacetable
 
+To find consonances, we are no longer interested in the lengths of pipes or strings, only their frequencies of oscillation.
+The frequencies for just intonation are shown in \in{table}[tab:Frequencies].
+(The table also shows Galilei's equal-tempered scale, which is the subject of the next section.)
+These frequencies do not extend to the limits of human hearing, but they do cover a huge range\dash from the lowest A at $27\onehalf\units{Hz}$ up to the highest C at $4224\units{Hz}$. The middle A, used to tune an orchestra is in the middle, at $440\units{Hz}$.
 
-Many details of an instrument’s construction affect its sound by influencing the way it vibrates. Galilei’s experiments taught us that properties of the instruments, like length and tension, may affect the frequency of vibration in surprising ways.
-The frequency produced by a string or pipe is inversely proportional to the length, so a simple three-to-two ratio in lengths will produce a consonant two-to-three ratio of frequencies, as the Pythagoreans knew. However, the frequency produced by a string is proportional to the square root of the string’s tension. A simple two-to-three ratio of tensions produces a dissonant $\sqrt 2$-to-$\sqrt 3$ ratio of frequencies. A four-to-nine ratio of tensions produces a consonant two-to-three ratio of frequencies.
-We will eventually understand these surprising relationships through our new physics of motion.
+Zarlino's just intonation scale has all the wonderful consonances of Ptolomy's scale (\in{tab.}[T:PtIntervals]).
+The frequencies of just intonation reveal another gem for musicians\dash consonant sets of three pitches called \keyterm{triads}. The most obvious consonant triad is the set C, E, and G. We can see the consonance by looking at the frequency ratio. (I will use frequencies from the middle octave, but any octave will work.)
+\startformula
+   264\units{Hz} : 330\units{Hz} : 396\units{Hz}
+\stopformula
+To simplify this ratio, divide by the common factor $66\units{Hz}$.
+\startformula
+   \frac{264\units{Hz}}{66\units{Hz}} : \frac{330\units{Hz}}{66\units{Hz}} : \frac{396\units{Hz}}{66\units{Hz}}
+   = 4 : 5 : 6
+\stopformula
+A triad forming a consonant four-five-six ratio is called a \keyterm{major triad}
+Major triads contain a major third ($4{:}5$), a minor third ($5{:}6$), and a perfect fifth ($4{:}6=2{:}3$). All of this consonance gives the major third its heroic sound.
 
-%Nearly all instruments use lengths to produce pitches. Wind instruments use pipes cut to different lengths like an organ, stretched like a trombone, or made different lengths by covering and uncovering holes like a flute.
-%String instruments have many strings like a piano (figure \in[fig:GrandPiano]) or a few strings that can be shortened with fingers like a violin. In all of these instruments, the frequencies are inversely proportional to the lengths.
-%Performance instruments are designed to produce a full, rich sound, while use different lengths to produce different frequencies, just like the different lengths of Pythagoras and Philolaus’ pipes.
+The pitches A, C, and E also form a \keyterm{minor triad}. Minor triads also contain and major third, a minor third, and a perfect fifth, but minor triads are not as consonant as major triads. You can use our model of musical consonance to see why\dash just calculate the three-note ratio.
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Galilei's irrational musical scale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Just intonation does contain a couple of unwelcome surprises. The interval from D to A looks like a perfect fifth on the keyboard – three whole steps and one half step. However, the ratio of frequencies is not a consonant \threehalves\ ratio, instead it is a dissonant ratio:
+Just intonation does contain a few unwelcome surprises. The interval from D to A looks like a perfect fifth on the keyboard – three whole steps and one half step. However, the ratio of frequencies is not a consonant \threehalves\ ratio, instead it is a dissonant ratio:
 \startformula
 	\frac{440\units{Hz}}{297\units{Hz}}
 		= \frac{40}{27}.
@@ -568,17 +592,17 @@ Better yet, all of the intervals can be started on any pitch. No wolves lurk in 
 
 Many music purists were not impressed with equal temperament. Ptolemy's consonances do sound better, but the difference is small. The obvious way to please everyone is to adjust the step size of equal temperament so the intervals perfectly match the simple ratios. Unfortunately, this is mathematically impossible. The mathematics of rational numbers proves that certain consonances will not quite line up. The mismatch can be concentrated in a few wolf intervals, which must be avoided in compositions, or the mismatch can be spread out among many intervals in the hope that they will be too small to notice. Ptolemy took the extreme of having the fewest, most howling wolves. Equal temperament takes the other extreme, spreading the mismatch equally throughout the scale so that it is everywhere a barely audible purr.
 
-Theorists and musicians experimented with several other tunings which sought to preserve as many perfect consonances as possible while keeping the wolves from becoming too disruptive. In the end, equal temperament became the standard. Nearly all western instruments are tuned to the equal-tempered scale.
+Theorists and musicians experimented with several other tunings which sought to preserve as many perfect consonances as possible while keeping the wolves from becoming too disruptive. In the end, equal temperament became the standard. Nearly all western instruments are tuned to the equal-tempered scale. 
 
-The success of equal temperament eliminated the Pythagorean simple ratios from music, yet it also represents a great triumph of for the Pythagorean’s mathematical model. The equal-tempered tuning succeeds because it produces frequency ratios that are very close to Pythagoras and Ptolemy’s simple ratios.
-Based on the experimental success of the equal-tempered scale, the mathematical model of musical consonance was revised again. \emph{Frequencies which approximate simple ratios are consonant.} Experiments show that ratios within about one percent of a simple ratio is good enough to sound consonant, although trained ears will notice the slight mismatch.
+Equal temperament's success caused a final revision in the mathematic model musical consonance: \emph{frequencies approximating simple ratios are consonant.} (Experiments show that ratios within about one percent of a simple ratio are good enough to sound consonant, although trained ears will notice the slight mismatch.)
+The success of equal temperament eliminated perfect simple ratios from the musical scale, but it also represents a great triumph for the Pythagorean’s mathematical model. The equal-tempered tuning succeeds because it produces frequency ratios that are very close to Pythagoras and Ptolemy’s simple ratios.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Frequency relations}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Consonance, dissonance, scales, and tuning are all about ratios.
 The individual frequencies hardly matter.
-If all the frequencies in \in{figure}[T:Frequencies] were ten percent higher, nothing about the ratios would change.
+If all the frequencies in \in{figure}[tab:Frequencies] were ten percent higher, nothing about the ratios would change.
 All of the consonant intervals would be just as consonant.
 %The same is true for any other instruments – as long as they are tuned in agreement when they play together.
 However, ensuring that instruments can play together requires choosing specific frequencies and building instruments to produce those specific frequencies.
@@ -689,7 +713,7 @@ Galileo and his friends proposed a return to the tradition of Greek theatrical m
 \section[AncientWorldModels]{Celestial objects do not circle Earth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Before we investigate the Pythagorean’s mathematical model of the cosmos, there is one thing that I want you to remember: this model is terrible! Celestial objects do not circle Earth. Only the Moon goes around Earth, and none of the objects circle, they travel along ellipses. Some of these ellipses are close to circular, so a model made from circles could be a rough starting point for understanding the Solar System. A model in which all of the objects go around Earth is irredeemable. This became clear almost immediately to anyone making regular observations of the planets.
+Before we investigate the Pythagorean’s mathematical model of the cosmos, there is one thing that I want you to remember: this model is terrible! Celestial objects do not circle Earth. Only the Moon goes around Earth, and none of the objects circle, they travel along ellipses. Some of these ellipses are close to circular, so a model made from circles could be a rough starting point for understanding the Solar System. A model in which all of the objects go around Earth will be a convoluted mess. This became clear almost immediately to anyone making regular observations of the planets.
 
 % textwidth figure
 \placetextfloat[bottom][fig:Ptolemaicsystem]{The geocentric model from Peter Apian’s \booktitle{Cosmographia,} 1524. Earth sits motionless in the center while the heavens spin around it. The outermost sphere, labeled \emph{Primu Mobile} or \quotation{primary mover,} spins most quickly, dragging the inner spheres along at slightly slower rates. This diagram, like others in the coming pages, uses common symbols for the visible planets. Table \in[T:Astrosym] shows these symbols, as well as the symbols of two more recently discovered planets.} {\externalfigure[ptolemaicsystem][width=\textwidth]}
@@ -707,7 +731,7 @@ The Sun completes one revolution around Earth every day. The Moon, which is clos
     [margin,here]
     [T:Astrosym]
     {Astronomical Symbols for some important objects in our Solar System. Most of these symbols can be found in figure \in[fig:Ptolemaicsystem] above. The two outer planets, Uranus and Neptune, were discovered in 1781 and 1846, respectively.}
-{\noindent% \vskip330pt
+{\vskip330pt\noindent% \vskip330pt
 \starttabulate[|l|c|c|l|c|]
 \FL[2]
 \Astro{\Sun}{Sun}\NC
