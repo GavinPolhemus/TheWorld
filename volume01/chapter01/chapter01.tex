@@ -63,7 +63,7 @@ The simplified three-to-two ratio includes only numbers four or less, so these p
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:PyConsonance]
-Pythagoras and Philolaus invite you select a pipe and join their demonstration. They will play pipes with lengths 8 and 12. You want to select a pipe that is consonant with both of their pitches. According to the Pythagorean model, which pipe should you avoid?
+Pythagoras and Philolaus invite you select a pipe and join their demonstration. They will play pipes with lengths 8 and 12. You want to select a remaining pipe (length 4, 6, 9 or 16) that is consonant with both of their pitches. According to the Pythagorean model, which pipe should you avoid?
 \startsolution
 Avoid the pipe with length 9, because the pitches produced by the 9 and 8 pipes will be dissonant. Any other pipe will produce a pitch consonant with both the 8 and 12 pipes.
 \stopsolution
@@ -494,7 +494,7 @@ Humans can hear a huge range of frequencies, from about from $5\units{Hz}$ up to
 \stopMPcode
 \stopplacetable
 
-To find consonances, we are no longer interested in the lengths of pipes or strings, only their frequencies of oscillation.
+To find consonances, we are no longer interested in the lengths of pipes or strings, only their frequencies.
 The frequencies for just intonation are shown in \in{table}[tab:Frequencies].
 (The table also shows Galilei's equal-tempered scale, which is the subject of the next section.)
 These frequencies do not extend to the limits of human hearing, but they do cover a huge range\dash from the lowest A at $27\onehalf\units{Hz}$ up to the highest C at $4224\units{Hz}$. The middle A, used to tune an orchestra is in the middle, at $440\units{Hz}$.
@@ -512,7 +512,7 @@ To simplify this ratio, divide by the common factor $66\units{Hz}$.
 A triad forming a consonant four-five-six ratio is called a \keyterm{major triad}
 Major triads contain a major third ($4{:}5$), a minor third ($5{:}6$), and a perfect fifth ($4{:}6=2{:}3$). All of this consonance gives the major third its heroic sound.
 
-The pitches A, C, and E also form a \keyterm{minor triad}. Minor triads also contain and major third, a minor third, and a perfect fifth, but minor triads are not as consonant as major triads. You can use our model of musical consonance to see why\dash just calculate the three-note ratio.
+The pitches A, C, and E form a \keyterm{minor triad}. Minor triads also contain and major third, a minor third, and a perfect fifth, but minor triads are not as consonant as major triads. You can use our model of musical consonance to see why\dash just calculate the three-note ratio.
 
 
 
@@ -1024,135 +1024,3 @@ Galileo continued to write about his observations in letters and books, arguing 
 \stoptext
 
 \stopcomponent
-
-
-\page
-%%%%%%%%%%%%%%%% EXERCISES %%%%%%%%%%%%%%%%
-\startsubject[title=Exercises]
-%\setuplayout[
-%	leftmargin=36pt, % 1/2 in
-%	leftmargindistance=9pt, % 3/8 in
-%	width=477pt, % 4 1/4 in
-%	rightmargindistance=9pt, % 3/8 in
-%	rightmargin=36pt,  % 2 in
-%]
-%\setupheadertexts[text][section][\pagenumber][\pagenumber][chapter]
-%\setupheadertexts[margin][][][][]
-%
-%\blank
-%\startcolumns[n=2, tolerance=verytolerant]
-\startitemize[n,packed]
-\question
-Find the frequency of the pitch one octave above middle A ($440\units{Hz}$).  What is the period of this higher pitch? %(Here \quote{A} is the name of the pitch.  It has nothing to do with the vibration’s amplitude, $A$.)
-\blank
-
-\question
-Find the frequency of the pitch one perfect fifth below middle A.
-\blank
-%\question
-%What the frequency of the highest A on a grand piano? What subscript should be put on this A?
-
-\question Starting with the duration formula and working only with variables\nowhitespace
-\startitemize[a,joinedup]%,packed]
-\item solve for $t_{\rm f}$,
-\item solve for $t_{\rm i}$.
-\stopitemize
-\blank
-
-\question Starting with the frequency formula and working only with variables
-\startitemize[a,packed,joinedup]
-\item solve for $N$,
-\item solve for $\Delta t$.
-\stopitemize
-\blank
-
-\question
-How many cycles will the middle A ($440\units{Hz}$) string oscillate in $2.5\units{s}$?
-\blank
-
-\question
-How long will it take for the  D string with a frequency of $293\units{Hz}$ to oscillate one thousand times?
-\blank
-%\question
-%What is the frequency of C$_0$? What is its period?
-%\blank
-
-\question Starting with the frequency relations and working only with variables
-\startitemize[a,packed]
-\item find $T$ in terms of $f$,
-\item find $T$ in terms of $N$ and $\Delta t$.
-\stopitemize
-\blank[big]
-
-
-%\question The Moon completes one revolution around Earth in 29.3 days. Find the speed of the Moon in its orbit around Earth.
-
-\question The inner two moons of Jupiter, Io and Europa, are in a 1:2 resonance, which means that the ratio of Io’s period to Europa’s period is one-to-two. Europa’s orbital period is 3.55 days. What is Io’s orbital period?
-%\begin{solution}[3in]
-%\begin{align*}
-%	\frac{T\sub{E}}{T\sub{I}} &= \frac{2}{1}	\\
-%	T\sub{I} &= \half T\sub{E}	\\
-%		&= \half 3.55\units{d}	\\
-%		&= \answer{1.78\units{d}}
-%\end{align*}
-%\end{solution}
-
-\question Jupiters second and third moons, Europa and Ganymede, are also in a 1:2 resonance. What is the Ganymede’s orbital period?
-%\begin{solution}[3in]
-%\begin{align*}
-%	\frac{T\sub{E}}{T\sub{I}} &= \frac{2}{1}	\\
-%	T\sub{I} &= \half T\sub{E}	\\
-%		&= \half 3.55\units{d}	\\
-%		&= \answer{1.78\units{d}}
-%\end{align*}
-%\end{solution}
-
-
-\question Galileo published \textit{The Starry Messenger} in 1610. The Galileo spacecraft, which studied Jupiter and its moons up close, became the first craft to orbit Jupiter in 1995. How many orbits did Jupiter make between these two events? Jupiter orbits the Sun once every 11.86 years.
-
-\question The Galileo spacecraft was launched on October 18, 1989. Its successful mission as the first man-made satellite of Jupiter ended on September 21, 2003 with an intentional crash into Jupiter’s atmosphere. Find the length of the Galileo mission in jovian years.
-
-%\question Saturn orbits the Sun once every 29.5 years. How many orbits has it made since Galileo published \textit{The Starry Messenger} in 1610?
-%\begin{solution}[3in]
-%	\startformula
-%T = \frac{1\units{cyc}\cdot\Delta t}{N}
-%\stopformula
-%First, find $\Delta t$.
-%\startformula
-%	\Delta t = t\sf - t\si = 2017 - 1610 = 407\units{yr}
-%\stopformula
-%Then we can find the number of cycles (or orbits).
-%	\begin{align*}
-%		T &= \frac{1\units{cyc}\cdot\Delta t}{N}	\\
-%		N &= \frac{1\units{cyc}\cdot\Delta t}{T}	\\
-%			&= \frac{1\units{cyc}\cdot(407\units{\ucan{yr}})}{29.5\units{\ucan{yr}}}	\\
-%			& = \answer{13.8\units{cyc}}
-%				\quad\text{\emph{or}}\quad
-%				\answer{13.8\units{orbits}}
-%	\end{align*}
-%\end{solution}
-
-\question The Cassini spacecraft journey to Saturn began with its launch on October 15, 1997. Cassini orbited Saturn, studying the planet, its many moons, and its amazing rings until September 15, 2017. How long was Cassini’s mission in Saturn’s years? Saturn’s orbit takes 29.5 Earth years.
-
-\question Earth’s Moon orbits Earth with a frequency of $13.4\units{cyc/yr}$. What is the Moon’s orbital period in days?
-%\begin{solution}[3in]
-%\begin{align*}
-%	T &= \frac{1\units{cyc}}{f}	\\
-%		&= \frac{1\units{cyc}}{13.4\units{cyc/yr}}	\\
-%		&= 0.0746\units{\ucan{yr}}\left(\frac{365\units{d}}	{1\units{yr}}\right)	\\
-%		&= \answer{27.2\units{d}}
-%\end{align*}
-%Accept answer in years is question does not specify days (2017).
-%\end{solution}
-
-
-\question In 1967, Jocelyn Bell Burnell and Antony Hewish discovered a star that flashed brightly every $1.33\units{s}$. Eventually, pulsing stars like this became known as pulsars. Pulsars are rapidly spinning neutron stars which shine bright beams of light out of their magnetic poles. We see a flash every time one of the spinning pulsar’s beams points in our direction. What is this pulsar’s frequency?
-
-\question In 1968 another pulsar was discovered in the nearby Crab Nebula with a period of only $33\units{ms}$. What is this pulsar’s frequency?
-
-\question On August 17, 2017, an extremely sensitive device known as \scaps{ligo} (Laser Interferometer
-Gravitational-Wave Observatory) detected a tiny vibration of space-time. These vibrations were gravitational waves from a pair of orbiting neutron stars which revealed the stars' orbital frequency to be $20\units{Hz}$. What was the orbital period of these two stars? (This ferocious dance did not last long. Over the next thirty seconds the neutron stars spiraled into each other, producing an enormous explosion. The merged stars then collapsed to form a black hole. Luckily, this violent event happened very, very far from us.)
-
-\stopitemize
-%\stopcolumns
-\stopsubject
