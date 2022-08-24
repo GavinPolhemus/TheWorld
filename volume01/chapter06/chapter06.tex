@@ -159,7 +159,7 @@ For the cannon ball, and many other simple systems, Newton's method produces the
 
 We have already seen how rotational kinetic energy allows us to study spinning or rolling motion, where many connected parts move with different velocities but share a common angular motion. Angular coordinates are also the natural coordinates for planetary motions. We will use angular coordinates and rotational kinetic energy to find and solve the planets' equations of motion in \in{Chapter}[ch:Rotation]. Like a spinning object, a musical string has many parts moving with different velocities. The string's motion is best described in terms of shared motions rather than the individual parts' motions. We will use the shared motion's energy to find and solve the string's equations of motion in \in{Chapter}[ch:Waves]. Before we attack those problems, we must find a connection between the energy and equations of motion.
 
-Energy is not directional, so it works very well for systems with parts that move in many directions, (like spinning and rolling) and in situations where the coordinates are not straight (like angular coordinates). Perhaps kinetic energy could provide the velocities we need for Galileo's position update formulas.
+Energy is not directional, so it works very well for systems with parts moving in many directions, (like spinning and rolling) and in situations where the coordinates are not straight (like angular coordinates). Perhaps kinetic energy could provide the velocities we need for Galileo's position update formulas.
 
 Unfortunately, kinetic energy is not enough. Since kinetic energy is not directional, it cannot give us the velocity components needed for the position update formulas. In the case of the cannon ball, we can easily use conservation of energy to find the cannon ball's speed at any height, but conservation of energy cannot tell us the velocity's direction, which we need to correctly update the position. (In one dimension, where velocity has only one component, kinetic energy is often enough, but we will not use this one-dimensional trick.)
 
@@ -247,6 +247,521 @@ In \booktitle{Mécanique Analytique}, Lagrange used his powerful mathematical an
 
 Lagrange's \booktitle{Mécanique Analytique} was a stunning achievement, unlike anything physics had seen before. Lagrange was viewed as a hero in France under King Louis \convertnumber{KR}{16}. Luckily, his fame transcended the turbulent – often violent – politics of France following the French Revolution in 1789. As governments rose and fell around him, Lagrange continued to play a leading role in the advancement of science and mathematics in France.
 
+\section{Circular, centered orbits}
+
+
+\startbuffer[U3D]
+\startaxis[
+ 	  %axis line shift=1cm,
+	   %axis lines*=left,
+   hide x axis,
+    hide y axis,
+    hide z axis,
+        axis lines=center,
+        axis on top,
+	 view={0}{45},
+        width = 7cm,
+    %z post scale = {1},
+        clip mode = individual,
+]
+%    \addplot3 [
+%        mesh, color = middlegray,
+%        z buffer=sort,
+%        samples=9,
+%        domain=0.1:1,
+%        y domain=0:2*pi,
+%](
+%{x * cos(deg(y))}, {x * sin(deg(y))}, {-10}
+%    );
+    \addplot3 [
+        surf, faceted color = middlegray, color = gray,
+        z buffer=sort,
+        samples=6,
+        domain=2.5:15,
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {-13.27/x}
+    );
+    \node at (-8,-6,-2.5) {$U$};
+    \draw[->] (0,0,0) --node[below, pos = 0.98]{$r$} (16,0,0);
+    \draw[shade, ball color = white] (0,0,0) circle[radius=.6mm]node[above=0.8mm] {\Sun};
+    \draw[shade, ball color = darkgray] (0.5546,0,0) circle[radius=0.2mm]node[below] {\Mercury};
+    \draw[shade, ball color = darkgray] (1.082,0,0) circle[radius=0.3mm]node[above] {\Venus};
+    %\draw[] (1.5,0,0) -- (1.5,0,-8.874);
+    \draw[shade, ball color = darkgray] (1.496,0,0) circle[radius=0.3mm]node[below=0.4mm] {\Earth};
+    \draw[shade, ball color = darkgray] (2.259,0,0) circle[radius=0.25mm]node[above=0.7mm] {\Mars};
+    \draw[shade, ball color = darkgray] (7.76,0,0) circle[radius=0.4mm]node[above] {\Jupiter};
+    \draw[shade, ball color = darkgray] (14.23,0,0) circle[radius=0.4mm]node[above] {\Saturn};
+\stopaxis
+\stopbuffer
+
+\marginTikZ{}{U3D}{A planet's gravitational potential energy depends on its distance $r$ from the Sun. A planet released from rest would accelerate toward lower potential energy, crashing into the Sun!} % vskip, name, caption
+
+This three dimensional energy graph will allow us to understand the planets' two dimensional orbits. The vertical axis in our energy graph is energy, as usual. \in{Figure}[fig:U3D] shows the planets' gravitational potential energy, which is very negative near the Sun and rises toward zero far away.
+\startformula
+	U = -G\frac{mM}{r}
+\stopformula
+We will use $m$ for the mass of a planet and $M$ for the much larger mass of the Sun.
+
+\startbuffer[KeplerVenus]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startpolaraxis
+ [	xticklabels=\empty,
+ 	ytick={0,0.5,...,1.5},
+ 	yticklabels={{},{},$100\units{Gm}$,{}},
+ 	minor y tick num={1},
+	% yminorgrids=true,
+	hide x axis,
+	ymax = 1.5,
+	scale only axis=true, width={5.5cm},
+ 	tick style={middlegray}, % Fixes ticks which are too light in ConTeXt
+	major grid style = {middlegray},
+ 	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
+ ]
+    \addplot [ % Venus
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {1.082/(1+0.00676*cos(x-131.77))}
+  [yshift=-1.3pt]
+    node[pos=0.25] {\Venus}
+    ;
+	\node [name path=Sun] at (0,0) {\Sun}node[below=1mm]{Sun};
+	\draw[->]  (22.5, 1.082) --node[right, pos=.7]{$p$} ({22.5+21}, {13*1.082/12});
+	\draw[->]  (22.5, 1.082) --node[above, pos=.7]{$F$} (22.5, {0.7});
+	\draw[->]  (67.5, 1.082) -- ({67.5+21}, {13*1.082/12});
+	\draw[->]  (67.5, 1.082) -- (67.5, {0.7});
+	\draw[->]  (112.5, 1.082) -- ({112.5+21}, {13*1.082/12});
+	\draw[->]  (112.5, 1.082) -- (112.5, {0.7});
+	\draw[->]  (157.5, 1.082) -- ({157.5+21}, {13*1.082/12});
+	\draw[->]  (157.5, 1.082) -- (157.5, {0.7});
+	\draw[->]  (202.5, 1.082) -- ({202.5+21}, {13*1.082/12});
+	\draw[->]  (202.5, 1.082) -- (202.5, {0.7});
+	\draw[->]  (247.5, 1.082) -- ({247.5+21}, {13*1.082/12});
+	\draw[->]  (247.5, 1.082) -- (247.5, {0.7});
+	\draw[->]  (292.5, 1.082) -- ({292.5+21}, {13*1.082/12});
+	\draw[->]  (292.5, 1.082) -- (292.5, {0.7});
+	\draw[->]  (337.5, 1.082) -- ({337.5+21}, {13*1.082/12});
+	\draw[->]  (337.5, 1.082) -- (337.5, {0.7});
+\stoppolaraxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+
+\marginTikZ{\vskip 6in}{KeplerVenus}{Venus' orbit is an almost perfectly centered circle, making uniform circular motion a good approximation of for Venus. (A gigameter is one billion meters: $1\units{Gm} = 10^9\units{m}$).} % vskip, name, caption
+
+\noindent
+A planet following a circular orbit with the Sun at the center moves with uniform circular motion. Venus is shown as an example in \in{figure}[fig:KeplerVenus].
+Although uniform circular motion was considered natural in Kepler's time, Descartes and Newton taught us that circular motion requires a central force to bend the planet's path into an orbit.
+The force required depends on the planet's momentum $p$ and angular velocity $\omega$, as given by the centripetal force formula (\at{p.}[eq:centripetalforce])
+\startformula
+	F = \omega p
+\stopformula
+Using $p = mv$ and $v = \omega r$ for circular motion, we find.
+\startformula
+	F = m\omega^2 r
+\stopformula
+The centripetal force formula gives the force required to produce the circular motion, but does not tell us the source of that force. For orbits in the solar system this force is the gravitational force exerted by the Sun, the force directed towards lower gravitational potential energy in \in{figure}[fig:U3D]. The strength of the gravitational force is given by Newton's universal law of gravitation (\at{p.}[eq:UniversalGrav]).
+\startformula
+	F %= -\pp{r} U
+		%= -\pp{r} \left(-G\frac{mM}{r}\right)
+		%= GmM \pp{r} \left(r^{-1}\right)
+		%= GmM \left(-1r^{-2}\right)
+		= -G\frac{mM}{r^2}
+\stopformula
+The \emph{magnitude} of this gravitational force is the centripetal force above, allowing us to find the planet's angular velocity.
+\startformula\startmathalignment\pagereference[eq:AngularVelocityCircular]
+\NC	\cancel{m}\omega^2 r	\NC = G\frac{\cancel{m}M}{r^2}	\NR
+\NC	\omega				\NC = \sqrt{\frac{GM}{r^3}}	\NR
+\stopmathalignment\stopformula
+The planet's distance determines its angular velocity, with much higher angular velocities closer to the Sun. Higher angular velocities give shorter periods, which we find using $T = 2\pi / \omega$.
+\startformula
+	T = \textfrac{2\pi}{\sqrt{GM}}\,r^{\threehalves}
+\stopformula
+Mercury's orbit takes only 88 days. Venus's orbit is 225 days. Earth's orbit is 365 days. Mars's orbit is 687 days. The outer planets' orbits are far longer – nearly twelve years for Jupiter's orbit and almost thirty years for Saturn's.
+The planet's mass has no effect on its angular velocity. % The Sun's strong gravitational pull on these inner planets bends their paths into small, fast orbits.
+
+Using the orbit radii from \in{figure}[fig:VisiblePlanets], you can calculate these periods, and you will get good results.
+
+A centered, circular orbit has only one parameter: its radius $r$. The planet's angular momentum and total energy are directly related to this radius of the other constants ($G$, $M$, and $m$) are known. The angular momentum can be found from the angular velocity $\omega$.
+\startformula
+	p_\theta = I\omega
+\stopformula
+This is the angular version of Newton's momentum formula, $p=mv$. (This angular version comes from the $\theta$ update formula.)
+We use the angular velocity for circular orbit's (\at{p.}[eq:AngularVelocityCircular]).
+\startformula
+	p_\theta = mr^2\sqrt{\frac{GM}{r^3}} = m\sqrt{GMr}
+\stopformula
+Circular orbits with a larger radius $r$ have a greater angular angular momentum $p_\theta$.
+
+The planet's total energy can be found using the angular momentum. ($K_r$ is zero for circular orbits.)
+\startformula\startmathalignment
+\NC H	\NC = \cancel{K_r} + K_\theta + U			\NR
+\NC		\NC = \frac{p_\theta^2}{2I} - G\frac{mM}{r}	\NR
+\NC		\NC = \frac{m^2 GMr}{2mr^2} - G\frac{mM}{r}	\NR
+\NC		\NC = G\frac{mM}{2r} - G\frac{mM}{r}		\NR
+\NC		\NC = -G\frac{mM}{2r}						\NR
+\stopmathalignment\stopformula
+The total energy of a circular orbit is negative, and exactly half of the gravitational potential energy. 
+Circular orbits with a larger radius $r$ have a higher (less negative) total energy $H$.
+
+\startuseMPgraphic{graph::CircularH} % I'd like to add minor ticks, 0.667mm long.
+vardef U =
+	path p;
+		for x = 0.5 step 0.1 until 3.1:
+			y := -13.3/x; % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+vardef H =
+	path p;
+		for x = 0.2 step 0.1 until 3.1:
+			y := -13.3/(2x); % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+draw begingraph(4cm,5cm);
+	setrange(0,-20, 3, 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy per mass ($\sci{8}\units{J/kg}$)") rotated 90,OUT);
+	glabel.bot(textext("Distance from Sun $r$ ($\sci{11}\units{m}$)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.lrt("$U$",10);
+	gdraw(H) withpen pencircle scaled 1pt dashed withdots;
+	glabel.ulft("$H$",10);
+%	glabel(mydot,(80));
+%	glabel(mydot,(210));
+%	glabel(mydot,(340));
+%	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
+%	gdraw((6.37,0) -- (6.37,-2)) withpen pencircle scaled 0.8pt;
+	for y=0 step -2 until -20:%auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+endgraph shifted (0,-5cm);
+%  pickup pencircle scaled 0.8pt ;
+%  draw externalfigure "EarthEratosthenes.png" scaled 0.127 shifted (-6.37mm,-6.37mm) ;
+%  draw fullcircle scaled 12.74mm;
+%  drawarrow (13mm,0) -- (-0.5mm,0);
+%    dotlabel.ulft  ("", (13mm,0)) ;
+%  drawarrow (26mm,0) -- (22.625mm,0);
+%    dotlabel.top  ("$F\sub{Newton}$", (26mm,0)) ;
+%  drawarrow (39mm,0) -- (37.5mm,0);
+%    dotlabel.llft  ("", (39mm,0)) ;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:CircularH, title={A planet's total energy $H$ in a circular, centered orbit is exactly half of the planet's gravitational potential energy $U$.}]
+\small\reuseMPgraphic{graph::CircularH}
+\stopplacefigure
+
+The energy graph in \in{figure}[fig:CircularH] shows the gravitational potential energy and a dotted line at $-GMm/2r$. Each dot represents the total energy of a possible circular orbit. Dots toward the upper right represent larger orbits with greater angular momentum and higher energy. Dots toward the lower left represent smaller orbits with less angular momentum and lower energy.
+
+
+
+
+\section{Friction and other external forces}
+
+Daniel Bernoulli taught us to include potential energy in our system whenever possible. We included gravitational potential energy in the pendulum system, rather than calculating the work done by gravity. We included spring potential energy in our simple harmonic oscillator rather than calculating the work done by the spring. Unfortunately, some forces cannot be represented by a potential energy. In these cases we must leave the force as external, doing work on the system.
+
+Friction is one of these external forces. 
+Sliding a block on a table requires some work due to the friction between the block and the table. The work done sliding the block is not stored as potential energy. Instead, the work contributes to random, microscopic motion in the surface of the block and the table. (The sliding sound you hear is some of that random motion.)
+Until we study heat, we will always leave this random, microscopic motion out of our systems. That means friction will always be an external force doing work on the system – usually negative work, reducing the system's energy.
+
+\startbuffer[SpringBlockClean]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			]
+	\path (-15,0) pic {block}node[above = 5mm]{$m$};
+	\draw[decorate,decoration={coil,segment length=1.06pt}] (-24,2.5) --node[above=3pt] {$k$} (-18,2.5);
+    \stopaxis
+\stopbuffer
+
+\startuseMPgraphic{graph::BlockSHOGraphs} % I'd like to add minor ticks, 0.667mm long.
+	path U, H, K, Re, Turn, Stop; %TPA, TPB, TPC, TPD, TPE, TPF, St;
+	U := (-24,24) ..controls (-8,-8) and (8,-8).. (24,24);
+	%H := (-15,75/8) -- (12,6) -- (-9,27/8) -- (6,1.5) -- (-3,3/8) -- (0,0);
+	%H := (-15,75/8) -- (13,169/24) -- (-11,121/24) -- (9,27/8) -- (-7,49/24) --(5,25/24) --(-3, 3/8) -- (1,1/24);
+	H := (-15,75/8) -- (9,27/8) -- (-3, 3/8);
+	%H := (-15,75/8) -- (11,121/24) -- (-7,49/24) --(3, 3/8) -- (1,1/24);
+	%H := (-15,75/8) -- (-3,3/8) ;
+	K := (-24,-18) ..controls (-8,14) and (8,14).. (24,-18);
+	Re := (-15,0) -- (-15,13);
+	%TPA := (13,0) -- (13,13);
+	%TPA := (11,0) -- (11,13);
+	Turn := (9,0) -- (9,13);
+	%TPB := (-7,0) -- (-7,13);
+	%TPE := (5,0) -- (5,13);
+	Stop := (-3,0) -- (-3,13);
+	%Stop := (1,0) -- (1,13);
+draw begingraph(4.5cm,2.4cm);
+	setrange(-21,0, 24, 24);
+	itick.lft(formatted("$@g$", 0), 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy") rotated 90,OUT)  shifted (2mm,0);
+	glabel.bot(textext("$x$ (cm)"), OUT);
+	gdraw(Re) withcolor "middlegray";
+	glabel.rt("release",1) rotatedaround(point 0.97 of Re, 90);
+	gdraw(Turn) withcolor "middlegray";
+	glabel.rt("turn",1) rotatedaround(point 0.97 of Turn, 90);
+%	gdraw(TPB) withcolor "middlegray";
+%	glabel.rt("turn 2",1) rotatedaround(point 0.97 of TPB, 90);
+%	gdraw(TPC) withcolor "middlegray";
+%	glabel.rt("turn 3",.92) rotatedaround(point 0.97 of TPC, 90);
+%	gdraw(TPD) withcolor "middlegray";
+%	glabel.rt("turn 4",1) rotatedaround(point 0.97 of TPD, 90);
+%	gdraw(TPE) withcolor "middlegray";
+%	glabel.rt("turn 5",1) rotatedaround(point 0.97 of TPE, 90);
+%	gdraw(TPF) withcolor "middlegray";
+%	glabel.rt("turn 6",1) rotatedaround(point 0.97 of TPF, 90);
+	gdraw(Stop) withcolor "middlegray";
+	glabel.rt("stop",.97) rotatedaround(point 0.97 of Stop, 90);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.llft("$U$",0.17);
+	gdraw(H) withpen pencircle scaled 0.8pt;
+	glabel.top("$H$",0.36);
+endgraph;
+%	path p;
+%	p := (8,0) ..controls (8,0.66) and (7.33,1.33).. (6,2)
+%		-- (1,4.5) ..controls (0.33,4.83) and (0,5.17).. (0,5.5);
+%	picture myarrow;
+%	myarrow := image(
+%		drawarrow (-2mm,0) -- origin withpen pencircle scaled 0.8pt;
+%	);
+	vardef position =
+		path p;
+		for t = 0 upto 8*3.14:
+			x := -12*cos(t/8) - 3; augment.p(x,t); endfor;
+		for t = 8*3.14 upto 16*3.14:
+			x := -6*cos(t/8) + 3; augment.p(x,t); endfor;
+		augment.p(-3,160);
+		p enddef;
+	path xmax, xmin, equlib ;
+	xmax := (9,0) -- (9,8*3.14);
+	xmin := (-3,0) -- (-3,16*3.14);
+	equlib := (0,6) -- (0,160);
+draw begingraph(4.5cm,5cm);
+	setcoords(linear, -linear);
+	setrange(-21,0, 24,80);
+%	for y=auto.y:
+	itick.lft(formatted("$@g$", 0), 0);
+%		itick.lft(formatted("$@g$", y), y);
+%		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+%		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+%	endfor
+	for x=auto.x:
+		%itick.top(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$t$"),OUT) shifted (2mm,0);
+	%glabel.top(textext("$x$ (m)"), OUT);
+	gdraw(xmin) withcolor "middlegray";
+	%glabel.top("turning",0.72);% rotatedaround(point 0.72 of TPL, 90);
+	%glabel.bot("point",0.72) rotatedaround(point 0.72 of TPL, 90);
+	gdraw(xmax) withcolor "middlegray";
+	%glabel.top("turning",0.72) rotatedaround(point 0.72 of TPR, 90);
+	%glabel.bot("point",0.72) rotatedaround(point 0.72 of TPR, 90);
+	gdraw(equlib) withcolor "middlegray";
+	%gdrawdblarrow (0,8*3.14) -- (12,8*3.14);
+	%glabel.top("$A$",0.4) ;
+%	gdraw (12,8*3.14) -- (16,8*3.14) withcolor "middlegray";
+%	gdraw (12,24*3.14) -- (16,24*3.14) withcolor "middlegray";
+%	gdrawdblarrow (15,8*3.14) -- (15,24*3.14);
+%	glabel.rt("$T$",0.5) ;
+	gdraw(position) withpen pencircle scaled 0.8pt;
+endgraph shifted (0cm, -5.4cm);
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:BlockSHOGraphs, title={The block at its release position (top), the energy graph for the block and spring (middle), and the block's position vs.\ time graph (bottom). The block's kinetic energy $K$ is not shown.}]
+\typesetbuffer[starttikz,SpringBlockClean,stoptikz]\small
+\reuseMPgraphic{graph::BlockSHOGraphs}
+\stopplacefigure
+
+\startbuffer[SpringBlockCleanRight]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			clip = false,
+			hide x axis = true,
+			]
+	\draw[] (-24,0) -- (24,0);
+	\path (-4,0) pic {block}[opacity=.4];
+	\path (4,0) pic {block};
+	\draw[decorate,decoration={coil,segment length=5pt}] (-24,2.5) -- (1,2.5);
+	\draw[-{Straight Barb}, thick] (-4,2.5) --node[above=2mm] {$dx$} (4,2.5);
+	\draw[->, very thick] (4,0) --node[below, pos=0.4] {$F$} (-0.5,0);
+    \stopaxis
+\stopbuffer
+
+\startuseMPgraphic{graph::SlideRight} % I'd like to add minor ticks, 0.667mm long.
+	path U, H;
+	%U := (-16,24) -- (-15,75/8) ..controls (-5,-25/8) and (5,-25/8).. (15,75/8) -- (16,0);
+	H := (-12,14) -- (12,8);
+draw begingraph(4.5cm,2.4cm);
+	setrange(-21,0, 24, 24);
+	autogrid(,);
+	glabel.lft(textext("Energy") rotated 90,OUT);
+	glabel.bot(textext("$x$"), OUT);
+	gdrawarrow(H) withpen pencircle scaled 0.8pt;
+	glabel.bot("$H$",0.2);
+	gdrawarrow (-4,12) -- (4,12) withpen pencircle scaled 0.8pt;
+	glabel.top("$dx$",0.5);
+	gdrawarrow (4,12) -- (4,10) withpen pencircle scaled 0.8pt;
+	glabel.rt("$dH$",0);
+endgraph;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:SlideRight, title={As the block slides a small distance $dx$ to the right, friction reduces the total energy by $dH$.}]
+\typesetbuffer[starttikz,SpringBlockCleanRight,stoptikz]\small
+\reuseMPgraphic{graph::SlideRight}
+\stopplacefigure
+
+\in{Figure}[fig:BlockSHOGraphs] shows the energy reducing effect of friction on our simple harmonic oscillator. The cart has been replaced by a block that slides on the table. As the block slides to the right, friction exerts and opposing force $F$ to the left. This force constantly decreases the system's total energy. While the block travels a short distance $dx$ to the the right (\in{fig.}[fig:SlideRight]), the force $F$ does a small amount of work $W = F\,dx$.
+Since the rightward displacement is positive and the leftward force is negative, the work is negative. We can use this work with conservation of energy to find the total energy's small change $dH$.
+\startformula\startmathalignment
+\NC	H\si + W + \cancel{Q}	\NC = H\sf	\NR
+\NC	H\sf - H\si	\NC = W	\NR
+\NC	dH	\NC = F\,dx	\NR
+\stopmathalignment\stopformula
+The total energy's small change $dH$ is negative because the small amount of work $F\,dx$ is negative. This gives the energy graph of $H$ a negative slope, as shown in \in{figure}[fig:SlideRight]. This negative slope is also seen in the energy graph in \in{figure}[fig:BlockSHOGraphs] when the block is sliding to the right from the release point to the first turning point. The negative slope is equal to the negative, leftward force $F$.
+
+The block was released $16\units{cm}$ to the left of the spring's relaxed position at $x=0\units{cm}$, but the loss of energy during the block's rightward slide allows it to only travel $9\units{cm}$ to the right of the spring's relaxed position before the system's total energy $H$ is equal to the potential energy $U$. At this point, the block's kinetic energy is zero. The block stops at this turning point and begins sliding back toward the spring's relaxed position at $x=0\units{cm}$.
+
+\startbuffer[SpringBlockCleanLeft]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			clip = false,
+			hide x axis = true,
+			]
+	\draw[] (-24,0) -- (24,0);
+	\path (4,0) pic {block}[opacity=.4];
+	\path (-4,0) pic {block};
+	\draw[decorate,decoration={coil,segment length=3.3pt}] (-24,2.5) -- (-7,2.5);
+	\draw[-{Straight Barb}, thick] (4,2.5) --node[above=2mm] {$dx$} (-4,2.5);
+	\draw[->, very thick] (-4,0) --node[below, pos=0.4] {$F$} (0.5,0);
+    \stopaxis
+\stopbuffer
+
+\startuseMPgraphic{graph::SlideLeft} % I'd like to add minor ticks, 0.667mm long.
+	path U, H;
+	%U := (-16,24) -- (-15,75/8) ..controls (-5,-25/8) and (5,-25/8).. (15,75/8) -- (16,0);
+	H := (12,14) -- (-12,8);
+draw begingraph(4.5cm,2.4cm);
+	setrange(-21,0, 24, 24);
+	autogrid(,);
+	glabel.lft(textext("Energy") rotated 90,OUT);
+	glabel.bot(textext("$x$"), OUT);
+	gdrawarrow(H) withpen pencircle scaled 0.8pt;
+	glabel.bot("$H$",0.2);
+	gdrawarrow (4,12) -- (-4,12) withpen pencircle scaled 0.8pt;
+	glabel.top("$dx$",0.5);
+	gdrawarrow (-4,12) -- (-4,10) withpen pencircle scaled 0.8pt;
+	glabel.lft("$dH$",0);
+endgraph;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:SlideLeft, title={As the block slides a small distance $dx$ to the left, friction reduces the total energy by $dH$.}]
+\typesetbuffer[starttikz,SpringBlockCleanLeft,stoptikz]\small
+\reuseMPgraphic{graph::SlideLeft}
+\stopplacefigure
+
+After the turning point, when the block is sliding back toward the left, the opposing force of friction is to the right (\in{fig.}[fig:SlideLeft]). 
+While the block slides a small negative distance $dx$, the positive force $F$ does a small amount of negative work $F\,dx$, decreasing the total energy by the small amount $dH = F\,dx$, as shown in \in{figure}[fig:SlideLeft]. The energy graph of the total energy $H$ has a positive slope, even though the energy is decreasing due to the block's motion in the negative direction. This positive slope is seen in \in{figure}[fig:SlideLeft] and also in the energy graph in \in{figure}[fig:BlockSHOGraphs] when the block is sliding to the left from the turning point to the point where the block stops. The positive slope of these graphs is equal to the positive, rightward force $F$.
+
+Any outside force can do work on the system. We first saw this in \in{examples}[ex:CartWork1] and \in[ex:CartWork2] (\at{pp.}[ex:CartWork1]-\at[CartWorkEnding]), when you were pushing the book cart down the hallway. In those examples, you did positive work to increase the cart's total energy, getting the cart moving. Then, you did negative work to decrease the cart's total energy, brining it to a stop. The positive work you do comes from chemical potential energy stored in the foods you eat. The negative work you do goes to microscopic, random motion in your muscles. In either case, we do not want to include the complicated chemical potential energy or microscopic, random energy in our system. Instead, we leave these out of the system and treat your force as an external force doing work on the system.
+
+We follow Daniel Bernoulli's advice by putting potential energy in our system whenever we can. But when we cannot, we leave the energy outside of our system, allowing it to act as an external force doing work on the system. We still use the energy graph to understand the motion, with the external force determining the slope of the total energy $H$.
+
+Let us finish the story of the block, which was sliding to the left, losing energy due to the opposing force of friction.
+\in{Figure}[fig:BlockSHOGraphs] shows the block moving to the left after the turn.   
+When it arrives at $x=-3\units{cm}$, the system's total energy $H$ is again equal to the potential energy $U$, as shown in \in{figure}[fig:SlideToStop]. The block cannot continue to the left because the system's total energy would be less than its potential energy, which is impossible. This prohibited, leftward motion is shown by the dotted, \quotation{no} line sloping down and to the left in \in{figure}[fig:SlideToStop]. The block also cannot turn and move to the right because that would also lead to the system's total energy being less than its potential energy. This prohibited, rightward motion is shown by the dotted, \quotation{no} line sloping down and to the right in \in{figure}[fig:SlideToStop].
+Unable to move in either direction, the block remains stopped at $x=-3\units{cm}$. This is shown as the stopping point in \in{figure}[fig:BlockSHOGraphs].
+
+\startbuffer[SpringBlockCleanStop]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			xlabel={},
+			clip = false,
+			hide x axis = true,
+			]
+	\draw[] (-24,0) -- (24,0);
+	\path (-3,0) pic {block};
+	\draw[decorate,decoration={coil,segment length=3.6pt}] (-24,2.5) -- (-6,2.5);
+	\draw[->, very thick] (-3,0) --node[below, pos=0.4] {$F$} (-7.5,0);
+    \stopaxis
+\stopbuffer
+
+\startuseMPgraphic{graph::SlideToStop} % I'd like to add minor ticks, 0.667mm long.
+	path U, H, nope;
+	U := (-15,75/8) ..controls (-5,-25/8) and (5,-25/8).. (15,75/8);
+	H := (-1.5,3/4) -- (-3, 3/8);
+	nope := (-4.5,0) -- (-3, 3/8) -- (-1.5,0);
+draw begingraph(4.5cm,2.4cm);
+	setrange(-4,0, -2, 1.33);
+	itick.lft(formatted("$@g$", 0), 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy") rotated 90,OUT) shifted (2mm,0);
+	glabel.bot(textext("$x$ (cm)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.top("$U$",0.38);
+	gdrawarrow(H) withpen pencircle scaled 0.8pt;
+	glabel.top("$H$",0.7);
+	gdraw(nope) withpen pencircle scaled 1.2pt dashed withdots;
+	glabel.bot("no",1.25);
+	glabel.bot("no",0.75);
+	glabel(mydot,1);
+%	gdrawarrow (-3.25,0.44) -- (-2.75,0.44) withpen pencircle scaled 0.8pt;
+%	glabel.top("$\partial x$",0.5);
+%	gdrawarrow (-2.75,0.44) -- (-2.75,0.315) withpen pencircle scaled 0.8pt;
+%	glabel.rt("$\partial U$",0);
+endgraph;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:SlideToStop, title={The block stops at $x=-3\units{cm}$, unable to move in either direction. Notice the greatly enlarged scale on the energy graph, zooming in to the region around $x=-3\units{cm}$.}]
+\typesetbuffer[starttikz,SpringBlockCleanStop,stoptikz]\small
+\reuseMPgraphic{graph::SlideToStop}
+\stopplacefigure
+
+
 \section{Hamilton's canonical equations of motion}
 
 While physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring the French mathematical revolution transforming physics.
@@ -260,7 +775,7 @@ In 1823, at the age of 18, Hamilton entered Trinity College Dublin.
 Trinity College had adopted the continental notation in 1812, a bit ahead of Cambridge, and used the French textbooks in mathematics and physics courses. Hamilton embraced the abstract approach. He earned top marks in all of his courses and won many awards, which propelled him to a position as head of the Dunsink Observatory, near Dublin. Although the observatory provided ample opportunity for practical astronomy, Hamilton continued to focus on more theoretical interests, first in optics and then in mechanics.
 
 Hamilton wrote two groundbreaking papers on mechanics, \booktitle{On A General Method In Dynamics} in 1834 and \booktitle{Second Essay On A General Method In Dynamics} in 1835. Hamilton's general method produces the equations of motion for any problem in mechanics, just like Lagrange's procedure, but Hamilton's general method is much easier to understand and execute.
-We will study Hamilton's general method in this chapter. First, we will learn to produce equations of motion from a system's total energy formula. Then, we will learn some methods of solving these equations of motion in specific examples. In \in{Chapter}[ch:Rotation], Hamilton's general method will explain the compound motions of planets, and in \in{Chapter}[ch:Waves] it will reveal the compound vibrations of a musical string.
+We will study Hamilton's general method in this chapter. First, we will learn to produce equations of motion from a system's total energy formula. Then, we will learn some methods of solving these equations of motion in specific examples. In \in{Chapter}[ch:Rotation], Hamilton's general method will explain the compound motions of planets. In \in{Chapter}[ch:Waves], it will reveal the compound vibrations of a musical string.
 
 Hamilton's general method brings together the big ideas of position, momentum, and energy in a surprisingly simple way. Hamilton found that he did not need two separate formulas for kinetic energy and potential energy, one formula for the total energy is enough. (He chose the symbol $H$ for total energy, which we have adopted.) Hamilton also recognized momentum's importance, and used momentum in his formula for total energy. For example, to describe the cart-on-a-spring system in \in{figure}[fig:HamiltonSpringCart], Hamilton would write the total energy
 \startbuffer[HamiltonSpringCart]
