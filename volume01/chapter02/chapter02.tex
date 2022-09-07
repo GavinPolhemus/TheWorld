@@ -920,8 +920,8 @@ How small is small enough? It depends. You will usually want an answer that is c
 \startsolution
 	The best choice of times is $t\si=0.40\units{s}$ and $t\sf=0.60\units{s}$, equally preceding and following the target time.
 	\startformula
-		v_y = \frac{\Delta y}{\Delta t}
-			%= \frac{y\sf - y\si}{t\sf - t\si}
+		v = \frac{d x}{d t}
+			%= \frac{x\sf - x\si}{t\sf - t\si}
 			= \frac{21.0\units{cm} - 11.0\units{cm}}{0.60\units{s} - 0.40\units{s}}
 			= \frac{10.0\ucan{cm}}{0.20\units{s}}
 					\left(\frac{1\units{m}}{100\ucan{cm}}\right)
@@ -1096,19 +1096,6 @@ Of course, $s$ and $r$ are both lengths and should have the same units, so the u
 \startexample[ex:RadiansLatitude]
 Latitude and longitude are measured in degrees. Latitude goes from $0\degree$ at the equator to $90\unit{\degree N}$ at the North Pole (and $90\unit{\degree S}$ at the South Pole). Florence is $4870\units{km}$ north of the equator, as shown in \in{figure}[fig:RadiansLatitude]. What is Florence’s latitude? (Earth’s radius is $6370\units{km}$.)
 
-%\startbuffer[RadiansLatitude]
-%\draw[fill=black!10] (0,0) circle[radius=2.5cm];
-%\filldraw (0,2.5) circle[radius=.8pt]node[above]{North Pole};
-%\filldraw (0,-2.5) circle[radius=.8pt]node[below]{South Pole};
-%\filldraw (43.8:2.5) coordinate (C) circle[radius=1pt]node[left=1.5mm]{Florence};
-%\draw (-2.5,0) --node[below]{Equator} (2.5,0);
-%\draw (2.5,0) coordinate (A) -- (0,0) coordinate (B) --node[right=1.5mm]{$r$} (C)
-%pic [pic text=$\theta$, draw, angle eccentricity=1.4] {angle}
-%pic [pic text=$s$, draw, angle radius=2.5cm, angle eccentricity=1.09] {angle};
-%\stopbuffer
-%
-%\marginTikZ{}{RadiansLatitude}{Florence's latitude is the angle $\theta$.} % vskip, name, caption
-
 % Florence: 43°46′17″N 11°15′15″E
 % Alexandria: 31°12′N 29°55′E
 % Syene: 24°05′20″N 32°53′59″E
@@ -1160,21 +1147,6 @@ When you don’t need angular units anymore, radians will step out gracefully.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:RadiansEratosthenes]
 On a summer bicycle tour of Egypt you decide to reproduce Eratosthenes’ measurement of Earth’s radius (see p.\at[fig:EarthRadius]). Eratosthenes measured the shadow in Alexandria to be one fiftieth of a circle, or $0.020\units{cyc}$. (On the trip, you confirm that this measurement is good to two significant figures.)  After carefully calibrating your odometer, you measure the distance between Alexandria and the well in Syene to be $800\units{km}$, or $8.0\sci{5}\units{m}$. Based on your measurements, what is Earth’s radius?
-
-%\startbuffer[RadiansEratosthenes]
-%\clip (-1.5,-3) rectangle (3.5,3);% Clipping Rectangle
-%\draw[fill=black!10] (0,0) circle[radius=2.5cm];
-%\filldraw (0,2.5) circle[radius=.8pt]node[above]{North Pole};
-%\filldraw (0,-2.5) circle[radius=.8pt]node[below]{South Pole};
-%\filldraw (31.2:2.5) coordinate (C) circle[radius=1pt]node[left=1.5mm, yshift=1mm]{Alexandria};
-%\filldraw (23.44:2.5) coordinate (A) circle[radius=1pt]node[right=1.4mm, yshift=-1mm]{Syene};
-%\draw (-2.5,0) --node[below]{Equator} (2.5,0);
-%\draw (A) --node[below right,pos=.4]{$r$} (0,0) coordinate (B) --node[pos=.3, above]{$\theta$} (C)
-%pic [draw, angle radius=1cm, angle eccentricity=1.1] {angle}
-%pic [pic text=$s$, draw, angle radius=2.5cm, angle eccentricity=1.09] {angle};
-%\stopbuffer
-%
-%\marginTikZ{}{RadiansEratosthenes}{Measuring Earth's diameter on your bike tour of Egypt.} % vskip, name, caption
 
 % Alexandria: 31°12′N 29°55′E
 % Syene: 24°05′20″N 32°53′59″E
