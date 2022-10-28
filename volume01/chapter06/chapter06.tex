@@ -40,26 +40,47 @@ There already exist several treatises on mechanics, but the purpose of this one 
 
 Lagrange's single method could be used to solve any mechanical system, from Galileo's falling rock and interrupted pendulum to Kepler's planetary orbits and Mersenne's mysterious musical string. 
 
-Lagrange found the directional information we need not in the kinetic energy $K$, but hidden in the potential energy $U$. His equation for converting Daniel Bernoulli's potential energy into Newtons force contains a virtual displacement $\partial x$.
-\startformula
-	F\sub{Newton} = -\frac{\partial U}{\partial x}
-\stopformula
-The virtual displacement's direction can gives us directional information from $U$. 
-Remember that $\partial U$ is the small virtual change in the potential energy due to the small virtual displacement $\partial x$.
+Lagrange studied many approaches to mechanics. His \booktitle{Mécanique Analytique} begins with a through and insightful historical review. He clearly enjoyed finding gems of truth in many different methods, and he also found inspiration.
+He refashioned one ancient idea into a general method for relating Newton's momentum methods to D.~Bernoulli's energy methods.
+Lagrange found any type of potential energy will generate a force, and that force is directly related to the slope of the potential energy on the energy graph.
+If potential energy's slope is gentle, the force is small. If the potential energy's slope is steep, the force is large.
+While this idea had ancient origins, Lagrange's mastery of calculus allowed him apply this idea in new and powerful ways. To use Lagrange's method, we will need a tool for finding the slope of potential energy functions. This tool is called a \keyterm{derivative}.
 
 \section{Derivatives give a function's slope}
 
-
-%If students could learn these, it might help a great deal when we try to do $\partial U/\partial x$ and $\partial H/\partial p$ in chapters 5 and 6. 
-
-%\section{Instantaneous rate of change is a derivative}
-Instantaneous velocity is defined in terms of a small change in position over a small change in time
+You have already worked with slopes on motion graphs, where the slope is the object's velocity. We will start our study of derivatives by looking at velocity, which is defined in terms of a small change in position over a small change in time, as shown in \in{figure}[fig:BallRollsDownLagrange].
 \startformula
 	v = \frac{dx}{dt}
 \stopformula
-This is the slope on the position vs.\ time graph, and it can be found at a specific moment by drawing a tangent line. The tangent line method is nice, but it would be great if we could find the instantaneous velocity for every moment – without having to draw a million tangent lines. This can be done with the \keyterm{derivative}.
+This is the slope on the position vs.\ time graph, and it can be found at a specific moment by drawing a tangent line. The tangent line method is nice, but it would be great if we could find the instantaneous velocity for every moment – without having to draw a million tangent lines. This can be done with the derivative.
 
-The derivative takes one function and produces a second function that is everywhere equal to the first function's slope. For example, if the first function is an object's position as a function of time, then that function's derivative is the object's velocity as a function of time. In mathematical language, the object's position $x$ is a function of time and that function's derivative is written $\frac{d}{dt}x$. This derivative is the instantaneous velocity $v$.
+\startbuffer[BallRollsDownLagrange]
+	\startaxis[
+		width=2.25in,%\marginparwidth,
+		y={1mm},%x={1cm},
+		xlabel={$t$ (s)},
+		xmin=0, xmax=1,
+		%xtick={0,0.2,...,1},
+		xtick distance=0.2,
+		minor x tick num=3,
+		ylabel={$x$ (cm)},
+		%ytick={30,31,...,37},
+		ymin=0, ymax=50,
+		minor y tick num=4,
+		clip mode=individual
+		]
+		\addplot[thick,domain=0:1,samples=51]{3+(50*x^2)};
+		\draw [very thin](0.5,0) -- (0.5, 15.5);
+		\fill(0.5,15.5) circle[radius=.4mm];
+		\draw [-{Straight Barb[scale length=1.3]}, thick](0.4, 21) --node[above]{$dt$} (0.6,21);
+		\draw [-{Straight Barb}, thick](0.4,11) --node[left]{$dx$} (0.4, 21);
+	\stopaxis
+\stopbuffer
+
+\marginTikZ{}{BallRollsDownLagrange}{The rolling ball's motion graph shows the ball's velocity starting small (small slope) and becoming large (large slope). On \at{p.}[BallRollsDown] we used the small $dx$ and $dt$ to estimate the velocity at $t=0.50\units{s}$.} % vskip, name, caption
+
+
+The derivative takes one function and produces a second function that is everywhere equal to the first function's slope. For example, if the first function is an object's position as a function of time, then that function's derivative is the object's velocity as a function of time. In mathematical language, the object's position $x$ is a function of time and that function's derivative is written $\frac{d}{dt}x$. This derivative is the instantaneous velocity $v$ as a function of time.
 \startformula
 v = \ddt x
 \stopformula
@@ -97,7 +118,7 @@ endgraph;
 \stopformula
 For example, the function $x=3\units{m}$ is shown in \in{figure}[fig:xconst]. The velocity $v$ is the slope, given by the derivative, which is zero.
 
-The next rule gives the derivative of functions that are powers of $t$, like $t^2$, $t^{-1}$, or $t^1 = t$. The derivatives of these powers are given by the \keyterm{power rule}. 
+The second rule gives the derivative of functions that are powers of $t$, like $t^2$, $t^{-1}$, or $t^1 = t$. The derivatives of these powers are given by the \keyterm{power rule}. 
 \startformula
 	\ddt t^n = nt^{n-1}
 \stopformula
@@ -237,7 +258,7 @@ There are more derivative rules for more complicated functions, but the four rul
 %\stopmathalignment\stopformula
 %
 %
-%There are two general derivative rules that we do not need: the product rule and the chain rule. These are both more difficult to understand and use than the rules above. We could use the product rule to get the power rule, but it that derivation probobaly doesn't bring much benefit.
+%There are two general derivative rules that we do not need: the product rule and the chain rule. These are both more difficult to understand and use than the rules above. We could use the product rule to get the power rule, but it that derivation probably doesn't bring much benefit.
 %The chain rule is could be used for simple harmonic motion, $x = A \sin(t/2\pi T)$, but we don't need the instantaneous velocity of SHO at all times, just the maximum speed. There are, of course, many formulas for derivatives of specific functions (trig, exp, log, etc.), but I think we only need powers.
 
 \startexample[ex:DerivativeConstantV]
@@ -365,6 +386,23 @@ endgraph shifted (0,-5cm);
 \startplacefigure[location=margin, reference=fig:BoxEarthGravU, title={The gravitational force on a $3.0\units{kg}$ object at different distances from Earth (top). The potential energy of of $3.0\units{kg}$ object in Earth’s vicinity (bottom). The potential is not shown for locations inside Earth (the gray region).}]
 \small\reuseMPgraphic{graph::BoxEarthGravU}
 \stopplacefigure
+
+
+
+\section{Lagrange's force formula}
+
+Lagrange's force formula:
+
+\startformula
+	F\sub{Newton} = -\frac{\partial}{\partial x} U
+\stopformula
+
+
+Lagrange's formula formula contains a virtual displacement $\partial x$.
+The virtual displacement's direction can gives us directional information from $U$. 
+Remember that $\partial U$ is the small virtual change in the potential energy due to the small virtual displacement $\partial x$.
+
+
 
 The energy graph in \in{figure}[fig:BoxEarthGravU] also shows the gravitational force. To see it, we must use Lagrange's insight. Above the energy graph I have drawn Earth and the gravitational force on the box at three different distances from Earth. These distances are also marked on the energy graph. The gravitational potential energy's slope is positive everywhere, so the gravitational force, $F\sub{Newton} = -\partial U/\partial x$, is negative everywhere – pulling the box back toward Earth. This is similar to the right side of \in{figure}[fig:BlockSHONewton], where the spring potential energy's positive slope leads to a negative spring force – pulling the block back toward the center. The spring's potential energy gets steeper as the spring is stretched, leading to a spring force that increases with distance. The gravitational potential energy does the opposite, getting less steep as the box is moved farther from Earth, leading to a gravitational force that decreases with distance. This is why the force arrows \in{figure}[fig:BoxEarthGravU] get smaller farther from Earth.
 
