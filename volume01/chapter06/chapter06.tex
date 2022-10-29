@@ -48,11 +48,12 @@ While this idea had ancient origins, Lagrange's mastery of calculus allowed him 
 
 \section{Derivatives give a function's slope}
 
-You have already worked with slopes on motion graphs, where the slope is the object's velocity. We will start our study of derivatives by looking at velocity, which is defined in terms of a small change in position over a small change in time, as shown in \in{figure}[fig:BallRollsDownLagrange].
+You have already worked with slopes on motion graphs, where the slope is the object's velocity. We will start our study of derivatives by looking at velocity, which we defined in terms of a small change in position over a small change in time (\at{p.}[fig:BallRollsDown]).
 \startformula
 	v = \frac{dx}{dt}
 \stopformula
-This is the slope on the position vs.\ time graph, and it can be found at a specific moment by drawing a tangent line. The tangent line method is nice, but it would be great if we could find the instantaneous velocity for every moment – without having to draw a million tangent lines. This can be done with the derivative.
+This is the slope on the motion graph at a specific time, as shown in \in{figure}[fig:BallRollsDownLagrange] .
+It would be great if we could find the instantaneous velocity for every time – without drawing a million little triangles. This derivative accomplishes this feat.
 
 \startbuffer[BallRollsDownLagrange]
 	\startaxis[
@@ -77,17 +78,17 @@ This is the slope on the position vs.\ time graph, and it can be found at a spec
 	\stopaxis
 \stopbuffer
 
-\marginTikZ{}{BallRollsDownLagrange}{The rolling ball's motion graph shows the ball's velocity starting small (small slope) and becoming large (large slope). On \at{p.}[BallRollsDown] we used the small $dx$ and $dt$ to estimate the velocity at $t=0.50\units{s}$.} % vskip, name, caption
+\marginTikZ{}{BallRollsDownLagrange}{The rolling ball's motion graph shows the ball's velocity starting small (small slope) and becoming large (large slope). On \at{p.}[fig:BallRollsDown] we used the small $dx$ and $dt$ to estimate the velocity at $t=0.50\units{s}$.} % vskip, name, caption
 
 
 The derivative takes one function and produces a second function that is everywhere equal to the first function's slope. For example, if the first function is an object's position as a function of time, then that function's derivative is the object's velocity as a function of time. In mathematical language, the object's position $x$ is a function of time and that function's derivative is written $\frac{d}{dt}x$. This derivative is the instantaneous velocity $v$ as a function of time.
 \startformula
 v = \ddt x
 \stopformula
-This formula looks very similar to the instantaneous velocity definition above. However, the definition above was a ratio of two small numbers find the instantaneous velocity at a specific moment. The derivative $\ddt$ takes the function $x$ and gives a new function $v$. The examples below will show how the derivative $\ddt$ acts on the function to its right and replaces it with a new function.
+This formula looks very similar to our old instantaneous velocity definition. However, the old definition above was a ratio of two small numbers. In the new definition, the derivative $\ddt$ takes the function $x$ and gives a new function $v$. The examples below will show how the derivative $\ddt$ acts on the function to its right and replaces it with a new function.
 
 You will be able to perform all of the derivatives you need with just four rules.
-First, the derivative of  a constant function (like $x = 3\units{m}$) is \emph{zero} because the rate of change is zero. This is the \keyterm{constant rule}.
+First, the derivative of  a constant function (like $x = 3\units{m}$) is \emph{zero}, because the rate of change is zero. This is the \keyterm{constant rule}.
 \startuseMPgraphic{graph::xconst} % I'd like to add minor ticks, 0.667mm long.
 	path xpos;
 	xpos := (0,3) -- (4.4,3);
@@ -106,7 +107,7 @@ draw begingraph(4.4cm,4cm);
 	glabel.lft(textext("$x$ (m)") rotated 90, OUT);
 	glabel.bot(textext("$t$"), OUT);
 	gdraw(xpos) withpen pencircle scaled 0.8pt;
-	glabel.top("$x=3\units{m}$",0.5);
+	glabel.top("$x=\unit{3m}$",0.5);
 	glabel.bot("$v=0$",0.5);
 endgraph;
 \stopuseMPgraphic
@@ -116,14 +117,14 @@ endgraph;
 \startformula
 	\ddt \text{const.} = 0
 \stopformula
-For example, the function $x=3\units{m}$ is shown in \in{figure}[fig:xconst]. The velocity $v$ is the slope, given by the derivative, which is zero.
+For example, the function $x=\unit{3 m}$ is shown in \in{figure}[fig:xconst]. The object remains at $x=\unit{3m}$, never moving, so the function is a horizontal line. The velocity $v$ is the slope, which is zero.
 
 The second rule gives the derivative of functions that are powers of $t$, like $t^2$, $t^{-1}$, or $t^1 = t$. The derivatives of these powers are given by the \keyterm{power rule}. 
 \startformula
 	\ddt t^n = nt^{n-1}
 \stopformula
 
-For a function that is a sloped straight line, like $x = t$, the derivative is the line's slope. (We are ignoring units \emph{briefly}.)
+For a function that is a sloped, straight line, like $x = t$, the derivative is the line's slope. (We are ignoring units \emph{briefly}.)
 The slope is the same at all times, so the derivative is the same at all times, as in \in{figure}[fig:xlin]. This slope is given by the power rule with $n=1$. 
 \startuseMPgraphic{graph::xlin} % I'd like to add minor ticks, 0.667mm long.
 	path xpos;
@@ -157,8 +158,10 @@ endgraph;
 \small\reuseMPgraphic{graph::xlin}
 \stopplacefigure
 \startformula
-	\ddt t = \ddt t^1 = 1t^{1-1} = 1t^0 = 1
+	v = \ddt x = \ddt t = \ddt t^1 = 1t^{1-1} = 1t^0 = 1
 \stopformula
+In this case the velocity is $v=1$ at all times, as shown in \in{figure}[fig:xlin].
+
 For a parabola, like $x = t^2$, the slope is different at different locations, so the derivative is a new function. \in{Figure}[fig:xquad] shows the function $x=t^2$ and some slopes, which can be found using the power rule with $n=2$.
 \startuseMPgraphic{graph::xquad} % I'd like to add minor ticks, 0.667mm long.
 	path xpos;
@@ -178,16 +181,15 @@ draw begingraph(4.6cm,4.8cm);
 	glabel.lft(textext("$x$"),OUT);
 	glabel.bot(textext("$t$"), OUT);
 	gdraw(xpos) withpen pencircle scaled 0.8pt;
-	gdotlabel.rt("$x=4$" , 1/6);
+	gdotlabel.urt("$x=4$" , 1/6);
 	glabel.lrt("$v=-4$" , 1/6) rotatedaround(point 1/6 of xpos, -76);
-	gdotlabel.urt("$x=1$" , 1/3);
+	gdotlabel.rt("$x=1$" , 1/3) rotatedaround(point 1/3 of xpos, 26.6);
 	glabel.bot("$v=-2$" , 1/3) rotatedaround(point 1/3 of xpos, -63.4);
-	gdotlabel.top("" , 0.5) ;
-	glabel.top("$x=0$" , 0.5) shifted (0, 0.1);
+	gdotlabel.rt("$x=0$" , 0.5) rotatedaround(point 1/2 of xpos, 90);
 	glabel.bot("$v=0$" , 0.5) shifted (0, 0.05);
-	gdotlabel.ulft("$x=1$" , 2/3);
+	gdotlabel.lft("$x=1$" , 2/3) rotatedaround(point 2/3 of xpos, -26.6);
 	glabel.bot("$v=2$" , 2/3) rotatedaround(point 2/3 of xpos, 63.4);
-	gdotlabel.lft("$x=4$" , 5/6);
+	gdotlabel.ulft("$x=4$" , 5/6);
 	glabel.llft("$v=4$" , 5/6) rotatedaround(point 5/6 of xpos, 76);
 endgraph;
 \stopuseMPgraphic
@@ -195,11 +197,13 @@ endgraph;
 \small\reuseMPgraphic{graph::xquad}
 \stopplacefigure
 \startformula
-	\ddt t^2 = 2t^{2-1} = 2t^1 = 2t
+	v = \ddt x = \ddt t^2 = 2t^{2-1} = 2t^1 = 2t
 \stopformula
+Check that the slopes in \in{figure}[fig:xquad] match the formula $v=2t$.
+
 The power rule works for any power, including negative powers (like $x = 1/t = t^{-1}$) and fractional powers (like $x = \sqrt{t} = t^{\onehalf}$).
 
-\startexample[ex:DerivativeConstantV]
+\startexample[ex:DerivCubic]
 Find $\ddt t^3$.
 \startsolution
 Use the power rule with $n=3$.
@@ -208,7 +212,7 @@ Use the power rule with $n=3$.
 \stopformula
 \stopsolution
 \stopexample
-\startexample[ex:DerivativeConstantV]
+\startexample[ex:DeriveRoot]
 Find $\ddt \sqrt{t}$.
 \startsolution
 Use the power rule with $n=\onehalf$.
@@ -218,19 +222,118 @@ Use the power rule with $n=\onehalf$.
 \stopsolution
 \stopexample
 
-The third rule says that when a function is multiplied by some constant, its slope is multiplied by the same constant. This constant multiplier is called a \emph{coefficient}. For any function of time $f$ muliplied by a coefficient $a$ we use the \keyterm{coefficient rule}.
+The third rule says that when a function is multiplied by some constant, its slope is multiplied by the same constant. This constant multiplier is called a \emph{coefficient}. For any function of time $f$ muliplied by a coefficient $c$ we use the \keyterm{coefficient rule}.
 \startformula
-	\ddt af  = a \ddt f
+	\ddt cf  = c \ddt f
 \stopformula
-On the left, the derivative is acting on $af$. On the right the derivative is only acting on $f$. We often say that we have pulled the constant $a$ out of the derivative.
-The coefficient $a$ will typically have units. (Yay, units!) For example, if an object's momentum is given by the formula $p = (14\units{kg\.m/s^3})\,t^2$, we can find the force, which is the derivative of momentum.
+On the left, the derivative is acting on $cf$. On the right the derivative is only acting on $f$. We often say that we have pulled the constant $c$ out of the derivative.
+The coefficient $c$ will typically have units. (Yay, units!)
+Now we can fix some of the examples aboves that did not have the correct units.
+
+A sloped, straight line on the motion graph is given by a function like $x=(\unit{1m/s})t$, shown in \in{figure}[fig:xlinunits]. Notice that when we plug in any value for $t$ with units of seconds, we get an answer for $x$ with units of meters, as we should. The velocity can be found using the coefficient rule, followed by the power rule.
+\startformula
+	v = \ddt x = \ddt (\unit{1m/s})t = (\unit{1m/s})\ddt t = (\unit{1m/s})t^0 = \unit{1m/s}
+\stopformula
+The velocity is a constant, now with the correct units for velocity.
+
+\startuseMPgraphic{graph::xlinunits} % I'd like to add minor ticks, 0.667mm long.
+	path xpos;
+	xpos := (0,0) -- (5,5);
+draw begingraph(4.4cm,4.4cm);
+	setrange(origin, 4.4, 4.4);
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$x$"),OUT);
+	glabel.bot(textext("$t$"), OUT);
+	gdraw(xpos) withpen pencircle scaled 0.8pt;
+	gdotlabel.lft("$x=\unit{1m}$" , 0.2) rotatedaround(point 0.2 of xpos, -45);
+	%glabel.bot("$v=\unit{1m/s}$" , 0.2) rotatedaround(point 0.2 of xpos, 45);
+	gdotlabel.ulft("$x=\unit{2m}$" , 0.4);
+	%glabel.bot("$v=\unit{1m/s}$" , 0.4) rotatedaround(point 0.4 of xpos, 45);
+	gdotlabel.ulft("$x=\unit{3m}$" , 0.6);
+	%glabel.bot("$v=\unit{1m/s}$" , 0.6) rotatedaround(point 0.6 of xpos, 45);
+	gdotlabel.ulft("$x=\unit{4m}$" , 0.8);
+	glabel.bot("$v=\unit{1m/s}$" , 0.44) rotatedaround(point 0.44 of xpos, 45);
+endgraph;
+\stopuseMPgraphic
+\startplacefigure[location=margin, reference=fig:xlinunits, title={When the position function is a straight line, the velocity is the same at all times.}]
+\small\reuseMPgraphic{graph::xlinunits}
+\stopplacefigure
+
+\startuseMPgraphic{graph::xquadunits} % I'd like to add minor ticks, 0.667mm long.
+	path xpos;
+	xpos := (-3,9) ..controls (-1,-3) and (1,-3).. (3,9);
+draw begingraph(4.6cm,4.8cm);
+	setrange(-2.3, -0.4, 2.3, 4.4);
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$x$ (m)")rotated 90,OUT);
+	glabel.bot(textext("$t$ (s)"), OUT);
+	gdraw(xpos) withpen pencircle scaled 0.8pt;
+	gdotlabel.urt("$x=\unit{4m}$" , 1/6);
+	glabel.lrt("$v=-\unit{4m/s}$" , 1/6) rotatedaround(point 1/6 of xpos, -76);
+	gdotlabel.urt("$x=\unit{1m}$" , 1/3) rotatedaround(point 1/3 of xpos, 26.6);
+	glabel.bot("$v=-\unit{2m/s}$" , 1/3) rotatedaround(point 1/3 of xpos, -63.4);
+	gdotlabel.rt("$x=\unit{0m}$" , 0.5) rotatedaround(point 1/2 of xpos, 90);
+	glabel.bot("$v=\unit{0m/s}$" , 0.5) shifted (0, 0.05);
+	gdotlabel.ulft("$x=\unit{1m}$" , 2/3) rotatedaround(point 2/3 of xpos, -26.6);
+	glabel.bot("$v=\unit{2m/s}$" , 2/3) rotatedaround(point 2/3 of xpos, 63.4);
+	gdotlabel.ulft("$x=\unit{4m}$" , 5/6);
+	glabel.llft("$v=\unit{4m/s}$" , 5/6) rotatedaround(point 5/6 of xpos, 76);
+endgraph;
+\stopuseMPgraphic
+\startplacefigure[location=margin, reference=fig:xquadunits, title={When position function is not a straight line, the velocity changes with time.}]
+\small\reuseMPgraphic{graph::xquadunits}
+\stopplacefigure
+
+\startexample[ex:ConstAcc]
+An object's position is $x = (\unit{1m/s^2})\,t^2$. First, notice that the units work in this formula! Then, find the force.
+\startsolution
+Use the coefficient rule, followed by the power rule.
+\startformula
+	v = \ddt x = \ddt (\unit{1m/s^2})t^2 = (\unit{1m/s^2})\ddt t^2 = (\unit{1m/s^2})2t = (\unit{2m/s^2})t
+\stopformula
+The velocity is changing with time. Plugging in a time $t$ with units of seconds gives a velocity $v$ with units of meters per second, as it should.
+\stopsolution
+\stopexample
+
+
+
+Derivatives are also useful working with momentum and force. The net force on an object is the rate at which the object's momentum is changing. Even though we do not usually draw graphs showing momentum as a function of time, we can use the derivative of momentum to find the force.
+\startformula
+	F = \ddt p
+\stopformula
+Calculations of force are just like calculations of velocity, but with different units.
+
+\startexample[ex:ForceDerivMomentum]
+An object's momentum is $p = (14\units{kg\.m/s^3})\,t^2$.  First, notice that the units work in this formula! Then, find the force.
+\startsolution
+Use the coefficient rule, followed by the power rule.
 \startformula
 	F = \ddt p
 		= \ddt (14\units{kg\.m/s^3})\,t^2
 		= (14\units{kg\.m/s^3}) \ddt t^2
 		= (28\units{kg\.m/s^3})\,t 
 \stopformula
-In the third expression, the derivative is acting on $(14\units{kg\.m/s^3})\,t^2$. We pull the constant $(14\units{kg\.m/s^3})$ out of the derivative to get the fourth expression, where the derivative is acting on $t^2$.  We then find $\ddt t^2$ using the power rule with $n=2$.
+The force is changing with time. Plugging in a time $t$ with units of seconds gives a force $F$ in newtons, as it should.
+\stopsolution
+\stopexample
 
 The fourth and final rule is for functions added together. The slope of the sum is equal to the sum of the slopes. For any two functions of time $f$ and $g$ we use the \keyterm{sum rule}.
 \startformula
@@ -246,7 +349,14 @@ For example, if an object's vertical position is given by the formula $y = (12\u
 \stopmathalignment\stopformula
 We used the sum rule, then the coefficient rule, and finally the power rule (twice) to find the velocity.
 
-The derivative can be used on any coordinate ($y$, $z$, $\theta$) to find the corresponding component of the velocity ($v_y$, $v_z$, $\omega$). The derivative can also be used to find any component of force from the corresponding component of the momentum.
+The derivative can be used on any coordinate to find the corresponding component of the velocity. The derivative can even be used on an angular coordinate $\theta$ to find the angular velocity $\omega$.
+\startformula
+  v_x = \ddt x \qquad
+  v_y = \ddt y \qquad
+  v_z = \ddt z \qquad
+  \omega = \ddt \theta
+\stopformula
+The derivative can also be used to find any component of force from the corresponding component of the momentum.
 
 There are more derivative rules for more complicated functions, but the four rules above are all you need for this physics course. 
 
@@ -266,7 +376,7 @@ An object's position $x$ at time $t$ is given by the equation
 \startformula
 	x = x_0 + v_0 t
 \stopformula
-Where $x_0$ and $v_0$ are constants. ($x_0$ is the object's starting position). Use the derivative rules to find the object's velocity $v$ at any time $t$.
+Where $x_0$ and $v_0$ are constants. ($x_0$ is the object's initial position). Use the derivative rules to find the object's velocity $v$ at any time $t$.
 
 \startsolution
 We start with the instantaneous velocity definition $v=\frac{d}{dt}x$, and apply the rules.
@@ -306,7 +416,7 @@ An object's position $x$ at time $t$ is given by the equation
 \stopformula
 Where $x_0$ and $v_0$ and $a_0$ are constants. Find the object's velocity $v$ and the force acting on the object at any time $t$.
 \startsolution
-We start with the instantaneous velocity definition $v=\ddt x$, and apply the rules. Notice what happens to the \onehalf\ in the final term.
+We start with the instantaneous velocity definition $v=\ddt x$, and apply the rules. Notice what happens to the \onehalf\ in the final step.
 \startformula\startmathalignment
 \NC v = \ddt x
 		\NC = \ddt (x_0 + v_0t + \half a_0 t^2)		\NR
@@ -333,14 +443,23 @@ Since $m$ and $a_0$ are constants, this is constant force motion. The constant f
 
 %\section{Other problem ideas}
 %Resistance forces are often proportional to velocity, resulting in function with negative powers. Find the force acting on an objects whose velocity is $v = c/t$. Find the force acting on an object whose position is $x = x_0 - c/t$ (The object approaches $x_0$, but never quite reaches it due to the slowing.)
-%
-%All of this works with any coordinates, so it would be good to have examples with $y$ and $\theta$ as functions of $t$. Several coordinates can be part of the same problem, giving velocity and force components, as well as angular velocity and torque.
-%
+
 %I considered problems using $F = \frac{d}{dx}H$, but these did not seem to provide a useful bridge from time derivatives to the partial derivatives below. In fact, it seems to blur the distinction in counter productive ways.
 
 %\section{Local slopes are partial derivatives}
 %
 %Finding a pendulum's equations of motion symbolically requires the derivative of the potential energy $U = -mgR\cos(\theta)$. We don’t need chain rule in that case, but we do need $\frac{d}{d\theta}\cos(\theta) = -\sin(\theta)$. However, this problem is easy to solve with a diagram, which is probably better than doing it symbolically anyway.
+
+\section{Lagrange's force formula}
+Newton's force can be found from the slope of the potential energy function on the energy graph. The force at a specific location is equal to \emph{minus} the slope of the potential energy at that location.
+Lagrange preferred formulas to diagrams and graphs. Using the derivative, he expressed the relationship between potential energy and force in Lagrange's force formula.
+\startformula
+	F\sub{Newton} = -\frac{\partial}{\partial x} U
+\stopformula
+
+This derivative is calculated in exactly the same way as the derivatives in the last section. (After some examples, I will explain why each little $d$ has been replaced by a little $\delta$. This change does not affect the calculations, so ignore it for now.)
+
+
 
 \startuseMPgraphic{graph::BoxEarthGravU} % I'd like to add minor ticks, 0.667mm long.
 vardef U =
@@ -389,13 +508,10 @@ endgraph shifted (0,-5cm);
 
 
 
-\section{Lagrange's force formula}
 
-Lagrange's force formula:
 
-\startformula
-	F\sub{Newton} = -\frac{\partial}{\partial x} U
-\stopformula
+
+
 
 
 Lagrange's formula formula contains a virtual displacement $\partial x$.

@@ -2,13 +2,19 @@
 %\usemodule[chemic] % I think this is built in now, and does not need to be loaded.
 
 % Units
-\define[1]\unit{{%
-	\def\.{\!\cdot\!}% In LaTeX this was proceeded by \protect
-	\ifmmode{\rm#1}
+\define[1]\units{{% I would like to phase this out in favor of ConTeXt's built in \unit command
+	\def\.{\mathord\cdot}% In LaTeX this was proceeded by \protect
+	\ifmmode{\rm\,#1}
 	\else{$\rm\,#1$}
 	\fi%
 }}
-\define[1]\units{\,\unit{#1}}
+%\define[1]\unit{{% These are the old definitions of \unit and \units
+%	\def\.{\!\cdot\!}% In LaTeX this was proceeded by \protect
+%	\ifmmode{\rm#1}
+%	\else{$\rm\,#1$}
+%	\fi%
+%}}
+%\define[1]\units{\,\unit{#1}}
 \define\degree{°} % \ensure math should be replaced for ConTeXt
 
 % Text subscripts in math
