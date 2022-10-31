@@ -137,5 +137,79 @@ Energy is not directional, so it works very well for systems with parts moving i
 Unfortunately, kinetic energy is not enough. Since kinetic energy is not directional, it cannot give us the velocity components needed for the position update formulas. In the case of the cannon ball, we can easily use conservation of energy to find the cannon ball's speed at any height, but conservation of energy cannot tell us the velocity's direction, which we need to correctly update the position. (In one dimension, where velocity has only one component, kinetic energy is often enough, but we will not use this one-dimensional trick.)
 
 
+
+\section{Lagrange's step in the right direction}
+
+
+
+\startbuffer[cannondx]
+\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
+\filldraw (0,0) circle[radius=.02cm]; % Ball cm
+\draw[thick,->] (-2.5,-1)--node[above]{$x$} ++(1,0); % x-axis
+\draw[opacity=0] (-2.5,-1)-- ++(5,0); % x-floor to get the ball centered
+\draw[thick,->] (-2.5,-1)--node[right]{$y$} +(0,1); % y-axis
+\draw[thick,->] (-0.5,0)--(0.5,0)node[right]{$\partial x$} ; % pf
+\stopbuffer
+
+\marginTikZ{}{cannondx}{A small horizontal virtual displacement $\partial x$ produces no change in the gravitational potential energy. $\partial U = 0$. } % vskip, name, caption
+For the cannon ball, a small virtual displacement $\partial x$ in the $x$-direction is a horizontal displacement (shown in \in{figure}[fig:cannondx]), which does not change the cannon ball's gravitational potential energy at all. For this horizontal displacement, $\partial U = 0$. Lagrange's equation gives the $x$-component of the gravitational force. (I will drop \quotation{Newton} from the suffix for the remainder of this section.)
+\startformula
+	F_{x} = -\frac{\partial U}{\partial x}
+		= -\frac{0}{\partial x}
+		= 0
+\stopformula
+The gravitational force's $x$-components is zero, as we knew. A small virtual displacement $\partial y$ in the $y$-direction is a vertical displacement (shown in \in{figure}[fig:cannondy]), which does change the cannon ball's gravitational potential energy. For this vertical displacement, $\partial U = mg\partial y$, which leads to the $y$ component of the gravitational force.
+\startbuffer[cannondy]
+\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
+\filldraw (0,0) circle[radius=.02cm]; % Ball cm
+\draw[thick,->] (-2.5,-1)--node[above]{$x$} ++(1,0); % x-axis
+\draw[opacity=0] (-2.5,-1)-- ++(5,0); % x-floor to get the ball centered
+\draw[thick,->] (-2.5,-1)--node[right]{$y$} +(0,1); % y-axis
+\draw[thick,->] (0,-0.5)--(0,0.5)node[above]{$\partial y$} ; % pf
+\stopbuffer
+
+\marginTikZ{}{cannondy}{A small vertical virtual displacement $\partial x$ increases the gravitational potential energy. $\partial U = mg\partial y$.} % vskip, name, caption
+\startformula
+	F_{y} = -\frac{\partial U}{\partial y}
+		= -\frac{mg\cancel{\partial y}}{\cancel{\partial y}}
+		= -mg
+\stopformula
+\startbuffer[cannonForce]
+\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
+\filldraw (0,0) circle[radius=.02cm]; % Ball cm
+\draw[thick,->] (-2.5,-2)--node[above]{$x$} ++(1,0); % x-axis
+\draw[opacity=0] (-2.5,-2)-- ++(5,0); % x-floor to get the ball centered
+\draw[thick,->] (-2.5,-2)--node[right]{$y$} +(0,1); % y-axis
+\draw[thick,->] (0,0)--node[right]{$\vec F = \components{0,-mg}$} ++(0,-2); % pf
+\stopbuffer
+
+\marginTikZ{\vskip 0.5cm}{cannonForce}{The gravitational force on the cannon ball, with components found using Lagrange's equation.} % vskip, name, caption
+\noindent
+The gravitational force's $y$-component is $-mg$, again agreeing with what we knew. These two components give the gravitational force vector shown in \in{figure}[fig:cannonForce].
+While potential energy itself does not have a direction, Lagrange's procedure produces the force vector, which does have a direction.
+
+Keeping track of the different virtual changes $\partial U$ due to the different virtual displacements $\partial x$ and $\partial y$ can get confusing, but Lagrange has good news. The ratios $\partial U\!/\partial x$ and $\partial U\!/\partial y$ can be easily found using the same derivative rules that we learned for rates of change (like $v = dx/dt$). When computing $\partial U\!/\partial x$ we keep $y$ constant. When computing $\partial U\!/\partial y$ we keep $x$ constant.
+
+\startexample[ex:CannonDirivaties]
+Use Lagrange's equation and the derivative rules to find the force components $F_x$ and $F_y$ on the cannon ball.
+\startsolution
+The $x$ component of the force is given by Lagrange's equation with a virtual displacement in the $x$-direction.
+\startformula
+	F_x = -\frac{\partial U}{\partial x} = -\ppx U = -\ppx mgy = 0
+\stopformula
+When calculating $\partial U\!/\partial x$ we keep $y$ constant, which makes $mgy$ constant. The derivative of a constant is zero.
+
+The $y$ component of the force is given by Lagrange's equation with a virtual displacement in the $y$-direction.
+\startformula
+	F_y = = -\frac{\partial U}{\partial y} = -\ppy U = -\ppy mgy =  -mg\ppy y = -mg
+\stopformula
+After pulling the coefficient $mg$ out of the derivative, we compute $\ppy y$ using the power rule with $n=1$.
+\stopsolution
+\stopexample
+
+The ratios $\partial U\!/\partial x$ and $\partial U\!/\partial y$ are called partial derivatives of $U$ because we compute them allowing only one part of our coordinates (either $x$ or $y$) to change while other parts are kept constant. Computing partial derivatives is much easier than dealing with many tiny virtual displacements. As a result, Lagrange replaced many diagrams with partial derivatives.
+
+
+
 \stoptext
 \stopcomponent

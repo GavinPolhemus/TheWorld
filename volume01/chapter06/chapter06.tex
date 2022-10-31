@@ -409,12 +409,12 @@ The force $F$ is the constant $F_0$. This is constant force motion.
 \stopexample
 
 
-\startexample[ex:DerivativeConstantF]
+\startexample[ex:DerivativeConstantAcc]
 An object's position $x$ at time $t$ is given by the equation
 \startformula
 	x = x_0 + v_0 t + \half a_0 t^2
 \stopformula
-Where $x_0$ and $v_0$ and $a_0$ are constants. Find the object's velocity $v$ and the force acting on the object at any time $t$.
+Where $x_0$ and $v_0$ and $a_0$ are constants. Find the object's velocity $v$ and the net force acting on the object at any time $t$. (Use mass $m$.)
 \startsolution
 We start with the instantaneous velocity definition $v=\ddt x$, and apply the rules. Notice what happens to the \onehalf\ in the final step.
 \startformula\startmathalignment
@@ -451,13 +451,143 @@ Since $m$ and $a_0$ are constants, this is constant force motion. The constant f
 %Finding a pendulum's equations of motion symbolically requires the derivative of the potential energy $U = -mgR\cos(\theta)$. We don’t need chain rule in that case, but we do need $\frac{d}{d\theta}\cos(\theta) = -\sin(\theta)$. However, this problem is easy to solve with a diagram, which is probably better than doing it symbolically anyway.
 
 \section{Lagrange's force formula}
-Newton's force can be found from the slope of the potential energy function on the energy graph. The force at a specific location is equal to \emph{minus} the slope of the potential energy at that location.
-Lagrange preferred formulas to diagrams and graphs. Using the derivative, he expressed the relationship between potential energy and force in Lagrange's force formula.
+Lagrange's inspired insight was that Newton's force can be found from the energy graph of D.~Bernoulli's  potential energy. The force at a specific location is equal to \emph{minus} the slope of the potential energy at that location.
+Lagrange preferred formulas to diagrams and graphs, so he expressed the relationship between potential energy and force using the derivative. This is \keyterm{Lagrange's force formula}.
 \startformula
-	F\sub{Newton} = -\frac{\partial}{\partial x} U
+	F\sub{Newton} = -\ppx U
 \stopformula
+The derivative in Lagrange's force formulas calculated in exactly the same way as the derivatives in the last section.
+After some examples, I will explain why each little $d$ has been replaced by a little $\delta$. This change does not affect the calculations, so ignore it for now.
+The important difference is the little $x$ in the derivative. This $x$ has replaced the $t$ because we are now finding the slope of the energy graph, which has $x$ as the horizontal axis.
 
-This derivative is calculated in exactly the same way as the derivatives in the last section. (After some examples, I will explain why each little $d$ has been replaced by a little $\delta$. This change does not affect the calculations, so ignore it for now.)
+\startuseMPgraphic{graph::SHOGraphs} % I'd like to add minor ticks, 0.667mm long.
+	path U, H, K, TPL, TPR;
+	U := (-24,24) ..controls (-8,-8) and (8,-8).. (24,24);
+draw begingraph(4.5cm,2.4cm);
+	setrange(-21,0, 24, 24);
+	itick.lft(formatted("$@g$", 0), 0);
+	for x=auto.x:
+		itick.top(formatted("$@g$", x), x);
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy") rotated 90,OUT)  shifted (2mm,0);
+	glabel.top(textext("$x$ (cm)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.llft("$U$",0.2);
+endgraph;
+\stopuseMPgraphic
+
+\startbuffer[SpringCartHooke]
+\startgroupplot[
+  group style={
+    % group name=my plots,
+    group size=1 by 5, % columns by rows
+    x descriptions at=edge bottom,
+    % y descriptions at=edge right,
+    % horizontal sep=0.5cm, 
+    vertical sep=0.5cm,
+  }, 
+  scale only axis,
+  x={1mm},
+  xmin=-24,xmax=24,
+  xtick distance=10,
+  minor x tick num=9,
+  xlabel=$x$ (cm),
+  grid=major,
+]
+\nextgroupplot[ % 1
+  y={1mm},
+  ymin=0,ymax=5,
+  hide y axis,
+  axis x line=bottom,
+  tick align = outside,
+  x axis line style={-},
+  grid = none,
+  clip=false,
+  axis on top = true,
+]
+\pic at (-12,0){cart};
+\draw[decorate,decoration={coil,segment length=1.06pt}] (-24,2.5) --node[above=3pt] {$k$} (-18,2.5);
+\fill [black!10,] (-24,0) rectangle (24,-1.5);
+\fill [black!10,] (-26.3,-1.5) rectangle (-24,6);
+\draw (-24,0) -- (-24,6);
+\nextgroupplot[ %2
+  y={1mm},
+  ymin=0,ymax=5,
+  hide y axis,
+  axis x line=bottom,
+  tick align = outside,
+  x axis line style={-},
+  grid = none,
+  clip=false,
+  axis on top = true,
+]
+\pic at (-6,0){cart};
+\draw[decorate,decoration={coil,segment length=1.5pt}] (-24,2.5) -- (-12,2.5);
+\fill [black!10,] (-24,0) rectangle (24,-1.5);
+\fill [black!10,] (-26.3,-1.5) rectangle (-24,6);
+\draw (-24,0) -- (-24,6);
+\nextgroupplot[ % 3
+  y={1mm},
+  ymin=0,ymax=5,
+  hide y axis,
+  axis x line=bottom,
+  tick align = outside,
+  x axis line style={-},
+  grid = none,
+  clip=false,
+  axis on top = true,
+]
+\pic at (0,0){cart};
+\draw[decorate,decoration={coil,segment length=1.5pt}] (-24,2.5) -- (-6,2.5);
+\fill [black!10,] (-24,0) rectangle (24,-1.5);
+\fill [black!10,] (-26.3,-1.5) rectangle (-24,6);
+\draw (-24,0) -- (-24,6);
+\nextgroupplot[ %4
+  y={1mm},
+  ymin=0,ymax=5,
+  hide y axis,
+  axis x line=bottom,
+  tick align = outside,
+  x axis line style={-},
+  grid = none,
+  clip=false,
+  axis on top = true,
+]
+\pic at (6,0){cart};
+\draw[decorate,decoration={coil,segment length=1.5pt}] (-24,2.5) -- (0,2.5);
+\fill [black!10,] (-24,0) rectangle (24,-1.5);
+\fill [black!10,] (-26.3,-1.5) rectangle (-24,6);
+\draw (-24,0) -- (-24,6);
+\nextgroupplot[ % 5
+  y={1mm},
+  ymin=0,ymax=5,
+  hide y axis,
+  axis x line=bottom,
+  tick align = outside,
+  x axis line style={-},
+  grid = none,
+  clip=false,
+  axis on top = true,
+]
+\pic at (12,0){cart};
+\draw[decorate,decoration={coil,segment length=1.5pt}] (-24,2.5) -- (6,2.5);
+\fill [black!10,] (-24,0) rectangle (24,-1.5);
+\fill [black!10,] (-26.3,-1.5) rectangle (-24,6);
+\draw (-24,0) -- (-24,6);
+\stopgroupplot
+\stopbuffer
+
+\startplacefigure[location=margin, reference=fig:HookesLaw, title={The cart at its release position (top), the energy graph for the cart and spring (middle), and the cart's position vs.\ time graph (bottom).}]
+\reuseMPgraphic{graph::SHOGraphs}
+\typesetbuffer[starttikz,SpringCartHooke,stoptikz]
+\stopplacefigure
+
+
+
+
+
 
 
 
@@ -541,79 +671,6 @@ Here on Earth's surface, $g=9.8\units{m/s^2}$. The gravitational field gets weak
 If there are more coordinates, like $y$ for the cannon ball, then there are more directions for the virtual displacement. Lagrange found that he could get each component of Newton's force by choosing the correct direction for the virtual displacement. He found the $x$-component of Newton's force with a virtual displacement in the $x$-direction, the $y$-component with a virtual displacement in the $y$-direction, and so on for all the coordinates of the system. (These virtual displacements do not actually happen in the physical system, so Lagrange was free to imagine different virtual displacements to get the force's different components.)
 
 
-
-
-
-\section{Lagrange's step in the right direction}
-
-
-
-\startbuffer[cannondx]
-\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
-\filldraw (0,0) circle[radius=.02cm]; % Ball cm
-\draw[thick,->] (-2.5,-1)--node[above]{$x$} ++(1,0); % x-axis
-\draw[opacity=0] (-2.5,-1)-- ++(5,0); % x-floor to get the ball centered
-\draw[thick,->] (-2.5,-1)--node[right]{$y$} +(0,1); % y-axis
-\draw[thick,->] (-0.5,0)--(0.5,0)node[right]{$\partial x$} ; % pf
-\stopbuffer
-
-\marginTikZ{}{cannondx}{A small horizontal virtual displacement $\partial x$ produces no change in the gravitational potential energy. $\partial U = 0$. } % vskip, name, caption
-For the cannon ball, a small virtual displacement $\partial x$ in the $x$-direction is a horizontal displacement (shown in \in{figure}[fig:cannondx]), which does not change the cannon ball's gravitational potential energy at all. For this horizontal displacement, $\partial U = 0$. Lagrange's equation gives the $x$-component of the gravitational force. (I will drop \quotation{Newton} from the suffix for the remainder of this section.)
-\startformula
-	F_{x} = -\frac{\partial U}{\partial x}
-		= -\frac{0}{\partial x}
-		= 0
-\stopformula
-The gravitational force's $x$-components is zero, as we knew. A small virtual displacement $\partial y$ in the $y$-direction is a vertical displacement (shown in \in{figure}[fig:cannondy]), which does change the cannon ball's gravitational potential energy. For this vertical displacement, $\partial U = mg\partial y$, which leads to the $y$ component of the gravitational force.
-\startbuffer[cannondy]
-\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
-\filldraw (0,0) circle[radius=.02cm]; % Ball cm
-\draw[thick,->] (-2.5,-1)--node[above]{$x$} ++(1,0); % x-axis
-\draw[opacity=0] (-2.5,-1)-- ++(5,0); % x-floor to get the ball centered
-\draw[thick,->] (-2.5,-1)--node[right]{$y$} +(0,1); % y-axis
-\draw[thick,->] (0,-0.5)--(0,0.5)node[above]{$\partial y$} ; % pf
-\stopbuffer
-
-\marginTikZ{}{cannondy}{A small vertical virtual displacement $\partial x$ increases the gravitational potential energy. $\partial U = mg\partial y$.} % vskip, name, caption
-\startformula
-	F_{y} = -\frac{\partial U}{\partial y}
-		= -\frac{mg\cancel{\partial y}}{\cancel{\partial y}}
-		= -mg
-\stopformula
-\startbuffer[cannonForce]
-\draw[shade, ball color = black!60] (0,0) circle[radius=.25cm]; % Ball
-\filldraw (0,0) circle[radius=.02cm]; % Ball cm
-\draw[thick,->] (-2.5,-2)--node[above]{$x$} ++(1,0); % x-axis
-\draw[opacity=0] (-2.5,-2)-- ++(5,0); % x-floor to get the ball centered
-\draw[thick,->] (-2.5,-2)--node[right]{$y$} +(0,1); % y-axis
-\draw[thick,->] (0,0)--node[right]{$\vec F = \components{0,-mg}$} ++(0,-2); % pf
-\stopbuffer
-
-\marginTikZ{\vskip 0.5cm}{cannonForce}{The gravitational force on the cannon ball, with components found using Lagrange's equation.} % vskip, name, caption
-\noindent
-The gravitational force's $y$-component is $-mg$, again agreeing with what we knew. These two components give the gravitational force vector shown in \in{figure}[fig:cannonForce].
-While potential energy itself does not have a direction, Lagrange's procedure produces the force vector, which does have a direction.
-
-Keeping track of the different virtual changes $\partial U$ due to the different virtual displacements $\partial x$ and $\partial y$ can get confusing, but Lagrange has good news. The ratios $\partial U\!/\partial x$ and $\partial U\!/\partial y$ can be easily found using the same derivative rules that we learned for rates of change (like $v = dx/dt$). When computing $\partial U\!/\partial x$ we keep $y$ constant. When computing $\partial U\!/\partial y$ we keep $x$ constant.
-
-\startexample[ex:CannonDirivaties]
-Use Lagrange's equation and the derivative rules to find the force components $F_x$ and $F_y$ on the cannon ball.
-\startsolution
-The $x$ component of the force is given by Lagrange's equation with a virtual displacement in the $x$-direction.
-\startformula
-	F_x = -\frac{\partial U}{\partial x} = -\ppx U = -\ppx mgy = 0
-\stopformula
-When calculating $\partial U\!/\partial x$ we keep $y$ constant, which makes $mgy$ constant. The derivative of a constant is zero.
-
-The $y$ component of the force is given by Lagrange's equation with a virtual displacement in the $y$-direction.
-\startformula
-	F_y = = -\frac{\partial U}{\partial y} = -\ppy U = -\ppy mgy =  -mg\ppy y = -mg
-\stopformula
-After pulling the coefficient $mg$ out of the derivative, we compute $\ppy y$ using the power rule with $n=1$.
-\stopsolution
-\stopexample
-
-The ratios $\partial U\!/\partial x$ and $\partial U\!/\partial y$ are called partial derivatives of $U$ because we compute them allowing only one part of our coordinates (either $x$ or $y$) to change while other parts are kept constant. Computing partial derivatives is much easier than dealing with many tiny virtual displacements. As a result, Lagrange replaced many diagrams with partial derivatives.
 
 Lagrange's equations for the components of Newton's forces were totally unlike Newton's own methods for working with forces. Newton's \booktitle{Principia} is full of diagrams. Newton's calculations are done with graphical methods, and equations are few. In the preface to his \booktitle{Mécanique Analytique}, Lagrange explains his analytical method.
 \startblockquote
