@@ -136,6 +136,7 @@ Energy is not directional, so it works very well for systems with parts moving i
 
 Unfortunately, kinetic energy is not enough. Since kinetic energy is not directional, it cannot give us the velocity components needed for the position update formulas. In the case of the cannon ball, we can easily use conservation of energy to find the cannon ball's speed at any height, but conservation of energy cannot tell us the velocity's direction, which we need to correctly update the position. (In one dimension, where velocity has only one component, kinetic energy is often enough, but we will not use this one-dimensional trick.)
 
+If there are more coordinates, like $y$ for the cannon ball, then there are more directions for the virtual displacement. Lagrange found that he could get each component of Newton's force by choosing the correct direction for the virtual displacement. He found the $x$-component of Newton's force with a virtual displacement in the $x$-direction, the $y$-component with a virtual displacement in the $y$-direction, and so on for all the coordinates of the system. (These virtual displacements do not actually happen in the physical system, so Lagrange was free to imagine different virtual displacements to get the force's different components.)
 
 
 \section{Lagrange's step in the right direction}
