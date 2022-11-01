@@ -772,27 +772,38 @@ In \booktitle{Mécanique Analytique}, Lagrange used his powerful mathematical an
 
 Lagrange's \booktitle{Mécanique Analytique} was a stunning achievement, unlike anything physics had seen before. Lagrange was viewed as a hero in France under King Louis \convertnumber{KR}{16}. Luckily, his fame transcended the turbulent – often violent – politics of France following the French Revolution in 1789. As governments rose and fell around him, Lagrange continued to play a leading role in the advancement of science and mathematics in France.
 
-
-
-The gravitational force is often written $F = -mg$, where $g$ is the strength of the \keyterm{gravitational field}.
-\startformula
-	g = G\frac{M}{r^2},
-\stopformula
-Here on Earth's surface, $g=9.8\units{m/s^2}$. The gravitational field gets weaker with distance because of the $r^2$ in the denominator. The gravitational field formula can be used to find $g$ any distance from any celestial object. Objects with larger mass $M$ have stronger gravitational fields. Less massive objects's, like the Moon have weaker gravitational fields.
-
-
-
-If there are more coordinates, like $y$ for the dropped rock, then there are more directions for the virtual displacement. Lagrange found that he could get each component of Newton's force by choosing the correct direction for the virtual displacement. He found the $x$-component of Newton's force with a virtual displacement in the $x$-direction, the $y$-component with a virtual displacement in the $y$-direction, and so on for all the coordinates of the system. (These virtual displacements do not actually happen in the physical system, so Lagrange was free to imagine different virtual displacements to get the force's different components.)
-
-
-Lagrange's formula formula contains a virtual displacement $\partial x$.
-The virtual displacement's direction can gives us directional information from $U$. 
-Remember that $\partial U$ is the small virtual change in the potential energy due to the small virtual displacement $\partial x$.
-
-
+%
+%
+%The gravitational force is often written $F = -mg$, where $g$ is the strength of the \keyterm{gravitational field}.
+%\startformula
+%	g = G\frac{M}{r^2},
+%\stopformula
+%Here on Earth's surface, $g=9.8\units{m/s^2}$. The gravitational field gets weaker with distance because of the $r^2$ in the denominator. The gravitational field formula can be used to find $g$ any distance from any celestial object. Objects with larger mass $M$ have stronger gravitational fields. Less massive objects's, like the Moon have weaker gravitational fields.
+%
+%
+%
+%If there are more coordinates, like $y$ for the dropped rock, then there are more directions for the virtual displacement. Lagrange found that he could get each component of Newton's force by choosing the correct direction for the virtual displacement. He found the $x$-component of Newton's force with a virtual displacement in the $x$-direction, the $y$-component with a virtual displacement in the $y$-direction, and so on for all the coordinates of the system. (These virtual displacements do not actually happen in the physical system, so Lagrange was free to imagine different virtual displacements to get the force's different components.)
+%
+%
+%Lagrange's formula formula contains a virtual displacement $\partial x$.
+%The virtual displacement's direction can gives us directional information from $U$. 
+%Remember that $\partial U$ is the small virtual change in the potential energy due to the small virtual displacement $\partial x$.
+%
+%
 
 
 \section{Circular, centered orbits}
+
+A planet following a circular orbit with the Sun at the center moves with uniform circular motion. Venus is shown as an example in \in{figure}[fig:KeplerVenus].
+Although uniform circular motion was considered natural in Kepler's time, Descartes and Newton taught us that circular motion requires a central force to bend the planet's path into an orbit.
+The force required depends on the planet's momentum $p$ and angular velocity $\omega$, as given by the centripetal force formula (\at{p.}[eq:centripetalforce])
+\startformula
+	F = \omega p
+\stopformula
+Using $p = mv$ and $v = \omega r$ for circular motion, we find.
+\startformula
+	F = m\omega^2 r
+\stopformula
 
 
 \startbuffer[U3D]
@@ -904,16 +915,6 @@ We will use $m$ for the mass of a planet and $M$ for the much larger mass of the
 \marginTikZ{\vskip 6in}{KeplerVenus}{Venus' orbit is an almost perfectly centered circle, making uniform circular motion a good approximation of for Venus. (A gigameter is one billion meters: $1\units{Gm} = 10^9\units{m}$).} % vskip, name, caption
 
 \noindent
-A planet following a circular orbit with the Sun at the center moves with uniform circular motion. Venus is shown as an example in \in{figure}[fig:KeplerVenus].
-Although uniform circular motion was considered natural in Kepler's time, Descartes and Newton taught us that circular motion requires a central force to bend the planet's path into an orbit.
-The force required depends on the planet's momentum $p$ and angular velocity $\omega$, as given by the centripetal force formula (\at{p.}[eq:centripetalforce])
-\startformula
-	F = \omega p
-\stopformula
-Using $p = mv$ and $v = \omega r$ for circular motion, we find.
-\startformula
-	F = m\omega^2 r
-\stopformula
 The centripetal force formula gives the force required to produce the circular motion, but does not tell us the source of that force. For orbits in the solar system this force is the gravitational force exerted by the Sun, the force directed towards lower gravitational potential energy in \in{figure}[fig:U3D]. The strength of the gravitational force is given by Newton's universal law of gravitation (\at{p.}[eq:UniversalGrav]).
 \startformula
 	F %= -\pp{r} U
