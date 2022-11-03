@@ -737,8 +737,8 @@ Newton presented his universal law of gravitation in the \booktitle{Principia}, 
 As a final example, we consider the rock dropped from the tower, first introduced in chapter 2 and shown here in in \in{figure}[fig:RockDropLagrange]. This potential energy formula is simple, but the the presence of two dimensions, $x$ and $y$, creates an interesting challenge: a force in two dimensions will have two components. To find the force in the $y$ direction, we use the derivative in the $y$ direction. To find the component of the force in the $x$ direction, we use the derivative in the $x$ direction.
 
 \startexample[ex:RockDropLagrange]
-A rock of mass $m$ is dropped from a high tower, as shown in \in{figure}[fig:RockDropLagrange]. The gravitational potential energy of the rock is $U=mgy$. 
-Use Lagrange's force formula to find the $x$ and $y$ components of the gravitational on the rock.
+A rock of mass $m$ is dropped from a high tower, as shown in \in{figure}[fig:RockDropLagrange]. The rock's gravitational potential energy is $U=mgy$. 
+Use Lagrange's force formula to find the $x$ and $y$ components of the gravitational force exerted on the rock.
 \startsolution
 We will find the $y$ component first.
 \startformula
@@ -792,7 +792,256 @@ Lagrange's \booktitle{Mécanique Analytique} was a stunning achievement, unlike 
 %
 
 
+\section{Hamilton's momentum formula}
+
+While physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring the French mathematical revolution transforming physics.
+They remained paralyzed by a fanatic devotion to Newton’s cumbersome, geometric methods and continued to hold a grudge over the Leibniz’s calculus and \visviva. This problem persisted until 1812, when a group of young undergraduate students at Cambridge started the Analytical Society, partly as a joke, to study the methods of French analysis. They learned to solve problems using the continental notation and even translated a few important French books and papers into English. The club met for a few years and essentially disappeared after its members graduated and left Cambridge in 1817.
+
+That probably would have been the end of this little revolt, except that one of the members, George Peacock, was appointed in 1817 to write questions for the rigorous Mathematical Tripos exam taken by all third year mathematics students at Cambridge. He audaciously wrote his questions using the continental notation. This caused a bit of grumbling among the faculty, but they did not interfere. Surprisingly, Peacock was asked to write questions again in 1819. Students recognized this as a complete surrender by the Newtonian faculty. From there, the adoption of continental notation and methods in England was quite swift. Newton remained a revered figure, but his 150 year old dispute with Leibniz was finally laid to rest. %Cannell p. 38
+
+The United Kingdom began producing great physicists. Among the first was William Rowan Hamilton. Hamilton was a genius, gifted in languages and mathematics. He learned Hebrew, Latin, and Greek from early childhood. At the age of 15 he read Newton’s \booktitle{Principia}, and a two years later the great French work \booktitle{M\'echanique C\'eleste}, by Pierre-Simon Laplace.%Cannell p. 39
+
+In 1823, at the age of 18, Hamilton entered Trinity College Dublin.
+Trinity College had adopted the continental notation in 1812, a bit ahead of Cambridge, and used the French textbooks in mathematics and physics courses. Hamilton embraced the abstract approach. He earned top marks in all of his courses and won many awards, which propelled him to a position as head of the Dunsink Observatory, near Dublin. Although the observatory provided ample opportunity for practical astronomy, Hamilton continued to focus on more theoretical interests, first in optics and then in mechanics.
+
+Hamilton wrote two groundbreaking papers on mechanics, \booktitle{On A General Method In Dynamics} in 1834 and \booktitle{Second Essay On A General Method In Dynamics} in 1835. Hamilton's general method produces the equations of motion for any problem in mechanics, just like Lagrange's procedure, but Hamilton's general method is much easier to understand and execute.
+
+Hamilton begin's his papers with Lagrange's method, but he identifies one part of Lagrange's equations as a new formula for momentum. This is \keyterm{Hamilton's momentum formula}
+\startformula
+  p = \ppv K
+\stopformula
+Just like Lagrange's force formula, Hamilton's momentum formula takes an energy function and generates something that Newton would recognize. Lagrange's force formula produces Newton's force from the potential energy. Hamilton's momentum formula produces Newton's momentum from the kinetic energy.
+
+In compound motion problems, like the falling rock, Lagrange's force formula provides all components of the force vector. In the same way, Hamilton's force formula provides all components of the momentum vector. To find the momentum's $x$ component, simply take the derivative with respect to the velocity's $x$ component, as similarly for all of the other components.
+
+\startexample[ex:Hamilton's]
+A rock of mass $m$ is dropped from a high tower, as shown in \in{figure}[fig:RockDropLagrange]. The rock's kinetic energy is $K=\onehalf mx_x^2 + \onehalf mv_y^2$. 
+Use Hamilton's momentum formula to find the $x$ and $y$ components of the rock's momentum.
+\startsolution
+To find the momentum's $x$ component, take the derivative with respect to the velocity's $x$ component.
+\startformula
+  p_x = \ppvx K
+    = \ppvx\left( \half mv_x^2 + \half mv_y^2 \right)
+    = mv_x + 0
+    = mv_x
+\stopformula
+We used the constant rule when applying $\partial/\partial x$ to the second term in the kinetic energy.
+\startformula
+  p_y = \ppvy K
+    = \ppvy\left( \half mv_x^2 + \half mv_y^2 \right)
+    = 0 + mv_y
+    = mv_y
+\stopformula
+Hamilton's force formula confirms Newton's well established momentum formula, $\vec p = m\vec v$.
+\stopsolution
+\stopexample
+
+Lagrange's and Hamilton's methods have a profound philosophical significance, because they establish energy as a fundamental concept and then derive the earlier concepts of momentum and force. Lagrange's and Hamilton's methods also have a tremendous practical value, because they allow us to work with any coordinates, including the angular coordinate used for rotating objects and for astronomy.
+
+When using an angular coordinate, an object's angular velocity results in kinetic energy $K=\onehalf I\omega^2$. Hamilton's momentum formula gives us the object's \keyterm{angular momentum}, denoted $p_\theta$.
+
+\startformula
+  p_\theta = \ppom K
+    = \ppom \left( \half I\omega^2 \right)
+    = I\omega
+\stopformula
+
+\startexample[ex:PottersI]
+You are building a potter's wheel, which will have a circular, spinning tabletop for making round bowls, cups and vases, as shown in \in{figure}[fig:PottersWheel]. The tabletop is a heavy disk with moment of inertial $I= \unit{0.10kg m^2}$. You would like the tabletop to spin with angular velocity $\omega = \unit{3.0 rad/s}$. Calculate the tabletop's angular momentum at this speed?
+\startuseMPgraphic{PottersWheel}
+  path top  ;
+  top := fullcircle xyscaled (4cm, 1cm) ;
+  %mass := fullsquare xyscaled (1cm,1.5cm) shifted (2cm,-3cm) ;
+  pickup pencircle scaled 0.8pt ;
+  fill top shifted (0,-0.5cm) withcolor "lightgray" ;
+  draw top  shifted (0,-0.5cm);
+  fill fullsquare xyscaled (4cm,0.5cm) shifted (0,-0.25cm) withcolor "lightgray";
+  draw (2cm,0) -- (2cm,-0.5cm);
+  draw (-2cm,0) -- (-2cm,-0.5cm);
+  fill top withcolor "lightgray";
+  draw top ;
+  label  ("$\omega$", (0cm,-0.7cm)) ;
+  drawarrow quartercircle rotated -135 xyscaled (4cm, 1cm) shifted (0,-0.35cm);
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:PottersWheel, title={A potter's wheel has a round, heavy, rotating top.}]
+\small\reuseMPgraphic{PottersWheel}
+\stopplacefigure
+
+\startsolution
+Use the angular momentum formula, $p_\theta = I\omega$, taking care with units. 
+\startformula
+  p_\theta = I\omega = (\unit{0.10 kg m^2})(\unit{3.0 rad/s}) = \unit{0.30 kg m^2 /s}
+\stopformula
+
+\stopsolution
+\stopexample
+Angular quantities do not need angular units. In the last example, radians simply dropped out of the calculation, as radians can. If the angular velocity had been measured in cycles per second or degrees per second, we would have converted those angular units to radians, and then dropped the radians.
+All the other units were carried through the calculation to get the final units of angular momentum, \unit{kg m^2/s}. These units are not the same as units for Newton's linear momentum (\unit{kg m/s}). 
+
+%Newton's momentum is one of the most successful in physics. Angular momentum is no less significant. Angular momentum joins momentum and energy as the third conserved quantity in mechanics.
+
+\section{Conservation of angular momentum}
+All of the problems we have done with momentum have similar versions with angular momentum. In every case, we start with the conservation of momentum equation.
+\startformula
+  p\si + F\Delta t = p\sf
+\stopformula
+Since you have so much experience with conservation of momentum, a few examples will suffice to show how the same conservation of momentum law works with angular momentum. Just keep in mind that the quantities are angular quantities whenever you work with an angular coordinate, which may mean different units.
+
+\startexample[ex:PottersThrow]
+Your new potter's wheel (with moment of inertial $I= \unit{0.10kg m^2}$), is spinning with angular velocity $\omega = \unit{3.0 rad/s}$. To make your first pot, you grab $\unit{1.7kg}$ of clay and drop it directly in the center of the spinning tabletop, as shown in \in{figure}[fig:PottersThrow]. You do not spin the clay as you drop it, so it has no angular momentum before impact. The clay's moment of inertia is $\unit{0.010kg m^2}$.
+There are no outside angular forces on the tabletop and clay. What is the new angular velocity of the tabletop with the clay stuck to it?
+\startuseMPgraphic{PottersThrow}
+  path top, clay ;
+  top := fullcircle xyscaled (4cm, 1cm) ;
+  clay := top scaled 0.466 ;
+  %mass := fullsquare xyscaled (1cm,1.5cm) shifted (2cm,-3cm) ;
+  pickup pencircle scaled 0.8pt ;
+  fill top shifted (0,-0.5cm) withcolor "lightgray" ;
+  draw top  shifted (0,-0.5cm);
+  fill fullsquare xyscaled (4cm,0.5cm) shifted (0,-0.25cm) withcolor "lightgray";
+  draw (2cm,0) -- (2cm,-0.5cm);
+  draw (-2cm,0) -- (-2cm,-0.5cm);
+  fill top withcolor "lightgray";
+  draw top ;
+  label  ("$\omega$", (0cm,-0.7cm)) ;
+  drawarrow quartercircle rotated -135 xyscaled (4cm, 1cm) shifted (0,-0.35cm);
+  fill clay withcolor "middlegray" ;
+  draw clay ;
+  fill tcircle scaled 1.86cm withcolor "middlegray";
+  draw halfcircle scaled 1.86cm ;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:PottersThrow, title={A collision between a big piece of clay and the potter's where can be treated using conservation of angular momentum.}]
+\small\reuseMPgraphic{PottersThrow}
+\stopplacefigure
+\startsolution
+%This is a collision problem where we are interested in the objects' rotation after the collision.
+Use conservation of angular momentum, with no outside angular force. Before the collision, only the tabletop has initial angular momentum.
+After the collision, table top and the clay share the angular momentum. The combined moment of inertia for the tabletop and clay is $I\sf = \unit{0.10kg m^2} + \unit{0.010kg m^2} = \unit{0.11kg m^2}$
+\startformula\startmathalignment
+\NC p\si + \cancel{F\Delta t} \NC= p\sf \NR
+\NC I\si \omega\si \NC= I\sf \omega\sf \NR
+\NC \omega\sf \NC= \frac{I\si}{I\sf} \omega\si
+         = \frac{\unit{0.10kg m^2}}{\unit{0.11 kg m^2}}\unit{3.0 rad/s}
+         = \unit{2.7rad/s} \NR
+\stopmathalignment\stopformula
+With the total angular momentum unchanged, the increased moment of inertia results in a decreased angular velocity. (Rotational kinetic energy is not conserved in this inelastic collision.)
+\stopsolution
+\stopexample
+
+A system's angular momentum is changed by external angular forces. Angular force is called \keyterm{torque}.
+
+\startexample[ex:PottersTorque]
+You decide to add an electric motor to spin your potter's wheel. At full speed, the potter's wheel has angular momentum $\unit{0.30 kg m^2 /s}$. 
+How much torque must your electric motor provide to spin the potter's wheel from rest to the desired angular velocity in \unit{15s}?
+\startsolution
+Since we are looking for the time required, conservation of momentum is a good choice. In this case, the motion is angular, so $p$ is angular momentum and $F$ is torque.
+\startformula\startmathalignment
+\NC \cancel{p\si} + F\Delta t \NC= p\sf \NR
+\NC F \NC= \frac{p\sf}{\Delta t}
+         = \frac{\unit{0.30 kg m^2 /s}}{\unit{15s}}q
+         = \unit{0.020 kg m^2/s^2}\NR
+\stopmathalignment\stopformula
+\stopsolution
+\stopexample
+
+As the last two example show, angular momentum conservation problems are often exactly like linear momentum conservation problems, except for the slightly different units.  There is one situation, however, where angular momentum is quite different. This occurs when a spinning object changes its shape, thereby changing its moment of inertia. Angular momentum conservation still works in this case, but the result is unlike anything we have seen with linear momentum conservation.
+
+\startexample[ex:MerryGoRound1]
+Six kids have gotten a playground merry-go-round spinning, have climbed on, and are standing near the outer edge, as shown in \in{figure}[fig:MerryGoRound1]. The merry-go-round's moment of inertial is $\unit{10 kg m^2}$. The six kids standing near the edge have a total moment of inertia of $\unit{240 kg m^2}$. The merry-go-round is spinning with a reasonable speed of $\unit{1.0 rad/s}$. The kids then pull their way to the center, as shown in \in{figure}[fig:MerryGoRound2], reducing their moment of inertia to just $\unit{15kg m^2}$. (The merry-go-round's moment of inertia remains $\unit{10kg m^2}$.) What is the merry-go-round's new angular velocity?
+\startuseMPgraphic{MerryGoRound1}
+  path top, kidpath ;
+  top := fullcircle xyscaled (4cm, 1cm) ;
+  kidpath := fullcircle rotated 10 xyscaled (3.2cm, 0.8cm) ;
+  picture kid ;
+  picture littleball;
+	kid := image(
+	    path kidtop ; kidtop = fullcircle xyscaled (4mm,1mm) ;
+	    fill kidtop withcolor "middlegray" ;
+	    draw kidtop ;
+	    fill fullsquare xyscaled (4mm,1cm) shifted (0cm,0.5cm) withcolor "middlegray" ;
+	    draw (-2mm,0) -- (-2mm,1cm) ;
+	    draw (2mm,0) -- (2mm,1cm) ;
+	    fill kidtop shifted (0,1cm) withcolor "middlegray" ;
+	    draw kidtop shifted (0,1cm) ;
+    );
+  pickup pencircle scaled 0.8pt ;
+  fill top shifted (0,-1mm) withcolor "lightgray" ;
+  draw top  shifted (0,-1mm);
+  fill fullsquare xyscaled (4cm,1mm) shifted (0,-0.50mm) withcolor "lightgray";
+  draw (2cm,0) -- (2cm,-1mm);
+  draw (-2cm,0) -- (-2cm,-1mm);
+  fill top withcolor "lightgray";
+  draw top ;
+  label  ("$\omega\si$", (0cm,-0.9cm)) ;
+  drawarrow quartercircle rotated -135 xyscaled (4cm, 1cm) shifted (0,-0.2cm);
+  for i = 0 step 4/3 until 7:
+    draw kid shifted point i of kidpath ;
+  endfor
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:MerryGoRound1, title={Six kids (shown as cylinders) have climbed onto a playground merry-go-round. They are all standing near the outer edge.}]
+\small\reuseMPgraphic{MerryGoRound1}
+\stopplacefigure
+
+\startuseMPgraphic{MerryGoRound2}
+  path top, kidpath ;
+  top := fullcircle xyscaled (4cm, 1cm) ;
+  kidpath := fullcircle rotated 70 xyscaled (8mm, 2mm) ;
+  picture kid ;
+  picture littleball;
+	kid := image(
+	    path kidtop ; kidtop = fullcircle xyscaled (4mm,1mm) ;
+	    fill kidtop withcolor "middlegray" ;
+	    draw kidtop ;
+	    fill fullsquare xyscaled (4mm,1cm) shifted (0cm,0.5cm) withcolor "middlegray" ;
+	    draw (-2mm,0) -- (-2mm,1cm) ;
+	    draw (2mm,0) -- (2mm,1cm) ;
+	    fill kidtop shifted (0,1cm) withcolor "middlegray" ;
+	    draw kidtop shifted (0,1cm) ;
+    );
+  pickup pencircle scaled 0.8pt ;
+  fill top shifted (0,-1mm) withcolor "lightgray" ;
+  draw top  shifted (0,-1mm);
+  fill fullsquare xyscaled (4cm,1mm) shifted (0,-0.50mm) withcolor "lightgray";
+  draw (2cm,0) -- (2cm,-1mm);
+  draw (-2cm,0) -- (-2cm,-1mm);
+  fill top withcolor "lightgray";
+  draw top ;
+  label  ("$\omega\sf$", (0cm,-0.9cm)) ;
+  drawarrow quartercircle rotated -135 xyscaled (4cm, 1cm) shifted (0,-0.2cm);
+  for i = 0 step 4/3 until 3:
+    draw kid shifted point i+4/3 of kidpath ;
+    draw kid shifted point 8-i of kidpath ;
+  endfor
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:MerryGoRound2, title={The six kids pull themselves to the center, greatly reducing their moment of inertia.}]
+\reuseMPgraphic{MerryGoRound2}
+\stopplacefigure
+\startsolution
+Once again, use conservation of momentum. There are no external torques.
+\startformula\startmathalignment
+\NC p\si + \cancel{F\Delta t} \NC= p\sf \NR
+\NC I\si \omega\si \NC= I\sf \omega\sf \NR
+\NC \omega\sf \NC= \frac{I\si}{I\sf} \omega\si
+         = \frac{\unit{250kg m^2}}{\unit{25 kg m^2}}\unit{1.0 rad/s}
+         = \unit{10rad/s} \NR
+\stopmathalignment\stopformula
+They have gone from just less than one revolution every three seconds to over three revolutions per second!
+\stopsolution
+\stopexample
+Changing a system's moment of inertia can dramatically change its angular velocity. In the example above, the kids were able to reduce their distance from the center to about one-quarter of what it was originally. Because the moment of inertial is proportional to $r^2$, reducing their $r$ to one-quarter will reduce their $I$ to one sixteenth!
+
+Nothing like this happens with linear momentum, because linear momentum is mass times velocity. Objects cannot simply reduce their mass to increase their velocity. Many things do chance their shape and moment of inertia. Ice skaters will pull in their arms to make their spins faster. Gymnasts and divers tuck to flip more quickly.
+Slowly rotating air masses become hurricanes or tornados when the air is draw towards the center by an area of extreme low pressure.
+Planets, stars, solar systems, and galaxies rotate much more quickly than the large clouds of gas and dust from which they formed.
+Conservation of angular momentum is one of the great drivers of motion in the universe, from the largest galaxies down to subatomic particles. 
+
 \section{Circular, centered orbits}
+
+
 
 A planet following a circular orbit with the Sun at the center moves with uniform circular motion. Venus is shown as an example in \in{figure}[fig:KeplerVenus].
 Although uniform circular motion was considered natural in Kepler's time, Descartes and Newton taught us that circular motion requires a central force to bend the planet's path into an orbit.
@@ -805,60 +1054,6 @@ Using $p = mv$ and $v = \omega r$ for circular motion, we find.
 	F = m\omega^2 r
 \stopformula
 
-
-\startbuffer[U3D]
-\startaxis[
- 	  %axis line shift=1cm,
-	   %axis lines*=left,
-   hide x axis,
-    hide y axis,
-    hide z axis,
-        axis lines=center,
-        axis on top,
-	 view={0}{45},
-        width = 7cm,
-    %z post scale = {1},
-        clip mode = individual,
-]
-%    \addplot3 [
-%        mesh, color = middlegray,
-%        z buffer=sort,
-%        samples=9,
-%        domain=0.1:1,
-%        y domain=0:2*pi,
-%](
-%{x * cos(deg(y))}, {x * sin(deg(y))}, {-10}
-%    );
-    \addplot3 [
-        surf, faceted color = middlegray, color = gray,
-        z buffer=sort,
-        samples=6,
-        domain=2.5:15,
-        y domain=0:2*pi,
-        samples y=25,
-](
-{x * cos(deg(y))}, {x * sin(deg(y))}, {-13.27/x}
-    );
-    \node at (-8,-6,-2.5) {$U$};
-    \draw[->] (0,0,0) --node[below, pos = 0.98]{$r$} (16,0,0);
-    \draw[shade, ball color = white] (0,0,0) circle[radius=.6mm]node[above=0.8mm] {\Sun};
-    \draw[shade, ball color = darkgray] (0.5546,0,0) circle[radius=0.2mm]node[below] {\Mercury};
-    \draw[shade, ball color = darkgray] (1.082,0,0) circle[radius=0.3mm]node[above] {\Venus};
-    %\draw[] (1.5,0,0) -- (1.5,0,-8.874);
-    \draw[shade, ball color = darkgray] (1.496,0,0) circle[radius=0.3mm]node[below=0.4mm] {\Earth};
-    \draw[shade, ball color = darkgray] (2.259,0,0) circle[radius=0.25mm]node[above=0.7mm] {\Mars};
-    \draw[shade, ball color = darkgray] (7.76,0,0) circle[radius=0.4mm]node[above] {\Jupiter};
-    \draw[shade, ball color = darkgray] (14.23,0,0) circle[radius=0.4mm]node[above] {\Saturn};
-\stopaxis
-\stopbuffer
-
-\marginTikZ{}{U3D}{A planet's gravitational potential energy depends on its distance $r$ from the Sun. A planet released from rest would accelerate toward lower potential energy, crashing into the Sun!} % vskip, name, caption
-
-This three dimensional energy graph will allow us to understand the planets' two dimensional orbits. The vertical axis in our energy graph is energy, as usual. \in{Figure}[fig:U3D] shows the planets' gravitational potential energy, which is very negative near the Sun and rises toward zero far away.
-\startformula
-	U = -G\frac{mM}{r}
-\stopformula
-We will use $m$ for the mass of a planet and $M$ for the much larger mass of the Sun.
 
 \startbuffer[KeplerVenus]
 \environment env_physics
@@ -911,8 +1106,7 @@ We will use $m$ for the mass of a planet and $M$ for the much larger mass of the
 \stopTEXpage
 \stopbuffer
 
-
-\marginTikZ{\vskip 6in}{KeplerVenus}{Venus' orbit is an almost perfectly centered circle, making uniform circular motion a good approximation of for Venus. (A gigameter is one billion meters: $1\units{Gm} = 10^9\units{m}$).} % vskip, name, caption
+\marginTikZ{}{KeplerVenus}{Venus' orbit is an almost perfectly centered circle, making uniform circular motion a good approximation of for Venus. (A gigameter is one billion meters: $1\units{Gm} = 10^9\units{m}$).} % vskip, name, caption
 
 \noindent
 The centripetal force formula gives the force required to produce the circular motion, but does not tell us the source of that force. For orbits in the solar system this force is the gravitational force exerted by the Sun, the force directed towards lower gravitational potential energy in \in{figure}[fig:U3D]. The strength of the gravitational force is given by Newton's universal law of gravitation (\at{p.}[eq:UniversalGrav]).
@@ -1016,96 +1210,61 @@ endgraph shifted (0,-5cm);
 The energy graph in \in{figure}[fig:CircularH] shows the gravitational potential energy and a dotted line at $-GMm/2r$. Each dot represents the total energy of a possible circular orbit. Dots toward the upper right represent larger orbits with greater angular momentum and higher energy. Dots toward the lower left represent smaller orbits with less angular momentum and lower energy.
 
 
-\section{Hamilton's canonical equations of motion}
-
-While physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring the French mathematical revolution transforming physics.
-They remained paralyzed by a fanatic devotion to Newton’s cumbersome, geometric methods and continued to hold a grudge over the Leibniz’s calculus and \visviva. This problem persisted until 1812, when a group of young undergraduate students at Cambridge started the Analytical Society, partly as a joke, to study the methods of French analysis. They learned to solve problems using the continental notation and even translated a few important French books and papers into English. The club met for a few years and essentially disappeared after its members graduated and left Cambridge in 1817.
-
-That probably would have been the end of this little revolt, except that one of the members, George Peacock, was appointed in 1817 to write questions for the rigorous Mathematical Tripos exam taken by all third year mathematics students at Cambridge. He audaciously wrote his questions using the continental notation. This caused a bit of grumbling among the faculty, but they did not interfere. Surprisingly, Peacock was asked to write questions again in 1819. Students recognized this as a complete surrender by the Newtonian faculty. From there, the adoption of continental notation and methods in England was quite swift. Newton remained a revered figure, but his 150 year old dispute with Leibniz was finally laid to rest. %Cannell p. 38
-
-The United Kingdom began producing great physicists. Among the first was William Rowan Hamilton. Hamilton was a genius, gifted in languages and mathematics. He learned Hebrew, Latin, and Greek from early childhood. At the age of 15 he read Newton’s \booktitle{Principia}, and a two years later the great French work \booktitle{M\'echanique C\'eleste}, by Pierre-Simon Laplace.%Cannell p. 39
-
-In 1823, at the age of 18, Hamilton entered Trinity College Dublin.
-Trinity College had adopted the continental notation in 1812, a bit ahead of Cambridge, and used the French textbooks in mathematics and physics courses. Hamilton embraced the abstract approach. He earned top marks in all of his courses and won many awards, which propelled him to a position as head of the Dunsink Observatory, near Dublin. Although the observatory provided ample opportunity for practical astronomy, Hamilton continued to focus on more theoretical interests, first in optics and then in mechanics.
-
-Hamilton wrote two groundbreaking papers on mechanics, \booktitle{On A General Method In Dynamics} in 1834 and \booktitle{Second Essay On A General Method In Dynamics} in 1835. Hamilton's general method produces the equations of motion for any problem in mechanics, just like Lagrange's procedure, but Hamilton's general method is much easier to understand and execute.
-We will study Hamilton's general method in this chapter. First, we will learn to produce equations of motion from a system's total energy formula. Then, we will learn some methods of solving these equations of motion in specific examples. In \in{Chapter}[ch:Rotation], Hamilton's general method will explain the compound motions of planets. In \in{Chapter}[ch:Waves], it will reveal the compound vibrations of a musical string.
-
-Hamilton's general method brings together the big ideas of position, momentum, and energy in a surprisingly simple way. Hamilton found that he did not need two separate formulas for kinetic energy and potential energy, one formula for the total energy is enough. (He chose the symbol $H$ for total energy, which we have adopted.) Hamilton also recognized momentum's importance, and used momentum in his formula for total energy. For example, to describe the cart-on-a-spring system in \in{figure}[fig:HamiltonSpringCart], Hamilton would write the total energy
-\startbuffer[HamiltonSpringCart]
-	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
-	\fill [black!10] (0,0) rectangle (-.23,.6);
-	\draw[thin] (0,0) -- (0,.6);
-	\startaxis[margin cart track,
-			xmin=-24,xmax=24,
-			ymax=10,
-			]
-	\path (0,0) pic {cart}node[above = 5mm]{$m$};
-	\draw[decorate,decoration={coil,segment length=3.6pt}] (-24,2.5) --node[above=3pt] {$k$} (-6,2.5);
-    \stopaxis
+\startbuffer[U3D]
+\startaxis[
+ 	  %axis line shift=1cm,
+	   %axis lines*=left,
+   hide x axis,
+    hide y axis,
+    hide z axis,
+        axis lines=center,
+        axis on top,
+	 view={0}{45},
+        width = 7cm,
+    %z post scale = {1},
+        clip mode = individual,
+]
+%    \addplot3 [
+%        mesh, color = middlegray,
+%        z buffer=sort,
+%        samples=9,
+%        domain=0.1:1,
+%        y domain=0:2*pi,
+%](
+%{x * cos(deg(y))}, {x * sin(deg(y))}, {-10}
+%    );
+    \addplot3 [
+        surf, faceted color = middlegray, color = gray,
+        z buffer=sort,
+        samples=6,
+        domain=2.5:15,
+        y domain=0:2*pi,
+        samples y=25,
+](
+{x * cos(deg(y))}, {x * sin(deg(y))}, {-13.27/x}
+    );
+    \node at (-8,-6,-2.5) {$U$};
+    \draw[->] (0,0,0) --node[below, pos = 0.98]{$r$} (16,0,0);
+    \draw[shade, ball color = white] (0,0,0) circle[radius=.6mm]node[above=0.8mm] {\Sun};
+    \draw[shade, ball color = darkgray] (0.5546,0,0) circle[radius=0.2mm]node[below] {\Mercury};
+    \draw[shade, ball color = darkgray] (1.082,0,0) circle[radius=0.3mm]node[above] {\Venus};
+    %\draw[] (1.5,0,0) -- (1.5,0,-8.874);
+    \draw[shade, ball color = darkgray] (1.496,0,0) circle[radius=0.3mm]node[below=0.4mm] {\Earth};
+    \draw[shade, ball color = darkgray] (2.259,0,0) circle[radius=0.25mm]node[above=0.7mm] {\Mars};
+    \draw[shade, ball color = darkgray] (7.76,0,0) circle[radius=0.4mm]node[above] {\Jupiter};
+    \draw[shade, ball color = darkgray] (14.23,0,0) circle[radius=0.4mm]node[above] {\Saturn};
+\stopaxis
 \stopbuffer
 
-\marginTikZ{}{HamiltonSpringCart}{A cart connected to an ideal spring.} % vskip, name, caption
+\marginTikZ{}{U3D}{A planet's gravitational potential energy depends on its distance $r$ from the Sun. A planet released from rest would accelerate toward lower potential energy, crashing into the Sun!} % vskip, name, caption
+
+%The three dimensional energy graph will allow us to understand the planets' two dimensional orbits. The vertical axis in our energy graph is energy, as usual.
+\in{Figure}[fig:U3D] shows the planets' gravitational potential energy, which is very negative near the Sun and rises toward zero far away.
 \startformula
-  H = \textfrac{1}{2m}p^2 + \textfrac{k}{2}x^2. %\frac{p^2}{2m} + \half kx^2
+	U = -G\frac{mM}{r}
 \stopformula
-The coefficients $1/2m$ and $k/2$ are constants. The dynamical variables $p$ and $x$ describe the system's changing momentum and position.
-Euler and Lagrange used velocity rather than momentum, writing kinetic energy as $K=\onehalf mv^2$. Using velocity is reasonable, but it caused the update formulas to get tangled. Hamilton discovered that using momentum allowed him to separate the update formulas, making the equations of motion much easier to understand and solve. When a system's total energy is written in Hamilton's form, with positions and momenta, it is called the system's \keyterm{Hamiltonian}.
+We will use $m$ for the mass of a planet and $M$ for the much larger mass of the Sun.
 
-%\section{Hamilton's momentum update formula}
-
-%Hamilton's momentum update formula uses and idea similar to Lagrange's equation, 
-
-Hamilton followed Daniel Bernoulli's advice and described all interactions as potential energy, not Newtonian forces. There is a bit of an obstacle to this approach. Lagrange's equation tells us how to convert to Newton's force from potential energy, but it does not tell us how to convert the other way. In fact, some forces (like friction) cannot be described using potential energy and must be left as outside forces acting on the system. We will use $F$ only for these external forces. Any interaction that can be described using potential energy will be included in the energy formula.
-
-The system's total energy $H$ and the external force $F$ come together in Hamilton's momentum update formula.
-\startformula[eq:Hamilton2]
-	dp = \left(-\ppx H + F \right) dt
-\stopformula
-Parts of this new formula should be reassuringly familiar. For a system with only external forces (no energy) this is Newton's momentum update formula, $dp = F\,dt$. The new term on the right looks almost identical to Lagrange's equation, $F\sub{Newton} = -\partial U/\partial x$, but Hamilton replaces the potential energy $U$ with the total energy $H$. This replacement will be essential when using curved coordinates, like the polar coordinate used to describe orbits.%, but it has no effect in most of the systems we have studied.
-
-To see Hamilton's procedure in action, let us find the momentum update formula for the familiar cart-on-a-spring system. First, put the system's Hamiltonian into Hamilton's momentum update formula. The spring is included in the system, so there are no external forces.
-\startformula
-	dp = \left( -\ppx H + \cancel{F} \right) dt
-		%= -\ppx H dt
-		= -\ppx \left( \textfrac{1}{2m}p^2 + \textfrac{k}{2}x^2 \right) dt
-\stopformula
-Use the sum rule and then the coefficient rule to pull the coefficients out of the partial derivatives.
-\startformula\startmathalignment
-\NC	dp	\NC = -\left( \ppx  \textfrac{1}{2m}p^2 + \ppx\textfrac{k}{2}x^2 \right) dt		\NR
-\NC		\NC = -\left( \textfrac{1}{2m} \ppx p^2 + \textfrac{k}{2} \ppx x^2 \right) dt	\NR
-\stopmathalignment\stopformula
-When calculating the partial derivative $\partial/\partial x$, the variable $p$ is constant. Therefore, the constant rule for derivatives tells us that the first term in parenthesis is zero. The second term is found using the power rule with $n=2$.
-\startformula
-	dp = -\left( 0 + \textfrac{k}{2} 2x^{(2-1)} \right) dt
-		= - kx\,dt
-\stopformula
-This is the correct position update formula that we found before using Hooke's law. 
-
-Hamilton found that the total energy $H$ also produces the position update formula. 
-\startformula
-	dx = \pp{p} H\,dt
-\stopformula
-This formula is not familiar, but with your new derivative skills it will be easy to use.
-\startexample[ex:CannonDirivaties]
-Use Hamilton's position update formula to find the position update formula for the cart-on-a-spring system in \in{figure}[fig:HamiltonSpringCart].
-\startsolution
-Put the cart-on-a-spring Hamiltonian into Hamilton's position update formula. Then use derivative rules to pull the coefficients out of the partial derivatives.
-\startformula
-	dx = \pp{p} H\,dt
-		= \pp{p} \left( \textfrac{1}{2m}p^2 + \textfrac{k}{2}x^2 \right) dt
-		= \left( \textfrac{1}{2m} \pp{p} p^2 +\textfrac{k}{2}\pp{p}x^2 \right) dt
-\stopformula
-When calculating the partial derivative $\partial/\partial p$, the variable $x$ is constant. Therefore, the constant rule for derivatives tells us that the second term in parenthesis is zero. The first term is found using the power rule with $n=2$.
-\startformula
-	dx = \left( \textfrac{1}{2m} 2 p^{(2-1)} +0 \right) dt
-		= \textfrac{1}{m} p\,dt
-\stopformula
-This is the familiar position update formula $dx = v\,dt$ with the velocity $v = p/m$.
-\stopsolution
-\stopexample
-
-Hamilton's general method produces the complete equations of motion for any mechanical system from the system's Hamiltonian – the system's total energy written in terms of the positions and momenta. Hamilton's method is a favorite with physicists because of its power, beauty, and practicality. The method is also excellent for students. Writing the Hamiltonian is often fairly easy, even for complicated systems; the method often requires only basic skills with derivatives; and the equations of motion are separated into their most useful form. Hamilton's method is not necessary for a simple system like the cart on a spring, but it is ideal for our quadrivium problems. 
 
 % Need references in this chapter!
 %\subject{Notes}

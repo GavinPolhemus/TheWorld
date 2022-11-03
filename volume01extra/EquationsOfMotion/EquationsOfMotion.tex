@@ -12,6 +12,73 @@
 \startchapter[title=Equations of motion, reference=ch:EoM]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Some harder problems using Lagrange's force formula and Hamilton's momentum formula.
+
+\startexample[ex:MassPulleyLagrange]
+A small mass $m=\unit{20g}$ hangs by a string from a heavy pulley of radius $R=\unit{2cm}$, as shown in \in{figure}[fig:MassPulley]. Rotating the pulley counterclockwise through an angle $\theta$ raise the mass $m$ to a height $h=R\theta$.
+Use Lagrange's force formula to find the torque exerted by gravity on the system.
+\startuseMPgraphic{MassPulley}
+  path pulley, mass ;
+  pulley := fullcircle scaled 4cm ;
+  mass := fullsquare xyscaled (1cm,1.5cm) shifted (2cm,-3cm) ;
+  pickup pencircle scaled 0.8pt ;
+  fill pulley withcolor "lightgray" ;
+  draw pulley ;
+  label  ("M", (0cm,-0.8cm)) ;
+  filldraw fullcircle scaled 1mm;
+  draw (2cm,0) -- (2cm,-3cm);
+  fill mass withcolor "lightgray" ;
+  draw mass ;
+  label  ("m", (2cm,-3cm)) ;
+  path a, b ;
+  a := origin -- (1cm,0cm) ; draw a ;
+  b := a scaled 2 rotated 28.6; drawarrow b ;
+   drawarrow anglebetween(a,b,"\theta") ;
+  fill fullsquare xyscaled (5cm,2mm) shifted (0,-4.85cm) withcolor "lightgray" ;
+  draw (-2.5cm,-4.75cm) -- (2.5cm,-4.75cm) ;
+    label.ulft ("$R$", point 0.67 of b) ;
+%  drawarrow (39mm,0) -- (37.5mm,0);
+%    dotlabel.llft  ("", (39mm,0)) ;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:MassPulley, title={A small mass hangs from a heavy pulley.}]
+\small\reuseMPgraphic{MassPulley}
+\stopplacefigure
+
+\startsolution
+For Lagrange's force formula, we need a formula for the system's potential energy. The potential energy of the pulley does not matter, because it is constant as the pulley rotates. We only need the changing potential energy of the small mass, which is $U=mgh=mgR\theta$.
+\startformula
+  F_\theta = -\ppth U
+    = -\ppth mgR\theta
+    = -mgR
+    = \unit{-00.0 kg m^2/s^2}
+\stopformula
+This torque is in the negative $\theta$ direction. Since $\theta$ is the counterclockwise angle, the torque due to gravity will try to spin the pulley in the clockwise direction.
+\stopsolution
+\stopexample
+
+\startexample[ex:MassPulleyHamilton]
+A small mass hangs by a string from a heavy pulley. The small mass is The pulley's mass is $M$ and the its radius is $R$.
+Spinning the pulley clockwise with angular velocity $\omega$ raises the mass upward with velocity $v = R\omega$.
+Use Hamilton's momentum formula to find the angular momentum of the system.
+\startsolution
+Spinning the pulley gives kinetic energy to both the pulley and the mass.
+The system's kinetic energy is
+\startformula
+  K = \half I\omega^2 + \half mv^2
+    = \half I\omega^2 + \half mR^2\omega^2
+\stopformula
+Now that we have the kinetic energy, we can use Hamilton's 
+\startformula
+  p_\theta = \ppom K
+    = -\ppth mgR\theta
+    = -mgR
+\stopformula
+This torque is in the negative $\theta$ direction. Since $\theta$ is the counterclockwise angle, the torque due to gravity will try to spin the pulley in the clockwise direction.
+\stopsolution
+\stopexample
+
+
 We must take a moment to understand what such an ambitious general solution would mean. It is hard enough to solve one problem at a time. How could Lagrange address every conceivable problem at once?
 
 First, we must understand the goal of a general solution, which is to predict the system's motion. This is accomplished when we know the position coordinates ($x$, $y$, $\theta$, etc.) for every part of the system at every time. For example, we would like to know the position of a cannon ball at every time between when it is fired upward at an angle and when it hits the ground. Galileo gave us the first tool that we need to accomplish this, the position update formulas.
@@ -210,6 +277,85 @@ After pulling the coefficient $mg$ out of the derivative, we compute $\ppy y$ us
 
 The ratios $\partial U\!/\partial x$ and $\partial U\!/\partial y$ are called partial derivatives of $U$ because we compute them allowing only one part of our coordinates (either $x$ or $y$) to change while other parts are kept constant. Computing partial derivatives is much easier than dealing with many tiny virtual displacements. As a result, Lagrange replaced many diagrams with partial derivatives.
 
+\section{Hamilton's canonical equations of motion}
+
+We will study Hamilton's general method in this chapter. First, we will learn to produce equations of motion from a system's total energy formula. Then, we will learn some methods of solving these equations of motion in specific examples. In \in{Chapter}[ch:Rotation], Hamilton's general method will explain the compound motions of planets. In \in{Chapter}[ch:Waves], it will reveal the compound vibrations of a musical string.
+
+Hamilton's general method brings together the big ideas of position, momentum, and energy in a surprisingly simple way. Hamilton found that he did not need two separate formulas for kinetic energy and potential energy, one formula for the total energy is enough. (He chose the symbol $H$ for total energy, which we have adopted.) Hamilton also recognized momentum's importance, and used momentum in his formula for total energy. For example, to describe the cart-on-a-spring system in \in{figure}[fig:HamiltonSpringCart], Hamilton would write the total energy
+\startbuffer[HamiltonSpringCart]
+	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
+	\fill [black!10] (0,0) rectangle (-.23,.6);
+	\draw[thin] (0,0) -- (0,.6);
+	\startaxis[margin cart track,
+			xmin=-24,xmax=24,
+			ymax=10,
+			]
+	\path (0,0) pic {cart}node[above = 5mm]{$m$};
+	\draw[decorate,decoration={coil,segment length=3.6pt}] (-24,2.5) --node[above=3pt] {$k$} (-6,2.5);
+    \stopaxis
+\stopbuffer
+
+\marginTikZ{}{HamiltonSpringCart}{A cart connected to an ideal spring.} % vskip, name, caption
+\startformula
+  H = \textfrac{1}{2m}p^2 + \textfrac{k}{2}x^2. %\frac{p^2}{2m} + \half kx^2
+\stopformula
+The coefficients $1/2m$ and $k/2$ are constants. The dynamical variables $p$ and $x$ describe the system's changing momentum and position.
+Euler and Lagrange used velocity rather than momentum, writing kinetic energy as $K=\onehalf mv^2$. Using velocity is reasonable, but it caused the update formulas to get tangled. Hamilton discovered that using momentum allowed him to separate the update formulas, making the equations of motion much easier to understand and solve. When a system's total energy is written in Hamilton's form, with positions and momenta, it is called the system's \keyterm{Hamiltonian}.
+
+%\section{Hamilton's momentum update formula}
+
+%Hamilton's momentum update formula uses and idea similar to Lagrange's equation, 
+
+Hamilton followed Daniel Bernoulli's advice and described all interactions as potential energy, not Newtonian forces. There is a bit of an obstacle to this approach. Lagrange's equation tells us how to convert to Newton's force from potential energy, but it does not tell us how to convert the other way. In fact, some forces (like friction) cannot be described using potential energy and must be left as outside forces acting on the system. We will use $F$ only for these external forces. Any interaction that can be described using potential energy will be included in the energy formula.
+
+The system's total energy $H$ and the external force $F$ come together in Hamilton's momentum update formula.
+\startformula[eq:Hamilton2]
+	dp = \left(-\ppx H + F \right) dt
+\stopformula
+Parts of this new formula should be reassuringly familiar. For a system with only external forces (no energy) this is Newton's momentum update formula, $dp = F\,dt$. The new term on the right looks almost identical to Lagrange's equation, $F\sub{Newton} = -\partial U/\partial x$, but Hamilton replaces the potential energy $U$ with the total energy $H$. This replacement will be essential when using curved coordinates, like the polar coordinate used to describe orbits.%, but it has no effect in most of the systems we have studied.
+
+To see Hamilton's procedure in action, let us find the momentum update formula for the familiar cart-on-a-spring system. First, put the system's Hamiltonian into Hamilton's momentum update formula. The spring is included in the system, so there are no external forces.
+\startformula
+	dp = \left( -\ppx H + \cancel{F} \right) dt
+		%= -\ppx H dt
+		= -\ppx \left( \textfrac{1}{2m}p^2 + \textfrac{k}{2}x^2 \right) dt
+\stopformula
+Use the sum rule and then the coefficient rule to pull the coefficients out of the partial derivatives.
+\startformula\startmathalignment
+\NC	dp	\NC = -\left( \ppx  \textfrac{1}{2m}p^2 + \ppx\textfrac{k}{2}x^2 \right) dt		\NR
+\NC		\NC = -\left( \textfrac{1}{2m} \ppx p^2 + \textfrac{k}{2} \ppx x^2 \right) dt	\NR
+\stopmathalignment\stopformula
+When calculating the partial derivative $\partial/\partial x$, the variable $p$ is constant. Therefore, the constant rule for derivatives tells us that the first term in parenthesis is zero. The second term is found using the power rule with $n=2$.
+\startformula
+	dp = -\left( 0 + \textfrac{k}{2} 2x^{(2-1)} \right) dt
+		= - kx\,dt
+\stopformula
+This is the correct position update formula that we found before using Hooke's law. 
+
+Hamilton found that the total energy $H$ also produces the position update formula. 
+\startformula
+	dx = \pp{p} H\,dt
+\stopformula
+This formula is not familiar, but with your new derivative skills it will be easy to use.
+\startexample[ex:CannonDirivaties]
+Use Hamilton's position update formula to find the position update formula for the cart-on-a-spring system in \in{figure}[fig:HamiltonSpringCart].
+\startsolution
+Put the cart-on-a-spring Hamiltonian into Hamilton's position update formula. Then use derivative rules to pull the coefficients out of the partial derivatives.
+\startformula
+	dx = \pp{p} H\,dt
+		= \pp{p} \left( \textfrac{1}{2m}p^2 + \textfrac{k}{2}x^2 \right) dt
+		= \left( \textfrac{1}{2m} \pp{p} p^2 +\textfrac{k}{2}\pp{p}x^2 \right) dt
+\stopformula
+When calculating the partial derivative $\partial/\partial p$, the variable $x$ is constant. Therefore, the constant rule for derivatives tells us that the second term in parenthesis is zero. The first term is found using the power rule with $n=2$.
+\startformula
+	dx = \left( \textfrac{1}{2m} 2 p^{(2-1)} +0 \right) dt
+		= \textfrac{1}{m} p\,dt
+\stopformula
+This is the familiar position update formula $dx = v\,dt$ with the velocity $v = p/m$.
+\stopsolution
+\stopexample
+
+Hamilton's general method produces the complete equations of motion for any mechanical system from the system's Hamiltonian – the system's total energy written in terms of the positions and momenta. Hamilton's method is a favorite with physicists because of its power, beauty, and practicality. The method is also excellent for students. Writing the Hamiltonian is often fairly easy, even for complicated systems; the method often requires only basic skills with derivatives; and the equations of motion are separated into their most useful form. Hamilton's method is not necessary for a simple system like the cart on a spring, but it is ideal for our quadrivium problems. 
 
 
 \stoptext

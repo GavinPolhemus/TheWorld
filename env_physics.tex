@@ -2,6 +2,28 @@
 %\usemodule[chemic] % I think this is built in now, and does not need to be loaded.
 
 % Units
+\setupunits[method=4,separator=cdot] % separator as thin space, decimal mark as period. alternative=text
+\registerunit[
+  unitless=unitless,
+  J=J,
+  N=N,
+  cyc=cyc,
+  rad=rad,
+  day=day,
+  yr=yr,
+  mi=mi,
+  ]
+\setupunittext[
+  unitless=\strut,
+  J=J,
+  N=N,
+  cyc=cyc,
+  rad=rad,
+  day=day,
+  yr=yr,
+  mi=mi,
+  ]
+
 \define[1]\units{{% I would like to phase this out in favor of ConTeXt's built in \unit command
 	\def\.{\mathord\cdot}% In LaTeX this was proceeded by \protect
 	\ifmmode{\rm\,#1}
@@ -51,6 +73,12 @@
 \define\ppz{\pp{z}}
 \define\ppr{\pp{r}}
 \define\ppth{\pp{\theta}}
+\define\ppv{\pp{v}}
+\define\ppvx{\pp{v_x}}
+\define\ppvy{\pp{v_y}}
+\define\ppvz{\pp{v_z}}
+\define\ppvth{\pp{v_{\theta}}}
+\define\ppom{\pp{\omega}}
 
 % Planet symbols
 \define\Sun{\odot} % {\char "0263C}
@@ -67,6 +95,8 @@
 
 \define[1]\substar{\sub{\txx #1}}
 \define\sEarth{\substar{\Earth}}
+
+\define\bigcirc{\char "025CB}
 
 
 %\definefontsynonym[StarFont][name:STRFNSAN]% STRFNSER or STRFNSAN
