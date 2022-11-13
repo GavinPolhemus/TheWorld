@@ -26,7 +26,7 @@ What matters to me is not merely to impart to the reader what I have to say, but
 	\stopalignment
 }
 
-\Initial{J}{ohannes Kepler,} at the age of 23, became interested in astronomy for a simple reason: it was his job. He had been studying for priesthood, but he also loved mathematics. Before is graduation in the spring 1594, he received an unexpected invitation to teach mathematics and astronomy at the school in Graz, Austria.
+\Initial{J}{ohannes Kepler,} at the age of 23, became interested in astronomy for a simple reason: it was his job. He had been studying for the priesthood, but he also loved mathematics. Before is graduation in the spring 1594, he received an unexpected invitation to teach mathematics and astronomy at the school in Graz, Austria.
 Although Kepler had never thought of becoming an astronomer, he had taken the required astronomy courses at the University of Tübingen. He understood the Ptolemaic and Copernican systems (\at{pp.}[AncientWorldModels]-\at[AncientWorldModelsEnd]). After a bit of hesitation, he accepted the invitation.
  
 %Since the Moon, Sun, and Earth are all circular – the most perfect shape – the Pythagoreans believed that all all celestial bodies circle Earth, a model that ran into conflicts with observations immediately. To explain the planet's erratic motions across the sky, ancient astronomers introduced compound motion into their models, so that the planets moved on circles which were themselves being carried by other circles.
@@ -87,11 +87,15 @@ In 1597, he published \booktitle{Mysterium Cosmographicum}, a small book exubera
 \marginTikZ{}{U3D}{A planet's gravitational potential energy depends on its distance $r$ from the Sun. A planet released from rest would accelerate toward lower potential energy, crashing into the Sun!} % vskip, name, caption
 
 
-Kepler's \quotation{drinking cup}\autocite{Described in a letter to Friedrich, Duke of Wuerttemberg, 27 Feb.~1596. v.~\convertnumber{KR}{13} p.~50.}{KeplerGW} model in \in{figure}[fig:Kepler1596system] looks similar to our energy graph in \in{figure}[fig:U3D].
 
-In \booktitle{Mysterium Cosmographicum}, Kepler argued that the Sun is the driver of the Solar System's motions. Earlier models were driven by many moving spheres, but in Kepler's model, the spheres are not physical. Kepler's heliocentric view of the Sun's physical importance matches our energy graph. The Sun produces the huge potential energy well that holds the much lighter planets in their orbits. (The Sun is about one-thousand times more massive that Jupiter, the largest planet.)
 
-The six planets known to Kepler are shown at the correct distances along the $r$-axis on the energy graph. Notice how these distances approximately match the distances in Kepler's model. The  four inner planets – Mercury, Venus, Earth, and Mars – are quite close together. Jupiter and Saturn are much further out.
+In \booktitle{Mysterium Cosmographicum}, Kepler argued that the Sun is the driver of the Solar System's motions.
+Indeed, this insight was far ahead of its time.
+We now know that gravitational potential energy, due to the Sun's enormous mass, produces the forces that keep the planets in their orbits.
+Kepler's \quotation{drinking cup}\autocite{Described in a letter to Friedrich, Duke of Wuerttemberg, 27 Feb.~1596. v.~\convertnumber{KR}{13} p.~50.}{KeplerGW} model in \in{figure}[fig:Kepler1596system] even looks like our energy graph in \in{figure}[fig:U3D].
+In our energy graph, the Sun produces the huge potential energy well that holds the much lighter planets in their orbits. (The Sun is about one-thousand times more massive that Jupiter, the largest planet.)
+
+The energy graph in \in{figure}[fig:U3D] shows the first six planets at the correct distances along the $r$-axis. Notice how these distances approximately match the distances in Kepler's model. The  four inner planets – Mercury, Venus, Earth, and Mars – are quite close together. Jupiter and Saturn are much further out.
 The planets' full orbits are shown in \in{figure}[fig:VisiblePlanets]. The scale in \in{figure}[fig:VisiblePlanets] shows $r$, the distance from the Sun.% and $\theta$ the angle measured around the Sun. (These are commonly called \keyterm{polar coordinates}.)
 
 \startbuffer[TikZ:VisiblePlanets]
@@ -240,7 +244,12 @@ The planets' full orbits are shown in \in{figure}[fig:VisiblePlanets]. The scale
 {The orbits of the six visible planets. (A terameter is one trillion meters: $1\units{Tm} = 10^{12}\units{m}$).}	 % caption text
 {\noindent\typesetbuffer[TikZ:VisiblePlanets]} % figure contents
 
-In the calculations for a circular, centered orbit, we took an illegal short-cut by assuming circular, centered orbits and uniform circular motion. The orbits are actually off center, or \keyterm{eccentric}, as can be seen for most of the planets in \in{figure}[fig:VisiblePlanets]. The planets' speeds are also not constant. As a planet gets closer to the Sun on one side of its orbit, the planet's gravitational potential energy decreases and its kinetic energy increases, increasing its speed. As the planet gets farther from the Sun on the other side of its orbit, some of its kinetic energy gets converted back to gravitational potential energy, and the planet slows down. This speeding up and slowing down repeats with every orbit. The planet's motion is not uniform circular, it is compound motion combining angular motion around the Sun with oscillating radial motion, alternately approaching and receding from the Sun. 
+%In the calculations for a circular, centered orbit, we took an illegal short-cut by assuming circular, centered orbits and uniform circular motion. 
+The planets' orbits are slightly off center, or \keyterm{eccentric}, as can be seen for most of the planets in \in{figure}[fig:VisiblePlanets]. 
+These eccentric orbits lead to changes in each planet's speed.
+As a planet gets closer to the Sun on one side of its orbit, the planet's gravitational potential energy decreases and its kinetic energy increases, increasing its speed. As the planet gets farther from the Sun on the other side of its orbit, some of its kinetic energy gets converted back to gravitational potential energy, and the planet slows down. This speeding up and slowing down repeats with every orbit.
+The planet's motion is not uniform circular.
+The eccentric orbit is a compound motion, combining angular motion around the Sun with oscillating radial motion. 
 
 The orbits' eccentricities and changing speeds were already apparent in Copernicus's model based on ancient observations, but neither the ancients nor Copernicus knew the cause. Kepler tried to accommodate the eccentric orbits and changing speeds in his model, but his own calculations showed that his model was not as accurate as he had originally hoped. However, he correctly recognized the Sun's important role as the center and the physical driver of the solar system.
 Kepler sent copies of \booktitle{Mysterium Cosmographicum} to prominent astronomers, including Galileo. Galileo sent an encouraging reply, but it is not clear if he ever read the book before his own adventure with the spyglass fourteen years later.
@@ -248,8 +257,8 @@ Kepler sent copies of \booktitle{Mysterium Cosmographicum} to prominent astronom
 The book did catch the attention of another astronomer, Tycho de Brahe. Tycho had been making precise observations of the positions of stars and planets for 35 years. After a spat with King Christian of Denmark in 1597, Tycho moved his formidable arsenal of observing equipment to a castle near Prague, where he became Imperial Mathematicus for Emperor Rudolf II. Even with the best assistants, Tycho was struggling to make a coherent mathematical model from his mountain of precise data. He did not believe Kepler's model was the solution, but Tycho recognized the young astronomer's tremendous mathematical skill and creativity. Kepler, in return, recognized Tycho's observations as the only firm foundation for his model.
 Tycho invited Kepler to collaborate, but guarded his data jealously. Kepler expressed interest, and even made a visit, but was reluctant to leave his position in Graz.
 
-In 1600, events intervened. Kepler was expelled from Graz in a religious purge. Tycho's top assistant left after failing to explain Mars's eccentric orbit. Kepler joined Tycho's team and Tycho granted access to his treasury of Mars observations. Kepler said he would explain Mars's 
- eight days. Kepler worked diligently for eight months. Tycho died, and Kepler succeeded him is Imperial Mathematics in 1601, still without a solution for Mars's orbit.
+In 1600, events intervened. Kepler was expelled from Graz in a religious purge. Tycho's top assistant left after failing to explain Mars's eccentric orbit. Kepler joined Tycho's team and Tycho granted access to his treasury of Mars observations. Kepler said he would explain Mars's orbit in eight days.
+Kepler then worked diligently for eight months. Tycho died, and Kepler succeeded him is Imperial Mathematics in 1601, still without a solution for Mars's orbit.
 
 \section{Kepler's first attempts}
 
@@ -334,17 +343,17 @@ Since the divine benevolence has vouchsafed us Tycho Brahe, a most diligent obse
 If I had to point to a single moment when the old philosophical reasoning gave way to a new scientific practice, it would be this moment – when Kepler, after years of calculation, confronts the data proving his failure, gives thanks, and starts over.
 
 \section{Kepler's area law}
-Kepler could have continued \quotation{in imitation of the ancients} by adding a small extra wheel to the orbital motion or by adding a mysterious oscillation to the already mysterious equant. Instead, he recognized that a fundamental assumptions of his model must be wrong.
+Kepler could have continued \quotation{in imitation of the ancients} by adding a small extra wheel to the orbital motion or by adding a mysterious oscillation to the already mysterious equant. Instead, he recognized that a fundamental assumption of his model must be wrong.
 \startblockquote
 Therefore, something among those things we had assumed must be false. But what was assumed was: that the orbit upon which the planet moves is a perfect circle; and that there exists some unique point\dots about which point Mars describes equal angles in equal times. Therefore, of these, one or the other or perhaps both are false, for the observations used are not false.
 \autocite{pp.~209-10.}{Kepler1609}
 \stopblockquote
-In chapter 20 he shows any attempt to use an equant will conflict with the observations.
+In chapter 20, Kepler shows that any attempt to use an equant will conflict with the observations.
 \startblockquote
 The blame for the discrepancy\dots(I am repeating this over and over so that it will be remembered) falls entirely upon the faulty assumptions deliberately entertained by me, in common with Tycho and all who have ever devised hypotheses. For the necessary consequence of this enquiry is that there is no single fixed point\dots about which the planet always sweeps out equal angles in equal times.\autocite{pp.~215-16.}{Kepler1609}
 \stopblockquote
 The model's failure for Mars called into question Kepler's model for Earth's motion, which also used a perfectly circular orbit and constant angular velocity. Kepler could not possibly make any progress in determining the position of Mars from Tycho's observations if he did not even know Earth's location, since Earth is where Tycho made the observations.
-Kepler continued to believe that Earth's orbit is a perfect circle, slightly off center from the Sun (\in{fig.}[fig:KeplerTerestrial]), but he needed to find a new rule for Earth's speed. To do this he again used Tycho's observations of Mars, but this time he reversed them to find the direction Earth would be seen from an observatory on Mars. This seems like a waste of time, since Mars position is also uncertain, but by using multiple observations of Mars when it was known to be in the same position, Kepler was nonetheless able to find Earth's motion. The details of the epic calculations fill chapters 22 through 31 of \booktitle{New Astronomy}. 
+Kepler continued to believe that Earth's orbit is a perfect circle, slightly off center from the Sun (\in{fig.}[fig:KeplerTerestrial]), but he needed to find a new rule for Earth's speed. To do this, he again used Tycho's observations of Mars, but this time he reversed them to find the direction Earth would be seen from an observatory on Mars. This seems like a waste of time, since Mars position is also uncertain, but by using multiple observations of Mars when it was known to be in the same position, Kepler was nonetheless able to find Earth's motion. The details of the epic calculations fill chapters 22 through 31 of \booktitle{New Astronomy}. 
 
 \startbuffer[TikZ:KeplerTerestrial]
 \environment env_physics
@@ -448,13 +457,16 @@ He no longer searches for imaginary wheels or imaginary points like the equant. 
 
 For Earth's nearly centered orbit there is only a tiny difference between a constant angular velocity (which sweeps out equal angles in equal times) and Kepler's new law of equal areas in equal times. Tycho's precise observations confirmed the tiny effect of Kepler's new area law for Earth's motion.
 
-Kepler's area law, discovered first for Earth, is true for all planets. The effect is most pronounced for Mercury, which has the most eccentric orbit. Two shaded areas in \in{figure}[fig:KeplerTerestrial] show the areas swept out by Mercury during two equal times. The shaded, pie-shaped area above the Sun shows the area swept out by Mercury during the twenty days when it is closest to the Sun. The shaded area below the sun shows the area swept out during the twenty days when Mercury is farthest from the Sun. The upper pie-slice has a smaller radius and a larger angle due to Mercury's higher speed near the Sun. The lower pie slice has a larger radius and a smaller angle due to Mercury's lower speed farther from the Sun. The two resulting areas are exactly the same.
+Kepler's area law, discovered first for Earth, is true for all planets. The effect is most pronounced for Mercury, which has the most eccentric orbit. Two shaded areas in \in{figure}[fig:KeplerTerestrial] show the areas swept out by Mercury during two equal times. The shaded, pie-shaped area above the Sun shows the area swept out by Mercury during the twenty days when it is closest to the Sun. The shaded area below the Sun shows the area swept out during the twenty days when Mercury is farthest from the Sun. The upper pie-slice has a smaller radius and a larger angle due to Mercury's higher speed near the Sun. The lower pie slice has a larger radius and a smaller angle due to Mercury's lower speed farther from the Sun. The two resulting areas are exactly the same.
 
-Kepler's mysterious area law provides an interesting challenge for any theory of motion. Newton, to show the power of his laws of motion, takes on this challenge in Proposition 1 of the \booktitle{Principia}, where he proves the area law using geometric methods. Euler and Lagrange offered new perspectives on this law in their formulations of mechanics. We will explain the area law using Hamilton's method, which is ideally suited to the orbital motions of the solar system. In the process, we will find a new, useful conservation law and a practical method for solving equations of motions.
+Kepler's mysterious area law provides an interesting challenge for any theory of motion. Newton, to show the power of his laws of motion, takes on this challenge in Proposition 1 of the \booktitle{Principia}, where he proves the area law using geometric methods. Euler and Lagrange offered new perspectives on this law in their formulations of mechanics.
+We will explain the area law using angular momentum, which is ideally suited to the orbital motions of the solar system.
 
 \section{Conservation of angular momentum}
-We will describe the planets' motions with the astronomers' coordinates $r$ and $\theta$ in \in{figure}[fig:polar], with the Sun at the center. These are called \keyterm{polar coordinates}.
-Hamilton's method is ideally suited to these curved coordinates, and the equations of motion will simplify nicely.
+We will describe the planets' motions with the astronomers' coordinates $r$ and $\theta$ in \in{figure}[fig:polar], with the Sun at the center. These are called \keyterm{polar coordinates}. A planet's motion around the Sun is described by the position update formula for the angular coordinate $\theta$.
+\startformula
+  d\theta = \omega\,dt
+\stopformula
 
 \startbuffer[polar]
 \environment env_physics
@@ -528,53 +540,28 @@ Hamilton's method is ideally suited to these curved coordinates, and the equatio
 
 \marginTikZ{}{polar}{Earth's position in polar coordinates $r$ and $\theta$.} % vskip, name, caption
 
+\noindent
+If the angular velocity $\omega$ were constant, each small step $d\theta$ would be the same size. 
+However, the angular velocity is not constant. The correct angular velocity is found from conservation of angular momentum.
+\startformula
+  L\si + \tau ∆t = L\sf
+\stopformula
+The central Sun's gravitational force pulls each planet directly toward the center, in the negative $r$ direction. The planets do not feel any torque $\tau$ in the clockwise or counter-clockwise $\theta$ direction.
+With no torque, each planet's angular momentum $L$ is constant.
 
-The most challenging part of Hamilton's method is writing the system's total energy in terms of positions and momenta. For planetary orbits, there are three contributions to the total energy: the gravitational potential energy $U$, the kinetic energy $K_\theta$ due to the planet's motion around the Sun in the $\theta$-direction, and the kinetic energy $K_r$ due to any motion toward or away from the Sun in the $r$-direction.
+
+For a circular orbit and a constant distance $r$, the constant angular momentum would produce a constant angular velocity. But the planets' orbits are eccentric, $r$ is not constant, and the angular velocity changes as the planets get nearer to the Sun and then farther away. A planet's angular momentum is 
 \startformula
-	H = K_r + K_\theta + U
+  L = I\omega = mr^2\omega.
 \stopformula
-The gravitational potential energy is especially simple in polar coordinates, since it only depends on the planet's distance $r$ from the Sun, not on the angle $\theta$.
+Solving for $\omega$ allows us to find the correct position update formula for $\theta$.
 \startformula
-	U = -G\frac{mM}{r}
+  d\theta = \frac{L}{mr^2}\,dt
 \stopformula
 
-The kinetic energy's radial part $K_r$ can be written in terms of the radial momentum $p_r$, as usual.
-\startformula
-	K_r = \frac{p_r^2}{2m}
-\stopformula
-Similarly, the kinetic energy's angular part can be written in terms of the \keyterm{angular momentum} $p_\theta$. However, when we work with an angular coordinate, the mass in the denominator is replaced by the moment of inertial $I$. 
-\startformula
-	K_\theta = \frac{p_\theta^2}{2I}
-\stopformula
-Angular momentum $p_\theta$ is a new type of momentum associated with angular motion like rotation or orbits. Euler and others developed special methods for working with angular quantities, but Hamilton's method treats angular coordinates and momenta just like any others. 
 
-The moment of inertial $I$ should be familiar from the formula for rotational kinetic energy in \in{Chapter}[ch:VisViva] (\at{p.}[eq.Krot]). There, we described an object's moment of inertia as the total $mr^2$ for all parts of the object. Orbiting planets are just one part at distance $r$ from the Sun.
-\startformula
-	I = mr^2
-\stopformula
-Earth is spherical, but we do not use the formula for a sphere's moment of inertia, the way we would for rolling problems. Earth is engaged in two circular motions: spinning about its axis and revolving around the Sun. Hamilton's formulation allows us to treat those as separate motions. To study Earth's rotation about its axis, we would use the moment of inertia of a sphere. Here, we will study only Earth's revolution about the Sun, for which we should treat Earth as a single, small mass far from the center. For this motion the momentum of inertia is $I=mr^2$.
 
-Now we assemble the complete Hamiltonian for an orbiting planet. The Hamiltonian is intimidating, but notice the familiar parts.
-\startformula
-	H = \frac{p_r^2}{2m} + \frac{p_\theta^2}{2mr^2} - G\frac{mM}{r}
-\stopformula
-The Hamiltonian contains the coordinate $r$, the momenta $p_r$ and $p_\theta$, and several constants ($m$, $M$, $G$, and $2$). These are the allowed ingredients in a good Hamiltonian. The coordinate $\theta$ is also allowed, but it does not appear.
 
-Now we can follow Hamilton's method to find the equations of motion. Since Kepler first discovered his area law for the angular motion, we will look at the angular equations of motion first. The angular momentum update formula is especially simple because there are no outside forces and the coordinate $\theta$ does not appear in the Hamiltonian, allowing us to immediately use the constant rule for derivatives!
-\startformula
-	dp_\theta = \left(-\ppth H + \cancel{F_\theta} \right)dt = 0
-\stopformula
-The angular momentum does not change – it is a \keyterm{constant of the motion}. The planet may speed up and slow down as its distance from the Sun changes, but the angular momentum $p_\theta$ remains constant.
-
-The position update formula for $\theta$ is almost as easy. Only the second term in the Hamiltonian contains the angular momentum $p_\theta$ so the other terms can be eliminated from the update formula using the constant rule.
-\startformula
-	d\theta = \pp{p_\theta} H\,dt
-		= \frac{\partial}{\partial p_\theta}
-			\left( \frac{p_\theta^2}{2mr^2} \right)dt
-		%= \frac{1}{2mr^2} \pp{p_\theta} p_\theta^2\,dt
-		%= \frac{1}{2mr^2} (2 p_\theta^{2-1})\,dt
-		= \frac{p_\theta}{mr^2}\,dt
-\stopformula
 Even as the angular momentum remains constant, the size of the angular steps $d\theta$ change as the planet moves closer and farther from the Sun. The angular steps are larger when the planet is closer to the Sun and $r$ smaller; the angular steps are smaller when the planet is farther from the Sun and $r$ is larger – exactly the speeds Kepler sought to model – first with the equant, and then with his constant area law.
 
 To see how our $\theta$ update formula compares with Kepler's area law, we can write the area law as an area update formula.
@@ -660,30 +647,17 @@ In polar coordinates, the small area swept out by a planet is a long, thin trian
 	dA = \half (r)(r\,d\theta)
 		= \half r^2\,d\theta.
 \stopformula
-We calculated the update $d\theta$ using Hamilton's method, and we can use it here.
+We calculated the update $d\theta$ above, and we can use it here.
 \startformula\pagereference[eq:AreaUpdate]
-	dA = \half \cancel{r^2}\frac{p_\theta}{m\cancel{r^2}}\,dt.
-		= \frac{p_\theta}{2m}\,dt.
+	dA = \half \cancel{r^2}\frac{L}{m\cancel{r^2}}\,dt.
+		= \frac{L}{2m}\,dt.
 \stopformula
-Since the angular momentum $p_\theta$ is a constant of the motion, this is exactly Kepler's area law stating that equal areas $dA$ are swept out in equal times $dt$. Conservation of angular momentum, which we discovered using Hamilton's method, was first discovered by Kepler as his area law.
-
-Angular momentum works with any angular coordinate. Many common systems are best described using angular coordinates – a swinging pendulum, a spinning top, pulleys, gears, and more. Angular momentum is not always a constant of the motion. For a pendulum, the potential energy $U$ depends on the angle $\theta$, so its angular momentum changes, always in the direction toward equilibrium. For a gear, the neighboring gears exert an outside force $F_\theta$ (called \keyterm{torque}) that can alter the gear's angular momentum. In all these cases, use $K_\theta = p_\theta^2/2I$ and follow Hamilton's general method to find the equations of motion. 
-%
-%The $\theta$ update formula produced by Hamilton's method is
-%\startformula
-%	d\theta = \frac{p_\theta}{I}\,dt.
-%\stopformula
-%The angular velocity in this update formula is $\omega = p_\theta/I$, which leads to a general formula for angular momentum.
-%\startformula
-%	p_\theta = I\omega
-%\stopformula
-%This is the angular version of Newton's momentum formula $p=mv$.
-Anything that spins, from a tumbling speck of dust to a spiral galaxy, can be modeled with angular momentum and Hamilton's method.
+Since the angular momentum $L$ is a constant of the motion, this is exactly Kepler's area law stating that equal areas $dA$ are swept out in equal times $dt$. Conservation of angular momentum was first discovered by Kepler as his area law.
 
 Now that we understand Earth's changing speed in terms of angular momentum, let's return to Kepler. 
-With his new area law, Kepler had more precise positions for Earth, and returned to the problem of Mars. His new effort is described in Book Five of \booktitle{New Astronomy}.
+With his new area law, Kepler had more precise positions for Earth, and he returned to the problem of Mars. His new effort is described in Book Five of \booktitle{New Astronomy}.
 
-Mars's more off-center orbit provides a more difficult challenge for Kepler's area law. \in{Figure}[fig:KeplerTerestrial] shows the areas swept out by Mars in the twenty days when it is farthest from the Sun (right) and the twenty days when it is closest (left). Once again, equal areas are swept out in equal times. Kepler checked areas along other parts of Mars's orbit, and all confirmed his area law.
+Mars's more eccentric orbit provides a more difficult challenge for Kepler's area law. \in{Figure}[fig:KeplerTerestrial] shows the areas swept out by Mars in the twenty days when it is farthest from the Sun (right) and the twenty days when it is closest (left). Once again, equal areas are swept out in equal times. Kepler checked areas along other parts of Mars's orbit, and all confirmed his area law.
 
 The areas swept out by Mars are not the same as the areas swept out by Mercury. Both planets have constant angular momentum, but Mars's angular momentum is much greater than Mercury's. (This is true even if we correct for Mars's larger mass.) Mars sweeps out about twice the area that Mercury does in the same time. You can roughly check this by measuring the areas in \in{figure}[fig:KeplerTerestrial].
 
@@ -801,7 +775,7 @@ We can see the role of the angular motion by adding angular kinetic energy $K_\t
   ]
   {9.926/x^2}
   %[yshift=8pt]
-    node[above right=0mm, pos=0.7] {$K_\theta=\frac{p_\theta^2}{2mr^2}$}
+    node[above right=0mm, pos=0.7] {$K_\theta=\frac{L^2}{2mr^2}$}
   ;
 \addplot[ % K angular Earth
    thin,
@@ -851,17 +825,37 @@ We can see the role of the angular motion by adding angular kinetic energy $K_\t
 {Earth's rotational kinetic energy $K_\theta$ and potential energy $U$ plotted as functions of the distance from the Sun $r$. The sum $U +K_\theta$ cradles Earth at its minimum. $U$ prevents Earth from leaving the solar system, while $K_\theta$ keeps it from spiraling into the Sun. Earth is always also moving the $\theta$ direction (not shown) as it orbits the Sun.}	 % caption text
 {\noindent\typesetbuffer[TikZ:EnergyGraphKU]} % figure contents
 
+For planetary orbits, there are three contributions to the total energy: the gravitational potential energy $U$, the kinetic energy $K_\theta$ due to the planet's motion around the Sun in the $\theta$-direction, and the kinetic energy $K_r$ due to any motion toward or away from the Sun in the $r$-direction.
+\startformula
+	H = K_r + K_\theta + U
+\stopformula
+The gravitational potential energy is especially simple in polar coordinates, since it only depends on the planet's distance $r$ from the Sun, not on the angle $\theta$.
+\startformula
+	U = -G\frac{mM}{r}
+\stopformula
+
+The kinetic energy's radial part $K_r$ can be written in terms of the radial momentum $p_r$, as usual.
+\startformula
+	K_r = \frac{p_r^2}{2m}
+\stopformula
+Similarly, the kinetic energy's angular part can be written in terms of the \keyterm{angular momentum} $L$. However, when we work with an angular coordinate, the mass in the denominator is replaced by the moment of inertial $I$. 
+\startformula
+	K_\theta = \frac{L^2}{2I}
+\stopformula
+Angular momentum $L$ is a new type of momentum associated with angular motion like rotation or orbits. Euler and others developed special methods for working with angular quantities, but Hamilton's method treats angular coordinates and momenta just like any others. 
+
+
 Earth's energy graph, in \in{figure}[fig:EnergyGraphKU], shows the angular kinetic energy $K_\theta$ along with the gravitational potential energy $U$. (This energy graph shows only the $r$-direction, not the $\theta$-direction.) The gravitational potential energy $U$ at the bottom should look familiar – rising toward zero far from the Sun and descending steeply close to the Sun.
 Earth's angular kinetic energy trends in the opposite direction – descending toward zero far from the Sun and rising steeply close to the Sun, as shown in \in{figure}[fig:EnergyGraphKU].
 
 Since gravitational potential energy and angular kinetic energy change in opposite directions, these energy changes balance when Earth's distance from the Sun changes slightly along its slightly eccentric orbit.
-As Earth moves slightly toward the Sun, some gravitational potential energy is converted to angular kinetic energy. As Earth recedes slightly away from the Sun, some angular kinetic energy is converted back to gravitational potential energy. (The angular momentum $p_\theta$ stays constant during these energy changes.)
+As Earth moves slightly toward the Sun, some gravitational potential energy is converted to angular kinetic energy. As Earth recedes slightly away from the Sun, some angular kinetic energy is converted back to gravitational potential energy. (The angular momentum $L$ stays constant during these energy changes.)
 
 The angular kinetic energy graph is not \emph{exactly} the opposite the gravitational potential energy graph. The angular kinetic energy $K_\theta$ has $r^2$ in the denominator, while the gravitational potential energy $U$ has only $r$ in the denominator. This makes the angular kinetic energy's behavior a bit sharper than gravitational potential energy's. Angular kinetic energy rises more sharply close to the Sun, and falls off more sharply far away. As a result, there is only one distance where the changes in energy balance, so that the sum stays the same.
 
 The last curve on Earth's energy graph in \in{figure}[fig:EnergyGraphKU] is this sum of the gravitational potential energy and the angular kinetic energy.
 \startformula
-	U + K_\theta = -G\frac{mM}{r} + \frac{p_\theta^2}{2mr^2}
+	U + K_\theta = -G\frac{mM}{r} + \frac{L^2}{2mr^2}
 \stopformula
 This curve increases sharply close to the Sun, due to the sharp rise in the angular kinetic energy $K_\theta$. The curve also rises towards zero far from the Sun, where the sharper drop in angular kinetic energy allows the more persistent rise of gravitational potential energy $U$ to dominate.
 
@@ -1424,17 +1418,17 @@ label.rt("$y$",(0,2.0cm));
 \stopuseMPgraphic
 
 \startplacefigure[location=margin, reference=fig:MathEllipse, title={The ellipse as commonly described by mathematicians.}]
-\small
+\small\vskip4.5in
 \reuseMPgraphic{MathEllipse}
 \stopplacefigure
 
 \noindent
 where $r_0$ gives the orbit's size and $\epsilon$ gives the orbit's eccentricity. As Kepler described, he did not recognize this formula as an ellipse, and you probably do not recognize it either. Even if you have studied ellipses is a mathematics course, you probably saw it described in terms of the semi-major axis $a$ and semi-minor axis $b$, as shown in \in{figure}[fig:MathEllipse]. These two shapes are the same, although it is not easy to prove. Kepler gives his proof in Chapter 59 of \booktitle{New Astronomy}.
-We would like to relate the orbit's size and eccentricity to the planet's angular momentum $p_\theta$ and total energy $H$. Before tackling these relations, let us return briefly to circular orbits.
+We would like to relate the orbit's size and eccentricity to the planet's angular momentum $L$ and total energy $H$. Before tackling these relations, let us return briefly to circular orbits.
 
 Elliptic orbits do not have a constant radius, so the formulas for angular momentum and total energy need to be modified to use the parameters of the ellipse – either $r$ and $\epsilon$ in Kepler's formula or $a$ and $b$ in the usual math description. The formulas are
 \startformula
-	p_\theta = m\sqrt{GMr_0}
+	L = m\sqrt{GMr_0}
 	\qquad
 	H = -G\frac{mM}{2a}.
 \stopformula
@@ -1599,11 +1593,11 @@ A planet's period can be calculated directly using Kepler's area law to fill the
 \stopformula
 We saw Kepler's area law stated as an area update formula (p.\at[eq:AreaUpdate]).
 \startformula
-	dA = \frac{p_\theta}{2m}\,dt
+	dA = \frac{L}{2m}\,dt
 \stopformula
 Since the all of the dA are the same size, this total area $A$ covered during the orbit's period $T$ is
 \startformula
-	A = \frac{p_\theta}{2m}\,T
+	A = \frac{L}{2m}\,T
 \stopformula
 Using the area of an ellipse, the formula for the planet's angular momentum, and the relation $r_0=b^2/a$, we can calculate the period $T$
 \startformula\startmathalignment

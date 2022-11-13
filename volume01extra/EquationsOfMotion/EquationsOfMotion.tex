@@ -357,6 +357,51 @@ This is the familiar position update formula $dx = v\,dt$ with the velocity $v =
 
 Hamilton's general method produces the complete equations of motion for any mechanical system from the system's Hamiltonian – the system's total energy written in terms of the positions and momenta. Hamilton's method is a favorite with physicists because of its power, beauty, and practicality. The method is also excellent for students. Writing the Hamiltonian is often fairly easy, even for complicated systems; the method often requires only basic skills with derivatives; and the equations of motion are separated into their most useful form. Hamilton's method is not necessary for a simple system like the cart on a spring, but it is ideal for our quadrivium problems. 
 
+\section{Kepler's Orbits}
+
+
+The moment of inertial $I$ should be familiar from the formula for rotational kinetic energy in \in{Chapter}[ch:VisViva] (\at{p.}[eq.Krot]). There, we described an object's moment of inertia as the total $mr^2$ for all parts of the object. Orbiting planets are just one part at distance $r$ from the Sun.
+\startformula
+	I = mr^2
+\stopformula
+Earth is spherical, but we do not use the formula for a sphere's moment of inertia, the way we would for rolling problems. Earth is engaged in two circular motions: spinning about its axis and revolving around the Sun. Hamilton's formulation allows us to treat those as separate motions. To study Earth's rotation about its axis, we would use the moment of inertia of a sphere. Here, we will study only Earth's revolution about the Sun, for which we should treat Earth as a single, small mass far from the center. For this motion the momentum of inertia is $I=mr^2$.
+
+Now we assemble the complete Hamiltonian for an orbiting planet. The Hamiltonian is intimidating, but notice the familiar parts.
+\startformula
+	H = \frac{p_r^2}{2m} + \frac{L^2}{2mr^2} - G\frac{mM}{r}
+\stopformula
+The Hamiltonian contains the coordinate $r$, the momenta $p_r$ and $L$, and several constants ($m$, $M$, $G$, and $2$). These are the allowed ingredients in a good Hamiltonian. The coordinate $\theta$ is also allowed, but it does not appear.
+
+Now we can follow Hamilton's method to find the equations of motion. Since Kepler first discovered his area law for the angular motion, we will look at the angular equations of motion first. The angular momentum update formula is especially simple because there are no outside forces and the coordinate $\theta$ does not appear in the Hamiltonian, allowing us to immediately use the constant rule for derivatives!
+\startformula
+	dL = \left(-\ppth H + \cancel{\tau} \right)dt = 0
+\stopformula
+The angular momentum does not change – it is a \keyterm{constant of the motion}. The planet may speed up and slow down as its distance from the Sun changes, but the angular momentum $L$ remains constant.
+
+The position update formula for $\theta$ is almost as easy. Only the second term in the Hamiltonian contains the angular momentum $L$ so the other terms can be eliminated from the update formula using the constant rule.
+\startformula
+	d\theta = \pp{L} H\,dt
+		= \frac{\partial}{\partial L}
+			\left( \frac{L^2}{2mr^2} \right)dt
+		%= \frac{1}{2mr^2} \pp{L} L^2\,dt
+		%= \frac{1}{2mr^2} (2 L^{2-1})\,dt
+		= \frac{L}{mr^2}\,dt
+\stopformula
+
+
+Angular momentum works with any angular coordinate. Many common systems are best described using angular coordinates – a swinging pendulum, a spinning top, pulleys, gears, and more. Angular momentum is not always a constant of the motion. For a pendulum, the potential energy $U$ depends on the angle $\theta$, so its angular momentum changes, always in the direction toward equilibrium. For a gear, the neighboring gears exert an outside force $\tau$ (called \keyterm{torque}) that can alter the gear's angular momentum. In all these cases, use $K_\theta = L^2/2I$ and follow Hamilton's general method to find the equations of motion. 
+%
+%The $\theta$ update formula produced by Hamilton's method is
+%\startformula
+%	d\theta = \frac{L}{I}\,dt.
+%\stopformula
+%The angular velocity in this update formula is $\omega = L/I$, which leads to a general formula for angular momentum.
+%\startformula
+%	L = I\omega
+%\stopformula
+%This is the angular version of Newton's momentum formula $p=mv$.
+Anything that spins, from a tumbling speck of dust to a spiral galaxy, can be modeled with angular momentum and Hamilton's method.
+
 
 \stoptext
 \stopcomponent
