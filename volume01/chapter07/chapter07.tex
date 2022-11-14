@@ -549,20 +549,35 @@ However, the angular velocity is not constant. The correct angular velocity is f
 The central Sun's gravitational force pulls each planet directly toward the center, in the negative $r$ direction. The planets do not feel any torque $\tau$ in the clockwise or counter-clockwise $\theta$ direction.
 With no torque, each planet's angular momentum $L$ is constant.
 
+For a circular orbit and a constant distance $r$, the constant angular momentum would produce a constant angular velocity. But the planets' orbits are eccentric, $r$ is not constant, and the angular velocity changes as the planets get nearer to the Sun and then farther away. 
 
-For a circular orbit and a constant distance $r$, the constant angular momentum would produce a constant angular velocity. But the planets' orbits are eccentric, $r$ is not constant, and the angular velocity changes as the planets get nearer to the Sun and then farther away. A planet's angular momentum is 
+\startexample[ex:EarthDistances]
+Earth's angular velocity around the Sun varies slightly, from $\unit{2.059e-7rad/s}$ in early January to $\unit{1.926e-7rad/s}$ in early July. Earth is closest to the Sun in early January, when the distance is $\unit{1.471e11m}$. What is Earth's greatest distance from the Sun?
+\startsolution
+Use conservation of angular momentum to relate the changeing angular velocity to the changing distance. We will go from the closest point, where Earth's angular velocity is greatest, to the farthest point, where Earth's angular velocity is lowest.
+\startformula\startmathalignment
+\NC  L\si + \cancel{\tau∆t} \NC= L\sf \NR
+\NC  I\si\omega\si \NC= I\sf\omega\sf \NR
+\NC  mr\si^2\omega\si \NC= mr\sf^2\omega\sf \NR
+\stopmathalignment\stopformula
 \startformula
-  L = I\omega = mr^2\omega.
+  r\sf = r\si\sqrt{\frac{\omega\si}{\omega\sf}}
+       = \unit{1.471e11m}\sqrt{\frac{\unit{2.059e-7rad/s}}{\unit{1.926e-7rad/s}}}
+       = \unit{1.521e11m}
 \stopformula
-Solving for $\omega$ allows us to find the correct position update formula for $\theta$.
+At its farthest point, Earth is only slightly farther away from the Sun.
+\stopsolution
+\stopexample
+
+Since a planet's constant angular momentum is $L = I\omega = mr^2\omega$, the planet's angular velocity is 
+\startformula
+  \omega = \frac{L}{mr^2}
+\stopformula
+This angular velocity $\omega$ allows us to find the correct position update formula for $\theta$ as the planet's distance $r$ changes.
 \startformula
   d\theta = \frac{L}{mr^2}\,dt
 \stopformula
-
-
-
-
-Even as the angular momentum remains constant, the size of the angular steps $d\theta$ change as the planet moves closer and farther from the Sun. The angular steps are larger when the planet is closer to the Sun and $r$ smaller; the angular steps are smaller when the planet is farther from the Sun and $r$ is larger – exactly the speeds Kepler sought to model – first with the equant, and then with his constant area law.
+Even as the angular momentum remains constant, the size of the angular steps $d\theta$ change as the planet moves closer and farther from the Sun. The angular steps are larger when the planet is closer to the Sun and $r$ smaller; the angular steps are smaller when the planet is farther from the Sun and $r$ is larger\dash exactly the speeds Kepler sought to model, first with the equant and then with his constant area law.
 
 To see how our $\theta$ update formula compares with Kepler's area law, we can write the area law as an area update formula.
 \startformula
@@ -642,7 +657,7 @@ where $dA$ is a small change in area that occurs during the short duration $dt$,
 
 \marginTikZ{}{dA}{The small area $dA$ swept out by Earth during a small duration $dt$.} % vskip, name, caption
 
-In polar coordinates, the small area swept out by a planet is a long, thin triangle, with length $r$ and width $r\,d\theta$. The thin triangle's area is
+In polar coordinates, the small area swept out by a planet is a long, thin triangle with length $r$ and width $r\,d\theta$. The thin triangle's area is
 \startformula
 	dA = \half (r)(r\,d\theta)
 		= \half r^2\,d\theta.
@@ -652,7 +667,7 @@ We calculated the update $d\theta$ above, and we can use it here.
 	dA = \half \cancel{r^2}\frac{L}{m\cancel{r^2}}\,dt.
 		= \frac{L}{2m}\,dt.
 \stopformula
-Since the angular momentum $L$ is a constant of the motion, this is exactly Kepler's area law stating that equal areas $dA$ are swept out in equal times $dt$. Conservation of angular momentum was first discovered by Kepler as his area law.
+Since the angular momentum $L$ is a constant of the motion, this is exactly Kepler's area law stating that equal areas $dA$ are swept out in equal times $dt$. Kepler's area law is the earliest description of conservation of angular momentum.
 
 Now that we understand Earth's changing speed in terms of angular momentum, let's return to Kepler. 
 With his new area law, Kepler had more precise positions for Earth, and he returned to the problem of Mars. His new effort is described in Book Five of \booktitle{New Astronomy}.
