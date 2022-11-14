@@ -727,8 +727,16 @@ Each planet's orbit is a compound motion. The planet moves around the Sun in the
 
 \marginTikZ{}{Uterrestrial3D}{The gravitational potential energy of the inner planets, with their approximate distances from the Sun. The inner planets' full orbits are shown in \in{figure}[fig:KeplerTerestrial].} % vskip, name, caption
 
-The energy graph in \in{figure}[fig:Uterrestrial3D] shows the gravitational potential energy for the inner planets. Above the graph are the central Sun and the inner planet's at their approximate distances. The gravitational potential energy alone does not offer much insight into the orbits. It looks as if the planets will spiral down the deep potential well. Fortunately, this does not happen due to the planets' angular motion. 
+The energy graph in \in{figure}[fig:Uterrestrial3D] shows the gravitational potential energy for the inner planets. Above the graph are the central Sun and the inner planet's at their approximate distances. The gravitational potential energy alone does not offer much insight into the orbits. It looks as if the planets will spiral down the deep potential well and crash into the Sun! Fortunately, this does not happen due to the planets' angular motion. 
 We can see the role of the angular motion by adding angular kinetic energy $K_\theta$ to each planet's energy graph.
+
+Each planet's angular momentum $L$ is constant, but each planet's angular kinetic energy is \emph{not} constant.
+\startformula
+  K_\theta = \frac{L^2}{2I}
+    =  \frac{L^2}{2mr^2}
+\stopformula
+We see from this formula that as a planet approaches the Sun, toward smaller $r$, its angular kinetic energy $K_\theta$ increases. As the planet moves away from the Sun, toward larger $r$, its angular kinetic energy $K_\theta$ degreases.
+
 
 \startbuffer[TikZ:EnergyGraphKU]
 \environment env_physics
@@ -840,26 +848,6 @@ We can see the role of the angular motion by adding angular kinetic energy $K_\t
 {Earth's rotational kinetic energy $K_\theta$ and potential energy $U$ plotted as functions of the distance from the Sun $r$. The sum $U +K_\theta$ cradles Earth at its minimum. $U$ prevents Earth from leaving the solar system, while $K_\theta$ keeps it from spiraling into the Sun. Earth is always also moving the $\theta$ direction (not shown) as it orbits the Sun.}	 % caption text
 {\noindent\typesetbuffer[TikZ:EnergyGraphKU]} % figure contents
 
-For planetary orbits, there are three contributions to the total energy: the gravitational potential energy $U$, the kinetic energy $K_\theta$ due to the planet's motion around the Sun in the $\theta$-direction, and the kinetic energy $K_r$ due to any motion toward or away from the Sun in the $r$-direction.
-\startformula
-	H = K_r + K_\theta + U
-\stopformula
-The gravitational potential energy is especially simple in polar coordinates, since it only depends on the planet's distance $r$ from the Sun, not on the angle $\theta$.
-\startformula
-	U = -G\frac{mM}{r}
-\stopformula
-
-The kinetic energy's radial part $K_r$ can be written in terms of the radial momentum $p_r$, as usual.
-\startformula
-	K_r = \frac{p_r^2}{2m}
-\stopformula
-Similarly, the kinetic energy's angular part can be written in terms of the \keyterm{angular momentum} $L$. However, when we work with an angular coordinate, the mass in the denominator is replaced by the moment of inertial $I$. 
-\startformula
-	K_\theta = \frac{L^2}{2I}
-\stopformula
-Angular momentum $L$ is a new type of momentum associated with angular motion like rotation or orbits. Euler and others developed special methods for working with angular quantities, but Hamilton's method treats angular coordinates and momenta just like any others. 
-
-
 Earth's energy graph, in \in{figure}[fig:EnergyGraphKU], shows the angular kinetic energy $K_\theta$ along with the gravitational potential energy $U$. (This energy graph shows only the $r$-direction, not the $\theta$-direction.) The gravitational potential energy $U$ at the bottom should look familiar – rising toward zero far from the Sun and descending steeply close to the Sun.
 Earth's angular kinetic energy trends in the opposite direction – descending toward zero far from the Sun and rising steeply close to the Sun, as shown in \in{figure}[fig:EnergyGraphKU].
 
@@ -965,7 +953,164 @@ Earth rocks gently in this minimum, where the two energy curves' slopes are in b
 
 Earth's full orbit is shown on the energy graph in \in{figure}[fig:UK3D], where the $\theta$ direction has been restored. This graph reminds me again of Kepler's early drinking cup model, where Earth's orbit was confined to a spherical shell between two platonic solids (\at{p.}[fig:Kepler1596system]). In our energy graph, Earth's orbit is held between two competing energies. Rising gravitational potential energy surrounds Earth's orbit, preventing Earth from wandering out of the Solar System. Rising angular kinetic energy sits inside Earth's orbit, preventing Earth from spiraling into the Sun.
 
-The gravitational potential energy graph is the same shape for every planet, but the relative size of the angular kinetic energy hill in the middle of the graph depends on the planet's angular momentum. Greater angular momentum increases the size of this hill, called the \keyterm{centrifugal barrier}. A larger centrifugal barrier pushes the planet's orbit farther out from the Sun, as we will see for Mars. Less angular momentum produces a smaller centrifugal barrier, allowing the orbit to be closer to the Sun, as for Mercury. The size of the centrifugal barrier is different for each planet, giving their orbits different sizes in the same gravitational potential energy well.
+The gravitational potential energy graph is the same shape for every planet, but the relative size of the angular kinetic energy hill in the middle of the graph depends on the planet's angular momentum. Greater angular momentum increases the size of this hill, called the \keyterm{centrifugal barrier}.
+A larger centrifugal barrier pushes the planet's orbit farther out from the Sun, as shown in \in{figure}[fig:EnergyGraphKUH]. Less angular momentum produces a smaller centrifugal barrier, allowing the orbit to be closer to the Sun, as for Mercury. The size of the centrifugal barrier is different for each planet, giving their orbits different sizes in the same gravitational potential energy well.
+
+\startbuffer[TikZ:EnergyGraphKUH]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startaxis
+ [	x=5cm,y={1cm},
+   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
+   xmin=0, xmax=3,
+   minor x tick num=1,
+   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
+   ymin=-13, ymax=0,
+   minor y tick num=9,
+   clip mode = individual,
+		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+ ]
+  \addplot[ % axis
+      thick,
+      domain=0:3,
+      samples=2]
+    {0};
+  \addplot[ % Ug
+      thick,
+      domain=0.8:3,
+      samples=150]
+    {-13.3/x}
+    node[below right,pos=0.6] {$U$};
+  \addplot[ % Circular Orbits
+      thick, dotted,
+      domain=0.5:5,
+      samples=150]
+    {-6.65/x};
+  \addplot[ % K angular Mercury
+      thin,
+      domain=0.25:5,
+      samples=150]
+    {(-13.27/x)+(3.68/x^2)};
+  \addplot[ % H Mercury
+      very thick,
+      domain=0.46:0.698,
+      samples=2]
+    {-11.457}
+    node[below, pos=0.5] {Mercury};
+  \addplot[ % K angular Venus
+      thin,
+      domain=0.47:5,
+      samples=150]
+    {(-13.27/x)+(7.179/x^2)};
+  \addplot[ % H Venus
+      very thick,
+      domain=1.075:1.089,
+      samples=2]
+    {-6.132}
+    node[below, pos=0.5] {Venus};
+  \addplot[ % K angular Earth
+      thin,
+      domain=0.6:5,
+      samples=150]
+    {(-13.27/x)+(9.926/x^2)};
+  \addplot[ % E Earth
+      very thick,
+     domain=1.471:1.521,
+     samples=2]
+   {-4.437}
+   node[below, pos=0.5] {Earth};
+  \addplot[ % K angular Mars
+      thin,
+      domain=0.89:3,
+      samples=150]
+    {(-13.27/x)+(14.99/x^2)};
+  \addplot[ % E Mars
+      very thick,
+      domain=2.067:2.492,
+      samples=2]
+    {-2.912}
+    node[below, pos=0.5] {Mars};
+%  \addplot[ % K angular Halley's Comet
+%      thin,
+%      domain=0.7:5,
+%      samples=150]
+%    {(-13.27/x)+(11.44/x^2)};
+%  \addplot[ % E Halley's Comet
+%      very thick,
+%      domain=0.8767:3,
+%      samples=2]
+%    {-0.249}
+%    node[below, pos=0.5] {Halley's Comet};
+%  \addplot[ % K angular ʻOumuamua
+%      thin,
+%      domain=0.37:5,
+%      samples=150]
+%    {(-13.27/x)+(5.591/x^2)};
+%  \addplot[ % E ʻOumuamua
+%      very thick,
+%      domain=0.383:3,
+%      samples=2]
+%    {3.486}
+%    node[below, pos=0.5] {ʻOumuamua};
+    \draw[->] (0,0.5) --node[above, pos=.98]{$r$} (3,0.5);
+    \filldraw[black!20] ({0.555/(1-0.20564*cos(120))},0.5) circle[radius=0.6mm];
+    \filldraw[black!15] (0.555,0.5) circle[radius=0.6mm];
+    \filldraw[black!20] ({0.555/(1-0.20564*cos(60))},0.5) circle[radius=0.6mm];
+    \filldraw[black!30] ({0.555/(1-0.20564*cos(30))},0.5) circle[radius=0.6mm];
+    \filldraw[black!30] ({0.555/(1-0.20564*cos(150))},0.5) circle[radius=0.6mm];
+    \filldraw[black!40] (0.46,0.5) circle[radius=0.6mm];
+    \draw[shade, ball color = darkgray] (0.698,0.5) circle[radius=0.6mm]node[above=0.8mm] {\Mercury};
+    \draw[shade, ball color = white] (0,0.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
+    \draw[shade, ball color = darkgray] (1.08,0.5) circle[radius=1.2mm]node[above=0.8mm] {\Venus}; % Earth
+    \draw[shade, ball color = darkgray] (1.5,0.5) circle[radius=1.2mm]node[above=0.8mm] {\Earth}; % Earth
+    \filldraw[black!20] ({2.259/(1-0.0934*cos(120))},0.5) circle[radius=1mm];
+    \filldraw[black!15] (2.259,0.5) circle[radius=1mm];
+    \filldraw[black!20] ({2.259/(1-0.0934*cos(60))},0.5) circle[radius=1mm];
+    \filldraw[black!30] ({2.259/(1-0.0934*cos(30))},0.5) circle[radius=1mm];
+    \filldraw[black!30] ({2.259/(1-0.0934*cos(150))},0.5) circle[radius=1mm];
+    \filldraw[black!40] (2.067,0.5) circle[radius=1mm];
+    \draw[shade, ball color = darkgray] (2.492,0.5) circle[radius=1mm]node[above=0.8mm] {\Mars};
+\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placewidefloat
+  [bottom,none]
+  {This is its caption I need to fix.}
+{\hbox{\typesetbuffer[TikZ:EnergyGraphKUH]}}
+
+
+\placefigure[margin][fig:EnergyGraphKUH] % location
+{Energy graphs for the four terrestrial planets. The dotted line shows the energy and radius of perfectly circular orbits. Earth and Venus have nearly circular orbits. }	% caption text
+{\vskip1.5in\hbox{\noindent\starttikzpicture
+	\draw[white] (0,0)-- ++(5,0.2); % Sky to make height better. Use \vskip6.4in for bottom.
+\stoptikzpicture}}
+
+For planetary orbits, there are three contributions to the total energy: the gravitational potential energy $U$, the kinetic energy $K_\theta$ due to the planet's motion around the Sun in the $\theta$-direction, and the kinetic energy $K_r$ due to any motion toward or away from the Sun in the $r$-direction.
+\startformula
+	H = K_r + K_\theta + U
+\stopformula
+The gravitational potential energy is especially simple in polar coordinates, since it only depends on the planet's distance $r$ from the Sun, not on the angle $\theta$.
+\startformula
+	U = -G\frac{mM}{r}
+\stopformula
+
+The kinetic energy's radial part $K_r$ can be written in terms of the radial momentum $p_r$, as usual.
+\startformula
+	K_r = \frac{p_r^2}{2m}
+\stopformula
+Similarly, the kinetic energy's angular part can be written in terms of the \keyterm{angular momentum} $L$. However, when we work with an angular coordinate, the mass in the denominator is replaced by the moment of inertial $I$. 
+\startformula
+	K_\theta = \frac{L^2}{2I}
+\stopformula
+Angular momentum $L$ is a new type of momentum associated with angular motion like rotation or orbits. Euler and others developed special methods for working with angular quantities, but Hamilton's method treats angular coordinates and momenta just like any others. 
+
+
 
 \startbuffer[TikZ:EnergyGraphKUH]
 \environment env_physics
@@ -1086,7 +1231,7 @@ The gravitational potential energy graph is the same shape for every planet, but
 
 Mars's more eccentric orbit leads to a more interesting energy graph, shown in \in{figure}[fig:EnergyGraphKUH]. Mars's energy graph shows the total energy $H$, including the kinetic energy $K_r$ due to Mars's motion in the $r$-direction. The total energy $H$ is slightly higher than the minimum of $K_\theta+U$, allowing Mars to oscillate over a significant range of distances from approximately $r\sub{min}=2\units{Gm}$ to $r\sub{max}=2.5\units{Gm}$, as shown by the range of Mars positions above the energy graph. These turning points in the energy graph are same maximum and minimum distances of Mars's orbit shown in \in{figure}[fig:KeplerTerestrial]. If you look closely at Earth's energy graph (\in{fig.}[fig:EnergyGraphKU]) you will see that it is also a small line segment showing the Earth's range of distances from the Sun.
 
-Mars's full energy graph is shown in \in{figure}[fig:UKMars3D]. The orbit's eccentricity is clearly visible. The extra radial kinetic energy $K_r$ responsible for this eccentric motion has raised the total energy $H$ above the $U + K_\theta$ minimum, as if some water (shown in white) had been added to the moat around the central centrifugal barrier. As Mars circles the Sun, its orbit (shown in black) crosses this moat between the outer shore at $r_max$ on the right side of the centrifugal barrier, and the inner shore at $r_min$ on the left side of the centrifugal barrier. 
+Mars's full energy graph is shown in \in{figure}[fig:UKMars3D]. The orbit's eccentricity is clearly visible. The extra radial kinetic energy $K_r$ responsible for this eccentric motion has raised the total energy $H$ above the $U + K_\theta$ minimum, as if some water (shown in white) had been added to the moat around the central centrifugal barrier. As Mars circles the Sun, its orbit (shown in black) crosses this moat between the outer shore at $r_{max}$ on the right side of the centrifugal barrier, and the inner shore at $r_{min}$ on the left side of the centrifugal barrier. 
 
 \startbuffer[UKMars3D]
 \startaxis[
@@ -1213,7 +1358,7 @@ The energy graph shows the full compound motion discovered by Kepler. The Sun's 
 With the eccentricity and the [orbit's radius] established with the utmost certainty, it might appear strange to an astronomer that there remains yet another impediment in the way of astronomy's triumph\dots. Nevertheless\dots. \autocite{p.~336.}{Kepler1609}
 \stopblockquote
 During the years of work on the orbits of Mars and Earth, Kepler had developed unmatched skill in geometry and computation. He was testing many more predictions against Tycho's observations. The area law provided the correct speed for Mars along its orbit, but in some places the orbit was deviating from a circle.
-Having already abandoned constant angular velocity, Kepler was forced to also abandon the ancient's circular orbits. \quotation{The orbit of the planet is not a circle but of an oval shape.} \autocite{p.~338.}{Kepler1609}
+Having already abandoned constant angular velocity, Kepler was forced to also abandon the ancients' circular orbits. \quotation{The orbit of the planet is not a circle but of an oval shape.} \autocite{p.~338.}{Kepler1609}
 
 This presented a huge computational challenge. All of Kepler's geometrical methods depend on the geometry of a circle. He needed to find a new shape, but did not know what it should be. He tried some slightly pointy egg shapes, but needed to study many more observations to determine exactly how long and pointy the egg should be.
 
