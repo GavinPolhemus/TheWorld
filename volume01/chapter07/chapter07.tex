@@ -1091,136 +1091,149 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
 	\draw[white] (0,0)-- ++(5,0.2); % Sky to make height better. Use \vskip6.4in for bottom.
 \stoptikzpicture}}
 
-The four inner planets are shown at their correct distances from the Sun along the top of \in{figure}[fig:EnergyGraphKUH]. Take a moment to locate Venus and Earth, and compare the energy graphs for these two planets. Earth's is the same $U+K_\theta$ curve shown in \in{figure}[fig:EnergyGraphKU]. The $U+K_\theta$ curve for Venus is a similar shape, but shifted down toward lower energy and left toward smaller $r$. This shift is due to Venus's lower angular momentum . Lower angular momentum gives Venus a lower angular kinetic energy $K_\theta = L^2/2mr^2$, which is why Venus's $U+K_\theta$ curve in \in{figure}[fig:EnergyGraphKUH] is lower than Earth's.
+The four inner planets are shown at their correct distances from the Sun along the top of \in{figure}[fig:EnergyGraphKUH].
+Take a moment to locate Venus and Earth, and compare the energy graphs for these two planets. Earth's is the same $U+K_\theta$ curve shown in \in{figure}[fig:EnergyGraphKU].
+The $U+K_\theta$ curve for Venus is a similar shape, but shifted down toward lower energy and left toward smaller $r$.
+This shift is due to Venus's lower angular momentum.
+Lower angular momentum gives Venus a lower angular kinetic energy $K_\theta = L^2/2mr^2$, which is why Venus's $U+K_\theta$ curve in \in{figure}[fig:EnergyGraphKUH] is lower than Earth's.
 
 Like Earth, Venus sits right near the minimum of its $U+K_\theta$ graph, always staying nearly the same distance from the Sun in a nearly circular, centered orbit. The dotted line in \in{figure}[fig:EnergyGraphKUH] shows the radius and energy of every possible circular, centered orbit. (See \in{figure}[fig:CircularH], \at{p.}[fig:CircularH].) This dotted line passes right through the minimum of every $U+K_\theta$ curve. Earth and Venus sit on this line, since they are both in nearly circular, centered orbits.
 
-Mercury has much less angular momentum, so its $U+K_\theta$ curve is even lower and farther left than Venus's, putting Mercury much closer to the Sun. Unlike Venus and Earth, Mercury's orbit is quite eccentric. Mercury does not sit right at the minimum of its $U+K_\theta$ curve. Mercury's total energy $H$, shown by the thick, short, horizontal line labeled \quotation{Mercury,} is somewhat higher than the minimum of the $U+K_\theta$ curve. This looks very much like the energy graph for a simple harmonic oscillator, and Mercury does indeed oscillate in the $r$ direction as it orbits the Sun. The endpoints of Mercury's total energy line are Mercury's turning points. The left end of the line represents Mercury's closest approach to the Sun, and the right end represents Mercury's greatest distance from the Sun. This range of distances is shown by the range of positions for Mercury at the top of \in{figure}[fig:EnergyGraphKUH].
+Mercury has much less angular momentum, so its $U+K_\theta$ curve is even lower and farther left than Venus's, putting Mercury much closer to the Sun. Unlike Venus and Earth, Mercury's orbit is quite eccentric. Mercury does not sit right at the minimum of its $U+K_\theta$ curve. Mercury's total energy $H=U+K_\theta+K_R$, shown by the thick, short, horizontal line labeled \quotation{Mercury,} is somewhat higher than the minimum of the $U+K_\theta$ curve. This looks very much like the energy graph for a simple harmonic oscillator, and Mercury does indeed oscillate in the $r$ direction as it orbits the Sun.
 Mercury's oscillations have a period of 88 days.
 
+The endpoints of Mercury's total energy line are Mercury's turning points. The left end of the line represents Mercury's closest approach to the Sun, and the right end represents Mercury's greatest distance from the Sun. This range of distances is shown by the range of positions for Mercury at the top of \in{figure}[fig:EnergyGraphKUH].
+Between the turning points, Mercury is moving in the $r$ direction as well as in $\theta$ direction. Mercury's radial motion requires some kinetic energy $K_r = \onehalf mv_r^2$. No outside force does any work on Mercury, so Mercury's total energy $H=U+K_\theta+K_R$ is constant as Mercury oscillates between the turning points.
+
 Mars has the most angular momentum of the planets in \in{figure}[fig:EnergyGraphKUH], making it farthest from the Sun.
-Like Mercury, Mars has an eccentric orbit and does not sit at the minimum of the $U+K_\theta$ curve. The thick, horizontal line labeled \quotation{Mars} shows Mars's total energy $H$ as it oscillates between the two turning points on the the $U+K_\theta$ curve. The minimum of Mars's $U+K_\theta$ curve is much wider and shallower than the minimum of Mercury's curve, so Mars oscillates much more slowly that Mercury. Mars's oscillations have a period of 687 days.
+Like Mercury, Mars has an eccentric orbit and does not sit at the minimum of the $U+K_\theta$ curve. The thick, horizontal line labeled \quotation{Mars} shows Mars's total energy $H$ as it oscillates between the two turning points on the the $U+K_\theta$ curve.
+Mars oscillates over a significant range of distances from approximately $r\sub{min}=2\units{Gm}$ to $r\sub{max}=2.5\units{Gm}$, as shown by the range of Mars positions above the energy graph. These turning points in the energy graph are same maximum and minimum distances of Mars's orbit shown in \in{figure}[fig:KeplerTerestrial]. 
+The minimum of Mars's $U+K_\theta$ curve is much wider and shallower than the minimum of Mercury's curve, so Mars oscillates much more slowly that Mercury. Mars's oscillations have a period of 687 days.
 
+If you look closely at Earth's energy graph in \in{figure}[fig:EnergyGraphKU] or \in[fig:EnergyGraphKUH], you will see that Earth's total energy $H$ is also a small line segment showing the Earth's small range of distances from the Sun.
+Venus's range of distances is even smaller, but is still barely visible in \in{figure}[fig:EnergyGraphKUH].
 
+In order to compare the different planets on a single energy graph, I plotted the energy per mass of each planet, as you can see by looking at the vertical axis on \in{figure}[fig:EnergyGraphKUH]. The energies on this graph represent the energies of each kilogram of the planet, not the energies of the entire planet. Even so, the energies are quite large. For example, each kilogram of Earth\dash and each kilogram of you\dash has a kinetic energy $K_\theta = \unit{4.44e8J}$ due to our high velocity around the Sun.
 
-\startbuffer[TikZ:EnergyGraphKUHMars]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage\small
-\starttikzpicture% tikz code
-\startaxis
- [	width=11cm,y={1cm},
-   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
-   xmin=0, xmax=3,
-   minor x tick num=4,
-   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
-   ymin=-8, ymax=0,
-   minor y tick num=9,
-   clip mode = individual,
-		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
- ]
-% \addplot[ % Us
+%
+%\startbuffer[TikZ:EnergyGraphKUHMars]
+%\environment env_physics
+%\environment env_TikZ
+%\setupbodyfont [libertinus,11pt]
+%\setoldstyle % Old style numerals in text
+%\startTEXpage\small
+%\starttikzpicture% tikz code
+%\startaxis
+% [	width=11cm,y={1cm},
+%   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
+%   xmin=0, xmax=3,
+%   minor x tick num=4,
+%   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
+%   ymin=-8, ymax=0,
+%   minor y tick num=9,
+%   clip mode = individual,
+%		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+% ]
+%% \addplot[ % Us
+%%   thick,
+%%   domain=10:20,
+%%   samples=51
+%%  ]
+%%  {((x-20)^2/200)}
+%%  [xshift=9pt]
+%%    node[pos=0.03] {$U\sub{s}$}
+%%  ;
+%%\ifprintanswers
+%\addplot[ % axis
 %   thick,
-%   domain=10:20,
-%   samples=51
-%  ]
-%  {((x-20)^2/200)}
-%  [xshift=9pt]
-%    node[pos=0.03] {$U\sub{s}$}
-%  ;
-%\ifprintanswers
-\addplot[ % axis
-   thick,
-   domain=0:3,
-   samples=2
-  ]
-  {0}
-%  [yshift=10pt]
-%    node[pos=0.5] {$U$}
-  ;
-\addplot[ % Ug
-   thick,
-   domain=1.5:3,
-   samples=150
-  ]
-  {-13.3/x}
-  %[yshift=-10pt]
-    node[below right,pos=0.6] {$U$}
-  ;
-%\addplot[ % Circular Orbits
-%   thick, dotted,
-%   domain=0.5:5,
-%   samples=150
-%  ]
-%  {-6.65/x}
-%  ;
-%\addplot[ % K angular Earth
-%   thin,
-%   domain=0.5:5,
-%   samples=150
-%  ]
-%  {9.926/x^2}
-%  %[yshift=8pt]
-%    node[above, pos=0.95] {$K_\theta$}
-%  ;
-%\addplot[ % K angular Earth
-%   thin,
-%   domain=0.5:5,
-%   samples=150
-%  ]
-%  {(-13.27/x)+(9.926/x^2)}
-%  %[yshift=8pt]
-%    node[above right,pos=0.75] {$K_\theta + U$}
-%  ;
-%\addplot[ % E Earth
-%   very thick,
-%   domain=1.471:1.521,
+%   domain=0:3,
 %   samples=2
 %  ]
-%  {-4.437}
-%  %[yshift=10pt]
-%    node[below, pos=0.5] {Earth}
+%  {0}
+%%  [yshift=10pt]
+%%    node[pos=0.5] {$U$}
 %  ;
-\addplot[ % K angular Mars
-   thin,
-   domain=1:3,
-   samples=150
-  ]
-  {(-13.27/x)+(14.99/x^2)}
-  %[yshift=8pt]
-    node[below left,pos=0.45] {$U + K_\theta$}
-  ;
-\addplot[ % E Mars
-   very thick,
-   domain=2.067:2.492,
-   samples=2
-  ]
-  {-2.912}
- % [yshift=10pt]
-    node[above, pos=0.5] {$H = U + K_\theta + K_r$}
-    %node[above, pos=0.5] {Mars}
-  ;
-    \draw[->] (0,0.5) --node[above, pos=.98]{$r$} (3,0.5);
-    \draw[shade, ball color = white] (0,0.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
-    \filldraw[black!20] ({2.259/(1-0.0934*cos(120))},0.5) circle[radius=1.2mm];
-    \filldraw[black!15] (2.259,0.5) circle[radius=1.2mm];
-    \filldraw[black!20] ({2.259/(1-0.0934*cos(60))},0.5) circle[radius=1.2mm];
-    \filldraw[black!30] ({2.259/(1-0.0934*cos(30))},0.5) circle[radius=1.2mm];
-    \filldraw[black!30] ({2.259/(1-0.0934*cos(150))},0.5) circle[radius=1.2mm];
-    \filldraw[black!40] (2.067,0.5) circle[radius=1.2mm];
-    \draw[shade, ball color = darkgray] (2.492,0.5) circle[radius=1.2mm]node[above=0.8mm] {\Mars};
-\stopaxis
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
-
-\placetextfloat[top][fig:EnergyGraphKUHMars] % location
-{Mars's energy graph. The sum $U + K_\theta$ cradles Mars at its minimum. Mars oscillates between approximately $r\sub{min}=2\units{Gm}$ and $r\sub{max}=2.5\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
-{\noindent\typesetbuffer[TikZ:EnergyGraphKUHMars]} % figure contents
-
-Mars's more eccentric orbit leads to a more interesting energy graph, shown in \in{figure}[fig:EnergyGraphKUHMars]. Mars's energy graph shows the total energy $H$, including the kinetic energy $K_r$ due to Mars's motion in the $r$-direction. The total energy $H$ is slightly higher than the minimum of $K_\theta+U$, allowing Mars to oscillate over a significant range of distances from approximately $r\sub{min}=2\units{Gm}$ to $r\sub{max}=2.5\units{Gm}$, as shown by the range of Mars positions above the energy graph. These turning points in the energy graph are same maximum and minimum distances of Mars's orbit shown in \in{figure}[fig:KeplerTerestrial]. If you look closely at Earth's energy graph (\in{fig.}[fig:EnergyGraphKU]) you will see that it is also a small line segment showing the Earth's range of distances from the Sun.
+%\addplot[ % Ug
+%   thick,
+%   domain=1.5:3,
+%   samples=150
+%  ]
+%  {-13.3/x}
+%  %[yshift=-10pt]
+%    node[below right,pos=0.6] {$U$}
+%  ;
+%%\addplot[ % Circular Orbits
+%%   thick, dotted,
+%%   domain=0.5:5,
+%%   samples=150
+%%  ]
+%%  {-6.65/x}
+%%  ;
+%%\addplot[ % K angular Earth
+%%   thin,
+%%   domain=0.5:5,
+%%   samples=150
+%%  ]
+%%  {9.926/x^2}
+%%  %[yshift=8pt]
+%%    node[above, pos=0.95] {$K_\theta$}
+%%  ;
+%%\addplot[ % K angular Earth
+%%   thin,
+%%   domain=0.5:5,
+%%   samples=150
+%%  ]
+%%  {(-13.27/x)+(9.926/x^2)}
+%%  %[yshift=8pt]
+%%    node[above right,pos=0.75] {$K_\theta + U$}
+%%  ;
+%%\addplot[ % E Earth
+%%   very thick,
+%%   domain=1.471:1.521,
+%%   samples=2
+%%  ]
+%%  {-4.437}
+%%  %[yshift=10pt]
+%%    node[below, pos=0.5] {Earth}
+%%  ;
+%\addplot[ % K angular Mars
+%   thin,
+%   domain=1:3,
+%   samples=150
+%  ]
+%  {(-13.27/x)+(14.99/x^2)}
+%  %[yshift=8pt]
+%    node[below left,pos=0.45] {$U + K_\theta$}
+%  ;
+%\addplot[ % E Mars
+%   very thick,
+%   domain=2.067:2.492,
+%   samples=2
+%  ]
+%  {-2.912}
+% % [yshift=10pt]
+%    node[above, pos=0.5] {$H = U + K_\theta + K_r$}
+%    %node[above, pos=0.5] {Mars}
+%  ;
+%    \draw[->] (0,0.5) --node[above, pos=.98]{$r$} (3,0.5);
+%    \draw[shade, ball color = white] (0,0.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
+%    \filldraw[black!20] ({2.259/(1-0.0934*cos(120))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!15] (2.259,0.5) circle[radius=1.2mm];
+%    \filldraw[black!20] ({2.259/(1-0.0934*cos(60))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!30] ({2.259/(1-0.0934*cos(30))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!30] ({2.259/(1-0.0934*cos(150))},0.5) circle[radius=1.2mm];
+%    \filldraw[black!40] (2.067,0.5) circle[radius=1.2mm];
+%    \draw[shade, ball color = darkgray] (2.492,0.5) circle[radius=1.2mm]node[above=0.8mm] {\Mars};
+%\stopaxis
+%\stoptikzpicture
+%\stopTEXpage
+%\stopbuffer
+%
+%\placetextfloat[top][fig:EnergyGraphKUHMars] % location
+%{Mars's energy graph. The sum $U + K_\theta$ cradles Mars at its minimum. Mars oscillates between approximately $r\sub{min}=2\units{Gm}$ and $r\sub{max}=2.5\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
+%{\noindent\typesetbuffer[TikZ:EnergyGraphKUHMars]} % figure contents
+%
+%Mars's more eccentric orbit leads to a more interesting energy graph, shown in \in{figure}[fig:EnergyGraphKUHMars]. Mars's energy graph shows the total energy $H$, including the kinetic energy $K_r$ due to Mars's motion in the $r$-direction. The total energy $H$ is slightly higher than the minimum of $K_\theta+U$, allowing 
 
 Mars's full energy graph is shown in \in{figure}[fig:UKMars3D]. The orbit's eccentricity is clearly visible. The extra radial kinetic energy $K_r$ responsible for this eccentric motion has raised the total energy $H$ above the $U + K_\theta$ minimum, as if some water (shown in white) had been added to the moat around the central centrifugal barrier. As Mars circles the Sun, its orbit (shown in black) crosses this moat between the outer shore at $r\sub{max}$ on the right side of the centrifugal barrier, and the inner shore at $r\sub{min}$ on the left side of the centrifugal barrier. 
 
@@ -1338,11 +1351,11 @@ Mars's full energy graph is shown in \in{figure}[fig:UKMars3D]. The orbit's ecce
 \stopaxis
 \stopbuffer
 
-\marginTikZ{\vskip4.2in}{UKMars3D}{A planet with angular momentum will not crash into the Sun, it will orbit.} % vskip, name, caption
+\marginTikZ{}{UKMars3D}{A planet with angular momentum will not crash into the Sun, it will orbit.} % vskip, name, caption
 
 If Mars were somehow given more radial kinetic energy $K_r$, the total energy $H$ would be higher, raising the level of the moat. This would make the moat wider. Mars's orbit, still traveling between the two shores, would be even more eccentric.
 
-The energy graph shows the full compound motion discovered by Kepler. The Sun's mass produces the gravitational potential energy well that keeps the planets from leaving the solar system. Each planet's conserved angular momentum produces a centrifugal barrier that keeps the planet from spiraling into the Sun. The balance between the gravitational potential energy and the centrifugal barrier determines the approximate radius of the orbit. Additional radial kinetic energy determines the orbit's eccentricity.
+The energy graph shows the full compound motion discovered by Kepler. The Sun's mass produces the gravitational potential energy well that keeps the planets from leaving the solar system. Each planet's conserved angular momentum produces a centrifugal barrier that keeps the planet from spiraling into the Sun. The balance between the gravitational potential energy and the centrifugal barrier determines the approximate radius of the orbit. Additional radial kinetic energy determines the eccentric orbit's exact $r\sub{min}$ and $r\sub{max}$.
 
 \section{Orbits are elliptic}
 \startblockquote
@@ -1363,12 +1376,214 @@ Why should I mince words? The truth of Nature, which I had rejected and chased a
 \stopblockquote
 The ellipse provided exactly the formula he had stumbled upon and then abandoned. The ellipse also provided the correct angles and unlocked a wealth of geometric knowledge from ancient geometers. \quotation{Oh, ridiculous me!} \autocite{p.~430.}{Kepler1609}
 
-Kepler finishes \booktitle{New Astronomy} with a detailed discussion of ellipses' properties and their application to Mars's orbit. His woodcut diagram is shown in \in{figure}[fig:Kepler1609Urania]. Kepler had finally triumphed over Mars.
+
+
+ % The first few paragraphs here should probably move to the last section, before "Kepler finishes New Astronomy with...." Right now it is here because I added it late.
+Kepler's distance formula, written in modern notation, is 
+\startformula
+	r = \frac{ r_0}{1+\epsilon \cos\theta}
+\stopformula
+\startuseMPgraphic{KeplerDistanceEllipse}
+draw fullcircle xyscaled (4.5cm,3.6cm) shifted (1.35cm,0);
+  path Radius, XAxis;
+  Radius := origin -- ((1.44cm/(1-0.6*cosd(30))),0cm) rotated 30;
+  XAxis := origin -- (3.6cm,0cm) ;
+drawarrow origin -- (-0.9cm,0cm);
+drawarrow origin -- (0cm,1.44cm);
+drawarrow XAxis;
+drawarrow origin -- (0cm,-1.44cm);
+drawarrow origin -- Radius;
+drawdot origin withpen pencircle scaled 3pt;
+%dotlabel.bot("Sun",origin);
+label.bot("$r\sub{min}$",(-0.5cm,0));
+label.bot("$r\sub{max}$",(0.8cm,0));
+label.rt("$r_0$",(0,1cm));
+label.rt("$r_0$",(0,-1cm));
+label.ulft("$r$",(1.7cm,1cm));
+  begingroup;
+    save anglelength ;
+    anglelength := 1cm ;
+    drawarrow anglebetween(XAxis, Radius, btex $\theta$ etex) ;  % draw 
+  endgroup;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:KeplerDistanceEllipse, title={The ellipse described by Kepler's distance formula.}]
+\small
+\reuseMPgraphic{KeplerDistanceEllipse}
+\stopplacefigure
+
+\startuseMPgraphic{MathEllipse}
+draw fullcircle xyscaled (4.5cm,3.6cm) ;
+drawarrow origin -- (2.5cm,0cm);
+drawarrow origin -- (0cm,2.05cm);
+draw origin -- (-2.5cm,0cm);
+draw origin -- (0cm,-2.05cm);
+label.bot("$a$",(-1.25cm,0));
+label.bot("$a$",(1.25cm,0));
+label.lft("$b$",(0,1cm));
+label.lft("$b$",(0,-1cm));
+label.top("$x$",(2.45cm,0));
+label.rt("$y$",(0,2.0cm));
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:MathEllipse, title={The ellipse as commonly described by mathematicians.}]
+\small
+\reuseMPgraphic{MathEllipse}
+\stopplacefigure
+
+\noindent
+where $r_0$ gives the orbit's size and $\epsilon$ is the orbit's eccentricity. 
+The planet is closest to the Sun when $\cos\theta = 1$ and farthest when $\cos\theta = -1$.
+\startformula
+	r\sub{min} = \frac{r_0}{1+\epsilon}
+	\qquad
+	r\sub{max} = \frac{r_0}{1-\epsilon}
+\stopformula
+
+
+As Kepler described, he did not recognize this formula as an ellipse, and you probably do not recognize it either. Even if you have studied ellipses is a mathematics course, you probably saw it described in terms of the semi-major axis $a$ and semi-minor axis $b$, as shown in \in{figure}[fig:MathEllipse]. This ellipse is exactly the same shape as the ellipse described by Kepler's distance formula, although it is not easy to prove that they are the same. Kepler gives his proof in Chapter 59 of \booktitle{New Astronomy}.
+The only relationship we need between these two descriptions of the ellipse is the obvious equality of the major axis.
+\startformula
+  2a = r\sub{min} + r\sub{max}
+\stopformula
+
+\startbuffer[TikZ:EnergyGraphKUHMercury]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\startaxis
+ [	width=11cm,y={0.5cm},
+   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
+   xmin=0, xmax=1.5,
+   minor x tick num=4,
+   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
+   ymin=-15, ymax=0,
+   minor y tick num=9,
+   clip mode = individual,
+		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
+ ]
+% \addplot[ % Us
+%   thick,
+%   domain=10:20,
+%   samples=51
+%  ]
+%  {((x-20)^2/200)}
+%  [xshift=9pt]
+%    node[pos=0.03] {$U\sub{s}$}
+%  ;
+%\ifprintanswers
+\addplot[ % axis
+   thick,
+   domain=0:1.5,
+   samples=2
+  ]
+  {0}
+%  [yshift=10pt]
+%    node[pos=0.5] {$U$}
+  ;
+\addplot[ % Ug
+   thick,
+   domain=0.8:1.5,
+   samples=150
+  ]
+  {-13.3/x}
+  %[yshift=-10pt]
+    node[below right,pos=0.6] {$U$}
+  ;
+  \addplot[ % Circular Orbits
+      thick, dotted,
+      domain=0.4:1.5,
+      samples=150]
+    {-6.65/x};
+  \addplot[ % K angular Mercury
+      thin,
+      domain=0.25:1.5,
+      samples=150]
+    {(-13.27/x)+(3.68/x^2)};
+  \addplot[ % H Mercury
+      very thick,
+      domain=0.46:0.698,
+      samples=2]
+    {-11.457};
+%    node[below, pos=0.5] {Mercury};
+%\addplot[ % K angular Earth
+%   thin,
+%   domain=0.5:5,
+%   samples=150
+%  ]
+%  {9.926/x^2}
+%  %[yshift=8pt]
+%    node[above, pos=0.95] {$K_\theta$}
+%  ;
+%\addplot[ % K angular Earth
+%   thin,
+%   domain=0.5:5,
+%   samples=150
+%  ]
+%  {(-13.27/x)+(9.926/x^2)}
+%  %[yshift=8pt]
+%    node[above right,pos=0.75] {$K_\theta + U$}
+%  ;
+%\addplot[ % E Earth
+%   very thick,
+%   domain=1.471:1.521,
+%   samples=2
+%  ]
+%  {-4.437}
+%  %[yshift=10pt]
+%    node[below, pos=0.5] {Earth}
+%  ;
+%\addplot[ % K angular Mars
+%   thin,
+%   domain=1:3,
+%   samples=150
+%  ]
+%  {(-13.27/x)+(14.99/x^2)}
+%  %[yshift=8pt]
+%    node[below left,pos=0.45] {$U + K_\theta$}
+%  ;
+%\addplot[ % E Mars
+%   very thick,
+%   domain=2.067:2.492,
+%   samples=2
+%  ]
+%  {-2.912}
+% % [yshift=10pt]
+%    node[above, pos=0.5] {$H = U + K_\theta + K_r$}
+%    %node[above, pos=0.5] {Mars}
+%  ;
+    \draw[] (0.5546,{(-13.27/0.5546)+(3.68/0.5546^2)}) -- (0.5546,0)node[above]{$r_0\,$};
+    \draw[] (0.46,-11.457) -- (0.46,0)node[above]{$r\sub{min}$};
+    \draw[] (0.698,-11.457) -- (0.698,0)node[above]{$r\sub{max}$};
+    \draw[] ({(0.698+0.46)/2},-11.457) -- ({(0.698+0.46)/2},0)node[above]{$\,_{\phantom{0}}a$};
+    \draw[->] (0,1.5) --node[above, pos=.98]{$r$} (1.5,1.5);
+    \draw[shade, ball color = white] (0,1.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
+    \filldraw[black!20] ({0.5546/(1+0.20564*cos(120))},1.5) circle[radius=1.2mm];
+    \filldraw[black!15] ({0.5546},1.5) circle[radius=1.2mm];
+    \filldraw[black!20] ({0.5546/(1+0.20564*cos(60))},1.5) circle[radius=1.2mm];
+    \filldraw[black!30] ({0.5546/(1+0.20564*cos(30))},1.5) circle[radius=1.2mm];
+    \filldraw[black!30] ({0.5546/(1+0.20564*cos(150))},1.5) circle[radius=1.2mm];
+    \filldraw[black!40] ({0.5546/(1+0.20564)},1.5) circle[radius=1.2mm];
+    \draw[shade, ball color = darkgray] ({0.5546/(1-0.20564)},1.5) circle[radius=1.2mm]node[above=0.8mm] {\Mercury};
+\stopaxis
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placetextfloat[top][fig:EnergyGraphKUHMercury] % location
+{Mercury's energy graph. The sum $U + K_\theta$ cradles Mercury at its minimum. Mercury oscillates between approximately $r\sub{min}=0.46\units{Gm}$ and $r\sub{max}=0.70\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
+{\noindent\typesetbuffer[TikZ:EnergyGraphKUHMercury]} % figure contents
+
+\noindent
+Mercury's energy graph in \in{figure}[fig:EnergyGraphKUHMercury] shows $r_0$, $r\sub{min}$, $r\sub{max}$ and $a$ for Mercury's eccentric orbit.
 
 \placefigure[margin][fig:Kepler1609Urania]{Woodcut from Kepler's \booktitle{New Astronomy} showing the elliptic orbit which explains the motion on Mars. The diagram includes Urania, the muse of astronomy, arriving on her 
 triumphal chariot with a laurel wreath – a crown for Kepler to honor his victory over the war god, Mars.} {\externalfigure[Kepler1609Urania][width=\rightmarginwidth]}
 
-
+Kepler finishes \booktitle{New Astronomy} with a detailed discussion of ellipses' properties and their application to Mars's orbit. His woodcut diagram is shown in \in{figure}[fig:Kepler1609Urania]. Kepler had finally triumphed over Mars.
 All that remained was to triumph over the process of getting \booktitle{New Astronomy} actually published, which took another four years.
 
 Kepler believed that his mathematical model of Mars's motion – the area law on an elliptic orbit – would apply to all of the planets. He was right. Telescopes, which were not available to Tycho or Kepler, allowed far more precise observations. Kepler's model continued to provided excellent predictions, not only for the planets' nearly circular orbits, but also for the highly elliptic orbits of comets like Halley's Comet, shown in \in{figure}[fig:HaleysComet]. 
@@ -1520,67 +1735,6 @@ Kepler believed that his mathematical model of Mars's motion – the area law on
 {\noindent\typesetbuffer[TikZ:HaleysComet]} % figure contents
 
 
- % The first few paragraphs here should probably move to the last section, before "Kepler finishes New Astronomy with...." Right now it is here because I added it late.
-Kepler's distance formula, written in modern notation, is 
-\startformula
-	r = \frac{ r_0}{1+\epsilon \cos\theta}
-\stopformula
-\startuseMPgraphic{KeplerDistanceEllipse}
-draw fullcircle xyscaled (4.5cm,3.6cm) shifted (1.35cm,0);
-  path Radius, XAxis;
-  Radius := origin -- ((1.44cm/(1-0.6*cosd(30))),0cm) rotated 30;
-  XAxis := origin -- (3.6cm,0cm) ;
-drawarrow origin -- (-0.9cm,0cm);
-drawarrow origin -- (0cm,1.44cm);
-drawarrow XAxis;
-drawarrow origin -- (0cm,-1.44cm);
-drawarrow origin -- Radius;
-drawdot origin withpen pencircle scaled 3pt;
-%dotlabel.bot("Sun",origin);
-label.bot("$r\sub{min}$",(-0.5cm,0));
-label.bot("$r\sub{max}$",(0.8cm,0));
-label.rt("$r_0$",(0,1cm));
-label.rt("$r_0$",(0,-1cm));
-label.ulft("$r$",(1.7cm,1cm));
-  begingroup;
-    save anglelength ;
-    anglelength := 1cm ;
-    drawarrow anglebetween(XAxis, Radius, btex $\theta$ etex) ;  % draw 
-  endgroup;
-\stopuseMPgraphic
-
-\startplacefigure[location=margin, reference=fig:KeplerDistanceEllipse, title={The ellipse described by Kepler's distance formula.}]
-\small\vskip 2in
-\reuseMPgraphic{KeplerDistanceEllipse}
-\stopplacefigure
-
-\startuseMPgraphic{MathEllipse}
-draw fullcircle xyscaled (4.5cm,3.6cm) ;
-drawarrow origin -- (2.5cm,0cm);
-drawarrow origin -- (0cm,2.05cm);
-draw origin -- (-2.5cm,0cm);
-draw origin -- (0cm,-2.05cm);
-label.bot("$a$",(-1.25cm,0));
-label.bot("$a$",(1.25cm,0));
-label.lft("$b$",(0,1cm));
-label.lft("$b$",(0,-1cm));
-label.top("$x$",(2.45cm,0));
-label.rt("$y$",(0,2.0cm));
-\stopuseMPgraphic
-
-\startplacefigure[location=margin, reference=fig:MathEllipse, title={The ellipse as commonly described by mathematicians.}]
-\small\vskip4.5in
-\reuseMPgraphic{MathEllipse}
-\stopplacefigure
-
-\noindent
-where $r_0$ gives the orbit's size and $\epsilon$ gives the orbit's eccentricity. As Kepler described, he did not recognize this formula as an ellipse, and you probably do not recognize it either. Even if you have studied ellipses is a mathematics course, you probably saw it described in terms of the semi-major axis $a$ and semi-minor axis $b$, as shown in \in{figure}[fig:MathEllipse]. These two shapes are the same, although it is not easy to prove. Kepler gives his proof in Chapter 59 of \booktitle{New Astronomy}.
-The only relationship we need between these two descriptions of the ellipse is the obvious equality of the major axis.
-\startformula
-  2a = r\sub{min} + r\sub{max}
-\stopformula
-We would like to relate the orbit's size and eccentricity to the planet's angular momentum $L$ and total energy $H$. Before tackling these relations, let us return briefly to circular orbits.
-
 Elliptic orbits do not have a constant radius, so the formulas for angular momentum and total energy need to be modified to use the parameters of the ellipse.
 \startformula
 	L = m\sqrt{GMr_0}
@@ -1589,136 +1743,6 @@ Elliptic orbits do not have a constant radius, so the formulas for angular momen
 	  = -G\frac{mM}{r\sub{min} + r\sub{max}}
 \stopformula
 Total energy $H$ is determined by the ellipse's major axis $2a=r\sub{min} + r\sub{max}$. The angular momentum $L$ is determined by Kepler's $r_0$, the distance perpendicular to the ellipse's major axis in \in{figure}[fig:KeplerDistanceEllipse].
-
-\startbuffer[TikZ:EnergyGraphKUHMercury]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage\small
-\starttikzpicture% tikz code
-\startaxis
- [	width=11cm,y={0.5cm},
-   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
-   xmin=0, xmax=1.5,
-   minor x tick num=4,
-   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
-   ymin=-15, ymax=0,
-   minor y tick num=9,
-   clip mode = individual,
-		every tick/.style={middlegray}, % Fixes ticks which are too light in ConTeXt
- ]
-% \addplot[ % Us
-%   thick,
-%   domain=10:20,
-%   samples=51
-%  ]
-%  {((x-20)^2/200)}
-%  [xshift=9pt]
-%    node[pos=0.03] {$U\sub{s}$}
-%  ;
-%\ifprintanswers
-\addplot[ % axis
-   thick,
-   domain=0:1.5,
-   samples=2
-  ]
-  {0}
-%  [yshift=10pt]
-%    node[pos=0.5] {$U$}
-  ;
-\addplot[ % Ug
-   thick,
-   domain=0.8:1.5,
-   samples=150
-  ]
-  {-13.3/x}
-  %[yshift=-10pt]
-    node[below right,pos=0.6] {$U$}
-  ;
-  \addplot[ % Circular Orbits
-      thick, dotted,
-      domain=0.4:1.5,
-      samples=150]
-    {-6.65/x};
-  \addplot[ % K angular Mercury
-      thin,
-      domain=0.25:1.5,
-      samples=150]
-    {(-13.27/x)+(3.68/x^2)};
-  \addplot[ % H Mercury
-      very thick,
-      domain=0.46:0.698,
-      samples=2]
-    {-11.457};
-%    node[below, pos=0.5] {Mercury};
-%\addplot[ % K angular Earth
-%   thin,
-%   domain=0.5:5,
-%   samples=150
-%  ]
-%  {9.926/x^2}
-%  %[yshift=8pt]
-%    node[above, pos=0.95] {$K_\theta$}
-%  ;
-%\addplot[ % K angular Earth
-%   thin,
-%   domain=0.5:5,
-%   samples=150
-%  ]
-%  {(-13.27/x)+(9.926/x^2)}
-%  %[yshift=8pt]
-%    node[above right,pos=0.75] {$K_\theta + U$}
-%  ;
-%\addplot[ % E Earth
-%   very thick,
-%   domain=1.471:1.521,
-%   samples=2
-%  ]
-%  {-4.437}
-%  %[yshift=10pt]
-%    node[below, pos=0.5] {Earth}
-%  ;
-%\addplot[ % K angular Mars
-%   thin,
-%   domain=1:3,
-%   samples=150
-%  ]
-%  {(-13.27/x)+(14.99/x^2)}
-%  %[yshift=8pt]
-%    node[below left,pos=0.45] {$U + K_\theta$}
-%  ;
-%\addplot[ % E Mars
-%   very thick,
-%   domain=2.067:2.492,
-%   samples=2
-%  ]
-%  {-2.912}
-% % [yshift=10pt]
-%    node[above, pos=0.5] {$H = U + K_\theta + K_r$}
-%    %node[above, pos=0.5] {Mars}
-%  ;
-    \draw[] (0.5546,{(-13.27/0.5546)+(3.68/0.5546^2)}) -- (0.5546,0)node[above]{$r_0\,$};
-    \draw[] (0.46,-11.457) -- (0.46,0)node[above]{$r\sub{min}$};
-    \draw[] (0.698,-11.457) -- (0.698,0)node[above]{$r\sub{max}$};
-    \draw[] ({(0.698+0.46)/2},-11.457) -- ({(0.698+0.46)/2},0)node[above]{$\,_{\phantom{0}}a$};
-    \draw[->] (0,1.5) --node[above, pos=.98]{$r$} (1.5,1.5);
-    \draw[shade, ball color = white] (0,1.5) circle[radius=2.4mm]node[above =2mm] {\Sun};
-    \filldraw[black!20] ({0.5546/(1+0.20564*cos(120))},1.5) circle[radius=1.2mm];
-    \filldraw[black!15] ({0.5546},1.5) circle[radius=1.2mm];
-    \filldraw[black!20] ({0.5546/(1+0.20564*cos(60))},1.5) circle[radius=1.2mm];
-    \filldraw[black!30] ({0.5546/(1+0.20564*cos(30))},1.5) circle[radius=1.2mm];
-    \filldraw[black!30] ({0.5546/(1+0.20564*cos(150))},1.5) circle[radius=1.2mm];
-    \filldraw[black!40] ({0.5546/(1+0.20564)},1.5) circle[radius=1.2mm];
-    \draw[shade, ball color = darkgray] ({0.5546/(1-0.20564)},1.5) circle[radius=1.2mm]node[above=0.8mm] {\Mercury};
-\stopaxis
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
-
-\placetextfloat[top][fig:EnergyGraphKUHMercury] % location
-{Mercury's energy graph. The sum $U + K_\theta$ cradles Mercury at its minimum. Mercury oscillates between approximately $r\sub{min}=0.46\units{Gm}$ and $r\sub{max}=0.70\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
-{\noindent\typesetbuffer[TikZ:EnergyGraphKUHMercury]} % figure contents
 
 
 \section{Harmonies of the World}
@@ -1733,8 +1757,7 @@ This ratio can be used to relate the periods and radii of any two planets' orbit
 \startformula
 \frac{T_1}{T_2} = \left(\frac{a_1}{a_2}\right)^{\threehalves}
 \stopformula
-where $T_1$ and $a_1$ are the period and radius of one planet's orbit, while $T_2$ and $a_2$ are those of the other. For elliptic orbits the radius is half of the ellipse's long axis. Formally, $a$ is called the semi-major axis.
-
+where $T_1$ and $a_1$ are the period and semi-major of one planet's orbit, while $T_2$ and $a_2$ are those of the other.
 Kepler believed that the \threehalves th power was a sign of a musical perfect fifth. It is not.
 
 A planet's period can be calculated directly using Kepler's area law to fill the area of an elliptic orbit. The area $A$ of an ellipse is easiest to see in the standard mathematical description.
