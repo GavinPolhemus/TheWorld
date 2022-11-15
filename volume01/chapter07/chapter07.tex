@@ -1091,28 +1091,19 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
 	\draw[white] (0,0)-- ++(5,0.2); % Sky to make height better. Use \vskip6.4in for bottom.
 \stoptikzpicture}}
 
-For planetary orbits, there are three contributions to the total energy: the gravitational potential energy $U$, the kinetic energy $K_\theta$ due to the planet's motion around the Sun in the $\theta$-direction, and the kinetic energy $K_r$ due to any motion toward or away from the Sun in the $r$-direction.
-\startformula
-	H = K_r + K_\theta + U
-\stopformula
-The gravitational potential energy is especially simple in polar coordinates, since it only depends on the planet's distance $r$ from the Sun, not on the angle $\theta$.
-\startformula
-	U = -G\frac{mM}{r}
-\stopformula
+The four inner planets are shown at their correct distances from the Sun along the top of \in{figure}[fig:EnergyGraphKUH]. Take a moment to locate Venus and Earth, and compare the energy graphs for these two planets. Earth's is the same $U+K_\theta$ curve shown in \in{figure}[fig:EnergyGraphKU]. The $U+K_\theta$ curve for Venus is a similar shape, but shifted down toward lower energy and left toward smaller $r$. This shift is due to Venus's lower angular momentum . Lower angular momentum gives Venus a lower angular kinetic energy $K_\theta = L^2/2mr^2$, which is why Venus's $U+K_\theta$ curve in \in{figure}[fig:EnergyGraphKUH] is lower than Earth's.
 
-The kinetic energy's radial part $K_r$ can be written in terms of the radial momentum $p_r$, as usual.
-\startformula
-	K_r = \frac{p_r^2}{2m}
-\stopformula
-Similarly, the kinetic energy's angular part can be written in terms of the \keyterm{angular momentum} $L$. However, when we work with an angular coordinate, the mass in the denominator is replaced by the moment of inertial $I$. 
-\startformula
-	K_\theta = \frac{L^2}{2I}
-\stopformula
-Angular momentum $L$ is a new type of momentum associated with angular motion like rotation or orbits. Euler and others developed special methods for working with angular quantities, but Hamilton's method treats angular coordinates and momenta just like any others. 
+Like Earth, Venus sits right near the minimum of its $U+K_\theta$ graph, always staying nearly the same distance from the Sun in a nearly circular, centered orbit. The dotted line in \in{figure}[fig:EnergyGraphKUH] shows the radius and energy of every possible circular, centered orbit. (See \in{figure}[fig:CircularH], \at{p.}[fig:CircularH].) This dotted line passes right through the minimum of every $U+K_\theta$ curve. Earth and Venus sit on this line, since they are both in nearly circular, centered orbits.
+
+Mercury has much less angular momentum, so its $U+K_\theta$ curve is even lower and farther left than Venus's, putting Mercury much closer to the Sun. Unlike Venus and Earth, Mercury's orbit is quite eccentric. Mercury does not sit right at the minimum of its $U+K_\theta$ curve. Mercury's total energy $H$, shown by the thick, short, horizontal line labeled \quotation{Mercury,} is somewhat higher than the minimum of the $U+K_\theta$ curve. This looks very much like the energy graph for a simple harmonic oscillator, and Mercury does indeed oscillate in the $r$ direction as it orbits the Sun. The endpoints of Mercury's total energy line are Mercury's turning points. The left end of the line represents Mercury's closest approach to the Sun, and the right end represents Mercury's greatest distance from the Sun. This range of distances is shown by the range of positions for Mercury at the top of \in{figure}[fig:EnergyGraphKUH].
+Mercury's oscillations have a period of 88 days.
+
+Mars has the most angular momentum of the planets in \in{figure}[fig:EnergyGraphKUH], making it farthest from the Sun.
+Like Mercury, Mars has an eccentric orbit and does not sit at the minimum of the $U+K_\theta$ curve. The thick, horizontal line labeled \quotation{Mars} shows Mars's total energy $H$ as it oscillates between the two turning points on the the $U+K_\theta$ curve. The minimum of Mars's $U+K_\theta$ curve is much wider and shallower than the minimum of Mercury's curve, so Mars oscillates much more slowly that Mercury. Mars's oscillations have a period of 687 days.
 
 
 
-\startbuffer[TikZ:EnergyGraphKUH]
+\startbuffer[TikZ:EnergyGraphKUHMars]
 \environment env_physics
 \environment env_TikZ
 \setupbodyfont [libertinus,11pt]
@@ -1225,13 +1216,13 @@ Angular momentum $L$ is a new type of momentum associated with angular motion li
 \stopTEXpage
 \stopbuffer
 
-\placetextfloat[top][fig:EnergyGraphKUH] % location
+\placetextfloat[top][fig:EnergyGraphKUHMars] % location
 {Mars's energy graph. The sum $U + K_\theta$ cradles Mars at its minimum. Mars oscillates between approximately $r\sub{min}=2\units{Gm}$ and $r\sub{max}=2.5\units{Gm}$, in agreement with the orbit shown in \in{figure}[fig:KeplerTerestrial].}	 % caption text
-{\noindent\typesetbuffer[TikZ:EnergyGraphKUH]} % figure contents
+{\noindent\typesetbuffer[TikZ:EnergyGraphKUHMars]} % figure contents
 
-Mars's more eccentric orbit leads to a more interesting energy graph, shown in \in{figure}[fig:EnergyGraphKUH]. Mars's energy graph shows the total energy $H$, including the kinetic energy $K_r$ due to Mars's motion in the $r$-direction. The total energy $H$ is slightly higher than the minimum of $K_\theta+U$, allowing Mars to oscillate over a significant range of distances from approximately $r\sub{min}=2\units{Gm}$ to $r\sub{max}=2.5\units{Gm}$, as shown by the range of Mars positions above the energy graph. These turning points in the energy graph are same maximum and minimum distances of Mars's orbit shown in \in{figure}[fig:KeplerTerestrial]. If you look closely at Earth's energy graph (\in{fig.}[fig:EnergyGraphKU]) you will see that it is also a small line segment showing the Earth's range of distances from the Sun.
+Mars's more eccentric orbit leads to a more interesting energy graph, shown in \in{figure}[fig:EnergyGraphKUHMars]. Mars's energy graph shows the total energy $H$, including the kinetic energy $K_r$ due to Mars's motion in the $r$-direction. The total energy $H$ is slightly higher than the minimum of $K_\theta+U$, allowing Mars to oscillate over a significant range of distances from approximately $r\sub{min}=2\units{Gm}$ to $r\sub{max}=2.5\units{Gm}$, as shown by the range of Mars positions above the energy graph. These turning points in the energy graph are same maximum and minimum distances of Mars's orbit shown in \in{figure}[fig:KeplerTerestrial]. If you look closely at Earth's energy graph (\in{fig.}[fig:EnergyGraphKU]) you will see that it is also a small line segment showing the Earth's range of distances from the Sun.
 
-Mars's full energy graph is shown in \in{figure}[fig:UKMars3D]. The orbit's eccentricity is clearly visible. The extra radial kinetic energy $K_r$ responsible for this eccentric motion has raised the total energy $H$ above the $U + K_\theta$ minimum, as if some water (shown in white) had been added to the moat around the central centrifugal barrier. As Mars circles the Sun, its orbit (shown in black) crosses this moat between the outer shore at $r_{max}$ on the right side of the centrifugal barrier, and the inner shore at $r_{min}$ on the left side of the centrifugal barrier. 
+Mars's full energy graph is shown in \in{figure}[fig:UKMars3D]. The orbit's eccentricity is clearly visible. The extra radial kinetic energy $K_r$ responsible for this eccentric motion has raised the total energy $H$ above the $U + K_\theta$ minimum, as if some water (shown in white) had been added to the moat around the central centrifugal barrier. As Mars circles the Sun, its orbit (shown in black) crosses this moat between the outer shore at $r\sub{max}$ on the right side of the centrifugal barrier, and the inner shore at $r\sub{min}$ on the left side of the centrifugal barrier. 
 
 \startbuffer[UKMars3D]
 \startaxis[
@@ -1347,7 +1338,7 @@ Mars's full energy graph is shown in \in{figure}[fig:UKMars3D]. The orbit's ecce
 \stopaxis
 \stopbuffer
 
-\marginTikZ{}{UKMars3D}{A planet with angular momentum will not crash into the Sun, it will orbit.} % vskip, name, caption
+\marginTikZ{\vskip4.2in}{UKMars3D}{A planet with angular momentum will not crash into the Sun, it will orbit.} % vskip, name, caption
 
 If Mars were somehow given more radial kinetic energy $K_r$, the total energy $H$ would be higher, raising the level of the moat. This would make the moat wider. Mars's orbit, still traveling between the two shores, would be even more eccentric.
 
@@ -1584,21 +1575,20 @@ label.rt("$y$",(0,2.0cm));
 
 \noindent
 where $r_0$ gives the orbit's size and $\epsilon$ gives the orbit's eccentricity. As Kepler described, he did not recognize this formula as an ellipse, and you probably do not recognize it either. Even if you have studied ellipses is a mathematics course, you probably saw it described in terms of the semi-major axis $a$ and semi-minor axis $b$, as shown in \in{figure}[fig:MathEllipse]. These two shapes are the same, although it is not easy to prove. Kepler gives his proof in Chapter 59 of \booktitle{New Astronomy}.
+The only relationship we need between these two descriptions of the ellipse is the obvious equality of the major axis.
+\startformula
+  2a = r\sub{min} + r\sub{max}
+\stopformula
 We would like to relate the orbit's size and eccentricity to the planet's angular momentum $L$ and total energy $H$. Before tackling these relations, let us return briefly to circular orbits.
 
-Elliptic orbits do not have a constant radius, so the formulas for angular momentum and total energy need to be modified to use the parameters of the ellipse – either $r$ and $\epsilon$ in Kepler's formula or $a$ and $b$ in the usual math description. The formulas are
+Elliptic orbits do not have a constant radius, so the formulas for angular momentum and total energy need to be modified to use the parameters of the ellipse.
 \startformula
 	L = m\sqrt{GMr_0}
 	\qquad
-	H = -G\frac{mM}{2a}.
+	H = -G\frac{mM}{2a}
+	  = -G\frac{mM}{r\sub{min} + r\sub{max}}
 \stopformula
-The good news is that these formulas are almost identical to the formulas for circular orbits. The angular momentum is related to Kepler's $r_0$. Total energy is related to the semi-major axis $a$. The bad news is that one formula uses Kepler's description of the ellipse while the other uses the usual mathematics description. We do not need a complete conversion from one description to the other, but we do need to be able to find $r$ and $a$ in either case. The relations are:
-\startformula
-	r_0 = \frac{b^2}{a}
-	\qquad
-	a = \frac{r_0}{1-\epsilon^2}
-\stopformula
-You can use these to find formulas for $\epsilon$ and $b$ as well, but we will not need them.
+Total energy $H$ is determined by the ellipse's major axis $2a=r\sub{min} + r\sub{max}$. The angular momentum $L$ is determined by Kepler's $r_0$, the distance perpendicular to the ellipse's major axis in \in{figure}[fig:KeplerDistanceEllipse].
 
 \startbuffer[TikZ:EnergyGraphKUHMercury]
 \environment env_physics
@@ -1733,7 +1723,7 @@ You can use these to find formulas for $\epsilon$ and $b$ as well, but we will n
 
 \section{Harmonies of the World}
 
-Having mastered the geometry of orbits, Kepler next attempted to unite the quadrivium by finding musical relationships to explain the sizes and eccentricities of the planets' orbits. The resulting book, \booktitle{Harmonies of the World,} is an amazing mixture of precise astronomical observations and calculations aligned with musical notation for chords and short musical phrases.
+Having mastered the geometry of orbits, Kepler next attempted to unite the quadrivium by finding musical relationships to explain the sizes and eccentricities of the planets' orbits. In 1621 he published his findings as \booktitle{Harmonies of the World,} a book with an amazing mixture of precise astronomical observations and calculations aligned with musical notation for chords and short musical phrases.
 
 It must be admitted that in the early seventeenth century explaining astronomy with music was no more fanciful than introducing ellipses. However, ellipses have survived rigorous observations while the musical speculations have not. The book does contain one remarkable gem, which has come to be known as Kepler's third law. In studying the periods and sizes of the planets' orbits.
 \startblockquote
@@ -1759,10 +1749,10 @@ Since the all of the dA are the same size, this total area $A$ covered during th
 \startformula
 	A = \frac{L}{2m}\,T
 \stopformula
-Using the area of an ellipse, the formula for the planet's angular momentum, and the relation $r_0=b^2/a$, we can calculate the period $T$
+Using the area of an ellipse, the formula for the planet's angular momentum, and the relation $b=\sqrt{ar_0}$, we can calculate the period $T$
 \startformula\startmathalignment
-\NC	\pi ab	\NC = \frac{\cancel{m}\sqrt{GMr_0}}{2\cancel{m}}\,T \NR
-\NC	\pi a\cancel{b}	\NC = \frac{\cancel{b}}{2}\sqrt{\frac{GM}{a}}\,T \NR
+\NC	\pi ab           \NC= \frac{L}{2m}\,T \NR
+\NC	\pi a\sqrt{a\cancel{r_0}} \NC= \frac{\cancel{m}\sqrt{GM\cancel{r_0}}}{2\cancel{m}}\,T \NR
 %\NC	2\pi a^{\threehalves}	\NC = \sqrt{GM}\,T \NR
 \NC	T \NC = \frac{2\pi}{\sqrt{GM}}\,a^{\threehalves}	\NR
 \stopmathalignment\stopformula
