@@ -1384,25 +1384,25 @@ Kepler's distance formula, written in modern notation, is
 	r = \frac{ r_0}{1+\epsilon \cos\theta}
 \stopformula
 \startuseMPgraphic{KeplerDistanceEllipse}
-draw fullcircle xyscaled (4.5cm,3.6cm) shifted (1.35cm,0);
+draw fullcircle xyscaled (4.5cm,3.6cm) shifted (-1.35cm,0);
   path Radius, XAxis;
-  Radius := origin -- ((1.44cm/(1-0.6*cosd(30))),0cm) rotated 30;
-  XAxis := origin -- (3.6cm,0cm) ;
-drawarrow origin -- (-0.9cm,0cm);
+  Radius := origin -- ((1.44cm/(1-0.6*cosd(30))),0cm) rotated 150;
+  XAxis := origin -- (0.9cm,0cm) ;
+drawarrow origin -- (-3.6cm,0cm);
 drawarrow origin -- (0cm,1.44cm);
 drawarrow XAxis;
 drawarrow origin -- (0cm,-1.44cm);
 drawarrow origin -- Radius;
 drawdot origin withpen pencircle scaled 3pt;
 %dotlabel.bot("Sun",origin);
-label.bot("$r\sub{min}$",(-0.5cm,0));
-label.bot("$r\sub{max}$",(0.8cm,0));
-label.rt("$r_0$",(0,1cm));
-label.rt("$r_0$",(0,-1cm));
-label.ulft("$r$",(1.7cm,1cm));
+label.bot("$r\sub{min}$",(0.5cm,0));
+label.bot("$r\sub{max}$",(-0.8cm,0));
+label.lft("$r_0$",(0,1cm));
+label.lft("$r_0$",(0,-1cm));
+label.urt("$r$",(-1.7cm,1cm));
   begingroup;
     save anglelength ;
-    anglelength := 1cm ;
+    anglelength := 0.5cm ;
     drawarrow anglebetween(XAxis, Radius, btex $\theta$ etex) ;  % draw 
   endgroup;
 \stopuseMPgraphic
