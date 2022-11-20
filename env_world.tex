@@ -111,7 +111,7 @@
 \setupheadertexts[margin][][\hfill\userpagenumber][\userpagenumber \hfill][]
 
 % Indenting
-\setupindenting[yes,medium]
+\setupindenting[yes,medium,next]
 
 % Emphasis
 % HR: setup changed, use highlights, not just defines. GP: Great.
@@ -132,8 +132,8 @@
 % Quotes
 \setupdelimitedtext[blockquote][
 	spacebefore=medium, spaceafter=medium, % standard is the size of \blank, medium is a little smaller.
-	indenting=no, % blockquotes should not contain multiple paragraphs.
-	style=\nowhitespace,
+	indenting=next, % blockquotes should not contain multiple paragraphs.
+	%style=\nowhitespace,
 	indentnext=no, % no = never indent after a blockquote, auto = usual paragraph breaks
 ]
 
