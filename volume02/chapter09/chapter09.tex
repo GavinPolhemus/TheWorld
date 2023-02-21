@@ -1,5 +1,5 @@
 % !TEX useOldSyncParser
-\startcomponent c_chapter09
+\startcomponent *
 \project project_world
 \product prd_volume02
 
@@ -8,762 +8,393 @@
 \setupsynctex[state=start,method=max] % "method=max" or "min"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startchapter[title={Particles in Fields}, reference=ch:Fields]
+\startchapter[title={Optics}, reference=ch:Optics]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \placefigure[margin,none]{}{\small
 	\startalignment[flushleft]
-By convention sweet and by convention bitter, by convention hot, by convention cold, by convention color; but in reality atoms and void.%\autocite{p.46}{Helmholtz1857}
+After long reflection in solitude and meditation, I suddenly had the idea, during the year 1923, that the discovery made by Einstein in 1905 should be generalized by exteding it to all material particles and notably to electrons
+%\autocite{p.436}{Pais SiTL, preface to re-edited thesis 1924, 1963.}
 	\stopalignment
 	\startalignment[flushright]
 	%{\it On the Physiological Causes\\
 	%	of Harmony in Music}\\
-	{\sc Democritus}\\
-	c.460 -- c.370 \scaps{BCE}
+	{\sc Louis de Broglie}\\
+	1892 – 1987
 	\stopalignment
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\Initial{D}{emocritus speculated} that everything is made of small, indivisible units he called \quotation{atoms.} 
-He was correct, but the project of identifying and classifying these indivisible units got off to a slow start. Atoms were initially thought to be like tiny rocks whose shapes determined their properties. For example, a substance that stings when it is touched might be made of atoms covered in sharp spikes. These models provided interesting explanations, but no testable predictions about how substances interact.
-
-%\section{Elements of chemistry}
-
-% CERN has a helpful timeline at:\\ http://teachers.web.cern.ch/teachers/archiv/HST2003/publish/standard\%20model/History/index.htm
-
-Real progress began in the late eighteenth century when chemists, notably Antoine-Laurent de Lavoisier, began taking careful measurements of reactants and products to test theories about the identities and properties of elements. Lavoisier listed thirty-three elements in his 1789 \booktitle{Elements of Chemistry}.
-By the late nineteenth century, chemists had identified several dozen elements and could predict the quantities of elements required to make certain compounds.
-
-\placetable
-    [margin]
-    [T:Mendeleev]
-    {The first periodic table of the elements, 1871.}
-    {\vskip9pt%\hbox{
-	\starttabulate[|l|c|c|c|c|c|c|]
-\FL[2]%\toprule
-\NC	 H	\NC 	\NC 	\NC 	\NC 	\NC 	\NC 	\NR
-\NC Li	\NC Be	\NC B	\NC C	\NC N	\NC O	\NC F	\NR
-\NC Na	\NC Mg	\NC Al	\NC Si	\NC P	\NC S	\NC Cl	\NR
-\NC K	\NC Ca	\NC .	\NC .	\NC .	\NC .	\NC .	\NR
-\LL[2]%\bottomrule
-    \stoptabulate}
-
-In 1871, Russian chemist Dmitri Mendeleev organized the sixty-six known elements into a repeating pattern according to their chemical properties. He used this pattern to create the first draft of the modern periodic table of the elements. The beginning of Mendeleev's table (\in{table}[T:Mendeleev]) shows several familiar elements in their correct positions.
-%\placefigure[margin][fig:MendeleevSmall]{
-%	\booktitle{The Dependence between the Properties of the Atomic Weights of the Elements} 1871.%\autocite{Mendeleev1871}
-%}{\externalfigure[MendeleevSmall][width=144pt]}
 
 
-Mendeleev identified several gaps in his table and predicted new elements to fill these gaps – and he predicted the new elements' properties.
-The discoveries of Gallium (1875), Scandium (1879), and Germanium (1886), each with the predicted properties, convinced most scientists that Mendeleev's table was correct and useful.
+\Initial{T}{he photon} shocked early twentieth century physicists, but the idea of a light particle was not new.  Ancient philosophers had considered the possibility that vision is due to particles entering our eyes with information about objects around us. Newton adopted a particle view in his theory of optics, with light particles traveling in straight lines unless their path is changed by a mirror, prism, or lens.
 
-The periodic table of the elements, expanded by the discovery of many more elements, is the foundation of chemistry to this day. We now define \quotation{atom} as the smallest unit of an element having the chemical properties of that element. Although we will discover that there are smaller, more fundamental particles, the periodic table will always be the definitive list of atoms.
-
-%In the search for the smallest pieces of matter scientists have followed cycles like the one that led to the periodic table. First, they discover several particles that seem to be fundamental. Then they identify patterns, use those patterns to make predictions, and then test those predictions with experiments or observations. When experiments and observations confirm the prediction, the model becomes accepted as useful. However, in every instance so far, some of the new observations did not fit the patterns. As more information was gathered, new patterns were found, leading to new models and new predictions. This cycle has repeated a few times since Mendeleev's periodic table, often with missteps and confusion, but always providing new knowledge about how the universe works.
-
-%Even as newly discovered elements were plugging the gaps in t
-%While chemists were completing the periodic table, physicists were studying new particles which did not fit into the periodic table at all, particles smaller than any of the elements.
-
-%\subsection{Electrons charging about}
-%[Make sure this section explains the basics of charge: conserved, like repel and opposites attract, electrons are negative. May want to activities on this.]
-%
-%By the time Mendeleev produced the periodic table, electricity and magnetism were fairly well understood. Light was known to be a form of electromagnetic wave. Physicists were classifying and studying other types of rays to determine if they were waves or beams of particles. The most basic sort of ray is a descendent of common spark of static electricity.
-
-\section{Electric sparks to electron beams}
-
-While chemists discovered and studied more new elements, physicists turned their attention to electricity, especially electric sparks. Sparks are exciting and easy to make, so physicists and curious children have always studied them with great enthusiasm. Physicists of the nineteenth century knew that sparks carry electrical charge from one object to another. However, sparks happen so quickly that it is not obvious which way the charge is moving. 
-
-We now know that sparks are streams of electrons. Electrons pick up speed very quickly in a spark. They move so quickly that when they collide with something, like an air molecule, the collision produces a small but visible flash. The glowing path of a spark beam is a multitude of these flashes. This is the case with small sparks from static electricity and, more spectacularly, with lightning. 
-
-\startbuffer[TikZ:DischargeTube]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle \small% Old style numerals in text
-\startTEXpage
-\starttikzpicture% tikz code
-\draw[ultra thick, darkgray, rounded corners, fill=gray] (0.25,0.75) rectangle (4.75,-0.75); % Tube
-\fill[white] (1,0.25) rectangle node{Electric Glow} (4,-.25); % Beam
-\draw[ultra thick] (1,-0.25) -- (1,0.25)node[above]{Cathode}; %Cathode
-\draw[thick] (1,0) -- (0,0) -- (0,-1.25) -- (2,-1.25) -- (2,-1.5)node[below]{-};
-\draw[ultra thick] (4,-0.25) -- (4,0.25)node[above]{Anode}; % Anode
-\draw[thick] (4,0) -- (5,0) -- (5,-1.25) -- (3,-1.25) -- (3,-1.5)node[below]{+};
-\draw[thick] (1.5,-1.5) rectangle node{High Voltage} (3.5,-2.5); % Power supply
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
-
-\placefigure[margin][fig:DischargeTube] % location, label
-{An evacuated tube for creating a visible beam of current. Electrons traveling from the cathode to the anode create a glow as they collide with gas molecules.} % caption text
-{\noindent\typesetbuffer[TikZ:DischargeTube]} % figure contents
-
-Sparks are much easier to produce in the absence, or near absence, of air. Physicists produced sealed glass \quotation{tubes} (\in{fig.}[fig:DischargeTube]) for their experiments which had nearly all air removed, allowing the electrons to travel farther between each collision. Inside the sealed tube are two metal plates held by wires going through the tube's glass wall. These wires are connected to a high voltage power supply. 
-The metal plate connected to the power supply's negative terminal is called the cathode, while the plate connected to the positive terminal is called the anode.
-The power supply drives an excess of electrons to the cathode, making the cathode negatively charged. The power supply pulls electrons from the anode, leaving the anode positively charged.
-
-Since like charges repel, the electron excess on the cathode can become great enough to accelerate electrons away from the cathode toward the anode, producing a visible beam of glowing current in the tube. 
-Within these evacuated tubes current can travel much farther than most sparks in open air, and the current  can be maintained to produce a continuous glowing beam. The beam of electrons is visible in sealed tubes with most, but not all, of the air removed. When there is no air in the tube the beam is invisible because the electrons do not run into anything along their path. 
-
-\startbuffer[TikZ:CathodeRayTube]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle \small% Old style numerals in text
-\startTEXpage
-\starttikzpicture% tikz code
-\draw[ultra thick, darkgray, rounded corners, fill=gray] (0.25,0.75) rectangle (5,-0.75); % Tube
-\fill[white] (1,0.25) rectangle node{\qquad Cathode Ray} (5,-.25); % Beam
-\draw[ultra thick, darkgray, rounded corners] (0.25,0.75) rectangle (5,-0.75); % Tube
-\draw[ultra thick] (1,0.25) -- (1,-0.25)node[below]{Cathode}; %Cathode
-\draw[thick] (1,0) -- (0,0) -- (0,-1.25) -- (0.75,-1.25) -- (0.75,-1.5)node[below]{-};
-\draw[ultra thick, fill=darkgray] (1.625,-0.26) rectangle node[above=2.5mm]{Anode} (1.875,0.26); % Anode
-\draw[thick] (1.75,-0.26) -- (1.75,-1.5)node[below]{+};
-\draw[thick] (0.25,-1.5) rectangle node{High Voltage} (2.25,-2.5); % Power supply
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
-
-\placefigure[margin][fig:CathodeRayTube] % location, label
-{In a cathode-ray tube the anode is a hoop that electrons pass through. The electrons continue in a beam until reaching the end of the tube. Since the beam starts on the cathode, it is called a cathode ray.} % caption text
-{\noindent\typesetbuffer[TikZ:CathodeRayTube]} % figure contents
-
-
-%Only the anode glows as it is pounded by incoming electrons.
-
-If the anode is shaped like a hoop it can mostly avoid getting hit by the electrons, as shown in \in{figure}[fig:CathodeRayTube]. Electrons are attracted by the anode, but as they approach they are going so fast that they shoot right through the center of the hoop and continue until they run into the end of the tube.
-These continuing electrons revealed to physicists that the beam began at the cathode, and the beams became known as \keyterm{cathode rays.}
-Tubes that are designed so that the cathode rays miss the anode and strike the tube's wall are called \keyterm{cathode ray tubes.}
-
-Twentieth century televisions are direct descendants of the nineteenth century cathode ray tubes. At the back of the television is an electron gun that produces a cathode ray pointed at the back of the screen. The screen is covered with phosphorus or a similar material that glows brightly when hit by electrons. The cathode ray is bent by electric and magnetic fields so that it moves rapidly all over the screen. The beam's intensity changes as it moves, drawing a picture on the screen. Televisions and computer monitors of this type are often called CRTs: cathode ray tubes.
-
-%\placefigure[margin][fig:CrookesTuble]{
-%	A Crookes tube. The cathode rays strike the phosphorous paint at the right end, causing it to glow. The shadow of the cross is clearly visible.%\autocite{}{Newton1726}
-%}{\externalfigure[Crookes_tube2_diagram][width=144pt]}
-
-% Wikipedia: The oil drop experiment was performed by Robert A. Millikan and Harvey Fletcher in 1909 to measure the elementary electric charge
-
-
-
-
-
-
-
-%To determine motion of a charged particle in a potential, start from the potential, find the potential energy, then find the force. Save electric field for later.
-%
-%\begin{equation}
-%	U_E = qV
-%\end{equation}
-%$V$ is the electric potential. Changing gravitational potential occurs due to huge objects, like planets, but changing electrical potential is 
-%It is quite easy to make significant changes in $V$ with everyday objects. In fact all electronic devices require complicated changes in electric potential to operate.
-%
-%Use a voltmeter in the same way as the plumb-bob to measure potential differences. Build simple circuits with bulbs. Measure the potentials relative to ground, and measure potential changes across elements that do various things with the energy (lamps, motors, etc.) The example of parallel and series is nice. The challenge of turning off a light by running a short around it should probably wait.
-%
-%Compare a marble rolling down a ramp unobstructed to a marble rolling down a ramp with many obstacles. This could be a great lab. Marbles are the same in all materials, but density and mobility change. I think mobility depends on the time between collisions, which means that it goes down with temperature and up with mean-free-path.
-%
-%
-%%The work done on the object by the electric field is $W_E = -\Delta U_E$.
-%
-%\begin{align*}
-%	F_E &= -\frac{\Delta U_E}{\Delta x}	\\
-%		%&= -\frac{U\sub{$E$,f} - U\sub{$E$,i}{\Delta x}	\\
-%		&= -\frac{qV\sub{f} - qV\sub{i}}{\Delta x}	\\
-%		&= -q\frac{V\sub{f} - V\sub{i}}{\Delta x}	\\
-%		&= -q\frac{\Delta V}{\Delta x}
-%\end{align*}
-%In most conductors (including all metals) the moving charges are electrons, whose charge is $-1\units{e} = -1.60\sci{-19}\units{C}$.
-%
-%
-%Here we can do the thing with electron volt and introduce sparks for the particle chapter.
-%
-%
-%\question
-%	An electron enters a chamber with a kinetic energy of $300\units{keV}$. At the point where it enters the electric potential is $-200\units{kev}$ it travels across the chamber an exits at a point where the electric potential is $200\units{V}$ What is the kinetic energy of the electron when it leaves?
-%\begin{solution}
-%	Solution....
-%\end{solution}
-%
-
-
-%\subsection{Energy units: electron volts}
-
-Cathode rays provided a new way for physicists to study extremely small pieces of matter. Similar beams with ever increasing energy have been become the primary tool in the search for the fundamental pieces of matter. Understanding these beams requires a little knowledge about electrical energy and one of the units used to measure energy, the \keyterm{electron-volt} or \m{\unit{eV}}. 
-
-The concept behind the electron-volt is quite simple. 
-Batteries store electrical energy which can be used to run electrical devices. The energy is retrieved by allowing electrons to flow through a circuit from the negative end of the battery, through the device, and back to the battery's positive end. The voltage of the battery is a measure of how much energy is provided by each electron flowing through the circuit. A nine-volt battery, for example, provides nine electron volts ($9\units{eV}$) of energy for every electron that makes the journey. An electron volt is a very small amount of energy, about the amount of energy released by a single molecule in the battery. Electron volts are related to our other unit of energy, the joule.
+By the end of the nineteenth century, the particle view had been completely displaced by the wave view, but the twentieth century photon gives us the luxury of using both particle and wave concepts to understand light – switching views to suit the problem at hand. Two simple equations allow us to relate the particle properties to the wave properties.
 \startformula
-	1\units{eV} = 1.60\sci{-19}\units{J}
+	E = hf
+		\qquad
+	\vabs{\,\vec{\!p\!}\,} = \frac{h\cdot 1\units{cyc}}{\lambda}
 \stopformula
+The first equation, originally due to Planck, tells us that energy is frequency. The second, demonstrated by Compton, tells us that momentum is inverse wavelength. In both cases, Planck's constant, \m{h}, is the factor relating the particle properties (energy and momentum) to the wave properties.
 
-A typical nine-volt battery has about $10^{22}$ electrons stored that can make the journey through a circuit, so the battery can provide about $9\sci{22}\units{eV}$ of energy, which is a significant amount of energy of energy.
-\startformula
-	9\sci{22}\units{\ucan{eV}}
-		\left(\frac{1.60\sci{-19}\units{J}}{1\units{\ucan{eV}}}\right)
-			= 14\,000\units{J}
-\stopformula
-Individual chemical reaction typically release a few electron volts of energy or less, making the volt a convenient unit for items powered by chemical reactions, like batteries.
-
-While the electron volt is a small amount of energy, it is enough to get an electron moving quite quickly. By the mid nineteenth century physicists were not using a few volts to make their sparks, but several kilovolts ($1\units{kV} = 1000\units{V}$).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startexample[ex:CathodeK]
-A cathode ray tube is powered by a \m{5.0\units{kV}} power supply. If an electron makes the trip from cathode to anode without running into anything, what will its kinetic energy be when it passes the anode? Give your answer in both electron volts and joules.
-
-\startsolution
-A \m{5.0\units{kV}} power supply delivers \m{5.0\units{keV}} of energy to each electron. If the electron does not lose any energy in collisions, its kinetic energy will be \m{5.0\units{keV}}, or
-\startformula
-	K = 5.0\sci{3}\units{\ucan{eV}}
-		\left(\frac{1.60\sci{-19}\units{J}}{1\units{\ucan{eV}}}\right)
-			= 8.0\sci{-16}\units{J}
-\stopformula
-Once the electron passes the anode it no longer feels much force and will continue with \m{5.0\units{keV}} of kinetic energy until it runs into something.
-\stopsolution
-\stopexample
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startexample[ex:CathodeVelocity]
-You decide to make a cathode ray whose electrons are going 5.0\% of the speed of light (\m{c=3.00\sci{8}\units{m/s}}). You build a tube that has no air in it, so that the electrons will not be slowed by collisions with air molecules. What voltage do you need from your power supply?
-
-\startsolution
-Five percent of the speed of light is
-\startformula
-	v = 0.05 c = 0.05(3.00\sci{8}\units{m/s}) = 1.50\sci{7}\units{m/s}.
-\stopformula
-This is very fast, but still slow enough that we can use the usual kinetic energy formula, \m{K=\onehalf\, mv^2}, where the mass of an electron is \m{m = 9.11\sci{-31}\units{kg}}. The electron's kinetic energy must be 
-\startformula
-	K = \tfrac{1}{2}mv^2 = (9.11\sci{-31}\units{kg})(1.50\sci{7}\units{m/s})^2 = 1.02\sci{-16}\units{J}
-\stopformula
-Convert this to electron volts.
-\startformula
-	K = 4.10\sci{-14}\units{\ucan{J}}\left(\frac{1\units{eV}}{1.60\sci{-19}\units{\ucan{J}}}\right)
-		= 640\units{eV}
-\stopformula
-All of the energy provided by the power supply is going to the electron's kinetic energy, so the power supply must provide \m{640\units{eV}} to each electron. The power supply's voltage, therefore, must be \m{640\units{V}}.  Kilovolt power supplies easily get electrons up to a significant fraction of the speed of light! 
-\stopsolution
-\stopexample
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startexample[ex:CathodeForce]
-While carefully connecting a \m{640\units{V}} power supply to your cathode ray tube, you wonder what the average force is on each electron as it is accelerated up to 5.0\% of the speed of light. The distance from the cathode to the anode is \m{3.0\units{cm}}. What is the average force?
-
-\startsolution
-We have not learned anything about how the power supply gives energy to the electrons (that is the next section) so we will not include the power supply or any potential energy in the system. The system will just be a single electron's kinetic energy, which is increased by work done on the electron by the mysterious power supply to the kinetic energy we found in \in{example}[ex:CathodeVelocity] above.
-
-Start with conservation of energy.
-\startformula\startmathalignment
-	\NC H\si + W + \cancel{Q}	 \NC = H\sf	\NR
-	\NC \cancel{K\si} + F\,\Delta x	\NC = K\sf	\NR
-	\NC F	\NC = \frac{K\sf}{\Delta x}
-				= \frac{1.02\sci{-16}\units{J}}{3.0\sci{-2}\units{m}}
-				= \answer{3.4\sci{-15}\units{N}} \NR
-\stopmathalignment\stopformula
-We used the kinetic energy in joules to get a force in newtons. What if we had used the kinetic energy in electron volts for the last step?
-\startformula
-	F = \frac{K\sf}{\Delta x}
-		= \frac{640\units{eV}}{3.0\sci{-2}\units{m}}
-		= \answer{2.1\sci{4}\units{eV/m}} \NR
-\stopformula
-This is the same force, \m{2.1\sci{4}\units{eV/m} = 3.4\sci{-15}\units{N}}. Sometimes measuring force in \m{\unit{eV/m}} will be the more convenient, especially when dealing with tiny particles. Sometimes joules are more convenient. Both are acceptable units of force.
-
-\stopsolution
-\stopexample
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Electrical potential and energy}
-
-The power supply does not give kinetic energy directly to the electrons. Instead, it gives the electrons potential energy. Since like charges repel, negatively changed electrons are pushed away from the negatively charged cathode.
-Every time the power supply pushes an electron onto the cathode it stores potential energy, much like compressing a spring. Since opposite charges attract, electrons are pulled towards the positively charged anode. Every time the power supply pulls an electron away from the anode it stores potential energy, much like stretching a spring.
-
-This potential energy is stored in the \emph{electrical potential.} The electrical potential is a field that exists everywhere. At any location the electrical potential can be positive, negative, or zero. It is mostly zero, but electric charges alter the electrical potential. Positive charges produce a region of positive potential, while negative charges create a region of negative potential. 
-
-
-\startbuffer[TikZ:CathodeRayGraphs]
+\startbuffer[TikZ:ReflectionWaves]
 \environment env_physics
 \environment env_TikZ
 \setupbodyfont [libertinus,11pt]
 \setoldstyle % Old style numerals in text
-\startTEXpage\small%
+\startTEXpage\small
 \starttikzpicture% tikz code
-	\startaxis[
-		footnotesize,
-		name=potential plot,
-		width=2.0in,%\marginparwidth,
-		y={0.005cm}, x={1cm},
-		xlabel={\m{x} (cm)},
-		xmin=0, xmax=3,
-		%xtick={-1,0,...,3},
-		minor x tick num=3,
-		xticklabel pos=upper,
-   		ylabel={Electrical Potential (V)},
-	  	every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
-		ymin=-400, ymax=400,
-		minor y tick num=4,
-	   	extra y ticks={0},
-	   	extra y tick labels=\empty,
-   		extra y tick style={grid=major},
-		clip mode=individual,
-		]
-	  	\addplot[thick, samples=121, domain=0:3,]
-		    {-320+(213)*x}
-		;
-	\stopaxis
-	\startaxis[
-		name=energy plot,
-		at={(potential plot.below south west)},yshift=-2.25cm,
-		anchor=north west,
-		footnotesize,
-		width=2.0in,%\marginparwidth,
-		y={0.005cm}, x={1cm},
-		xlabel={\m{x} (cm)},
-		xmin=0, xmax=3,
-		%xtick={-1,0,...,3},
-		minor x tick num=3,
-		ylabel={Energy (eV)},
-	  	every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
-		ymin=-400, ymax=700,
-		minor y tick num=4,
-	   	extra y ticks={0},
-	   	extra y tick labels=\empty,
-   		extra y tick style={grid=major},
-		clip mode=individual,
-		]
-	  	\addplot[thick, samples=121, domain=0:3,]
-		    {320-(213)*x}node[above right,pos=.4] {\m{U}}
-		;
-	  	\addplot[thick, samples=121, domain=0:3,]
-		    {(213)*x}node[above left,pos=.7] {\m{K}}
-		;
-	  	\addplot[thick, samples=2, domain=0:3,]
-		    {320}node[above,pos=0.25] {\m{H=U+K}}
-		;
-	\stopaxis
-	\draw[ultra thick, darkgray, rounded corners, fill=black!30] (potential plot.below south west) ++(-0.75,0) rectangle ++(7cm,-2cm); % Tube
-	\fill[white] (potential plot.below south west) ++(0,-0.5) rectangle node{Cathode Ray} ++(6cm,-1); % Beam
-	%\draw[ultra thick, darkgray, rounded corners] (0.25,0.75) rectangle (5,-0.75); % Tube
-	\draw[ultra thick] (potential plot.below south west) ++(0,-0.5) -- ++(0,-1)node[below]{Cathode}; %Cathode
-	\draw[thick] (potential plot.below south west) ++(0,-1) --node[below]{-} ++(-1,0);
-		\fill(potential plot.below south west) ++(1.5,-1) circle[radius=.4mm]node[above]{\m{e}} ;
-	\draw[thick,->] (potential plot.below south west) ++(1.5,-1) --node[below]{\m{\vec F}} ++(1,0);
-	\draw[ultra thick, fill=darkgray] (potential plot.below south east) ++(0,-0.48) rectangle node[above=0.52cm]{Anode} ++(0.5,-1.04); % Anode
-	\draw[thick] (potential plot.below south east) ++(0.25,-1.5) --node[left]{+} ++(0,-0.6);
+	\path[clip] (-3.5,-2.5) rectangle ++(5,5); 
+	\draw [ % Incident ray
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-3.6,-2.7);
+	\draw [ % Incident ray (forward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.6,1.2);
+	\draw [ % Reflected ray
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-3.6,2.7); % Refracted ray
+	\draw [ % Reflected ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.6,-1.2);
+%	\draw (0,-2.5) rectangle ++(0,5); 
+	\fill[black!20] (0,-2.5) rectangle ++(1.5,5); 
+	\draw [thick, ->](-3.2,-2.4)  --node[pos = .4, above left]{\m{\vec p\si}} ++(1.2,0.9); % Incident ray momentum
+	% \draw (0,0) circle [radius=1.5cm]node[below right=1.cm]{\m{\vabs{\,\vec{\!p\!}\,}=E}};
+	\draw [thick, <-](-3.2,2.4)  --node[pos = .65, below left]{\m{\vec p\sf}} ++(1.2,-0.9); % Refracted ray momentum
 \stoptikzpicture
 \stopTEXpage
 \stopbuffer
 
-\placefigure[margin][fig:CathodeRayGraphs]
-{Above the cathode ray tube is the electrical potential in the \m{3\units{cm}} gap between the cathode and anode when they are attached to a \m{640\units{V}} power supply. Below is the energy graph for an electron accelerating from the cathode towards the anode.}
-{\noindent\typesetbuffer[TikZ:CathodeRayGraphs]} % figure contents
+\placefigure[margin][fig:ReflectionWaves] % location, label
+{Light reflecting off a surface has the same frequency and wavelength after the reflection. The wavefronts of the incident and reflected waves coincide at the surface.} % caption text
+{\noindent\typesetbuffer[TikZ:ReflectionWaves]} % figure contents
 
-The top graph in \in{figure}[fig:CathodeRayGraphs] shows the electrical potential produced by the charged cathode and anode in a cathode ray tube. Near the negatively charged cathode the electrical potential is negative. Near the positively charged anode the electrical potential is positive. In the middle the effects cancel and the electrical potential is zero.
+Both wave and particle properties are useful in understanding \keyterm{reflection}, where light bounces off the surface of a material. The wave view is shown in \in{figure}[fig:ReflectionWaves], where waves arrive from the lower left, strike the vertical surface, and bounce off toward the upper left. The parallel lines are called wave-fronts, and they move in the direction of the wave's travel at the speed of light. The distance between successive wave-fronts is the light's wavelength. %Shorter wavelength corresponds to higher momentum, so closely spaced wavefronts correspond to a larger momentum vector.
+Reflections do not change the light's frequency or wavelength, only its direction. 
 
-Electrical potential is measured in volts. In \in{figure}[fig:CathodeRayGraphs], negative charge has been added to the cathode until its electrical potential is \m{-320\units{V}}. Negative charge has been removed from the anode until its electrical potential is \m{320\units{V}}. The potential difference is therefor \m{640\units{V}}, just like \in{examples}[ex:CathodeVelocity] and \in[ex:CathodeForce] above.
+Notice that the incoming and outgoing wave-fronts coincide along the surface. As each wavefront moves to the right, the lower edge of the wavefront is the first part to reach the surface. This part bounces off, reflected back towards the left. As the wave-front moves, more and more of it encounters the surface and changes direction, until the upper part – last to reach the surface – is turned around, and the entire wave-front moves away to the left.
 
-The symbol for electrical potential is \m{V}, which looks very similar to the symbol \m{\unit{V}} for volts. Be careful not to confuse them! In \in{figure}[fig:CathodeRayGraphs] the cathode's potential is \m{V=-320\units{V}}, the anode's is \m{V=320\units{V}}, and the potential difference is \m{\Delta V=640\units{V}}.
+\startbuffer[TikZ:ReflectionPhotons]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-3.5,-2.5) rectangle ++(5,5); 
+	\draw [ % Incident ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-3.6,-2.7);
+	\draw [black!30, % Incident ray (forward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.6,1.2);
+	\draw [ % Reflected ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-3.6,2.7); % Refracted ray
+	\draw [black!30, % Reflected ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.6,-1.2);
+%	\draw (0,-2.5) rectangle ++(0,5); 
+	\draw (0,0) circle [radius=1.5cm];
+	\fill[black!20] (0,-2.5) rectangle ++(1.5,5); 
+	\draw [thick, ->](-3.2,-2.4)  --node[pos = .4, above left]{\m{\vec p\si}} ++(1.2,0.9); % Incident ray momentum
+	\draw [thick, ->](0,0)  --node[below right]{\m{\vec p\si}} ++(1.2, 0.9); % Incident ray momentum
+	\draw[densely dotted] (0,0) circle [radius=1.5cm]node[left=1.5cm]{\m{E}};
+	\draw [thick, ->](0,0)  --node[below left]{\m{\vec p\sf}} ++(-1.2, 0.9); % Refracted ray momentum
+	\draw [thick, ->](1.2, 0.9)  --node[above right]{\m{\vec J}} (-1.2, 0.9); % Impulse
+	\draw [thick, <-](-3.2,2.4)  --node[pos = .65, below left]{\m{\vec p\sf}} ++(1.2,-0.9); % Refracted ray momentum
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
 
-% Electrical potential obeys the superposition principle (just like waves), so that the potential at any location is the sum of the contributions coming from all of the charges in the area.
+\placefigure[margin][fig:ReflectionPhotons] % location, label
+{Photons reflecting off a surface have the same energy (frequency) after the reflection. Their change in momentum is perpendicular to the surface.} % caption text
+{\noindent\typesetbuffer[TikZ:ReflectionPhotons]} % figure contents
 
-\emph{Electrical potential energy} is energy stored in the electrical potential.
-Notice that electrical potential and electrical potential energy are two distinct things.
-%While the general mathematical formula for this energy is quite daunting, we will be interested only in situations where the answer is quite simple.
-When a charge $q$ is placed at a location where the potential is $V$, the electrical potential energy is
+The particle view of the reflection is shown in \in{figure}[fig:ReflectionPhotons].
+In this view, photons with momentum \m{\vec p\si} approach the reflective surface. The photons' energy \m{E} is conserved in the elastic collision with the reflective surface. Since the photons' momentum is related to the energy by \m{\vabs{\,\vec{\!p\!}\,} = E}, the initial and final momentum have the same magnitude, shown by the circle labeled \m{E} in \in{figure}[fig:ReflectionPhotons]. The impulse \m{\vec J} delivered to the photons by the reflective surface is perpendicular to the surface. These two facts – conservation of energy and the perpendicular impulse – completely determine the photons' final momentum, as shown in \in{figure}[fig:ReflectionPhotons].
+
+For centuries the wave view and the particle view were seen as competing theories of light. In the twentieth century we learned that these are the same theory, described using two different vocabularies. When I say, \quotation{reflections do not change the light's frequency,} and, \quotation{the photons' energy \m{E} is conserved in the elastic collision,} I am saying the same thing it two different languages. Energy is frequency, and it does not change in a reflection. Likewise, \quotation{incoming and outgoing wave-fronts coincide along the surface} is the same as statement as \quotation{The impulse delivered to the photons is perpendicular to the surface.} The connection between these two statements is less obvious than the energy-frequency equivalence, but they are the same. (The connection would be more obvious if we defined directional wavelength. However, this is both complicated and unnecessary. Directional momentum is the same thing in language you already know well.) The wave view and the particle view are complimentary descriptions of the same phenomena. Physicists call this \keyterm{complimentarity}.
+
+When the reflecting surface delivers an impulse to the photon, the photon delivers an equal and opposite impulse to the surface. This impulse is extremely small. Even the huge number of photons in direct sunlight deliver a total impulse that is too small to be noticed in most situations. Still, the impulse is real. In space, where objects move without friction, the impulses delivered by sunlight can gradually change an object's momentum significantly. A small demonstration satellite, LightSail 2, is currently in orbit around Earth, using a large solar solar-sail to maneuver by reflecting sunlight. The Near-Earth Astroid Scout, set to be launched by NASA in November 2021, will visit an asteroid with the help of and \m{85\units{m^2}} solar-sail. 
+
+
+\startbuffer[TikZ:WavesSlowing]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-2.5,-1) rectangle ++(5,2); 
+	\fill[black!20] (0,-1) rectangle ++(2.5,2); 
+	\draw [thick, ->](-2,0.25)  --node[above]{higher speed} ++(1.5,0); % Refracted ray momentum
+	\draw [thick, ->](0.75,0.25)  --node[above]{lower speed} ++(1,0); % Impulse
+	\draw [ % Outside ray
+		decorate, %postaction={decorate, draw},
+		decoration={coil, aspect = 0, segment length=6mm},
+	](0,0)  --node[below=1mm]{longer waves} ++(-2.8,0);
+	\draw [ % Inside ray
+		decorate, %postaction={decorate, draw},
+		decoration={coil, aspect = 0, segment length=4mm},
+	](0,0)  --node[below=1mm]{shorter waves} ++(2.8,0); % Refracted ray
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:WavesSlowing] % location, label
+{As waves enter a transparent material their motion is slower, causing waves to bunch together for a shorter wavelength.} % caption text
+{\noindent\typesetbuffer[TikZ:WavesSlowing]} % figure contents
+
+
+\startbuffer[TikZ:PhotonsSlowing]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-2.5,-1) rectangle ++(5,2); 
+	\fill[black!20] (0,-1) rectangle ++(2.5,2); 
+	\draw [ % Outside ray
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.5cm, segment length=6mm},
+	](0,0)  --node[above=0.5cm]{longer waves} ++(-2.8,0);
+	\draw [ % Inside ray
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.5cm, segment length=4mm},
+	](0,0)  --node[above=0.5cm]{shorter waves} ++(2.8,0); % Refracted ray
+	\draw [thick, ->](-1.75,0)  --node[pos=0.33, below]{\m{\vec p\si}}node[below=0.5cm]{lower momentum} ++(1,0); % Refracted ray momentum
+	\draw [thick, ->](0.5,0)  --node[pos=0.33, below]{\m{\vec p\sf}}node[below=0.5cm]{higher momentum} ++(1.5,0); % Impulse
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:PhotonsSlowing] % location, label
+{The same waves as in \in{figure}[fig:WavesSlowing], but shown here as wavefronts and photon momentum.
+As waves enter the transparent material, their shorter wavelength is higher momentum.} % caption text
+{\noindent\typesetbuffer[TikZ:PhotonsSlowing]} % figure contents
+
+
+\section{Light in a transparent material}
+
+As light enters a transparent material – like water or glass – it slows down slightly, causing the waves to bunch up a bit, making the wavelength shorter (\in{fig.}[fig:WavesSlowing]). Shorter wavelength is higher momentum (\in{fig.}[fig:PhotonsSlowing]). Photons travel more slowly in a transparent material, so their momentum to increases! This does not fit well with our intuition about momentum, but our intuition is built around the equation \m{\vec p=m\vec v}, which is obviously not useful for massless photons. The correct way to think about photons is by translating our understanding of waves into the language of particles. The wave relation between wavelength and frequency can be translated into a useful relationship between momentum and energy for a photon in a transparent material:
+
+\startbuffer[TikZ:RefractionWaves]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-2.5,-2.5) rectangle ++(5,5); 
+	\draw [ % Incident ray
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-2.1,-2.8);
+	\draw [ % Incident ray (forward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.8,2.4);
+	\fill[black!20] (0,-2.5) rectangle ++(2.5,5); 
+	\draw [thick, ->](-1.8,-2.4)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	% \draw (0,0) circle [radius=1.5cm]node[below right=1cm]{\m{\vabs{\,\vec{\!p\!}\,}=E}};
+	% \draw (0,0) circle [radius=2cm]node[below right=1.33cm]{\m{\vabs{\,\vec{\!p\!}\,}=n E}};
+	\draw [thick, <-](2.4,1.8)  --node[below right]{\m{\vec p\sf}} ++(-1.6,-1.2); % Refracted ray momentum
+	% \draw [thick, ->](0.9,1.2)  --node[above]{\m{\vec J}} (1.6,1.2); % Impulse
+	\path[clip] (0,-2.5) rectangle ++(2.5,5); 
+	\draw [ % Refracted ray
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(2.8,2.1); % Refracted ray
+	\draw [ % Refracted ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(-2.4,-1.8);
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RefractionWaves] % location, label
+{As waves enter the denser material, their wavelength shortens and their path is bent.} % caption text
+{\noindent\typesetbuffer[TikZ:RefractionWaves]} % figure contents
+
 \startformula
-	U = qV
+		\vabs{\,\vec{\!p\!}\,} = nE,
 \stopformula
-An electron's charge is \m{q=-1\units{e}}, where an \keyterm{elementary unit of charge} is represented by the symbol \m{\unit{e}}. This symbol can be a little confusing because it looks like the symbol for an electron, which is \m{e}. Be careful not to confuse them! The charge on an \m{e} is \m{-1\units{e}}.
+where \m{n} is the material's \keyterm{index of refraction}. The index of refraction for vacuum is \m{n=1}, which gives us the usual relativistic relationship between energy and momentum for a massless photon. Transparent materials have indexes that range from one up to about 2.5. Air's index is about \m{1.0003}, which we will round to \m{1.00} in most calculations.
 
-The energy graph in \in{figure}[fig:CathodeRayGraphs] shows the potential energy of an electron anywhere between the cathode and the anode. At the cathode, where the electron beam starts, an electron's electrical potential energy is
-\startformula
-	U = qV = (-1\units{e})(-320\units{V}) = 320\units{eV}.
-\stopformula
-At the anode the electron's potential energy is
-\startformula
-	U = qV = (-1\units{e})(320\units{V}) = -320\units{eV}.
-\stopformula
-Since an electron's charge is negative, its electrical potential energy \m{U} is highest where the electrical potential \m{V} is most negative. As an electron accelerates from the cathode its potential energy \m{U} decreases and its kinetic energy \m{K} increases. If the electron does not lose any energy in collisions, all of its lost potential energy will become kinetic energy. The energy graph in \in{figure}[fig:CathodeRayGraphs] shows the kinetic energy increasing from \m{K=0\units{eV}} at the cathode up to \m{K=640\units{eV}} at the anode, with the total energy \m{H=U+K=320\units{eV}} staying constant for the entire journey.
+In \in{figure}[fig:PhotonsSlowing] the light is traveling from air into a transparent material with index \m{n=1.50}. 
+The photons' energy \m{E} is unchanged as it passes into the material. The photons' momentum increases from \m{\vabs{\,\vec{\!p\si\!}\,} = E} outside the material to \m{\vabs{\,\vec{\!p\sf\!}\,} = nE = 1.50\,E} inside the material, with a corresponding decrease in wavelength.
 
-With the formula for electrical potential energy, we can include potential energy when using energy conservation to solve problems. Including the potential energy in the system is almost always the best choice.
+When waves enter a transparent material at an angle, as shown in \in{figures}[fig:RefractionWaves] and \in[fig:RefractionPhotons], the magnitude and direction of the photons' momentum changes. The wave view is shown in \in{figure}[fig:RefractionWaves]. As the waves enter the material (\m{n=1.33}) they bunch up into shorter waves. The wave-fronts outside and inside the material must coincide at the boundary, as can be seen in the figure. As a result, the wave-fronts are bent slightly, changing the direction of the light. This bending is called \keyterm{refraction}.
+
+\startbuffer[TikZ:RefractionPhotons]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-2.5,-2.5) rectangle ++(5,5); 
+	\draw [ % Incident ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-2.1,-2.8);
+	\draw [black!30,  % Incident ray (forward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.8,2.4);
+	\draw [thick, ->](-1.8,-2.4)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	% \draw (0,0) circle [radius=1.5cm]node[left=1.5cm]{\m{E}};
+	\fill[black!20] (0,-2.5) rectangle ++(2.5,5); 
+	\path[clip] (0,-2.5) rectangle ++(2.5,5); 
+	\draw [ % Refracted ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(2.8,2.1); % Refracted ray
+	\draw [black!30,  % Refracted ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(-2.4,-1.8);
+	\draw [thick, ->](0,0)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	\draw [thick, ->](0,0)  --node[below right]{\m{\vec p\sf}} ++(1.6,1.2); % Refracted ray momentum
+	\draw [thick, ->](0.9,1.2)node[above]{\m{\vec J}}  -- (1.6,1.2); % Impulse
+	\draw[densely dotted] (0,0) circle [radius=1.5cm]node[below right=0.7cm]{\m{E}};
+	\draw (0,0) circle [radius=2cm]node[below right=1.33cm]{\m{n E}};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RefractionPhotons] % location, label
+{As waves enter the denser material, their wavelength shortens and their path is bent.} % caption text
+{\noindent\typesetbuffer[TikZ:RefractionPhotons]} % figure contents
+
+The complimentary photon view of refraction is shown in \in{figure}[fig:RefractionPhotons]. In this view the photons entering the transparent material will have momentum \m{\vabs{\,\vec{\!p\sf\!}\,} = nE = 1.33\,E}, which is shown by the circle labeled \m{E} in the figure. The impulse delivered by the surface is perpendicular to the surface. The point where the perpendicular impulse \m{\vec J} meets the circle \m{nE} gives the final momentum \m{\vec p\sf}, shown in the figure. Notice that the path of the the photons is refracted slightly, exactly like the refraction in the wave view.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startexample[ex:CathodeK]
-A cathode ray tube is powered by a \m{5.0\units{kV}} power supply which raises the potential of the anode to \m{2.5\units{kV}} and lowers the potential of the cathode to \m{-2.5\units{kV}}. If an electron makes the trip from cathode to anode without running into anything, what will its kinetic energy be when it passes the anode?
+\startexample[ex:RefractionReflectionPhotons]
+When light encounters a boundary, like the one in \in{figure}[fig:RefractionPhotons], some of the light enters the material and is refracted, while some of the light is reflected. Add the reflected light to \in{figure}[fig:RefractionPhotons].
+\startbuffer[TikZ:RefractionReflectionPhotons]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-2.5,-2.5) rectangle ++(5,5); 
+	\draw [ % Incident ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-2.1,-2.8);
+	\draw [black!30,  % Incident ray (forward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.8,2.4);
+	\draw [thick, ->](-1.8,-2.4)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	% \draw (0,0) circle [radius=1.5cm]node[left=1.5cm]{\m{E}};
+	\draw (0,0) circle [radius=1.5cm]node[left=1.5cm]{\m{E}};
+	\fill[black!20] (0,-2.5) rectangle ++(2.5,5); 
+	\path[clip] (0,-2.5) rectangle ++(2.5,5); 
+	\draw [ % Refracted ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(2.8,2.1); % Refracted ray
+	\draw [black!30,  % Refracted ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(-2.4,-1.8);
+	\draw [thick, ->](0,0)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	%\draw [thick, ->](0,0)  --node[below right]{\m{\vec p\sf}} ++(1.6,1.2); % Refracted ray momentum
+	%\draw [thick, ->](0.9,1.2)node[above]{\m{\vec J}}  -- (1.6,1.2); % Impulse
+	\draw[densely dotted] (0,0) circle [radius=1.5cm];%node[below right=0.7cm]{\m{E}};
+	\draw (0,0) circle [radius=2cm]node[below right=1.33cm]{\m{n E}};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RefractionReflectionPhotons] % location, label
+{Waves reflecting off of the surface remain in the area where \m{n=1}, so the reflected photons' momentum will fall on the circle \m{\vabs{\,\vec{\!p\sub{r}\!}\,} = E}} % caption text
+{\noindent\typesetbuffer[TikZ:RefractionReflectionPhotons]} % figure contents
+
+\startbuffer[TikZ:RefractionReflectionPhotons2]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+	\path[clip] (-2.5,-2.5) rectangle ++(5,5); 
+	\draw [ % Incident ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-2.1,-2.8);
+	\draw [black!30,  % Incident ray (forward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.8,2.4);
+	\draw [ % Reflected ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(-2.1,2.8);
+	\draw [black!30,  % Reflected ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 0.9cm, segment length=4mm},
+	](0,0)  -- ++(1.8,-2.4);
+	\draw [thick, ->](-1.8,-2.4)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	\draw [thick, ->](0,0)  --node[below left=0mm]{\m{\vec p\sub{r}}} ++(-0.9,1.2); % reflected ray momentum
+	%\draw [thick, <-](-1.8,2.4)  --node[below left=0mm]{\m{\vec p\sub{r}}} ++(0.9,-1.2); % reflected ray momentum
+	% \draw (0,0) circle [radius=1.5cm]node[left=1.5cm]{\m{E}};
+	\draw (0,0) circle [radius=1.5cm]node[left=1.5cm]{\m{E}};
+	\fill[black!20] (0,-2.5) rectangle ++(2.5,5); 
+	\draw [thick, ->](0.9,1.2) --node[above right]{\m{\vec J\sub{r}}} ++(-1.8,0); % Impulse
+	\path[clip] (0,-2.5) rectangle ++(2.5,5); 
+	\draw [ % Refracted ray
+		postaction={black!30, decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(2.8,2.1); % Refracted ray
+	\draw [black!30,  % Refracted ray (backward extension)
+		decorate, %postaction={decorate, draw},
+		decoration={ticks, amplitude = 1.2cm, segment length=3mm},
+	](0,0)  -- ++(-2.4,-1.8);
+	\draw [thick, ->](0,0)  --node[above left=0mm]{\m{\vec p\si}} ++(0.9,1.2); % Incident ray momentum
+	%\draw [thick, ->](0,0)  --node[below right]{\m{\vec p\sf}} ++(1.6,1.2); % Refracted ray momentum
+	%\draw [thick, ->](0.9,1.2)node[above]{\m{\vec J}}  -- (1.6,1.2); % Impulse
+	\draw[densely dotted] (0,0) circle [radius=1.5cm];%node[below right=0.7cm]{\m{E}};
+	\draw (0,0) circle [radius=2cm]node[below right=1.33cm]{\m{n E}};
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:RefractionReflectionPhotons2] % location, label
+{The impulse delivered to the photons is perpendicular to the surface, giving \m{\vec{\!p\sub{r}}}.} % caption text
+{\noindent\typesetbuffer[TikZ:RefractionReflectionPhotons2]} % figure contents
 
 \startsolution
-Start with conservation of energy, including the electron's electrical potential energy.
-\startformula\startmathalignment
-\NC	H\si + \cancel{W} + \cancel{Q}	\NC = H\sf			\NR
-\NC	U\si + \cancel{K\si}				\NC = U\sf + K\sf	\NR
-\NC	qV\si + \cancel{K\si}				\NC = qV\sf + K\sf	\NR
-\NC	K\sf								\NC = q(V\si - V\sf)
-\stopmathalignment\stopformula
-The final kinetic energy depends on the electron's charge and the electrical potential difference provided by the power supply.
-\startformula
-K\sf	 = (-1\units{e})(-2.5\units{kV} - 2.5\units{kV})
-	= (-1\units{e})(-5.0\units{kV})
-	= 5.0\units{keV}
-\stopformula
-The electron passes the anode with kinetic energy \m{K=5.0\units{keV}}.
+Since we have so much experience with momentum vectors, we will use the photon view to add to the figure. The photons that bounce off of the surface remain in the air where \m{n=1}. So these reflected photons (with subscript {\tf r}) will have momentum \m{\vabs{\,\vec{\!p\sub{r}\!}\,} = E}, the same as the incoming photon. I've added the circle of radius \m{E} to \in{figure}[fig:RefractionReflectionPhotons] to show the magnitude of the reflected photon's momentum. (To reduce clutter, I've removed the impulse and momentum of the photons that enter material.)
+
+To get the reflected photon's direction, I use the fact that the impulse delivered is perpendicular to the material's surface, as shown in \in{figure}[fig:RefractionReflectionPhotons2]. The point where the perpendicular impulse meets the circle \m{E} gives the reflected photon's final momentum \m{\vec p\sub{r}}, also shown in \in{figure}[fig:RefractionReflectionPhotons2]. Wave fronts are visible in the background so you can see the wave view as well.
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Knowing the electron's electrical potential energy allows us to calculate the force on the electron using Hamilton's equation. The force shown in \in{figure}[fig:CathodeRayGraphs] is
-\pagereference[eq:HamiltonsElectricForce]
-\startformula
-	F = -\frac{\Delta U}{\Delta x}
-		= - \frac{-320\units{eV} - 320\units{eV}}{3.0\units{cm}}
-		= - \frac{-640\units{eV}}{3.0\sci{-2}\units{m}}
-		= 2.1\sci{4}\units{eV/m},
-\stopformula
-which agrees with the result in \in{example}[ex:CathodeForce], where the force was found using work. Using Hamilton's equation is usually a better choice.
-%The potential $V$ is the potential produced by any other charges, not including the charge $q$. The charge $q$ can never get away from its own contribution to the electrical potential, so that energy is not convertible to other forms and we just leave it out. %(Leaving it out also avoids some mathematical headaches.)
-
-%The charge $q$ can be positive or negative, and the potential $V$ produced by other charges can also be positive or negative, so the potential energy $U$ can be positive or negative. Objects that have no charge are neutral, $q = 0$, so they never have electrical potential energy. A charge $q$ in a region where the electrical potential is zero also has no potential energy. While the electrical potential field exists everywhere, we sometimes say that a region has no electrical potential. This actually means that the value of the electrical potential is zero in that region.
-
-Armed with the formula for electrical potential energy, we have all of the tools we need to explain the well known facts that \emph{opposite charges attract} while \emph{like charges repel}. First, consider two positive charges. Each creates a small region of positive potential. When you try to put the charges close together, each positive charge enters the positive potential of the other. This gives them positive potential energy which increases as they get closer. Hamilton taught us that the force is always towards lower potential energy, so there will be a force pushing the two positive charges apart. Two positive charges repel.
-
-Two negative charges each produce a small region of negative potential. Putting these negative charges into each others' negative potential gives them positive potential energy which increases as they get closer. They will feel a force pushing them apart, towards lower potential energy. Two negative charges repel.
-
-If the charges are opposite, then putting them close together puts the positive charge in the other's negative potential and the negative charge in the other's positive potential. The resulting potential energy is negative, getting more negative as they get closer together. Opposite charges will feel a force towards this more negative, lower potential energy. Opposite charges attract.
-
-These forces between charges are responsible for all of the contact forces you experience in your everyday life. The forces between your feet and the floor, between a book and the table it sits on, and the force of wind on your face are all due to the electrical potentials of electrons and protons interacting. Gravitation is the only force you encounter which is not electrical.
-
-%find the electric potential due to one charge. Next, find the potential energy when the second charge is added. Finally, use Hamilton's equation to find the force. For opposite charges the force on the second charge will be toward the first charge. For like charges the force on the second will be away from the first. The method can be reversed to find the force on the first charge, which will give an equal and opposite force, in agreement with Newton's Third Law.
-
-%The forces determined from the electric potential are enough to determine the motion of the charges, which can be done with a computer simulation or, in simple cases, with calculus.
-
-\section{Electric field and force}
-
-The electrical potential only exerts a force on charges if the potential has a slope. This slope is called the \keyterm{electric field.} The electric field provides a useful short-cut for calculating electrical forces. Here is how it works.
-
-Consider a charge \m{q} in a potential, like the electron in between the cathode and anode shown in \in{figure}[fig:CathodeRayFieldGraph]. The force on the charge is given by Hamilton's equation, which can be separated into two factors: the charge $q$ and the slope of the electric potential.
-\startformula
-	F = -\frac{\Delta U}{\Delta x}
-		= - \frac{qV\sf - qV\si}{\Delta x}
-		= q\left(-\frac{V\sf - V\si}{\Delta x}\right)
-		= q\left(-\frac{\Delta V}{\Delta x}\right)
-\stopformula
-The last factor on the right is the electric field.
-\startformula
-	E = -\frac{\Delta V}{\Delta x}
-\stopformula
-The electric field always points in the direction of decreasing electrical potential. 
-Finding the electric field from the electrical potential can be difficult, but often the field is given.
-Once you have the electric field, electric force formula is a simple multiplication.
-\startformula
-	\vec F = q\vec E
-\stopformula
-In many situations calculating the electric field eliminates the need for an energy graph or energy calculations.
-
-%The electric field is a directional, vector quantity, like force. For the cathode ray tube shown in \in{figure}[fig:CathodeRayFieldGraph], all motion is along a single direction, 
-
-\startbuffer[TikZ:CathodeRayFieldGraph]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage\small%
-\starttikzpicture% tikz code
-	\startaxis[
-		footnotesize,
-		name=potential plot,
-		width=2.0in,%\marginparwidth,
-		y={0.005cm}, x={1cm},
-		xlabel={\m{x} (cm)},
-		xmin=0, xmax=3,
-		%xtick={-1,0,...,3},
-		minor x tick num=3,
-		xticklabel pos=upper,
-   		ylabel={Electrical Potential (V)},
-	  	every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
-		ymin=-400, ymax=400,
-		minor y tick num=4,
-	   	extra y ticks={0},
-	   	extra y tick labels=\empty,
-   		extra y tick style={grid=major},
-		clip mode=individual,
-		]
-	  	\addplot[thick, samples=121, domain=0:3,]
-		    {-320+(213)*x}
-		;
-	\stopaxis
-%	\startaxis[
-%		name=energy plot,
-%		at={(potential plot.below south west)},yshift=-2.25cm,
-%		anchor=north west,
-%		footnotesize,
-%		width=2.0in,%\marginparwidth,
-%		y={0.005cm}, x={1cm},
-%		xlabel={\m{x} (cm)},
-%		xmin=0, xmax=3,
-%		%xtick={-1,0,...,3},
-%		minor x tick num=3,
-%		ylabel={Energy (eV)},
-%	  	every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=center},
-%		ymin=-400, ymax=700,
-%		minor y tick num=4,
-%	   	extra y ticks={0},
-%	   	extra y tick labels=\empty,
-%   		extra y tick style={grid=major},
-%		clip mode=individual,
-%		]
-%	  	\addplot[thick, samples=121, domain=0:3,]
-%		    {320-(213)*x}node[above right,pos=.4] {\m{U}}
-%		;
-%	  	\addplot[thick, samples=121, domain=0:3,]
-%		    {(213)*x}node[above left,pos=.7] {\m{K}}
-%		;
-%	  	\addplot[thick, samples=2, domain=0:3,]
-%		    {320}node[above,pos=0.25] {\m{H=U+K}}
-%		;
-%	\stopaxis
-	\clip (potential plot.below south west) ++ (-1,0.1 )rectangle ++(5.08cm,-2.2cm);
-	\draw[ultra thick, darkgray, rounded corners, fill=black!30] (potential plot.below south west) ++(-0.75,0) rectangle ++(7cm,-2cm); % Tube
-	\fill[white] (potential plot.below south west) ++(0,-0.5) rectangle node{Cathode Ray} ++(6cm,-1); % Beam
-	%\draw[ultra thick, darkgray, rounded corners] (0.25,0.75) rectangle (5,-0.75); % Tube
-	\draw[ultra thick] (potential plot.below south west) ++(0,-0.5) -- ++(0,-1)node[below]{Cathode}; %Cathode
-	\draw[thick] (potential plot.below south west) ++(0,-1) --node[below]{-} ++(-1,0);
-		\fill(potential plot.below south west) ++(1.5,-1) circle[radius=.4mm]node[above]{\m{e}} ;
-	\draw[thick,->] (potential plot.below south west) ++(1.5,-1) --node[below]{\m{\vec F}} ++(1,0);
-	\draw[thick,->] (potential plot.below south west) ++(1.5,-1) --node[below]{\m{\vec E}} ++(-1,0);
-	\draw[ultra thick, fill=darkgray] (potential plot.below south east) ++(0,-0.48) rectangle node[above=0.52cm]{Anode} ++(0.5,-1.04); % Anode
-	\draw[thick] (potential plot.below south east) ++(0.25,-1.5) --node[left]{+} ++(0,-0.6);
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
-
-\placefigure[margin][fig:CathodeRayFieldGraph]
-{Above the cathode ray tube is the electrical potential in the \m{3\units{cm}} gap between the cathode and anode when they are attached to a \m{640\units{V}} power supply. The electric field \m{\vec{E}} in the gap is a vector pointing in the direction of decreasing potential, with a magnitude equal to the potential's slope. This force on the electron is \m{\vec F = q\vec E}.}
-{\noindent\typesetbuffer[TikZ:CathodeRayFieldGraph]} % figure contents
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startexample[ex:CathodeField]
-A \m{640\units{V}} power supply is connected to a cathode ray tube, producing the potential plotted on the graph in \in{figure}[fig:CathodeRayFieldGraph]. Find the electric field between the cathode and anode, and the force exerted on an electron by this field.
-
-\startsolution
-First, find the electric field from the slope of the electrical potential. This calculation is almost identical to the force calculation at the end of the last section (\at{p.}[eq:HamiltonsElectricForce]), but take care with signs.
-\startformula
-	E = -\frac{\Delta V}{\Delta x}
-		= - \frac{320\units{V} - (-320\units{V})}{3.0\units{cm}}
-		% = - \frac{640\units{V}}{3.0\sci{-2}\units{m}}
-		= -2.1\sci{4}\units{V/m},
-\stopformula
-The electric field is negative, which means it points to the left in the diagram. To the left is the direction of decreasing electrical potential.
-
-Now find the force on the electron, which has charge \m{q=-1\units{e}}.
-\startformula
-	\vec F = q\vec E
-		= (-1 \units{e})(-2.1\sci{4}\units{V/m},)
-		= 2.1\sci{4}\units{eV/m}.
-\stopformula
-This force is positive, which means it points to the right in the diagram, opposite the electric field.
-
-\stopsolution
-\stopexample
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-This force agrees with the results in \in{example}[ex:CathodeForce] and at on \at{p.}[eq:HamiltonsElectricForce].
 
 
-The electric field is a vector field which exists everywhere in space. (The electric field vector could be the zero vector if there are no charges around.) A charge placed where the electric field is not zero will feel a force. A positive charge feels a force is in the direction of the electric field, while a negative charge feels a force in the opposite direction. A neutral particle does not feel any force from electric fields.
 
-The electric field vector's individual components are the potential's slope in the coordinate directions.
-\startformula
-	E_x = -\frac{\Delta V}{\Delta x}	\qquad
-	E_y = -\frac{\Delta V}{\Delta y}	\qquad
-	E_z = -\frac{\Delta V}{\Delta k}
-\stopformula
-Since the electric potential is measured in volts, the electric field is in volts per meter.
 
-%These equations for the electric field due to the electric potential look very much like Hamilton's equations for the force due to potential energy, including the minus signs. That is no coincidence! The similarity is the reason the electric field is so useful. The electric field gives another – often more convenient – route for finding the force on a charge.
-%
-%The first route for finding the force on a charge $q$, which you already learned, is to start with the electric potential, multiply by $q$ to get the potential energy, and then find the slope to get the force. The second method is to start with the potential, find the slope to get the electric field, and then multiply by $q$ to get the force. Either method gives the same force.
-%
-%The hard step in either method is finding the slope, which can require calculus or drawing tangent lines on graphs. Using the electric field gets that step out of the way. The remaining steps – finding the field's direction and multiplying by the other charge – do not require sophisticated mathematics. 
 
-The cathode ray experiment in \in{figure}[fig:CathodeDeflection] shows a common example of how electric force is used to deflect a cathode ray. The plates near the center are charged so that the top plate has a lower potential while the bottom plate has a higher potential. This produces an electric field between the plates directed upwards – towards lower potential. The upwards electric field produces a downwards electric force on the negatively charged electrons, deflecting the beam downwards.
 
-\startbuffer[TikZ:CathodeDeflection]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage\small%
-\starttikzpicture% tikz code
-	%\clip (-1,0.1 )rectangle ++(5.08cm,-2.2cm);
-	\draw[ultra thick, darkgray, rounded corners, fill=black!30] (-0.75,1) rectangle ++(16.25cm,-2cm); % Tube
-	\fill[white] (0,0.5) rectangle ++(3.25cm,-1); % Beam
-	\draw[ultra thick, white] (0,0) -- ++(5.5cm,0) parabola ++(5,-0.1) -- ++(5,-0.2); % Beam
-	\draw[ultra thick, darkgray, rounded corners] (-0.75,1) rectangle ++(16.25cm,-2cm); % Tube
-	\draw[ultra thick] (0,0.5) -- ++(0,-1)node[below]{Cathode}; %Cathode
-	\draw[thick] (0,0) --node[below]{-} ++(-1,0);
-%		\fill (1.5,0) circle[radius=.4mm]node[above]{\m{e}} ;
-%	\draw[thick,->] (1.5,0) --node[below]{\m{\vec F}} ++(1,0);
-	\draw[ultra thick, fill=darkgray] (3,0.52) rectangle node[above=0.52cm]{Anode} ++(0.5,-1.04); % Anode
-	\draw[thick] (3.25,-0.5) --node[left]{+} ++(0,-0.6);
-	\draw[ultra thick] (5.5,0.5) -- ++(5,0); %Top plate
-	\draw[thick] (8,0.5) --node[below left]{-} ++(0,0.75);
-	\draw[ultra thick] (5.5,-0.5) -- ++(5,0); % bottom plate
-	\draw[thick] (8,-0.5) --node[above left]{+} ++(0,-0.75);
-		\fill (8,-0.025) circle[radius=.4mm]node[above]{\m{e}} ;
-	\draw[thick,->] (8,-0.025) --node[right]{\m{\vec F}} ++(0,-0.4);
-	\draw[->] (5.75,-0.4) --node[left]{\m{\vec E}} ++(0,0.8);
-	\draw[->] (6.65,-0.4) -- ++(0,0.8);
-	\draw[->] (7.55,-0.4) -- ++(0,0.8);
-	\draw[->] (8.45,-0.4) -- ++(0,0.8);
-	\draw[->] (9.35,-0.4) -- ++(0,0.8);
-	\draw[->] (10.25,-0.4) -- ++(0,0.8);
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
 
-\placefigure[margin][fig:CathodeDeflection] % location
-{A cathode ray deflected by an electric field between two charged plates. The anode has a small hole so the cathode ray makes a thin beam. The beam is deflected by the electric field between the two charged plates}	% caption text
-{\vskip5.75in\hbox{\starttikzpicture
-	\draw[white] (0,0)-- ++(5,0); % Sky to make height better
-\stoptikzpicture}}
-
-\placewidefloat[bottom,none]
-{This is its caption I need to fix.}
-{\hbox{\noindent\typesetbuffer[TikZ:CathodeDeflection]}} % figure contents
-
-The direction of the electric field is always towards lower potential. A positive charge creates a region of positive potential, with the highest potential close to the charge, so \emph{the electric field points away from a positive charge,} toward the lower potential far away. A negative charge creates a region of negative potential, with the most negative potential close to the charge, so the \emph{the electric field points toward a negative charge,}  toward the nearby lower potential. In both cases the electric field has the greatest magnitude close to the charge, where the potential is changing most rapidly with distance. Far from the charge, where the potential is inching towards zero, the magnitude of the electric field is small.
-
-The electric field gives another explanation for why like charges repel and opposite charges attract. For example, a positive charge produces an electric field that points away from it. Another positive charge will feel a force in the direction of this field, so the second positive charge is repelled by the first. If the second charge is negative, it will feel a force opposite the electric field and be attracted to the positive charge. Take a moment to determine the direction of the force that a negative particle would exert on another charge, either positive or negative.
-
-%The electric field, like the electric potential, obeys the superposition principle, but the electric field vectors must be added \emph{as vectors} which makes the addition more complicated than it is for the electric potential. A charge does not feel its own electric field, only the total field produced by all other charges.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\startexample[ex:CathodeDeflection]
-%A \m{640\units{V}} power supply is connected to a cathode ray tube, producing the potential plotted on the graph in \in{figure}[fig:CathodeRayFieldGraph]. Find the electric field between the cathode and anode, and the force exerted on an electron by this field.
-%
-%\startsolution
-%First, find the electric field from the slope of the electrical potential. This calculation is almost identical to the force calculation at the end of the last section (\at{p.}[eq:HamiltonsElectricForce]), but take care with signs.
-%\startformula
-%	E = -\frac{\Delta V}{\Delta x}
-%		= - \frac{320\units{V} - (-320\units{V})}{3.0\units{cm}}
-%		% = - \frac{640\units{V}}{3.0\sci{-2}\units{m}}
-%		= -2.1\sci{4}\units{V/m},
-%\stopformula
-%The electric field is negative, which means it points to the left in the diagram. To the left is the direction of decreasing electrical potential.
-%
-%Now find the force on the electron, which has charge \m{q=-1\units{e}}.
-%\startformula
-%	\vec F = q\vec E
-%		= (-1 \units{e})(-2.1\sci{4}\units{V/m},)
-%		= 2.1\sci{4}\units{eV/m}.
-%\stopformula
-%This force is positive, which means it points to the right in the diagram, opposite the electric field.
-%
-%\stopsolution
-%\stopexample
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Historically, the electrical potential, electric field, and electric force were discovered in reverse order. The force law between charges was discovered by Charles Coulomb in 1785, and is called Coulomb's law. The electric field was described by Michael Faraday in his \textit{Experimental Researches in Electricity,} begun in 1831. The derivation of the electrical field from the electric potential was given by James Clerk Maxwell in \textit{A Dynamical Theory of the Electromagnetic Field,} published in 1865.
-
-\section{Magnetic field and force}
-The magnetic field, like the electric field, is a vector field that exists everywhere. The value of the magnetic field can be zero, but this is actually  rare. Earth is not electrically charged, so it does not produce an electric field, but Earth does produce a huge magnetic field which extends far out into space. This magnetic field is produced by electric currents deep in Earth's molten core, powered by convection currents and Earth's rotation. This magnetic field protects Earth from the dangerous solar wind, a wind of fast charged particles coming at us constantly from the Sun.
-
-Mars, being somewhat smaller than Earth, cooled more quickly after the formation of the solar system, so it no longer has a molten core and therefore has lost its magnetic field, exposing it to the solar wind. The solar wind gradually blew Mars's atmosphere away, making it a rather inhospitable place. Magnetic fields are very important!
-
-The magnetic field exerts a force on charged particles, but only on changed particles that are moving. The direction of the magnetic force is \emph{perpendicular} to the direction of the field and also \emph{perpendicular} to the particle's direction of motion. This is described by a vector cross product.
-\startformula
-	\vec{F} = q\vec{v} \times \vec{B}
-\stopformula
-In this book we will only consider situations where the magnetic field is perpendicular to the charged particle's velocity. In this case the magnitude of the magnetic force is simply
-\startformula
-	F = qvB.
-\stopformula
-%The magnitude of a cross product is the area of the little parallelogram made by the two vectors, in this case the vector $q\vec{v}$ and the vector $\vec{B}$.
-%If the charged particle is moving perpendicular to the magnetic field's direction, then the vectors $q\vec{v}$ and $\vec{B}$ are perpendicular, forming a rectangle with area $qvB$. If the particle is traveling along the magnetic field, then vector $q\vec{v}$ and $\vec{B}$ are parallel (either pointing in exactly the same direction, or in exactly opposite directions), the parallelogram collapses, and the area is zero. In general, the vectors $q\vec{v}$ and $\vec{B}$ make some angle $\theta$ and the magnitude of the field is 
-%\startformula
-%	F = \abs{q}vB\sin{\theta}
-%\stopformula
-%Again, for motion perpendicular to the field the angle between $q\vec{v}$ and $\vec{B}$ is $90\degree$ and $F=\abs{q}vB$. For motion parallel to the field the angle is $0\degree$ or $180\degree$ and $F=0$.
-
-\startbuffer[TikZ:RightHandOut]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage
-\starttikzpicture% tikz code
-	\pic[rotate=0]{RightHandOut};
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
-
-\placefigure[margin][fig:RightHandOut] % location
-{The right-hand rule for a magnetic field \m{\vec B} coming out of the page (dots). The magnetic force \m{\vec F} (thumb) is perpendicular to the electrical current \m{q\vec v} (pointer finger) and the magnetic field \m{\vec B} (little fingers)}	% caption
-{\noindent\typesetbuffer[TikZ:RightHandOut]} % figure contents
-
-\startbuffer[TikZ:RightHandIn]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage
-\starttikzpicture% tikz code
-	\pic[rotate=0]{RightHandIn};
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
-
-\placefigure[margin][fig:RightHandIn] % location
-{The right-hand rule for a magnetic field \m{\vec B} going into the page (crosses). The magnetic force \m{\vec F} (thumb) is perpendicular to the electrical current \m{q\vec v} (pointer finger) and the magnetic field \m{\vec B} (little fingers)}	% caption
-{\noindent\typesetbuffer[TikZ:RightHandIn]} % figure contents
-
-\noindent
-The direction of the magnetic force is determined by the right-hand rule, shown in \in{figures}[fig:RightHandOut] for magnetic fields out of the page and in figure \in{figure}[fig:RightHandIn] for magnetic fields into the page. The three vectors in the magnetic force formula are assigned to different fingers on your right-hand. The vector $q\vec{v}$ is assigned to your index finger, as if you are firing the charge like an imaginary bullet out of your straight, extended finger. However, if $q$ is negative then you need to point your index finger in the direction \emph{opposite} the velocity vector $\vec{v}$, keeping it extended and straight while reversing your entire hand. The direction of \m{q\vec v} is the direction of the \keyterm{electrical current} due to the charge's movement.
-
-The magnetic field vectors are assigned to your remaining fingers – lots of fingers for the lots of magnetic field vectors. These fingers are not extended and should bend naturally in the direction of the magnetic field. %If the magnetic field is in the direction of $q\vec{v}$, so that all four fingers are extended, or if the magnetic field is opposite $q\vec{v}$ so that the three field fingers bend back into the palm of the hand, then the force is \emph{zero.}
-
-If the index finger and the remaining fingers produce some angel between $0\degree$ and $180\degree$, then the thumb, the most forceful of fingers, shows the direction of the force. The thumb should be extended and straight, perpendicular to both the extended index finger and the remaining bent fingers.
-
-The right-hand rule can be used when the velocity and magnetic field are pointing in any direction, not just the directions I have described. For more complicated situations, the right-hand rule is a fully three dimensional exercise. You should train with an experienced right-hand rule practitioner to avoid sign errors and injury.
-
-%\section{Orbits in a Magnetic Field}
-Gravitational forces are responsible for the orbits of celestial objects – moons obit planets, planets orbit stars, and stars orbit galaxies. Electrical forces are responsible for the orbits of electrons around the nucleus of an atom. In both cases the field, gravitational or electrical, is produced by an object at the center which causes an attractive force holding the smaller object in orbit.
-
-Magnetic orbits are totally different because they have \emph{nothing} at the center. This is possible because the magnetic force is perpendicular to the particle's motion, changing the particle's direction, but not its speed. As the particle's path bends, the direction of the force also changes, staying always perpendicular to the particle's velocity. This changing force will curve the particle's path around into a circle (or a helix in more complicated situations).
-
-Circular magnetic orbits are used to keep particles orbiting in circular particle colliders. Charged particles in the solar wind follow tight helical orbits that follow Earth's magnetic field to the poles, where the particles crash into the atmosphere producing northern and southern lights.
-
-%\section{Magnetic Potential?}
-The electric potential and the electric field are both very useful. The electric potential is especially useful when you want to understand the energy in the system, while the electric field is especially convenient when you want to understand the electric forces. We have learned about the magnetic field, which is convenient when we want to understand the magnetic forces. (The magnetic field is not quite as convenient as the electric field because of the cross product and the right-hand rule, but it works.) Surely, you are now anxious to learn about the magnetic potential for situations where you want to study magnetic potential energy.
-
-Unfortunately, I have bad news. The magnetic potential is quite complicated. It is actually a \emph{vector} potential. This is related to the fact the magnetic force involves the velocity, which is also a vector. The magnetic potential energy involves the charge, the magnetic vector potential, and the velocity vector, which makes it complicated. The real killer, however, is  the magnetic vector potential's contribution to a magnetic potential momentum! The formula is not complicated, but working with the potential momentum requires extreme mental discipline.
-
-Fortunately, I have good news, too. Because the magnetic force is perpendicular to the charge's motion, magnetic forces never do any work! Magnetic potential energy only interacts with the kinetic energy of changes and currents though electric forces, which can do work. While I recommend learning vector calculus so you can contemplate the supreme beauty of the magnetic vector potential, you won't actually need the magnetic vector potential for any problems in introductory physics. Use the \emph{electric} force, the magnetic force will not work!\footnote{Kenobi, Obi-Wan. Private communication.}
-
-%\section{Discovery of the first sub-atomic particle}
-%
-%Cathode rays can be deflected by magnetic or electric fields. In 1897,
-%J.~J.~Thompson performed a clever experiment where the magnetic and electric deflections would cancel out. The strengths of the electric and magnetic field that produced the cancelation could then be used to determine the velocity and mass of the electrons in the rays. %(This calculation is one that you will do after learning more about the forces exerted by electric and magnetic fields.)
-%
-%\placetable
-%    [margin]
-%    [T:Mendeleev]
-%    {The electron is lighter than any element and does not fit among the elements in the periodic table, 1897}
-%    {\vskip9pt%\hbox{
-%	\starttabulate[|l|c|c|c|c|c|c|]
-%\FL[2]%\toprule
-%\NC	 	\NC 	\NC 	\NC e	\NC 	\NC 	\NC 	\NR
-%\HL
-%\NC	 H	\NC 	\NC 	\NC 	\NC 	\NC 	\NC 	\NR
-%\NC Li	\NC Be	\NC B	\NC C	\NC N	\NC O	\NC F	\NR
-%\NC Na	\NC Mg	\NC Al	\NC Si	\NC P	\NC S	\NC Cl	\NR
-%\NC K	\NC Ca	\NC .	\NC .	\NC .	\NC .	\NC .	\NR
-%\LL[2]%\bottomrule
-%    \stoptabulate}
-%
-%
-%%The electrons were much lighter than the lightest atomic ions. Further investigation revealed that these particles were also present in two other phenomena: the photoelectric effect, where electrons are knocked out of a metal by light, and beta-rays, which are given off by some radioactive materials. %(more about beta-rays in a moment).
-%%Soon it was understood that electric current through wires was accomplished by the movement of electrons through the metal.
-%
-%Electrons are far too light to be one of the elements, and they do not fit the pattern of the periodic table. These new particles provided our first glimpse into the world within the atom.  % and they do not participate in chemical reactions like elements either.
-%
-%% We will return to the photoelectric effect soon, but first let us look at what radioactivity was revealing about the elements.
 
 
 %\subject{Notes}
@@ -775,39 +406,3 @@ Fortunately, I have good news, too. Because the magnetic force is perpendicular 
 
 \stopchapter
 \stopcomponent
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%$6.241509\sci{18}$ electrons is \emph{negative} one Coulomb. One Coulomb of charge from a one volt battery gives one joule of energy. How many electron volts are in one joule? Converting the other way, one electron volt is how many joules? How many electron volts of energy would be produced by one mole of electrons going through a potential difference on one volt. How many joules? Calories too?
-
-
-% Templates:
-
-% Margin image
-\placefigure[margin][] % Location, Label
-{} % Caption
-{\externalfigure[chapter03/][width=144pt]} % File
-
-% Margin Figure
-\startbuffer[TikZ:NAME]
-\environment env_physics
-\environment env_TikZ
-\setupbodyfont [libertinus,11pt]
-\setoldstyle % Old style numerals in text
-\startTEXpage\small
-\starttikzpicture% tikz code
-\stoptikzpicture
-\stopTEXpage
-\stopbuffer
-
-\placefigure[margin][fig:NAME] % Location, Label
-{}	 % caption text
-{\noindent\typesetbuffer[TikZ:NAME]}
-
-% Aligned equation
-\startformula\startmathalignment
-\stopmathalignment\stopformula
-
-% Aligned Equations
-\startformula\startmathalignment[m=2,distance=2em]
-\stopmathalignment\stopformula
