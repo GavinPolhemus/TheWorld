@@ -94,7 +94,7 @@ Minkowski's first fact gives us a fresh view of position vs.\ time graphs. These
 {A space-time map showing the world-lines of two objects, A and B. The two world-lines cross at the event P at coordinates \m{t\sub{p}} and \m{x\sub{P}}.} % caption text
 {\noindent\typesetbuffer[TikZ:WorldLines]} % figure contents
 
-Points in space time are called \keyterm{events.} An event occurs at a specific time and place. In \in{figure}[fig:WorldLines], objects A and B pass each other at the event labeled P, where their world-lines cross. This event occurs at time \m{t\sub{P}} and at position \m{x\sub{P}}, the coordinates of event P.
+Points in space-time are called \keyterm{events.} An event occurs at a specific time and place. In \in{figure}[fig:WorldLines], objects A and B pass each other at the event labeled P, where their world-lines cross. This event occurs at time \m{t\sub{P}} and at position \m{x\sub{P}}, the coordinates of event P.
 
 Minkowski's second fact gives us a conversion factor so we can measure space and time with the same units. Minkowski called this \quotation{the mystic formula} because it relates two seemingly unrelatable units. As we will see, the numerical value in the mystical formula is related to the speed of light. As mystical as it appears, this formula is used as a simple factor for unit conversions.
 
@@ -298,13 +298,13 @@ In many ways, Minkowski's space-time is simpler than the position vs.\ time grap
 Einstein first emphasized the importance of using synchronized clocks when considering very high speeds. He discovered his theory of relativity by considering how the clocks are synchronized in moving reference frames. We will focus on Minkowski's simpler geometric formulation, but Einstein presents a very readable account of his revolutionary ideas in the first sections of his famous 1905 paper. Do not be intimidated by the title, \booktitle{On the Electrodynamics of Moving Bodies.} Electrodynamics is only in the second half of the paper. Relativity is in the first half.
 
 \section{Minkowski's magnitude formula}
-Now that we are working in the right number of dimensions, with consistent units in all directions, we can start doing some real geometry. We will, of course, be using vectors. Vector addition and scalar multiplication in four dimensions is just like in three dimensions. Finding magnitudes is a bit different.
+Now that we are working in the right number of dimensions, with consistent units in all directions, we can start doing some real geometry. We will, of course, use vectors. Vector addition and scalar multiplication in four dimensions is just like in three dimensions. Finding magnitudes is a bit different.
 Recall that in three dimensions the magnitude of a vector \m{\,\vec{\!A\!}\,} is
 \startformula
 	\vabs{\,\vec{\!A\!}\,} = \sqrt{A_x^2 + A_y^2 + A_z^2},
 \stopformula
 which is the three-dimensional Pythagorean formula.
-We find magnitudes in four dimensions using Minkowski's magnitude formula in his third fact above.
+We find magnitudes in four dimensions using Minkowski's magnitude formula, his third fact above.
 \startformula
 	\vabs{\fourvec{A}} = \sqrt{A_t^2 − A_x^2 − A_y^2 − A_z^2},
 \stopformula
@@ -456,9 +456,9 @@ The clock has no displacement in the \m{y} or \m{z} directions.
 		= \sqrt{64\units{ns^2}}
 		= 8.0\units{ns}
 \stopmathalignment\stopformula
-Events i and f are separated by \m{8.0\units{ns}}. You can count the eight ticks along the moving clock's world-line connecting the two events in \in{figure}[fig:ThrowingClocks].  Notice the importance of having the same units for all of the terms in the formula. You cannot at meters to seconds! You must convert each term to the same units before adding.
+Events i and f are separated by \m{8.0\units{ns}}. You can count the eight ticks along the moving clock's world-line connecting the two events in \in{figure}[fig:ThrowingClocks].  Notice the importance of having the same units for all of the terms in the formula. You cannot add meters to seconds! You must convert each term to the same units before adding.
 
-Comparing the triangle's sides in \in{figure}[fig:ThrowingClocksGraph], we see one of the surprising results of Minkowski's formula: the hypotenuse is not the longest side! The longest side is aways the time component. This is due to the minus signs in Minkowski's formula, which cause any space components to reduce the magnitude. This effect is sometimes called time dilation, because it makes the tick marks along the hypotenuse to appear farther apart than they appear on the time axis, as if motion causes time to stretch. The tick marks are not actually farther apart – they are still separated by \m{1\units{ns}} – but they appear farther apart when we draw space-time diagrams. On paper we can compare the tick marks using a compass or ruler, but these tools do not work in space-time. Proper times must be measured with clocks, and the results agree with Minkowski's formula.
+Comparing the triangle's sides in \in{figure}[fig:ThrowingClocksGraph], we see one of the surprising results of Minkowski's formula: the hypotenuse is not the longest side! The longest side is aways the time component. This is due to the minus signs in Minkowski's formula, which cause any space components to reduce the magnitude. This effect is sometimes called time dilation, because it makes the tick marks along the hypotenuse to appear farther apart than they appear on the time axis, as if motion causes time to stretch. The tick marks are not actually farther apart – they are still separated by \m{1\units{ns}} – but they appear farther apart when we draw space-time diagrams. On paper we can compare the tick marks using a compass or ruler, but these tools do not work in space-time. Proper times must be measured with clocks. When these measurements are made in real experiments, the results agree with Minkowski's formula.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startexample[ex:ThrowingClocks2]
