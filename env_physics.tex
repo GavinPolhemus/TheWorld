@@ -3,26 +3,35 @@
 
 % Units
 \setupunits[method=4,separator=cdot] % separator as thin space, decimal mark as period. alternative=text
-\registerunit[
-  unitless=unitless,
-  J=J,
-  N=N,
-  cyc=cyc,
-  rad=rad,
+\registerunit[unit]
+ [unitless=unitless,
+  J=joule,
+  N=newton, %N is messing up nano, causing N•s.
+  cyc=cycle,
+  cycle=cycle,
+  rad=radian,
+  h=hour,
+  d=day,
   day=day,
-  yr=yr,
-  mi=mi,
-  ]
-\setupunittext[
-  unitless=\strut,
-  J=J,
-  N=N,
-  cyc=cyc,
-  rad=rad,
-  day=day,
-  yr=yr,
-  mi=mi,
-  ]
+  yr=year,
+  year=year,
+  mi=mile,
+  mile=mile,
+  e=electron,
+  electron=electron,
+  V=volt,
+  T=tesla,
+%  C=coulomb,% C is messing up centi, causing cm -> C•m.
+%  K=K,% K is messing up kilo, causing kg -> K•g.
+  Ω=ohm]
+\setupunittext
+ [unitless=\strut,
+  cycle=cyc,
+  year=yr,
+  mile=mi,
+  electron=e,
+]
+
 
 \define[1]\units{{% I would like to phase this out in favor of ConTeXt's built in \unit command
 	\def\.{\mathord\cdot}% In LaTeX this was proceeded by \protect
