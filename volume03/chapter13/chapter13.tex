@@ -1,11 +1,11 @@
-% !TEX useOldSyncParser
+% !TEX useAlternatePath
+% !TEX useConTeXtSyncParser
+
 \startcomponent c_chapter01
 \project project_world
 \product prd_volume02
 
 \doifmode{*product}{\setupexternalfigures[directory={chapter13/images}]}
-
-\setupsynctex[state=start,method=max] % "method=max" or "min"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \startchapter[title={Space and Time}, reference=ch:Relatiity]
@@ -18,7 +18,7 @@ I had wasted time almost a year in fruitless considerations\dots. Unexpectedly a
 	\startalignment[flushright]
 	%{\it On the Physiological Causes\\
 	%	of Harmony in Music}\\
-	{\sc Albert Eintein}\\
+	{\sc Albert Einstein}\\
 	1879 – 1955
 	\stopalignment
 }
@@ -128,8 +128,9 @@ This is the time it takes light to travel \m{6} feet – not very long!
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-For geometry, it is essential to use the same the same units in all directions.
-In space-time we can convert the time measurements to meters or convert the distance measurements to seconds. Usually, we do everything with time units. 
+We should use the same units in all directions whenever we do space-time geometry.
+We can convert the time measurements to meters or convert the distance measurements to seconds.
+Usually, we use time units for all measurements. 
 This is common in astronomy, where a standard unit for distance is a light-year, the distance light travels in one year.
 We will drop the \quotation{light} prefix. Light travels one year of distance in one year of time. Light travels one second of distance in one second of time. A second is a short time, but a long distance – approximately the distance to the moon.
 
@@ -617,8 +618,8 @@ At this speed, the hypotenuse is the shortest side of the triangle!
 {The faster clock in \in{example}[ex:ThrowingClocks2] (and \in{figure}[fig:ThrowingClocks2]) measures a shorter time than the moving clock in \in{figure}[fig:ThrowingClocks].} % caption text
 {\noindent\typesetbuffer[TikZ:ThrowingClocksGraph2]} % figure contents
 \noindent
-It is not actually possible to move clocks at the incredible speeds in the previous examples. There are two practical ways to perform these sorts of experiments. One is to use low speeds but extremely precise clocks. Atomic clocks costing a few thousand dollars can confirm Minkowski's formula at the speed of a car.
-The other method is to use small particles that decay at a known rate. Accelerating these particles to high speed and observing their decay rate also confirms Minkowski's formula.
+It is not actually possible to move clocks at the incredible speeds in the previous examples. There are three practical ways to perform these sorts of experiments. The first is to use low speeds but extremely precise clocks. Atomic clocks costing a few thousand dollars can confirm Minkowski's formula at the speed of a car.
+The second method is to use small particles that decay at a known rate. Accelerating these particles to high speed and observing their decay rate also confirms Minkowski's formula.
 
 \startbuffer[TikZ:ThrowingLight]
 \environment env_physics
@@ -743,7 +744,9 @@ The other method is to use small particles that decay at a known rate. Accelerat
 {Two stationary clocks and a flash of light. Light's speed is always \m{1}. The proper time along a light path is always zero.} % caption text
 {\noindent\typesetbuffer[TikZ:ThrowingLightGraph]} % figure contents
 
-The fastest particle is the photon, which always travels at the speed of light. \in{Figure}[fig:ThrowingLight] shows an experiment measuring the photon's speed. The space-time diagram in \in{Figure}[fig:ThrowingLightGraph] shows the photon's world-line with a slope \m{v=1}. The proper time along the photon's path is 
+%The fastest particle is the photon, which always travels at the speed of light.
+The third and easiest way is to use a flash of light in place of the fast clock.
+\in{Figure}[fig:ThrowingLight] shows an experiment measuring the speed of a flash of light. The space-time diagram in \in{Figure}[fig:ThrowingLightGraph] shows the flash's world-line with a slope \m{v=1}. The proper time along the flash's path is 
 \startformula
 	\tau = \sqrt{(\Delta t)^2 − (\Delta x)^2}
 		= \sqrt{(10.0\units{ns})^2 − (10.0\units{ns})^2}
@@ -751,7 +754,7 @@ The fastest particle is the photon, which always travels at the speed of light. 
 		%= \sqrt{36\units{ns^2}}
 		= 0.0\units{ns}.
 \stopformula
-Proper time along a photon's path is always zero. This does not mean that events i and f happen at the same time – they do not – but no time can be measured going from one point to the other along the \m{v=1} path connecting the events.
+Proper time along light's path is always zero. This does not mean that events i and f happen at the same time – they do not – but no time can be measured going from one point to the other along the \m{v=1} path connecting the events.
 
 \section{Momentum and energy in the new geometry}
 Minkowski's geometry provides a new way to understand the connection between a particle's momentum and its energy. Since the world is four-dimensional, momentum should be a four-vector \m{\fourvec{p}}.
@@ -827,12 +830,16 @@ The speed is the slope of the triangle shown in \in{figure}[fig:ParticleEpm].
 \stopsolution
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Minkowski's formula and the relationship and slope formula,
+
+We have replaced two formulas from first semester: the momentum formula (\m{\vec{p}=m\vec{v}}\,) and kinetic energy formula (\m{K=\onehalf mv^2}). These are replaced by Minkowski's formula and the velocity formula,
 \startformula
 	v = \frac{\Delta x}{\Delta t}
 		= \frac{p}{E},
 \stopformula
-will replace the old formulas for momentum (\m{\vec{p}=m\vec{v}}\,) and kinetic energy (\m{K=\onehalf mv^2}). Those formulas were fine at velocities much lower than the speed of light. These new formulas are good at any speed, including the speed of light!
+The old formulas were fine at velocities much lower than the speed of light.
+The new formulas are good at any speed, including the speed of light!
+
+Energy and momentum are still conserved in space-time, so their conservation laws will be used frequently. Of course, the laws will only give the right answer if the momentum and energy are calculated correctly, using our new, relativistic formulas.
 
 %Energy is a conserved quantity, and momentum is a conserved vector. Therefore,  energy-momentum is a conserved four-vector.
 
