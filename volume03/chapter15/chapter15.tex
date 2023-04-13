@@ -1,5 +1,6 @@
-% !TEX useOldSyncParser
-\startcomponent c_chapter08
+% !TEX useConTeXtSyncParser
+
+\startcomponent *
 \project project_world
 \product prd_volume01
 
@@ -25,41 +26,965 @@ By convention sweet and by convention bitter, by convention hot, by convention c
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\placetable[margin][T:Today] % Label
+    {{\bf Today} The seventeen particles of the Standard Model} % Caption
+    {\vskip9pt\tfb\starttabulate[|c|c|c|c|]
+\FL[2]
+\NS[3][c] $h$          			\NR
+\HL
+\NC $\nu_e$	   \NC $e$    \NC $d$ \NC $u$ \NR
+\NC $\nu_\mu$  \NC $\mu$  \NC $s$ \NC $c$ \NR
+\NC $\nu_\tau$ \NC $\tau$ \NC $b$ \NC $t$ \NR
+\HL
+\NC $W$	     \NC $Z$ \NC $\gamma$ \NC $g$ \NR
+\LL[2]
+\stoptabulate}
 
-\section{Potential and field of a point charge}
-The potential in the vicinity of a single point charge $q\sub{c}$ is
+\noindent
+Democritus speculated that everything is made of small, indivisible units he called \quotation{atoms.} 
+He was correct, but the project of identifying and classifying these indivisible units has taken over two thousand years. %, and is still not complete.
+In that time, we have discovered seventeen unique types of indivisible units, now called particles, which make up everything ever studied in the laboratory.
+The symbols for these seventeen particles are shown in the table labeled \quotation{Today} in the margin.
+%Everything we have ever seen in the laboratory can be described by seventeen fundamental particles.
+You are already familiar the electron ($e$) and the photon ($\gamma$), but you may not be familiar with the others. The discovery and classification of these particles has required several cycles of significant revision, from the classical elements of Plato to the Standard Model of today. %Each cycle revealed important features of our world.
+
+%For one-hundred and fifteen years scientist gathered evidence of these seventeen particles, starting with the discovery of the electron by
+%in 1897 and continuing to the discovery of the Higgs Boson in 2012.%, the ATLAS and CMS teams working at the Large Hadron Collider announced the discovery of the final particle, the Higgs boson.
+%The Standard Model is one of the great achievements of science.
+
+\section{Elements}
+
+% CERN has a helpful timeline at:\\ http://teachers.web.cern.ch/teachers/archiv/HST2003/publish/standard\%20model/History/index.htm
+
+%\sidepar{\strut\\[-\baselineskip]
+%\begin{tabular*}{\marginparwidth}{@{\extracolsep{\fill}}cc@{}}
+%\FL[2]
+%\multicolumn{2}{c}{{\Huge\Fire\strut}}    \NR 
+%\multicolumn{2}{c}{Fire}    \NR 
+%{\Huge\Air} \NC  {\Huge\Earth}  \NR 
+%Air \NC Earth  \NR 
+%\multicolumn{2}{c}{{\Huge\Water}}    \NR
+%\multicolumn{2}{c}{Water}    \NR
+%\LL[2]
+%\end{tabular*}
+%\legend{\bfseries{400 BCE} Plato's classical elements}
+%}
+
+Attempts to list and isolate the various indivisible substances  are found in the ancient writing of many cultures. The Greeks identified four basic elements\,--\,earth, water, air and fire. Aristotle organized these according to their properties and added a fifth element, later called aether, which he claimed only exists in the heavens.
+
+Aristotle's classical elements were widely accepted through the medieval period in Europe until the scientific revolution. When subjected to the scientific method, the classical elements failed utterly.
+We now know that water is a compound, air is a mixture, fire is a process, Earth is a planet, and aether does not exist. 
+
+%[It would be great to find any connection between Du Chatalet and Lavoiser to connect this story.]
+
+Real progress began after the scientific revolution when chemists, notably Antoine-Laurent de Lavoisier, began taking careful measurements of reactants and products to test theories about the identities and properties of elements. Lavoisier listed thirty-three elements in his 1789 \booktitle{Elements of Chemistry}.
+%The number of elements continued to grow.
+By the latter part of the nineteenth century, chemists had identified several dozen elements.
+\placetable[margin][T:1871] % Label
+    {{\bf 1871} The first periodic table of the elements} % Caption
+    {\tfa\starttabulate[|l|c|c|c|c|c|c|][unit=0.74em]
+\FL[2]
+\NC H  \NC    \NC    \NC    \NC   \NC   \NC    \NR 
+\NC Li \NC Be \NC B  \NC C  \NC N \NC O \NC F  \NR 
+\NC Na \NC Mg \NC Al \NC Si \NC P \NC S \NC Cl \NR 
+\NC K  \NC Ca \NC .  \NC .  \NC . \NC . \NC .  \NR
+\LL[2]
+\stoptabulate}
+%The first significant progress towards identifying and studying atoms was made in the nineteenth century.
+%Chemists worked to find which compounds could be made from other substances. For example, water is made from hydrogen and oxygen. Substances not made of other substances were called elements.
+%At that time, elements were thought to be the most fundamental ingredients of matter. 
+
+%%%%
+% Everything above could be moved to the beginning of Part II: The atomic view of matter.
+%%%%
+
+In 1871, Russian chemist Dmitri Mendeleev organized the sixty-six known elements into a repeating pattern according to their chemical properties. He used this pattern to create the first draft of the modern periodic table of the elements. The beginning of Mendeleev's table is shown at right.
+%\begin{marginfigure}[-0.5in]
+%	\marginfig{MendeleevSmall}	
+%	\caption{\booktitle{The Dependence between the Properties of the Atomic Weights of the Elements} 1871 \autocite{Mendeleev1871}}
+%\end{marginfigure}
+
+%In addition to listing the nearly seventy known elements, the table organized those elements in a repeating pattern according to their chemical properties, which is why the table is \quotation{periodic.} % actual number of elements on the table is 66
+
+Using  patterns among the known elements, Mendeleev identified several gaps in his table and predicted new elements with specific properties would fill these gaps.
+The discoveries of Gallium (1875), Scandium (1879), and Germanium (1886), each with the predicted properties, convinced most scientists that Mendeleev's table was correct and useful.
+
+The periodic table of the elements, expanded by the discovery of many more elements, is the foundation of chemistry to this day. We now define \quotation{atom} as the smallest unit of an element having the chemical properties of that element. Although we will discover that there are smaller, more fundamental particles, the periodic table will always be the definitive list of atoms.
+
+%In the search for the smallest pieces of matter scientists have followed cycles like the one that led to the periodic table. First, they discover several particles that seem to be fundamental. Then they identify patterns, use those patterns to make predictions, and then test those predictions with experiments or observations. When experiments and observations confirm the prediction, the model becomes accepted as useful. However, in every instance so far, some of the new observations did not fit the patterns. As more information was gathered, new patterns were found, leading to new models and new predictions. This cycle has repeated a few times since Mendeleev's periodic table, often with missteps and confusion, but always providing new knowledge about how the universe works.
+
+%Even as newly discovered elements were plugging the gaps in t
+%While chemists were completing the periodic table, physicists were studying new particles which did not fit into the periodic table at all, particles smaller than any of the elements.
+
+%\subsection{Electrons charging about}
+%[Make sure this section explains the basics of charge: conserved, like repel and opposites attract, electrons are negative. May want to activities on this.]
+%
+%By the time Mendeleev produced the periodic table, electricity and magnetism were fairly well understood. Light was known to be a form of electromagnetic wave. Physicists were classifying and studying other types of rays to determine if they were waves or beams of particles. The most basic sort of ray is a descendent of common spark of static electricity.
+
+\section{Electrons and noble gasses}
+
+In 1897, J.~J.~Thompson performed a clever experiment, using crossed magnetic and electric fields, to measure the mass of the particles in cathode rays. These particles, now known as electrons, are far too light to be one of the elements. These new particles provided our first glimpse into the world within the atom.
+\placetable[margin][T:1897] % Label
+    {{\bf 1897} The electron is lighter than any element and does not fit among the elements in the periodic table.} % Caption
+    {\tfa\starttabulate[|l|c|c|c|c|c|c|][unit=0.74em]
+\FL[2]
+\NC    \NC    \NC    \NC {\tfb\strut$e$}  \NC   \NC   \NC    \NR 
+\HL
+\NC H  \NC    \NC    \NC    \NC   \NC   \NC    \NR 
+\NC Li \NC Be \NC B  \NC C  \NC N \NC O \NC F  \NR 
+\NC Na \NC Mg \NC Al \NC Si \NC P \NC S \NC Cl \NR 
+\NC K  \NC Ca \NC .  \NC .  \NC . \NC . \NC .  \NR
+\LL[2]
+\stoptabulate}
+
+
+% We will return too the photoelectric effect soon, but first let us look at what radioactivity was revealing about the elements.
+
+Chemists were also busy during this time. They filled many of the gaps in Mendeleev's table with newly-discovered elements.
+They also discovered several noble gasses, which Mendeleev had not predicted.
+Noble gasses do not react chemically, making them extremely difficult for chemists to identify. In 1904, chemists gave noble gasses a new column on the periodic table.
+
+\section{Photons, particles of light}
+For physicists, the twentieth century began in 1905 with four papers by Albert Einstein.
+%, the year that \booktitle{Annalen der Physik} (Annals of Physics) published four papers appeared by a twenty-six year old patent clerk, Albert Einstein. 
+These four papers are the cornerstones of twentieth century physics.
+
+The first paper, on the photoelectric effect is of greatest importance to the present story. %(The other two, on special relativity and Brownian motion, will be discussed later.)
+Einstein's analysis of the photoelectric effect demonstrated that light, already known to be a wave, is also a particle that we now call the \keyterm{photon}.
+\placetable[margin][T:1905] % Label
+    {{\bf 1905} Noble gasses add an eighth column to the periodic table. The massless photon, $\gamma$, joins the electron.} % Caption
+    {\tfa\starttabulate[|l|c|c|c|c|c|c|c|][unit=0.47em]
+\FL[2]
+\NC   \NC    \NC {\tfb\strut$\gamma$}   \NC    \NC   \NC {\tfb$e$}  \NC    \NC  \NR 
+\HL
+\NC H  \NC    \NC    \NC    \NC   \NC   \NC    \NC He \NR 
+\NC Li \NC Be \NC B  \NC C  \NC N \NC O \NC F  \NC Ne \NR 
+\NC Na \NC Mg \NC Al \NC Si \NC P \NC S \NC Cl \NC Ar \NR 
+\NC K  \NC Ca \NC .  \NC .  \NC . \NC . \NC .  \NC .  \NR
+\LL[2]
+\stoptabulate}
+
+A photon striking the surface of a metal can launch an electron from the metal's surface. Einstein showed that the energy delivered by the photon is proportional to its frequency. %These particles of light became known as photons, and they are the second particle of the standard model. 
+
+%The symbol for the photon is $\gamma$ (the Greek letter gamma) which has been added to the margin table of particles, alongside the electron.
+
+%[Activities: Converting light to electric energy and back. Photovoltaics and LEDs. Visible part of the spectrum goes from $1.8\units{eV}$ to $3.1\units{eV}$. Find out what wavelengths are required to get the solar cell to work. Also find the potential required to get various color LEDs to glow.]
+
+
+% in can be summarized as making the following connections
+%\begin{itemize}
+%	\item Frequency is energy ($2.418\sci{14}\units{Hz} = 1\units{eV}$)
+%	\item Distance is time.
+%	\item Temperature is energy.
+%	\item Mass is energy.
+%\end{itemize}
+
+%Many of the mysterious about modern physics becomes plainly obvious when these  
+
+
 \startformula
-	V = k\sub{C}\frac{q\sub{c}}{r}
+	E = hf, %\label{eq:Planck}
+	%\qquad c = f\lambda
 \stopformula
-where $r$ is the distance from the central point charge $q\sub{c}$. The constant in front is \emph{Coulomb's constant}.
+The constant $h$ in the equation is Planck's constant. Planck's constant is very small, $h= 4.1357\sci{-15}\units{eV/Hz}$. %, $c = 3.00\sci{8}\units{m/s}$.
+This was the first equation to relate a particle property (energy) to a wave property (frequency). 
+
+%[This section will have a few exercises, largely intended to get them good at the unit conversions.]
+
+We now know that photons have momentum as well as energy. The momentum is related to the wavelength.% number.
 \startformula
-	k\sub{C} = 1.44\sci{-9}\units{V\.m/e}
+	p = \frac{hc\cdot1\units{cyc}}{\lambda}%k_x,
+	%\qquad c = f\lambda
+	%\label{eq:Planck2}
 \stopformula
-This equation will get you started finding energies and forces between charged particles.
+These formulas for energy and momentum apply to all particles and waves, not just photons.
 
-The first route for finding the force on a charge $q$, which you already learned, is to start with the electric potential, multiply by $q$ to get the potential energy, and then find the slope to get the force. The second method is to start with the potential, find the slope to get the electric field, and then multiply by $q$ to get the force. Either method gives the same force.
+%[More example problems]
 
-% Some of this (below) is a duplicate of material in Ch 9! %%%%%%%%%%%
+\section{Fundamental interactions of photons and electrons}
 
-The hard step in either method is finding the slope, which can require calculus or drawing tangent lines on graphs. Using the electric field gets that step out of the way. You have already seen the formula for the potential due to a point charge. With some calculus the charge's electric field can be found. The resulting magnitude of the the electric field is
+Position versus time graphs are very useful for describing motion. Feynman diagrams are a similar tool used by particle physicists to illustrate particle interactions. The story is told from left to right. The left edge shows the particles going into the interaction. The right edge shows the particles leaving the interaction. Various interactions, often involving particles that are created and destroyed, occur in between. Feynman diagrams are not meant to show the exact position of the particles. Particles are tiny jiggles in the fundamental fields, so the particles do not actually have exact positions.
+
+Feynman diagrams are serious computational tools--any quantum field theory book is full of them--but they are also quite easy to draw and to read. Each type of particle can be a character in the story. Electrons are labeled with an $e$ and their paths represented by straight lines with an arrow. Photons are labeled with a $\gamma$ (gamma) and their paths are represented by wavy lines without an arrow. Photons do not actually follow a wavy path; the jiggles are just a decoration to remind us that the path represents a photon. Photons display their wave nature more freely than electrons, inspiring the wavy line used for photons.
+
+\placefigure[margin][fig:eemitsphoton]{{\bf Electron emitting a photon} This diagram tells a story. Reading from left to right: \quotation{Once upon a time there was an energetic electron. It gave up some energy creating a photon.}}
+{\externalfigure[eemitsphoton]}
+
+%\begin{fmffile}{feynmp/electronphoton}
+%\begin{tabular*}{\marginparwidth}{@{\extracolsep\fill}cc@{}}
+%%\begin{fmffile}{feynmp/eRadiates}
+%		\begin{fmfgraph*}(1.5,.5)
+%			\fmfset{dot_size}{2thin}
+%			\fmfstraight
+%			\fmfleft{i1,i2,i3}
+%			\fmfright{o1,o2}
+%			
+%			\fmfv{label=$\gamma$,label.dis=thick}{o2}
+%			\fmfv{label=$e^-$,label.dis=thick}{i2,o1}
+%			
+%			\fmf{fermion,tension=2}{i2,v1}
+%			\fmf{fermion}{v1,o1}
+%			\fmf{photon}{v1,o2}
+%			
+%			%\fmfdot{v1}
+%			%\fmf{W,label=$W$}{v1,v2}	% ,,Z^0		
+%		\end{fmfgraph*}
+%%\end{fmffile}% \NC 
+
+%\feynmandiagram [horizontal=i to c] {
+%	c --[boson] t[particle=\(\gamma\)],
+%	i [particle=\(e\)] --[fermion] c --[fermion] o [particle=\(e\)],
+%	o -- [draw=none] t,
+%};
+
+A simple electron and photon story that can be told with a Feynman diagram is the story an electron emitting a photon (as they did in our colored LED experiment).
 \startformula
-	\|\vec E\| = k\sub{C}\frac{\abs{q\sub{c}}}{r^2}
+	e \rightarrow e + \gamma
 \stopformula
-The calculus is done! The remaining steps – finding the field's direction and multiplying by the other charge – do not require sophisticated mathematics. 
+The story of this reaction is told as a Feynman diagram in Figure \ref{fig:eemitsphoton}
 
-The direction of the electric field is always towards lower potential. A positive charge creates a region of positive potential, with the highest potential close to the charge, so \emph{the electric field points away from a positive charge,} toward the lower potential far away. A negative charge creates a region of negative potential, with the most negative potential close to the charge, so the \emph{the electric field points toward a negative charge,}  toward the nearby lower potential. In both cases the electric field has the greatest magnitude close to the charge, where the potential is changing most rapidly with distance. Far from the charge, where the potential is inching towards zero, the magnitude of the electric field is small.
+An electron can also absorb a photon, as shown in Figure \ref{fig:eabsorbsphoton}.
+\placefigure[margin][fig:eabsorbsphoton]{{\bf Electron absorbing a photon} This diagram tells a story. Reading from left to right: \quotation{Once upon a time there was an energetic electron. It gave up some energy creating a photon.}}
+{\externalfigure[eabsorbsphoton]}
 
-The electric field gives another explanation for why like charges repel and opposite charges attract. For example, a positive charge produces an electric field that points away from it. Another positive charge will feel a force in the direction of this field, so the second positive charge is repelled by the first. If the second charge is negative, it will feel a force opposite the electric field and be attracted to the positive charge. Take a moment to determine the direction of the force that a negative particle would exert on another charge, either positive or negative.
+%%\begin{fmffile}{feynmp/eAbsorbs}
+%		\begin{fmfgraph*}(1.5,.5)
+%			\fmfset{dot_size}{2thin}
+%			\fmfstraight
+%			\fmfleft{i1,i2}
+%			\fmfright{o1,o2,o3}
+%			
+%			\fmfv{label=$\gamma$,label.dis=thick}{i2}
+%			\fmfv{label=$e^-$,label.dis=thick}{i1,o2}
+%						
+%			\fmf{fermion}{i1,v1}
+%			\fmf{fermion, tension=2}{v1,o2}
+%			\fmf{photon}{i2,v1}
+%			
+%			%\fmfdot{v1}
+%
+%		\end{fmfgraph*}
+%%	%\end{fmffile}
 
-The electric field, like the electric potential, obeys the superposition principle, but the electric field vectors must be added \emph{as vectors} which makes the addition more complicated than it is for the electric potential. A charge does not feel its own electric field, only the total field produced by all other charges.
+%\feynmandiagram [vertical=i to t] {
+%	c --[boson] t[particle=\(\gamma\)],
+%	i [particle=\(e\)] --[fermion] c --[fermion] o [particle=\(e\)],
+%	i -- [draw=none] t,
+%};
 
-Historically, all of the steps above were discovered in reverse order. The force law between charges was discovered by Charles Coulomb in 1785, and is called Coulomb's law. The electric field was described by Michael Faraday in his \textit{Experimental Researches in Electricity,} begun in 1831. The derivation of the electrical field from the electric potential was given by James Clerk Maxwell in \textit{A Dynamical Theory of the Electromagnetic Field,} published in 1865.
+\startformula
+	e + \gamma \rightarrow e
+\stopformula
+The photoelectric effect is due to electrons absorbing photons and acquiring their energy. Photovoltaic cells that produce electricity from light use exactly this interaction. Incoming photons jump electrons up to a higher potential energy. The electrons' potential energy can then be used to drive electric current. %(The electrons is lower electric potential, since the electron is negatively charged)
 
-% Some of this (below) is a duplicate of material in Ch 9! %%%%%%%%%%%
+Feynman diagrams can contain only very specific plot elements representing the fundamental interactions between the particles. Electrons do not interact directly with other electrons and photons do not interact directly with other photons. Photons and electrons do interact with each other. These interactions always include and ingoing and an outgoing electron line and a single photon line. This fundamental interaction is shown in Figure \ref{fig:ephotonvertex}. This interaction is often called a vertex in the diagram.
 
-\subject{Notes}
-%\placefootnotes[criterium=chapter]
-\placenotes[endnote][criterium=chapter]
+The top photon line can be bent either toward the right or the left to produce the Feynman diagrams for photon emission or absorption. A single Feynman diagram can involve several of these simple interactions, allowing more interesting interactions.
+
+\placefigure[margin][fig:ephotonvertex]{{\bf Electron-photon interaction} This is the common plot element in all stories involving photons and electrons.}
+{\externalfigure[ephotonvertex]}
+
+%%\begin{fmffile}{feynmp/egamma}
+%		\begin{fmfgraph*}(1.5,.5)
+%			\fmfset{dot_size}{2thin}
+%			\fmftop{i2,s2,o2}
+%			\fmfbottom{i1,s1,o1}
+%			
+%			\fmfv{label=$e^-$,label.dis=thick}{i1,o1}
+%						
+%			\fmf{fermion}{i1,v1,o1}
+%			\fmf{photon,label=$\gamma$,label.dis=3thick}{s2,v1}
+%			
+%			%\fmfdot{v1}
+%
+%		\end{fmfgraph*}
+%%	%\end{fmffile}
+
+%\feynmandiagram [small, horizontal=i to o, vertical=t to c] {
+%	c --[boson, edge label'=\(\gamma\)] t,
+%	i [particle=\(e\)] --[fermion] c --[fermion] o [particle=\(e\)],
+%};
+
+%[Connect to electric potential chapter]
+A more complex Feynman diagram is required to understand how electrons interact with one another. Electrons do not interact with one another directly, but they do interact indirectly. Each electron alters the electric potential in its vicinity, and each is influenced by the altered potential. This is shown in the Feynman diagram as a photon exchange between the electrons, as in Figure \ref{fig:eephotonexchange}.
+\placefigure[margin][fig:eephotonexchange]{{\bf Electron-electron interaction} Electrons do not interact with each other directly. Instead, they exchange photons.}
+{\externalfigure[eephotonexchange]}
+
+%%\begin{fmffile}{feynmp/ee}
+%		\begin{fmfgraph*}(1.5,1)
+%			\fmfset{dot_size}{2thin}
+%			\fmftop{i2,o2}
+%			\fmfbottom{i1,o1}
+%			
+%			\fmfv{label=$e^-$,label.dis=thick}{i1,o1}
+%			\fmfv{label=$e^-$,label.dis=thick}{i2,o2}
+%						
+%			\fmf{fermion}{i1,v1,o1}
+%			\fmf{fermion}{i2,v2,o2}
+%			\fmf{photon,label=$\gamma$,label.dis=3thick}{v1,v2}
+%			
+%			%\fmfdot{v1,v2}
+%
+%		\end{fmfgraph*}
+%%	%\end{fmffile}
+%\feynmandiagram [vertical=a to b] {
+%	i1 [particle=\(e\)] -- [fermion] a -- [fermion] f1 [particle=\(e\)],
+%	a -- [photon, edge label=\(\gamma\)] b,
+%	i2 [particle=\(e\)] -- [fermion] b -- [fermion] f2 [particle=\(e\)],
+%	i1 -- [draw=none] i2,
+%	f1 -- [draw=none] f2,
+%};
+
+%\feynmandiagram [layered layout, vertical=a to b, sibling distance=1.5cm, level distance=2.2cm] { % Draw the top and bottom fermion lines
+%	i1 [particle=\(e\)] -- [fermion] a -- [fermion] f1 [particle=\(e\)],
+%	i2 [particle=\(e\)] -- [fermion] b -- [fermion] f2 [particle=\(e\)],
+%% Draw the internal boson line
+%{ [same layer] a -- [photon, edge label=\(\gamma\)] b },
+%};
+
+The reaction equation for the interaction of two electrons is trivial.
+\startformula
+	2e \rightarrow 2e
+\stopformula
+The Feynman diagram provides a more detailed account of how this event unfolds.
+
+Particle interactions always respect conservation of momentum and energy. In fact, momentum and energy must be conserved at every interaction within a feynman diagram. For example, when a photon is transferred between two electrons, the energy and momentum that is lost by one electron is carried by the photon to the other electron so that the totals are unchanged.
+
+Electric charge is also conserved in every interaction.
+We cannot have a photon absorb or emit an electron because that would violate conservation of charge.
+
+
+
+%\subsection{Mass is a form of energy}
+%Photons have kinetic energy, but no mass. Other particles have some of their energy bound up in their mass and additional energy as kinetic energy. Kinetic energy cannot be negative. This will be important when particles st
+
+%[This is the place to do a photons-to-current activity with solar panels. Measure voltage, current and make cars or something. Then perhaps we can do calculations with the cars.]
+
+\section{Two types of particles: bosons and fermions}
+%Electrons and the photons represent the two broad classes of particles. The differences are so significant that it is worth pausing the story to look the at nature of these first two particles.
+
+Electrons and photons behave in remarkably different ways.
+Electrons behave in a manner consistent with long-standing ideas about how a fundamental particle should behave. In particular, they are indivisible and rather indestructible. Electrons are not created or destroyed in electrical experiments. They simply move around, carrying their charge and mass with them.
+Photons are very different. Photons do not have any charge or mass. They can be created in huge numbers out of nothing but energy, and when they are absorbed, they disappear completely, giving their energy to whatever obstacle ended their journey. 
+
+%[Fix to remove standard model] 
+Electrons do not share well. It is simply impossible to put two electrons into the same place. As a result, atoms with more electrons are larger than atoms with fewer. 
+Particles that cannot share the same space are called fermions. The Standard model contains twelve fermions, the electron being the most famous.
+
+Photons share well. Electromagnetic waves are made from many photons moving in unison. We will meet other sharing particles, which are called bosons. The Standard Model contains five bosons, the photon being the most visible.
+
+%[Is this better?] Photons are particles of light\index{light}, created from nothing but the energy and momentum of other particles, usually electrons. Photons can cross oceans in a fraction of a second or travel for billions of years across the span of the universe. Unable to slow down, when they are stopped they simply vanish, leaving their energy and momentum to whatever obstacle ended their journey. Our eyes are able to detect this energy, if the energy is in the visible range, allowing us to see. Lower energy photons we might feel as heat or collect with a radio antenna. Higher energy photons are used by x-ray machines.
+%
+%All particles are either fermions or bosons. It turns out that the particle's intrinsic angular momentum, called its spin, determines which group it is in. Bosons have whole number spin. Most of the bosons in the standard model, including the photon, have a spin of one. However, the last boson, the Higgs boson, has a spin of zero. Fermions have spin half way between the whole numbers. All of the fermions in the standard model, including electrons, have a spin of one-half.
+
+\section{Radioactivity and transmutation of the elements}
+
+In 1896, shortly before Thompson's discovery of the electron in cathode rays, Henri Becquerel discovered another class of powerful rays by accident. These were not produced by electricity, but were naturally produced by certain elements.
+
+Ernest Rutherford, working at McGill University, categorized these natural rays into three types\,--\,alpha, beta, and gamma\,--\,based on their ability to penetrate matter. Alpha rays could be blocked by a piece of paper. Beta rays could pass through paper, but were blocked by metal foil. Gamma rays could only be blocked by a thick piece of lead.
+%We are not adding these to the margin chart because all of them were later found to be items already on the chart, but moving very fast.
+In 1900, Becquerel showed that beta rays are fast moving electrons, the same particles found in cathode rays. In 1907, Rutherford and Thomas Royds showed that alpha particles are a positively charged component of the helium atom. (We now know that alpha particles are helium nuclei, but the idea of the nucleus would not appear until 1909.) Gamma rays were later identified as very high-energy photons. Although the photon was not widely accepted as a particle until 1923, the symbol for the photon, $\gamma$, is due to Rutherford's classification.
+
+Rutherford and Frederick Soddy showed that radiation is connected with the elements changing into other elements. In 1902 they proposed that radioactivity is due to ``atomic disintegration.'' They had discovered that the atoms of the periodic table were divisible after all! %The particles that make up atoms were still unknown.
+
+\section{The nucleus}
+In 1909, Hans Geiger and Ernest Marsden, working in Rutherford's lab, shot fast-moving alpha particles at a piece of gold foil. Most of the alpha particles passed through the foil, but some bounced almost straight back, suggesting that they had collided with something tiny and dense within the gold atoms. In fact, nearly all of the gold atom's mass is packed into this tiny, dense center called the nucleus. Around the nucleus is the much larger and lighter electron cloud, which the alpha particle passes through easily.
+
+Rutherford continued his campaign of blasting stuff with alpha particles. In 1917, he discovered that alpha particles striking nitrogen could produce a small amount of hydrogen. These hydrogen nuclei appeared to be broken off of the nitrogen nuclei by the high speed alpha particles. This supported the idea that the nuclei are made of many positively charged particles, eventually called protons. The hydrogen nucleus is a single proton, while other nuclei contain more protons. %The number of protons in a nucleus is its atomic number.
+
+%The picture of atomic structure had come into focus: an atom consists of a tiny nucleus of heavy, positively charged protons,
+%\begin{margintable}
+%%\sidepar{\strut\\[-\baselineskip]
+%\huge
+%\begin{tabular*}{\marginparwidth}{@{\extracolsep\fill}ccc@{}}
+%\toprule
+%$\gamma$	& $e$    & $p$ \\
+%%\normalsize photon	& \normalsize electron    & \normalsize proton \\
+%\bottomrule
+%\end{tabular*}%\\[1ex]
+%%\footnotesize
+%\legend{{\bfseries 1917} Atoms are built of protons and electrons held together by the electromagnetic force.}%
+%\end{margintable}
+
+For a while it was thought that atoms were made only of protons and electrons. The protons are packed into a tiny, heavy nucleus which is surrounded by a much larger cloud of low-mass electrons.
+Unfortunately, this model does not explain the atomic masses. For example, the helium nucleus has the charge of two protons but the mass of four protons. Something was missing.
+
+% Perhaps the helium nucleus contains four protons and two electrons all bound together in the nucleus. % by whatever nuclear force is holding the protons together. 
+%Beta-decay, where a high energy electron is emitted from the nucleus, supported this model of the nucleus built from protons and ``nuclear electrons.''
+%
+%The resulting list of three fundamental particles was remarkably elegant. %, and is shown in the margin table. 
+%The electron and the proton are the building blocks. The only other particle is the photon, the particle of light. %Since the elements have lost their places in the table of smallest particles, the particles are now separated according to whether they are fermions or bosons.
+%%As particles are added to the table in the margin they will be separated according to their spin, increasing from top to bottom. The current two particles are the electron with spin 1/2 and the photon with spin 1.
+%
+%Elegant as it was, the three particle model had serious problems. First, the Heisenberg uncertainty principle presents a significant obstacle. Binding a light particle like the electron in the tiny confines of the nucleus requires tremendous energy.
+
+%In addition, the total angular momentum physicists calculated for many nuclei did not match the angular momentum seen in experiments.\footnote{Composite objects, like atoms, are made of many fundamental particles. These can have higher spin, or no spin, and they can be classified according to their spin as either fermions or bosons. For example, the nucleus of cobalt-59 has a spin of 7/2, making it a fermion, while the nucleus of cobalt-60 has a spin of 5, making it a boson.}
+% Atoms with an odd atomic number have an odd number of protons in the nucleus, so physicists reasoned that they should have half-integer spin. 
+%%More problematic was the issue of nuclear spin. A proton and an electron bound together would have integer spin. When combined with an odd number of protons the resulting nucleus would have a half-integer spin. 
+%In experiments, many nuclei with odd atomic numbers were shown to have integer spin. The model was missing something. However, before that puzzle is solved, there is another interesting twist in the story.
+
+%\subsection{Neutrons}
+%Fast-moving, charged particles make a huge mess, ionizing atoms and giving off photons as they crash through other matter. These ionization trails make charged particles easy to detect. Neutral particles, like gamma-rays, are stealthy, passing through material without leaving a trail.
+%However, secondary effects of neutral particles often can be seen.
+
+In 1932, James Chadwick discovered the missing piece: the neutron. Neutrons, like photons are given off by certain radioactive decays. Because they are neutral neutral, neutrons pass through matter without leaving a trail of ionization, just as neutral photons do. The lack of an ionization trail caused many scientist to misidentify these neutrons as very high-energy gamma-rays.
+%Since neutrons are neutral they slip through the electron clouds without a trace.
+
+However, if a neutron runs into a nucleus, the collision can knock the nucleus completely out of the atom!
+% do not interact with the electric fields that hold atoms together, but they do interact strongly if they run into a nucleus. In fact, they can hit the nucleus with such force that the nucleus is knocked completely out of the atom. 
+Chadwick took careful measurements of these ejected nuclei, which are easier to study because they do have charge. Using conservation of momentum, Chadwick calculated the mass of the neutrons. The neutrons' mass was approximately the same as the mass of a proton, much heavier than the massless photon. This new neutral particle, the neutron, solved the earlier mysteries of nuclear masses. All nuclei except for hydrogen contain both protons and neutrons.  Protons provide the charge.  Neutrons provide the additional mass.
+
+The charge of the nucleus determines the chemical properties of the atom. Chemists named the elements based on their chemical properties, which means that an atom's name depends only on the number of protons in its nucleus. For example, any atom with two protons in the nucleus is called a helium atom and is given the \keyterm{atomic number} $Z=2$. Most helium atoms also have two neutrons in the nucleus, but some have only one neutron. The number of neutrons does not affect the chemical properties, so these atoms are both helium.
+
+The total number of protons and neutrons determines the mass of the atoms. Protons and neutrons have almost the same mass, and the electrons are tiny by comparison, so chemists call the total number of protons and neutrons the \keyterm{mass number}. For example, most helium atoms have a mass number four (two protons and two neutrons), but some have a mass number of three (two protons and only one neutron). This mass number is just a count of protons and neutrons, it is not the actual mass of the atom.
+
+Nuclear physics refer to both protons and neutrons as \keyterm{nucleons}, since protons and neutrons are found in the nucleus. They call total number of protons and neutrons the \keyterm{nucleon number}.
+
+Particle physicists classify the proton and neutron as \keyterm{baryons}, from the greek word \emph{barys} meaning heavy. They call the total number of protons and neutrons the \keyterm{baryon number}.
+We will follow the particle physicist convention and refer to the total number of protons and neutrons as the baryon number, represented by $B$.
+
+To review, the total number of protons and neutrons in the nucleus is called the mass number, the nucleon number, or the baryon number depending on who you ask. The number of protons in the nucleus is the atomic number $Z$ or the nuclear charge, terms used interchangeably by everyone.
+
+%\subsection{Notation for atoms}
+%Cool chemistry notation and some work with the periodic table
+
+Chemists developed a compact notation for describing atoms, which assembles the element's symbol, the mass number, the atomic number, and the charge, like this:
+\blank[formula]
+\startalignment[middle]
+  \lohi[left]{12}{25}Mg\high{2+}
+\stopalignment\blank[formula]
+
+\noindent
+The above notation represents a magnesium atom (atomic number 12), with mass number 25 and a charge of $+2$. The atomic number is redundant, since it is determined by the atom's symbol, but it is often convenient to have it.
+
+This notation has been adopted by nuclear physics to describe atomic nuclei. Since there are no electrons in the nucleus, the charge is equal to the atomic number. Since the atomic number already has a place in the notation (and is specified by the atomic symbol anyway) there is no need to state the charge when working with nuclei. For example, the nuclear symbol
+\blank[formula]
+\startalignment[middle]
+  \lohi[left]{12}{25}Mg
+\stopalignment\blank[formula]
+
+\noindent
+describes a nucleus with twelve units of charge, provided by the twelve protons, and baryon number $B=25$.
+
+%\question
+%An atom has five neutrons, four protons, and three electrons. What is the atom's atomic number, $Z$? What element is it? What is the atom's atomic mass number (or baryon number), $A$? What is the atom's charge, $q$? Write the atom's full atomic symbol.
+%\begin{solution} $Z$ is the number of protons.
+%\startformula
+%	Z = \answer{4}
+%\stopformula
+%The element with atomic number 4 is \answer{Beryllium.}
+%
+%Each proton and neutron contributes one to the baryon number. The electrons are not baryons, so they do not contribute.
+%\startformula
+%	A = Z + N = 4 + 5 = \answer{9}
+%\stopformula
+%Each proton contributes one unit of charge and each electron contributes one negative unit. The neutrons do not contribute any charge.
+%\startformula
+%	q = Z - n\sub{e} = 4 - 3 = \answer{1}	
+%\stopformula
+%where $n\sub{e}$ is the electron number.
+%
+%The full chemical symbol is \answer{\chemical{^{9}_{4}Be^{+}}.}
+%\end{solution}
+%
+%\exercises
+%%Go back and forth between symbols, and numbers of components.
+%\begin{questions}
+%
+%\question How many electrons are in a water molecule, \chemical{H2O}? How many protons? How many neutrons (approximately)?	
+%\end{questions}
+
+
+
+%\subsection{Conservation of the Elements}
+%
+%Alchemists tried to create gold from other materials.  Why did they fail?  Gold is an element.  You can't make it by combining other elements, the way you can make water by combining the elements hydrogen and oxygen.  In all chemical reactions the number of gold atoms is conserved
+%\begin{equation}
+%	N\sub{Ag, start} + N\sub{Ag, in} - N\sub{Ag, out} = N\sub{Ag, end}
+%\end{equation}
+%(Ag is the symbol for gold.)  Since all gold atoms have the same unchanging mass, $m\sub{Ag}$, the total mass of gold, $M\sub{Ag}=m\sub{Ag}N\sub{Ag}$ is also conserved.
+%\begin{equation}
+%	M\sub{Ag, start} + M\sub{Ag, in} - M\sub{Ag, out} = M\sub{Ag, end}
+%\end{equation}
+%We can write similar equations for all of the elements, and these equations are very useful in chemistry.  However, they are not laws of physics because they can be violated.  Elements like helium are made by smashing hydrogen atoms together in stars like our sun.  Stars can make elements as heavy as iron in this way.  Heavier elements, like gold require even greater heat and pressure and are formed when stars explode.  All of the elements here on Earth were formed deep in a star.  When the star exploded heavy elements were formed and all of it was blasted into space.  Eventually this debris formed our solar system.
+%
+%Note the difference between a person trying to ``conserve water'' by not washing their car to the physics meaning of conservation.
+%
+%Imagine that someone proposed that water is conserved, i.e. that the total mass of water never changes.  All you would have to do to show that they are wrong is burn some dry paper and show that the smoke contains water.  This isn't easy, but it can be done.  So water is created in burning and is not conserved.  Also, an electric current will break water down into hydrogen and oxygen, again showing that water is not conserved.
+%
+%Imagine now that they agreed that water is not conserved, but argued that elemental hydrogen is conserved.  Now it is much more difficult to show that they are wrong because you have to either make hydrogen from something else or destroy some hydrogen.  Hydrogen atoms are smashed together to make helium in the sun, and in some laboratories here on Earth.  It's not something you can do yourself, but it has been done and it shows that hydrogen is not conserved.
+
+\subsection{Antimatter}
+Spin-one-half particles, like the electron, are common in experiments, but they are difficult to describe mathematically. Paul Dirac solved this problem in 1928 with a beautiful theory that explained many properties of the electron and predicted a new particle, the anti-electron. This anti-particle has the same mass as an electron, but has a positive charge.
+
+In 1932, Carl D.~Anderson discovered the anti-electron in cosmic rays, high energy particles from outer space, confirming Dirac's model. The anti-electron eventually was given the shorter name \keyterm{positron}, due to its positive charge.
+
+Positrons and other anti-particles are shown in Feynman diagrams as particles with their arrows pointing toward the past. Anti-particles are not actually going back in time, but diagrams with backwards pointing arrows do represent real interactions.
+%allowing the arrows to point back in time gives us greater flexibility in predicting important interaction processes with the Feynman diagram parts that we already have.
+For example, a positron can emit or absorb a photon just as an electron does. The Feynman diagrams for these particles look just like the diagrams for an electron emitting or absorbing a photon, but with the arrows on the electron lines pointing to the left.
+(The photon line does not have an arrow because there are no anti-photons.)
+
+The possible interactions between an electron and a positron illustrate some of the new ways that electron lines, photon lines, and the electron-photon interaction vertex can be used. The electron and positron can interact by exchanging a photon, as in Figure \ref{fig:eebarphotonexchange}.
+\placefigure[margin][fig:eebarphotonexchange]{{\bf Electron-positron interaction} Positrons are anti-electrons, identified in diagrams by arrows that go right to left, opposite the time direction.}
+{\externalfigure[eebarphotonexchange]}
+
+%\begin{fmffile}{feynmp/eebar}
+%		\begin{fmfgraph*}(1.5,1)
+%			\fmfset{dot_size}{2thin}
+%			\fmftop{i2,o2}
+%			\fmfbottom{i1,o1}
+%			
+%			\fmfv{label=$\anti e^+$,label.dis=thick}{i2,o2}
+%			\fmfv{label=$e^-$,label.dis=thick}{i1,o1}
+%						
+%			\fmf{fermion}{i1,v1,o1}
+%			\fmf{fermion}{o2,v2,i2}
+%			\fmf{photon,label=$\gamma$,label.dis=3thick}{v1,v2}
+%			
+%			%\fmfdot{v1,v2}
+%
+%		\end{fmfgraph*}
+%	%\end{fmffile}
+%\medskip
+
+%\feynmandiagram [layered layout, vertical=a to b, sibling distance=1.5cm, level distance=2.2cm] { % Draw the top and bottom fermion lines
+%	i2 [particle=\(e\)] -- [fermion] a -- [fermion] f2 [particle=\(e\)],
+%	i1 [particle=\(\anti e\)] -- [anti fermion] b -- [anti fermion] f1 [particle=\(\anti e\)],
+%% Draw the internal boson line
+%{ [same layer] a -- [photon, edge label=\(\gamma\)] b },
+%};
+
+The top half of the diagram is identical to the diagram for photon exchange between two electrons. The bottom is similar, but the arrows point from right to left, opposite the time direction. Arrows pointing opposite the time direction indicate anti-particles, in this case a positron. The vertex at the bottom is the same one as before\,--\,one incoming arrow, one outgoing arrow and one photon line--but oriented differently.
+Reading the diagram from left to right gives the story of the interaction. The story starts with an electron and a positron. They exchange a photon. The story ends with an electron and a positron.
+
+%\begin{marginfigure}
+%%\begin{fmffile}{feynmp/eebarannihilation}
+%%		\begin{fmfgraph*}(1.5,1)
+%%			\fmfset{dot_size}{2thin}
+%%			\fmftop{i2,o2}
+%%			\fmfbottom{i1,o1}
+%%			
+%%			\fmfv{label=$\anti e^+$,label.dis=thick}{i2,o2}
+%%			\fmfv{label=$e^-$,label.dis=thick}{i1,o1}
+%%						
+%%			\fmf{fermion}{i1,v1,i2}
+%%			\fmf{fermion}{o2,v2,o1}
+%%			\fmf{photon,label=$\gamma$,tension=2,label.dis=3thick}{v1,v2}
+%%			
+%%			%\fmfdot{v1,v2}
+%%
+%%		\end{fmfgraph*}
+%%	%\end{fmffile}
+%%\medskip
+%\feynmandiagram [horizontal=a to b] {
+%	i2 [particle=\(e\)] -- [fermion] a -- [fermion] i1 [particle=\(\anti e\)],
+%	a -- [photon, edge label=\(\gamma\)] b,
+%	f2 [particle=\(\anti e\)] -- [fermion] b -- [fermion] f1 [particle=\(e\)],
+%};
+%\caption[Electron-positron annihilation]{{\bfseries Electron-positron interaction} Particles and antiparticles can annihilate, leaving all of their energy to a photon. That photon can turn into a new particle-antiparticle pair.}
+%\end{marginfigure}
+
+\placefigure[margin][fig:eebarannhilation]{{\bf Electron-positron annihilation} Particles and antiparticles can annihilate, leaving all of their energy to a pair of photons.}
+{\externalfigure[eebarannhilation]}
+
+%\feynmandiagram [layered layout, vertical=a to b, sibling distance=1.5cm, level distance=2.2cm] { % Draw the top and bottom fermion lines
+%	i2 [particle=\(e\)] -- [fermion] a -- [boson] f2 [particle=\(\gamma\)],
+%	i1 [particle=\(\anti e\)] -- [anti fermion] b -- [boson] f1 [particle=\(\gamma\)],
+%% Draw the internal boson line
+%{ [same layer] a -- [fermion] b },
+%};
+
+The electron-photon vertex can also be used to create a new type of interaction between the electron and positron, shown in Figure \ref{fig:eebarannhilation}.
+This interaction starts with an electron and a positron. They find each other and annihilate, producing a pair of photons.
+%producing a photon which then splits into a new electron and anti-electron. The vertices are the same one we have been using, an ingoing and outgoing arrow and a photon line, but oriented with the arrows both before or after the interaction.
+Charge is conserved. The total charge at the beginning is zero, the total charge at the end the total charge is still zero. All of the energy of the initial electrons, including their masses, is converted to the energy of the photons, which have no mass. These photons are classified as gamma rays due to their high energy.
+
+%The annihilation of an electron and a positron does not have to produce a new electron and positron; it could produce only photons. %[Draw the diagram for an electron and a positron annihilating to produce two photons.]
+
+With slight adjustments, Dirac's model can be used for any fermion, and it  (almost) always predicts an anti-particle. Anti-protons are frequently produced in high-energy collisions. Feynman diagrams are excellent tools for understanding the ways particles and anti-particles can interact. 
+
+\placefigure[margin][fig:pphotonvertex]{{\bf Proton-photon interaction} This is the common plot element in all stories involving photons and protons.}
+{\externalfigure[pphotonvertex]}
+
+%\begin{fmffile}{feynmp/pgamma}
+%		\begin{fmfgraph*}(1.5,.5)
+%			\fmfset{dot_size}{2thin}
+%			\fmftop{i2,s2,o2}
+%			\fmfbottom{i1,s1,o1}
+%			
+%			\fmfv{label=$p^+$,label.dis=thick}{i1,o1}
+%						
+%			\fmf{fermion,width=thick}{i1,v1,o1}
+%			\fmf{photon,label=$\gamma$,label.dis=3thick}{s2,v1}
+%			
+%			%\fmfdot{v1}
+%
+%		\end{fmfgraph*}
+%	%\end{fmffile}
+
+%\feynmandiagram [small, horizontal=i to o, vertical=t to c] {
+%	c --[boson, edge label'=\(\gamma\),node distance=3mm] t,
+%	i [particle=\(p\)] --[fermion, very thick] c --[fermion, very thick] o [particle=\(p\)],
+%};
+
+Protons can also be represented in Feynman diagrams. The proton is a fermion, like the electron, but the proton is about two thousand times heavier. In Feynman diagrams, they are represented by heavier, straight lines with forward-pointing arrows, as shown in Figure \ref{fig:pphotonvertex}.
+Since protons are electrically charged, they interact with the electric potential, as shown in Figure \ref{fig:epinteraction}. This allows protons to interact indirectly with each other and with electrons (or with any electrically charged particle) through photon exchange.
+
+\placefigure[margin][fig:epinteraction]{{\bf Electron-proton interaction} Electrons and protons do not interact directly. They exchange photons.}
+{\externalfigure[epinteraction]}
+
+%\begin{fmffile}{feynmp/ep}
+%		\begin{fmfgraph*}(1.5,1)
+%			\fmfset{dot_size}{2thin}
+%			\fmftop{i2,o2}
+%			\fmfbottom{i1,o1}
+%			
+%			\fmfv{label=$p^+$,label.dis=thick}{i1,o1}
+%			\fmfv{label=$e^-$,label.dis=thick}{i2,o2}
+%						
+%			\fmf{fermion,width=thick}{i1,v1,o1}
+%			\fmf{fermion}{i2,v2,o2}
+%			\fmf{photon,label=$\gamma$,label.dis=3thick}{v1,v2}
+%			
+%			%\fmfdot{v1,v2}
+%
+%		\end{fmfgraph*}
+%	%\end{fmffile}
+%\medskip
+
+%\feynmandiagram [layered layout, vertical=a to b, sibling distance=1.5cm, level distance=2.2cm] { % Draw the top and bottom fermion lines
+%	i1 [particle=\(e\)] -- [fermion] a -- [fermion] f1 [particle=\(e\)],
+%	i2 [particle=\(p\)] -- [fermion, very thick] b -- [fermion, very thick] f2 [particle=\(p\)],
+%% Draw the internal boson line
+%{ [same layer] a -- [photon, edge label=\(\gamma\)] b },
+%};
+
+We just saw how an electron and an a positron can annihilate, turning into massless photons. If the electron and positron have enough kinetic energy, they can also produce a more massive proton-antiproton pair.
+\startformula
+	e + \anti e \rightarrow p + \anti p
+\stopformula
+The process is shown in Figure \ref{fig:masscreation}.
+When an electron and a positron annihilate. all of their energy, including kinetic energy, goes to the photon. If the photon has enough energy, it can split into a proton and an anti-proton.
+
+Mass is not conserved in this reaction. The electron and a positron have a total mass of about $1\units{MeV}$. %These annihilate to form a massless photon. 
+The final proton and anti-proton have a total mass of about $1900\units{MeV}$. Although the total mass changes, the reaction still conserves energy, momentum and charge. 
+
+Processes like this occur when high-energy particles called cosmic rays hit Earth's atmosphere. The resulting shower includes particles with much greater mass than the original particle, as long as the original particle had sufficient energy. This also allows particle physicists to create new particles using particle accelerators. In the later part of the twentieth century, all of the newly-discovered particles were created by smashing lighter particles together. 
+
+\placefigure[margin][fig:masscreation]{{\bf Mass from energy} The photon can create different particles, even particles with greater mass, provided there was sufficient energy in the collision.}
+{\externalfigure[masscreation]}
+
+%\begin{fmffile}{feynmp/eebarppbar}
+%		\begin{fmfgraph*}(1.5,1)
+%			\fmfset{dot_size}{2thin}
+%			\fmftop{i2,o2}
+%			\fmfbottom{i1,o1}
+%			
+%			\fmfv{label=$\anti e^+$,label.dis=thick}{i2}
+%			\fmfv{label=$e^-$,label.dis=thick}{i1}
+%			\fmfv{label=$\anti p^-$,label.dis=thick}{o2}
+%			\fmfv{label=$p^+$,label.dis=thick}{o1}
+%						
+%			\fmf{fermion}{i1,v1,i2}
+%			\fmf{fermion,width=thick}{o2,v2,o1}
+%			\fmf{photon,label=$\gamma$,tension=2,label.dis=3thick}{v1,v2}
+%			
+%			%\fmfdot{v1,v2}
+%
+%		\end{fmfgraph*}
+%	%\end{fmffile}
+%\medskip
+
+%\feynmandiagram [horizontal=a to b] {
+%	i1 [particle=\(e\)] -- [fermion] a -- [fermion] i2 [particle=\(\anti e\)],
+%	a -- [photon, edge label=\(\gamma\)] b,
+%	f1 [particle=\(\anti p\)] -- [fermion, very thick] b -- [fermion, very thick] f2 [particle=\(p\)],
+%};
+
+%\subsection{Useful stuff?}
+%
+%We saw this in the experiment where a moving cart collided with a stationary cart.
+%Some of the moving cart's momentum was transferred to the stationary cart, causing the moving cart to slow down and the stationary cart to begin moving. Then they moved together with the shared momentum.
+%
+%Momentum conservation is why Newton's formula worked so well for the experiment with the two carts colliding and sticking together. Before the collision, only one cart had momentum. When it collided with the second cart the momentum was redistributed. The moving cart giving up some of its momentum to the stationary cart. After the redistribution the carts move together, sharing the momentum. The experiment showed that the total momentum was conserved in the collision.
+%
+% Move to another chapter.
+%
+%[List all fundamental conserved quantities: Energy, momentum, charge and angular momentum. baryon number and lepton number. Then note that mass does not make the cut.] There is another conservation law that is used with such frequency that I have not even mentioned it: conservation of mass.
+%
+%\highlightbox{
+%\begin{equation}
+%	m\sub{f} = m\sub{i} + m\sub{added} - m\sub{removed}
+%	\label{eq:mconserve}
+%\end{equation}
+%}%\end{shaded}
+%
+%
+%Everyone knows that one gram plus one gram is two grams, but in fact this is only approximately true. If, for example, the first gram is moving close to the speed of light in one direction and the other gram is moving close to the speed of light in the other direction, a collision between the two grams could produce slightly more or less than two grams at the end. We will not be doing such experiments because everyone would die.
+%
+%Once we have the correct formulas for momentum and energy in chapter \ref{ch:mpe}, we will no longer need conservation of mass. However, for problems involving ordinary matter and every-day speeds, conservation of mass is extremely accurate and useful. 
+%
+%
+%\question
+%	A few ideas:
+%	\begin{enumerate}
+%		\item A proton is at rest, what is its energy?
+%		\item A proton is accelerated from rest by an electric field that does $10\units{GeV}$ of work on the proton. What is the proton's final energy? What is its final kinetic energy
+%		\item A proton is accelerated from rest through a potential difference of $10\sci{6}\units{V}$. What is the proton's final energy? What is its final kinetic energy?
+%	\end{enumerate}
+%\end{solution}
+
+
+
+
+\subsection{Neutrinos}
+%\begin{margintable}
+%%\sidepar{\strut\\[-\baselineskip]
+%\Large
+%\begin{tabular*}{\marginparwidth}{@{\extracolsep\fill}cccc@{}}
+%\toprule
+%$\nu$    & $e$    & $p$ & $n$ \\
+%{\scriptsize neutrino}    & {\scriptsize electron}    & {\scriptsize proton} & {\scriptsize neutron} \\
+%\midrule
+%\multicolumn{2}{c}{$\gamma$} & \multicolumn{2}{c}{$\pi$} \\
+%\multicolumn{2}{c}{\scriptsize photon} & \multicolumn{2}{c}{\scriptsize pion} \\
+%\bottomrule
+%\end{tabular*}%\\[1ex]
+%%\footnotesize
+%\legend{{\bfseries 1934} The electron and proton each gain a neutral partner, the neutrino and the neutron. The proton and neutron are bound by the nuclear force, associated with a new particle, the pion.}%
+%\end{margintable}
+
+%The only good tools for pushing tiny particles around are the electric and magnetic fields. This works for the electron and proton, which are charged. It does not work for neutral particles, making them much more difficult to discover.
+
+When a nucleus decays by emitting an electron, some of the energy goes missing. The neutrino was proposed in 1930 by Wolfgang Pauli as a hard-to-detect particle that was carrying away the missing energy. Pauli's neutrino, $\nu$, fit the data so well that the particle was widely accepted even though it was not directly detected until 1956.
+
+
+Four fermions\,--\,the electron, proton, neutron, and neutrino\,--\,are the building blocks of chemistry and nuclear physics. Particle physicists classify the electron and neutrino as \keyterm{leptons}, from the greek root \emph{leptos} meaning small, thin, or delicate. In particle interactions, the  total number of electrons and neutrinos is the lepton number, represented by $L$.
+\subsection{The nuclear force}
+
+The baryons require a new force to bind them in the nucleus. This force has to be extremely strong to overcome the electromagnetic repulsion between all of the protons in nuclei larger than hydrogen. 
+%A strong nuclear force was proposed to hold the neutrons and protons together in the nucleus.
+%
+% Conservation of mass has been has been superseded by conservation of energy. We now know that mass is just one type of energy. Almost all of the energy in ordinary matter is bound up in the nucleus of atoms. Everyday interaction have no way of accessing this huge store of energy and converting it to other forms. This enormous inaccessible nuclear energy is what we usually call the mass. The tiny energy of vibrations and electromagnetic interactions among the nuclei and electrons is all that we can access through mechanical, electrical, chemical, and biological processes. Nuclear reactions tap the huge store of nuclear energy, but only in ways strictly limited by other conservation laws. %We will see some violations of conservation of mass in chapter \ref{ch:particles}.
+%
+%Energy is extensive, but mass is not. The mass of a composite object is the object's rest energy. You find its rest energy by adding all of the internal energy, including mass, kinetic and potential energy.
+%
+%Extreme example: quarks in neutrons and protons. Almost no mass in the quarks, it's all binding energy!
+%
+%Less extreme: Nuclear energy. The masses are off a small amount, revealing how much energy is available in a reaction.
+%
+%Not extreme at all: Chemistry. The total mass is the mass of the ingredients (a  few GeV) plus the energy stored chemically (a few eV). No scale is sensitive enough! 
+%
+%\question
+%A nucleus of Uranium-235 %, \chemical{^{235}_{92}U}, 
+%is hit by a slow moving
+%neutron and splits into a krypton-92 %(\chemical{^{92}_{36}Kr})
+%and a Barium-141 %(\chemical{^{141}_{56}Ba})
+%and neutrons.
+%\startformula
+%	\chemical{^{235}_{92}U + ^1_0n -> ^{92}_{36}Kr + ^{141}_{56}Ba + $a$\,^1_0n},
+%\stopformula
+%where $a$ is the number of neutrons. How many neutrons are released?
+%%\paragraph{Solution:} 
+%\begin{solution} We will consider the system containing all of the reactants and products in the reaction equation.
+%The conservation laws for charge and baryon number are both useful.
+%First the conservation law for charge:
+%\begin{align*}
+%	q\sub{start} + q\sub{added} - q\sub{removed} &= q\sub{end} \\
+%	q\sub{U} + 0 - 0 &= q\sub{Kr} + q\sub{Ba} + q\sub{?}			\\
+%	q\sub{?} &= q\sub{U} - q\sub{Kr} - q\sub{Ba}				\\
+%		&= 92 - 36 - 56										\\
+%		&= 0
+%\end{align*}
+%
+%\end{solution}
+
+
+In 1934, Hideki Yukawa proposed that there would be a particle associated with this force, just as the photon is associated with the electromagnetic force. Because the nuclear force is short-range, Yukawa proposed that this particle would have mass (unlike the photon). Using the known range of the nuclear force, he  even made a rough prediction of this new particle's mass, about $100\units{GeV}$. The predicted particle was called a \keyterm{meson}, from the Greek \emph{mesos} (between), because its anticipated mass was between the mass of the small leptons and the heavy baryons.
+
+In 1937, a particle with the meson's predicted mass was discovered in cosmic rays. The discovery of this particle, named the mu meson (symbol $\mu$), seemed to be a great triumph for Middle Model. Unfortunately, the mu meson was the wrong particle, a mistake which went unnoticed for ten years.
+
+By 1946, study of the mu-meson showed that it %is not associated with nuclear force. In fact, the mu-meson
+does not participate in nuclear interactions, so it cannot be the particle predicted by Yukawa. %We will ignore this impostor until chapter \ref{ch:particles}.
+In 1947, physicists discovered the correct particles, again in cosmic rays, and called them pions, $\pi$. The pions are slightly more massive than the muon, but still consistent with Yukawa's prediction. They interact strongly with nuclei, as a nuclear force carrier should.
+
+\placetable[margin][T:1934] % Label
+    {{\bf Particles of the Middle Model} All of chemistry can be explained using these seven ingredients. From 1936 to 1947 physicists had one of the ingredients wrong, mistaking the muon ($106\units{MeV}$) for the pion. The extremely heavy $W$-boson was not discovered until 1983.} % Caption
+    {\starttabulate[|c|c|c|c|][unit=0.64em]
+\FL[2]
+\NS[3][c] Fermions          			  \NR
+\NS[1][c] \small leptons \NS[1][c] \small baryons       \NR
+\NC \small$q=0$ \NC \small$q=-1$ \NC \small$q=+1$ \NC \small$q=0$ \NR
+\TB[1ex]
+\NC \tfb$\nu$  \NC \tfb$e$  \NC \tfb$p$ \NC \tfb$n$ \NR
+\NC \tfx neutrino  \NC \tfx electron  \NC \tfx proton \NC \tfx neutron \NR
+\NC \tfxx massless \NC $\txx 511.0\units{keV}$ \NC $\txx 938.27\units{MeV}$ \NC $\txx 939.57\units{MeV}$ \NR
+\HL
+\NS[3][c] Bosons          			  \NR
+\NS[1][c] \small vector bosons \NS[1][c] \small mesons       \NR
+\NC \small$q=\pm1$ \NC \small$q=0$ \NC \small$q=\pm1$ \NC \small$q=0$ \NR
+\NC \tfb$W$	     \NC \tfb$\gamma$ \NC \tfb$\pi^\pm$ \NC \tfb$\pi^0$ \NR
+\NC \tfx neutrino  \NC \tfx electron  \NC \tfx proton \NC \tfx neutron \NR
+\NC $\txx 80.37\units{GeV}$ \NC \txx massless \NC $\txx 139.6\units{MeV}$ \NC $\txx 135.0\units{MeV}$ \NR
+\LL[2]
+\stoptabulate}
+
+%Pions come in three different charges: $\pi^+\!$, $\pi^-\!$, and $\pi^0\!$. The charged pions are easy to
+
+% When a positively charged pion is emitted by a proton, the proton's positive charge is carried away, turning it into a neutron. A neutron absorbing a positive pion will gain the positive charge, becoming a proton. Similar changes of identity are possible with the exchange of a negatively charged pion. Inside the nucleus, the baryons do not maintain their separate identities as protons or neutrons. They are all baryons, passing the charge around.
+
+The various interactions of the bosons with the fermions can be seen in Table \ref{T:1934int}. The photon interacts with the two charged fermions, the electron and proton. The pions interact with the baryons. The charged pions are represented by dashed lines with arrow showing the direction of the flow of positive charge. As the arrows suggest, the positive and negative pions are anti-particles of each other. The neutral pion line has no arrow.
+
+%\subsection{Fundamental interactions of the Middle Model}
+
+Beta decay, the ejection of a high energy electron from the nucleus, cannot be explained by the interactions involving photons and pions.
+The problem is quite obvious: the nucleus contains only protons and neutrons. Where does that electron come from?
+In 1934, Enrico Fermi proposed that a neutron can transform into a proton, creating an electron and an anti-neutrino in the process.
+\startformula
+	n \rightarrow p + e + \anti\nu
+\stopformula
+This process requires a totally new interaction, different from either the electromagnetic or nuclear interactions. This new, weak interaction is due to the final particle in the Middle Model, the $W$ (for weak). The $W$ also has a large mass, which makes its interactions very short range. Two fermions can only exchange a $W$ when the fermions are extremely close together, which makes these reactions rare and its affect weak.
+
+The weak interactions have one very surprising feature: they change fermions from one flavor to another. Neutrons become protons, and protons become neutrons. Electrons become neutrinos and neutrinos become electrons. Although the weak interaction is weak, these changes play an important role in many nuclear reactions.
+
+The $W$ bosons have one unit of electric charge, either positive or negative. The $W^-$ is the anti-particle of the $W^+$. We simply label these as $W$ on Feynman diagrams, with an arrow to show the direction of positive charge. To conserve electric charge, $W$ interactions \emph{always} change the flavor of the fermion. For example, an electron that absorbs a $W^+$ turns into a neutrino. A neutron can turn into a proton by emitting a $W^-$. 
+
+\placetable[margin][T:1934int] % Label
+    {{\bf Fermion interactions of the Middle Model} } % Caption
+    {\starttabulate[|c|c|][unit=1.8em,distance=1ex]
+\FL[2]
+\NS[1][c] Electromagnetic        \NR
+\TB[1ex]
+\NC \externalfigure[e_gamma_e] \NC \externalfigure[p_gamma_p] \NR
+\HL
+\NS[1][c] Nuclear \NR
+\TB[1ex]
+\NC \externalfigure[p_pi_p] \NC \externalfigure[n_pi_n] \NR
+\TB[1ex]
+\NC \externalfigure[p_pi_n] \NC \externalfigure[n_pi_p] \NR
+\HL
+\NS[1][c] Weak \NR
+\TB[1ex]
+\NC \externalfigure[nu_W_e] \NC \externalfigure[p_W_n] \NR
+\TB[1ex]
+\NC \externalfigure[e_W_nu] \NC \externalfigure[n_W_p] \NR
+\LL[2]
+\stoptabulate}
+
+%\toprule
+%\multicolumn{2}{c}{Electromagnetic} \\
+%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+%	c --[boson, edge label'=\(\gamma\)] t,
+%	i [particle=\(e\)] --[fermion] c --[fermion] o [particle=\(e\)],
+%};&
+%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+%	c --[boson, edge label'=\(\gamma\)] t,
+%	i [particle=\(p\)] --[fermion, very thick] c --[fermion, very thick] o [particle=\(p\)],
+%};\\
+%\midrule
+%\multicolumn{2}{c}{Nuclear} \\
+%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+%	c --[scalar, thick, edge label'=\(\pi\)] t,
+%	i [particle=\(p\)] --[fermion, very thick] c --[fermion, very thick] o [particle=\(p\)],
+%};&
+%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+%	c --[scalar, thick, edge label'=\(\pi\)] t,
+%	i [particle=\(n\)] --[fermion, very thick] c --[fermion, very thick] o [particle=\(n\)],
+%};\\
+%% baryons and charged pions
+%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+%	c --[charged scalar, thick, edge label'=\(\pi\)] t,
+%	i [particle=\(p\)] --[fermion, very thick] c --[fermion, very thick] o [particle=\(n\)],
+%};&
+%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+%	c --[anti charged scalar, thick, edge label'=\(\pi\)] t,
+%	i [particle=\(n\)] --[fermion, very thick] c --[fermion, very thick] o [particle=\(p\)],
+%};\\
+%\midrule
+%% Boson-boson interactions
+%%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+%%	c --[scalar, edge label'=\(\pi\)] t,
+%%	i [particle=\(\pi\)] --[scalar, thick] c --[scalar, thick] o [particle=\(\pi\)],
+%%};
+%%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+%%	c --[scalar, edge label'=\(\pi\)] t,
+%%	i [particle=\(\pi\)] --[charged scalar, thick] c --[charged scalar, thick] o [particle=\(\pi\)],
+%%};\\[1ex]
+%%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+%%	c --[boson, edge label'=\(\gamma\)] t,
+%%	i [particle=\(\pi\)] --[charged scalar, thick] c --[charged scalar, thick] o [particle=\(\pi\)],
+%%};\\[1ex]
+%% Fermi interactions
+%%\feynmandiagram [horizontal=i1 to o1, vertical=t to c, small] {
+%%	i1 [particle=\(e\)] --[fermion] c[dot] --[fermion] o1 [particle=\(\nu\)],
+%%	i2 [particle=\(n\)] --[anti fermion, very thick] c --[anti fermion, very thick] o2 [particle=\(p\)],
+%%};
+%%\feynmandiagram [horizontal=i1 to o1, vertical=t to c, small] {
+%%	i1 [particle=\(\nu\)] --[fermion] c[dot] --[fermion] o1 [particle=\(e\)],
+%%	i2 [particle=\(p\)] --[anti fermion, very thick] c --[anti fermion, very thick] o2 [particle=\(n\)],
+%%};
+%\multicolumn{2}{c}{Weak} \\
+%% Lepton-W
+%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+%	c --[W boson, edge label'=\(W\)] t,
+%	i [particle=\(\nu\)] --[fermion] c --[fermion] o [particle=\(e\)],
+%};&
+%% baryon-W
+%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance = 1cm] {
+%	c --[W boson, edge label'=\(W\)] t,
+%	i [particle=\(p\)] --[fermion, very thick] c --[fermion, very thick] o [particle=\(n\)],
+%};\\
+%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+%	t --[W boson, edge label'=\(W\)] c,
+%	i [particle=\(e\)] --[fermion] c --[fermion] o [particle=\(\nu\)],
+%};&
+%\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance = 1cm] {
+%	t --[W boson, edge label'=\(W\)] c,
+%	i [particle=\(n\)] --[fermion, very thick] c --[fermion, very thick] o [particle=\(p\)],
+%};\\
+%\bottomrule
+
+The important interactions of the Middle Model are shown in Table \ref{T:1934int}. There are two electromagnetic interactions (the photon interactions with the charged fermions), two nuclear interactions interactions (the pion interactions with baryons), and four weak interactions (the $W$ interactions with all fermions). Some of the bosons can also interacting with other bosons, but these are not important for any of the processes we will study. Fermions never interact directly with each other, they only interact directly with bosons.
+
+% Particles are not eternal, but there are eternally conserved quantities: electric charge, baryon number, lepton number, and energy. Mass is not conserved.
+
+
+%Aside from the confusion about the mu-meson, the Middle Model was a great success, explaining atoms and isotopes, electromagnetic and nuclear interactions, and beta decay. The Middle Model did not replace the periodic table of the elements, but it explained it in terms of more fundamental particles and interactions. The Middle Model became the foundation for nuclear physics which emerged in the 1930s and 40s.
+
+The Middle Model is able to explain a tremendous range of processes with a small number of ingredients and rules. The Middle Model applies to atoms and isotopes, electromagnetic and nuclear interactions, and beta decay. The Middle Model does not replace the periodic table of the elements, but it explains it in terms of more fundamental particles and interactions.
+
+\section{Conservation laws} 
+
+All of the interactions of the Middle Model conserve energy, momentum, charge and angular momentum. Physicists currently believe these four quantities are fundamental, so the must be preserved in all interactions. Specific types of particles are not fundamental and are not conserved in interactions. Photons and pions are created and destroyed with impunity in electric and nuclear interactions. Even the fermions can transform from one type to another through the Fermi interaction.
+
+While the individual types of fermions are not conserved, the number in each of the broader categories\,--\,leptons and baryons\,--\,are conserved. Conservation of baryon number is the primary reason that we cannot access the vast amount of energy stored in ordinary matter. To extract the energy of a baryon, one needs an anti-baryon to annihilate it. We can create anti-baryons, but that requires just as much energy as we hope to get out.
+
+The transient nature of particles lies in stark contrast to Democritus's notion of atoms as eternal and immutable. In particle physics, it is not the particles, but the conserved quantities that endure.
+
+
+%\subsection{Solar Neutrinos}
+%The sun makes neutrons and neutrinos.
+%\startformula
+%	p^+ + e^- \rightarrow n + \nu
+%\stopformula
+%We can detect neutrinos from the sun when they strike neutrons here on Earth.
+%\startformula
+%	n + \nu \rightarrow p^+ + e^-
+%\stopformula
+%The first neutrino detection was actually an anti-neutrino.
+%\startformula
+%	p^+ + \anti\nu \rightarrow n + \anti e^+
+%\stopformula
+%
+%Use Feynman diagrams to describe the interactions that happen in the sun, which produce energy and neutrinos, and the resulting neutrino detections here on Earth.
+%
+
+
+
+
+%\subject{Notes}
+%%\placefootnotes[criterium=chapter]
+%\placenotes[endnote][criterium=chapter]
 
 %\subject{Bibliography}
 %        \placelistofpublications

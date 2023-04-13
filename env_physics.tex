@@ -1,5 +1,5 @@
 \startenvironment env_physics
-%\usemodule[chemic] % I think this is built in now, and does not need to be loaded.
+\usemodule[chemic] % I think this is built in now, and does not need to be loaded.
 
 % Units
 \setupunits[method=4,separator=cdot] % separator as thin space, decimal mark as period. alternative=text
@@ -70,6 +70,7 @@
 \define[1]\sci{\times 10^{#1}}
 \define\dotp{\boldsymbol{\cdot}}%{\bullet}%
 \define[1]\fourvec{{\bi #1}}
+\define{\anti}{\overline}
 
 % small size display fractions
 \define[2]\textfrac{{\textstyle\frac{#1}{#2}}}

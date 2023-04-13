@@ -1,0 +1,69 @@
+\documentclass[10pt]{article}
+
+%\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+% Setting up the fonts for LuaLaTeX
+%  LuaLaTeX fixes some font problems
+%  Super Slow due to font stuff
+%
+\usepackage{fontspec}
+\usepackage[math-style=ISO]{unicode-math} % 
+\setmainfont[Numbers={OldStyle, Proportional}, Ligatures=TeX]{Tex Gyre Pagella}
+
+\setmathfont{Tex Gyre Pagella Math}
+\setmathfont{Asana-Math.otf}[range=it/{greek,Greek}] % Better Greek
+
+
+% Useful Commands
+\newcommand{\unit}[1]{{\renewcommand{\.}{\!\cdot\!}\rm#1}}
+\newcommand{\units}[1]{{\,\unit{#1}}}
+\newcommand{\sci}[1]{\times 10^{#1}}
+\newcommand{\sub}[1]{_{\text{#1}}}
+\newcommand{\textfrac}[2]{{\textstyle\frac{#1}{#2}}}
+\newcommand{\half}{\textfrac{1}{2}}
+\newcommand{\infinity}{\infty}
+\newcommand{\degree}{\ensuremath{{}^{\circ}}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\vabs}[1]{\left\| #1 \right\|}
+
+% Feynman Diagrams
+\tikzfeynmanset{anti W boson/.style={
+    /tikz/draw=none,
+    /tikz/decoration={name=none},
+    /tikz/postaction={
+      /tikz/draw,
+      /tikz/decoration={
+        zigzag,
+        amplitude=.5mm,
+        segment length=2mm,
+      },
+      /tikz/decorate=true,
+    },
+    /tikzfeynman/with reversed arrow=0.5,
+ }}
+ 
+ \tikzfeynmanset{W boson/.style={
+    /tikz/draw=none,
+    /tikz/decoration={name=none},
+    /tikz/postaction={
+      /tikz/draw,
+      /tikz/decoration={
+        zigzag,
+        amplitude=.5mm,
+        segment length=2mm,
+      },
+      /tikz/decorate=true,
+    },
+    /tikzfeynman/with arrow=0.5,
+ }}
+
+\begin{document}
+\feynmandiagram [vertical=i to t] {
+	c --[boson, thick] t[particle=\(\gamma\)],
+	i [particle=\(e\)] --[fermion, thick] c --[fermion, thick] o [particle=\(e\)],
+	i -- [draw=none] t,
+};
+
+\end{document}
