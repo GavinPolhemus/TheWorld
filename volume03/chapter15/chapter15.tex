@@ -1,3 +1,4 @@
+% !TEX useAlternatePath
 % !TEX useConTeXtSyncParser
 
 \startcomponent *
@@ -449,20 +450,16 @@ To review, the total number of protons and neutrons in the nucleus is called the
 %Cool chemistry notation and some work with the periodic table
 
 Chemists developed a compact notation for describing atoms, which assembles the element's symbol, the mass number, the atomic number, and the charge, like this:
-\blank[formula]
-\startalignment[middle]
-  \lohi[left]{12}{25}Mg\high{2+}
-\stopalignment\blank[formula]
-
+\startformula
+  \nuc{Mg}{25}{12}^{2+}
+\stopformula
 \noindent
 The above notation represents a magnesium atom (atomic number 12), with mass number 25 and a charge of $+2$. The atomic number is redundant, since it is determined by the atom's symbol, but it is often convenient to have it.
 
 This notation has been adopted by nuclear physics to describe atomic nuclei. Since there are no electrons in the nucleus, the charge is equal to the atomic number. Since the atomic number already has a place in the notation (and is specified by the atomic symbol anyway) there is no need to state the charge when working with nuclei. For example, the nuclear symbol
-\blank[formula]
-\startalignment[middle]
-  \lohi[left]{12}{25}Mg
-\stopalignment\blank[formula]
-
+\startformula
+  \nuc{Mg}{25}{12}
+\stopformula
 \noindent
 describes a nucleus with twelve units of charge, provided by the twelve protons, and baryon number $B=25$.
 
@@ -824,7 +821,7 @@ In 1947, physicists discovered the correct particles, again in cosmic rays, and 
 \NS[1][c] \small vector bosons \NS[1][c] \small mesons       \NR
 \NC \small$q=\pm1$ \NC \small$q=0$ \NC \small$q=\pm1$ \NC \small$q=0$ \NR
 \NC \tfb$W$	     \NC \tfb$\gamma$ \NC \tfb$\pi^\pm$ \NC \tfb$\pi^0$ \NR
-\NC \tfx neutrino  \NC \tfx electron  \NC \tfx proton \NC \tfx neutron \NR
+\NC \tfx W-boson  \NC \tfx photon  \NC \tfx pion \NC \tfx pion \NR
 \NC $\txx 80.37\units{GeV}$ \NC \txx massless \NC $\txx 139.6\units{MeV}$ \NC $\txx 135.0\units{MeV}$ \NR
 \LL[2]
 \stoptabulate}
