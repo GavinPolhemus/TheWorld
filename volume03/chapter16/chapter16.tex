@@ -99,6 +99,7 @@ Take the ratio of the last two formulas and use the fact that the photon's wavel
   = a^{-1}
 \stopformula
 Solve for $E$.
+%\placeformula[eq:photonE]{(photons)}
 \startformula
   \answer{ E = a^{-1}E_0 }
 \stopformula
@@ -108,9 +109,9 @@ As the Universe expands by the scale factor $a$, the photon's energy decreases b
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The energy lost by an individual photon is very small. If we consider a large volume of space containing many, many photons going is all directions, the loss of energy is significant!
-As the Universe expands by the scale factor $a$, the every photon's energy decreases by the factor $a^{-1}$, so the total energy in the volume decreases by the factor $a^{-1}$. 
+As the Universe expands by the scale factor $a$, every photon's energy decreases by the factor $a^{-1}$, so the total energy in the volume decreases by the factor $a^{-1}$. 
 
-I often her people state the law of conservation of energy as, \quotation{The total energy in the Universe is constant,} or \quotation{Energy cannot be created or destroyed.} In an expanding Universe full of photons\dash like our Universe\dash these statements are clearly false. As the Universe expands, the total photon energy decreases. That energy is not gained by anything else in the Universe. That energy is lost, or \quotation{destroyed} if you prefer more dramatic language.
+I often hear people state the law of conservation of energy as, \quotation{The total energy in the Universe is constant,} or \quotation{Energy cannot be created or destroyed.} In an expanding Universe full of photons\dash like our Universe\dash these statements are clearly false. As the Universe expands, the total photon energy decreases. That energy is not gained by anything else in the Universe. That energy is lost\dash or \quotation{destroyed} if you prefer more dramatic language.
 
 The conservation of energy law is still true, it is simply necessary to state the law correctly, as we have done many times before:
 \startformula
@@ -120,31 +121,72 @@ For a universe full of \emph{only} photons (not like our Universe) the total ene
 \startformula
   E\si - P \Delta V = E\sf.
 \stopformula
-Where $P$ is the pressure of the gas, in this case a gas of photons, and $\Delta V$ is the change in volume due to the Universe's expansion. The photon gas does have a positive pressure. The volume increases, so $\Delta V$ is also positive. The positive pressure and positive change in volume in the equation above result in a decrease in the energy, exactly as we expected based on the stretching wavelength of the photons. A carefully solving the conservation of energy law (which requires some calculus) shows that the change in energy is exactly what we calculated based on the photon stretching.
+Where $P$ is the pressure of the gas\dash in this case a gas of photons\dash and $\Delta V$ is the change in volume due to the Universe's expansion. The photon gas has a positive pressure. The volume increases, so $\Delta V$ is also positive. The positive pressure and positive change in volume in the equation above result in a decrease in the energy, exactly as we expected based on the stretching wavelength of the photons. Carefully solving the conservation of energy law (which requires some calculus) shows that the change in energy is exactly what we calculated based on the photon stretching.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startexample[ex:StretchingPhotons]
-This example is for students with calculus skills. The pressure $P$ of a photon gas is
-\startformula
-  P = \frac{1}{3}\frac{E}{V}
-\stopformula
-Where $E$ is the total energy of the photons and $V$ is the volume. Since the energy $E$ decreases as the volume $V$ increases, the pressure $P$ decreases as the Universe expands, and we constant use our constant pressure formulas. Instead, we need to consider small changes $dE$ in the energy due to small changes in volume $dV$. In this incremental approach, conservation of energy is 
-\startformula
-  dE = -P\,dV
-\stopformula
-Use the pressure for a photon gas to find $E$ as a function of $V$. You will need to separate variables and integrate. Consider the volume to be a large cube with edge length $r$, and find 
-\startformula
-  \answer{ E = a^{-1}E_0 }
-\stopformula
-\startsolution
-  Solution to be provided later....
-\stopsolution
-\stopexample
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\startexample[ex:StretchingPhotons]
+%This example is for students with calculus skills. The pressure $P$ of a photon gas is
+%\startformula
+%  P = \frac{1}{3}\frac{E}{V}
+%\stopformula
+%Where $E$ is the total energy of the photons and $V$ is the volume. Since the energy $E$ decreases as the volume $V$ increases, the pressure $P$ decreases as the Universe expands, and we constant use our constant pressure formulas. Instead, we need to consider small changes $dE$ in the energy due to small changes in volume $dV$. In this incremental approach, conservation of energy is 
+%\startformula
+%  dE = -P\,dV
+%\stopformula
+%Use the pressure for a photon gas to find $E$ as a function of $V$. You will need to separate variables and integrate. Consider the volume to be a large cube with edge length $r$, and find 
+%\startformula
+%  \answer{ E = a^{-1}E_0 }
+%\stopformula
+%\startsolution
+%  Solution to be provided later....
+%\stopsolution
+%\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Unlike the photons described above, matter in our universe does not produce significant pressure. The dust, rocks, stars, and interstellar gas produce almost no pressure at all. As the universe expands, this stuff generally spreads out, but no significant energy is lost. For typical matter, most of its energy is in its mass, while very little energy is kinetic or potential. The mass energy does not decrease as the universe expands, so no energy is lost.
 
+The typical behavior of total photon energy and the total mass energy are shown in \in{figure}[fig:ScaleFactorPhotonsMatter]. As the universe expands, the total mass energy in an expanding volume remains constant. The total photon energy in that volume drops like $a^{-1}$.
+
 \startuseMPgraphic{graph::ScaleFactorPhotonsMatter} % I'd like to add minor ticks, 0.667mm long.
+vardef U =
+	path p;
+		for x = 0.01 step 0.01 until 1.1:
+			y := 1/x; % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+draw begingraph(4.4cm,5cm);
+	setrange(0,0, 1.1,5);
+	for x=auto.x:
+%		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+%		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$E$"), OUT);
+	glabel.bot(textext("$a$"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.urt("Photons: $E_\gamma$",50); %  = a^{-1}E_{\gamma,0}
+%	glabel(mydot,(80));
+%	glabel(mydot,(210));
+%	glabel(mydot,(340));
+%	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
+	gdraw((0,4) -- (1.1,4)) withpen pencircle scaled 0.8pt;
+	glabel.bot("Matter: $E\sub{m}$",0.6); %  = E\sub{m,$0$}
+%	for y=0 step -0.5 until -2:%auto.y:
+%		itick.lft(formatted("$@g$", y), y);
+%		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+%		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+%	endfor
+endgraph 
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:ScaleFactorPhotonsMatter, title={The typical behavior of the total photon energy ($E_\gamma$) and the total matter energy ($E\sub{m}$) in an expanding volume.}]
+\small\reuseMPgraphic{graph::ScaleFactorPhotonsMatter}
+\stopplacefigure
+
+Our Universe has both photons and matter, and there is actually very little energy transfer between them on the vast scale of the universe. The matter particles are so spread out that they emit and absorb very few photons compared to the multitude of photons already zipping about. The matter particles' energy, which is mostly in their mass, is hardly affected by the gentle jostling of the photons.
+
+\startuseMPgraphic{graph::ScaleFactorPhotonsMatterReal} % I'd like to add minor ticks, 0.667mm long.
 vardef U =
 	path p;
 		for x = 0.001 step 0.001 until 1.1:
@@ -177,25 +219,36 @@ draw begingraph(4.4cm,17.5cm);
 endgraph 
 \stopuseMPgraphic
 
-\startplacefigure[location=margin, reference=fig:ScaleFactorPhotonsMatter, title={The energy of photons ($E_\gamma$) and the energy of matter ($E\sub{m}$) in an expanding volume. }]
-\small\reuseMPgraphic{graph::ScaleFactorPhotonsMatter}
+\startplacefigure[location=margin, reference=fig:ScaleFactorPhotonsMatterReal, title={In our Universe, the energy of photons ($E_\gamma$) has much greater than the energy of matter ($E\sub{m}$) since very early times.}]
+\small\reuseMPgraphic{graph::ScaleFactorPhotonsMatterReal}
 \stopplacefigure
 
-Our Universe has both photons and matter, and there is actually very little energy transfer between them on the vast scale of the universe. The matter particles are so spread out that they emit and absorb very few photons compared to the multitude of photons already zipping about. The matter particles' energy, which is mostly in their mass, is hardly affected by the gentle jostling of the photons.
+As a result of this independence, the energy of photons ($E_\gamma$) and the energy of matter ($E\sub{m}$) in our Universe each change exactly as described above. The energy of matter stays constant, while the energy of photons decreases like $a^{-1}$. These energies are shown in \in{figure}[fig:ScaleFactorPhotonsMatterReal] as a function of the scale factor $a$. Today, when the scale factor is $a=1$, the energy in the matter is much greater than the energy of the photons. In the distant past, when $a$ was tiny, the photons had more energy.
 
-As a result of this independence, the energy of photons ($E_\gamma$) and the energy of matter ($E\sub{m}$) in our Universe each change exactly as described above. The energy of matter stays constant, while the energy of photons decreases like $a^{-1}$. These energies are shown in \in{figure}[fig:ScaleFactorPhotonsMatter] as a function of the scale factor $a$. Today, when the scale factor is $a=1$, the energy in the matter is much greater than the energy of the photons. In the distant past, when $a$ was tiny, the photons had more energy.
-
-While the total energy of matter in an expanding volume stays constant, the density of that matter is decreasing as the volume grows. Consider a volume which is a large cube of edge length $r$. The volume is $V = r^3$. The density of matter in that volume is
+While the total energy of matter in an expanding volume stays constant, the energy density $\rho$ of that matter is decreasing as the volume grows. Consider a volume which is a large cube of edge length $r$. The volume is $V = r^3$. The energy density of matter in that volume is
 \startformula
   \rho = \frac{E}{V}
     = \frac{E}{r^3}
     = \frac{E_0}{(ar_0)^3}
-    = \frac{1}{a^3}\frac{E_0}{r_0^3}
+    = \frac{1}{a^3}\frac{E_0}{r_0^3}.
 \stopformula
-The density today is $\rho_0 = E_0/r_0^3$. This gives the density as a function of scale factor.
+The energy density today is $\rho_0 = E_0/r_0^3$. This gives the density as a function of scale factor.
 \startformula
-  \rho = \frac{1}{a^3}\rho_0
+  \rho = a^{-3}\rho_0
 \stopformula
+
+As the Universe expands, the energy density of photons decreases for two reasons. First, the photons get more spread out, just like the matter. Second, the energy of the individual photons decreases, unlike the particles of matter. The energy density of photons in an expanding volume is
+\startformula
+  \rho = \frac{E}{V}
+    = \frac{E}{r^3}
+    = \frac{a^{-1}E_0}{(ar_0)^3}
+    = \frac{1}{a^4}\frac{E_0}{r_0^3}.
+\stopformula
+The energy density of photons today is $\rho_0 = E_0/r_0^3$. This gives the density as a function of scale factor.
+\startformula
+  \rho = a^{-4}\rho_0
+\stopformula
+These energy densities will play a key role in the Universe's story.
 
 \stopchapter
 \stopcomponent
