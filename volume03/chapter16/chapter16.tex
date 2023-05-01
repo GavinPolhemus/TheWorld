@@ -1,0 +1,309 @@
+% !TEX useAlternatePath
+% !TEX useConTeXtSyncParser
+
+\startcomponent *
+\project project_world
+\product prd_volume01
+
+\doifmode{*product}{\setupexternalfigures[directory={chapter16/images}]}
+
+\setupsynctex[state=start,method=max] % "method=max" or "min"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title={Cosmology}, reference=ch:Cosmology]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\placefigure[margin,none]{}{\small
+	\startalignment[flushleft]
+It is remarkable that we can say with some confidence what the universe was like far away and in the remote past.%\autocite{p.46}{Helmholtz1857}
+	\stopalignment
+	\startalignment[flushright]
+	%{\it On the Physiological Causes\\
+	%	of Harmony in Music}\\
+	{\sc P.~J.~E.~Peebles}\\
+	1935 --  %\scaps{BCE}
+	\stopalignment
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\placetable[margin][T:Today] % Label
+%    {{\bf Today} The seventeen particles of the Standard Model} % Caption
+%    {\vskip9pt\tfb\starttabulate[|c|c|c|c|]
+%\FL[2]
+%\NS[3][c] $h$          			\NR
+%\HL
+%\NC $\nu_e$	   \NC $e$    \NC $d$ \NC $u$ \NR
+%\NC $\nu_\mu$  \NC $\mu$  \NC $s$ \NC $c$ \NR
+%\NC $\nu_\tau$ \NC $\tau$ \NC $b$ \NC $t$ \NR
+%\HL
+%\NC $W$	     \NC $Z$ \NC $\gamma$ \NC $g$ \NR
+%\LL[2]
+%\stoptabulate}
+
+\noindent
+At the beginning of the twentieth century, very little was known about our Universe beyond our own Milky Way Galaxy. In fact, there was a great debate about whether \emph{anything} was beyond our own Milky Way! During the twentieth century, we learned that the Universe is vast, containing innumerable galaxies. We also learned that the Universe is very old, and constantly expanding. The Universe's expansion is the most surprising and most important of these discoveries. 
+
+%\section{Dark Matter}
+
+%\section{Far away and long ago}
+%The Universe is Homogeneous and Isotropic. [Ryden 2.2]
+
+
+\section{The expanding Universe}
+With modern telescopes we see a multitude of galaxies beyond our own. There are a few relatively close galaxies, and many more much farther away. The light from faraway galaxies is shifted slightly toward the red end of the spectrum. Farther galaxies show a greater redshift than closer galaxies.
+
+We do not know the full size of the Universe, but the redshift tells us that the Universe is stretching out, causing far away galaxies to get ever farther. 
+This stretching also stretches lightwaves, making them more red. The expansion is slow, so only light that has traveled for an extremely long time\dash across the vast distances between galaxies\dash will show this redshift. The longer the journey, the greater the redshift.
+
+We describe this stretching with a \keyterm{scale factor}, represented by $a$, which relates the past and future distances between galaxies to the distances today. If the distance to a far off galaxy is $r_0$ today, then the distance $r$ to that galaxy at another time was (or will be)
+\startformula
+  r = ar_0.
+\stopformula
+In the past, distances were smaller than today, so $a$ was less than one. In the future, as distances become larger, $a$ will be greater than one. Cosmologists use the subscript zero for today's values, so $a_0=1$ by definition.
+
+%2.5 Cosmic Microwave Background.
+The scale factor also determines how much light is stretched during travel.
+Light's wavelength $\lambda$ stretches in exactly the same way as the intergalactic distance $r$.
+If the light is arriving with wavelength $\lambda_0$ today, then its original wavelength $\lambda$ was
+\startformula
+  \lambda = a\lambda_0,
+\stopformula
+where $a$ was the scale factor when the light was emitted.
+Since the light was emitted in the past, when $a$ was less than one, the original wavelength $\lambda$ was shorter than today's wavelength $\lambda_0$. As the light traveled, it was redshifted from the original shorter wavelength $\lambda$ to the longer, redder wavelength $\lambda_0$ that we see today.
+
+Not everything in the universe is stretching the way light and intergalactic distances stretch. For example, you are not stretching, because your atoms are held together by electromagnetic forces. Our solar system and our galaxy are not stretching because they are held together by gravitational forces. 
+Only at very large, intergalactic distances are gravitational forces too weak to counteract the Universe's stretching.
+Later in this chapter, when we know more of the Universe's story, we will return to the question of which large structures are held together by gravity and which stretch with Universe.
+
+Light stretches with the Universe because there is no force holding the lightwaves together. Although the waves are very close to each other, each wave makes its long journey without any push or pull from the waves ahead or behind. Because the Universe is expanding, the journey from one galaxy to another is slightly shorter for earlier waves and slightly longer for later waves. With nothing holding the waves together, the earlier waves get slightly ahead, while the later waves fall slightly behind, stretching the wavelength. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:StretchingPhotons]
+Light is made of photons. As photons travel through space, their wavelengths get longer, which will change their energy. Consider a photon with energy $E_0$ today. Assuming the photon is not absorbed, find its energy when the Universe has expanded by a scale factor $a$.
+\startsolution
+Using our knowledge of photons from earlier chapters, we find the photon's energy $E$ in terms of its momentum $p$ and then its wavelength $\lambda$.
+\startformula
+  E = p = \frac{hc\cdot1\units{cyc}}{\lambda}
+\stopformula
+For today's energy $E_0$ in terms of today's wavelength $\lambda_0$, that formula is
+\startformula
+  E_0 = \frac{hc\cdot1\units{cyc}}{\lambda_0}.
+\stopformula
+Take the ratio of the last two formulas and use the fact that the photon's wavelength $\lambda$ increases in proportion to the scale factor by $\lambda=a\lambda_0$.
+\startformula
+  \frac{E}{E_0} = \frac{hc\cdot1\units{cyc}/\lambda}{hc\cdot1\units{cyc}/\lambda_0}
+  = \frac{\lambda_0}{\lambda}
+  = \frac{\lambda_0}{a\lambda_0}
+  = a^{-1}
+\stopformula
+Solve for $E$.
+\startformula
+  \answer{ E = a^{-1}E_0 }
+\stopformula
+As the Universe expands by the scale factor $a$, the photon's energy decreases by the factor $a^{-1}$.
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The energy lost by an individual photon is very small. If we consider a large volume of space containing many, many photons going is all directions, the loss of energy is significant!
+As the Universe expands by the scale factor $a$, the every photon's energy decreases by the factor $a^{-1}$, so the total energy in the volume decreases by the factor $a^{-1}$. 
+
+I often her people state the law of conservation of energy as, \quotation{The total energy in the Universe is constant,} or \quotation{Energy cannot be created or destroyed.} In an expanding Universe full of photons\dash like our Universe\dash these statements are clearly false. As the Universe expands, the total photon energy decreases. That energy is not gained by anything else in the Universe. That energy is lost, or \quotation{destroyed} if you prefer more dramatic language.
+
+The conservation of energy law is still true, it is simply necessary to state the law correctly, as we have done many times before:
+\startformula
+  H\si + W + Q = H\sf
+\stopformula
+For a universe full of \emph{only} photons (not like our Universe) the total energy $H$ is the energy of the photons $E$. There is no heat $Q$ either added or removed (as there is no place for it to come from or go to). However, there is work $W$ done by the Universe's expansion. This acts just like the expansion of a gas in a nineteenth-century steam engine. Recalling the work formula for engines, conservation of energy becomes 
+\startformula
+  E\si - P \Delta V = E\sf.
+\stopformula
+Where $P$ is the pressure of the gas, in this case a gas of photons, and $\Delta V$ is the change in volume due to the Universe's expansion. The photon gas does have a positive pressure. The volume increases, so $\Delta V$ is also positive. The positive pressure and positive change in volume in the equation above result in a decrease in the energy, exactly as we expected based on the stretching wavelength of the photons. A carefully solving the conservation of energy law (which requires some calculus) shows that the change in energy is exactly what we calculated based on the photon stretching.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:StretchingPhotons]
+This example is for students with calculus skills. The pressure $P$ of a photon gas is
+\startformula
+  P = \frac{1}{3}\frac{E}{V}
+\stopformula
+Where $E$ is the total energy of the photons and $V$ is the volume. Since the energy $E$ decreases as the volume $V$ increases, the pressure $P$ decreases as the Universe expands, and we constant use our constant pressure formulas. Instead, we need to consider small changes $dE$ in the energy due to small changes in volume $dV$. In this incremental approach, conservation of energy is 
+\startformula
+  dE = -P\,dV
+\stopformula
+Use the pressure for a photon gas to find $E$ as a function of $V$. You will need to separate variables and integrate. Consider the volume to be a large cube with edge length $r$, and find 
+\startformula
+  \answer{ E = a^{-1}E_0 }
+\stopformula
+\startsolution
+  Solution to be provided later....
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Unlike the photons described above, matter in our universe does not produce significant pressure. The dust, rocks, stars, and interstellar gas produce almost no pressure at all. As the universe expands, this stuff generally spreads out, but no significant energy is lost. For typical matter, most of its energy is in its mass, while very little energy is kinetic or potential. The mass energy does not decrease as the universe expands, so no energy is lost.
+
+\startuseMPgraphic{graph::ScaleFactorPhotonsMatter} % I'd like to add minor ticks, 0.667mm long.
+vardef U =
+	path p;
+		for x = 0.001 step 0.001 until 1.1:
+			y := 0.00535/x; % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+draw begingraph(4.4cm,17.5cm);
+	setrange(0,0, 1.1,5);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$E$"), OUT);
+	glabel.bot(textext("$a$"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.urt("Photons: $E_\gamma$",50); %  = a^{-1}E_{\gamma,0}
+%	glabel(mydot,(80));
+%	glabel(mydot,(210));
+%	glabel(mydot,(340));
+%	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
+	gdraw((0,4.8) -- (1.1,4.8)) withpen pencircle scaled 0.8pt;
+	glabel.bot("Matter: $E\sub{m}$",0.5); %  = E\sub{m,$0$}
+%	for y=0 step -0.5 until -2:%auto.y:
+%		itick.lft(formatted("$@g$", y), y);
+%		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+%		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+%	endfor
+endgraph 
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:ScaleFactorPhotonsMatter, title={The energy of photons ($E_\gamma$) and the energy of matter ($E\sub{m}$) in an expanding volume. }]
+\small\reuseMPgraphic{graph::ScaleFactorPhotonsMatter}
+\stopplacefigure
+
+Our Universe has both photons and matter, and there is actually very little energy transfer between them on the vast scale of the universe. The matter particles are so spread out that they emit and absorb very few photons compared to the multitude of photons already zipping about. The matter particles' energy, which is mostly in their mass, is hardly affected by the gentle jostling of the photons.
+
+As a result of this independence, the energy of photons ($E_\gamma$) and the energy of matter ($E\sub{m}$) in our Universe each change exactly as described above. The energy of matter stays constant, while the energy of photons decreases like $a^{-1}$. These energies are shown in \in{figure}[fig:ScaleFactorPhotonsMatter] as a function of the scale factor $a$. Today, when the scale factor is $a=1$, the energy in the matter is much greater than the energy of the photons. In the distant past, when $a$ was tiny, the photons had more energy.
+
+While the total energy of matter in an expanding volume stays constant, the density of that matter is decreasing as the volume grows. Consider a volume which is a large cube of edge length $r$. The volume is $V = r^3$. The density of matter in that volume is
+\startformula
+  \rho = \frac{E}{V}
+    = \frac{E}{r^3}
+    = \frac{E_0}{(ar_0)^3}
+    = \frac{1}{a^3}\frac{E_0}{r_0^3}
+\stopformula
+The density today is $\rho_0 = E_0/r_0^3$. This gives the density as a function of scale factor.
+\startformula
+  \rho = \frac{1}{a^3}\rho_0
+\stopformula
+
+\stopchapter
+\stopcomponent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Hubble's rate of expansion}
+
+%Redshift is proportional to distance. [Ryden 2.3]
+\startformula
+  \frac{dr}{dt} = Hr
+\stopformula
+A contracting universe would have a negative $H$. In a static universe, which is not expanding or contracting, $H$ would be zero.
+
+
+The Hubble parameter $H$ determines the growth of the scale factor $a$.
+\startformula
+  \frac{da}{dt} = Ha
+\stopformula
+%The rate of growth today is $H_0 = \frac{da}{dt}$.
+
+
+
+\section{Einstein's Universe}
+Chapter 4: Cosmic Dynamics (We just want to two equations, with an understanding of what they say.)
+4.2 The Friedman Equation in its “particularly simple form,” eq (4.29). We will use rho for energy density, not epsilon. Do not derive Friedman!
+\startformula
+  H^2 = \frac{8\pi G}{3}\rho
+\stopformula
+
+
+
+Chapter 5: Model Universes (We do some real calculations here!)
+5.3 Single-component universes. We want to look at how the energy and density change with scale factor (no calculus required). Quote formulas as function of time (and hopefully keep calc. kids busy.)
+
+The $\Lambda$CDM model [Ryden 5.5]: All three densities change! Find scale factors where they cross.
+
+
+\section{Measuring the Universe}
+Chapter 6: Measuring Cosmological Parameters (No math, just the results)
+6.4 Standard Candles and H. Paralax, Cephied variables gives $H$ (and $H$ gives the density).
+6.5 Standard Candles and Acceleration. Type Ia supernovas give cosmological const $\Lambda$.
+
+
+\section{Cosmic microwave background}
+Chapter 8: Cosmic Microwave Background (very qualitative)
+8.1 Observing the CMB.
+8.3 Physics of recombination. We just want to know that equilibrium gives eq. 8.37, and the timeline in Table 8.1.
+8.5 What Causes the Fluctuations. Understand why Figure 8.6 has bumps on the right, but not the left. Physics of the early universe was simple, and matches perfectly with this observation!
+
+
+\section{The first three minutes}
+Chapter 9: Nucleosynthesis and the Early Universe
+9.2 Neutrons and Protons. Know that protons and neutrons were in equilibrium due to very high temps. As temp drops, lighter protons are favored. At freeze out five-to-one ratio. Calculate the ratio of helium to hydrogen that results.
+9.3-4 Deuterium and Beyond: They can write out all the nuclear reactions, then follow the qualitative story of Figure 9.4. Another great fit with observations!
+
+
+\section{Stars, galaxies, and clusters}
+Chapter 11: Structure Formation: Gravitational Instability
+We just want the qualitative understanding of the Matthew Effect.
+
+Chapter 12: Structure Formation: Baryons and Photons
+Story of how first stars, galaxies, and clusters formed (Figure 12.2). If we can talk about how later stars are different, that would be great.
+
+
+
+%\subject{Notes}
+%%\placefootnotes[criterium=chapter]
+%\placenotes[endnote][criterium=chapter]
+
+%\subject{Bibliography}
+%        \placelistofpublications
+
+\stopchapter
+\stopcomponent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%$6.241509\sci{18}$ electrons is \emph{negative} one Coulomb. One Coulomb of charge from a one volt battery gives one joule of energy. How many electron volts are in one joule? Converting the other way, one electron volt is how many joules? How many electron volts of energy would be produced by one mole of electrons going through a potential difference on one volt. How many joules? Calories too?
+
+
+% Templates:
+
+% Margin image
+\placefigure[margin][] % Location, Label
+{} % Caption
+{\externalfigure[chapter03/][width=144pt]} % File
+
+% Margin Figure
+\startbuffer[TikZ:NAME]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:NAME] % Location, Label
+{}	 % caption text
+{\noindent\typesetbuffer[TikZ:NAME]}
+
+% Aligned equation
+\startformula\startmathalignment
+\stopmathalignment\stopformula
+
+% Aligned Equations
+\startformula\startmathalignment[m=2,distance=2em]
+\stopmathalignment\stopformula
