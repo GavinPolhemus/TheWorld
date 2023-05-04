@@ -456,21 +456,53 @@ So far, we have looked at models that were simply guesses. To make realistic mod
 
 
 \section{Einstein's Universe}
-Chapter 4: Cosmic Dynamics
-4.2 The Friedman Equation in its “particularly simple form,” eq (4.29).
+Einstein's theory of Relativity was widely accepted after Minkowski's lecture. Minkowski's description of a four-dimensional world governed by rules of four-dimensional geometry was both inspiring and practical. Einstein build on the four-dimensional ideas by developing a more general theory in which the four-dimensional world can be curved and dimpled. Large masses, like the Earth and Sun, create these dimples in space-time. The dimples then bend the paths of other objects, attracting them toward the large masses. This attraction is what we call gravity.
+
+Einstein's theory of gravity, completed in 1915, became known as \keyterm{General Relativity}. (His original theory, described by Minkowski, became known as Special Relativity.) General Relativity correctly predicted the bending of starlight near the Sun and some strange behavior in Mercury's orbit. The mathematics of General Relativity is far more difficult than Special Relativity, so progress and acceptance we slower.
+
+In addition to predicting the dimples responsible for gravity, Einstein's General Relativity predicts the large scale stretching of the Universe, just as we have been discussing. In fact, General Relativity predicts the exact value of the Hubble rate $H$. The formula for the Hubble rate was first worked out by Russian physicist Alexander Friedmann in 1922. The formula is now called the \keyterm{Friedmann equation}.
 \startformula
   H^2 = \frac{8\pi G}{3}\rho
 \stopformula
+$G$ is Newton's gravitational constant, and $\rho$ is the average energy density.
 
+The Friedmann equation is difficult to derive, but easy to use. It states that the Hubble rate $H$ is determined by the total energy density $\rho$. The total energy density includes all types of energy and mass\dash ordinary matter, photons, neutrinos, and dark matter. Since the total energy density is always greater than zero, the Hubble rate cannot be zero, and the Universe must be either expanding (positive $H$) or contracting (negative $H$). Since we know that our Universe is expanding, we will only consider positive $H$.
+
+The coefficient in the Friedmann equation is
 %\startformula
 %  \frac{8\pi G}{3} = 5.59\sci{-10}\units{m^3\.kg^{-1}\.s^{-2}}
 %    = 9.96\sci{-46}\units{m^3\.eV^{-1}\.s^{-2}}
 %\stopformula
-
 \startformula
   \frac{8\pi G}{3} = \unit{5.59e-10 m^3 / kg s^2}
-    = \unit{9.96e-46 m^3 / eV s^2}
+    = \unit{9.91e-31 m^3 / eV yr^2}.
 \stopformula
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:PresentEnergyDensity]
+Find the present energy density, $\rho_0$, in our Universe. Give values for the density in both $\units{kg/m^3}$ and $\units{eV/m^3}$.
+\startsolution
+Solve the Friedmann equation for today's energy density.
+\startformula
+ \rho = \frac{3}{8\pi G} H^2
+\stopformula
+Find today's energy density, $\rho_0$, from today's Hubble rate $H_0$.
+\startformula\startmathalignment
+\NC \rho_0 = \frac{3 H_0^2}{8\pi G}
+    \NC= \frac{(2.20\sci{-18}\units{s^{-1}})^2}{\unit{5.59e-10 m^3 / kg s^2}}
+    = 8.7\sci{-27}\units{kg/m^3} \NR
+\NC \NC= \frac{(6.95\sci{-11}\units{yr^{-1}})^2}{\unit{9.91e-31 m^3 / eV yr^2}}
+    = 4.9\units{GeV/m^3} \NR
+\stopmathalignment\stopformula
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\stopchapter
+\stopcomponent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 Chapter 5: Model Universes (We do some real calculations here!)
 5.3 Single-component universes. We want to look at how the energy and density change with scale factor (no calculus required). Quote formulas as function of time (and hopefully keep calc. kids busy.)
