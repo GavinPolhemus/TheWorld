@@ -252,36 +252,225 @@ The energy density of photons today is $\rho_0 = E_0/r_0^3$. This gives the dens
 As the Universe expands, the energy density of photons decreases like $a^{-4}$.
 These energy densities will play a key role in the Universe's story.
 
-\stopchapter
-\stopcomponent
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Hubble's rate of expansion}
-
 %Redshift is proportional to distance. [Ryden 2.3]
+As the Universe expands, the distances between us and faraway galaxies grows. The farther the galaxy, the faster the growth. If fact, the rate at which the distance grows, $dr/dt$, is proportional to the distance $r$. This is Hubble's law.
 \startformula
   \frac{dr}{dt} = Hr
 \stopformula
-A contracting universe would have a negative $H$. In a static universe, which is not expanding or contracting, $H$ would be zero.
+The coefficient $H$ is called the \keyterm{Hubble rate}. A small value of $H$ represents a slower expansion, while a large value of $H$ represents a more rapid expansion. A contracting universe would have a negative $H$. %In a static universe, which is not expanding or contracting, $H$ would be zero.
+
+The Hubble rate $H$ may change over time, as the expansion slows down or speeds up. Today, the Hubble rate is 
+\startformula
+  H_0 = 2.20\sci{-18}\units{s^{-1}}
+    = 6.95\sci{-11}\units{yr^{-1}}
+\stopformula
+Today's Hubble rate, $H_0$, is known as the \keyterm{Hubble constant}.
 
 
-The Hubble parameter $H$ determines the growth of the scale factor $a$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:HubbleLaw]
+A galaxy is currently at distance $r = 1.00\sci{6}\unit{yr} = 1.00\units{Myr}$ from us. At what rate is that distance increasing?
+\startsolution
+The rate of increase is $dr/dt$, which can be found using Hubble's law.
+\startformula
+  \frac{dr}{dt} = Hr
+    = (6.95\sci{-11}\units{yr^{-1}})(1.00\sci{6}\unit{yr})
+    = 6.95\sci{-5}
+\stopformula
+The distance to the galaxy is increasing at a rate $6.95\sci{-5}$. This is a unitless speed. To get a speed in meters per second, multiply by the speed of light: $6.95\sci{-5} c = 20.8\units{km/s}$.
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The rate $dr/dt$ looks like a speed, and we will often refer to this as the faraway galaxy's speed. However, keep in mind that this speed is not due to the galaxy's motion. Rather, it is due to the stretching of space between us and the faraway galaxy. At great enough distances, this speed may be greater than the speed of light, but that is of no concern.
+The galaxy is not moving faster than the speed of light. Rather, the space between us and the galaxy is so vast that the Universe's stretching contributes additional distance at a rate greater than $3.00\sci{8}\units{m/s}$.
+
+\startuseMPgraphic{graph::ConstVel} % I'd like to add minor ticks, 0.667mm long.
+path p;
+p = (origin) -- (1.1,3) ;
+draw begingraph(4.4cm,5cm);
+	setrange(0,-2.5, 1.1,2.5);
+	for x=auto.x:
+%		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+%		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$r$"), OUT);
+	glabel.bot(textext("$t$"), OUT);
+	for r=25 step -0.25 until -25:%auto.y:
+	  gdraw(p) yscaled r withpen pencircle scaled 0.8pt;
+	endfor
+%	glabel.urt("Photons: $E_\gamma$",50); %  = a^{-1}E_{\gamma,0}
+	gfill(unitsquare xyscaled (0.04,5) shifted (0,-2.5)) ;
+	gdraw((0,0) -- (1.1,0)) withpen pencircle scaled 1.2pt;
+%	glabel.bot("Matter: $E\sub{m}$",0.6); %  = E\sub{m,$0$}
+%	for y=0 step -0.5 until -2:%auto.y:
+%		itick.lft(formatted("$@g$", y), y);
+%		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+%		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+%	endfor
+endgraph 
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:ConstVel, title={In a universe where each galaxy maintains a constant velocity, the Hubble rate decreases with time. $H=1/t$.}]
+\small\reuseMPgraphic{graph::ConstVel}
+\stopplacefigure
+
+Consider, for a moment, a universe where every galaxy's speed $v$ remains constant as the universe expands, so that the galaxy's distance at time $t$ is $r=vt$. \in{Figure}[fig:ConstVel] shows many galaxies, each moving with a constant speed away from $r=0$. Some galaxies are fast, others slow, but for each the speed stays constant, $dr/dt = v$.
+
+In this universe of constant-speed galaxies, Hubble's Law becomes
+\startformula\startmathalignment
+\NC \frac{dr}{dt} \NC= Hr \NR
+\NC             v \NC= Hvt \NR
+\stopmathalignment\stopformula
+Solving for $H$ gives the Hubble rate as a function of time.
+\startformula
+ H = \frac{1}{t}
+\stopformula
+While each galaxy has a constant speed, we see that the Hubble rate is decreasing. At early times, $H$ is very large, because even very fast galaxies are still at small distances. At late times, $H$ is small, because even very slow galaxies have had time to move a large distance away.
+
+This universe of constant speed galaxies is an example of a \keyterm{Big Bang} universe, in which everything starts with an explosive expansion at $t=0$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startexample[ex:HubbleTime]
+If we lived in a universe of constant speed galaxies, with the present-day Hubble constant given above, what would be the universe's present age?
+\startsolution
+In such a universe, the Hubble rate is related to the time by $H=1/t$. In particular, the Hubble rate today, $H_0$, is related to the present time, $t_0$, by
+\startformula
+ H_0 = \frac{1}{t_0}.
+\stopformula
+Solve for the present time, $t_0$.
+\startformula
+  t_0 = \frac{1}{H_0}
+    = \frac{1}{6.95\sci{-11}\units{yr^{-1}}}
+    = 1.44\sci{10}\units{yr}
+    = 14.4\units{Gyr}
+\stopformula
+The present age would be $14.4\units{Gyr}$, or 14.4 billion years.
+\stopsolution
+\stopexample
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\startuseMPgraphic{graph::ConstH} % I'd like to add minor ticks, 0.667mm long.
+vardef U =
+	path p;
+		for x = 0 step 0.01 until 1.1:
+			y := mexp(256x); % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+draw begingraph(4.4cm,5cm);
+	setrange(0,-2.5, 1.1,2.5);
+	for x=auto.x:
+%		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+%		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$r$"), OUT);
+	glabel.bot(textext("$t$"), OUT);
+	for r=2.5 step -0.25 until -2.5:%auto.y:
+	  gdraw(U) yscaled r withpen pencircle scaled 0.8pt;
+	endfor
+%	glabel.urt("Photons: $E_\gamma$",50); %  = a^{-1}E_{\gamma,0}
+%	glabel(mydot,(80));
+%	glabel(mydot,(210));
+%	glabel(mydot,(340));
+%	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
+	gdraw((0,0) -- (1.1,0)) withpen pencircle scaled 1.2pt;
+%	glabel.bot("Matter: $E\sub{m}$",0.6); %  = E\sub{m,$0$}
+%	for y=0 step -0.5 until -2:%auto.y:
+%		itick.lft(formatted("$@g$", y), y);
+%		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+%		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+%	endfor
+endgraph 
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:ConstH, title={In a universe with a constant $H$, individual galaxies accelerate away in all directions.}]
+\small\reuseMPgraphic{graph::ConstH}
+\stopplacefigure
+
+\noindent
+Next, consider another universe where the Hubble rate is constant, $H = H_0$. \in{Figure}[fig:ConstH] shows many galaxies in this constant-$H$ universe. The galaxies speed up as they get farther away, so the Hubble rate stays the same. This is called an \keyterm{accelerating universe}, because the galaxies appear to accelerate as they get farther away. In fact, the added distance $r$ is simply causing a greater rate $dr/dt$, in accordance with Hubble's law.
+The constant-$H$ universe expands forever in the future, and has been expanding forever in the past. It does not have a Big Bang.
+
+For any of our universe models, the expansion can be concisely described by the scale factor $a$. Rather than showing the distances to many galaxies (as in \in{figs.}[fig:ConstVel] and \in[fig:ConstH]) we will show the scale factor $a$ as a function of time when discussing different cosmological models. \in{Figure}[fig:ScaleFactors] shows the scaled factors for the two universes we have been considering, one with constant speed galaxies and one with constant Hubble rate.
+In the universe of constant speed galaxies, the scale factor grows linearly with time.
+\startformula
+  a = H_0 t
+\stopformula
+This is the straight line in \in{figure}[fig:ScaleFactors]. In the universe with constant Hubble rate, the scale factor grows exponentially with time.
+\startformula
+  a = e^{H_0(t-t_0)}
+\stopformula
+This is the curving line in \in{figure}[fig:ScaleFactors].
+
+\startuseMPgraphic{graph::ScaleFactors} % I'd like to add minor ticks, 0.667mm long.
+vardef U =
+	path p;
+		for x = 0 step 0.01 until 2:
+			y := mexp(256(x-1)); % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+draw begingraph(4cm,3cm);
+	setrange(0,0, 1.5,2);
+	itick.bot(formatted("$t_0$", 1), 1);
+	for x=auto.x:
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$a$"), OUT);
+	glabel.bot(textext("$t$"), OUT) shifted(0,5pt);
+	gdraw((1,0) -- (1,1) -- (0,1)) withpen pencircle scaled 0.6pt withcolor "middlegray";
+%	glabel.rt("$t_0$",0.5); %  = E\sub{m,$0$}
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	gdraw((0,0) -- (2,2)) withpen pencircle scaled 0.8pt;
+%	glabel.bot("Matter: $E\sub{m}$",0.6); %  = E\sub{m,$0$}
+	for y=0 step 1 until 2:%auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+endgraph 
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:ScaleFactors, title={The scale factor $a$ for two universes: a universe of constant-speed galaxies (straight line) and a universe with a constant Hubble rate (curved line).}]
+\small\reuseMPgraphic{graph::ScaleFactors}
+\stopplacefigure
+
+In both models, the present-day, $t_0$, value of the scale factor is $a=1$.
+The scale factor's rate of change, $da/dt$, is determined by the Hubble rate.
+%\startformula\startmathalignment
+%\NC \ddt r \NC= Hr \NR
+%\NC \ddt a r_0 \NC= H a r_0 \NR
+%\NC r_0 \ddt a \NC= H a r_0 \NR
+%\NC \frac{da}{dt} \NC= Ha \NR
+%\stopmathalignment\stopformula
 \startformula
   \frac{da}{dt} = Ha
 \stopformula
 %The rate of growth today is $H_0 = \frac{da}{dt}$.
-
+So far, we have looked at models that were simply guesses. To make realistic models, we need a tool for predicting the Hubble rate $H$. This tool is Einstein's theory of General Relativity.
 
 
 \section{Einstein's Universe}
-Chapter 4: Cosmic Dynamics (We just want to two equations, with an understanding of what they say.)
-4.2 The Friedman Equation in its “particularly simple form,” eq (4.29). We will use rho for energy density, not epsilon. Do not derive Friedman!
+Chapter 4: Cosmic Dynamics
+4.2 The Friedman Equation in its “particularly simple form,” eq (4.29).
 \startformula
   H^2 = \frac{8\pi G}{3}\rho
 \stopformula
 
+%\startformula
+%  \frac{8\pi G}{3} = 5.59\sci{-10}\units{m^3\.kg^{-1}\.s^{-2}}
+%    = 9.96\sci{-46}\units{m^3\.eV^{-1}\.s^{-2}}
+%\stopformula
 
+\startformula
+  \frac{8\pi G}{3} = \unit{5.59e-10 m^3 / kg s^2}
+    = \unit{9.96e-46 m^3 / eV s^2}
+\stopformula
 
 Chapter 5: Model Universes (We do some real calculations here!)
 5.3 Single-component universes. We want to look at how the energy and density change with scale factor (no calculus required). Quote formulas as function of time (and hopefully keep calc. kids busy.)
