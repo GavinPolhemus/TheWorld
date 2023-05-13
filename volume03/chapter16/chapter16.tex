@@ -498,14 +498,44 @@ Find today's energy density, $\rho_0$, from today's Hubble rate $H_0$.
 \stopexample
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\stopchapter
-\stopcomponent
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 Chapter 5: Model Universes (We do some real calculations here!)
 5.3 Single-component universes. We want to look at how the energy and density change with scale factor (no calculus required). Quote formulas as function of time (and hopefully keep calc. kids busy.)
+
+The big idea here is to understand how energy density, Hubble rate, and scale factor change with time.
+
+Qualitative first: The easiest universe to understand is filled with matter (like dust and gas) which has no pressure. The density decreases (like $a^{-3}$) as the universe expands, so H also decreases (like $a^{-3/2}$), and the expansion slows down. This is not slowing due to the gravity of all the galaxies pulling on each other, it is slowing due to the Friedman equation with decreasing density.
+
+What if we add pressure, like radiation? In this case the density falls more quickly (like $a^{-4}$) so the Hubble rate slows more quickly (like $a^{-2}$) and the expansion slows more quickly than in the matter case. This is very surprising! I would have thought that outward pressure would help keep the expansion going, so that is slows less than the zero-pressure matter case. But the opposite happens. Outward pressure actually puts on the brakes, slowing the expansion!
+
+What if the pressure is negative, pulling inward like a stretched rubber band? In that case, expansion does positive work, and the density decreases more slowly, the Hubble rate decreases more slowly, and the expansion does not slow as quickly as in the matter case. Negative pressure (which pulls inward) actually helps keep the expansion going!
+
+In the extreme case, where negative pressure keeps the density constant (a cosmological constant), the Hubble rate also stays constant and we have an accelerating universe (discussed in the previous section.
+
+Quantitatively, we can summarize the results like this for three model universes with different content.
+
+\startitemize[n, packed]
+\item Matter: $H = H_0 a^{-3/2}$
+\item Radiation: $H = H_0 a^{-2}$
+\item Cosmological const: $H = H_0$ (from earlier section)
+\stopitemize
+
+It is a simple matter, with a little calculus, to put these into the Hubble law and get the scale factor as a function of time.
+
+\startitemize[n, packed]
+\item Matter: $da/dt = H_0 a^{-1/2}$ leads to $a = \left(\textfrac{3}{2}H_0 t\right)^{2/3}$
+\item Radiation: $da/dt = H_0 a^{-1}$ leads to  $a = (2H_0 t)^{1/2}$
+\item Cosmo cons: is exponential in earlier section.
+\stopitemize
+
+The matter and radiation cases can be checked with our simple derivative rules.
+
+The benchmark model contains all three of these, and can only be described qualitatively. We had a Hot Big Bang, so the universe starts of radiation dominated, and expands like the radiation equations above. The density of radiation decreases until there is less radiation than matter, starting a matter dominated phase. Finally, the matter content falls below the cosmological constant and we enter a new cosmological constant dominated phase. We entered this last phase pretty recently (about a billion years ago) and now live in an accelerating universe.
+
+
+
+
+
 
 The $\Lambda$CDM model [Ryden 5.5]: All three densities change! Find scale factors where they cross.
 

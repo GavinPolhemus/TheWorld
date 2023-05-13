@@ -1,0 +1,523 @@
+% !TEX useAlternatePath
+% !TEX useConTeXtSyncParser
+
+\startcomponent *
+\project project_world
+\product prd_volume03
+
+\doifmode{*product}{\setupexternalfigures[directory={chapter17/images}]}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title={The Standard Model of Particle Physics}, reference=ch:StandardModel]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\placefigure[margin,none]{}{\small
+	\startalignment[flushleft]
+By convention sweet and by convention bitter, by convention hot, by convention cold, by convention color; but in reality atoms and void.%\autocite{p.46}{Helmholtz1857}
+	\stopalignment
+	\startalignment[flushright]
+	%{\it On the Physiological Causes\\
+	%	of Harmony in Music}\\
+	{\sc Democritus}\\
+	c.460 -- c.370 \scaps{BCE}
+	\stopalignment
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\placetable[margin][T:Today] % Label
+    {{\bf Today} The seventeen particles of the Standard Model} % Caption
+    {\vskip9pt\tfb\starttabulate[|c|c|c|c|]
+\FL[2]
+\NS[3][c] $h$          			\NR
+\HL
+\NC $\nu_e$	   \NC $e$    \NC $d$ \NC $u$ \NR
+\NC $\nu_\mu$  \NC $\mu$  \NC $s$ \NC $c$ \NR
+\NC $\nu_\tau$ \NC $\tau$ \NC $b$ \NC $t$ \NR
+\HL
+\NC $W$	     \NC $Z$ \NC $\gamma$ \NC $g$ \NR
+\LL[2]
+\stoptabulate}
+
+\section{From the particle zoo to quarks}
+
+The seven particles in the Middle Model provide all of the ingredients seen in nuclear physics. However, the muon kept crashing the party. Recall that the muon was discovered before the pion. While it was originally thought to be the Yukawa's predicted strong nuclear force particle, it was not. It was instead a heavy duplicate of the electron. The discovery of the pion, ten years later, resolved the question of the strong nuclear force, but the muon kept appearing in cosmic rays.
+
+%If it is not the particle of the nuclear force, what is the mu-meson? Careful study showed that,
+%aside from its large mass, the mu-meson is identical to the electron, causing physicist Isidor Rabi %I.~I.~Rabi %  M.N.: Isaac
+%to ask, ``who ordered that?'' It seemed quite a superfluous, even redundant, addition to the list of fundamental particles. The mu-meson eventually became known as the muon. While it was not the sought after meson, it was a sign of things to come. 
+
+
+The muon was just the first of a wave of a surprising number of new particles  discovered in cosmic rays. Aside from the muon (a lepton), all of these particles engaged in nuclear interactions, and were called hadrons. Protons, neutrons, and pions are the most famous hadrons, but much of the Greek and Roman alphabets has been exhausted in naming the many other hadrons.
+%Furthermore, the mu-meson has a spin of 1/2, making it a fermion, but particles associated with forces must be bosons, like the photon.
+
+
+The term meson became used for any hadron that is a boson, like the pion. Hadrons that are fermions (like the proton and neutron) were given the name baryons. %During this period a huge number of hadrons, both mesons and baryons, were discovered.
+The whole hadron zoo was a confusing mess of unexpected new particles.
+
+%[Need to talk about strangeness, and maybe charm.]
+
+%\subsection{Observation of Neutrinos}
+%\sidepar{\strut\\[-\baselineskip]
+%\Large
+%\setlength{\tabcolsep}{0pt}
+%\begin{tabular*}{\marginparwidth}{@{\extracolsep\fill}ccc@{}}
+%\toprule
+%$\nu_e$    & $e$    & $p\,n\,\Delta...$ \\
+%$\nu_\mu$ & $\mu$    & $\Lambda\,\Sigma\,\Xi...$ \\
+%\midrule
+%$W$ & $\gamma$ & $\pi\,K\,\eta...$ \\
+%\bottomrule
+%\end{tabular*}\\[1ex]
+%\footnotesize{\bfseries 1957} The weak comes with a new $W$ boson.}%
+
+Beta decays and the decays of muons produce neutrinos. In these decays, some energy and momentum always go missing. Physicists were confident that  missing energy and momentum is carried away by undetected neutrinos. Detecting neutrinos is incredibly difficult because they do not feel the electromagnetic or nuclear forces. They are only affected by the weak interaction, which is very short range and extremely weak, so they almost always pass through the detector without leaving any trace.
+\placetable[margin][T:Today] % Label
+    {{\bf 1947} The particle zoo is becoming unmanageable as strongly interacting particles (hadrons) are discovered in droves.} % Caption
+    {\vskip9pt\tfb\starttabulate[|c|c|c|]
+\FL[2]
+\NC $\nu_e$	   \NC $e$    \NC $p\,n\,\Delta...$ \NR
+\NC $\nu_\mu$  \NC $\mu$  \NC $\Lambda\,\Sigma\,\Xi\,\Omega..$ \NR
+\HL
+\NS[1][c] $\gamma$ \NC $\pi\,K\,\eta\,\rho\,\omega...$ \NR
+\LL[2]
+\stoptabulate}
+
+Beta decay is a common link in many of the decay chains that power nuclear reactors, so nuclear reactions produce neutrinos, so a detector near a nuclear reactor has many billions of neutrinos passing through it, increasing the opportunities for detection.
+In 1956, a neutrino from a reactor struck a proton in the Cowan-Reines neutrino experiment producing a neutron and a positron that were easier to detect.
+\startformula
+	\anti\nu + p \rightarrow \anti e + n,
+\stopformula
+This was the first neutrino ever detected. Frederick Reines received the Noble Prize in 1995 for his part in the discovery.
+A second type of neutrino, the muon neutrino was discovered in 1962. The electron and electron neutrino are called the first generation of leptons, since they were discovered first. The muon and the muon neutrino are called the second generation since they were discovered later.
+
+The situation in 1947 is shown in the margin. The leptons are in two generations, which the list of hadrons has become so long only a few are shown. (Recall that the $W$ had not yet been discovered.)
+%While the discoveries of the neutrinos were celebrated because of the difficulty of the  leptons was difficult, they were not especially surprising because of their role in beta decay and muon decay.%. The leptons fit a very simple pattern.
+% 4,5
+
+
+%\subsection{Quarks}
+In 1961 several physicists noticed patterns in the behavior of hadrons. In some ways these patterns were similar to the patterns of chemical behavior noticed by Mendeleev ninety years earlier. Just as Mendeleev used the patterns to construct the periodic table, physicists constructed a table of hadrons which came to be known as the Eightfold Way. At first these patterns were viewed as representing symmetries of hadrons, not internal structure, but eventually physicists determined that these patterns revealed smaller pieces inside the hadrons. Protons, neutrons, and pions would continue to be important ingredients in atoms, but they are not fundamental particles.
+
+In 1964 quarks were proposed as building blocks of hadrons. Three flavors of quarks were immediately recognized: up, down and strange. %(The up and down quarks do not have anything to do with up and down spin. An up quark, for example, can be either spin up or spin down.) % Strange quarks, however, are actually strange.} There was speculation that a fourth quark, called charm, would join the list. %(actually, charm predicted 1970, discovered 1974 at SLAC as the J/psi)
+Quarks and antiquarks assemble in three basic combinations to make baryons, anti-baryons, and mesons. Baryons, including the proton and neutron, are made of three quarks ($qqq$). Anti-baryons are made of three antiquarks ($\anti{q}\anti{q}\anti{q}$). Mesons, like the pion, are made of one quark and one antiquark ($q\anti{q}$). These three combinations explain all of the patterns in the Eightfold Way, and greatly simplify the table of particles shown in the margin.
+%Every hadron can be explained using these three combinations.
+\placetable[margin][T:Today] % Label
+    {{\bf 1964} All of the hadrons are made from just three quark flavors. This explained the many hadrons, but no one knew what was holding the quarks together.} % Caption
+    {\vskip9pt\tfb\starttabulate[|c|c|c|c|]
+\FL[2]
+\NC $\nu_e$	   \NC $e$    \NC $d$ \NC $u$ \NR
+\NC $\nu_\mu$  \NC $\mu$  \NC $s$ \NC  \NR
+\HL
+\NS[1][c] $\gamma$ \NS[1][c] ? \NR
+\LL[2]
+\stoptabulate}
+
+The quarks all have electrical charge, but the charges are somewhat surprising. The up quark has a charge of $+\twothirds$, while the down and strange quarks have charges of $-\onethird$. Even though the individual quarks have fractional charges, the various combinations of quarks always produce baryons, anti-baryons, and mesons with integer charge. The quark content of the lightest hadrons, containing only up and down quarks, are shown in the margin. %The following exercises show how the heavier strange quark can be incorporated into baryons.
+
+
+
+
+%\begin{table}%[h]
+%\begin{center}
+%\begin{tabular*}{\textwidth}{@{\extracolsep\fill}*{13}{@{}c}@{}} \toprule
+%\multicolumn{13}{c}{baryons} \\
+%\multicolumn{5}{c}{spin 1/2} && \multicolumn{7}{c}{spin 3/2} \\
+%\cmidrule(){1-5}\cmidrule(){7-13}
+%& $n^0$ && $p^+$ & &
+%&$\Delta^{-}$ && $\Delta^{0}$ && $\Delta^{+}$ && $\Delta^{++}$\\
+%$\Sigma^-$ && $\Sigma^0\!,\Lambda^0$ && $\Sigma^+$ &
+%&& $\Sigma^{*-}$ && $\Sigma^{*0}$ && $\Sigma^{*+}$ \\
+%& $\Xi^-$ && $\Xi^0$ & &
+%&&& $\Xi^{*-}$ && $\Xi^{*0}$ & \\
+%&&&&&&&&&$\Omega^-$ \\
+%\midrule
+%%\bottomrule
+%%\end{tabular}
+%%\begin{tabular}{*{5}{@{}c}*{5}{c@{}}} \toprule
+%\multicolumn{13}{c}{mesons} \\
+%&\multicolumn{5}{c}{spin 0} && \multicolumn{5}{c}{spin 1} \\
+%\cmidrule(r){2-6}\cmidrule(l){8-12}
+%&& $K^0$ && $K^+$ & &
+%&& $K^{*0}$ && $K^{*+}$ & \\
+%&$\pi^-$ && $\pi^0\!,\eta^0$ && $\pi^+$ &
+%&$\rho^-$ && $\rho^0\!,\omega^0$ && $\rho^+$ \\
+%&& $K^-$ && $\anti K^0$ & &
+%&& $K^{*-}$ && $\anti K^{*0}$ & \\
+%\bottomrule
+%\end{tabular*}
+%\end{center}
+%\caption[Hadrons and the Eightfold Way]{{\bfseries Hadrons and the Eightfold Way} The hadrons are organized into patterns that can be used to predict the existence and properties of new hadrons.}\label{T:8Fold} % This table could be reduced to fit in the margin. Only show spin zero mesons and a single set of 10 baryons, with the lowest energy version for each quark content.
+%\end{table}
+
+
+\stopchapter
+\stopcomponent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{margintable}
+%\begin{table}%[h]
+%\begin{center}
+%{\bfseries Light Hadrons}\\and their quark content\\[1ex]
+\begin{tabular*}{\marginparwidth}{@{\extracolsep\fill}ccccc@{}} \toprule
+\multicolumn{2}{c}{baryons} & \multicolumn{3}{c}{mesons} \\
+\multicolumn{2}{c}{$qqq$} & \multicolumn{3}{c}{$q\anti q$} \\
+\cmidrule(r){1-2}\cmidrule(l){3-5}
+$p^+$    & $n^0$    & $\pi^+$ & $\pi^0,\eta$ &$\pi^-$ \\
+%proton    & neutron    & pion & eta \\
+$duu$    & $ddu$    & $u\anti d$ & $u\anti u,d\anti d$ & $d\anti u$ \\ %\midrule
+ \bottomrule
+\end{tabular*}
+%\end{center}
+\caption{{\bfseries Light Hadrons} and their quark content}\label{T:Hadrons}
+%\end{table}
+\end{margintable}
+
+While the quark model was a huge success, quarks were viewed with some skepticism because individual quarks were never seen. No matter how hard hadrons are smashed together, free quarks never emerge, just more hadrons. If quarks are real particles they must be held by some incredibly strong force. The nature of this strong force remained a mystery until the 1970s.
+
+\exercises
+
+In this exercise you will study baryons made from up, down and strange quarks.%The charm quark is much heavier, so hadrons containing a charm are much harder to produce. We will not consider charmed hadrons here.
+\begin{questions}
+\question Find the quark content of these baryons which contain only up and down quarks. (The charge is shown.)
+\begin{parts}
+	\part $p^+$
+	\part $n$
+	\part $\Delta^-$
+	\part $\Delta^{++}$
+\end{parts}
+\question The $\Sigma$ baryon contains exactly one strange quark, in addition to up and down quarks. List the quark content for the $\Sigma$ (Sigma) baryons with the shown charges.
+\begin{parts}
+	\part $\Sigma^-$
+	\part $\Sigma^0$
+	\part $\Sigma^+$
+\end{parts}
+\question The $\Xi$ baryons have exactly two strange quarks in addition to either an up or a down. Write the symbols for the two $\Xi$ (Xi) baryons.
+\begin{parts}
+	\part $dss$
+	\part $uss$
+\end{parts}
+\question The last baryon is the $\Omega$ (Omega). What is its quark content and charge? 
+\end{questions}
+
+
+\section{The strong and weak forces}
+By the late fifties, theoretical physicists were becoming more confident in their calculations of particle interactions. Quantum field theory had been around in some form since the twenties, but calculations were maddeningly difficult. Forty years of practice and experimental tests led to great success in understanding electromagnetic interactions. This theory describing the interactions of photons and charged fermions is called Quantum Electrodynamics (QED).
+\begin{margintable}
+%\sidepar{\strut\\[-\baselineskip]
+\huge
+\begin{tabular*}{\marginparwidth}{@{\extracolsep\fill}cccc@{}}
+\toprule
+\multicolumn{4}{c}{$h$} \\
+\midrule
+$\nu_e$   & $e$      & $d$ & $u$ \\
+$\nu_\mu$ & $\mu$    & $s$ &  \\ % $c$ % charm in '70s
+\midrule
+$W$	& $Z$ & $\gamma$	 & $g$	\\
+\bottomrule
+\end{tabular*}%\\[1ex]
+%\footnotesize
+\legend{{\bfseries 1974} There are now four spin-$1$ bosons. The $W$ and $Z$ bosons are responsible for the weak force with the gluon, $g$, is responsible for the strong force. The Higgs boson is the only spin-$0$ particle.}%
+\end{margintable}
+
+Quantum Electrodynamics was just a warm-up for the much more difficult problems of the strong interactions binding quarks and weak interactions causing beta-decay. The theories of strong and weak interactions were developed in parallel between 1957 and 1974. While the twists and turns are fascinating, they are highly technical.
+
+When the theoretical dust finally settled the weak force emerged as generalization of QED, unifying the electromagnetic and weak forces into a new electro-weak theory. The electro-weak theory includes two spin-$1$ bosons. One is the $W$, which we have already used to understand weak interactions in the Middle Model. The second is the $Z$, which also contribute to weak interactions. Fermions do not interact directly with each other in the Standard Model; all fermion interactions are due to the exchange of a boson.
+The $Z$ boson, like the $W$, has a large mass, so all weak interactions are extremely short range. This short range, along with the weakness of the force, makes weak interactions extremely rare.
+
+All fermions can interact with a $Z$ or $W$ boson, including the elusive neutrinos. In fact, these are the only interactions for neutrinos, which is why neutrinos are so elusive. 
+$Z$ boson interactions do not change the flavor of the fermion. For example, an  electron that absorbs a $Z$ boson remains an electron, just as it would if it absorbed a photon. In Feynman diagrams we will represent the $Z$ boson as a wiggly line, like the photon, that is thicker to remind us of the $Z$ boson's substantial mass.
+
+When a fermion interacts with a $W$ boson, it always changes to a different fermion. %The $W^-$ is the anti-particle of the $W^+$. We simply label these as $W$ on Feynman diagrams, with an arrow to show the direction of positive charge. To conserve electric charge, $W$ interactions always change the flavor of the fermion.
+For example, a muon that interacts with a $W$ turns into a muon neutrino. A down quark that interacts with a $W$ turns into an up quark. $W$ interactions with leptons always stay in the same generation. For example, a $W$ changes a muon into a muon-neutrino, but not never into an electron-neutrino.
+
+
+When a down interacts with a $W$, it changes into an up quark. This is how neutrons (udd) decay into protons (uud). The strange quark also changes into an up quark when interacting with a $W$. The strange quark is dozens of times heavier than an up quark, so once this decay happens, considerable energy is required to reverse it. As a result, there are no strange quark in atoms, they only appear in high energy environments like cosmic rays, high energy particle collisions, and inside some especially dense neutron stars.
+
+  
+%A charm quark can change into a strange quark or a down quark by emitting a $W^+$. 
+%All of the heavy second and third generation fermions decay to lighter first generation fermions by emitting $W$ bosons.
+
+\exercises
+\begin{questions}
+	\question Draw a simple Feynman diagram showing a muon decaying to an electron and neutrinos. What kind of neutrinos come out?
+%	\begin{solution} Draw the diagram for the reaction
+%	\startformula
+%		\mu^- \rightarrow \nu_\mu + e^- + \anti{\nu}_e.
+%	\stopformula
+%	\end{solution}
+
+	\question Draw a Feynman diagram showing all of the quarks for the decay of the $\Sigma^-$.
+	\startformula
+		\Sigma^- \rightarrow n + \pi^-
+	\stopformula
+\end{questions}
+
+Electro-weak theory also contains the only spin-$0$ boson, called the Higgs boson. The Higgs boson is extremely shy, and we will not say anything about its interactions. The Higgs field, however, it quite important.
+%The $W$ and $Z$ bosons get their mass from their interaction with the final field in the standard model, the Higgs field. In fact, 
+All of the massive particles get their mass due to their interaction with the Higgs field. (This does not mean the Higgs is responsible for gravity. Gravity is the attraction of masses, and it is due to something else entirely.)
+
+%The particle associated with the Higgs field is the Higgs boson, originally predicted in 1964. It is the only spin-$0$ particle in the standard model.
+
+%The four bosons of the electro-weak theory interact directly with each other. The photon, which on
+
+Experimental physicists embarked on an ambitious campaign to discover the $W$, $Z$ and Higgs bosons. These bosons' weak interactions and large masses made the search extremely challenging. While experimental physicists were building the machines necessary to create these bosons, the theorists were conquering the strong force that holds quarks together.
+
+The strong force was explained by another elegant generalization of QED called Quantum Chromodynamics (QCD). In QCD the quarks have a new kind of charge called ``color'' (which is in no way related to visible color). Each quark  has one of three colors\,--\,red, blue, or green\,--\,while the anti-quarks have anti-colors. These colors interact through new spin-$0$ bosons called gluons (due to their extreme stickiness) and represented by the symbol $g$. Like photons, gluons are massless. They only interact with quarks and they are the last bosons of the Standard Model.
+\begin{marginfigure}
+\begin{tabular*}{\marginparwidth}{@{\extracolsep\fill}cc@{}}
+% Photons
+\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+	c --[boson, edge label'=\(\gamma\)] t,
+	i [particle=\(l^-\)] --[fermion] c --[fermion] o [particle=\(l^-\)],
+};&
+\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+	c --[boson, edge label'=\(\gamma\)] t,
+	i [particle=\(q\)] --[fermion] c --[fermion] o [particle=\(q\)],
+};\\
+% Fermion-Z
+\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+	c --[boson, very thick, edge label'=\(Z\)] t,
+	i [particle=\(f\)] --[fermion] c --[fermion] o [particle=\(f\)],
+};&
+% Quark-guon
+\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+	t --[gluon, edge label'=\(g\)] c,
+	i [particle=\(q\)] --[fermion] c --[fermion] o [particle=\(q\)],
+};\\
+% Lepton-W
+\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+	c --[charged boson, very thick, edge label'=\(W\)] t,
+	i [particle=\(\nu_l\)] --[fermion] c --[fermion] o [particle=\(l^-\)],
+};&
+% Quark-W
+\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+	t --[charged boson, very thick, edge label'=\(W\)] c,
+	i [particle=\(q^{-\frac{1}{3}}\), inner sep=0] --[fermion] c --[fermion] o [particle=\(q^{+\frac{2}{3}}\)],
+};\\
+\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+	t --[charged boson, very thick, edge label'=\(W\)] c,
+	i [particle=\(l^-\)] --[fermion] c --[fermion] o [particle=\(\nu_l\)],
+};&
+\feynmandiagram [horizontal=i to o, vertical=t to c, small, node distance=1cm] {
+	c --[charged boson, very thick, edge label'=\(W\)] t,
+	i [particle=\(q^{+\frac{2}{3}}\), inner sep=0] --[fermion] c --[fermion] o [particle=\(q^{-\frac{1}{3}}\)],
+};\\
+\end{tabular*}
+\caption{{\bfseries Strong and Weak interactions}} % Note: the Z never changes the fermion. The W always does (to conserve charge). The neutrino always matches its lepton, but the quarks can change generations. This distinction is actually just a convention. The quarks are labeled by mass eigenstates, but the neutrinos are labeled by weak interaction eigenstates. In both cases the mass eigenstates and the weak eigenstates are not aligned. The different conventions are practical because neutrino masses are very small (making weak interaction eigenstates the convenient choice) while quark masses are much larger (making mass eigenstates the convenient choice).
+\end{marginfigure}
+
+The gluon interactions produce the strong force that holds the quarks together in hadrons. The strong force does not get weaker with distance. If a quark tries to leave a hadron it is held back by  the strong force, which reaches a strength of over ten tons! %\marginpar{Paragraph needs some work.}
+This is why free quarks have never been seen. Gluons also are affected by the strong force, so they too cannot escape.
+
+The strong force confines quarks in color neutral groups. A baryon has three quarks, one of each color. In analogy with visible light, the three colors (red, blue and green) combine to a neutral white. Likewise, anti-baryons contain three anti-quarks, one each of the three anti-colors (anti-red, anti-blue, and anti-green), producing neutral white again. Mesons have a quark and an anti quark, which must be a matching color and anti-color pair (like red and anti-red). Since all hadrons are color neutral, they do not interact through the strong force unless they come into direct contact with each other, allowing the individual quarks in one hadron to interact with individual quarks in the other.
+
+
+%as neutral atoms electric force, these color neutral hadrons are not pushed by the strong force.
+%When hadrons do come into direct contact, the interactions between are very strong just atoms do when they  strike each other at high speed so that their individual quarks get close together the interaction is very strong, just as atoms that come in contact.
+
+
+\begin{marginfigure}
+\begin{tabular*}{\marginparwidth}{@{\extracolsep\fill}cc@{}}
+\feynmandiagram [horizontal=i to o, vertical=t to c, very thick, small, node distance = 1cm] {
+	t --[charged boson, edge label'=\(W\)] c,
+	i [particle=\(n\)] --[fermion] c --[fermion] o [particle=\(p\)],
+};&
+\feynmandiagram [horizontal=i to o, vertical=t to c, very thick, small, node distance = 1cm] {
+	c --[charged boson, edge label'=\(W\)] t,
+	i [particle=\(p\)] --[fermion] c --[fermion] o [particle=\(n\)],
+};
+\end{tabular*}
+\caption{{\bfseries Weak interactions with nucleons}}
+\end{marginfigure}
+
+
+The 1974 model was a tremendous achievement. It described every particle and interaction that had been seen in the laboratory, and it made many specific, testable predictions. In particular this model predicted three previously unseen bosons: the $W$, $Z$ and Higgs bosons.%; and three new fermions: the tau-neutrino, the bottom and the top.
+
+
+%The W and Z bosons predicted by the electro-weak theory of 1968 (which also included the Higgs).
+
+ 
+%The gluons were predicted to explain the strong interaction in 1965, % 10
+
+
+%Fermi's explanation of beta-decay had been a huge success, but the model had some shortcomings as well. When used to calculate the likelihood of certain events the model would give probabilities greater than 100\%! [Check this] 
+%In 1957 Schwinger, Bludman, Glashow demonstrated that this nonsense could be avoided by introducing a new, weak force responsible for the decay of the neutron. A new massive boson, the $W$ was introduced. The $W$ comes in two versions on with positive charge and the other negative, called the $W^+$ and $W^-$ respectively. One is the anti-particle of the other. 
+%Interactions need enough discussion to clarify that fermions do not interact directly, but rather through the exchange of bosons. Feynman diagrams are super fun. Don't see why 4th graders can't draw do Feynman graphs. This could discuss decay of heavier generations to the lightest generation.
+
+%1973: Harald Fritzsch and Murray Gell-Mann develop the theory of strong interaction between quarks.  The quark is considered a real particle (rather than mathematics) containing a new type of charge known as ``color''.  The boson responsible for the strong interaction between quarks is termed the gluon.  Quarks are now considered real particles that combine to form heavier particles.[From CERN timeline]
+%The theory of strong interactions did not make much sense until 1973-4 with the discovery of asymptotic freedom.
+
+
+\section{Particle accelerators complete the Standard Model}
+% Weak neutral currents (due to Z) were detected at CERN in 1973.
+
+While the theoretical physicists were working out the theories of strong and weak interactions, experimental physicist built ever more powerful machines for creating and studying new particles. These machines accelerated a beam of common particles, like electrons, protons, or even atomic nuclei, up to high speed. These beams could be crashed into a stationary target or directed into a head-on collision with another beam. In either case the kinetic energy of the particles could be used to make new, heavier particles.
+
+
+%\begin{margintable}
+%%\sidepar{\strut\\[-\baselineskip]
+%\huge
+%\begin{tabular*}{\marginparwidth}{@{\extracolsep\fill}cccc@{}}
+%\toprule
+%\multicolumn{4}{c}{H} \\
+%\midrule
+%$\nu_e$    & $e$    & $d$ & $u$ \\
+%$\nu_\mu$  & $\mu$  & $s$ & $c$ \\
+%$\nu_\tau$ & $\tau$ & $b$ & $t$ \\
+%\midrule
+%$W$	& $Z$ & $\gamma$	 & $g$	\\
+%\bottomrule
+%\end{tabular*}%\\[1ex]
+%%\footnotesize
+%\legend{{\bfseries 1977} The third generations of fermions completes the Standard Model.}%
+%\end{margintable}
+
+The Stanford Linear Accelerator Center (SLAC) built a machine called SPEAR to smash electrons and positrons in head-on collisions with energies of up to $2.4\units{GeV}$ per particle. %http://cerncourier.com/cws/article/cern/28865
+A head-on collision between two $2.4\units{GeV}$ particles can create new particles with a masses up to $4.8\units{GeV}$. When SPEAR was first turned on in 1973 its beams had significantly less energy. The energy was gradually increased while sophisticated detectors measured the particles produced in the collision. When the collision energy reached $3.1\units{GeV}$ particle production skyrocketed. The $3.1\units{GeV}$ particle was a new meson %, the $J/\psi$, which is
+made of a charm quark and an anti-charm quark. %This discovery of the charmed quark was a great success for the 1974 model.
+The charm quark is not stable. It decays quickly into a strange or a down through a $W$ interaction.
+
+The charm quark completed the second generation of fermions. The two generations fit nicely into a little periodic table. The first row is the first generation: electron-neutrino, electron, down and up. The second row is the heavier second generation: muon-neutrino, muon, strange and charm. The particles in each column are identical, except for their masses. 
+The more massive second generation particles are not stable. They all decay into first generation particles. (The exception is the muon-neutrino, which is t0o light to decay into first generation particles.)
+
+% This section needs some work.
+
+%Just as the muon and muon neutrino are near duplicates of the electron and electron neutrino, so too the strange and charm quarks are near duplicates of the down and up. The down and strange quarks each have a charge of $-\tfrac{1}{3}$, while the up and charm have charge $+\tfrac{2}{3}$.
+%The new list of particles approached the beauty of the Middle Model. This model has two generations of fermions, each with two leptons and two quarks, all with spin $\half$.
+
+Shortly after discovering the charm quark, SPEAR delivered a surprising new fermion, the first particle in a third generation. This particle, the $\tau$ (tau), is identical to the electron and muon, but much heavier. Immediately the search began to find the remaining three members of this new generation of fermions. The predicted third generation quarks were named the bottom and top. The predicted neutrino was called, predictably, the tau-neutrino.
+
+%Finding the three remaining fermions and the three undiscovered bosons\,--\,the W, Z and Higgs\,--\,would require more energy than 
+
+\newcommand{\TableNum}[1]{{\tiny $#1$ }}
+
+\begin{margintable}[.05in]
+%\sidepar{\strut\\[-\baselineskip]
+\footnotesize
+\tabcolsep = 0in
+\begin{tabular*}{\marginparwidth}{@{\extracolsep\fill}cccc@{}}
+\toprule
+\multicolumn{4}{c}{\TableNum{s = 0,\quad q = 0}} \\
+\multicolumn{4}{c}{\ParticleTableCell{h}{}{Higgs boson}{125\units{GeV}}}\\%\mathrm{H}
+\midrule
+\multicolumn{4}{c}{Fermions} \\
+\multicolumn{4}{c}{\TableNum{s = 1/2}} \\
+\multicolumn{2}{c}{leptons} & \multicolumn{2}{c}{quarks} \\
+\TableNum{q=0} & \TableNum{q=-1} & \TableNum{q=-1/3} & \TableNum{q=+2/3}\\
+\cmidrule{1-2}\cmidrule{3-4}
+	\ParticleTableCell{\nu_e}{}{$e$-neutrino}{<1\units{eV}} &
+	\ParticleTableCell{e}{}{electron}{511.0\units{keV}} &
+	\ParticleTableCell{d}{}{down}{4.8\units{MeV}} &
+	\ParticleTableCell{u}{}{up}{2.3\units{MeV}} \\
+	\ParticleTableCell{\nu_\mu}{}{$\mu$-neutrino}{<1\units{eV}} &
+	\ParticleTableCell{\mu}{}{muon}{105.7\units{MeV}} &
+	\ParticleTableCell{s}{}{strange}{95\units{MeV}} &
+	\ParticleTableCell{c}{}{charm}{1.29\units{GeV}} \\
+	\ParticleTableCell{\nu_\tau}{}{$\tau$-neutrino}{<1\units{eV}} &
+	\ParticleTableCell{\tau}{}{tau}{1.777\units{GeV}} &
+	\ParticleTableCell{b}{}{bottom}{4.18\units{GeV}} &
+	\ParticleTableCell{t}{}{top}{173\units{GeV}} \\
+\end{tabular*}\\
+\begin{tabular*}{\marginparwidth}{@{\extracolsep\fill}cccc@{}}
+\midrule
+\multicolumn{4}{c}{Vector Bosons}\\ %\midrule
+\multicolumn{4}{c}{\TableNum{s=1}{}}\\
+\multicolumn{2}{c}{weak} & electromag. & strong \\
+\TableNum{q=\pm1} & \TableNum{q=0} & \TableNum{q=0} & \TableNum{q=0}\\
+\cmidrule{1-2}\cmidrule{3-3}\cmidrule{4-4}
+	\ParticleTableCell{W}{}{$W$-boson}{80.37\units{GeV}} &
+	\ParticleTableCell{Z}{}{$Z$-boson}{91.19\units{GeV}} &
+	\ParticleTableCell{\gamma}{}{photon}{\text{massless}} &
+	\ParticleTableCell{g}{}{gluon}{\text{massless}} \\
+\bottomrule
+\end{tabular*}
+\caption[Standard Model]{{\bfseries Particles of the Standard Model}}\label{T:Standard}
+\end{margintable}
+While SPEAR smashed electrons and positrons at SLAC, a more powerful collider was built at Fermilab in Illinois. This collider smashed protons and anti-protons. Since these are heavier than electrons they can be accelerated to much higher energies, up to $500\units{GeV}$ per particle at Fermilab's collider.
+In 1977 the Fermilab team discovered the third-generation bottom quark, which is like the down and strange quark.
+
+%The table of fundamental particles expanded with the discovery of the third generation of fermions, including the anticipated tau-neutrino and top quark. This model with 17 particles, called the Standard Model, has remained the standard from 1977 to the present. In 1977 many of the particles of the standard model had not yet been discovered, but the search was on.
+
+%The remaining members of the third generation, the tau-neutrino and the top quark, would be harder to find.
+
+European Organization for Nuclear Research (CERN, derived from the French {\itshape Conseil Europ\'een pour la Recherche Nucl\'eaire}) built the Super Proton Synchrotron (SPS) to mash protons and anti-protons with energies of $400\units{GeV}$ per particle. 
+The $W$ and $Z$ bosons were both discovered using the SPS in 1983. This exciting confirmation of the electro-weak theory earned the discoverers Noble Prizes the very next year! The $W$ and $Z$ were the last spin-$1$ bosons in the standard model. % 11,12
+
+In 1995, I was a graduate student studying particle physics at the University of Chicago. Professor Frank Merritt, an experimental physicist at Fermilab, taught the particle physics course that year. He taught us the properties of each of the quarks, including the anticipated top quark. All of the properties of the top quark were expected to be exactly the same as the up and charm quarks except for the mass, which was expected to be much larger, but no one knew how much larger. We were surprised when Prof.~Merritt wrote the masses of the quarks on the board, including the top quark's mass.  The discovery of the top quark was announced a few days later by a Fermilab team that included Prof.~Merritt. 
+The top mass is truly huge, $173\units{GeV}$. A single top quark has slightly more mass than a glucose molecule!% 15,16 Top mass = 186 amu!
+
+The tau-neutrino was finally detected at Fermilab in 2000, after my graduation. That completed the fermions of the standard model. % 13,14 That's all the leptons!
+
+The final standard model particle that remained was the Higgs Boson. To find the Higgs Boson, and to look for new particles beyond the standard model, an international collaboration built the Large Hadron Collider at CERN. From 2010 to 2013, it smashed protons with energies of up to $4\units{TeV}$. Physicists believed that this would be enough energy to produce the elusive Higgs.
+
+%The Higgs Boson was the final piece, discovered in 2012. % 17!
+
+%\subsection{Alternate opening}
+
+By June of 2012, there were many rumors. On the night of July 3rd, 2012, I set my alarm for 12:45 in the morning, but I was not able to sleep. As July 3rd turned into July 4th, I got out of bed and switched on my computer so I could watch excited scientists filling an auditorium at CERN in Switzerland, where it was a more humane 8:45 am. 
+%
+%CERN is the site of the Large Hadron Collider, a giant proton smashing machine built to discover the smallest pieces of matter. Earlier experiments had identified sixteen fundamental particles. All of these particles and their interactions are described by Standard Model of particle physics. However, the Standard Model has 17 particles, shown in the margin. The most unique and elusive of these, the Higgs boson, was predicted in 1964 but remained undetected almost half a century later.
+%
+I recognized the face of a retired physicist from England, Peter Higgs. Peter Higgs was not traveling much at that time. He would not have made the trip to CERN without a good reason.%I settled into my chair to savor the latest chapter in this wonderful story.
+
+Two teams presented data, one team from the ATLAS detector and one from the CMS detector, both at the LHC. Although the detectors were quite different in  design, they both revealed a small excess of particles at  $125\units{GeV}$.
+Based on these results, both teams announced the discovery of a new ``Higgs-like boson." In the years since, the experiments have measured this particle's properties and confirmed that it is the long-sought Higgs boson, the final particle in the Standard Model.
+
+%The discovery of the final particle in the standard model makes this a unique time in the history. Since Democritus's speculation that the universe consists of "atoms and the void," there 
+
+\section{Looking ahead}
+The Standard Model describes every particle that we have seen in the lab, but we are confident that it is not the final theory. The most glaring omission is gravity. We do have an extremely successful model of gravity, general relativity, but there is no quantum version of general relativity that works with the Standard Model.
+
+Ideally, the theoretical search for quantum gravity would gain some clues from experiments. However, gravity is far too weak to study in particle accelerators. There may be a particle associated with gravity, called the graviton, but it would be extremely difficult to produce or detect. The graviton also presents some technical challenges for quantum field theory, suggesting that perhaps the theory that incorporates both the standard model and general relativity will be something dramatically new.
+
+Dark matter, which we will meet in the chapter on cosmology, is not made of any of the standard model particles. We suspect that there are three very heavy neutrinos, in part because the neutrinos in the standard model are just half of a set. It is possible that dark matter is these heavy neutrinos, but there are good reasons to think that dark matter is something else entirely.
+
+A wide range of experiments are being undertaken to solve these issues. For now we will study these seventeen particles and their interactions to understand how matter behaves. To understand the large scale universe we will include dark matter and gravity.
+
+%\subject{Notes}
+%%\placefootnotes[criterium=chapter]
+%\placenotes[endnote][criterium=chapter]
+
+%\subject{Bibliography}
+%        \placelistofpublications
+
+\stopchapter
+\stopcomponent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%$6.241509\sci{18}$ electrons is \emph{negative} one Coulomb. One Coulomb of charge from a one volt battery gives one joule of energy. How many electron volts are in one joule? Converting the other way, one electron volt is how many joules? How many electron volts of energy would be produced by one mole of electrons going through a potential difference on one volt. How many joules? Calories too?
+
+
+% Templates:
+
+% Margin image
+\placefigure[margin][] % Location, Label
+{} % Caption
+{\externalfigure[chapter03/][width=144pt]} % File
+
+% Margin Figure
+\startbuffer[TikZ:NAME]
+\environment env_physics
+\environment env_TikZ
+\setupbodyfont [libertinus,11pt]
+\setoldstyle % Old style numerals in text
+\startTEXpage\small
+\starttikzpicture% tikz code
+\stoptikzpicture
+\stopTEXpage
+\stopbuffer
+
+\placefigure[margin][fig:NAME] % Location, Label
+{}	 % caption text
+{\noindent\typesetbuffer[TikZ:NAME]}
+
+% Aligned equation
+\startformula\startmathalignment
+\stopmathalignment\stopformula
+
+% Aligned Equations
+\startformula\startmathalignment[m=2,distance=2em]
+\stopmathalignment\stopformula
