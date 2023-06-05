@@ -179,10 +179,21 @@
 ]
 
 % Exercises
-\define\question{\item}
 % Answer boxes and highlight boxes are currently turned off.
 \define[1]\answer{#1}
 \define[1]\highlightbox{#1}
+
+\defineitemgroup[questions]
+\setupquestions [each] [n]
+\define\question{\item}
+
+\defineitemgroup[parts]
+\setupparts [each] [a] [left=(,stopper=,right=)]
+\define\part{\item}
+
+\defineitemgroup[subparts]
+\setupsubparts [each] [r]
+\define\subpart{\item}
 
 %
 % Floats
