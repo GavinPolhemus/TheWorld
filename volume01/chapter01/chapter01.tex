@@ -91,7 +91,7 @@ For the Pythagoreans, the abstract, mathematical disciplines of arithmetic and g
 These four disciplines\dash music, arithmetic, astronomy, and geometry\dash were the \quotation{four paths} to knowledge, known together as the {\em quadrivium.}
 The quadrivium was a beautiful system which brought order to Europeans’ understanding of the world until the end of the sixteenth century.
 
-In the first half of this, chapter we will look at the challenges and revisions of the Pythagorean musical model, leading to the modern equal-tempered scale.
+In the first half of this chapter, we will look at the challenges and revisions of the Pythagorean musical model, leading to the modern equal-tempered scale.
 In the second half of the chapter, we will look at the challenges and revisions of the Pythagorean astronomical model, leading to acceptance of the Sun-centered solar system. 
 Each model's evolution is unique, but there are important similarities. Following these two stories will help us understand how and why mathematical models evolve.
 We will need that insight as we develop our new mathematical model of motion in the following chapters.
@@ -406,7 +406,7 @@ These frequencies do not extend to the limits of human hearing, but they do cove
 \startformula
 1\units{Hz} = 1\units{cyc/s}
 \stopformula
-Humans can hear a huge range of frequencies, from about $5\units{Hz}$ up to $20{,}000\units{Hz}$.  The highest frequencies are only audible to young people.
+Humans can hear a huge range of frequencies, from about \unit{5 Hz} up to \unit{20,000 Hz}.  The highest frequencies are only audible to young people.
 
 \startplacetable[location=margin, reference=tab:Frequencies, title={Frequencies (Hz) of Zarlino's just intonation scale and Galelei's equal-tempered scale.}] % Caption
 \startMPcode
@@ -713,21 +713,22 @@ Frequencies of other notes can be found by using the ratios of equal temperament
 
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Ancient Greeks and music in the modern age}
+\section{The Pythagorean model refined}
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The Pythagoreans produced one of the most successful mathematical models of all time. It was expanded by Ptolemy and clarified in response to Galilei, but the basic connection between the mathematical abstraction of simple ratios and the perceived, physical reality of consonant pitches remains unchanged. However, none of this tells us \emph{why} the model is successful. What makes simple frequency ratios sound so good? We do not have a \emph{theory} of consonance which would explain the importance of simple ratios. This is the deepest and most beautiful mystery we will solve in this book. Galilei points us in the right direction: the solution is in the physics of motion.
 
-Galilei offered one more challenge to his teacher, Zarlino, and the musical tradition built on simple frequency ratios. The abundance of consonances in just intonation allowed composers to write elaborate music with many voices singing many different pitches simultaneously. A skilled composer, writing for a professional choir or orchestra, could have these voices changing pitches at different times, some going up while others go down, creating tension through controlled dissonance and then resolution through converging consonance. Zarlino’s music theories focused these grand polyphonic works.
-
-While Galilei appreciated the intellectual beauty of polyphony, his study of ancient Greek music, which was predominately monophonic, left him wondering if something emotional was lost in the multitude of simultaneous sounds.
-Galileo and his friends proposed a return to the tradition of Greek theatrical music, characterized by expressive melodies with intelligible words, embellished to engage and move the audience. They called their new form {\it opera}. It was a huge success.
+%Galilei offered one more challenge to his teacher, Zarlino, and the musical tradition built on simple frequency ratios. The abundance of consonances in just intonation allowed composers to write elaborate music with many voices singing many different pitches simultaneously. A skilled composer, writing for a professional choir or orchestra, could have these voices changing pitches at different times, some going up while others go down, creating tension through controlled dissonance and then resolution through converging consonance. Zarlino’s music theories focused these grand polyphonic works.
+%
+%While Galilei appreciated the intellectual beauty of polyphony, his study of ancient Greek music, which was predominately monophonic, left him wondering if something emotional was lost in the multitude of simultaneous sounds.
+%Galileo and his friends proposed a return to the tradition of Greek theatrical music, characterized by expressive melodies with intelligible words, embellished to engage and move the audience. They called their new form {\it opera}. It was a huge success.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[AncientWorldModels]{Celestial objects do not circle Earth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Before we investigate the Pythagorean’s mathematical model of the cosmos, there is one thing that I want you to remember: this model is terrible! Celestial objects do not circle Earth. Only the Moon goes around Earth, and none of the objects circle, they travel along ellipses. Some of these ellipses are close to circular, so a model made from circles could be a rough starting point for understanding the Solar System. A model in which all of the objects go around Earth will be a convoluted mess. This became clear almost immediately to anyone making regular observations of the planets.
+Before we investigate the Pythagorean’s mathematical model of the cosmos, there is one thing that I want you to remember: this model is terrible! Celestial objects do not circle Earth. Only the Moon goes around Earth, and none of the objects circle, they travel along ellipses. These ellipses are nearly circular, so a model made from circles could be a good, approximate model the Solar System. 
+However, placing Earth at the center of these circles produces a convoluted mess. This became clear almost immediately to anyone making regular observations of the planets.
 
 % textwidth figure
 \placetextfloat[top][fig:Ptolemaicsystem]{The geocentric model from Peter Apian’s \booktitle{Cosmographia,} 1524. Earth sits motionless in the center while the heavens spin around it. The outermost sphere, labeled \emph{Primu Mobile} or \quotation{primary mover,} spins most quickly, dragging the inner spheres along at slightly slower rates. This diagram, like others in the coming pages, uses common symbols for the visible planets. Table \in[T:Astrosym] shows these symbols, as well as the symbols of two more recently discovered planets.} {\externalfigure[ptolemaicsystem][width=\textwidth]}
@@ -738,11 +739,13 @@ The Sun completes one revolution around Earth every day. The Moon, which is clos
 %However, it only applies to their average revolution times.
 %All of these objects have complicated rhythms of speeding up and slowing down.
 
+In the geocentric model, the Sun, Moon, and stars all behave reasonably, traveling at nearly constant rates rates from east to west while moving somewhat north and south with the seasons. The planets, in contrast, have the most erratic movements, speeding up and slowing down, sometimes falling behind but at times moving faster than the stars. Venus and Mercury seem to be tethered to the Sun, sometimes falling behind but then aways overtaking the Sun, leading for a while, and falling behind again.
+In addition, the planets get significantly brighter and then dimmer, as if they are approaching Earth and then receding away.
 
 \define[2]\Astro{\NC #2 \NC #1 } % starfont
 
 \placetable
-    [margin,here]
+    [margin]
     [T:Astrosym]
     {Astronomical Symbols for some important objects in our Solar System. Most of these symbols can be found in figure \in[fig:Ptolemaicsystem]. The two outer planets, Uranus and Neptune, were discovered in 1781 and 1846, respectively.}
 {\vskip330pt\noindent% \vskip330pt
@@ -760,8 +763,6 @@ The Sun completes one revolution around Earth every day. The Moon, which is clos
 \Astro{\Neptune}{Neptune}\NR
 \LL[2]
 \stoptabulate}
-In the geocentric model, the Sun, Moon, and stars all behave reasonably, traveling at nearly constant rates rates from east to west while moving somewhat north and south with the seasons. The planets, in contrast, have the most erratic movements, speeding up and slowing down, sometimes falling behind but at times moving faster than the stars. Venus and Mercury seem to be tethered to the Sun, sometimes falling behind but then aways overtaking the Sun, leading for a while, and falling behind again.
-In addition, the planets get significantly brighter and then dimmer, as if they are approaching Earth and then receding away.
 
 % textwidth figure
 \placetextfloat[top][fig:CopernicanSystem]{The heliocentric model of Nicolaus Copernicus in \booktitle{On the Revolutions of the Heavenly Spheres,} 1543. In this model the distant stars are immobile. Planets orbit the Sun, with inner planets orbiting more quickly than outer planets. The Moon is the one exception, orbiting Earth (\emph{Terra} in the diagram) rather than the Sun (\emph{Sol.}).} {\externalfigure[Copernican_heliocentrism_theory_diagram][width=\textwidth]}
@@ -775,8 +776,8 @@ The heliocentric model became widely known among astronomers, but it was not wid
 \pagereference[Eratosthenes]
 About this time, Eratosthenes measured Earth’s size –  an incredible achievement.
 %Educated people of the time already knew that Earth was round
-Eratosthenes had moved to Egypt to be a librarian at the renowned Library of Alexandria, where the Nile flows into the Mediterranean Sea.
-This put Eratosthenes in the perfect location to make this measurement.
+Eratosthenes had moved to Egypt to be a librarian at the renowned Library of Alexandria.
+Alexandria, on Egypt's northern coast, was perfect for Eratosthenes' measurement.
 Egypt is close enough to the equator for the Sun to pass almost directly overhead in the summer.
 Eratosthenes learned there was a well in southern Egypt, in the town of Syene, where the noon Sun was \emph{exactly} overhead on the summer solstice, so that someone looking into the well would see the Sun’s reflection in the water far below.
 Farther north, in Alexandria, the Sun was not quite directly overhead due to the Earth’s curvature. At noon on the summer solstice, Eratosthenes measured the shadow cast by a vertical post in Alexandria and found the Sun was one fiftieth of a circle (about seven degrees) away from vertical. This meant  the distance from the Syene to Alexandria was one fiftieth of Earth’s circumference, as shown in figure \in[fig:EarthRadius].
@@ -805,20 +806,20 @@ mark=at position .5 with {\node[above=2pt, fill=white, inner sep=2pt, transform 
 
 Measuring the angle was the easy part. Measuring the distance from Alexandria to the well was more difficult.
 Eratosthenes may have measured the distance by making the trip himself, or he may have used distance measurements made by others.
-Either way, he found the distance to be about $5{,}000$ stadia, or about $900\units{km}$. Multiplying by $50$, he estimated Earth’s circumference to be about about $250{,}000$ stadia, or about $45{,}000\units{km}$.
-Earth’s circumference is now known to be $40{,}000\units{km}$ (or $4.00\sci{7}\units{m}$). Eratosthenes’s estimate is about $12\%$ larger than the correct value, impressively accurate considering the difficulty of the measurement.
+Either way, he found the distance to be about $5000$ stadia, or about \unit{900km}. Multiplying by $50$, he estimated Earth’s circumference to be about about \unit{250,000} stadia, or about \unit{45,000 km}.
+Earth’s circumference is now known to be \unit{40,000 km} (or \unit{4.00e7 m}). Eratosthenes’s estimate is about $12\%$ larger than the correct value, impressively accurate considering the difficulty of the measurement.
 %If you measure the circumference around Earth’s equator, you get the 40,075 km figure I mentioned, But if you measure it from pole to pole, you get 40,007 km. [http://www.universetoday.com/26461/circumference-of-the-earth/]
 
 \marginTikZ{}{EarthRadius}{Eratosthenes determined Earth’s size. The well’s depth and the post’s height are greatly exaggerated.}
 
-Astronomical measurements improved significantly over the next few centuries. The Babylonians, in particular, became master astronomers. They had been recording daily observations of the celestial motions since since the middle of the seventh century \scaps{bc} and continued into the first century \scaps{ad}. This approximately 800 year record was essential for Greek astronomers attempting to refine their model of the world.
+In the centuries after Eratosthenes, astronomical measurements improved dramatically. The Babylonians, in particular, became master astronomers. They had been recording daily observations of celestial motions since since the seventh century \scaps{bc} and continued into the first century \scaps{ad}. This 800 year record was essential for Greek astronomers attempting to refine their model of the world.
 
 When Ptolemy attacked this problem, armed with the precise astronomical observations of the Babylonians, he produced a geocentric model with dozens of complicated, invisible wheels that moved the planets though their complex motions. Unlike his elegant system of intonation, his model of the world is insanely complex and arbitrary. He explained all of the details in the \booktitle{Almagest,} which was not lost. His geocentric model, the \keyterm{Ptolemaic system,} became the accepted model of the world through the middle ages.
 
 
-During the Renaissance, when musicians were experimenting with their daring thirds, the Polish astronomer Nicholas Copernicus produced his own daring model of the world. Copernicus used the same Babylonian data as Ptolemy – it was still the best data in existance – to produce a heliocentric model. All of the details are in his 1543 book, \booktitle{On the Revolutions of the Heavenly Spheres.} Figure \in[fig:CopernicanSystem] is Copernicus' simplified sketch of his system. His full model, like Ptolemy’s, was also insanely complex, requiring dozens of spheres to account for all of the planets' motions. His heliocentric model is often called the \keyterm{Copernican system}.
+During the Renaissance, when musicians rediscovered consonant thirds, the Polish astronomer Nicholas Copernicus rediscovered the heliocentric model of the world. His model used the same Babylonian data as Ptolemy – it was still the best data in existence! All of the details are in his 1543 book, \booktitle{On the Revolutions of the Heavenly Spheres.} Figure \in[fig:CopernicanSystem] is Copernicus' simplified sketch of his system. His full model, like Ptolemy’s, was insanely complex, requiring dozens of spheres to account for all of the planets' motions. His heliocentric model is often called the \keyterm{Copernican system}.
 
-Given the complexity of the Copernican system, few people were persuaded to abandon Ptolemy's geocentric model.  Finding the correct model of the world would require two things: a willingness to abandon failed ideas, and new observations.
+Given the complexity of the Copernican system, few people were persuaded to abandon Ptolemy's geocentric model.  Finding the correct model of the world would require two things: new observations and a willingness to abandon failed ideas.
 \pagereference[AncientWorldModelsEnd]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -828,7 +829,7 @@ Given the complexity of the Copernican system, few people were persuaded to aban
 While Vincenzo Galilei was making waves in the music world, his equally confrontational son, Galileo Galilei\index{Galileo}, became a professor of mathematics, first at the University of Pisa (1589--1592) and then at the University of Padua (1592--1610).
 Galileo understood both the geocentric and heliocentric models and taught the geocentric model to students. His primary interest was not astronomy, but rather motion, fluids, and structures. He wrote several papers on these subjects for his students, but the papers were not published or distributed widely.
 
-Then, in 1609, Galileo heard of a device which seized his attention completely. He tells the story of this device and the discoveries that followed in his 1610 booklet, \booktitle{The Sidereal Messenger}. (Sidereal means \quotation{of the stars}.)
+Then, in 1609, Galileo heard of a device which seized his attention completely. He tells the story of this device and the discoveries that followed in his 1610 booklet, \booktitle{The Sidereal Messenger}. (Sidereal means \quotation{of the stars.})
 \startblockquote
 	About ten months ago a report reached my ears that a Dutchman had constructed a spyglass, by the aid of which visible objects, although at a great distance from the eye of the observer, were seen distinctly as if near....\autocite{p.~49}{Galileo1610}
 \stopblockquote
@@ -837,39 +838,55 @@ Amazed by this report, he set out to understand and then construct his own spygl
 	It would be altogether a waste of time to enumerate the number and importance of the benefits which this instrument may be expected to confer when used by land or sea. But without paying attention to its use for terrestrial objects, I betook myself to observations of the heavenly bodies.\autocite{p.~49--50}{Galileo1610}
 \stopblockquote
 
-Galileo shares his observations with delight and wonder. He presents his observations of the Moon in careful drawings, figure \in[fig:MoonSurface], that reveal its surface in greater detail than anyone had seen before.
+Galileo shares his observations with delight and wonder, and he uses his observations to better understand the various heavenly bodies.
+
+Galileo recorded his observations of the Moon in careful watercolors, \in{figure}[fig:MoonSurface], revealing details never before seen.
+Using these details, Galileo challenges widely held beliefs about the Moon.
 % Margin image
-\placefigure[margin][fig:MoonSurface]{The Moon’s hills and valleys are clearly visible in Galileo’s original watercolors.} {\externalfigure[MoonPhases6][width=\rightmarginwidth]}
+\placefigure[margin][fig:MoonSurface]{The Moon’s hills and valleys are clearly visible in Galileo’s original watercolors.\endnote{Galileiana 48, f.~20, Biblioteca Nazionale Centrale, Florence}} {\externalfigure[MoonPhases6][width=\rightmarginwidth]}
+
+%\startblockquote
+%	...anyone may know with the certainty that is due to the use of our senses that the moon certainly does not possess a smooth and polished surface, but one rough and uneven, and, just like the face of the earth itself, it is everywhere full of vast protuberances, deep chasms, and sinuosities.\autocite{p.~48}{Galileo1610}
+%\stopblockquote
 \startblockquote
-	...anyone may know with the certainty that is due to the use of our senses that the Moon certainly does not possess a smooth and polished surface, but one rough and uneven, and, just like the face of the earth itself, it is everywhere full of vast protuberances, deep chasms, and sinuosities.\autocite{p.~48}{Galileo1610}
+	...the surface of the moon is not perfectly smooth, free from inequalities and exactly spherical (as a large school of philosophers holds with regard to the moon and the other heavenly bodies), but\dots on the contrary it is full of inequalities, uneven, full of hollows and protuberances, just like the surface of the earth itself, which is varried everywhere by lofty mountains and deep valleys.\autocite{p.~52}{Galileo1610}
 \stopblockquote
-%Just as Vincenzio Galilei’s had overturned Aristotle’s understanding of a string’s vibration,
-This observation challenged Aristotle’s view that objects in the heavens were perfectly smooth and round, made of an immutable substance unlike anything on Earth.
 
 % Margin image
 \placefigure[margin][fig:Orion]{Galileo writes, \quotation{I had determined to depict the entire constellation of Orion, but I was overwhelmed by the vast quantity of stars.... For this reason I have selected the three stars in Orion’s Belt and the six in his Sword, which have long been well known groups, and I have added eighty other stars recently discovered in their vicinity.... The well-known or old stars, for the sake of distinction, I have depicted of larger size....}\autocite{p.~65}{Galileo1610}} {\externalfigure[orion][width=\rightmarginwidth]}
 
-Galileo next shared his amazement when the telescope,
-	\quotation{set distinctly before the eyes other stars in myriads, which have never been seen before, and which surpass the old, previously known, stars in number more than ten times.}\autocite{p.~48}{Galileo1610}\ He drew a small sample, figure \in[fig:Orion], to show how numerous the newly revealed stars are compared to those previously known.
-This multitude of stars did not challenge any widely held view about the heavens, but it certainly demonstrated the telescope’s power.
+\noindent
+The geocentric model's proponents believed that heavenly bodies are perfectly smooth and round, made of an immutable substance unlike anything on Earth. In their model, the visible patterns on the Moon are like the patterns on perfectly smooth, polished marble. Galileo, however, saw small details on the Moon that would change with the changing direction of sunlight. He carefully argues that each of these changes is exactly what is expected for the shadows and illuminated slopes of mountains, valleys, ridges and hollows. He compares each changing detail on the Moon to the changing shadows and illuminated slopes seen on Earth as the Sun rises and sets.
+With each of these comparisons Galileo undermines the essential geocentric distinction between Earth and the heavens.
+
+Galileo next shared his amazement when the telescope, \quotation{set distinctly before the eyes other stars in myriads, which have never been seen before, and which surpass the old, previously known, stars in number more than ten times.}\autocite{p.~48}{Galileo1610}
+He drew a sample, figure \in[fig:Orion], demonstrating the telescope’s power to reveal new details in the heavens.
+
+Galileo used the telescope's power to resolve an ancient dispute about the nature of the Milky Way and other faint, nebulous illuminations in the night sky. Were these illuminations made of stars too faint and numerous to distinguish, or where they diffuse substances like clouds reflecting the light of other stars or of the Sun?
+
+\startblockquote
+The third thing which I have observed is the essence or substance of the Milky Way. By the aid of a spyglass anyone may behold this in a manner which so distinctly appeals to the senses that all the disputes which have tormented philosophers though so many ages are exploded at once by the indubitable evidence of our eyes, and we are freed from wordy disputes upon this subject. In fact, the galaxy is nothing but a mass of innumerable stars planted together in clusters. For upon whatever part of it you direct the spyglass, straightaway a vast crowd of stars presents itself to view; many of them are tolerably large and extremely bright, but the number of small ones is quite beyond determination.
+\autocite{p.~66}{Galileo1610}
+\stopblockquote
+
+%\startblockquote
+%Milky brightnesses, like the brightness of a white cloud, is seen not only in the Milky Way, but also in several spots of a similar color that shine here and there in the heavens. If you turn the spyglass upon any of them, you will find a cluster of stars packed close together. Furthermore\dash and you will be more surprised at this\dash the stars that have been called by every one of the astronomers up to this day \emph{nebulous} are groups of small stars set thick together in a wonderful way. Although each star escapes our sight on account of its smallness, or of it immense distance from us, from the commingling of their rays there arises that brightness which has hitherto been believed to be the denser part of the heavens, able to reflect the ray of the stars or the sun.
+%\autocite{p.~66--67}{Galileo1610}
+%\stopblockquote
 
 Finally, Galileo relates his most amazing discovery.
 \startblockquote
-	There remains the matter that seems to me to deserve to be considered the most important in this work. That is, I should disclose and publish to the world the occasion of discovering and observing four planets never seen from the beginning of the world up to our own times, their positions, and the observations made during the last two months about their movements and their changes of magnitude [brightness]. And I summon all astronomers to apply themselves to examine and determine their periodic times, which it has not been permitted me to achieve up to this day owing to the restriction of my time.\autocite{p.~67--68}{Galileo1610}
+	There remains the matter that seems to me to deserve to be considered the most important in this work. That is, I should disclose and publish to the world the occasion of discovering and observing four planets never seen from the beginning of the world up to our own times, their positions, and the observations made during the last two months about their movements and their changes of magnitude [brightness].
+\autocite{p.~67--68}{Galileo1610}
 \stopblockquote
 
-Galileo discovered these planets in the vicinity of Jupiter, observing three of them for the first time on January 7, 1610. Over the next few nights he observed them moving quickly around Jupiter, so that on some nights they appeared just to the east of Jupiter, and on other nights just to the west.
+Galileo discovered these planets near Jupiter, observing three of them for the first time on January 7, 1610. Over the next few nights he observed them moving quickly around Jupiter, so that on some nights they appeared just to the east of Jupiter, and on other nights just to the west.
 These observations are reproduced in figure \in[fig:JupiterMoons].
 %He reports that on January 11 the explanation for their motion became clear.
-\startblockquote
-	I therefore concluded, and decided unhesitatingly, that there were three stars in the heavens moving around Jupiter, like Venus and Mercury around the Sun. This was finally established as clear as daylight by numerous other subsequent observations. These observations also established that there are not only three, but four, wandering sidereal bodies performing their revolutions around Jupiter.\autocite{p.~69}{Galileo1610}
-\stopblockquote
-The four celestial objects that Galileo discovered, which he referred to as \quotation{planets,} \quotation{stars} and \quotation{wandering sidereal bodies} in the passages above, are now called moons of Jupiter, or jovian moons. Today the term \keyterm{star} is reserved for large, hot objects like the Sun that produce their own light. The term \keyterm{planet} is reserved for objects orbiting the Sun or another star. \emph{Moon}\index{moon} refers to an object orbiting a planet. Jupiter has many moons too small for Galileo  to have seen with his telescope.
-Jupiter’s four large moons, often called the \keyterm{Galilean moons}, are huge, almost as large as the planet Mars.
 
 % Margin image
 \placefigure[margin][fig:JupiterMoons]{Galileo’s drawings of his first seven observations of Jupiter and its moons in January of 1610. He discovered four moons, but on many nights he saw fewer. Sometimes two of the moons were too close together to be seen separately, or moons were obscured by Jupiter. Clouds prevented observations on January 9 and 14.\autocite{p.~68--70}{Galileo1610}}
-{\small
+{\small%
 	\leftaligned{January 7, 1610}\\
 	\externalfigure[Jupiter1][width=\rightmarginwidth]\\
 	\leftaligned{January 8}\\
@@ -887,20 +904,38 @@ Jupiter’s four large moons, often called the \keyterm{Galilean moons}, are hug
 	\blank[small]
 }
 
+\startblockquote
+I therefore concluded, and decided unhesitatingly, that there were three stars in the heavens moving around Jupiter, like Venus and Mercury around the Sun. This was finally established as clear as daylight by numerous other subsequent observations. These observations also established that there are not only three, but four, wandering sidereal bodies performing their revolutions around Jupiter.\autocite{p.~69}{Galileo1610}
+\stopblockquote
+The four celestial objects that Galileo discovered, which he referred to as \quotation{planets,} \quotation{stars} and \quotation{wandering sidereal bodies} in the passages above, are now called moons of Jupiter, or jovian moons.
+Today, the term \keyterm{star} is reserved for large, hot objects that produce their own light, like the Sun.
+The term \keyterm{planet} is reserved for objects orbiting the Sun or another star.
+\emph{Moon}\index{moon} refers to an object orbiting a planet. Jupiter has many moons too small for Galileo  to have seen with his telescope.
+Jupiter’s four large moons, often called the \keyterm{Galilean moons}, are huge, almost as large as the planet Mars.
+
 Galileo’s  discovery of Jupiter’s moons removed one of the primary objections to the Copernican system.
 \startblockquote
 	Additionally, we have a notable and splendid argument to remove the scruple of those who can tolerate the revolution of the planets around the Sun in the Copernican system, but are so disturbed by the motion of one Moon around the earth (while both accomplish an orbit of a year’s length around the Sun) that they think this constitution of the universe must be rejected as impossible. For now we have not just one planet revolving around another while both traverse a vast orbit around the Sun, but four planets which our sense of sight presents to us circling around Jupiter (like the Moon around the earth) while the whole system travels over a mighty orbit around the Sun in the period of twelve years.\autocite{p.~83--84}{Galileo1610}
 \stopblockquote
 
-%\section{Period of orbits and rotations}
+Galileo's observations convinced him completely that the heliocentric model is correct.
+He clearly hopes to convince his readers as well! He promises a more complete argument\dash backed by more evidence\dash in an upcoming book, \booktitle{On the System of the World}.
 
-When Galileo says that Jupiter completes an orbit \quotation{in the period of twelve years,} he is using \quotation{period} just as it was used for vibrations in Chapter \in[ch:Music]. Period\index{period} is still the time required for one \keyterm{cycle}.
+\startblockquote
+For I will prove that the earth has motion\dots and I will support these conclusions by countless arguments taken from natural phenomena. 
+\autocite{p.~63}{Galileo1610}
+\stopblockquote
+Galileo will guide us through his most compelling arguments in \in{Chapter}[ch:Motion].
+To understand his arguments, we must first learn a bit more about circular motion, which drive's Galileo's model of the world.
+
+\section{Period relations}
+
+When Galileo says that Jupiter completes an orbit \quotation{in the period of twelve years,} he is using \quotation{period} just as it was used for musical vibrations. Period\index{period} is still the time required for one \keyterm{cycle}.
 In the case of the vibrating string, a cycle is one complete back-and-forth motion. In the case of an orbit, like Galileo describes, a cycle is one complete revolution of the orbiting object around the central object. In the case of rotation, a cycle is one complete rotation about the axis. The period of Earth’s rotation about its axis is $T=1\units{day}$. %In the case of an orbit, a cycle is one complete revolution about the orbit’s center.
 The period of Earth’s revolution around the Sun is $T=1\units{year}=365.24\units{days}$. %In all cases the period is the time required to complete a cycle.
 Musical vibrations have periods of hundredths or thousandths of a second. Orbits can have periods of days, years, decades or longer. The same symbol $T$ represents periods of any duration.
 
-\section{Period relations}
-The orbits of planets can be described by their frequencies rather than their periods. For example, Mercury orbits the Sun with a period $T=88.0$ days. The frequency can be found using the frequency relations from Chapter \in[ch:Music]. We could find the frequency in Hertz, but since the period is months long, let us find the frequency in cycles per year.
+The orbits of planets can be described by their frequencies rather than their periods. For example, Mercury orbits the Sun with a period $T=88.0$ days. The frequency can be found using the frequency relations. We could find the frequency in Hertz, but since the period is months long, let us find the frequency in cycles per year.
 \startformula
 	f = \frac{1\units{cyc}}{T}	%\\
 		= \frac{1\units{cyc}}{88.0\ucan{d}}
@@ -955,10 +990,10 @@ As with frequency, the most accurate way to measure the period is to measure the
 
 %[Galileo was not the only astronomer refining our model of the Solar System. Tycho precision observations and Kepler sophisticated modeling.... A scale diagram of the Solar System would be good here. Can I find a drawing of Kepler’s Solar System? Alternatively, we could talk about the older precision data and with a teaser about better data which was not available to Galileo, but will be discussed in chapter 7.]
 
-A circular orbit’s radius is measured from the orbit’s center, just as amplitude is measured from the oscillating motion’s central point.
+A circular orbit’s radius is measured from the orbit’s center.
 Planets and moons following circular orbits travel with a constant speed.
 %\footnote{This footnote is only for savvy readers screaming \quotation{but the \emph{direction}!} Newton, in 1687, taught us that changes in the velocity’s direction are just as important as changes in the magnitude. In Newton’s view, the velocity \emph{is not} constant along a circular path because the direction changing. Lagrange responded, in 1790, that we can bend our coordinates to match our situation, and then consider velocities along the bent coordinates. After bending the coordinates to follow the circle, the velocity \emph{is} constant. Lagrange’s trick is both practical and powerful. We will take full advantage of it. The two methods are compared in Chapter \in[ch:Orbits].}
-The speed can be calculated using \quotation{distance over duration.} During one cycle the distance is the circumference of the orbit, $2\pi R$, and the duration is the period, $T$.
+The speed can be calculated using \quotation{distance over duration.} During one cycle, the distance is the circumference of the orbit, $2\pi R$, and the duration is the period, $T$.
 %\highlightbox{
 \startformula[eq:vT]\pagereference[eq:vT]
 	\text{speed} = \frac{2\pi R}{T}.
@@ -1007,9 +1042,17 @@ The formula for the speed of circular motion will provide the answer, with the h
 \stopsolution
 \stopexample
 
-In 1609, one year before Galileo’s \booktitle{Sidereal Messenger}, Johannes Kepler announced that the planets’ orbits are not described by circles – they are actually slightly elliptical. Ellipses are simple shapes, but they did not fit well into the mechanical models of spheres and wheels that drove both the Ptolemaic and Copernican world systems. Kepler found a mathematical model for the world’s motions, but the forces that could drive these off-center, elliptical motions were mysterious. The perspective was shifting, from a mechanical model to a new physics of motion. Galileo, who did not take much notice of Kepler’s announcement, did understand motion, which he had been studying before his sudden interest in astronomy. He used the discoveries from his lab to understand the world he discovered through his spyglass.
+%\startblockquote
+%And I summon all astronomers to apply themselves to examine and determine their periodic times, which it has not been permitted me to achieve up to this day owing to the restriction of my time.\autocite{p.~68}{Galileo1610}
+%\stopblockquote
 
-\booktitle{The Sidereal Messenger}, published in March of 1610, made Galileo a celebrity. In April, the grand duke of Tuscany, Cosimo II de' Medici, appointed Galileo to be his \quotation{Philosopher and Chief Mathematician.} Galileo quit his job at the University of Padua and moved to Florence where he refined his telescopes and studied the heavens in greater detail. 
+\stopsection
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startsection[title={A revolution in astronomy}]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\booktitle{The Sidereal Messenger}, published in March of 1610, made Galileo a celebrity. In April, the grand duke of Tuscany, Cosimo II de' Medici, appointed Galileo to be his \quotation{Philosopher and Chief Mathematician.} Galileo quit his job at the University of Padua and moved to Florence where he refined his telescopes and studied the heavens. 
 
 Galileo's telescope revealed that Venus goes through phases, much like the Moon (\in{fig.}[fig:Phases]). Astronomers knew that Venus becomes brighter and then dimmer as it moves, but only with a telescope can Venus's phases be seen. Galileo also observed the apparent size of Venus changing dramatically. Venus appears much larger and closer in its crescent phase; much smaller and more distant when fully lit.
 
@@ -1021,7 +1064,6 @@ Venus's phases and changes in size are additional strong evidence for the helioc
 Galileo continued to write about his observations in letters and books, arguing in favor of the heliocentric model. He promoted observation as the best method for discerning truths about the world, just as his father had promoted experiments as the best method for discerning truths about sound and music.
 
 
-\stopsection
 
 \subject{Notes}
 \blank
