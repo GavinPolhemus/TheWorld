@@ -1,0 +1,782 @@
+% !TEX useAlternatePath
+% !TEX useConTeXtSyncParser
+
+\startcomponent Derivatives
+\project project_world
+\product prd_volume01extra
+
+\doifmode{*product}{\setupexternalfigures[directory={Derivatives/images}]}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startchapter[title=Derivatives,reference=ch:Derivatives]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\section{Derivatives give a function's slope}
+%To use Lagrange's method, we will need a tool for finding the slope of potential energy functions. This tool is called a \keyterm{derivative}.
+
+You have already worked with slopes on motion graphs, where the slope is the object's velocity. We will start our study of derivatives by looking at velocity, which we defined in terms of a small change in position over a small change in time (\at{p.}[fig:BallRollsDown]).
+\startformula
+	v = \frac{dx}{dt}
+\stopformula
+This is the slope on the motion graph at a specific time, as shown in \in{figure}[fig:BallRollsDownLagrange].
+It would be great if we could find the instantaneous velocity for every time – without drawing a million little triangles. This derivative accomplishes this feat.
+
+\startbuffer[BallRollsDownLagrange]
+	\startaxis[
+		width=2.25in,%\marginparwidth,
+		y={1mm},%x={1cm},
+		xlabel={$t$ (s)},
+		xmin=0, xmax=1,
+		%xtick={0,0.2,...,1},
+		xtick distance=0.2,
+		minor x tick num=3,
+		ylabel={$x$ (cm)},
+		%ytick={30,31,...,37},
+		ymin=0, ymax=50,
+		minor y tick num=4,
+		clip mode=individual
+		]
+		\addplot[thick,domain=0:1,samples=51]{3+(50*x^2)};
+		\draw [very thin](0.5,0) -- (0.5, 15.5);
+		\fill(0.5,15.5) circle[radius=.4mm];
+		\draw [-{Straight Barb[scale length=1.3]}, thick](0.4, 21) --node[above]{$dt$} (0.6,21);
+		\draw [-{Straight Barb}, thick](0.4,11) --node[left]{$dx$} (0.4, 21);
+	\stopaxis
+\stopbuffer
+
+\marginTikZ{}{BallRollsDownLagrange}{The rolling ball's motion graph shows the ball's velocity starting small (small slope) and becoming large (large slope). On \at{p.}[fig:BallRollsDown] we used the small $dx$ and $dt$ to estimate the velocity at $t=0.50\units{s}$.} % vskip, name, caption
+
+
+The derivative takes one function and produces a second function that is everywhere equal to the first function's slope. For example, if the first function is an object's position as a function of time, then that function's derivative is the object's velocity as a function of time. In mathematical language, the object's position $x$ is a function of time and that function's derivative is written $\frac{d}{dt}x$. This derivative is the instantaneous velocity $v$ as a function of time.
+\startformula
+v = \ddt x
+\stopformula
+This formula looks very similar to our old instantaneous velocity definition. However, the old definition above was a ratio of two small numbers. In the new definition, the derivative $\ddt$ takes the function $x$ and gives a new function $v$. The examples below will show how the derivative $\ddt$ acts on the function to its right and replaces it with a new function.
+
+You will be able to perform all of the derivatives you need with just four rules.
+First, the derivative of  a constant function (like $x = 3\units{m}$) is \emph{zero}, because the rate of change is zero. This is the \keyterm{constant rule}.
+\startuseMPgraphic{graph::xconst} % I'd like to add minor ticks, 0.667mm long.
+	path xpos;
+	xpos := (0,3) -- (4.4,3);
+draw begingraph(4.4cm,4cm);
+	setrange(origin, 4.4, 4);
+	for y=0, 1, 2, 3, 4 :
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$x$ (m)") rotated 90, OUT);
+	glabel.bot(textext("$t$"), OUT);
+	gdraw(xpos) withpen pencircle scaled 0.8pt;
+	glabel.top("$x=\unit{3m}$",0.5);
+	glabel.bot("$v=0$",0.5);
+endgraph;
+\stopuseMPgraphic
+\startplacefigure[location=margin, reference=fig:xconst, title={The function $x=3\units{m}$ is a constant. The velocity $v=\ddt x$ is zero at all times.}]
+\small\reuseMPgraphic{graph::xconst}
+\stopplacefigure
+\startformula
+	\ddt \text{const.} = 0
+\stopformula
+For example, the function $x=\unit{3 m}$ is shown in \in{figure}[fig:xconst]. The object remains at $x=\unit{3m}$, never moving, so the function is a horizontal line. The velocity $v$ is the slope, which is zero.
+
+The second rule gives the derivative of functions that are powers of $t$, like $t^2$, $t^{-1}$, or $t^1 = t$. The derivatives of these powers are given by the \keyterm{power rule}. 
+\startformula
+	\ddt t^n = nt^{n-1}
+\stopformula
+
+For a function that is a sloped, straight line, like $x = t$, the derivative is the line's slope. (We are ignoring units \emph{briefly}.)
+The slope is the same at all times, so the derivative is the same at all times, as in \in{figure}[fig:xlin]. This slope is given by the power rule with $n=1$. 
+\startuseMPgraphic{graph::xlin} % I'd like to add minor ticks, 0.667mm long.
+	path xpos;
+	xpos := (0,0) -- (5,5);
+draw begingraph(4.4cm,4.4cm);
+	setrange(origin, 4.4, 4.4);
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$x$"),OUT);
+	glabel.bot(textext("$t$"), OUT);
+	gdraw(xpos) withpen pencircle scaled 0.8pt;
+	gdotlabel.ulft("$x=1$" , 0.2);
+	glabel.bot("$v=1$" , 0.2) rotatedaround(point 0.2 of xpos, 45);
+	gdotlabel.ulft("$x=2$" , 0.4);
+	glabel.bot("$v=1$" , 0.4) rotatedaround(point 0.4 of xpos, 45);
+	gdotlabel.ulft("$x=3$" , 0.6);
+	glabel.bot("$v=1$" , 0.6) rotatedaround(point 0.6 of xpos, 45);
+	gdotlabel.ulft("$x=4$" , 0.8);
+	glabel.bot("$v=1$" , 0.78) rotatedaround(point 0.78 of xpos, 45);
+endgraph;
+\stopuseMPgraphic
+\startplacefigure[location=margin, reference=fig:xlin, title={The function $x=t$ is a straight line. The velocity $v=\ddt x$ is $1$ at all times.}]
+\small\reuseMPgraphic{graph::xlin}
+\stopplacefigure
+\startformula
+	v = \ddt x = \ddt t = \ddt t^1 = 1t^{1-1} = 1t^0 = 1
+\stopformula
+In this case the velocity is $v=1$ at all times, as shown in \in{figure}[fig:xlin].
+
+For a parabola, like $x = t^2$, the slope is different at different locations, so the derivative is a new function. \in{Figure}[fig:xquad] shows the function $x=t^2$ and some slopes, which can be found using the power rule with $n=2$.
+\startuseMPgraphic{graph::xquad} % I'd like to add minor ticks, 0.667mm long.
+	path xpos;
+	xpos := (-3,9) ..controls (-1,-3) and (1,-3).. (3,9);
+draw begingraph(4.6cm,4.8cm);
+	setrange(-2.3, -0.4, 2.3, 4.4);
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$x$"),OUT);
+	glabel.bot(textext("$t$"), OUT);
+	gdraw(xpos) withpen pencircle scaled 0.8pt;
+	gdotlabel.urt("$x=4$" , 1/6);
+	glabel.lrt("$v=-4$" , 1/6) rotatedaround(point 1/6 of xpos, -76);
+	gdotlabel.rt("$x=1$" , 1/3) rotatedaround(point 1/3 of xpos, 26.6);
+	glabel.bot("$v=-2$" , 1/3) rotatedaround(point 1/3 of xpos, -63.4);
+	gdotlabel.rt("$x=0$" , 0.5) rotatedaround(point 1/2 of xpos, 90);
+	glabel.bot("$v=0$" , 0.5) shifted (0, 0.05);
+	gdotlabel.lft("$x=1$" , 2/3) rotatedaround(point 2/3 of xpos, -26.6);
+	glabel.bot("$v=2$" , 2/3) rotatedaround(point 2/3 of xpos, 63.4);
+	gdotlabel.ulft("$x=4$" , 5/6);
+	glabel.llft("$v=4$" , 5/6) rotatedaround(point 5/6 of xpos, 76);
+endgraph;
+\stopuseMPgraphic
+\startplacefigure[location=margin, reference=fig:xquad, title={The function $x=t^2$ is not straight. The velocity $v=\ddt x = 2t$ changes with time.}]
+\small\reuseMPgraphic{graph::xquad}
+\stopplacefigure
+\startformula
+	v = \ddt x = \ddt t^2 = 2t^{2-1} = 2t^1 = 2t
+\stopformula
+Check that the slopes in \in{figure}[fig:xquad] match the formula $v=2t$.
+
+The power rule works for any power, including negative powers (like $x = 1/t = t^{-1}$) and fractional powers (like $x = \sqrt{t} = t^{\onehalf}$).
+
+\startexample[ex:DerivCubic]
+Find $\ddt t^3$.
+\startsolution
+Use the power rule with $n=3$.
+\startformula
+	\ddt t^3 = 3 t^{3-1} = 3t^2
+\stopformula
+\stopsolution
+\stopexample
+\startexample[ex:DeriveRoot]
+Find $\ddt \sqrt{t}$.
+\startsolution
+Use the power rule with $n=\onehalf$.
+\startformula
+	\ddt \sqrt{t} = \ddt t^\onehalf = \onehalf\,t^{\onehalf-1} = \onehalf\,t^{-\onehalf} = \frac{1}{2\sqrt{t}}
+\stopformula
+\stopsolution
+\stopexample
+
+The third rule says that when a function is multiplied by some constant, its slope is multiplied by the same constant. This constant multiplier is called a \emph{coefficient}. For any function of time $f$ muliplied by a coefficient $c$ we use the \keyterm{coefficient rule}.
+\startformula
+	\ddt cf  = c \ddt f
+\stopformula
+On the left, the derivative is acting on $cf$. On the right the derivative is only acting on $f$. We often say that we have pulled the constant $c$ out of the derivative.
+The coefficient $c$ will typically have units. (Yay, units!)
+Now we can fix some of the examples aboves that did not have the correct units.
+
+A sloped, straight line on the motion graph is given by a function like $x=(\unit{1m/s})t$, shown in \in{figure}[fig:xlinunits]. Notice that when we plug in any value for $t$ with units of seconds, we get an answer for $x$ with units of meters, as we should. The velocity can be found using the coefficient rule, followed by the power rule.
+\startformula
+	v = \ddt x = \ddt (\unit{1m/s})t = (\unit{1m/s})\ddt t = (\unit{1m/s})t^0 = \unit{1m/s}
+\stopformula
+The velocity is a constant, now with the correct units for velocity.
+
+\startuseMPgraphic{graph::xlinunits} % I'd like to add minor ticks, 0.667mm long.
+	path xpos;
+	xpos := (0,0) -- (5,5);
+draw begingraph(4.4cm,4.4cm);
+	setrange(origin, 4.4, 4.4);
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$x$"),OUT);
+	glabel.bot(textext("$t$"), OUT);
+	gdraw(xpos) withpen pencircle scaled 0.8pt;
+	gdotlabel.lft("$x=\unit{1m}$" , 0.2) rotatedaround(point 0.2 of xpos, -45);
+	%glabel.bot("$v=\unit{1m/s}$" , 0.2) rotatedaround(point 0.2 of xpos, 45);
+	gdotlabel.ulft("$x=\unit{2m}$" , 0.4);
+	%glabel.bot("$v=\unit{1m/s}$" , 0.4) rotatedaround(point 0.4 of xpos, 45);
+	gdotlabel.ulft("$x=\unit{3m}$" , 0.6);
+	%glabel.bot("$v=\unit{1m/s}$" , 0.6) rotatedaround(point 0.6 of xpos, 45);
+	gdotlabel.ulft("$x=\unit{4m}$" , 0.8);
+	glabel.bot("$v=\unit{1m/s}$" , 0.44) rotatedaround(point 0.44 of xpos, 45);
+endgraph;
+\stopuseMPgraphic
+\startplacefigure[location=margin, reference=fig:xlinunits, title={When the position function is a straight line, the velocity is the same at all times.}]
+\small\reuseMPgraphic{graph::xlinunits}
+\stopplacefigure
+
+\startuseMPgraphic{graph::xquadunits} % I'd like to add minor ticks, 0.667mm long.
+	path xpos;
+	xpos := (-3,9) ..controls (-1,-3) and (1,-3).. (3,9);
+draw begingraph(4.6cm,4.8cm);
+	setrange(-2.3, -0.4, 2.3, 4.4);
+	for y=auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("$x$ (m)")rotated 90,OUT);
+	glabel.bot(textext("$t$ (s)"), OUT);
+	gdraw(xpos) withpen pencircle scaled 0.8pt;
+	gdotlabel.urt("$x=\unit{4m}$" , 1/6);
+	glabel.lrt("$v=-\unit{4m/s}$" , 1/6) rotatedaround(point 1/6 of xpos, -76);
+	gdotlabel.urt("$x=\unit{1m}$" , 1/3) rotatedaround(point 1/3 of xpos, 26.6);
+	glabel.bot("$v=-\unit{2m/s}$" , 1/3) rotatedaround(point 1/3 of xpos, -63.4);
+	gdotlabel.rt("$x=\unit{0m}$" , 0.5) rotatedaround(point 1/2 of xpos, 90);
+	glabel.bot("$v=\unit{0m/s}$" , 0.5) shifted (0, 0.05);
+	gdotlabel.ulft("$x=\unit{1m}$" , 2/3) rotatedaround(point 2/3 of xpos, -26.6);
+	glabel.bot("$v=\unit{2m/s}$" , 2/3) rotatedaround(point 2/3 of xpos, 63.4);
+	gdotlabel.ulft("$x=\unit{4m}$" , 5/6);
+	glabel.llft("$v=\unit{4m/s}$" , 5/6) rotatedaround(point 5/6 of xpos, 76);
+endgraph;
+\stopuseMPgraphic
+\startplacefigure[location=margin, reference=fig:xquadunits, title={When position function is not a straight line, the velocity changes with time.}]
+\small\reuseMPgraphic{graph::xquadunits}
+\stopplacefigure
+
+\startexample[ex:ConstAcc]
+An object's position is $x = (\unit{1m/s^2})\,t^2$. First, notice that the units work in this formula! Then, find the force.
+\startsolution
+Use the coefficient rule, followed by the power rule.
+\startformula
+	v = \ddt x = \ddt (\unit{1m/s^2})t^2 = (\unit{1m/s^2})\ddt t^2 = (\unit{1m/s^2})2t = (\unit{2m/s^2})t
+\stopformula
+The velocity is changing with time. Plugging in a time $t$ with units of seconds gives a velocity $v$ with units of meters per second, as it should.
+\stopsolution
+\stopexample
+
+
+
+Derivatives are also useful working with momentum and force. The net force on an object is the rate at which the object's momentum is changing. Even though we do not usually draw graphs showing momentum as a function of time, we can use the derivative of momentum to find the force.
+\startformula
+	F = \ddt p
+\stopformula
+Calculations of force are just like calculations of velocity, but with different units.
+
+\startexample[ex:ForceDerivMomentum]
+An object's momentum is $p = (14\units{kg\.m/s^3})\,t^2$.  First, notice that the units work in this formula! Then, find the force.
+\startsolution
+Use the coefficient rule, followed by the power rule.
+\startformula
+	F = \ddt p
+		= \ddt (14\units{kg\.m/s^3})\,t^2
+		= (14\units{kg\.m/s^3}) \ddt t^2
+		= (28\units{kg\.m/s^3})\,t 
+\stopformula
+The force is changing with time. Plugging in a time $t$ with units of seconds gives a force $F$ in newtons, as it should.
+\stopsolution
+\stopexample
+
+The fourth and final rule is for functions added together. The slope of the sum is equal to the sum of the slopes. For any two functions of time $f$ and $g$ we use the \keyterm{sum rule}.
+\startformula
+	\ddt (f+g) = \ddt f + \ddt g
+\stopformula
+For example, if an object's vertical position is given by the formula $y = (12\units{m/s})\,t - (4.9\units{m/s^2})\,t^2$, we can find the vertical component of its velocity.
+\startformula\startmathalignment
+\NC	v_y = \ddt y	
+		\NC = \ddt \left[(12\units{m/s})\,t - (4.9\units{m/s^2})\,t^2\right]	\NR
+\NC		\NC = \ddt (12\units{m/s})\,t - \ddt (4.9\units{m/s^2})\,t^2		\NR
+\NC		\NC = (12\units{m/s})\ddt t - (4.9\units{m/s^2}) \ddt t^2			\NR
+\NC		\NC = (12\units{m/s}) - (9.8\units{m/s^2})\,t						\NR
+\stopmathalignment\stopformula
+We used the sum rule, then the coefficient rule, and finally the power rule (twice) to find the velocity.
+
+The derivative can be used on any coordinate to find the corresponding component of the velocity. The derivative can even be used on an angular coordinate $\theta$ to find the angular velocity $\omega$.
+\startformula
+  v_x = \ddt x \qquad
+  v_y = \ddt y \qquad
+  v_z = \ddt z \qquad
+  \omega = \ddt \theta
+\stopformula
+The derivative can also be used to find any component of force from the corresponding component of the momentum.
+
+There are more derivative rules for more complicated functions, but the four rules above are all you need for this physics course. 
+
+%We only need three rules for working with rates of change. In the rules below, $f$ and $g$ are functions of time, while $a$ and $n$ are constants.
+%\startformula\startmathalignment
+%\NC \ddt(af)	\NC = a \ddt f		\NR
+%\NC \ddt (f + g)	\NC = \ddt f + \ddt  g	\NR
+%\NC \ddt t^n	\NC = n t^{n-1}		\NR
+%\stopmathalignment\stopformula
+%
+%
+%There are two general derivative rules that we do not need: the product rule and the chain rule. These are both more difficult to understand and use than the rules above. We could use the product rule to get the power rule, but it that derivation probably doesn't bring much benefit.
+%The chain rule is could be used for simple harmonic motion, $x = A \sin(t/2\pi T)$, but we don't need the instantaneous velocity of SHO at all times, just the maximum speed. There are, of course, many formulas for derivatives of specific functions (trig, exp, log, etc.), but I think we only need powers.
+
+\startexample[ex:DerivativeConstantV]
+An object's position $x$ at time $t$ is given by the equation
+\startformula
+	x = x_0 + v_0 t
+\stopformula
+Where $x_0$ and $v_0$ are constants. ($x_0$ is the object's initial position). Use the derivative rules to find the object's velocity $v$ at any time $t$.
+
+\startsolution
+We start with the instantaneous velocity definition $v=\frac{d}{dt}x$, and apply the rules.
+\startformula\startmathalignment
+\NC v = \ddt x
+		\NC = \ddt (x_0 + v_0t)		\NR
+\NC		\NC = \ddt x_0 + \ddt v_0t	\NR
+\NC		\NC = 0 + v_0\ddt t			\NR
+\NC		\NC = v_0					\NR
+\stopmathalignment\stopformula
+At any time $t$, the instantaneous velocity $v$ is the constant $v_0$. This is constant velocity motion, also called uniform motion.
+\stopsolution
+\stopexample
+
+
+\startexample[ex:DerivativeConstantF]
+An object's momentum $p$ at time $t$ is
+\startformula
+	p = p_0 + F_0t.
+\stopformula
+where $p_0$ and $F_0$ are constants. ($p_0$ is the object's starting momentum). Find the force $F$ acting on the object at any time $t$.
+
+\startsolution
+Force is the rate of momentum change: $F=\frac{d}{dt}p$.
+\startformula
+	F = \ddt p = \ddt (p_0 + F_0 t) = F_0
+\stopformula
+The force $F$ is the constant $F_0$. This is constant force motion.
+\stopsolution
+\stopexample
+
+
+\startexample[ex:DerivativeConstantAcc]
+An object's position $x$ at time $t$ is given by the equation
+\startformula
+	x = x_0 + v_0 t + \half a_0 t^2
+\stopformula
+Where $x_0$ and $v_0$ and $a_0$ are constants. Find the object's velocity $v$ and the net force acting on the object at any time $t$. (Use mass $m$.)
+\startsolution
+We start with the instantaneous velocity definition $v=\ddt x$, and apply the rules. Notice what happens to the \onehalf\ in the final step.
+\startformula\startmathalignment
+\NC v = \ddt x
+		\NC = \ddt (x_0 + v_0t + \half a_0 t^2)		\NR
+\NC		\NC = \ddt x_0 + \ddt v_0t  + \half a_0 t^2	\NR
+\NC		\NC = 0 + v_0\ddt t	 + \half a_0 \ddt t^2	\NR
+%\NC		\NC = v_0 + \half a 2 t				\NR
+\NC		\NC = v_0 + a_0t							\NR
+\stopmathalignment\stopformula
+This velocity is not constant – the object is accelerating. (The object's initial velocity is $v_0$.) The momentum is also changing.
+\startformula 
+	p = mv = m(v_0 + a_0 t)
+\stopformula	
+Using the derivative rules we find the force $F$ acting on the object at any time $t$.
+\startformula
+	F = \ddt p = \ddt m(v_0 + a_0t) = m\ddt (v_0 + a_0t) = ma_0
+\stopformula
+At any time $t$, the force $F$ is 
+\startformula
+	F = ma_0
+\stopformula
+Since $m$ and $a_0$ are constants, this is constant force motion. The constant force $F$ acting on the object causes the object's constant acceleration $a_0$.
+\stopsolution
+\stopexample
+
+%\section{Other problem ideas}
+%Resistance forces are often proportional to velocity, resulting in function with negative powers. Find the force acting on an objects whose velocity is $v = c/t$. Find the force acting on an object whose position is $x = x_0 - c/t$ (The object approaches $x_0$, but never quite reaches it due to the slowing.)
+
+%I considered problems using $F = \frac{d}{dx}H$, but these did not seem to provide a useful bridge from time derivatives to the partial derivatives below. In fact, it seems to blur the distinction in counter productive ways.
+
+%\section{Local slopes are partial derivatives}
+%
+%Finding a pendulum's equations of motion symbolically requires the derivative of the potential energy $U = -mgR\cos(\theta)$. We don’t need chain rule in that case, but we do need $\frac{d}{d\theta}\cos(\theta) = -\sin(\theta)$. However, this problem is easy to solve with a diagram, which is probably better than doing it symbolically anyway.
+
+\section{Lagrange's force formula}
+Lagrange's insight was that Newton's force can be found from the energy graph of D.~Bernoulli's  potential energy. The force at a specific location is equal to \emph{minus} the slope of the potential energy at that location.
+Lagrange preferred formulas to diagrams and graphs, so he expressed the relationship between potential energy and force using the derivative. This is \keyterm{Lagrange's force formula}.
+\startformula
+	F = -\ppx U
+\stopformula
+The derivative in Lagrange's force formulas is calculated in exactly the same way as the derivatives in the last section.
+After some examples, I will explain why each little $d$ has been replaced by a little $\partial$. This change does not affect the calculations.
+The important change is the little $x$ in the derivative. This $x$ has replaced the $t$ because we are now finding the slope on the energy graph, which has $x$ as the horizontal axis.
+
+To see Lagrange's force formula in action, let's look a the potential energy of a spring, shown in \in{figure}[fig:HookesLaw].
+The diagrams in \in{figure}[fig:HookesLaw] show a cart connected to the spring.
+The graph in \in{figure}[fig:HookesLaw] shows the spring's potential energy, $U = \onehalf kx^2$, as a function of the cart's position $x$. We can use this potential energy function to find the spring's force.
+
+\startuseMPgraphic{graph::SHOGraph} % I'd like to add minor ticks, 0.667mm long.
+	path U, H, K, TPL, TPR;
+	U := (-21,36) ..controls (-7,-12) and (7,-12).. (21,36);
+draw begingraph(4.2cm,2.1cm);
+	setrange(-21,0, 21, 21);
+	itick.lft(formatted("$@g$", 0), 0);
+	for x=auto.x:
+		itick.top(formatted("$@g$", x), x);
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy") rotated 90,OUT)  shifted (2mm,0);
+	glabel.top(textext("$x$ (cm)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.urt("$U$",0.167);
+	glabel(mydot,(9/42));
+	glabel(mydot,(5/14));
+	glabel(mydot,(1/2));
+	glabel(mydot,(9/14));
+	glabel(mydot,(33/42));
+endgraph;
+\stopuseMPgraphic
+
+\startbuffer[SpringCartHooke]
+\startgroupplot[
+  group style={
+    % group name=my plots,
+    group size=1 by 5, % columns by rows
+    x descriptions at=edge bottom,
+    % y descriptions at=edge right,
+    % horizontal sep=0.5cm, 
+    vertical sep=0.5cm,
+  }, 
+  scale only axis,
+  x={1mm},
+  xmin=-24,xmax=24,
+  xtick distance=10,
+  minor x tick num=9,
+  xlabel=$x$ (cm),
+  grid=major,
+]
+\nextgroupplot[ % 1
+  y={1mm},
+  ymin=0,ymax=5,
+  hide y axis,
+  axis x line=bottom,
+  tick align = outside,
+  x axis line style={-},
+  grid = none,
+  clip=false,
+  axis on top = true,
+]
+\pic at (-12,0){cart};
+\draw[decorate,decoration={coil,segment length=1.06pt}] (-24,2.5) --node[above=3pt] {$k$} (-18,2.5);
+\draw[thick,->] (-12,2.5) -- (-4,2.5)node[above] {$F$};
+\fill [black!10,] (-24,0) rectangle (24,-1.5);
+\fill [black!10,] (-26.3,-1.5) rectangle (-24,6);
+\draw (-24,0) -- (-24,6);
+\nextgroupplot[ %2
+  y={1mm},
+  ymin=0,ymax=5,
+  hide y axis,
+  axis x line=bottom,
+  tick align = outside,
+  x axis line style={-},
+  grid = none,
+  clip=false,
+  axis on top = true,
+]
+\pic at (-6,0){cart};
+\draw[decorate,decoration={coil,segment length=1.5pt}] (-24,2.5) -- (-12,2.5);
+\draw[thick,->] (-6,2.5) -- (-2,2.5) ;
+\fill [black!10,] (-24,0) rectangle (24,-1.5);
+\fill [black!10,] (-26.3,-1.5) rectangle (-24,6);
+\draw (-24,0) -- (-24,6);
+\nextgroupplot[ % 3
+  y={1mm},
+  ymin=0,ymax=5,
+  hide y axis,
+  axis x line=bottom,
+  tick align = outside,
+  x axis line style={-},
+  grid = none,
+  clip=false,
+  axis on top = true,
+]
+\pic at (0,0){cart};
+\draw[decorate,decoration={coil,segment length=1.5pt}] (-24,2.5) -- (-6,2.5);
+\fill [black!10,] (-24,0) rectangle (24,-1.5);
+\fill [black!10,] (-26.3,-1.5) rectangle (-24,6);
+\draw (-24,0) -- (-24,6);
+\nextgroupplot[ %4
+  y={1mm},
+  ymin=0,ymax=5,
+  hide y axis,
+  axis x line=bottom,
+  tick align = outside,
+  x axis line style={-},
+  grid = none,
+  clip=false,
+  axis on top = true,
+]
+\pic at (6,0){cart};
+\draw[decorate,decoration={coil,segment length=1.5pt}] (-24,2.5) -- (0,2.5);
+\draw[thick,->] (6,2.5) -- (2,2.5) ;
+\fill [black!10,] (-24,0) rectangle (24,-1.5);
+\fill [black!10,] (-26.3,-1.5) rectangle (-24,6);
+\draw (-24,0) -- (-24,6);
+\nextgroupplot[ % 5
+  y={1mm},
+  ymin=0,ymax=5,
+  hide y axis,
+  axis x line=bottom,
+  tick align = outside,
+  x axis line style={-},
+  grid = none,
+  clip=false,
+  axis on top = true,
+]
+\pic at (12,0){cart};
+\draw[decorate,decoration={coil,segment length=1.5pt}] (-24,2.5) -- (6,2.5);
+\draw[thick,->] (12,2.5) -- (4,2.5) ;
+\fill [black!10,] (-24,0) rectangle (24,-1.5);
+\fill [black!10,] (-26.3,-1.5) rectangle (-24,6);
+\draw (-24,0) -- (-24,6);
+\stopgroupplot
+\stopbuffer
+
+\startplacefigure[location=margin, reference=fig:HookesLaw, title={The cart at its release position (top), the energy graph for the cart and spring (middle), and the cart's position vs.\ time graph (bottom).}]
+\reuseMPgraphic{graph::SHOGraph}
+\typesetbuffer[starttikz,SpringCartHooke,stoptikz]
+\stopplacefigure
+
+\startexample[ex:HookesLaw]
+Use Lagrange's force formula to find the force exerted by a spring with spring constant $k$.
+\startsolution
+Start with the spring's potential energy, $U = \onehalf kx^2$, and apply the derivative rules.
+\startformula
+  F = -\ppx U
+    = -\ppx \left(\half k x^2\right)
+    = -\half k \left(\ppx x^2\right)
+    = -\half k\left(2 x\right)
+    = - kx
+\stopformula
+The force at position $x$ is $F=-kx$.
+\stopsolution
+\stopexample
+This force formula is \keyterm{Hooke's Law}. Each diagram in \in{figure}[fig:HookesLaw] shows the Hooke's law force exerted on the cart by the spring. (The corresponding positions are also marked on the graph.) The negative sign in Hooke's law tells us that the force is always opposing the displacement. When the cart's position $x$ is negative, the force is positive, pushing the cart in the positive direction, back toward the equilibrium point. When the cart's position is positive, the force pushes in the negative direction, also back toward the equilibrium point.
+
+Lagrange's force formula tells us that the force is always toward lower potential energy, as we can see looking at the graph in \in{figure}[fig:HookesLaw]. On the right half of the graph, the slope is positive, so any motion in the positive direction leads to higher potential energy.
+The force, which is minus the slope, is therefore negative, pushing toward lower potential energy.
+On the left half of the graph, the slope is negative. Any motion in the positive direction leads toward lower potential energy, so the force, which is minus the slope, pushes in the positive direction, again toward lower potential energy.
+At the center, the slope and the the force are both zero. Neither direction leads toward lower potential energy, and the force does not point in either direction.
+
+
+Lagrange's trick can also turn the long range gravitational potential energy formula into a formula for the gravitational force. Long range gravitational potential energy was introduced at the end of the previous chapter (\at{p.}[sec:GravUSolarSys]).
+\startformula
+	U = -G\frac{mM}{r}
+\stopformula
+
+\startuseMPgraphic{graph::BoxEarthGravF} % I'd like to add minor ticks, 0.667mm long.
+vardef U =
+	path p;
+		for x = 5 step 0.1 until 40:
+			y := -11.90/x; % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+draw begingraph(4cm,4cm);
+	setrange(0,-2, 40, 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Energy ($\sci{8}\units{J}$)") rotated 90,OUT);
+	glabel.bot(textext("$r$ ($\sci{6}\units{m}$)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.lrt("$U$",140);
+	glabel(mydot,(80));
+	glabel(mydot,(210));
+	glabel(mydot,(340));
+	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
+	gdraw((6.37,0) -- (6.37,-2)) withpen pencircle scaled 0.8pt;
+	for y=0 step -0.5 until -2:%auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+endgraph shifted (0,-5cm);
+  pickup pencircle scaled 0.8pt ;
+  draw externalfigure "EarthEratosthenes.png" scaled 0.127 shifted (-6.37mm,-6.37mm) ;
+  draw fullcircle scaled 12.74mm;
+  drawarrow (13mm,0) -- (-0.5mm,0);
+    dotlabel.ulft  ("", (13mm,0)) ;
+  drawarrow (26mm,0) -- (22.625mm,0);
+    dotlabel.top  ("$F$", (26mm,0)) ;
+  drawarrow (39mm,0) -- (37.5mm,0);
+    dotlabel.llft  ("", (39mm,0)) ;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:BoxEarthGravF, title={The gravitational force on a $3.0\units{kg}$ object at different distances from Earth (top). The potential energy of of $3.0\units{kg}$ object in Earth’s vicinity (bottom). The potential is not shown for locations inside Earth (the gray region).}]
+\small\reuseMPgraphic{graph::BoxEarthGravF}
+\stopplacefigure
+
+\noindent
+The potential energy of a \unit{3.0kg} box was shown in \in{figure}[fig:BoxEarthGravU], and the energy graph is reproduced here in \in{figure}[fig:BoxEarthGravF].
+Before calculating the force, look at the graph to determine the force's direction and relative magnitude.
+
+The gravitational potential energy's slope is positive everywhere, so the gravitational force is negative everywhere – pulling the box back in the negative direction, back toward Earth. This is similar to the right side of \in{figure}[fig:HookesLaw], where the spring potential energy's positive slope lead to a negative spring force – pulling the block back toward the center. The spring's potential energy gets steeper as the spring is stretched, leading to a spring force that increases with distance. The gravitational potential energy does the opposite, getting less steep as the box is moved farther from Earth, leading to a gravitational force that decreases with distance. 
+
+Above the energy graph, I have drawn the gravitational force exerted on the box at three different locations. (The corresponding positions are also marked on the graph.)
+The forces all point in the negative direction, and they get smaller farther from Earth. Lagrange's force formula allows us to find exact force.
+
+\startexample[ex:UniversalGrav]
+Use Lagrange's force formula to find the gravitational force exerted on an object of mass $m$ by a planet of mass $M$.
+\startsolution
+Start with the gravitational potential energy, $U = -GmM/r$, and apply the derivative rules. The most challenging part of this calculation is managing the minus signs. There are three: the minus in $U = -GmM/r$, the minus in Lagrange's force formula $F = -\ppx U$, and the hidden minus in $1/r = r^{-1}$, which will produce a minus due to the power rule.
+\startformula
+  F = -\ppr U
+    = -\ppr\left(-G\frac{mM}{r}\right)
+    = -\ppr \left(-GmMr^{-1}\right)
+    = GmM\left(\ppr r^{-1}\right)
+    = GmM\left(-r^{-2}\right)
+    = -G\frac{mM}{r^2}
+\stopformula
+After taking care with the three minus signs, the gravitational force at distance $r$ is $F=-G\frac{mM}{r^2}$. The gravitational force is in the negative $r$ direction, downward, as it should be.
+\stopsolution
+\stopexample
+
+%\startformula\pagereference[eq:UniversalGrav]
+%	F = -G\frac{mM}{r^2},
+%\stopformula
+\noindent
+This formula for gravitational force is \keyterm{Newton's universal law of gravitation}, and it can be used to find the gravitational force between any two objects. It looks almost identical to the formula for gravitational potential energy, but the denominator is $r^2$ instead of $r$. The $r^2$ in the denominator tells us that the force is very small when the distance is large. (You already knew that from looking at the energy graph – no calculus needed!)\pagereference[eq:UniversalGrav]
+
+Newton presented his universal law of gravitation in the \booktitle{Principia}, along with his laws of motion, long before D.~Bernoulli studied gravitational potential energy. D.~Bernoulli did the calculus calculation the other direction,  finding his formula for gravitational potential energy from Newton's universal law of gravitation.
+
+
+\placewidefloat
+  [bottom,none]
+  {This is its caption I need to fix.}
+{\hbox{\noindent\small\starttikzpicture	% tikz code
+		\draw[shade, ball color = gray] (.4,1.155) circle[radius=.02cm][opacity=.2];
+		\draw[shade, ball color = gray] (4.3,1.0925) circle[radius=.02cm][opacity=.4];
+		\draw[shade, ball color = gray] (8.2,.905) circle[radius=.02cm][opacity=.6];
+		\draw[shade, ball color = gray] (12.1,.5925) circle[radius=.02cm][opacity=.8];
+		\draw[shade, ball color = gray] (16,.155) circle[radius=.02cm];
+		\draw[fill=white!90!black,thin] (.45,.15)--(.45,1.1)--(.44,1.12)--(.44,1.15)--(.63,1.15)--(.63,1.12)--(.62,1.1)--(.62,.15)[opacity=.2];
+		\draw[fill=white!90!black,thin] (4.35,.15)--(4.35,1.1)--(4.34,1.12)--(4.34,1.15)--(4.53,1.15)--(4.53,1.12)--(4.52,1.1)--(4.52,.15)[opacity=.4];
+		\draw[fill=white!90!black,thin] (8.25,.15)--(8.25,1.1)--(8.24,1.12)--(8.24,1.15)--(8.43,1.15)--(8.43,1.12)--(8.42,1.1)--(8.42,.15)[opacity=.6];
+		\draw[fill=white!90!black,thin] (12.15,.15)--(12.15,1.1)--(12.14,1.12)--(12.14,1.15)--(12.33,1.15)--(12.33,1.12)--(12.32,1.1)--(12.32,.15)[opacity=.8];
+		\draw[fill=white!90!black,thin] (16.05,.15)--(16.05,1.1)--(16.04,1.12)--(16.04,1.15)--(16.23,1.15)--(16.23,1.12)--(16.22,1.1)--(16.22,.15);
+		\fill[white!90!black] (16.6,0)--(0,0)--(0,.15)--(16.6,.15);
+		\draw[thin] (0,.15)--node[above]{$1400\units{m}$}(16.6,.15);
+		\node[rotate=90, above, black] at (.44,.64){$85\units{m}$};
+		\draw[thin,-{Straight Barb}] (.4,1.155) parabola (16,.155);
+		\draw[thick,->] (0.75,.3)--node[above right]{$x$}(1.5,.3);
+		\draw[thick,->] (0.75,.3)--node[above right]{$y$}(0.75,1.05);
+\stoptikzpicture}}
+
+\placefigure[margin][fig:RockDropLagrange] % location
+{The potential energy function can be used to find every component of the force. In the case of the falling rock, one of the components is zero.}	% caption text
+{\vskip7in\hbox{\noindent\starttikzpicture
+	\draw[white] (0,0)-- ++(5,0.2); % Sky to make height better. Use \vskip6.4in for bottom.
+\stoptikzpicture}}
+
+As a final example, we consider the rock dropped from the tower, first introduced in chapter 2 and shown here in in \in{figure}[fig:RockDropLagrange]. This potential energy formula is simple, but the the presence of two dimensions, $x$ and $y$, creates an interesting challenge: a force in two dimensions will have two components. To find the force's $y$-component, we use the derivative in the $y$ direction. To find the force's $x$-component, we use the derivative in the $x$ direction.
+
+\startexample[ex:RockDropLagrange]
+A rock of mass $m$ is dropped from a high tower, as shown in \in{figure}[fig:RockDropLagrange]. The rock's gravitational potential energy is $U=mgy$. 
+Use Lagrange's force formula to find the $x$ and $y$ components of the gravitational force exerted on the rock.
+\startsolution
+We will find the $y$ component first.
+\startformula
+  F_y = -\ppy U
+    = -\ppy mgy
+    = -mg\ppy y
+    = -mg
+\stopformula
+The $y$ component of the force is downward, confirming what we know about the gravitational force. Next we attempt to find the $x$ component of the force.
+\startformula
+  F_x = -\ppx U
+    = -\ppx mgy
+\stopformula
+The potential energy $U$ is not a function of $x$, so how do we take the $x$ derivative? As far as $\ppx$ is concerned, the function $U$ is just a constant, so we use the constant rule!
+\startformula
+  F_x = -\ppx U
+    = -\ppx mgy
+    = 0
+\stopformula
+The $x$ component of the gravitational force is zero, so the gravitational force does not alter the rock's motion in the $x$ direction.
+\stopsolution
+\stopexample
+
+The derivative in Lagrange's force formula can be taken in any direction, even if the object does not actually move in that direction. This is why the little $\partial$ is used in place of the little $d$. The symbol $dx$ is for a small change in $x$ that actually occurs due to the object's motion. The symbol $\partial x$ represents a small \emph{virtual} change in $x$ which is only imagined when evaluating the derivative. The force in any direction is determined by how the potential energy would change if the object were to move in that direction.
+
+
+\section{Hamilton's momentum formula}
+
+Hamilton begin's his papers with Lagrange's method, but he identifies one part of Lagrange's equations as a new formula for momentum. This is \keyterm{Hamilton's momentum formula}
+\startformula
+  p = \ppv K
+\stopformula
+Just like Lagrange's force formula, Hamilton's momentum formula takes an energy function and generates something that Newton would recognize. Lagrange's force formula produces Newton's force from the potential energy. Hamilton's momentum formula produces Newton's momentum from the kinetic energy.
+
+In compound motion problems, like the falling rock, Lagrange's force formula provides all components of the force vector. In the same way, Hamilton's force formula provides all components of the momentum vector. To find the momentum's $x$ component, simply take the derivative with respect to the velocity's $x$ component, as similarly for all of the other components.
+
+\startexample[ex:Hamilton's]
+A rock of mass $m$ is dropped from a high tower, as shown in \in{figure}[fig:RockDropLagrange]. The rock's kinetic energy is $K=\onehalf mx_x^2 + \onehalf mv_y^2$. 
+Use Hamilton's momentum formula to find the $x$ and $y$ components of the rock's momentum.
+\startsolution
+To find the momentum's $x$ component, take the derivative with respect to the velocity's $x$ component.
+\startformula
+  p_x = \ppvx K
+    = \ppvx\left( \half mv_x^2 + \half mv_y^2 \right)
+    = mv_x + 0
+    = mv_x
+\stopformula
+We used the constant rule when applying $\partial/\partial x$ to the second term in the kinetic energy.
+\startformula
+  p_y = \ppvy K
+    = \ppvy\left( \half mv_x^2 + \half mv_y^2 \right)
+    = 0 + mv_y
+    = mv_y
+\stopformula
+Hamilton's force formula confirms Newton's well established momentum formula, $\vec p = m\vec v$.
+\stopsolution
+\stopexample
+
+Lagrange's and Hamilton's methods have a profound philosophical significance, because they establish energy as a fundamental concept and then derive the earlier concepts of momentum and force. Lagrange's and Hamilton's methods also have a tremendous practical value, because they allow us to work with any coordinates, including the angular coordinate used for rotating objects and for astronomy.
+
+When using an angular coordinate, an object's angular velocity results in kinetic energy $K=\onehalf I\omega^2$. Hamilton's momentum formula gives us the object's \keyterm{angular momentum}, denoted $L$.
+
+\startformula
+  L = \ppom K
+    = \ppom \left( \half I\omega^2 \right)
+    = I\omega
+\stopformula
+
+% Need references in this chapter!
+%\subject{Notes}
+%\placenotes[endnote][criterium=chapter]
+%
+%\subject{Bibliography}
+%  \placelistofpublications
+
+\stopchapter
+\stopcomponent

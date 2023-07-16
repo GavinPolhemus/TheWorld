@@ -50,7 +50,7 @@ Salviati is named after Galileo’s sharp witted friend, Filippo Salviati, who d
 
 Simplicio represents another of Galileo’s friends, an Aristotelian philosopher who defends Ptolemy's geocentric model. Galileo gently mocked this well educated friend, \quotation{who seemed to have no greater obstacle to the understanding of the truth than the fame he had acquired in Aristotelian interpretation.} \autocite{p.~192}{Galileo1632}
 Rather than using the friend’s name, Galileo named his character Simplicio after the great sixth century Aristotelian commentator, Simplicius.
-You may notice that the commentator’s Italian name, Simplicio, sounds like \quotation{simpleton.} In Italian the name and the insult are identical.
+You may notice that the commentator’s Italian name, Simplicio, sounds like \quotation{simpleton.} In Italian, the name and the insult are identical.
  
 In spite of these rhetorical handicaps, Simplicio enters the debate well prepared and confident.
 The geocentric model is almost universally accepted, and agrees with our natural sense that Earth is motionless.
@@ -90,7 +90,8 @@ We all know, from our own experience, that a rock naturally falls downward, towa
 \placewidefloat
   [bottom,none]
   {This is its caption I need to fix.}
-{\hbox{\noindent\small\starttikzpicture	% tikz code
+{\hbox{\noindent\small%
+\starttikzpicture	% tikz code
 		\draw[shade, ball color = gray] (.4,1.155) circle[radius=.02cm][opacity=.2];
 		\draw[shade, ball color = gray] (.4,1.0925) circle[radius=.02cm][opacity=.4];
 		\draw[shade, ball color = gray] (.4,.905) circle[radius=.02cm][opacity=.6];
@@ -105,7 +106,21 @@ We all know, from our own experience, that a rock naturally falls downward, towa
 		\draw[thin] (0,.15)--(16.6,.15);
 		\draw[thin,-{Straight Barb}] (.4,1.155)--node[rotate=90, above]{$85\units{m}$}(.4,.155);
 		\draw[thin,-{Straight Barb}] (.535,.65)--node[above]{$1400\units{m}$}(16.135,.65);
-\stoptikzpicture}}
+\stoptikzpicture%
+%\startMPcode
+%    path TinyTower, TinyRock ; % Change these to pictures so shade works correctly.
+%    TinyTower := ((.05,0)--(.05,0.95)--(.04,0.97)--(.04,1)--(.23,1)--(.23,0.97)--(.22,0.95)--(.22,0)--cycle) scaled 1cm ;
+%    TinyRock := fullcircle scaled .04cm ;
+%    draw TinyRock shifted (0,.005cm) ;
+%    draw TinyTower ;
+%    shadow(TinyTower shifted (1cm,0), .8) ;
+%	fill ((16.2,0)--(-0.4,0)--(-0.4,-.15)--(16.2,-.15) -- cycle) scaled 1cm withcolor 0.9;
+%	draw (-0.4cm,0)--(16.2cm,0) ;
+%	drawarrow ((0,1.005)--(0,.005)) scaled 1cm ; % {$\unit{85m}$}
+%	drawarrow ((.135,.5)--(15.735,.5)) scaled 1cm ; % {$\unit{1400m}$}
+%\stopMPcode%
+}}
+
 
 Regarding the motion of the tower, recall that Earth’s size was known even in Aristotle’s time (\at{p.}[Eratosthenes]).
 If Earth makes a full rotation every day, a tower in Greece or Italy would be carried by Earth’s rotation at an amazing $330\units{m/s}$ toward the east (example \in[ex:EarthSurfaceSpeed] in the previous chapter).
@@ -485,7 +500,7 @@ is displaced $5\units{cm}$, then it moves in the positive direction and will end
 
 \section{Uniform motion and constant velocity}
 % Could actually use a Galileo quote here. It would be from the Uniform Motion section of Day III in \booktitle{Two New Sciences.} This is missing from Finocchiaro.
-Galileo observed that an object moving without impediment, like the ball on the horizontal plane, will continue to move.  During such uniform motion the object’s displacement is proportional to the motion’s duration.  Over a short time the object will have a small displacement, but over a longer time the object will have a proportionally larger displacement.
+Galileo observed that an object moving without impediment, like the ball on the horizontal plane, will continue to move.  During such uniform motion, the object’s displacement is proportional to the motion’s duration.  The object will have a small displacement in a short time, but during a longer time the object will have a proportionally larger displacement.
 The constant ratio of $\Delta x$ to $\Delta t$ is the \keyterm{velocity}.
 \highlightbox{
 \startformula
@@ -1043,9 +1058,8 @@ Angles can be measured in cycles, degrees, or radians. These angular units are r
 \stopformula
 You have often used degrees to measure angles.
 In \in{Chapter}[ch:Music], you used cycles when studying the circular motion of planets and moons.
-Now, I want to introduce you to your new best friend: radians. 
-You probably recognize radians from a math class, but it is possible you didn’t really hit it off.
-In physics you will work with radians, and it will be great.
+You probably recognize radians from a math class.
+In physics, radians will become your new best friend.
 Radians will help you work through difficult issues with angular units, but not in a demanding way like other units.
 If you need angular units, radian will cheerfully jump in to help.
 If you want to do something with other units, radians will stay out of your way.
@@ -1362,11 +1376,11 @@ Is this compound motion to be expected? It is! Before the rock is released, it i
 \stopblockquote
 By \quotation{power impressed} Galileo means the motion that the object already possesses, which keeps it moving with the tower. %In Chapter \in[ch:Momentum] we will identify this quantity of motion for straight paths, and in Chapter \in[ch:Rotation] we will adapt the idea for circular paths like the one described here. While Galileo had the right idea, a full formulation required almost two centuries of refinement.
 
-Having solved the puzzle of the falling rock, Galileo adapted the argument  to \emph{all} of the experiments which seemed to prove a motionless Earth – experiments with objects thrown upwards or cannon balls fired towards the various points of the compass. In all cases the objects in the experiment move along with Earth before the experiment begins. This shared motion is undetectable because all of the forces in the experiment – the throws, the cannons, gravity – only cause changes in the objects’ motions. But these changes are exactly what they would have been if everything had initially been at rest. There is no indication of the shared motion. Only the \emph{relative} motion can be seen or measured.
+Having solved the puzzle of the falling rock, Galileo adapted the argument  to \emph{all} of the experiments which seemed to prove a motionless Earth – experiments with objects thrown upward or cannon balls fired toward the various points of the compass. In all cases the objects in the experiment move along with Earth before the experiment begins. This shared motion is undetectable because all of the forces in the experiment – the throws, the cannons, gravity – only cause changes in the objects’ motions. But these changes are exactly what they would have been if everything had initially been at rest. There is no indication of the shared motion. Only the \emph{relative} motion can be seen or measured.
 
 Galileo offers some playful experiments to illustrate the difference between shared and relative motion. 
 \startblockquote
-	{\sc Salv.} Shut yourself up with some friend in the main cabin below decks on some large ship, and have with you there some flies, butterflies, and other small flying animals. Have a large bowl of water with some fish in it; hang up a bottle that empties drop by drop into a narrow-mouthed vessel beneath it. With the ship standing still, observe carefully how the little animals fly with equal speed to all sides of the cabin. The fish swim indifferently in all directions; and the drops fall into the vessel beneath; and, in throwing something to your friend, you need throw it no more strongly in one direction than another, the distances being equal; jumping with your feet together you pass equal spaces in every direction. When you have observed all these things carefully (though there is no doubt that when the ship is standing still everything must happen in this way), have the ship proceed with any speed you like, so long as the motion is uniform and not fluctuating this way and that. You will discover not the least change in all the effects named, nor could you tell from any of them whether the ship was moving or standing still. In jumping, you will pass on the floor the same space as before, nor will you make larger jumps towards the stern than toward the prow even though the ship is moving quite rapidly\dots. %, despite the fact that during the time that you are in the air the floor under you will be going in a direction opposite to your jump.
+	{\sc Salv.} Shut yourself up with some friend in the main cabin below decks on some large ship, and have with you there some flies, butterflies, and other small flying animals. Have a large bowl of water with some fish in it; hang up a bottle that empties drop by drop into a narrow-mouthed vessel beneath it. With the ship standing still, observe carefully how the little animals fly with equal speed to all sides of the cabin. The fish swim indifferently in all directions; and the drops fall into the vessel beneath; and, in throwing something to your friend, you need throw it no more strongly in one direction than another, the distances being equal; jumping with your feet together you pass equal spaces in every direction. When you have observed all these things carefully (though there is no doubt that when the ship is standing still everything must happen in this way), have the ship proceed with any speed you like, so long as the motion is uniform and not fluctuating this way and that. You will discover not the least change in all the effects named, nor could you tell from any of them whether the ship was moving or standing still. In jumping, you will pass on the floor the same space as before, nor will you make larger jumps toward the stern than toward the prow even though the ship is moving quite rapidly\dots. %, despite the fact that during the time that you are in the air the floor under you will be going in a direction opposite to your jump.
 In throwing something to your companion, you will need no more force to get it to him whether he is in the direction of the bow or the stern\dots. %, with yourself situated opposite. 
 The droplets will fall as before into the vessel beneath without dropping toward the stern, although while the drops are in the air the ship runs many spans. The fish in their water will swim toward the front of their bowl with no more effort than toward the back\dots. %, and will go with equal ease to bait placed anywhere around the edges of the bowl. 
 Finally, the butterflies and flies will continue their flights indifferently toward every side, nor will it ever happen that they are concentrated toward the stern, as if tired out from keeping up with the course of the ship\dots. %, from which they will have been separated during long intervals by keeping themselves in the air.\dots 
@@ -1384,11 +1398,11 @@ Galileo’s \booktitle{Two World Systems} and earlier writings on the heliocentr
 Galileo’s \booktitle{Two World Systems} was banned, and he was forced to read an abjuration renouncing his views.
 Galileo’s sentence of indefinite imprisonment was commuted to house arrest at his home near Florence.
 
-Although banned, Galileo’s compelling and entertaining case for the heliocentric model spread quickly. His \booktitle{Two World Systems} and other works were translated into Latin and widely distributed among astronomers and philosophers beyond the reach of the Roman Catholic Church. Johannes Kepler’s books on the heliocentric model were also circulating at that time. The heliocentric view quickly became accepted by nearly all astronomers in Europe.
+Although banned, Galileo’s compelling and entertaining case for the heliocentric model spread quickly. His \booktitle{Two World Systems} and other works were translated into Latin and widely distributed among astronomers and philosophers beyond the reach of the Roman Catholic Church. Johannes Kepler’s books on the heliocentric model were also circulating at that time. The heliocentric model quickly became accepted by nearly all astronomers in Europe.
 
 By the end of 1633, Galileo had returned to his villa near Florence where he would spend his remaining years under house arrest.
 No longer allowed to write or speak about the heliocentric universe, he resumed his early work on engineering and motion. % that he had started as a professor at the Universities of Pisa and Padua.
-He published a book on these topics, \booktitle{Discourses and Mathematical Demonstrations Relating to Two New Sciences}, in 1638. \booktitle{Two New Sciences} launched a revolution in physics every bit as profound as the revolution in cosmology. %In fact, his work on motion applied to the motion of planets and moons in the Solar System, even though he does not mention these objects in \booktitle{Two New Sciences}.
+He published a book on these topics, \booktitle{Discourses and Mathematical Demonstrations Relating to Two New Sciences}, in 1638. \booktitle{Two New Sciences} launched a revolution in physics every bit as profound as the revolution in astronomy. %In fact, his work on motion applied to the motion of planets and moons in the Solar System, even though he does not mention these objects in \booktitle{Two New Sciences}.
 
 %In \booktitle{Two New Sciences}, Galileo describes the motion of objects on Earth, but he recognized that the same insights could be applied to the circular paths of objects in the Solar System. In fact, the topic of uniform motion is discussed in his \booktitle{Dialogue on the Two Chief World Systems} as well.
 
@@ -2278,9 +2292,11 @@ In Galileo's model of the Solar System, planets circle the Sun at constant dista
 {The orbits of the inner planets, as discovered by Johannes Kepler. The orbits of Mercury and Mars are noticeably off-center. The gray pie-slices show the angle covered in $20\units{days}$ by Mars and Mercury when they are closest and farthest from the Sun. Each planet's speed and angular velocity are greatest when the planet is closest to the Sun. The orbits appear circular, but Kepler discovered a slight flattening, making the orbits elliptical.}	 % caption text
 {\noindent\typesetbuffer[TikZ:KeplerCompound]} % figure contents
 
+In 1609, one year before Galileo’s \booktitle{Sidereal Messenger}, Johannes Kepler announced that the planets’ orbits are not described by circles – they are actually slightly elliptical. Ellipses are simple shapes, but they did not fit well into the mechanical models of spheres and wheels that drove both the Ptolemaic and Copernican world systems. Kepler found a mathematical model for the world’s motions, but the forces that could drive these off-center, elliptical motions were mysterious.
+
 Johannes Kepler\pagereference[NewAstronomy] – who had access to new, very precise measurements – discovered that the planets actually travel along off-center, elliptical orbits (shown in \in{figure}[fig:KeplerCompound]), not circles.
 These elliptical orbits are another type of compound motion, combining each planet's motion around the Sun with another oscillating motion that brings the planet closer to the Sun on one side of the orbit and takes the planet farther from the Sun on the other side.
-This motion is more complicated than anything described by Galileo. The planets' motion around the Sun is not uniform. Each planet's angular velocity increases when it is closer to the Sun and decreases when it is farther away. Each planet's motion towards the Sun is not free-fall motion (which would end with planets crashing into the Sun!), nor is it simple harmonic. Kepler published his compound motion model – along with the supporting observations and calculations – in 1609. Kepler sent a copy of his \booktitle{New Astronomy} to Galileo, but Galileo kept his attention on the relative merits of the Ptolemaic and Copernican systems, both based on circular motion. While Kepler's model can be described using Galileo's language of compound motion, actually predicting the motions will require new tools. We will return to Kepler's model in \in{Chapter}[ch:Rotation], when we have those tools in hand.
+This motion is more complicated than anything described by Galileo. The planets' motion around the Sun is not uniform. Each planet's angular velocity increases when it is closer to the Sun and decreases when it is farther away. Each planet's motion toward the Sun is not free-fall motion (which would end with planets crashing into the Sun!), nor is it simple harmonic. Kepler published his compound motion model – along with the supporting observations and calculations – in 1609. Kepler sent a copy of his \booktitle{New Astronomy} to Galileo, but Galileo kept his attention on the relative merits of the Ptolemaic and Copernican systems, both based on circular motion. While Kepler's model can be described using Galileo's language of compound motion, actually predicting the motions will require new tools. We will return to Kepler's model in \in{Chapter}[ch:Rotation], when we have those tools in hand.
 
 Marin Mersenne\pagereference[MersenneString], working in France during the generation after Galileo, applied Galileo's new science of motion to the rapid vibrations of musical instruments. Mersenne had studied the ancient treatises on music and was a trained musician himself. He also studied the recent works of Vincenzo, Kepler, and Galileo, and he adopted their method of mathematical modeling checked against careful observations and experiments.
 
@@ -2289,7 +2305,7 @@ Mersenne noted a remarkable behavior in the sound of any single string.
 He further observed,
 \quotation{these sounds follow the ratio of these numbers: 1, 2, 3, 4, 5,} exactly the ratios that produce the consonances! This raised a confounding question.
 \quotation{How is it possible that a single string produces many sounds at the same time?}
-Mersenne knew the frequency of the string's vibration is responsible for the pitch. 
+Mersenne knew that the frequency of the string's vibration is responsible for the pitch. 
 \startblockquote
 %The immediate cause of the tones is taken from the number of the vibrations of the air\dots and not from the length of the strings.
 That is why it is necessary to examine how [the movement] can cause the same string to beat the air differently in the same time, for since the string makes the five or six tones of which I have spoken, it seems that it is entirely necessary that the string beat the air 5, 4, 3, and 2 times in the same time that it beats a single time. This is difficult to imagine\dots."
@@ -2305,7 +2321,7 @@ They thus merged the four paths of the quadrivium into one path: the study of mo
 This convergence is already happening in your imagined world, too. You have begun relating the arithmetic ideas in formulas to the geometric shapes in diagrams and motion graphs. You have begun describing astronomical obits and musical oscillations in the same mathematical language of frequency, position, displacement, and velocity. In the last two chapters, you have begun to speak the mathematical language of motion developed by natural philosophers over two-thousand years.
 You may not have mastered this language, but you will become fluent as we use it to discuss further revisions of our model of motion.
 Kepler, Galileo, and Mersenne took the first steps on this path.
-We will follow the path to its intended destination — a universal, mathematical model of motion capable of explaining the motions of astronomy, music, and everything in between.
+We will follow the path to its destination — a universal, mathematical model of motion capable of explaining the motions of astronomy, music, and everything in between.
 
 %Galileo remained active in research and mentored students at his villa until his death in 1642 at the age of 77. 
 %Following Galileo, many natural philosophers sought to quantify the amount of motion in an object. Several interesting ideas emerged, leading to a decades-long feud known as the \visviva\ debate.
