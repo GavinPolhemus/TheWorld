@@ -2212,34 +2212,34 @@ In Galileo's model of the Solar System, planets circle the Sun at constant dista
 	major grid style = {middlegray},
  	% ylabel={Distance from Sun $r$ ($\sci{9}\units{m}$)},
  ]
-    \addplot [ % Mars area at aphelion
-        draw=none, fill=black!20,
-        domain={156.08-4.36}:{156.08+4.36},
-        samples=20,
-    ]
-        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
-    ;
-    \addplot [ % Mars area at perihelion
-        draw=none, fill=black!20,
-        domain={336.08-6.35}:{336.08+6.35},
-        samples=20,
-    ]
-        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
-    ;
-    \addplot [ % Mercury area at perihelion
-        draw=none, fill=black!20,
-        domain={77.46-59.63}:{77.46+59.63},
-        samples=80,
-    ]
-        {0.5546/(1+0.20564*cos(x-77.46))}--(0,0)
-    ;
-    \addplot [ % Mercury area at aphelion
-        draw=none, fill=black!20,
-        domain={257.46-33.24}:{257.46+33.24},
-        samples=20,
-    ]
-        {0.5546/(1+0.20564*cos(x-77.46))}--(0,0)
-    ;
+%    \addplot [ % Mars area at aphelion
+%        draw=none, fill=black!20,
+%        domain={156.08-4.36}:{156.08+4.36},
+%        samples=20,
+%    ]
+%        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
+%    ;
+%    \addplot [ % Mars area at perihelion
+%        draw=none, fill=black!20,
+%        domain={336.08-6.35}:{336.08+6.35},
+%        samples=20,
+%    ]
+%        {2.259/(1+0.0934*cos(x-336.08))}--(0,0)
+%    ;
+%    \addplot [ % Mercury area at perihelion
+%        draw=none, fill=black!20,
+%        domain={77.46-59.63}:{77.46+59.63},
+%        samples=80,
+%    ]
+%        {0.5546/(1+0.20564*cos(x-77.46))}--(0,0)
+%    ;
+%    \addplot [ % Mercury area at aphelion
+%        draw=none, fill=black!20,
+%        domain={257.46-33.24}:{257.46+33.24},
+%        samples=20,
+%    ]
+%        {0.5546/(1+0.20564*cos(x-77.46))}--(0,0)
+%    ;
   	\node [name path=Sun] at (0,0) {\Sun};
     \addplot [ % Mercury
         thick,
@@ -2284,16 +2284,15 @@ In Galileo's model of the Solar System, planets circle the Sun at constant dista
 \stopbuffer
 
 \placetextfloat[bottom][fig:KeplerCompound] % location
-{The orbits of the inner planets, as discovered by Johannes Kepler. The orbits of Mercury and Mars are noticeably off-center. The gray pie-slices show the angle covered in $20\units{days}$ by Mars and Mercury when they are closest and farthest from the Sun. Each planet's speed and angular velocity are greatest when the planet is closest to the Sun. The orbits appear circular, but Kepler discovered a slight flattening, making the orbits elliptical.}	 % caption text
+{The orbits of the inner planets, as discovered by Johannes Kepler.
+% The orbits of Mercury and Mars are noticeably off-center. The gray pie-slices show the angle covered in $20\units{days}$ by Mars and Mercury when they are closest and farthest from the Sun. Each planet's speed and angular velocity are greatest when the planet is closest to the Sun. 
+The orbits appear circular, but Kepler discovered a slight flattening, making the orbits elliptical.}	 % caption text
 {\noindent\typesetbuffer[TikZ:KeplerCompound]} % figure contents
 
-In 1609, one year before Galileo’s \booktitle{Sidereal Messenger}, Johannes Kepler announced that the planets’ orbits are not described by circles – they are actually slightly elliptical. Ellipses are simple shapes, but they did not fit well into the mechanical models of spheres and wheels that drove both the Ptolemaic and Copernican world systems. Kepler found a mathematical model for the world’s motions, but the forces that could drive these off-center, elliptical motions were mysterious.
+In 1609, one year before Galileo’s \booktitle{Sidereal Messenger}, Johannes Kepler published \booktitle{New Astronomy}.
+In \booktitle{New Astronomy}, Kepler describes the planets' orbits using compound motion, combining each planet's motion around the Sun with another oscillating motion that brings the planet closer to the Sun on one side of the orbit and takes the planet farther from the Sun on the other side, as shown in \in{figure}[fig:KeplerCompound]. Kepler sent a copy of \booktitle{New Astronomy} to Galileo, but Galileo did not use Kepler's model in his own writing. Perhaps Galileo did not want to obscure his heliocentric arguments with these technical details. It is also possible that Galileo never read Kepler's enormous and mathematically sophisticated book.
 
-Johannes Kepler’s books on the heliocentric model were also circulating at that time. The heliocentric model quickly became accepted by nearly all astronomers in Europe.
-
-Johannes Kepler\pagereference[NewAstronomy] – who had access to new, very precise measurements – discovered that the planets actually travel along off-center, elliptical orbits (shown in \in{figure}[fig:KeplerCompound]), not circles.
-These elliptical orbits are another type of compound motion, combining each planet's motion around the Sun with another oscillating motion that brings the planet closer to the Sun on one side of the orbit and takes the planet farther from the Sun on the other side.
-This motion is more complicated than anything described by Galileo. The planets' motion around the Sun is not uniform. Each planet's angular velocity increases when it is closer to the Sun and decreases when it is farther away. Each planet's motion toward the Sun is not free-fall motion (which would end with planets crashing into the Sun!), nor is it simple harmonic. Kepler published his compound motion model – along with the supporting observations and calculations – in 1609. Kepler sent a copy of his \booktitle{New Astronomy} to Galileo, but Galileo kept his attention on the relative merits of the Ptolemaic and Copernican systems, both based on circular motion. While Kepler's model can be described using Galileo's language of compound motion, actually predicting the motions will require new tools. We will return to Kepler's model in \in{Chapter}[ch:Rotation], when we have those tools in hand.
+%This motion is more complicated than anything described by Galileo. The planets' motion around the Sun is not uniform. Each planet's angular velocity increases when it is closer to the Sun and decreases when it is farther away. Each planet's motion toward the Sun is not free-fall motion (which would end with planets crashing into the Sun!), nor is it simple harmonic. While Kepler's model can be described using Galileo's language of compound motion, predicting the exact motion will require new tools. We will return to Kepler's model in \in{Chapter}[ch:Rotation], when we have those tools in hand.
 
 Marin Mersenne\pagereference[MersenneString], working in France during the generation after Galileo, applied Galileo's new science of motion to the rapid vibrations of musical instruments. Mersenne had studied the ancient treatises on music and was a trained musician himself. He also studied the recent works of Vincenzo, Kepler, and Galileo, and he adopted their method of mathematical modeling checked against careful observations and experiments.
 
