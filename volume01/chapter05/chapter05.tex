@@ -850,7 +850,7 @@ The pendulum will continue swinging back and forth between the turning points an
 
 The pendulum's energy graph in \in{figure}[fig:GalileoPendulumGraphHK] allows us to see the pendulum's changing potential and kinetic energies, so we can locate the turning points and find the pendulum's speed at any position. In the actual pendulum, these energies are invisible, but energy is completely responsible for the motion. Seeing the invisible energies – with the help of energy graphs – has proven to be physicists' superpower. Once we see the pendulum's energy, we can predict everything about its motion.
 
-For a pendulum, this prediction is not especially interesting: pendulums swing back and forth. However, seeing the energy allows us to completely predict the motion of any system, no matter how complicated. In the remainder of this chapter, we will identify more types of potential energy and use energy graphs to uncover details about vibrations and equilibrium. In \in{Chapter}[ch:Hamilton], we will learn to generate any system's complete equations of motion from the system's energy, allowing us to predict the motions of complicated systems. Then, we will solve the quadrivium puzzles of astronomy and music. (Recall how the four quadrivium paths became one, \at{p.}[NewAstronomy].)
+For a pendulum, this prediction is not especially interesting: pendulums swing back and forth. However, seeing the energy allows us to completely predict the motion of any system, no matter how complicated. In the remainder of this chapter, we will identify more types of potential energy and use energy graphs to uncover details about vibrations and equilibrium. In \in{Chapter}[ch:Hamilton], we will extend our energy methods to the solar system. Then, we will solve the quadrivium puzzles of astronomy and music. (Recall how the four quadrivium paths became one, \at{p.}[4PathsTo1].)
 In \in{Chapter}[ch:Rotation], we will use energy graphs to explain Kepler's new astronomy, in which the planets speed up and slow down as they follow elliptical orbits around the Sun. In \in{Chapter}[ch:Waves], we will use our knowledge of equilibrium and small vibrations to understand sound and the vibrations of musical instruments – especially the mysterious compound vibrations of a string, first noted by Mersenne, that allow a single string to produce a small chorus of pitches simultaneously. This will lead to a modern explanation for the ancient Pythagorean model of musical consonance.
 
 This path will not be easy, but our destination is in sight. The quadrivium puzzles are linked by motion. Motion is driven by energy.
@@ -1616,109 +1616,6 @@ endgraph;
 \reuseMPgraphic{graph::SlideToStop}
 \stopplacefigure
 
-\section[sec:GravUSolarSys]{Gravitational potential energy in the Solar System}
-
-In the year that \booktitle{Hydrodynamica} was published, 1738, Daniel Bernoulli wrote a paper on the motion of the Moon. Gravitational forces in the solar system had already been studied in some detail using Newton’s methods of momentum and force.
-The Moon's motion is difficult to study using Newton's methods,  because it is pulled by both Earth and the Sun. Daniel Bernoulli attacked the problem using potential and kinetic energy, and made significant progress. In this section, we will solve some easier problems using D.~Bernoulli's method.
-
-The gravitational potential energy formula earlier in this chapter, $U=mgh$, is only useful for relatively small heights near the Earth’s surface. Over the long distances between planets, moons, and the sun, the gravitational potential energy is a bit more complicated. The gravitational potential energy of any two objects is
-\startformula
-	U = -G\frac{mM}{r},
-\stopformula
-where $m$ and $M$ are the objects’ masses, $r$ is the distance between the objects’ centers, and $G=6.67\sci{-11}\units{m^3/kg\.s^2}$ is the universal gravitational constant.
-
-This formula is a bit intimidating, but extremely valuable if used correctly. First, notice that the distance between the objects is in the denominator. If the distance is extremely large, then their gravitational potential energy is extremely small. This is quite convenient because it means that very distant objects can be ignored. When studying the interaction of the Earth and Moon, it is not necessary to include the gravitational potential energy due to distant stars.
-
-The second thing to notice is that the distance is between the objects’ centers. When calculating the gravitational potential energy of an object on the Earth’s surface the distance $r$ is Earth’s radius ($r\sEarth=6.37\sci{6}\units{m}$) not the height above Earth’s surface.
-
-Third, the formula always gives a negative potential energy. This has alarmed many people, including great physicists, but it is not a problem. The gravitational potential energy is zero when the objects are far apart and it goes down as objects get closer together. Down from zero is negative. Kinetic energy is always positive, but there is no reason to be alarmed by negative potential energy.
-
-Finally, the universal gravitational constant $G$ is extremely small, so the gravitational potential energy between every-day objects can be completely ignored. At least one of the objects must have a huge mass in order for the gravitational potential energy to be significant. Earth’s mass of $5.97\sci{24}\units{kg}$ is enough to have a significant effect.
-
-\startexample[ex:BoxEarthGravU] How much work is required to lift a $3.0\units{kg}$ box from Earth’s surface to a location very far from Earth?
-
-\startuseMPgraphic{graph::BoxEarthGravU} % I'd like to add minor ticks, 0.667mm long.
-vardef U =
-	path p;
-		for x = 5 step 0.1 until 40:
-			y := -11.90/x; % lua.mp.morse(x);
-			augment.p(x,y);
-		endfor;
-	p enddef;
-draw begingraph(4cm,4cm);
-	setrange(0,-2, 40, 0);
-	for x=auto.x:
-		itick.bot(formatted("$@g$", x), x);
-		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
-		itick.top(formatted("@s", ""), x) withcolor "middlegray";
-	endfor
-	glabel.lft(textext("Energy ($\sci{8}\units{J}$)") rotated 90,OUT);
-	glabel.bot(textext("$r$ ($\sci{6}\units{m}$)"), OUT);
-	gdraw(U) withpen pencircle scaled 0.8pt;
-	glabel.lrt("$U$",140);
-	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
-	gdraw((6.37,0) -- (6.37,-2)) withpen pencircle scaled 0.8pt;
-	for y=0 step -0.5 until -2:%auto.y:
-		itick.lft(formatted("$@g$", y), y);
-		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
-		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
-	endfor
-endgraph shifted (0,-5cm);
-  pickup pencircle scaled 0.8pt ;
-  draw externalfigure "EarthEratosthenes.png" scaled 0.127 shifted (-6.37mm,-6.37mm) ;
-  draw fullcircle scaled 12.74mm;
-  drawarrow (0mm,0) -- (40mm,0);
-    label.top  ("$r$", (20mm,0)) ;
-\stopuseMPgraphic
-
-\startplacefigure[location=margin, reference=fig:BoxEarthGravU, title={The potential energy of a $3.0\units{kg}$ object in Earth’s vicinity. The potential energy is not shown for locations inside Earth (the gray region).}]
-\small\reuseMPgraphic{graph::BoxEarthGravU}
-\stopplacefigure
-
-\startsolution
-	This problem is just like the earlier example where Galileo lifted the pendulum (\in{ex.}[ex:GalileoPendulum1]), but now we must use the gravitational potential energy formula that works for large distances. The gravitational potential energy for the box and Earth are plotted in figure~\ref{fig:BoxEarthGravU}.
-	\startformula\startmathalignment
-	\NC	H\si + W + \cancel{Q}	\NC = H\sf			\NR
-	\NC	K\si + U\si + W			\NC = K\sf + U\sf
-	\stopmathalignment\stopformula
-	Since the box starts motionless on Earth and ends motionless far away, the initial and final kinetic energies are both zero. The final gravitational potential energy is also zero, because the box is very far from Earth. Only the work and initial potential energy remain. The initial distance between the box’s center and Earth’s center is Earth’s radius.
-	\startformula\startmathalignment
-	\NC	U\si + W			\NC = 0										\NR
-	\NC	-G\frac{mM}{r} + W	\NC = 0										\NR
-	\NC	W				\NC = G\frac{mM}{r}								\NR
-	\NC					\NC = (6.67\sci{-11}\units{m^3/kg\.s^2})
-				\frac{(3.0\units{kg})(5.97\sci{24}\units{kg})}{6.37\sci{6}\units{m}}		\NR
-	\NC					\NC = 1.88\sci{8}\units{J}
-	\stopmathalignment\stopformula
-	Moving the $3\units{kg}$ box from Earth’s surface to a distant location requires a tremendous amount of work!
-\stopsolution
-\stopexample
-
-The energy graph in \in{figure}[fig:BoxEarthGravU] shows the box's tremendous increase in gravitational potential energy as it is moved far from Earth. It starts at Earth's surface, with a potential energy $U=-1.88\sci{8}\units{J}$. To move the box far away requires going off the graph, far to the right in \in{figure}[fig:BoxEarthGravU], to the where $U\approx 0\units{J}$. Objects sent to deep space require giant rockets which do the work required to reach the much higher gravitational potential energy. The deep negative potential energy near Earth is often called Earth's \keyterm{gravity well.} The rocket does the work required to climb out of this deep well.
-
-\startexample[ex:BoxEarthGravU2] The $3.0\units{kg}$ box was placed far from Earth, but even so it eventually is pulled back by Earth’s gravitational attraction. How fast is the box going when it enters the atmosphere, approximately $100\units{km}$ above Earth’s surface?
-\startsolution
-	Include the gravitational potential energy so that there is no work done on the system.
-
-	\startformula\startmathalignment
-	\NC	H\si + \cancel{W} + \cancel{Q}	\NC = H\sf		\NR
-	\NC	K\si + U\si					\NC = K\sf + U\sf
-	\stopmathalignment\stopformula
-		The falling box starts with neither kinetic nor potential energy, so the initial total energy is zero. As the box falls its potential energy becomes more negative and its kinetic energy becomes more positive so that the total is unchanged at zero.
-	\startformula\startmathalignment
-	\NC	0				\NC = \half mv^2	- G\frac{mM}{r}	\NR
-	\NC	\half \cancel{m}v^2	\NC = G\frac{\cancel{m}M}{r}		\NR
-	\NC	v				\NC = \sqrt{\frac{2GM}{r}}
-	\stopmathalignment\stopformula
-The final distance between Earth’s center and the box is Earth’s radius plus $100\units{km}$.
-	\startformula\startmathalignment
-	\NC	v	\NC = \sqrt{\frac{2(6.67\sci{-11}\units{m^3/kg\.s^2})(5.97\sci{24}\units{kg})}
-				{6.37\sci{6}\units{m}+1.00\sci{5}\units{m}}}		\NR
-	\NC		\NC = 1.11\sci{4}\units{m/s}
-	\stopmathalignment\stopformula
-The box enters the atmosphere with a speed of about $11\units{km/s}$, causing it to burn up before hitting the ground.
-\stopsolution
-\stopexample
 
 Daniel Bernoulli’s method – linking kinetic energy, work, and potential energy – has continued to provide insight into every known physical process, from particle interactions to the expansion of the universe. In the centuries since the publication of \booktitle{Hydrodynamica} much of the important progress in physics has come from properly identifying and quantifying the many forms of energy.
 
