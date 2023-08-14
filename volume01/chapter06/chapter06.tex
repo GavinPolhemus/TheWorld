@@ -29,7 +29,7 @@ And the method proposed in the present essay, for the deductive study of the mot
 \Initial{I}{n the year that \booktitle{Hydrodynamica} was published,} 1738, Daniel Bernoulli wrote a paper on the motion of the Moon. Gravitational forces in the solar system had already been studied in some detail using Newton’s methods of momentum and force.
 The Moon's motion is difficult to study using Newton's methods,  because it is pulled by both Earth and the Sun. Daniel Bernoulli attacked the problem using potential and kinetic energy, and made significant progress. %In this section, we will solve some easier problems using D.~Bernoulli's method.
 
-\section{Gravitational potential energy in the Solar System}
+\section[sec:GravUSolarSys]{Gravitational potential energy in the Solar System}
 
 The gravitational potential energy formula in \in{Chapter}[ch:PotentialEnergy], $U=mgh$, is only useful for relatively small heights near the Earth’s surface. Over the long distances between planets, moons, and the sun, the gravitational potential energy is a bit more complicated. The gravitational potential energy of any two objects is
 \startformula
@@ -108,7 +108,7 @@ The energy graph in \in{figure}[fig:BoxEarthGravU] shows the box's tremendous in
 
 \startexample[ex:BoxEarthGravU2] The $3.0\units{kg}$ box was placed far from Earth, but even so it eventually is pulled back by Earth’s gravitational attraction. How fast is the box going when it enters the atmosphere, approximately $100\units{km}$ above Earth’s surface?
 \startsolution
-	Include the gravitational potential energy so that there is no work done on the system.
+	Include the gravitational potential energy so no work is done on the system.
 
 	\startformula\startmathalignment
 	\NC	H\si + \cancel{W} + \cancel{Q}	\NC = H\sf		\NR
@@ -157,9 +157,11 @@ I have not as yet been able to discover the reason for these properties of gravi
 It is enough that gravity really exists and acts according to the laws that we have set forth and is sufficient to explain all the motions of the heavenly bodies\dots.\autocite{p.~943.}{Newton1999}
 \stopblockquote
 
-Newton and his contemporaries certainly wanted to know how gravity reaches across the vast distances of the solar system, but they could predict all of the solar system's motions without knowing. Newton's law of universal gravitation was sufficient.
+Newton and his contemporaries certainly wanted to know how gravity reaches across the vast distances of the solar system, but they could predict the solar system's motions without knowing. Newton's law of universal gravitation was sufficient.
 
-Today we do know how gravity works, thanks to Einstein. The complete theory of gravity is complicated. Luckily, the most important part of the theory is simple, and was found by Joseph-Louis Lagrange in 1773. Like D.~Bernoulli, Lagrange was attempting to explain details of the Moon's motion. He introduced a function call the \keyterm{gravitational potential}, $\Phi$. The gravitational potential exists everywhere. At every location it has a specific value (possibly zero).
+Today, we do know how gravity works, thanks to Einstein.
+Einstein's theory of gravity is complicated, but it has been thoroughly tested and accepted as one of the great theories of modern physics.
+Luckily, we can understand gravity's tremendous reach without mastering Einstein's full theory. All we  need is one part of the theory\dash a simple function called the \keyterm{gravitational potential}, $\Phi$.
 
 \startuseMPgraphic{graph::EarthGravPotential} % I'd like to add minor ticks, 0.667mm long.
 vardef U =
@@ -199,13 +201,13 @@ endgraph shifted (0,-8cm);
 \small\reuseMPgraphic{graph::EarthGravPotential}
 \stopplacefigure
 
+The gravitational potential exists everywhere. At every location it has a specific value (possibly zero).
 If space were completely empty, then the gravitational potential would be zero everywhere ($\Phi=0$).
-Any massive object produces a region of negative gravitational potential in its vicinity. The gravitational potential produced by Earth is shown in \in{figure}[fig:EarthGravPotential].
-The gravitational potential is most negative close to Earth, and rises toward zero far away. At distance $r$ from the center of a mass $M$, the gravitational potential is 
-\startformula
-	\Phi = -G\frac{M}{r}.
-\stopformula
-The distance $r$ can be in any direction. \in{Figure}[fig:Phi3D] shows several directions away from Earth, with the gravitational potential plotted below. Only horizontal directions are shown, so the vertical direction can be used to show the value of $\Phi$. In every direction, the gravitational potential is most negative close to Earth, and rises toward zero far away.
+Any massive object produces a region of negative gravitational potential in its vicinity. The gravitational potential produced by Earth is shown in \in{figure}[fig:EarthGravPotential], where $r$ is the distance from Earth's center.
+The gravitational potential is most negative close to Earth, and rises toward zero far away.
+
+The distance $r$ can be in any direction. \in{Figure}[fig:Phi3D] shows several directions away from Earth, with the gravitational potential plotted below.
+Only horizontal directions are shown for $r$, so the vertical direction can be used to show the value of $\Phi$. In every direction, the gravitational potential is most negative close to Earth, and rises toward zero far away.
 
 \startbuffer[Phi3D]
 \startaxis[
@@ -253,29 +255,186 @@ The distance $r$ can be in any direction. \in{Figure}[fig:Phi3D] shows several d
 
 \marginTikZ{}{Phi3D}{Earth's region of negative gravitational potential extends in all directions. } % vskip, name, caption
 
-The shape of $\Phi$ in \in{figure}[fig:Phi3D] looks similar to a trampoline that has been pressed down in the center. When you press down the center of a trampoline, this stretches the trampoline downward to  create a wide dimple which is lowest where you press, and which rises in all directions. The gravitational potential has this trampoline-like property. Massive objects lower the potential, and this stretches the gravitational potential toward negative values, producing the potential shown in \in{figure}[fig:Phi3D]. 
+The shape of $\Phi$ in \in{figure}[fig:Phi3D] looks similar to a trampoline that has been pressed down in the center, stretching the trampoline downward to create a wide depression that extends to the trampoline's edge.
+The gravitational potential stretches much like a trampoline. Massive objects, like Earth, lower the potential, stretching the gravitational potential toward negative values and creating a wide depression that extends to great distances, as shown in \in{figure}[fig:Phi3D]. The deep negative potential near Earth is often called Earth's \keyterm{potential well}.
 
-Once you have the gravitational potential around Earth, it is easy to find the potential energy $U$ of another mass $m$ near Earth.
+Object's far from Earth are affected by the altered gravitational potential. The depression in the gravitational potential causes other objects to fall toward Earth, just as as marble placed on the stretched trampoline will roll into the trampoline's depression. The Sun creates a much deeper and wider depression in the gravitational potential, sufficient to keep distant planets in orbit. 
+The stretchy gravitational potential is how gravity reaches across vast distances.
+
+The gravitational potential's trampoline-like stretchiness can be used to calculate the exact shape of the depression in \in{figures}[fig:EarthGravPotential] and \in[fig:Phi3D]. The calculation requires some calculus, but the simple answer is all we need.
+At distance $r$ from the center of a mass $M$, the gravitational potential is 
+\startformula
+	\Phi = -G\frac{M}{r}.
+\stopformula
+This formula is responsible for D.~Bernoulli's gravitational potential energy formula and for Newton's law of universal gravitation.
+(Einstein's full theory of gravity, General Relativity, gives a slightly different formula, but the formula above is an excellent approximation everywhere in our solar system.)
+
+When the gravitational potential was first introduced, one-hundred fifty years before Einstein, nobody realized its deep significance or even recognized it as something real. But the gravitational potential is certainly real, it represents something deep about our universe, and it explains gravity's tremendous reach. Keep this in mind as we return to the historical story.
+
+The gravitational potential was first introduced by Joseph-Louis Lagrange in 1773. Like D.~Bernoulli, Lagrange was attempting to explain details of the Moon's motion. Lagrange noticed that when a small object is pulled by the gravity of much larger objects, the small object's motion is unaffected by its own mass.
+We saw this in \in{example}[ex:BoxEarthGravU2], where we calculated the final speed of a $\unit{3kg}$ box dropped from a great distance. Rather early in the calculation, the box's mass $m$ cancels out.
+If the box had been $\unit{3g}$ or $\unit{3000kg}$, it would have hit the atmosphere with exactly the same speed.
+Many earlier physicists, going back to Galileo, had noticed that the small object's mass does not matter, but Lagrange used this observation in a new way.
+
+For Lagrange's complex calculations, he wanted the small object's mass drop out of the formulas earlier, before they became too complicated.
+To achieve this, he defined the small object's gravitational potential energy $U$ in terms of the gravitational potential $\Phi$.
 \startformula
   U = m\Phi
 \stopformula
+To see the benefits of Lagrange's trick, let us consider a example using conservation of energy. The formulas threaten to become quite cumbersome, but the gravitational potential allows us to split the calculation into manageable parts.
 
+\startbuffer[HalleyOuter]
+\startpolaraxis
+ [	xtick=\empty,
+	ymax = 1.5,
+	%scale only axis=true,
+	width={4.75cm},
+  	%ylabel={$r$ ($\sci{11}\units{m}$)},
+ 	minor y tick num={4},
+  	clip=false,
+	grid = none,
+	axis x line = none,
+ ]
+% \node [name path=Sun] at (0,0) {\Sun};
+% \addplot [ % Mercury
+%        thick,
+%        domain=0:360,
+%        samples=600,
+%    ]
+%        {.05546/(1+0.20564*cos(x-77.46))}
+%  %[yshift=-.5pt]
+%  %  node[pos=0.25] {\Mercury}
+%    ;
+%    \addplot [ % Venus
+%        thick,
+%        domain=0:360,
+%        samples=600,
+%    ]
+%        {.1082/(1+0.00676*cos(x-131.77))}
+%  %[yshift=-1.7pt]
+%  %  node[pos=0.25] {\Venus}
+%    ;
+%    \addplot [ % Earth
+%    	name path=Earth,
+%        thick,
+%        domain=0:360,
+%        samples=600,
+%    ]
+%        {.1496/(1+0.0167*cos(x-102.93))}
+%  %  node[pos=0.25] {\Terra}
+%    ;
+    \addplot [ % Mars
+    	name path=Mars,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {.2259/(1+0.0934*cos(x-336.08))}
+  [yshift=-2pt, xshift=5pt]
+    node[pos=0.75] {\Mars}
+    ;
+    \addplot [ % Jupiter
+    	name path=Jupiter,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {.776/(1+0.04854*cos(x-14.27))}
+  %[yshift=1pt, xshift=1.1pt]
+    node[below=0mm, pos=0.8] {\Jupiter}
+    ;
+    \addplot [ % Saturn
+    	name path=Saturn,
+        thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {1.423/(1+0.05551*cos(x-92.86))}
+  %[yshift=1pt, xshift=1.1pt]
+    node[above, pos=0.2] {\Saturn}
+    ;
+%    \addplot [ % Uranus
+%    	name path=Uranus,
+%        thick,
+%        domain=0:360,
+%        samples=600,
+%    ]
+%        {2.8642/(1+0.04686*cos(x-172.43))}
+%  %[yshift=1pt, xshift=1.1pt]
+%    node[below, pos=0.2] {\Uranus}
+%    ;
+%    \addplot [ % Neptune
+%    	name path=Neptune,
+%        thick,
+%        domain=0:360,
+%        samples=600,
+%    ]
+%        {4.4981/(1+0.00895*cos(x-46.68))}
+%  %[yshift=1pt, xshift=1.1pt]
+%    node[below, pos=0.2] {\Neptune}
+%    ;
+    \addplot [ % Halley
+    	name path=Halley,
+        ultra thick,
+        domain=0:360,
+        samples=600,
+    ]
+        {.17246/(1+0.96714*cos(x+52.91))}
+  %[yshift=1pt, xshift=1.1pt]
+    node[above right, pos=0.32] {Halley's Comet}
+    ;
+%  \draw[thick] (-52.91,.08767) --node[above=2mm,pos=.53]{$r\sub{max}$} (127.09,52.5) ;
+%  \draw[thick] (37.09,.17246) -- (-142.91,1.7246) ;
+\stoppolaraxis
+\stopbuffer
 
-The deep negative potential near Earth is often called Earth's \keyterm{potential well}.
+\marginTikZ{}{HalleyOuter}{Orbits of Mars, Jupiter, Saturn and Halley's Comet. (Distance in gigameteres. $\unit{1Gm} = 10^{12}\unit{m}$).} % vskip, name, caption
 
-%%\Initial{I}{n \booktitle{Hydrodynamica} 
+\startexample[ex:HalleySpeed] Halley's Comet orbits the Sun along a long, thin ellipse, shown in \in{figure}[fig:HalleyOuter]. When the comet is $\unit{1.50e12m}$ from the Sun (about as far as Saturn) its speed is $\unit{1.13e4 m/s} = \unit{11.3 km/s}$. What is the comet's speed when it makes its closest approach to the Sun at $\unit{8.77e10m}$?
+\startsolution
+	Include gravitational potential energy $U=m\Phi$. $\Phi\si$ is the initial gravitational potential at $r\si=\unit{1.50e12m}$. $\Phi\sf$ is the final gravitational potential at $r\sf=\unit{8.77e10m}$.
+The change in gravitational potential is $\Delta\Phi = \Phi\sf - \Phi\si$.
+	\startformula\startmathalignment
+	\NC	H\si + \cancel{W} + \cancel{Q}	\NC = H\sf           \NR
+	\NC	K\si + U\si					\NC = K\sf + U\sf        \NR
+	\NC	\half mv\si^2 + m\Phi\si	\NC = \half mv\sf^2 + m\Phi\sf \NR
+	\NC	\half v\si^2 + \Phi\si	\NC = \half v\sf^2 + \Phi\sf \NR
+	\NC	v\sf	\NC = \sqrt{v\si^2 - 2\Delta\Phi} \NR
+	\stopmathalignment\stopformula
+The final speed $v\sf$ depends only on the initial speed $v\si$ and the change in gravitational potential $\Delta\Phi$. Halley's Comet orbits the Sun, so the mass $M$ is the Sun's mass $M_\Sun = \unit{1.99e30kg}$. Use $GM_\Sun = (\unit{6.67e-11m^3/kg s^2})(\unit{1.99e30kg}) = \unit{1.33e20 m^3/s^2}$ in calculating the potential change.
+	\startformula\startmathalignment
+	\NC	\Delta\Phi	\NC = \Phi\sf	- \Phi\si	\NR
+	\NC				\NC = -G\frac{M_\Sun}{r\sf} + G\frac{M_\Sun}{r\si}		\NR
+	\NC				\NC = -GM_\Sun\left(\frac{1}{r\sf} - \frac{1}{r\si}\right)		\NR
+	\NC				\NC = -(\unit{1.33e20 m^3/s^2})
+	                        \left(\frac{1}{\unit{8.77e10m}} - \frac{1}{\unit{1.5e12m}}\right)	\NR
+	\NC				\NC = \unit{-1.43e9 m^2/s^2}
+	\stopmathalignment\stopformula
+Finally, we calculate the final speed.
+	\startformula\startmathalignment
+	\NC	v\sf	\NC = \sqrt{(\unit{1.13e4 m/s})^2 - 2(\unit{-1.43e9 m^2/s^2})}		\NR
+	\NC		\NC = \unit{5.46e4m/s} = \unit{54.6km/s}
+	\stopmathalignment\stopformula
+Halley's Comet is much faster as it passes the Sun.
+\stopsolution
+\stopexample
+
+Lagrange's Moon problem was much more complex than our Halley's Comet example above, and gravitational potential was a tremendous help in simplifying his formulas. In our effort to understand the new astronomy, gravitational potential energy will be a powerful tool.
+
 %In Hydrodynamica and his other works, Daniel Bernoulli applied sharp physical insights to practical problems – pipes, fountains, pumps, and other useful machines. Everyone else was going in other directions.
 %
 %Engineers developed and applied methods specific to specialized applications without looking for broadly applicable physical principles. This practical approach was incredibly successful. Eighteenth century engineers launched the industrial revolution, building powerful working engines decades before physicists could explain them.
 %
-%Physicists largely ignored the engines, focusing their attention on abstract problems in pure mechanics – planetary motion, spinning tops, and jointed pendulums. These problems had little practical value, but they inspired rapid advances in applied mathematics.
-%Leonhard Euler (a close friend of Danial Bernoulli), adapted and expanded Newton's methods to solve many new types of problems. Other physicists introduced new principles – like energy conservation – to solve problems in entirely new ways. These advances produced a rather confusing patchwork of methods and principles.
+%
 
 
+\section{Analytical Mechanics}
 
-\section{Rational Mechanics}
+During the eighteenth century, physicists attacked many abstract problems in pure mechanics – planetary motion, spinning tops, and jointed pendulums. These problems had little practical value, but they inspired rapid advances in applied mathematics.
+Leonhard Euler (a close friend of Danial Bernoulli), adapted and expanded Newton's methods to solve many new types of problems. Other physicists introduced new principles – like energy conservation – to solve problems in entirely new ways. These advances produced a rather confusing patchwork of methods and principles.
 
-Joseph-Louis Lagrange sought to replace the patchwork with a single procedure that could be applied to any problem in mechanics. He delivered his synthesis in \booktitle{Mécanique Analytique}, published in 1788, almost exactly a century after Newton's \booktitle{Principia}. Lagrange describes his intent in the monumental work's preface.
+While Lagrange wrote papers on celestial mechanics and won awards, he also pursued a much more ambitious goal.
+He sought to replace the patchwork of methods and principles with a single procedure that could be applied to any problem in mechanics. He delivered his revolutionary synthesis in \booktitle{Mécanique Analytique}, published in 1788, almost exactly a century after Newton's \booktitle{Principia}. Lagrange describes his intent in the monumental work's preface.
 
 \startblockquote
 There already exist several treatises on mechanics, but the purpose of this one is entirely new. I propose to condense the theory of this science and the method of solving the related problems to general formulas whose simple application produces all the necessary equations for the solution of each problem. %I hope that my presentation achieves this purpose and leaves nothing lacking.
@@ -460,7 +619,7 @@ Lagrange's insight explains the spring's force. Hooke's law calculates the sprin
 %On the left half of the graph, the slope is negative. Any motion in the positive direction leads toward lower potential energy, so the force, which is minus the slope, pushes in the positive direction, again toward lower potential energy.
 %At the center, the slope and the the force are both zero. Neither direction leads toward lower potential energy, and the force does not point in either direction.
 
-Lagrange's insight also allows us to find the long range gravitational force. Long range gravitational potential energy was introduced at the end of the previous chapter (\at{p.}[sec:GravUSolarSys]).
+Lagrange's insight also allows us to find the long range gravitational force from the long range gravitational potential energy (\at{p.}[sec:GravUSolarSys]).
 \startformula
 	U = -G\frac{mM}{r}
 \stopformula
