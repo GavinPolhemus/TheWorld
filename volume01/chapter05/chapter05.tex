@@ -1326,7 +1326,6 @@ The pendulum's period is $1.3\units{s}$.
 While the pendulum is a very good simple harmonic oscillator, it is not perfect. Were you to repeat Galileo's experiment with great care, you would find that the period for small amplitudes is about one-twentieth of a second shorter than the period for $A=37\units{cm}$. This happens because the pendulum's potential energy in \in{figure}[fig:GalileoPendulumGraphU] is not a perfect parabola, it is actually a cosine function. Since it is almost a parabola, the period is only few percent longer at large amplitudes. This does not cause problems for our pendulum collision experiments, but it would be a serious problem for a pendulum clock, which is expected to keep accurate time as its pendulum swings through thousands of cycles. Good pendulum clocks use a long pendulum and a small amplitude to minimize this error. When the pendulum swings through a small angle it keeps very accurate time.
 
 
-
 \section{Friction and other external forces}
 
 Daniel Bernoulli taught us to include potential energy in our system whenever possible. We included gravitational potential energy in the pendulum system, rather than calculating the work done by gravity. We included spring potential energy in our simple harmonic oscillator rather than calculating the work done by the spring. Unfortunately, some forces cannot be represented by a potential energy. In these cases we must leave the force as external, doing work on the system.
@@ -1334,6 +1333,15 @@ Daniel Bernoulli taught us to include potential energy in our system whenever po
 Friction is one of these external forces. 
 Sliding a block on a table requires some work due to the friction between the block and the table. The work done sliding the block is not stored as potential energy. Instead, the work contributes to random, microscopic motion in the surface of the block and the table. (The sliding sound you hear is some of that random motion.)
 Until we study heat, we will always leave this random, microscopic motion out of our systems. That means friction will always be an external force doing work on the system – usually negative work, reducing the system's energy.
+
+\in{Figure}[fig:BlockSHOGraphs] shows the energy reducing effect of friction on our simple harmonic oscillator. The cart has been replaced by a block that slides on the table. As the block slides to the right, friction exerts and opposing force $F$ to the left. This force constantly decreases the system's total energy. While the block travels a short distance $dx$ to the the right (\in{fig.}[fig:SlideRight]), the force $F$ does a small amount of work $W = F\,dx$.
+Since the rightward displacement is positive and the leftward force is negative, the work is negative. We can use this work with conservation of energy to find the total energy's small change $dH$.
+\startformula\startmathalignment
+\NC	H\si + W + \cancel{Q}	\NC = H\sf	\NR
+\NC	H\sf - H\si	\NC = W	\NR
+\NC	dH	\NC = F\,dx	\NR
+\stopmathalignment\stopformula
+The total energy's small change $dH$ is negative because the small amount of work $F\,dx$ is negative. This gives the energy graph of $H$ a negative slope, as shown in \in{figure}[fig:SlideRight]. This negative slope is also seen in the energy graph in \in{figure}[fig:BlockSHOGraphs] when the block is sliding to the right from the release point to the first turning point. The negative slope is equal to the negative, leftward force $F$.
 
 \startbuffer[SpringBlockClean]
 	\fill [black!10] (-.23,0) rectangle (4.8,-.15);
@@ -1496,15 +1504,6 @@ endgraph;
 \typesetbuffer[starttikz,SpringBlockCleanRight,stoptikz]\small
 \reuseMPgraphic{graph::SlideRight}
 \stopplacefigure
-
-\in{Figure}[fig:BlockSHOGraphs] shows the energy reducing effect of friction on our simple harmonic oscillator. The cart has been replaced by a block that slides on the table. As the block slides to the right, friction exerts and opposing force $F$ to the left. This force constantly decreases the system's total energy. While the block travels a short distance $dx$ to the the right (\in{fig.}[fig:SlideRight]), the force $F$ does a small amount of work $W = F\,dx$.
-Since the rightward displacement is positive and the leftward force is negative, the work is negative. We can use this work with conservation of energy to find the total energy's small change $dH$.
-\startformula\startmathalignment
-\NC	H\si + W + \cancel{Q}	\NC = H\sf	\NR
-\NC	H\sf - H\si	\NC = W	\NR
-\NC	dH	\NC = F\,dx	\NR
-\stopmathalignment\stopformula
-The total energy's small change $dH$ is negative because the small amount of work $F\,dx$ is negative. This gives the energy graph of $H$ a negative slope, as shown in \in{figure}[fig:SlideRight]. This negative slope is also seen in the energy graph in \in{figure}[fig:BlockSHOGraphs] when the block is sliding to the right from the release point to the first turning point. The negative slope is equal to the negative, leftward force $F$.
 
 The block was released $16\units{cm}$ to the left of the spring's relaxed position at $x=0\units{cm}$, but the loss of energy during the block's rightward slide allows it to only travel $9\units{cm}$ to the right of the spring's relaxed position before the system's total energy $H$ is equal to the potential energy $U$. At this point, the block's kinetic energy is zero. The block stops at this turning point and begins sliding back toward the spring's relaxed position at $x=0\units{cm}$.
 
