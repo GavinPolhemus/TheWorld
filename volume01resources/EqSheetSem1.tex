@@ -41,168 +41,91 @@ Physics Equations: Semester 1\break
 \stopalignment
 
 \starttabulate[|lw(2.5in)|r|lw(1.5in)|r|l|][header=yes]
-\NC	\bf Motion	\NC 1	\NC Dimension \NC 3	\NC Dimensions		\NR
-\NC Position
-	\NC $x$,	\NC $y$, or $z$
-		\NC	$(x,$ 	\NC $y, z)$	\NR
-\NC Displacement
-	\NC $\Delta x$	\NC $= x\sf - x\si$
-		\NC $\Delta y $	\NC $= y\sf - y\si$ $\Delta z = z\sf - z\si$	\NR
-\NC Distance
-	\NC $s$	\NC $\ge |\Delta x|$
-		\NC	$s$	\NC $\ge \sqrt{(\Delta x)^{2}+(\Delta y)^{2}+(\Delta z)^{2}}$	\NR
-\NC Velocity
-	\NC $v$	\NC $=\frac{dx}{dt}$
-		\NC $\vec{v}$	\NC $=\components[size=0]{v_{x},v_{y},v_{z}}$	\NR
-\NC Constant Velocity
-	\NC $v$	\NC $=\frac{\Delta x}{\Delta t}$
-		\NC $v_{x}$	\NC $=\frac{\Delta x}{\Delta t} \quad v_{y}=\frac{\Delta y}{\Delta t} \quad v_{z}=\frac{\Delta z}{\Delta t}$	\NR
-\NC Instantaneous Velocity
-	\NC $v$	\NC $=\frac{\text{tangent line's }\Delta x}{\text{tangent line's }\Delta t}$
-		\NC $v_{x}$	\NC $=\frac{dx}{dt} \quad v_{y}=\frac{dy}{dt} \quad v_{z}=\frac{dz}{dt}$	\NR
-\NC Speed
-	\NC $\abs{v}$	\NC $=\frac{ds}{dt}$
-    		\NC $\vabs{\vec{v}}$	\NC $=\sqrt{v_{x}^{2}+v_{y}^{2}+v_{z}^{2}}=\frac{ds}{dt}$	\NR
-\NC Constant speed
-	\NC $\abs{v}$	\NC $=\frac{s}{\Delta t}$
-		\NC $\vabs{\vec{v}}$	\NC $=\frac{s}{\Delta t}$	\NR
-\NC Position update
-	\NC $x\si$	\NC$+\;v\Delta t=x\sf$
-		\NC $x\si$\NC $+\; v_{x}\Delta t=x\sf$	\NR
-\NC
-	\NC	\NC
-		\NC $y\si$	\NC $+\;v_{y}\Delta t=y\sf$	\NR
-\NC
-	\NC	\NC
-		\NC $z\si$	\NC $+\;v_{z}\Delta t=z\sf$	\NR
+
+\NC	\bf Motion				\NC 1		\NC Dimension 				\NC 3			\NC Dimensions															\NR
+\NC Position				\NC $x$,		\NC $y$, or $z$				\NC $(x,$ 			\NC $y, z)$																\NR
+\NC Displacement			\NC $\Delta x$	\NC $= x\sf - x\si$			\NC $\Delta y $		\NC $= y\sf - y\si$ $\Delta z = z\sf - z\si$											\NR
+\NC Instantaneous Velocity	\NC $v_{x}$	\NC $=\frac{dx}{dt}$			\NC $\vec{v}$		\NC $=\components[size=0]{v_{x},v_{y},v_{z}}$										\NR
+\NC Constant Velocity		\NC $v$		\NC $=\frac{\Delta x}{\Delta t}$	\NC $v_{x}$		\NC $=\frac{\Delta x}{\Delta t}$ $v_{y}=\frac{\Delta y}{\Delta t}$ $v_{z}=\frac{\Delta z}{\Delta t}$	\NR
+\NC Speed				\NC $\abs{v}$	\NC $=\frac{ds}{dt}$			\NC $\vabs{\vec{v}}$	\NC $=\sqrt{v_{x}^{2}+v_{y}^{2}+v_{z}^{2}}$										\NR
+\NC Position update			\NC $x\sf$		\NC$=x\si+\;v\Delta t$		\NC $x\sf$			\NC $=x\si+\; v_{x}\Delta t$													\NR
+\NC						\NC			\NC						\NC $y\sf$			\NC $=y\si+\;v_{y}\Delta t$													\NR
+\NC						\NC			\NC						\NC $z\sf$			\NC $=z\si+\;v_{z}\Delta t$													\NR
+\NC Simple Harmonic Motion  	\NC $\abs{v}\sub{max}$ \NC  $=\frac{2\pi A}{T}$																						\NR
+\NR
+
+\NC \bf Momentum $(v \ll c)$	\NC $p$		\NC $=mv$				\NC $\vec{p}$				\NC $=m\vec{v}$													\NR
+\NC Magnitude of momentum	\NC $\abs{p}$	\NC $=m\abs{v}$			\NC $\vabs[size=1]{\vec{p}\,}$	\NC $=m\vabs{\vec{v}}$												\NR
 \TB[line]
-\NC \bf Momentum $(v \ll c)$
-	\NC $p$	\NC $=mv$
-		\NC $\vec{p}$	\NC $=m\vec{v}$	\NR
-\NC Magnitude of momentum
-	\NC $\abs{p}$	\NC $=m\abs{v}$
-		\NC $\vabs[size=1]{\vec{p}\,}$	\NC $=m\vabs{\vec{v}}$	\NR
-\TB[line]
-\NC \bf Energy $(v \ll c)$
-	\NC	\NC
-		\NC	\NR
-\NC Kinetic Energy
-	\NC $K$	\NC $=\frac{1}{2}mv^{2}=\frac{p^{2}}{2m}$
-		\NC $K$	\NC $=K_{x}+K_{y}+K_{z}$	\NR
-\NC Work
-	\NC $W$	\NC $=F\Delta x$
-		\NC $W$	\NC $=F_{x}\Delta x+F_{y}\Delta y+F_{z}\Delta z$	\NR
+\NC \bf Energy $(v \ll c)$																																	\NR
+\NC Kinetic Energy			\NC $K$		\NC $=\frac{1}{2}mv^{2}=\frac{p^{2}}{2m}$		\NC $K$		\NC $=K_{x}+K_{y}+K_{z}$											\NR
+\NC Work					\NC $W$		\NC $=F\Delta x$			\NC $W$			\NC $=F_{x}\Delta x+F_{y}\Delta y+F_{z}\Delta z$									\NR
+\NC Lagrange's Equation of Force	\NC $F$			\NC $=-\frac{\Delta U}{\Delta x}$			\NR
 \stoptabulate
 
 \starttabulate[|lw(4in)|r|l|][title={\bf Springs}]
-\NC Spring potential energy
-	\NC $U$		\EQ $\frac{1}{2}ks^{2}$	\NR
-\NC Hooke's Law (Spring force)
-	\NC $F$	\EQ $-ks$	\NR
-\NC Mass-spring period and frequency
-	\NC $T$	\EQ $2\pi\sqrt{\frac{m}{k}} \qquad f=\frac{1 \text{cyc}}{2\pi}\sqrt{\frac{k}{m}}$	\NR
+\NC Spring potential energy			\NC $U$	\EQ $\frac{1}{2}kx^{2}$											\NR
+\NC Hooke's Law (Spring force)		\NC $F$	\EQ $-kx$														\NR
+\NC Mass-spring period and frequency	\NC $T$	\EQ $2\pi\sqrt{\frac{m}{k}} \qquad f=\frac{1 \text{cyc}}{2\pi}\sqrt{\frac{k}{m}}$	\NR
 \stoptabulate
 
 \starttabulate[|lw(4in)|r|l|][title={\bf Gravity}]
-\NC Gravitational potential energy (near Earth)
-	\NC $U$	\EQ $mgh$
-		\NC	\NC	\NR
-\NC Gravitational potential energy (distant objects)
-	\NC $U$ \EQ $-G\frac{mM}{r}$	\NR
+\NC Gravitational potential						\NC $\Phi$ \EQ $-G\frac{M}{r}$				\NR
+\NC Gravitational potential energy (near Earth)		\NC $U$ \EQ $mgh$						\NR
+\NC Gravitational potential energy (distant objects)	\NC $U$ \EQ $m\Phi$ \EQ $-G\frac{mM}{r}$	\NR
+\NC Strength of gravitational field from a point source\NC $g$ \EQ $G\frac{M}{r^2}$				\NR
+\NC Force due to gravity (near Earth)			\NC $F$ \EQ $-mg$ \EQ $-G\frac{mM}{r^2}$	\NR
+
 \stoptabulate
 
-\pagebreak
+\setupinterlinespace[line=4.0ex]
 
-\starttabulate[|lw(4in)|r|l|][title={\bf Hamilton's Equation}]
-\NC Force
-	\NC $F$	\EQ $-\left(\frac{\text{tangent line's }\Delta U}{\text{tangent line's }\Delta x}\right)$	\NR
-%\NC Velocity
-%	\NC $v$	\EQ $\left(\frac{\text{tangent line's }\Delta U}{\text{tangent line's }\Delta p}\right)$	\NR
+\starttabulate[| | rw(0.75in)  | w(1.0in)  |   | rw(0.75in)  |  |][title={\bf Rotation}]
+\NC Angular Velocity	\NC $\omega$	\NC $=\frac{\Delta \theta}{\Delta t}$	\NC Force of Circular Motion	\NC $F$			\NC $=\frac{pv}{r}=\frac{mv^2}{r}$				\NR
+\NC Velocity		\NC $v$ 		\NC $=r\omega$				\NC Kinetic Energy of Rotation	\NC $K\sub{\theta}$	\NC $=\frac{1}{2}I\omega^{2} = \frac{L^{2}}{2I}$ 	\NR	
+\NC Arc Length		\NC $s$		\NC $=r\theta$					\NC Angular Momentum		\NC $L$			\NC $=I\omega$ 							\NR
+\NC Torque		\NC $\tau $	\NC $=rF$																										\NR
+
 \stoptabulate
 
-\starttabulate[|lw(3.5in)|r|l|][title={\bf Vibrations and Orbits}]
-%\NC \bf Vibrations and Orbits \NR%\NC  \NC  \text{Linear} \NC 	\NR% \NC  \text{Angular}	\NR
-\NC Frequency relations \NC 
-	$f$ \EQ $\frac{N}{\Delta t} = \frac{1\units{cyc}}{T}$	\NC \NR%\NC \NC 
-\NC Period relations \NC 
-	$T$  \EQ $\frac{1\units{cyc}}{f}	= \frac{1\units{cyc}\cdot\Delta t}{N}$	\NR
-%   	\NC \text{Wave number} \NC 
-%    	|\vec k| \NC = \frac{N}{L} = \frac{1\units{cyc}}{\lambda}\NC \NC \NC 
-%    \NC \text{Wavelength} \NC 
-%    	\lambda \NC = \frac{1\units{cyc}}{|\vec k|} = \frac{1\units{cyc}\cdot L}{N}	 \NR
-\NC Orbital speed \NC 
-	$\abs{v}$ \EQ $\frac{2\pi R}{T}$	\NR% = \frac{2\pi Rf}{1\units{cyc}} \NR%	\NC \NC \NC 
-\NC Simple harmonic motion maximum speed \NC 
-%    \NC \!\genfrac{}{}{0pt}{}{\text{Simple harmonic motion}}{\text{maximum speed}} \NC 
-	$\abs{v}\sub{max}$ \EQ $\frac{2\pi A}{T}$	\NR%[2ex]% = \frac{2\pi Rf}{1\units{cyc}} \NR%	\NC \NC \NC 
-\NC Wavelength relation \NC 
-	$\frac{N}{L}$ \EQ $\frac{1\units{cyc}}{\lambda}$	\NR %{|\vec k|} =\NC \NC \NC 
-%%    \NC \text{Wave number} \NC 
-%%    	|\vec k| \NC = \frac{N}{L} = \frac{1\units{cyc}}{\lambda}\NR
-\NC Wave speed \NC 
-	$\abs{v\sub{w}}$ \EQ $\frac{\lambda}{T} = \frac{f \lambda}{1\units{cyc}}$	\NR
-%%			U \NC \approx \frac{mg}{2R}x^2		\NR %\cos(\theta) \NR
+\starttabulate[| w(1.5in) | rw(0.75in)  | l lw(1.5in)  |   | rw(0.75in)  |  |][title={\bf Orbital Motion}]
+\NC Circular Orbital speed 			\NC $\abs{v}$ 		\NC $=\frac{2\pi R}{T}$				\NC Circular Angular Velocity 		\NC $\omega$ 		\NC	$= \sqrt{\frac{GM}{r^3}}$			\NR
+\NC Energy in Circular Orbits	\NC $H$ 			\NC	$=-G\frac{mM}{2r}$				\NC Circular Orbital Speed	\NC $\abs{v}$ 		\NC  $= \sqrt{\frac{GM}{r}}$						\NR
+\NC Energy in Elliptical Orbits	\NC $H$ 			\NC $= -G\frac{mM}{2a}$				\NC 	Orbital Period 			\NC $T$			\NC $=\frac{2\pi}{\sqrt{GM}}a^{3/2}$					\NR
+\NC Kepler's Third Law		\NC $\frac{T\sub{1}}{T\sub{2}}$ 	\NC $ = \left(\frac{a\sub{1}}{a\sub{2}}\right)^{3/2}$		\NC Semi-major Axis	\NC $a$ 		\NC	$= \frac{r\sub{1} + r\sub{2}}{2}$		\NR
 \stoptabulate
 
-\setupinterlinespace[line=2.9ex]
+\starttabulate[|lw(3.5in)|r|l|][title={\bf Music and Waves}]
+\NC Frequency relations 					\NC $f$ \EQ $\frac{N}{\Delta t} = \frac{1\units{cyc}}{T}$					\NR
+\NC Period relations			 			\NC $T$  \EQ $\frac{1\units{cyc}}{f}	= \frac{1\units{cyc}\cdot\Delta t}{N}$		\NR
+\NC Wavelength relation 					\NC $\frac{N}{L}$ \EQ $\frac{1\units{cyc}}{\lambda}$						\NR
+\NC Wave speed 						\NC $\abs{v\sub{w}}$ \EQ $\frac{\lambda}{T} = \frac{f \lambda}{1\units{cyc}}$	\NR
+\stoptabulate
 
-\starttabulate[|lw(1in)|r|l|][title={\bf Units}]
+\setupinterlinespace[line=2.5ex]
+
+\starttabulate[|l |c| l|]
+\NC \bf Useful Quantities 				\NC Symbol 			\NC Value 							\NR
 \FL
-\NC Frequency	\NC 
-	$1\units{Hz}$ \EQ $1\units{cyc/s}$	\NC 	\NR
-\NC Cycles	\NC
-	$1\units{cyc}$ \EQ $360\degree = 2\pi\units{rad} = 2\pi$	\NR
-\NC Force	\NC 
-	$1\units{N}$ \EQ $%1\units{J/m}=
-	1\units{kg\.m/s^2}$	\NR
-\NC Energy	\NC 
-	$1\units{J}$ \EQ $1\units{N\.m}=1\units{W\.s}=1\units{kg\.m^2/s^2}$ \NR
-\NC Power	\NC 
-	$1\units{W}$ \EQ $1\units{J/s}=1\units{N\.m/s}=1\units{kg\.m^2/s^3}$ \NR
+\NC Speed of light					\NC $c$ 				\NC $3.00 \sci{8}\units{m/s}$				\NR
+\NC Gravitational constant 			\NC $G$				\NC $6.67 \sci{-11}\units{N\.m^2/kg^2}$		\NR
+\NC Earth's surface gravitational field 	\NC $g$				\NC $9.8\units{N/kg} = 9.8\units{m/s^2}$					\NR
+\NC Earth's mass					\NC $M\sub{\Earth}$		\NC $6.0\sci{24}\units{kg}$				\NR
+\NC Earth's radius					\NC $r\sub{\Earth}$		\NC $6.37\sci{6}\units{m}$					\NR
+\NC Sun's Mass					\NC $M\sub{\Sun}$		\NC $2.0\sci{30}\units{kg}$				\NR
 \LL
 \stoptabulate
 
-\starttabulate[|l|c|l|]
-\NC \bf Useful Quantities \NC Symbol \NC Value \NR
+\starttabulate[| w(1.25in) | w(2.75in) | w(.5in)  |  cw(.25in) |  mw(1in) | w(.5in) | cw(.25in) | m |]
 \FL
-\NC Speed of light					\NC $c$ 			\NC $3.00 \sci{8}\units{m/s}$				\NR
-%\NC Planck's constant				\NC $h$				\NC $6.63\sci{-34}\units{J/Hz}$
-%\NC													\NC $4.14\sci{-15}\units{eV\!/Hz}$			\NR
-%\NC													\NC $4.1357\sci{-15}\units{eV\!/Hz}$		\NR
-%\NC								\NC $\hbar$			\NC $1.054 \sci{-34}\units{J\.s}$			\NR
-\NC Gravitational constant 			\NC $G$			\NC $6.67 \sci{-11}\units{m^3/kg\.s^2}$	\NR
-\NC Earth's surface gravitational field \NC $g$				\NC $9.8\units{m/s^2}$					\NR
-\NC Earth's mass					\NC $M\sub{\Earth}$	\NC $5.97\sci{24}\units{kg}$				\NR
-\NC Earth's radius					\NC $r\sub{\Earth}$	\NC $6.37\sci{6}\units{m}$				\NR
-%\NC Electron mass					\NC $m_e$			\NC $9.11 \sci{-31}\units{kg}$ 
-%\NC													\NC $0.511\units{MeV}$					\NR
-%\NC													\NC $0.510998928(11)\units{MeV}$		\NR
-%\NC Proton mass					\NC $m_p$			\NC $1.67262 \sci{-27}\units{kg}$ 
-%\NC    				 									\NC $938.3\units{MeV}$					\NR
-%\NC   											 		\NC $938.272046(21)\units{MeV}$			\NR
-%\NC Neutron mass					\NC $m_n$			\NC $1.67495 \sci{-27}\units{kg}$ 
-%														\NC $939.6\units{MeV}$					\NR
-%														\NC $939.565378(21)\units{MeV}$			\NR
-% Electric constant \NC $k\sub{C}$ \NC $8.99\sci{9}\units{N\.m^2/C^2}$ %$\dfrac{1}{4 \pi \epsilon_0}$
-%    	   \NC $1.44\sci{-9}\units{V\.m/e}$\NR %$\dfrac{1}{4 \pi \epsilon_0}$
-%    Elementary charge \NC $1\units{e}$ \NC $1.60 \sci{-19}\units{C}$ \NR
-%    Electron volt \NC $1\units{eV}$ \NC $1.60 \sci{-19}\units{J}$ \NR
-%    Avogadro's number \NC $N_A$ \NC $6.02 \sci{23}\units{atoms/mol}$ \NR
-%    Specific heat capacity of water \NC $c\sub{water}$ \NC $4.2\units{J/g\.\degree C}$\NR
-%    Boltzmann constant \NC $k$ \NC $1.38 \sci{-23}\units{J/K}$ \NR 
-\LL
-\stoptabulate
-
-\setuptabulate[header=text, title={\bf Metric Prefixes}]
-\starttabulate[|lw(.5in)|cw(.25in)|mw(1in)|lw(.5in)|cw(.25in)|m|][title={\bf Metric Prefixes}]
-\FL
-\NC deci	\NC d		\NC 10^{-1}	\NC  deka	\NC da	\NC 10^{1}	\NR
-\NC centi	\NC c		\NC 10^{-2}	\NC  hecto	\NC h	\NC 10^{2}	\NR
-\NC milli	\NC m		\NC 10^{-3}	\NC  kilo	\NC k	\NC 10^{3}	\NR
-\NC micro	\NC $\rm\mu$	\NC 10^{-6}	\NC  mega	\NC M	\NC 10^{6}	\NR
-\NC nano	\NC n		\NC 10^{-9}	\NC  giga	\NC G	\NC 10^{9}	\NR
-\NC pico	\NC p		\NC 10^{-12}	\NC  tera	\NC T	\NC 10^{12}	\NR
-\NC femto	\NC f		\NC 10^{-15}	\NC  peta	\NC P	\NC 10^{15}	\NR
+\NC \bf Units		\NC															\NC \bf Metric Prefixes											\NR
+\NC Frequency		\NC $1\units{Hz} = 1\units{cyc/s}$									\NC deci	\NC d		\NC 10^{-1}	\NC  deka	\NC da	\NC 10^{1}	\NR	 		
+\NC Cycles		\NC $1\units{cyc} = 360\degree = 2\pi\units{rad} = 2\pi$					\NC centi	\NC c		\NC 10^{-2}	\NC  hecto\NC h	\NC 10^{2}	\NR		
+\NC Force			\NC $1\units{N} = 1\units{J/m} = 1\units{kg\.m/s^2}$						\NC milli	\NC m		\NC 10^{-3}	\NC  kilo	\NC k	\NC 10^{3}	\NR
+\NC Energy		\NC $1\units{J} = 1\units{N\.m}=1\units{W\.s}=1\units{kg\.m^2/s^2}$ 			\NC micro	\NC $\rm\mu$	\NC 10^{-6}	\NC  mega\NC M	\NC 10^{6}	\NR
+\NC Power		\NC $1\units{W} = 1\units{J/s}=1\units{N\.m/s}=1\units{kg\.m^2/s^3}$ 		\NC nano	\NC n		\NC 10^{-9}	\NC  giga	\NC G	\NC 10^{9}	\NR
+\NC Momentum		\NC $\units{kg\.m/s}$											\NC pico	\NC p		\NC 10^{-12}	\NC  tera	\NC T	\NC 10^{12}	\NR
+\NC Ang Momentum	\NC	$\units{kg\.m^2/s}$									\NC femto	\NC f			\NC 10^{-15}	\NC  peta	\NC P	\NC 10^{15}	\NR
 \LL
 \stoptabulate
 
