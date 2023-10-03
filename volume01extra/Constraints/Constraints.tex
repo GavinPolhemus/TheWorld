@@ -21,21 +21,21 @@ Hamilton’s equations with these external reaction forces are
 \stopformula
 There are $m$ coordinates $\eta^\alpha$ and $m$ canonical momenta $\pi_\alpha$ ($\alpha \in \{1\dots m\}$). The constraints are maintained by the reaction force $F$, which has components $F_\alpha$.
 
-Common constraints, like rolling, link the differential changes in position velocities as well as position. Rolling constraints are linear in differential positions, so consider $n$ constraints of the form
+Common constraints, like rolling, link the infinitesimal displacements $d\eta^\alpha$. Rolling constraints are linear in these displacements, so consider $n$ constraints of the form
 \startformula
-	e^\mu_\alpha\,\partial\eta^\alpha = 0,
+	e^\mu_\alpha\,d\eta^\alpha = 0,
 \stopformula
-where $\mu \in \{1\dots n\}$. For rolling constraints the $e^\mu_\alpha$ themselves depend only on positions, not momenta or velocities, but this restriction is not necessary for what follows.
+where $\mu \in \{1\dots n\}$. For rolling constraints, the $e^\mu_\alpha$ themselves depend only on positions, not momenta or velocities, but this restriction is not necessary for what follows.
 
-The constraint force is unknown, but we know it does no work on the system for any virtual displacement consistent with the constraints.
+The constraint force is unknown, but we know it does no work on the system.
 \startformula
-	F_\alpha\,\partial\eta^\alpha = 0
+	F_\alpha\,d\eta^\alpha = 0
 \stopformula
-This can be achieved by setting
+This is achieved by setting
 \startformula
 	F_\alpha = \lambda_\mu e^\mu_\alpha,
 \stopformula
-(so the work becomes $F_\alpha\,\partial\eta^\alpha = \lambda_\mu e^\mu_\alpha\,\partial\eta^\alpha = 0$)
+(so the work becomes $F_\alpha\,d\eta^\alpha = \lambda_\mu e^\mu_\alpha\,d\eta^\alpha = 0$)
 with $n$ unknown multipliers $\lambda_\mu$.
 With this external reaction force, Hamilton’s equations become
 \startformula
@@ -43,27 +43,30 @@ With this external reaction force, Hamilton’s equations become
 	\qquad
 	d\pi_\alpha = \left( - \frac{\partial H}{\partial \eta^\alpha} + \lambda_\mu e^\mu_\alpha \right)\,dt
 \stopformula
-The final result of all of this is $2m$ Hamilton’s Equations and the $n$ constraint equations. These can be used to solve for the $m$ coordinates, $m$ momenta, and $n$ multipliers. For rolling constraints there is no velocity dependence in Hamilton’s equations. The reaction force maintaining all of the constraints has components
+The final result is $2m$ Hamilton’s Equations and $n$ constraint equations. These can be used to solve for the $m$ displacements $d\eta^\alpha$, $m$ impulses $d\pi_\alpha$, and $n$ multipliers $\lambda_\mu$. For rolling constraints, there is no velocity dependence in Hamilton’s equations. The reaction force maintaining all of the constraints has components
 \startformula
 	F_{\alpha} = \lambda_\mu e^\mu_\alpha.
 \stopformula
-Frequently, only the positions are constrained explicitly. (These are called holonomic constraints.) The velocities are constrained only as a consequence of the position constraints
+Frequently, only the positions are constrained explicitly.
 \startformula
 	f^\mu = \text{const.},
 \stopformula
-where each $f^\mu$ depends only on position. These constraints can be put in the form above by finding the virtual changes in the $f^\mu$ through the chain rule.
+where each $f^\mu$ depends only on position.
+These are called holonomic constraints.
+
+The displacements are constrained only as a consequence of the position constraints, as can be seen by finding the changes in the $f^\mu$ through the chain rule.
 \startformula
-	\partial f^\mu = \frac{\partial f^\mu}{\partial\eta^\alpha}\,\partial\eta^\alpha = 0
+	df^\mu = \frac{\partial f^\mu}{\partial\eta^\alpha}\,d\eta^\alpha = 0
 \stopformula
-This is the a constraint linear in differentials with
+This is the a constraint linear in displacements, now with
 \startformula
-	e^\mu_\alpha = \frac{\partial f^\mu}{\partial\eta^\alpha}
+	e^\mu_\alpha = \frac{\partial f^\mu}{\partial\eta^\alpha}.
 \stopformula
 Hamilton’s equations with holonomic constraints become
 \startformula
 	d\eta^\alpha = \frac{\partial H}{\partial \pi_\alpha}\,dt
 	\qquad
-	d\pi_\alpha = \left( - \frac{\partial H}{\partial \eta^\alpha} + \lambda^\mu \frac{\partial f_\mu}{\partial\eta^\alpha}\right)\,dt
+	d\pi_\alpha = \left( - \frac{\partial H}{\partial \eta^\alpha} + \lambda_\mu \frac{\partial f^\mu}{\partial\eta^\alpha}\right)\,dt
 \stopformula
 This is the common result for constrained motion. See, for example, José and Saletan, in \booktitle{Classical Dynamics} (pp. 115-6) which discusses nonholonomic constraints as well. I have only seen these methods in the Lagrangian formulation, but the Hamiltonian formulation is a natural extension. There is no obstacle to mixing holonomic and nonholonomic constraints.
 
@@ -79,7 +82,7 @@ Hamiltonian methods are excellent for a full relativistic treatment. The key is 
 \startformula
 	{\cal H }= \half g^{\mu\nu}(\pi_\mu - eA_\mu)(\pi_\nu - eA_\nu) = \half m^2
 \stopformula
-This is a single constraint involving momenta and positions (through $A_\mu$). This will lead to one unknown multiplier, but this multiplier can be set to one, fixing the parametrization of the the particle path. (MTW \booktitle{Gravitation,} pp.~488--489, 654, 897--901 and Lanczos \booktitle{The Variational Principles of Mechanics,} pp.~319--320, 327--336)
+This is a single constraint involving momenta and positions (through $g^{\mu\nu}$ and $A_\mu$). This will lead to one unknown multiplier, but this multiplier can be set to one, fixing the parametrization of the the particle path. (MTW \booktitle{Gravitation,} pp.~488--489, 654, 897--901 and Lanczos \booktitle{The Variational Principles of Mechanics,} pp.~319--320, 327--336)
 
 \stoptext
 \stopcomponent

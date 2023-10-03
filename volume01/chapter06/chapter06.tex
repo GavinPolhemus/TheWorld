@@ -104,6 +104,7 @@ endgraph shifted (0,-5cm);
 \small\reuseMPgraphic{graph::BoxEarthGravU}
 \stopplacefigure
 
+\noindent
 The energy graph in \in{figure}[fig:BoxEarthGravU] shows the box's tremendous increase in gravitational potential energy as it is moved far from Earth. It starts at Earth's surface, with a potential energy $U=-1.88\sci{8}\units{J}$. To move the box far away requires going off the graph, far to the right in \in{figure}[fig:BoxEarthGravU], to the where $U\approx 0\units{J}$. Objects sent to deep space require giant rockets which do the work required to reach the much higher gravitational potential energy.
 
 \startexample[ex:BoxEarthGravU2] The $3.0\units{kg}$ box was placed far from Earth, but even so it eventually is pulled back by Earth’s gravitational attraction. How fast is the box going when it enters the atmosphere, approximately $100\units{km}$ above Earth’s surface?
@@ -161,7 +162,7 @@ Newton and his contemporaries certainly wanted to know how gravity reaches acros
 
 Today, we do know how gravity works, thanks to Einstein.
 Einstein's theory of gravity is complicated, but it has been thoroughly tested and accepted as one of the great theories of modern physics.
-Luckily, we can understand gravity's tremendous reach without mastering Einstein's full theory. All we  need is one part of the theory\dash a simple function called the \keyterm{gravitational potential}, $\Phi$.
+Luckily, we can understand gravity's tremendous reach without mastering Einstein's full theory. All we  need is one part of the theory\dash a simple function called the \keyterm{gravitational potential}, $\Phi$. (This is a capital greek phi.)
 
 \startuseMPgraphic{graph::EarthGravPotential} % I'd like to add minor ticks, 0.667mm long.
 vardef U =
@@ -401,7 +402,8 @@ The change in gravitational potential is $\Delta\Phi = \Phi\sf - \Phi\si$.
 	\NC	\half v\si^2 + \Phi\si	\NC = \half v\sf^2 + \Phi\sf \NR
 	\NC	v\sf	\NC = \sqrt{v\si^2 - 2\Delta\Phi} \NR
 	\stopmathalignment\stopformula
-The final speed $v\sf$ depends only on the initial speed $v\si$ and the change in gravitational potential $\Delta\Phi$. Halley's Comet orbits the Sun, so the mass $M$ is the Sun's mass $M_\Sun = \unit{1.99e30kg}$. Use $GM_\Sun = (\unit{6.67e-11m^3/kg s^2})(\unit{1.99e30kg}) = \unit{1.33e20 m^3/s^2}$ in calculating the potential change.
+The final speed $v\sf$ depends only on the initial speed $v\si$ and the change in gravitational potential $\Delta\Phi$.
+Next we calculate $\Delta \Phi$ from $\Phi = GM/r$, where $M$ is the Sun's mass $M_\Sun = \unit{1.99e30kg}$. $GM_\Sun = (\unit{6.67e-11m^3/kg s^2})(\unit{1.99e30kg}) = \unit{1.33e20 m^3/s^2}$.
 	\startformula\startmathalignment
 	\NC	\Delta\Phi	\NC = \Phi\sf	- \Phi\si	\NR
 	\NC				\NC = -G\frac{M_\Sun}{r\sf} + G\frac{M_\Sun}{r\si}		\NR
@@ -434,7 +436,7 @@ During the eighteenth century, physicists attacked many abstract problems in pur
 Leonhard Euler (a close friend of Danial Bernoulli), adapted and expanded Newton's methods to solve many new types of problems. Other physicists introduced new principles – like energy conservation – to solve problems in entirely new ways. These advances produced a rather confusing patchwork of methods and principles.
 
 While Lagrange wrote papers on celestial mechanics and won awards, he also pursued a much more ambitious goal.
-He sought to replace the patchwork of methods and principles with a single procedure that could be applied to any problem in mechanics. He delivered his revolutionary synthesis in \booktitle{Mécanique Analytique}, published in 1788, almost exactly a century after Newton's \booktitle{Principia}. Lagrange describes his intent in the monumental work's preface.
+He sought to replace the patchwork of methods and principles with a single procedure that could be applied to any problem in mechanics. He delivered his revolutionary synthesis in \booktitle{Mécanique Analytique}, published in 1788, a century after Newton's \booktitle{Principia}. Lagrange describes his intent in the monumental work's preface.
 
 \startblockquote
 There already exist several treatises on mechanics, but the purpose of this one is entirely new. I propose to condense the theory of this science and the method of solving the related problems to general formulas whose simple application produces all the necessary equations for the solution of each problem. %I hope that my presentation achieves this purpose and leaves nothing lacking.
@@ -449,8 +451,8 @@ He refashioned one ancient idea into a general procedure for relating Newton's m
 \section{Lagrange's finds force from potential energy}
 
 Lagrange's insight was that Newton's force can be found from the energy graph of D.~Bernoulli's  potential energy.
-The force's direction is toward lower potential energy.
-The force's magnitude is equal to the potential energy's slope on the energy graph.
+\emph{The force's direction is toward lower potential energy.
+  The force's magnitude is equal to the potential energy's slope on the energy graph.}
 %If potential energy's slope is gentle, the force is small. If the potential energy's slope is steep, the force is large.
 
 To understand Lagrange's insight, consider the cart connected to a spring in \in{figure}[fig:HookesLaw].
@@ -608,9 +610,11 @@ Finding the exact slope on the energy graph is not easy, but there is a simple f
 The $k$ in Hooke's law is the same spring stiffness that appears in the spring's potential energy formula above.
 
 We should compare Hooke's law to Lagrange's insight to see that they agree.
-First, when the cart is in the center, at $x=0$, Hooke's law gives $F=0$, in agreement with Lagrange. 
-Next, check the directions.
-The negative sign in Hooke's law guarantees that the force always opposes the displacement. When the cart's displacement $x$ is negative, the force is positive, pushing the cart in the positive direction, back toward the equilibrium point. When the cart's displacement is positive, the force pushes in the negative direction, also back toward the equilibrium point. Hooke's directions agree with Lagrange. Finally, as the the magnitude of $x$ increases, the magnitude of Hooke's force $F$ also increases, again in agreement with Lagrange.
+First, check the directions.
+The negative sign in Hooke's law guarantees that the force opposes the displacement. When the cart's displacement $x$ is negative, the force $F$ is positive, pushing the cart in the positive direction, back toward the equilibrium point. When the cart's displacement is positive, the force pushes in the negative direction, also back toward the equilibrium point. Hooke's directions agree with Lagrange.
+Second, check the magnitudes.
+As the the magnitude of $x$ increases, the magnitude of Hooke's force $F$ also increases, again in agreement with Lagrange.
+Finally, when the cart is in the center, at $x=0$, Hooke's law gives $F=0$, in agreement with Lagrange. 
 Lagrange's insight explains the spring's force. Hooke's law calculates the spring's force.
 
 
@@ -625,6 +629,7 @@ Lagrange's insight also allows us to find the long range gravitational force fro
 \stopformula
 The potential energy of a \unit{3.0kg} box was shown in \in{figure}[fig:BoxEarthGravU], and the energy graph is reproduced here in \in{figure}[fig:BoxEarthGravF].
 The diagram at the top of \in{figure}[fig:BoxEarthGravF] shows Earth and the box at three different distances $r$.
+These positions are also marked with dots on the energy graph.
 
 \startuseMPgraphic{graph::BoxEarthGravF} % I'd like to add minor ticks, 0.667mm long.
 vardef U =
@@ -705,7 +710,7 @@ In \booktitle{Mécanique Analytique}, Lagrange used his powerful mathematical an
 
 Lagrange's \booktitle{Mécanique Analytique} was a stunning achievement, unlike anything physics had seen before. Lagrange was viewed as a hero in France under King Louis \convertnumber{KR}{16}. Luckily, Lagrange's fame transcended the turbulent – often violent – politics of France following the French Revolution in 1789. As governments rose and fell around him, Lagrange continued to play a leading role in the advancement of science and mathematics in France.
 
-Lagrange's equations of motion are a bit more tangled than our position and momentum update formulas, so we will not learn the details of his procedure. A general method for producing position and momentum update formulas was developed by William Rowan Hamilton.
+Lagrange's equations of motion are a bit more tangled than our position and momentum update formulas, so we will not learn the details of his procedure. A general method for producing position and momentum update formulas was developed later by William Rowan Hamilton.
 
 \startuseMPgraphic{graph::EarthGravField} % I'd like to add minor ticks, 0.667mm long.
 vardef U =
@@ -967,7 +972,7 @@ They have gone from just less than one revolution every three seconds to over th
 Changing a system's moment of inertia can dramatically change its angular velocity. In the example above, the kids were able to reduce their distance from the center to about one-quarter of what it was originally. Because the moment of inertial is proportional to $r^2$, reducing their $r$ to one-quarter will reduce their $I$ to one sixteenth!
 
 Nothing like this happens with linear momentum, because linear momentum is mass times velocity. Objects cannot simply reduce their mass to increase their velocity. Many things do chance their shape and moment of inertia. Ice skaters will pull in their arms to make their spins faster. Gymnasts and divers tuck to flip more quickly.
-Slowly rotating air masses become hurricanes or tornados when the air is draw towards the center by an area of extreme low pressure.
+Slowly rotating air masses become hurricanes or tornados when the air is drawn towards the center by an area of extreme low pressure.
 Planets, stars, solar systems, and galaxies rotate much more quickly than the large clouds of gas and dust from which they formed.
 Conservation of angular momentum is one of the great drivers of motion in the universe, from the largest galaxies down to subatomic particles. 
 
@@ -984,12 +989,6 @@ Celestial motion was a primary interest for both Lagrange and Hamilton. They eac
 The Sun ($\Sun$) is at the center of \in{figure}[fig:U3D]. The planets are shown at increasing distances along the $r$ axis. (Planet symbols are listed in \in{table}[T:Astrosym] on \at{p.}[T:Astrosym].)
 \in{Figure}[fig:U3D] is three dimensional to show the potential energy $U$ as planets orbit the Sun. The vertical axis in \in{figure}[fig:U3D] is energy. The planets orbit in the vertical plane at the top of \in{figure}[fig:U3D].
 The three dimensional energy graph will allow us to understand the planets' two dimensional orbits.
-
-\in{Figure}[fig:U3D] shows the planets' gravitational potential energy $U$, which is very negative near the Sun and rises toward zero far away.
-\startformula
-	U = -G\frac{mM}{r}
-\stopformula
-(We will use $m$ for the mass of a planet and $M$ for the much larger mass of the Sun.) This gravitational potential energy produces a gravitational force toward the Sun.
 
 \startbuffer[U3D]
 \startaxis[
@@ -1024,7 +1023,7 @@ The three dimensional energy graph will allow us to understand the planets' two 
 ](
 {x * cos(deg(y))}, {x * sin(deg(y))}, {-13.27/x}
     );
-    \node at (-8,-6,-2.5) {$U$};
+    \node at (-8,-6,-2.5) {$\Phi$};
     \draw[->] (0,0,0) --node[below, pos = 0.98]{$r$} (16,0,0);
     \draw[shade, ball color = white] (0,0,0) circle[radius=.6mm]node[above=0.8mm] {\Sun};
     \draw[shade, ball color = darkgray] (0.5546,0,0) circle[radius=0.2mm]node[below] {\Mercury};
@@ -1037,9 +1036,21 @@ The three dimensional energy graph will allow us to understand the planets' two 
 \stopaxis
 \stopbuffer
 
-\marginTikZ{}{U3D}{A planet's gravitational potential energy depends on its distance $r$ from the Sun. A planet released from rest would accelerate toward lower potential energy, crashing into the Sun!} % vskip, name, caption
+\marginTikZ{}{U3D}{The Sun produces a deep, wide potential well.
+The gravitational potential $\Phi$ depends on  distance $r$ from the Sun.
+The six visible plants are shown at their correct distances from the Sun.
+A planet released from rest would accelerate toward lower potential energy, crashing into the Sun!} % vskip, name, caption
 
-Following the logic of Lagrange's force formula, we can see from \in{figure}[fig:U3D] that the $r$ component of the gravitational force is negative, pulling planets toward lower potential energy in the direction of the Sun. This gravitational force toward the Sun bends the planets' paths into orbits.
+Following the logic of Lagrange's insight, we can see from \in{figure}[fig:U3D] that the direction of the gravitatinal force is in the direction of the Sun, toward lower potential energy. The force toward the central Sun does not produce any torque $\tau$ on the planets, so each plant's angular momentum $L$ is constant.
+
+\in{Figure}[fig:U3D] shows the planets' gravitational potential energy $U$, which is very negative near the Sun and rises toward zero far away.
+\startformula
+	U = -G\frac{mM}{r}
+\stopformula
+(We will use $m$ for the mass of a planet and $M$ for the much larger mass of the Sun.) This gravitational potential energy produces a gravitational force toward the Sun.
+
+
+$r$ component of the gravitational force is negative, pulling planets toward lower potential energy in the direction of the Sun. This gravitational force toward the Sun bends the planets' paths into orbits.
 
 A planet orbiting the Sun at a constant distance $r$ does not see any change in potential energy.
 Since the potential energy is constant along a circular orbit, Lagrange's force formula tells us that there is no force in along the circular orbit, meaning no torque $\tau$ along the orbit direction.
@@ -1130,12 +1141,13 @@ The centripetal force formula gives the force required to produce the circular m
 		%= GmM \left(-1r^{-2}\right)
 		= -G\frac{mM}{r^2}
 \stopformula
-The \emph{magnitude} of this gravitational force is the centripetal force above, allowing us to find the planet's angular velocity.
+The \emph{magnitude} of this gravitational force is the centripetal force above.
+Setting the centripetal force $F= m\omega^2 r$ equal to Newton's gravitational force allows us to find the planet's angular velocity.
 \startformula\startmathalignment\pagereference[eq:AngularVelocityCircular]
 \NC	\cancel{m}\omega^2 r	\NC = G\frac{\cancel{m}M}{r^2}	\NR
 \NC	\omega				\NC = \sqrt{\frac{GM}{r^3}}	\NR
 \stopmathalignment\stopformula
-The planet's distance determines its angular velocity, with much higher angular velocities closer to the Sun. Higher angular velocities give shorter periods, which we find using $T = 2\pi / \omega$.
+The planet's distance $r$ determines its angular velocity, with much higher angular velocities closer to the Sun. Higher angular velocities give shorter periods, which we find using $T = 2\pi / \omega$.
 \startformula
 	T = \textfrac{2\pi}{\sqrt{GM}}\,r^{\threehalves}
 \stopformula
