@@ -613,7 +613,7 @@ We should compare Hooke's law to Lagrange's insight to see that they agree.
 First, check the directions.
 The negative sign in Hooke's law guarantees that the force opposes the displacement. When the cart's displacement $x$ is negative, the force $F$ is positive, pushing the cart in the positive direction, back toward the equilibrium point. When the cart's displacement is positive, the force pushes in the negative direction, also back toward the equilibrium point. Hooke's directions agree with Lagrange.
 Second, check the magnitudes.
-As the the magnitude of $x$ increases, the magnitude of Hooke's force $F$ also increases, again in agreement with Lagrange.
+As the magnitude of $x$ increases, the magnitude of Hooke's force $F$ also increases, again in agreement with Lagrange.
 Finally, when the cart is in the center, at $x=0$, Hooke's law gives $F=0$, in agreement with Lagrange. 
 Lagrange's insight explains the spring's force. Hooke's law calculates the spring's force.
 
@@ -621,7 +621,7 @@ Lagrange's insight explains the spring's force. Hooke's law calculates the sprin
 %On the right half of the graph, the slope is positive, so any motion in the positive direction leads to higher potential energy.
 %The force, which is minus the slope, is therefore negative, pushing toward lower potential energy.
 %On the left half of the graph, the slope is negative. Any motion in the positive direction leads toward lower potential energy, so the force, which is minus the slope, pushes in the positive direction, again toward lower potential energy.
-%At the center, the slope and the the force are both zero. Neither direction leads toward lower potential energy, and the force does not point in either direction.
+%At the center, the slope and the force are both zero. Neither direction leads toward lower potential energy, and the force does not point in either direction.
 
 Lagrange's insight also allows us to find the long range gravitational force from the long range gravitational potential energy (\at{p.}[sec:GravUSolarSys]).
 \startformula
@@ -703,14 +703,49 @@ Lagrange's insight explains the gravitational force. Newton's law of universal g
 Hooke published his law for springs in 1678. Newton presented his law of universal gravitation to the Royal Society in 1686. These two laws were early contributions to the patchwork of methods and principles developed during the seventeenth and eighteenth century. Lagrange's insight was that these laws, and many others, were consequences of the potential energy formulas discovered later by D.~Bernoulli. This insight was just one part of Lagrange's general procedure for mechanics.
 
 Lagrange's general procedure was totally unlike Newton's own methods for working with forces. Newton's \booktitle{Principia} is full of diagrams. Newton's calculations are done with graphical methods, and equations are few. In the preface to his \booktitle{Mécanique Analytique}, Lagrange explains his analytical procedure.
-\startblockquote
+\startblockquote  
 No figures will be found in this work. The methods I present require neither constructions nor geometrical or mechanical arguments, but solely algebraic operations subject to a regular and uniform procedure. Those who appreciate mathematical analysis will see with pleasure mechanics becoming a new branch of it and hence, will recognize that I have enlarged its domain.
 \stopblockquote
 In \booktitle{Mécanique Analytique}, Lagrange used his powerful mathematical analysis to analyze any mechanical system, described using any coordinates. Starting with only the formulas for the system's total kinetic energy and total potential energy. Lagrange's \quotation{regular and uniform procedure} produces a complete set of equations of motion for the system.
 
 Lagrange's \booktitle{Mécanique Analytique} was a stunning achievement, unlike anything physics had seen before. Lagrange was viewed as a hero in France under King Louis \convertnumber{KR}{16}. Luckily, Lagrange's fame transcended the turbulent – often violent – politics of France following the French Revolution in 1789. As governments rose and fell around him, Lagrange continued to play a leading role in the advancement of science and mathematics in France.
 
-Lagrange's equations of motion are a bit more tangled than our position and momentum update formulas, so we will not learn the details of his procedure. A general method for producing position and momentum update formulas was developed later by William Rowan Hamilton.
+Lagrange's equations of motion are a bit more tangled than our position and momentum update formulas, so we will not learn the details of his procedure. A general method for producing position and momentum update formulas was developed later by William Rowan Hamilton. We will need Hamilton's general method to solve the ancient problem of the planets' motions. We will introduce his method later in this chapter to study rotational motions. Then we will apply the method to the planets' elliptical orbits in \in{Chapter}[ch:Rotation]. 
+
+First, however, we will look at circular orbits, which we can explain entirely with Lagrange's insights.
+
+\section{Gravitational Field}
+Newton's Law of Universal Gravitation, presented in the previous section, is a bit intimidating. It is certainly more complicated than the formula $F = -mg$, which we have been using for gravity near Earth's surface. The simpler formula describes the downward force in terms of the \keyterm{gravitational field} acting on the mass $m$. The gravitational field's direction is always downward. The gravitational field's magnitude is $g$. Near Earth's surface, $g$ is $\unit{9.8 m/s^2}$. At other locations in the solar system, $g$ can be much larger or much smaller.
+We will continue to use the simple formula $F=-mg$, but we will take care to find the correct value of $g$.
+
+The gravitational field's magnitude $g$ can be found at any distance $r$ from the center of any large mass $M$.
+\startformula
+  g = G\frac{M}{r^2}
+\stopformula
+Near Earth's surface, this formula gives the well known value for $g$.
+\startformula
+  g = G\frac{M}{r^2}
+    = (\unit{6.67e-11 m^3/kg s^2})\frac{\unit{5.97e24 kg}}{(\unit{6.37e6 m})^2}
+    = \unit{9.8 m/s^2}
+\stopformula
+
+
+
+\startformula
+  F = -G\frac{mM}{r^2}
+    = -m\left(G\frac{M}{r^2}\right)
+    = -mg
+\stopformula
+In the last step we have use a new formula for \keyterm{gravitational field}.
+\startformula
+  g = G\frac{M}{r^2}
+\stopformula
+
+
+
+We now have two formulas for the downward gravitational force: Newton's Law of Universal Gravitation, presented in the previous section, and $F=-mg$, which we have used for gravity near Earth's surface (\at{p.}[eq:Fmg]). Both of these are correct, but 
+
+
 
 \startuseMPgraphic{graph::EarthGravField} % I'd like to add minor ticks, 0.667mm long.
 vardef U =
@@ -761,15 +796,6 @@ endgraph shifted (0,-8cm);
 \small\reuseMPgraphic{graph::EarthGravField}
 \stopplacefigure
 
-\section{Gravitational Field}
-
-\startformula
-  F = -mg
-\stopformula
-
-\startformula
-  g = G\frac{M}{r}
-\stopformula
 
 \section{Circular, centered orbits}
 
@@ -777,13 +803,13 @@ endgraph shifted (0,-8cm);
   \frac{v^2}{R} = \omega^2 R = g
 \stopformula
 
-Celestial motion was a primary interest for both Lagrange and Hamilton. They each hoped to solve puzzling celestial motion problems using their new, general, and powerful methods. Their methods start with energy, so we begin by looking at the energy graph for a planet orbiting the Sun, shown in \in{figure}[fig:U3D]. 
+Celestial motion was a primary interest for both Lagrange and Hamilton. They each hoped to solve puzzling celestial motion problems using their new, general, and powerful methods. Their methods start with energy, so we begin by looking at the energy graph for a planet orbiting the Sun, shown in \in{figure}[fig:PhiTerrestrial3D]. 
 
-The Sun ($\Sun$) is at the center of \in{figure}[fig:U3D]. The planets are shown at increasing distances along the $r$ axis. (Planet symbols are listed in \in{table}[T:Astrosym] on \at{p.}[T:Astrosym].)
-\in{Figure}[fig:U3D] is three dimensional to show the gravitational potential $\Phi$ as planets orbit the Sun. The vertical axis in \in{figure}[fig:U3D] is gravitational potential. The planets orbit in the vertical plane at the top of \in{figure}[fig:U3D].
+The Sun ($\Sun$) is at the center of \in{figure}[fig:PhiTerrestrial3D]. The planets are shown at increasing distances along the $r$ axis. (Planet symbols are listed in \in{table}[T:Astrosym] on \at{p.}[T:Astrosym].)
+\in{Figure}[fig:PhiTerrestrial3D] is three dimensional to show the gravitational potential $\Phi$ as planets orbit the Sun. The vertical axis in \in{figure}[fig:PhiTerrestrial3D] is gravitational potential. The planets orbit in the vertical plane at the top of \in{figure}[fig:PhiTerrestrial3D].
 The three dimensional energy graph will allow us to understand the planets' two dimensional orbits.
 
-\startbuffer[Uterrestrial3D]
+\startbuffer[PhiTerrestrial3D]
 \startaxis[
  	  %axis line shift=1cm,
 	   %axis lines*=left,
@@ -831,14 +857,14 @@ The three dimensional energy graph will allow us to understand the planets' two 
 
 %\marginTikZ{}{Uterrestrial3D}{The gravitational potential energy of the inner planets, with their approximate distances from the Sun. The inner planets' full orbits are shown in \in{figure}[fig:KeplerTerestrial].} % vskip, name, caption
 
-\marginTikZ{}{Uterrestrial3D}{The Sun produces a deep, wide potential well.
+\marginTikZ{}{PhiTerrestrial3D}{The Sun produces a deep, wide potential well.
 The gravitational potential $\Phi$ depends on distance $r$ from the Sun.
 The inner planets are shown at their correct distances from the Sun.
 A planet released from rest would accelerate toward lower potential, crashing into the Sun!} % vskip, name, caption
 
-Following the logic of Lagrange's insight, we can see from \in{figure}[fig:U3D] that the direction of the gravitatinal force is in the direction of the Sun, toward lower potential energy. The force toward the central Sun does not produce any torque $\tau$ on the planets, so each plant's angular momentum $L$ is constant.
+Following the logic of Lagrange's insight, we can see from \in{figure}[fig:PhiTerrestrial3D] that the direction of the gravitatinal force is in the direction of the Sun, toward lower potential energy. The force toward the central Sun does not produce any torque $\tau$ on the planets, so each plant's angular momentum $L$ is constant.
 
-\in{Figure}[fig:U3D] shows the planets' gravitational potential energy $U$, which is very negative near the Sun and rises toward zero far away.
+\in{Figure}[fig:PhiTerrestrial3D] shows the planets' gravitational potential energy $U$, which is very negative near the Sun and rises toward zero far away.
 \startformula
 	U = -G\frac{mM}{r}
 \stopformula
@@ -927,7 +953,7 @@ Using $p = mv$ and $v = \omega r$ for uniform circular motion, we find.
 	F = m\omega^2 r
 \stopformula
 
-The centripetal force formula gives the force required to produce the circular motion, but does not tell us the source of that force. For orbits in the solar system this force is the gravitational force exerted by the Sun, the force directed towards lower gravitational potential energy in \in{figure}[fig:U3D]. The strength of the gravitational force is given by Newton's law of universal gravitation (\at{p.}[eq:UniversalGrav]).
+The centripetal force formula gives the force required to produce the circular motion, but does not tell us the source of that force. For orbits in the solar system this force is the gravitational force exerted by the Sun, the force directed towards lower gravitational potential energy in \in{figure}[fig:PhiTerrestrial3D]. The strength of the gravitational force is given by Newton's law of universal gravitation (\at{p.}[eq:UniversalGrav]).
 
 \startformula
 	F %= -\pp{r} U
@@ -1244,13 +1270,13 @@ Slowly rotating air masses become hurricanes or tornados when the air is drawn t
 Planets, stars, solar systems, and galaxies rotate much more quickly than the large clouds of gas and dust from which they formed.
 Conservation of angular momentum is one of the great drivers of motion in the universe, from the largest galaxies down to subatomic particles. 
 
-\section{Polar coordinates}
-
-Kinetic energy can be found from either angular velocity or angular momentum.
-\startformula
-  K = \half I\omega^2
-    = \frac{L^2}{2I}
-\stopformula
+%\section{Polar coordinates}
+%
+%Kinetic energy can be found from either angular velocity or angular momentum.
+%\startformula
+%  K = \half I\omega^2
+%    = \frac{L^2}{2I}
+%\stopformula
 
 
 %\section{Separation of compound motion}
