@@ -31,19 +31,19 @@ The Moon's motion is difficult to study using Newton's methods,  because it is p
 
 \section[sec:GravUSolarSys]{Gravitational potential energy in the Solar System}
 
-The gravitational potential energy formula in \in{Chapter}[ch:PotentialEnergy], $U=mgh$, is only useful for relatively small heights near the Earth’s surface. Over the long distances between planets, moons, and the sun, the gravitational potential energy is a bit more complicated. The gravitational potential energy of any two objects is
+The gravitational potential energy formula in \in{Chapter}[ch:PotentialEnergy], $U=mgh$, is only useful for relatively small heights near the Earth’s surface. Over the long distances between planets, moons, and the Sun, the gravitational potential energy is a bit more complicated. The gravitational potential energy of any two objects is
 \startformula
 	U = -G\frac{mM}{r},
 \stopformula
 where $m$ and $M$ are the objects’ masses, $r$ is the distance between the objects’ centers, and $G=6.67\sci{-11}\units{m^3/kg\.s^2}$ is the universal gravitational constant.
 
-This formula is a bit intimidating, but extremely valuable if used correctly. Notice four things about this formula. First, the distance between the objects is in the denominator. If the distance is extremely large, then their gravitational potential energy is extremely small. This is quite convenient because it means that very distant objects can be ignored. When studying the interaction of the Earth and Moon, it is not necessary to include the gravitational potential energy due to distant stars.
+This formula is a bit intimidating, but extremely valuable if used correctly. Notice four things about this formula. First, the distance between the objects is in the denominator. If the distance is extremely large, then the gravitational potential energy is extremely small. This is quite convenient because it means that very distant objects can be ignored. When studying the interaction of the Earth and Moon, it is not necessary to include the gravitational potential energy due to distant stars.
 
 Second, the distance is between the objects’ centers. When calculating the gravitational potential energy of an object on the Earth’s surface the distance $r$ is Earth’s radius ($r\sEarth=6.37\sci{6}\units{m}$) not the height above Earth’s surface.
 
 Third, the formula always gives a negative potential energy. This has alarmed many people, including great physicists, but it is not a problem. The gravitational potential energy is zero when the objects are far apart and it goes down as objects get closer together. Down from zero is negative. Kinetic energy is always positive, but there is no reason to be alarmed by negative potential energy.
 
-Finally, the universal gravitational constant $G$ is extremely small, so the gravitational potential energy between every-day objects can be completely ignored. At least one of the objects must have a huge mass in order for the gravitational potential energy to be significant. Earth’s mass of $5.97\sci{24}\units{kg}$ is enough to have a significant effect.
+Finally, the universal gravitational constant $G$ is extremely small, so the gravitational potential energy between everyday objects can be completely ignored. At least one object must have a huge mass in order for the gravitational potential energy to be significant. Earth’s mass of $5.97\sci{24}\units{kg}$ is enough to have a significant effect.
 
 \startexample[ex:BoxEarthGravU] How much work is required to lift a $3.0\units{kg}$ box from Earth’s surface to a location very far from Earth?
 
@@ -55,7 +55,7 @@ Finally, the universal gravitational constant $G$ is extremely small, so the gra
 	\stopmathalignment\stopformula
 	Since the box starts motionless on Earth and ends motionless far away, the initial and final kinetic energies are both zero. The final gravitational potential energy is also zero, because the box is very far from Earth. Only the work and initial potential energy remain. The initial distance between the box’s center and Earth’s center is Earth’s radius.
 	\startformula\startmathalignment
-	\NC	U\si + W			\NC = 0										\NR
+	\NC	\cancel{K\si} + U\si + W \NC = \cancel{K\sf} + \cancel{U\sf}			\NR
 	\NC	-G\frac{mM}{r} + W	\NC = 0										\NR
 	\NC	W				\NC = G\frac{mM}{r}								\NR
 	\NC					\NC = (6.67\sci{-11}\units{m^3/kg\.s^2})
@@ -81,8 +81,8 @@ draw begingraph(4cm,4cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("Energy ($\sci{8}\units{J}$)") rotated 90,OUT);
-	glabel.bot(textext("$r$ ($\sci{6}\units{m}$)"), OUT);
+	glabel.lft(textext("Energy ($\unit{e8J}$)") rotated 90,OUT);
+	glabel.bot(textext("$r$ ($\unit{e6m}$)"), OUT);
 	gdraw(U) withpen pencircle scaled 0.8pt;
 	glabel.lrt("$U$",140);
 	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
@@ -146,7 +146,7 @@ These guesses were all reasonable and informed, based on the information availab
 
 A reasonable and informed guess that has not been verified by experiments and observations is a \keyterm{hypothesis}. As just described, there were many hypotheses offered to explain gravity. What was lacking was a \keyterm{theory} of gravity\dash an explanation that had been verified by experiments or observations.
 
-Newton took a a huge step toward understanding gravity in his \booktitle{Pricipia}, where he offered a formula for the strength of the gravitational force between any two objects. This formula (which we will encounter soon) is now called Newton's law of universal gravitation. When a formula's accuracy has been verified by experiments or observations, it is called a \keyterm{law}, like Newton's laws of motion and the conservation laws for momentum and energy.
+Newton took a a huge step toward understanding gravity in his \booktitle{Principia}, where he offered a formula for the strength of the gravitational force between any two objects. This formula (which we will encounter soon) is now called Newton's law of universal gravitation. When a formula's accuracy has been verified by experiments or observations, it is called a \keyterm{law}, like Newton's laws of motion and the conservation laws for momentum and energy.
 In the \booktitle{Principia}, Newton demonstrates that his law of universal gravitation explains all observed motions of the planets.
 
 Newton also shows that fluid models like Descartes' do not match the observed motions, but Newton offers no alternative mechanism. Instead, he offers this:
@@ -179,8 +179,8 @@ draw begingraph(4cm,7cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("Gravitational Potential ($\sci{6}\units{m^2/s^2}$)") rotated 90,OUT);
-	glabel.bot(textext("$r$ ($\sci{6}\units{m}$)"), OUT);
+	glabel.lft(textext("Gravitational Potential ($\unit{e6m^2/s^2}$ )") rotated 90,OUT);
+	glabel.bot(textext("$r$ ($\unit{e6m}$)"), OUT);
 	gdraw(U) withpen pencircle scaled 0.8pt;
 	glabel.lrt("$\Phi$",140);
 	gfill(unitsquare xyscaled (6.37,-70)) withcolor "lightgray";
@@ -265,7 +265,7 @@ The stretchy gravitational potential is how gravity reaches across vast distance
 The gravitational potential's trampoline-like stretchiness can be used to calculate the exact shape of the depression in \in{figures}[fig:EarthGravPotential] and \in[fig:Phi3D]. The calculation requires some calculus, but the simple answer is all we need.
 At distance $r$ from the center of a mass $M$, the gravitational potential is 
 \startformula
-	\Phi = -G\frac{M}{r}.
+	\Phi = -\frac{GM}{r}.
 \stopformula
 This formula is responsible for D.~Bernoulli's gravitational potential energy formula and for Newton's law of universal gravitation.
 (Einstein's full theory of gravity, General Relativity, gives a slightly different formula, but the formula above is an excellent approximation everywhere in our solar system.)
@@ -277,7 +277,7 @@ We saw this in \in{example}[ex:BoxEarthGravU2], where we calculated the final sp
 If the box had been $\unit{3g}$ or $\unit{3000kg}$, it would have hit the atmosphere with exactly the same speed.
 Many earlier physicists, going back to Galileo, had noticed that the small object's mass does not matter, but Lagrange used this observation in a new way.
 
-For Lagrange's complex calculations, he wanted the small object's mass drop out of the formulas earlier, before they became too complicated.
+For Lagrange's complex calculations, he wanted the small object's mass drop out of the formulas earlier, before the formulas became too complicated.
 To achieve this, he defined the small object's gravitational potential energy $U$ in terms of the gravitational potential $\Phi$.
 \startformula
   U = m\Phi
@@ -406,7 +406,7 @@ The final speed $v\sf$ depends only on the initial speed $v\si$ and the change i
 Next we calculate $\Delta \Phi$ from $\Phi = GM/r$, where $M$ is the Sun's mass $M_\Sun = \unit{1.99e30kg}$. $GM_\Sun = (\unit{6.67e-11m^3/kg s^2})(\unit{1.99e30kg}) = \unit{1.33e20 m^3/s^2}$.
 	\startformula\startmathalignment
 	\NC	\Delta\Phi	\NC = \Phi\sf	- \Phi\si	\NR
-	\NC				\NC = -G\frac{M_\Sun}{r\sf} + G\frac{M_\Sun}{r\si}		\NR
+	\NC				\NC = -\frac{GM_\Sun}{r\sf} + \frac{GM_\Sun}{r\si}		\NR
 	\NC				\NC = -GM_\Sun\left(\frac{1}{r\sf} - \frac{1}{r\si}\right)		\NR
 	\NC				\NC = -(\unit{1.33e20 m^3/s^2})
 	                        \left(\frac{1}{\unit{8.77e10m}} - \frac{1}{\unit{1.5e12m}}\right)	\NR
@@ -448,7 +448,7 @@ Lagrange's single procedure could be used to find equations of motion for any me
 \booktitle{Mécanique Analytique} begins with a through and insightful historical review. Lagrange clearly enjoyed finding gems of truth in many different methods, and he also found inspiration.
 He refashioned one ancient idea into a general procedure for relating Newton's momentum methods to D.~Bernoulli's energy methods. While this idea had ancient origins, Lagrange's mastery of calculus allowed him apply this idea in new and powerful ways.
 
-\section{Lagrange's finds force from potential energy}
+\section{Lagrange finds force from potential energy}
 
 Lagrange's insight was that Newton's force can be found from the energy graph of D.~Bernoulli's  potential energy.
 \emph{The force's direction is toward lower potential energy.
@@ -647,8 +647,8 @@ draw begingraph(4cm,4cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("Energy ($\sci{8}\units{J}$)") rotated 90,OUT);
-	glabel.bot(textext("$r$ ($\sci{6}\units{m}$)"), OUT);
+	glabel.lft(textext("Energy ($\unit{e8J}$)") rotated 90,OUT);
+	glabel.bot(textext("$r$ ($\unit{e6m}$)"), OUT);
 	gdraw(U) withpen pencircle scaled 0.8pt;
 	glabel.lrt("$U$",140);
 	glabel(mydot,(80));
@@ -710,42 +710,13 @@ In \booktitle{Mécanique Analytique}, Lagrange used his powerful mathematical an
 
 Lagrange's \booktitle{Mécanique Analytique} was a stunning achievement, unlike anything physics had seen before. Lagrange was viewed as a hero in France under King Louis \convertnumber{KR}{16}. Luckily, Lagrange's fame transcended the turbulent – often violent – politics of France following the French Revolution in 1789. As governments rose and fell around him, Lagrange continued to play a leading role in the advancement of science and mathematics in France.
 
-Lagrange's equations of motion are a bit more tangled than our position and momentum update formulas, so we will not learn the details of his procedure. A general method for producing position and momentum update formulas was developed later by William Rowan Hamilton. We will need Hamilton's general method to solve the ancient problem of the planets' motions. We will introduce his method later in this chapter to study rotational motions. Then we will apply the method to the planets' elliptical orbits in \in{Chapter}[ch:Rotation]. 
+Lagrange's equations of motion are a bit more tangled than our position and momentum update formulas, so we will not learn the details of his procedure. A general method for producing position and momentum update formulas was developed later by William Rowan Hamilton. We will need Hamilton's general method to solve the ancient problem of the planets' motions. We will introduce his method later in this chapter to study rotational motions. Then, we will apply Hamilton's method to the planets' elliptical orbits in \in{Chapter}[ch:Rotation]. 
 
-First, however, we will look at circular orbits, which we can explain entirely with Lagrange's insights.
+First, however, we will look at circular orbits, which we can study using the tools of uniform circular motion (\at{p.}[sec:uniformcirc]).
 
 \section{Gravitational Field}
-Newton's Law of Universal Gravitation, presented in the previous section, is a bit intimidating. It is certainly more complicated than the formula $F = -mg$, which we have been using for gravity near Earth's surface. The simpler formula describes the downward force in terms of the \keyterm{gravitational field} acting on the mass $m$. The gravitational field's direction is always downward. The gravitational field's magnitude is $g$. Near Earth's surface, $g$ is $\unit{9.8 m/s^2}$. At other locations in the solar system, $g$ can be much larger or much smaller.
-We will continue to use the simple formula $F=-mg$, but we will take care to find the correct value of $g$.
-
-The gravitational field's magnitude $g$ can be found at any distance $r$ from the center of any large mass $M$.
-\startformula
-  g = G\frac{M}{r^2}
-\stopformula
-Near Earth's surface, this formula gives the well known value for $g$.
-\startformula
-  g = G\frac{M}{r^2}
-    = (\unit{6.67e-11 m^3/kg s^2})\frac{\unit{5.97e24 kg}}{(\unit{6.37e6 m})^2}
-    = \unit{9.8 m/s^2}
-\stopformula
-
-
-
-\startformula
-  F = -G\frac{mM}{r^2}
-    = -m\left(G\frac{M}{r^2}\right)
-    = -mg
-\stopformula
-In the last step we have use a new formula for \keyterm{gravitational field}.
-\startformula
-  g = G\frac{M}{r^2}
-\stopformula
-
-
-
-We now have two formulas for the downward gravitational force: Newton's Law of Universal Gravitation, presented in the previous section, and $F=-mg$, which we have used for gravity near Earth's surface (\at{p.}[eq:Fmg]). Both of these are correct, but 
-
-
+Newton's Law of Universal Gravitation, presented in the previous section, is a bit intimidating. It is certainly more complicated than the formula $F = -mg$, which we have been using for gravity near Earth's surface (\at{p.}[eq:Fmg]).
+Fortunately, we can continue to use this simpler formula if we remember that $g$ is only $\unit{9.8 m/s^2}$ near Earth's surface. At other locations in the solar system, $g$ is larger or smaller. To find the correct value of $g$, we must understand the \keyterm{gravitational field}.
 
 \startuseMPgraphic{graph::EarthGravField} % I'd like to add minor ticks, 0.667mm long.
 vardef U =
@@ -763,8 +734,8 @@ draw begingraph(4cm,7cm);
 		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
 		itick.top(formatted("@s", ""), x) withcolor "middlegray";
 	endfor
-	glabel.lft(textext("Gravitational Potential ($\sci{6}\units{m^2/s^2}$)") rotated 90,OUT);
-	glabel.bot(textext("$r$ ($\sci{6}\units{m}$)"), OUT);
+	glabel.lft(textext("Gravitational Potential ($\unit{e6m^2/s^2}$ )") rotated 90,OUT);
+	glabel.bot(textext("$r$ ($\unit{e6m}$)"), OUT);
 	gdraw(U) withpen pencircle scaled 0.8pt;
 	glabel.lrt("$\Phi$",140);
 	glabel(mydot,(80));
@@ -796,18 +767,115 @@ endgraph shifted (0,-8cm);
 \small\reuseMPgraphic{graph::EarthGravField}
 \stopplacefigure
 
+The gravitational field has a direction and magnitude determined by the gravitational potential $\Phi$, as illustrated in \in{figure}[fig:EarthGravField].
+The graph in \in{figure}[fig:EarthGravField] shows the gravitational potential near Earth. (This graph is identical to the graph in \in{figure}[fig:EarthGravPotential].)
+Above the graph are arrows showing the gravitational field at three different distances from Earth.
+\emph{The gravitational field's direction is toward lower gravitational potential.}
+In \in{figure}[fig:EarthGravField], the gravitational field points toward Earth, where the gravitational potential is lowest.
+\emph{The gravitational field's magnitude $g$ is the slope of the gravitational potential.}
+The gravitational field is smaller far from Earth, where the gravitational potential is less steep.
+The gravitational field is largest near Earth, where the gravitational potential is steepest.
+
+The gravitational field is everywhere, surrounding Earth in all directions. \in{Figure}[fig:EarthGravField3D] shows the gravitational field at several locations around Earth. The gravitational field points toward Earth's center, and gets smaller at greater distances.
+
+\startuseMPgraphic{EarthGravField3D} % I'd like to add minor ticks, 0.667mm long.
+  pickup pencircle scaled 0.8pt ;
+  draw externalfigure "EarthEratosthenes.png" scaled 0.127 shifted (-6.37mm,-6.37mm) ;
+  draw fullcircle scaled 12.74mm;
+%  drawarrow (13mm,0) -- (-0.5mm,0);
+%    dotlabel.ulft  ("", (13mm,0)) ;
+    %draw mybox shifted (13mm,0);
+  drawarrow (26mm,0) -- (22.625mm,0);
+    dotlabel.top  ("$g$", (26mm,0)) ;
+    %draw mybox shifted (26mm,0);
+%  drawarrow (39mm,0) -- (37.5mm,0);
+%    dotlabel.llft  ("", (39mm,0)) ;
+    %draw mybox shifted (39mm,0);
+    for i=-1 step 1 until 18:
+      pair loc, tip ;
+      const := (13.5mm)*((13mm)**2) ;
+      dist := 26mm - i*0.7mm ;
+      ang := i*137.508 ;
+      loc := (dist,0)rotated ang ;
+      gfield := const / (dist**2) ;
+      tipdist := dist - gfield ;
+      tip := (tipdist,0)rotated ang ;
+      drawarrow loc -- tip;
+      dotlabel.ulft  ("", loc) ;
+    endfor
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:EarthGravField3D, title={The gravitational field surrounding Earth points toward Earth's center. The gravitational field is strongest near Earth and gets weaker farther away.}]
+\small\reuseMPgraphic{EarthGravField3D}
+\stopplacefigure
+
+Near Earth's surface, the gravitational potential's slope is \unit{9.8 m/s^2}, the well known value of $g$ near Earth's surface.
+Finding the exact slope of the gravitational potential at other distances is tricky, but the answer is not complicated. At a distance $r$ from a large mass $M$, the gravitational field's magnitude is
+\startformula
+  g = \frac{GM}{r^2}.
+\stopformula
+We can use this formula to calculate $g$ here on Earth's surface. On Earth's surface, we are a distance $r = \unit{6.37e6 m}$ from Earth's center. Earth's mass is $M = \unit{5.97e24 kg}$. With these values, we find the well known value for $g$ near Earth's surface.
+\startformula
+  g = \frac{GM}{r^2}
+    = \frac{(\unit{6.67e-11 m^3/kg s^2})(\unit{5.97e24 kg})}{(\unit{6.37e6 m})^2}
+    = \unit{9.8 m/s^2}
+\stopformula
+The gravitational field's magnitude $g$ will be different in different locations throughout the solar system, depending on the mass $M$ of the object producing the gravitational field and the distance $r$ from the object.
+
+Newton's Law of Universal Gravitation can be found from the simple formula for gravitational force, $F = -mg$, with our new formula for the gravitational field's magnitude $g = GM/r^2$. 
+\startformula
+  F = -mg
+    = -m\left(\frac{GM}{r^2}\right)
+    = -G\frac{mM}{r^2}
+\stopformula
+We will often find it convenient to use the simple formula for gravitational force early in a calculation, and then include the more complicated formula for $g$ later.
+
+I hope you noticed that the relationship just described between gravitational field and gravitational potential is almost identical to Lagrange's relationship between force and potential energy, illustrated in \in{figure}[fig:BoxEarthGravF].
+Also notice one important difference:
+The gravitational potential energy $U$ and gravitational forces $F$ shown in \in{figure}[fig:BoxEarthGravF] are for a \unit{3.0kg} box. If the box had been \unit{3.0g} or \unit{3000kg}, the gravitational potential energy and gravitational forces would have been a thousand times smaller or larger.
+In contrast, the gravitational potential $\Phi$ and the gravitational field $g$ shown in \in{figure}[fig:EarthGravField] are exactly the same for a \unit{3.0g} box, a \unit{3000kg} box, or no box at all!
+
+I have introduces three new gravitational concepts in this chapter: gravitational potential energy, the gravitational potential, and the gravitational field. All of these are related to each other and to gravitational force. Of these, the gravitational potential $\Phi$ is the most fundamental. All of the others follow from it, as shown below.
+\startformula
+\startMPcode%graphic{GravRelations} % I'd like to add minor ticks, 0.667mm long.
+  pickup pencircle scaled 0.8pt ;
+  picture Phi, U, g, F ; path Phig, PhiU, gF, UF ;
+  Phi := thelabel.top ("$\Phi$", (0,1cm)) ;
+  g := thelabel.lft ("$g$", (-2cm,0)) ;
+  U := thelabel.rt ("$U = m\Phi$", (2cm,0)) ;
+  F := thelabel.bot ("$F=-mg$", (0,-1cm)) ;
+  trimarrows = 2mm ;
+  Phig := (llcorner Phi -- urcorner g) shortened trimarrows ;
+  PhiU := (lrcorner Phi -- ulcorner U) shortened trimarrows ;
+  gF := (lrcorner g -- ulcorner F) shortened trimarrows ;
+  UF := (llcorner U -- urcorner F) shortened trimarrows ;
+  draw Phi ;
+  draw g ;
+  draw U ;
+  draw F ;
+  drawarrow Phig ; label.ulft ("\strut slope", point 0.5 of Phig) ;
+  drawarrow PhiU ; label.urt ("\strut$m$", point 0.5 of PhiU) ;
+  drawarrow gF ; label.llft ("\strut$m$", point 0.3 of gF) ;
+  drawarrow UF ; label.lrt ("\strut slope", point 0.3 of UF) ;
+\stopMPcode
+\stopformula
+Each of these four relationships has been described earlier in this chapter.
+Take a moment to recall them by finding each relationship in the diagram above. First, the gravitational potential's slope is the gravitational field $g$. Second, a mass $m$ in the gravitational potential $\Phi$ acquires a gravitational potential energy $U = m\Phi$. Third, Lagrange taught us that the potential energy's slope is the force $F$. %(The minus sign in the diagram gives the force its downward direction.)
+Fourth, we frequently use the more convenient formula $F = -mg$ to find the gravitational force $F$ on a mass $m$ in the gravitational field $g$.
+%The gravitational field and the gravitational force both have direction. The gravitational field is toward lower gravitational potential. The gravitational force is in the direction of toward lower
+
+In the next section we will use these relationships to understand how the Sun holds planets in orbits, specifically looking at circular orbits.
+
 
 \section{Circular, centered orbits}
 
-\startformula
-  \frac{v^2}{R} = \omega^2 R = g
-\stopformula
+Galileo observed that planets farther from the Sun take longer to orbit. We can explain this observation using our improved understanding of gravity. First, we will find the speed of a planet orbiting the Sun at a constant distance. Then, we will find the orbit's period.
 
-Celestial motion was a primary interest for both Lagrange and Hamilton. They each hoped to solve puzzling celestial motion problems using their new, general, and powerful methods. Their methods start with energy, so we begin by looking at the energy graph for a planet orbiting the Sun, shown in \in{figure}[fig:PhiTerrestrial3D]. 
-
-The Sun ($\Sun$) is at the center of \in{figure}[fig:PhiTerrestrial3D]. The planets are shown at increasing distances along the $r$ axis. (Planet symbols are listed in \in{table}[T:Astrosym] on \at{p.}[T:Astrosym].)
-\in{Figure}[fig:PhiTerrestrial3D] is three dimensional to show the gravitational potential $\Phi$ as planets orbit the Sun. The vertical axis in \in{figure}[fig:PhiTerrestrial3D] is gravitational potential. The planets orbit in the vertical plane at the top of \in{figure}[fig:PhiTerrestrial3D].
-The three dimensional energy graph will allow us to understand the planets' two dimensional orbits.
+The massive Sun produces a wide, deep potential well, shown in \in{figure}[fig:PhiTerrestrial3D]. This potential well holds the planets in orbits around the Sun.
+The Sun ($\Sun$) is at the center of \in{figure}[fig:PhiTerrestrial3D].
+The inner planets are shown at increasing distances along the $r$ axis. (Planet symbols are listed in \in{table}[T:Astrosym] on \at{p.}[T:Astrosym].)
+\in{Figure}[fig:PhiTerrestrial3D] is three dimensional to show the gravitational potential $\Phi$ as planets orbit the Sun. The vertical axis in \in{figure}[fig:PhiTerrestrial3D] is gravitational potential. The planets orbit in the horizontal plane at the top of \in{figure}[fig:PhiTerrestrial3D].
+%The three dimensional gravitational potential graph will allow us to understand the planets' two dimensional orbits.
 
 \startbuffer[PhiTerrestrial3D]
 \startaxis[
@@ -862,28 +930,13 @@ The gravitational potential $\Phi$ depends on distance $r$ from the Sun.
 The inner planets are shown at their correct distances from the Sun.
 A planet released from rest would accelerate toward lower potential, crashing into the Sun!} % vskip, name, caption
 
-Following the logic of Lagrange's insight, we can see from \in{figure}[fig:PhiTerrestrial3D] that the direction of the gravitatinal force is in the direction of the Sun, toward lower potential energy. The force toward the central Sun does not produce any torque $\tau$ on the planets, so each plant's angular momentum $L$ is constant.
-
-\in{Figure}[fig:PhiTerrestrial3D] shows the planets' gravitational potential energy $U$, which is very negative near the Sun and rises toward zero far away.
+The Sun's gravitational potential well produces a gravitational field. The field's direction is toward the Sun. The field's magnitude is
 \startformula
-	U = -G\frac{mM}{r}
+g = \frac{GM}{r},
 \stopformula
-(We will use $m$ for the mass of a planet and $M$ for the much larger mass of the Sun.) This gravitational potential energy produces a gravitational force toward the Sun.
-
-
-$r$ component of the gravitational force is negative, pulling planets toward lower potential energy in the direction of the Sun. This gravitational force toward the Sun bends the planets' paths into orbits.
-
-A planet orbiting the Sun at a constant distance $r$ does not see any change in potential energy.
-Since the potential energy is constant along a circular orbit, Lagrange's force formula tells us that there is no force in along the circular orbit, meaning no torque $\tau$ along the orbit direction.
-Since the gravitational force does not exert any torque around the Sun, the planet's angular momentum $L$ will remain constant.
-
-These two facts\dash a force toward the Sun and constant angular momentum $L$\dash will guide our study of orbits.
-A planet's angular momentum $L$ is related to the planet's angular velocity $\omega$.
-\startformula
-  L = I\omega = mr^2\omega
-\stopformula
-
-
+where $M$ is the Sun's mass.
+The gravitational field exerts a force $F = -mg$ on each planet, where $m$ is the planet's mass.
+This gravitational force toward the Sun bends the planet's path into an orbit.
 
 \startbuffer[KeplerVenus]
 \environment env_physics
@@ -938,122 +991,45 @@ A planet's angular momentum $L$ is related to the planet's angular velocity $\om
 
 \marginTikZ{}{KeplerVenus}{Venus' orbit is an almost perfectly centered circle, making uniform circular motion a good approximation of for Venus. (A gigameter is one billion meters: $1\units{Gm} = 10^9\units{m}$).} % vskip, name, caption
 
-\noindent
-Since $L$ and $r$ are both constant for a circular orbit, the planet's angular velocity $\omega$ must be constant as well.
-A planet following a circular orbit with the Sun at the center moves with uniform circular motion. Venus's orbit is shown as an example in \in{figure}[fig:KeplerVenus].
-
-
-Although uniform circular motion was considered natural in Kepler's time, Descartes and Newton taught us that circular motion requires a central force to bend the planet's path into an orbit.
-The force required depends on the planet's momentum $p$ and angular velocity $\omega$, as given by the centripetal force formula (\at{p.}[eq:centripetalforce])
+Venus's orbit is circular, as shown \in{figure}[fig:KeplerVenus]. Since Venus stays a constant distance from the Sun, its speed is constant, meaning Venus's motion is uniform circular.
+\in{Figure}[fig:KeplerVenus] shows Venus's momentum $p$ at various points along its orbit, as well as the gravitational force $F$ which changes the momentum's direction, keeping Venus in orbit around the Sun.
+%Although uniform circular motion was considered natural in Kepler's time, Descartes and Newton taught us that circular motion requires a central force to bend the planet's path into an orbit.
+The force required to keep Venus in this circular orbit is given by the centripetal force formula (\at{p.}[eq:centripetalforce]).
 \startformula
-	F = \omega p
+	F = \frac{pv}{r}
+	  = \frac{mv^2}{r}
 \stopformula
-Using $p = mv$ and $v = \omega r$ for uniform circular motion, we find.
-\startformula
-	F = m\omega^2 r
-\stopformula
+In this formula, $r$ the radius of the Venus's circular orbit and $v$ is Venus's speed. In the last step, Venus's momentum has been replaced with $p=mv$, where $m$ is Venus's mass.
 
-The centripetal force formula gives the force required to produce the circular motion, but does not tell us the source of that force. For orbits in the solar system this force is the gravitational force exerted by the Sun, the force directed towards lower gravitational potential energy in \in{figure}[fig:PhiTerrestrial3D]. The strength of the gravitational force is given by Newton's law of universal gravitation (\at{p.}[eq:UniversalGrav]).
-
-\startformula
-	F %= -\pp{r} U
-		%= -\pp{r} \left(-G\frac{mM}{r}\right)
-		%= GmM \pp{r} \left(r^{-1}\right)
-		%= GmM \left(-1r^{-2}\right)
-		= -G\frac{mM}{r^2}
-\stopformula
-The \emph{magnitude} of this gravitational force is the centripetal force above.
-Setting the centripetal force $F= m\omega^2 r$ equal to Newton's gravitational force allows us to find the planet's angular velocity.
-\startformula\startmathalignment\pagereference[eq:AngularVelocityCircular]
-\NC	\cancel{m}\omega^2 r	\NC = G\frac{\cancel{m}M}{r^2}	\NR
-\NC	\omega				\NC = \sqrt{\frac{GM}{r^3}}	\NR
+The centripetal force formula gives the \emph{magnitude} of the force required to produce the circular motion, but does not tell us the source of that force.
+For orbits in the solar system, this force is the gravitational force, whose \emph{magnitude} is $mg$.
+Replacing $F$ with $mg$ in the centripetal force formula allows us to find Venus's speed.
+\startformula\startmathalignment
+\NC	\cancel{m}g \NC= \frac{\cancel{m}v^2}{r} \NR
+%\NC	g \NC= \frac{v^2}{r} \NR
+\NC	v \NC= \sqrt{gr}
+    = \sqrt{\frac{GM}{r^2}r}
+    = \sqrt{\frac{GM}{r}} \NR
 \stopmathalignment\stopformula
-The planet's distance $r$ determines its angular velocity, with much higher angular velocities closer to the Sun. Higher angular velocities give shorter periods, which we find using $T = 2\pi / \omega$.
-\startformula
-	T = \textfrac{2\pi}{\sqrt{GM}}\,r^{\threehalves}
+In the last steps, we have replaced $g$ with the Sun's gravitational field, $g = GM/r^2$.
+The speed $v$ is faster for smaller orbits' and slower for larger orbits. Not only do farther planets have to complete larger orbits with each cycle, they also travel along those orbits at a slower speed, making the periods of larger orbits much longer than the periods of smaller orbits.
+%Planets close to the Sun travel their smaller orbits at greater speed. 
+
+An orbit's period is its circumference divided by the planet's speed.
+\startformula\pagereference[eq:Kepler3rd]
+  T = \frac{2\pi r}{v}
+	 = \textfrac{2\pi}{\sqrt{GM}}\,r^{\threehalves}
 \stopformula
-This is Kepler's celebrated third law, relating each planet's period $T$ to the orbit's radius $r$. A larger radius produces a longer period.
+This is Kepler's celebrated third law, relating each planet's period $T$ to the orbit's radius $r$. A smaller radius produces a shorter period, while a larger radius produces a longer period.
+
+
 Mercury's orbit takes only 88 days. Venus's orbit is 225 days. Earth's orbit is 365.24 days. Mars's orbit is 687 days. The outer planets' orbits are far longer – nearly twelve years for Jupiter's orbit and almost thirty years for Saturn's.
-The planet's mass has no effect on its period. % The Sun's strong gravitational pull on these inner planets bends their paths into small, fast orbits.
+The planet's mass has no effect on its period. 
+%The Sun's strong gravitational pull on these inner planets bends their paths into small, fast orbits.
 
 %Using the orbit radii from \in{figure}[fig:VisiblePlanets], you can calculate these periods, and you will get good results.
 
 %A centered, circular orbit has only one parameter: its radius $r$. The planet's angular momentum and total energy are directly related to this radius of the other constants ($G$, $M$, and $m$) are known. The angular momentum can be found from the angular velocity $\omega$.
-
-Each planet's angular momentum $L$ is also determined by the orbit's radius.
-\startformula
-	L = I\omega
-	  = mr^2\sqrt{\frac{GM}{r^3}}
-	  = m\sqrt{GMr}
-\stopformula
-Circular orbits with a larger radius have a greater angular angular momentum.
-
-Finally, we find each planet's total energy $H$, which include's the planet's gravitational potential energy $U$ and kinetic energy $K$. The calculation is a bit messy, but the result is surprisingly simple.
-\startformula\startmathalignment
-\NC H	\NC = U + K			\NR
-\NC		\NC =  - G\frac{mM}{r} + \frac{L^2}{2I}	\NR
-\NC		\NC =  - G\frac{mM}{r} + \frac{m^2 GMr}{2mr^2}	\NR
-\NC		\NC =  - G\frac{mM}{r} + G\frac{mM}{2r}		\NR
-\NC		\NC = -G\frac{mM}{2r}						\NR
-\stopmathalignment\stopformula
-The total energy of a circular orbit is negative, and exactly half of the gravitational potential energy. 
-Circular orbits with a larger radius $r$ have a higher (less negative) total energy $H$.
-
-\startuseMPgraphic{graph::CircularH} % I'd like to add minor ticks, 0.667mm long.
-vardef U =
-	path p;
-		for x = 0.5 step 0.1 until 3.1:
-			y := -13.3/x; % lua.mp.morse(x);
-			augment.p(x,y);
-		endfor;
-	p enddef;
-vardef H =
-	path p;
-		for x = 0.2 step 0.1 until 3.1:
-			y := -13.3/(2x); % lua.mp.morse(x);
-			augment.p(x,y);
-		endfor;
-	p enddef;
-draw begingraph(4cm,5cm);
-	setrange(0,-20, 3, 0);
-	for x=auto.x:
-		itick.bot(formatted("$@g$", x), x);
-		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
-		itick.top(formatted("@s", ""), x) withcolor "middlegray";
-	endfor
-	glabel.lft(textext("Energy per mass ($\sci{8}\units{J/kg}$)") rotated 90,OUT);
-	glabel.bot(textext("Distance from Sun $r$ ($\sci{11}\units{m}$)"), OUT);
-	gdraw(U) withpen pencircle scaled 0.8pt;
-	glabel.lrt("$U$",10);
-	gdraw(H) withpen pencircle scaled 1pt dashed withdots;
-	glabel.ulft("$H$",10);
-%	glabel(mydot,(80));
-%	glabel(mydot,(210));
-%	glabel(mydot,(340));
-%	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
-%	gdraw((6.37,0) -- (6.37,-2)) withpen pencircle scaled 0.8pt;
-	for y=0 step -2 until -20:%auto.y:
-		itick.lft(formatted("$@g$", y), y);
-		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
-		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
-	endfor
-endgraph shifted (0,-5cm);
-%  pickup pencircle scaled 0.8pt ;
-%  draw externalfigure "EarthEratosthenes.png" scaled 0.127 shifted (-6.37mm,-6.37mm) ;
-%  draw fullcircle scaled 12.74mm;
-%  drawarrow (13mm,0) -- (-0.5mm,0);
-%    dotlabel.ulft  ("", (13mm,0)) ;
-%  drawarrow (26mm,0) -- (22.625mm,0);
-%    dotlabel.top  ("$F\sub{Newton}$", (26mm,0)) ;
-%  drawarrow (39mm,0) -- (37.5mm,0);
-%    dotlabel.llft  ("", (39mm,0)) ;
-\stopuseMPgraphic
-
-\startplacefigure[location=margin, reference=fig:CircularH, title={A planet's total energy $H$ in a circular, centered orbit is exactly half of the planet's gravitational potential energy $U$.}]
-\small\reuseMPgraphic{graph::CircularH}
-\stopplacefigure
-
-The energy graph in \in{figure}[fig:CircularH] shows the gravitational potential energy and a dotted line at $-GMm/2r$. Each dot represents the total energy of a possible circular orbit. Dots toward the upper right represent larger orbits with greater angular momentum and higher energy. These are the orbits of the outer planets. Dots toward the lower left represent smaller orbits with less angular momentum and lower energy. These are the orbits of the inner planets.
 
 
 \section{Hamilton finds momentum from kinetic energy}
@@ -1269,18 +1245,6 @@ Nothing like this happens with linear momentum, because linear momentum is mass 
 Slowly rotating air masses become hurricanes or tornados when the air is drawn towards the center by an area of extreme low pressure.
 Planets, stars, solar systems, and galaxies rotate much more quickly than the large clouds of gas and dust from which they formed.
 Conservation of angular momentum is one of the great drivers of motion in the universe, from the largest galaxies down to subatomic particles. 
-
-%\section{Polar coordinates}
-%
-%Kinetic energy can be found from either angular velocity or angular momentum.
-%\startformula
-%  K = \half I\omega^2
-%    = \frac{L^2}{2I}
-%\stopformula
-
-
-%\section{Separation of compound motion}
-
 
 % Need references in this chapter!
 \subject{Notes}

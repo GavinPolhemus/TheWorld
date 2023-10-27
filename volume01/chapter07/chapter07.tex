@@ -953,6 +953,78 @@ Earth rocks gently in this minimum, where the two energy curves' slopes are in b
 
 Earth's full orbit is shown on the energy graph in \in{figure}[fig:UK3D], where the $\theta$ direction has been restored. This graph reminds me again of Kepler's early drinking cup model, where Earth's orbit was confined to a spherical shell between two platonic solids (\at{p.}[fig:Kepler1596system]). In our energy graph, Earth's orbit is held between two competing energies. Rising gravitational potential energy surrounds Earth's orbit, preventing Earth from wandering out of the Solar System. Rising angular kinetic energy sits inside Earth's orbit, preventing Earth from spiraling into the Sun.
 
+\section{Specific energy and specific angular momentum}
+
+\section{Angular momentum for circular orbits}
+
+Finally, we find each planet's total energy $H$, which include's the planet's gravitational potential energy $U$ and kinetic energy $K$. The calculation is a bit messy, but the result is surprisingly simple.
+\startformula\startmathalignment
+\NC H	\NC = U + K			\NR
+\NC		\NC =  - G\frac{mM}{r} + \frac{L^2}{2I}	\NR
+\NC		\NC =  - G\frac{mM}{r} + \frac{m^2 GMr}{2mr^2}	\NR
+\NC		\NC =  - G\frac{mM}{r} + G\frac{mM}{2r}		\NR
+\NC		\NC = -G\frac{mM}{2r}						\NR
+\stopmathalignment\stopformula
+The total energy of a circular orbit is negative, and exactly half of the gravitational potential energy. 
+Circular orbits with a larger radius $r$ have a higher (less negative) total energy $H$.
+
+\startuseMPgraphic{graph::CircularH} % I'd like to add minor ticks, 0.667mm long.
+vardef U =
+	path p;
+		for x = 0.5 step 0.1 until 3.1:
+			y := -13.3/x; % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+vardef H =
+	path p;
+		for x = 0.2 step 0.1 until 3.1:
+			y := -13.3/(2x); % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+draw begingraph(4cm,5cm);
+	setrange(0,-20, 3, 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Specific Energy($\sci{8}\units{m^2/s^2}$)") rotated 90,OUT);
+	glabel.bot(textext("Distance from Sun $r$ ($\sci{11}\units{m}$)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.lrt("$\Phi$",10);
+	gdraw(H) withpen pencircle scaled 1pt dashed withdots;
+	glabel.ulft("$h$",10);
+%	glabel(mydot,(80));
+%	glabel(mydot,(210));
+%	glabel(mydot,(340));
+%	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
+%	gdraw((6.37,0) -- (6.37,-2)) withpen pencircle scaled 0.8pt;
+	for y=0 step -2 until -20:%auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+endgraph shifted (0,-5cm);
+%  pickup pencircle scaled 0.8pt ;
+%  draw externalfigure "EarthEratosthenes.png" scaled 0.127 shifted (-6.37mm,-6.37mm) ;
+%  draw fullcircle scaled 12.74mm;
+%  drawarrow (13mm,0) -- (-0.5mm,0);
+%    dotlabel.ulft  ("", (13mm,0)) ;
+%  drawarrow (26mm,0) -- (22.625mm,0);
+%    dotlabel.top  ("$F\sub{Newton}$", (26mm,0)) ;
+%  drawarrow (39mm,0) -- (37.5mm,0);
+%    dotlabel.llft  ("", (39mm,0)) ;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:CircularH, title={A planet's total specific energy $h=H/m$ in a circular, centered orbit is exactly half of the planet's gravitational potential $\Phi=U/m$.}]
+\small\reuseMPgraphic{graph::CircularH}
+\stopplacefigure
+
+The energy graph in \in{figure}[fig:CircularH] shows the gravitational potential energy and a dotted line at $-GM/2r$. Each dot represents the total energy of a possible circular orbit. Dots toward the upper right represent larger orbits with greater angular momentum and higher energy. These are the orbits of the outer planets. Dots toward the lower left represent smaller orbits with less angular momentum and lower energy. These are the orbits of the inner planets.
+
+
 The gravitational potential energy graph is the same shape for every planet, but the relative size of the angular kinetic energy hill in the middle of the graph depends on the planet's angular momentum. Greater angular momentum increases the size of this hill, called the \keyterm{centrifugal barrier}.
 A larger centrifugal barrier pushes the planet's orbit farther out from the Sun, as shown in \in{figure}[fig:EnergyGraphKUH]. Less angular momentum produces a smaller centrifugal barrier, allowing the orbit to be closer to the Sun, as for Mercury. The size of the centrifugal barrier is different for each planet, giving their orbits different sizes in the same gravitational potential energy well.
 
@@ -965,10 +1037,10 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
 \starttikzpicture% tikz code
 \startaxis
  [	x=5cm,y={1cm},
-   xlabel={Distance from Sun $r$ ($\sci{11}\units{m}$)},
+   xlabel={Distance from the Sun $r$ ($\unit{e11 m}$)},
    xmin=0, xmax=3,
    minor x tick num=1,
-   ylabel={Energy per mass ($\sci{8}\units{J/kg}$)},
+   ylabel={Specific Energy ($\unit{e8m^2/s^2}$)},
    ymin=-13, ymax=0,
    minor y tick num=9,
    clip mode = individual,
@@ -984,7 +1056,7 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
       domain=0.8:3,
       samples=150]
     {-13.3/x}
-    node[below right,pos=0.6] {$U$};
+    node[below right,pos=0.6] {$\Phi$};
   \addplot[ % Circular Orbits
       thick, dotted,
       domain=0.5:5,
@@ -1000,7 +1072,7 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
       domain=0.46:0.698,
       samples=2]
     {-11.457}
-    node[below, pos=0.5] {Mercury};
+    node[above, pos=0.5] {Mercury};
   \addplot[ % K angular Venus
       thin,
       domain=0.47:5,
@@ -1011,7 +1083,7 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
       domain=1.075:1.089,
       samples=2]
     {-6.132}
-    node[below, pos=0.5] {Venus};
+    node[above, pos=0.5] {Venus};
   \addplot[ % K angular Earth
       thin,
       domain=0.6:5,
@@ -1022,7 +1094,7 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
      domain=1.471:1.521,
      samples=2]
    {-4.437}
-   node[below, pos=0.5] {Earth};
+   node[above, pos=0.5] {Earth};
   \addplot[ % K angular Mars
       thin,
       domain=0.89:3,
@@ -1033,7 +1105,7 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
       domain=2.067:2.492,
       samples=2]
     {-2.912}
-    node[below, pos=0.5] {Mars};
+    node[above, pos=0.5] {Mars};
 %  \addplot[ % K angular Halley's Comet
 %      thin,
 %      domain=0.7:5,
