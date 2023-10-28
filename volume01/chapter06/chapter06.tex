@@ -403,11 +403,11 @@ The change in gravitational potential is $\Delta\Phi = \Phi\sf - \Phi\si$.
 	\NC	v\sf	\NC = \sqrt{v\si^2 - 2\Delta\Phi} \NR
 	\stopmathalignment\stopformula
 The final speed $v\sf$ depends only on the initial speed $v\si$ and the change in gravitational potential $\Delta\Phi$.
-Next we calculate $\Delta \Phi$ from $\Phi = GM/r$, where $M$ is the Sun's mass $M_\Sun = \unit{1.99e30kg}$. $GM_\Sun = (\unit{6.67e-11m^3/kg s^2})(\unit{1.99e30kg}) = \unit{1.33e20 m^3/s^2}$.
+Next we calculate $\Delta \Phi$ from $\Phi = GM/r$, where $M$ is the Sun's mass $M\sSun = \unit{1.99e30kg}$. $GM\sSun = (\unit{6.67e-11m^3/kg s^2})(\unit{1.99e30kg}) = \unit{1.33e20 m^3/s^2}$.
 	\startformula\startmathalignment
 	\NC	\Delta\Phi	\NC = \Phi\sf	- \Phi\si	\NR
-	\NC				\NC = -\frac{GM_\Sun}{r\sf} + \frac{GM_\Sun}{r\si}		\NR
-	\NC				\NC = -GM_\Sun\left(\frac{1}{r\sf} - \frac{1}{r\si}\right)		\NR
+	\NC				\NC = -\frac{GM\sSun}{r\sf} + \frac{GM\sSun}{r\si}		\NR
+	\NC				\NC = -GM\sSun\left(\frac{1}{r\sf} - \frac{1}{r\si}\right)		\NR
 	\NC				\NC = -(\unit{1.33e20 m^3/s^2})
 	                        \left(\frac{1}{\unit{8.77e10m}} - \frac{1}{\unit{1.5e12m}}\right)	\NR
 	\NC				\NC = \unit{-1.43e9 m^2/s^2}
@@ -814,9 +814,9 @@ Finding the exact slope of the gravitational potential at other distances is tri
 \startformula
   g = \frac{GM}{r^2}.
 \stopformula
-We can use this formula to calculate $g$ here on Earth's surface. On Earth's surface, we are a distance $r = \unit{6.37e6 m}$ from Earth's center. Earth's mass is $M = \unit{5.97e24 kg}$. With these values, we find the well known value for $g$ near Earth's surface.
+We can use this formula to calculate $g$ here on Earth's surface. On Earth's surface, we are a distance $r = \unit{6.37e6 m}$ from Earth's center. Earth's mass is $M\sEarth = \unit{5.97e24 kg}$. With these values, we find the well known value for $g$ near Earth's surface.
 \startformula
-  g = \frac{GM}{r^2}
+  g = \frac{GM\sEarth}{r^2}
     = \frac{(\unit{6.67e-11 m^3/kg s^2})(\unit{5.97e24 kg})}{(\unit{6.37e6 m})^2}
     = \unit{9.8 m/s^2}
 \stopformula
@@ -867,8 +867,7 @@ Fourth, we frequently use the more convenient formula $F = -mg$ to find the grav
 In the next section we will use these relationships to understand how the Sun holds planets in orbits, specifically looking at circular orbits.
 
 
-\section{Circular, centered orbits}
-
+\section{Circular, centered orbits}\pagereference[sec:circulaorbits]%
 Galileo observed that planets farther from the Sun take longer to orbit. We can explain this observation using our improved understanding of gravity. First, we will find the speed of a planet orbiting the Sun at a constant distance. Then, we will find the orbit's period.
 
 The massive Sun produces a wide, deep potential well, shown in \in{figure}[fig:PhiTerrestrial3D]. This potential well holds the planets in orbits around the Sun.
@@ -999,42 +998,61 @@ The force required to keep Venus in this circular orbit is given by the centripe
 	F = \frac{pv}{r}
 	  = \frac{mv^2}{r}
 \stopformula
-In this formula, $r$ the radius of the Venus's circular orbit and $v$ is Venus's speed. In the last step, Venus's momentum has been replaced with $p=mv$, where $m$ is Venus's mass.
+In this formula, $r$ the radius of Venus's circular orbit and $v$ is Venus's speed. In the last step, Venus's momentum has been replaced with $p=mv$, where $m$ is Venus's mass.
 
 The centripetal force formula gives the \emph{magnitude} of the force required to produce the circular motion, but does not tell us the source of that force.
 For orbits in the solar system, this force is the gravitational force, whose \emph{magnitude} is $mg$.
 Replacing $F$ with $mg$ in the centripetal force formula allows us to find Venus's speed.
-\startformula\startmathalignment
-\NC	\cancel{m}g \NC= \frac{\cancel{m}v^2}{r} \NR
-%\NC	g \NC= \frac{v^2}{r} \NR
-\NC	v \NC= \sqrt{gr}
-    = \sqrt{\frac{GM}{r^2}r}
-    = \sqrt{\frac{GM}{r}} \NR
-\stopmathalignment\stopformula
-In the last steps, we have replaced $g$ with the Sun's gravitational field, $g = GM/r^2$.
-The speed $v$ is faster for smaller orbits' and slower for larger orbits. Not only do farther planets have to complete larger orbits with each cycle, they also travel along those orbits at a slower speed, making the periods of larger orbits much longer than the periods of smaller orbits.
-%Planets close to the Sun travel their smaller orbits at greater speed. 
-
-An orbit's period is its circumference divided by the planet's speed.
-\startformula\pagereference[eq:Kepler3rd]
-  T = \frac{2\pi r}{v}
-	 = \textfrac{2\pi}{\sqrt{GM}}\,r^{\threehalves}
+\startformula
+  \cancel{m}g = \frac{\cancel{m}v^2}{r}
 \stopformula
-This is Kepler's celebrated third law, relating each planet's period $T$ to the orbit's radius $r$. A smaller radius produces a shorter period, while a larger radius produces a longer period.
+As is common for orbits, Venus's mass $m$ drops out of the calculation.
+Solve this formula for $v$.
+Then, replace $g$ with the formula for the gravitational field, $g = GM/r^2$.
+(Do not replace $g$ with $\unit{9.8m/s^2}$!)
+\startformula
+  v = \sqrt{gr\,}
+    = \sqrt{\left(\frac{GM}{r^2}\right)r\,}
+    = \sqrt{\frac{GM}{r}}
+\stopformula
+ The Sun produces the field, so we use $GM\sSun = \unit{1.33e20 m^3/s^2}$ from \in{example}[ex:HalleySpeed] (\at{p.}[ex:HalleySpeed]). Venus's distance from the Sun is $r = \unit{1.08e11 m}$.
+\startformula
+   v = \sqrt{\frac{GM\sSun}{r}}
+     = \sqrt{\frac{\unit{1.33e20 m^3/s^2}}{\unit{1.08e11 m}}}
+     = \unit{3.50e4m/s}
+     = \unit{35.0 km/s}
+\stopformula
+Venus is moving quite fast!
 
+To complete a cycle around the Sun, Venus must travel the circumference of its orbit. The time $T$ required to complete one cycle is the orbit's circumference divided by Venus's speed.
+\startformula%\pagereference[eq:Kepler3rd]
+  T = \frac{2\pi r}{v}
+    = \frac{2\pi (\unit{1.08e11 m})}{\unit{3.50e4m/s}}
+    = \unit{1.94e7 s}
+    = 225\units{days}
+	%= \frac{2\pi}{\scriptstyle\sqrt{GM}}\,r^{\threehalves}
+\stopformula
+Venus travels around the Sun in 255 days, faster than Earth's period of 365 days.
 
-Mercury's orbit takes only 88 days. Venus's orbit is 225 days. Earth's orbit is 365.24 days. Mars's orbit is 687 days. The outer planets' orbits are far longer – nearly twelve years for Jupiter's orbit and almost thirty years for Saturn's.
-The planet's mass has no effect on its period. 
-%The Sun's strong gravitational pull on these inner planets bends their paths into small, fast orbits.
+To find Venus's speed and period above, we used the centripetal force formula for uniform circular motion. Venus's motion is not perfectly uniform circular, but the results above are still quite accurate.
+Other planets' orbits are less circular, and their motions are less uniform. Even so, the calculations above work reasonably well for all of the planets.
+The above formula for speed, $v=\scriptstyle\sqrt{GM/r\,}$, tells us that the planets' speeds are faster for smaller orbits and slower for larger orbits.
+Not only do farther planets have to complete larger orbits with each cycle, they also travel along those orbits at a slower speed, making the periods of larger orbits much longer than the periods of smaller orbits. 
+(The planets' masses have no effect on their periods.)
 
-%Using the orbit radii from \in{figure}[fig:VisiblePlanets], you can calculate these periods, and you will get good results.
+Using the orbit radii from \in{figure}[fig:VisiblePlanets], you can calculate the planets' periods, and you will get good results.
+Mercury's small orbit takes only 88 days.
+Mars's larger orbit takes 687 days.
+The outer planets' periods are far longer\dash nearly twelve years for Jupiter and almost thirty years for Saturn.
+This pattern agrees with Galileo's observation that larger orbits take much longer than smaller orbits.
 
-%A centered, circular orbit has only one parameter: its radius $r$. The planet's angular momentum and total energy are directly related to this radius of the other constants ($G$, $M$, and $m$) are known. The angular momentum can be found from the angular velocity $\omega$.
-
+While circular motion provides a good approximation, accurately understanding the planets' elliptic orbits will require new tools. To acquire these tools, we return to Hamilton in the early nineteenth century.
 
 \section{Hamilton finds momentum from kinetic energy}
 
-While physics advanced on the continent, the situation in England was dire. English physicists were ignoring the industrial revolution transforming their civilization, and ignoring the French mathematical revolution transforming physics.
+Throughout the eighteenth century, physics advanced on the European continent\dash from Leibniz to Lagrange.
+In England, however, the situation was dire.
+English physicists were ignoring the industrial revolution transforming their civilization, and ignoring the French mathematical revolution transforming physics.
 They remained paralyzed by a fanatic devotion to Newton’s cumbersome, geometric methods and continued to hold a grudge over the Leibniz’s calculus and \visviva. This problem persisted until 1812, when a group of young undergraduate students at Cambridge started the Analytical Society, partly as a joke, to study the methods of French analysis. They learned to solve problems using the continental notation and even translated a few important French books and papers into English. The club met for a few years and essentially disappeared after its members graduated and left Cambridge in 1817.
 
 That probably would have been the end of this little revolt, except that one of the members, George Peacock, was appointed in 1817 to write questions for the rigorous Mathematical Tripos exam taken by all third year mathematics students at Cambridge. He audaciously wrote his questions using the continental notation. This caused a bit of grumbling among the faculty, but they did not interfere. Surprisingly, Peacock was asked to write questions again in 1819. Students recognized this as a complete surrender by the Newtonian faculty. From there, the adoption of continental notation and methods in England was quite swift. Newton remained a revered figure, but his 150 year old dispute with Leibniz was finally laid to rest. %Cannell p. 38
@@ -1084,15 +1102,20 @@ Use the angular momentum formula, $L = I\omega$, taking care with units.
 \stopsolution
 \stopexample
 Angular quantities do not need angular units. In the last example, radians simply dropped out of the calculation, as radians can. If the angular velocity had been measured in cycles per second or degrees per second, we would have converted those angular units to radians, and then dropped the radians.
-All the other units were carried through the calculation to get the final units of angular momentum, \unit{kg m^2/s}. These units are not the same as units for Newton's linear momentum (\unit{kg m/s}). 
+All the other units were carried through the calculation to get the final units of angular momentum, $\unit{kg m^2/s}$. These units are not the same as units for Newton's linear momentum ($\unit{kg m/s}$). 
 
 %Newton's momentum is one of the most successful in physics. Angular momentum is no less significant. Angular momentum joins momentum and energy as the third conserved quantity in mechanics.
 
 \section{Conservation of angular momentum}
-All of the problems we have done with momentum have similar versions with angular momentum. In every case, we start with the conservation of momentum equation.
+Aside from the different units, angular momentum behaves just like Newton's linear momentum.
+In the absence of outside forces, a system's angular momentum remains constant.
+An outside force that changes the system's angular momentum is called \keyterm{torque}, and is represented by $\tau$ (a lower-case greek tau.)
+
+Conservation of angular momentum looks just like conservation of linear momentum, but with momentum $p$ replaced by angular momentum $L$ and force $F$ replaced with torque $\tau$.
 \startformula
   L\si + \tau\Delta t = L\sf
 \stopformula
+All the problems we have done with linear momentum have similar versions with angular momentum. In every case, we start with the conservation of angular momentum equation.
 Since you have so much experience with conservation of momentum, a few examples will suffice to show how the same conservation of momentum law works with angular momentum. Just keep in mind that the quantities are angular quantities whenever you work with an angular coordinate, which may mean different units.
 
 \startexample[ex:PottersThrow]
@@ -1136,8 +1159,6 @@ After the collision, table top and the clay share the angular momentum. The comb
 With the total angular momentum unchanged, the increased moment of inertia results in a decreased angular velocity. (Rotational kinetic energy is not conserved in this inelastic collision.)
 \stopsolution
 \stopexample
-
-A system's angular momentum is changed by external angular forces. Angular force is called \keyterm{torque}.
 
 \startexample[ex:PottersTorque]
 You decide to add an electric motor to spin your potter's wheel. At full speed, the potter's wheel has angular momentum $\unit{0.30 kg m^2 /s}$. 
@@ -1250,8 +1271,8 @@ Conservation of angular momentum is one of the great drivers of motion in the un
 \subject{Notes}
 \placenotes[endnote][criterium=chapter]
 
-\subject{Bibliography}
-  \placelistofpublications
+%\subject{Bibliography}
+%  \placelistofpublications[criterium=chapter, method=local] % Citations for this chapter
 
 \stopchapter
 \stopcomponent
