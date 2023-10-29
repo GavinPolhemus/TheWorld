@@ -435,7 +435,7 @@ Lagrange's Moon problem was much more complex than our Halley's Comet example ab
 During the eighteenth century, physicists attacked many abstract problems in pure mechanics – planetary motion, spinning tops, and jointed pendulums. These problems had little practical value, but they inspired rapid advances in applied mathematics.
 Leonhard Euler (a close friend of Danial Bernoulli), adapted and expanded Newton's methods to solve many new types of problems. Other physicists introduced new principles – like energy conservation – to solve problems in entirely new ways. These advances produced a rather confusing patchwork of methods and principles.
 
-While Lagrange wrote papers on celestial mechanics and won awards, he also pursued a much more ambitious goal.
+While Lagrange won awards for his papers on celestial mechanics, he also pursued a much more ambitious goal.
 He sought to replace the patchwork of methods and principles with a single procedure that could be applied to any problem in mechanics. He delivered his revolutionary synthesis in \booktitle{Mécanique Analytique}, published in 1788, a century after Newton's \booktitle{Principia}. Lagrange describes his intent in the monumental work's preface.
 
 \startblockquote
@@ -1262,8 +1262,52 @@ They have gone from just less than one revolution every three seconds to over th
 \stopexample
 Changing a system's moment of inertia can dramatically change its angular velocity. In the example above, the kids were able to reduce their distance from the center to about one-quarter of what it was originally. Because the moment of inertial is proportional to $r^2$, reducing their $r$ to one-quarter will reduce their $I$ to one sixteenth!
 
+This increase in angular velocity has a surprising effect on the rotational kinetic energy.
+To see this effect, rewrite the rotational kinetic energy formula (\at{p.}[eq.Krot]) in terms of the angular momentum.
+\startformula
+  K\sub{rot} = \half I\omega^2
+    = \half I \left(\frac{L}{I}\right)^2
+    = \frac{L^2}{2I}
+\stopformula
+When there are no external forces acting on the system, the angular momentum is constant, so the changing the system's moment of inertia will also change the rotational kinetic energy.
+If the moment of inertia decreases, the rotational kinetic energy will increase. If the moment of inertial increases, the rotational kinetic energy will decrease.
+\startexample[ex:MerryGoRound2]
+When the children in \in{example}[ex:MerryGoRound1] move to the center of the merry-go-round, what is the system's change in rotational kinetic energy?
+\startsolution
+Since the angular momentum is constant, this calculation is easiest if we find the angular momentum first.
+\startformula
+  L = I\omega
+    = (\unit{250kg m^2})(\unit{1.0 rad/s})
+    = \unit{250kg m^2/s}
+\stopformula
+Then, we find the initial and final rotational kinetic energies.
+\startformula\startmathalignment
+\NC K\si \NC= \frac{L^2}{2I\si}
+       = \frac{(\unit{250kg m^2/s})^2}{2(\unit{250 kg m^2})}
+       = \unit{125 kg m^2/s^2}
+       = \unit{125 J} \NR
+\NC K\sf \NC= \frac{L^2}{2I\sf}
+       = \frac{(\unit{250kg m^2/s})^2}{2(\unit{25 kg m^2})}
+       = \unit{1250 J} \NR
+\stopmathalignment\stopformula
+The rotational kinetic energy increased by a factor of ten! Finally, we find the change in rotational kinetic energy.
+\startformula
+  \Delta K\sub{rot} = K\sf - K\si
+    = K\sf - K\si
+    = \unit{1250 J} - \unit{125 J}
+    = \unit{1130 J}
+\stopformula
+The rotational kinetic energy increases $\unit{1130 J}$.
+\stopsolution
+\stopexample
+
+The change in rotational kinetic energy is surprising because there are no external forces (or torques) doing work on the system.
+When the moment of inertia changes, the work is being done inside the system. In \in{examples}[ex:MerryGoRound1] and \in[ex:MerryGoRound2], the children do work pulling themselves toward the merry-go-round's center.
+Moving toward the center becomes increasingly difficult as the merry-go-round's angular speed increases.
+The considerable work done by the children increases the system's rotational kinetic energy dramatically, as calculated above.
+
 Nothing like this happens with linear momentum, because linear momentum is mass times velocity. Objects cannot simply reduce their mass to increase their velocity. Many things do chance their shape and moment of inertia. Ice skaters will pull in their arms to make their spins faster. Gymnasts and divers tuck to flip more quickly.
-Slowly rotating air masses become hurricanes or tornados when the air is drawn towards the center by an area of extreme low pressure.
+Slowly rotating air masses become hurricanes or tornados when the air is drawn toward the center by an area of extreme low pressure.
 Planets, stars, solar systems, and galaxies rotate much more quickly than the large clouds of gas and dust from which they formed.
 Conservation of angular momentum is one of the great drivers of motion in the universe, from the largest galaxies down to subatomic particles. 
 

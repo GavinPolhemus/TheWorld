@@ -92,7 +92,7 @@ We now know that the gravitational potential well, due to the Sun's enormous mas
 Kepler's \quotation{drinking cup}\autocite{Described in a letter to Friedrich, Duke of Wuerttemberg, 27 Feb.~1596. v.~\convertnumber{KR}{13} p.~50.}{KeplerGW} model in \in{figure}[fig:Kepler1596system] even looks like our gravitational potential graph in \in{figure}[fig:U3D].
 In our graph, the Sun produces the huge potential well that holds the much lighter planets in their orbits. (The Sun is about one-thousand times more massive than Jupiter, the largest planet.)
 
-The energy graph in \in{figure}[fig:U3D] shows the first six planets at the correct distances along the $r$-axis. Notice how these distances approximately match the distances to the spherical shells in Kepler's model. The  four inner planets – Mercury, Venus, Earth and Mars – are quite close together. Jupiter and Saturn are much further out.
+The gravitational potential graph in \in{figure}[fig:U3D] shows the first six planets at the correct distances along the $r$-axis. Notice how these distances approximately match the distances to the spherical shells in Kepler's model. The  four inner planets – Mercury, Venus, Earth and Mars – are quite close together. Jupiter and Saturn are much further out.
 The planets' full orbits are shown in \in{figure}[fig:VisiblePlanets]. The scale in \in{figure}[fig:VisiblePlanets] shows $r$, the distance from the Sun.% and $\theta$ the angle measured around the Sun. (These are commonly called \keyterm{polar coordinates}.)
 
 \startbuffer[TikZ:VisiblePlanets]
@@ -570,12 +570,17 @@ At its farthest point, Earth is only slightly farther away from the Sun.
 Since a planet's constant angular momentum is $L = I\omega = mr^2\omega$, the planet's angular velocity is 
 \startformula
   \omega = \frac{L}{mr^2}
+    = \frac{l}{r^2}
 \stopformula
-This angular velocity $\omega$ allows us to find the correct position update formula for $\theta$ as the planet's distance $r$ changes.
+Since the planets' orbits are not affected by the planets' masses, I have introduced the \keyterm{specific angular momentum}, $l = L/m$.
+In physics and chemistry, the term \quotation{specific} means \quotation{per mass.} (You may remember specific heats from chemistry.) Specific angular momentum is conserved just like other momentums. The units of specific angular momentum are $\unit{m^2/s}$ or area per time, suggesting a close connection with Kepler's area law.
+
+The angular velocity $\omega = l/r^2$ allows us to find the correct position update formula for $\theta$ as the planet's distance $r$ changes.
 \startformula
-  d\theta = \frac{L}{mr^2}\,dt
+  d\theta = \omega\,dt
+    = \frac{l}{r^2}\,dt
 \stopformula
-Even as the angular momentum remains constant, the size of the angular steps $d\theta$ change as the planet moves closer and farther from the Sun. The angular steps are larger when the planet is closer to the Sun and $r$ smaller; the angular steps are smaller when the planet is farther from the Sun and $r$ is larger\dash exactly the speeds Kepler sought to model, first with the equant and then with his constant area law.
+Even as the specific angular momentum remains constant, the size of the angular steps $d\theta$ change as the planet moves closer and farther from the Sun. The angular steps are larger when the planet is closer to the Sun and $r$ smaller; the angular steps are smaller when the planet is farther from the Sun and $r$ is larger\dash exactly the speeds Kepler sought to model, first with the equant and then with his constant area law.
 
 To see how our $\theta$ update formula compares with Kepler's area law, we can write the area law as an area update formula.
 \startformula
@@ -662,17 +667,18 @@ In polar coordinates, the small area swept out by a planet is a long, thin trian
 \stopformula
 We calculated the update $d\theta$ above, and we can use it here.
 \startformula\pagereference[eq:AreaUpdate]
-	dA = \half \cancel{r^2}\frac{L}{m\cancel{r^2}}\,dt.
-		= \frac{L}{2m}\,dt.
+	dA = \half \cancel{r^2}\frac{l}{\cancel{r^2}}\,dt.
+		= \half l\,dt.
 \stopformula
-Since the angular momentum $L$ is a constant of the motion, this is exactly Kepler's area law stating that equal areas $dA$ are swept out in equal times $dt$. Kepler's area law is the earliest description of conservation of angular momentum.
+Since the specific angular momentum $l$ is a constant of the motion, this is exactly Kepler's area law stating that equal areas $dA$ are swept out in equal times $dt$. Kepler's area law is the earliest description of conservation of angular momentum.
 
 Now that we understand Earth's changing speed in terms of angular momentum, let's return to Kepler. 
 With his new area law, Kepler had more precise positions for Earth, and he returned to the problem of Mars. His new effort is described in Book Five of \booktitle{New Astronomy}.
 
 Mars's more eccentric orbit provides a more difficult challenge for Kepler's area law. \in{Figure}[fig:KeplerTerestrial] shows the areas swept out by Mars in the twenty days when it is farthest from the Sun (right) and the twenty days when it is closest (left). Once again, equal areas are swept out in equal times. Kepler checked areas along other parts of Mars's orbit, and all confirmed his area law.
 
-The areas swept out by Mars are not the same as the areas swept out by Mercury. Both planets have constant angular momentum, but Mars's angular momentum is much greater than Mercury's. (This is true even if we correct for Mars's larger mass.) Mars sweeps out about twice the area that Mercury does in the same time. You can roughly check this by measuring the areas in \in{figure}[fig:KeplerTerestrial].
+The areas swept out by Mars are not the same as the areas swept out by Mercury. Both planets have constant specific angular momentum, but Mars's specific angular momentum is much greater than Mercury's.
+Mars's specific angular momentum is about twice Mercury's, so Mars sweeps out about twice the area that Mercury does in the same time. You can roughly check this by measuring the areas in \in{figure}[fig:KeplerTerestrial].
 
 \section{Energy graphs for orbits}
 Each planet's orbit is a compound motion. The planet moves around the Sun in the $\theta$-direction while also approaching and receding from the Sun in the $r$-direction. In the last section, we found the surprisingly simple update formulas for the angular motion. In this section we turn our attention to the puzzling motion in the radial direction. Energy graphs will be essential.
@@ -725,7 +731,7 @@ Each planet's orbit is a compound motion. The planet moves around the Sun in the
 
 \marginTikZ{}{Uterrestrial3D}{The gravitational potential of the inner planets, with their approximate distances from the Sun. The inner planets' full orbits are shown in \in{figure}[fig:KeplerTerestrial].} % vskip, name, caption
 
-The energy graph in \in{figure}[fig:Uterrestrial3D] shows the gravitational potential energy for the inner planets. Above the graph are the central Sun and the inner planet's at their approximate distances. The gravitational potential energy alone does not offer much insight into the orbits. It looks as if the planets will spiral down the deep potential well and crash into the Sun! Fortunately, this does not happen due to the planets' angular motion. 
+The energy graph in \in{figure}[fig:Uterrestrial3D] shows the gravitational potential for the inner planets. Above the graph are the central Sun and the inner planet's at their approximate distances. The gravitational potential alone does not offer much insight into the orbits. It looks as if the planets will spiral down the deep potential well and crash into the Sun! Fortunately, this does not happen due to the planets' angular motion. 
 We can see the role of the angular motion by adding angular kinetic energy $K_\theta$ to each planet's energy graph.
 
 Each planet's angular momentum $L$ is constant, but each planet's angular kinetic energy is \emph{not} constant.
