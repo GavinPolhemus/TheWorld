@@ -68,6 +68,45 @@ picture littleball;
        		withcolor "white" shadedinto black;
 		draw fullcircle scaled 0.2cm withpen pencircle scaled 0.8pt;);
 
+vardef Spring(expr Start, Stop) =
+    Length := abs(Stop - Start) ;
+	path p;
+		for a = -90 step 15 until Coils*360+90:
+			y := SpringRadius*cosd(a) ;
+			x := SpringSlant*SpringRadius*(sind(a)+1) + ((Length-2SpringSlant*SpringRadius)/(Coils*360+180))*(a+90) ;
+			augment.p(x,y);
+		endfor;
+	p rotated angle (Stop - Start) shifted Start enddef;
+
+% Draw a centimeter scale along a path
+
+	vardef draw_mark(expr p, a, l) =
+		save t, dm; pair dm;
+		t = arctime a of p;
+		dm = marksize*unitvector direction t of p rotated -90;
+		draw (dm .. (0,0)) shifted point t of p;
+		label.bot  (l , point t of p) rotatedaround(point t of p, angle direction t of p) shifted dm ;
+	enddef;
+	vardef draw_marked(expr p,s) =
+		marksize:=2pt;
+		for i=0 step 1mm until ((arclength p) - s):
+			draw_mark(p,i+s,"");
+		endfor
+		marksize:=4pt;
+		for i=0 step 1cm until ((arclength p) - s):
+			draw_mark(p,i+s,i/cm);
+		endfor
+		marksize:=2pt;
+		for i=0 step -1mm until -s:
+			draw_mark(p,i+s,"");
+		endfor
+		marksize:=4pt;
+		for i=0 step -1cm until -s:
+			draw_mark(p,i+s,i/cm);
+		endfor
+		draw p;
+	enddef;
+
 % This is from the feynmp package
 %input feynmp
 

@@ -573,14 +573,14 @@ Since a planet's constant angular momentum is $L = I\omega = mr^2\omega$, the pl
     = \frac{l}{r^2}
 \stopformula
 Since the planets' orbits are not affected by the planets' masses, I have introduced the \keyterm{specific angular momentum}, $l = L/m$.
-In physics and chemistry, the term \quotation{specific} means \quotation{per mass.} (You may remember specific heats from chemistry.) Specific angular momentum is conserved just like other momentums. The units of specific angular momentum are $\unit{m^2/s}$ or area per time, suggesting a close connection with Kepler's area law.
+In physics and chemistry, the term \quotation{specific} means \quotation{per mass.} (You may remember specific heats from chemistry.) Specific angular momentum is conserved just like other momentums. The units of specific angular momentum are $\unit{m^2/s}$, or area per time, suggesting a close connection with Kepler's area law.
 
 The angular velocity $\omega = l/r^2$ allows us to find the correct position update formula for $\theta$ as the planet's distance $r$ changes.
 \startformula
   d\theta = \omega\,dt
     = \frac{l}{r^2}\,dt
 \stopformula
-Even as the specific angular momentum remains constant, the size of the angular steps $d\theta$ change as the planet moves closer and farther from the Sun. The angular steps are larger when the planet is closer to the Sun and $r$ smaller; the angular steps are smaller when the planet is farther from the Sun and $r$ is larger\dash exactly the speeds Kepler sought to model, first with the equant and then with his constant area law.
+Even as the specific angular momentum remains constant, the size of the angular steps $d\theta$ change as the planet moves closer and farther from the Sun. The angular steps are larger when the planet is closer to the Sun and $r$ is smaller; the angular steps are smaller when the planet is farther from the Sun and $r$ is larger\dash exactly the speeds Kepler sought to model, first with the equant and then with his constant area law.
 
 To see how our $\theta$ update formula compares with Kepler's area law, we can write the area law as an area update formula.
 \startformula
@@ -677,8 +677,7 @@ With his new area law, Kepler had more precise positions for Earth, and he retur
 
 Mars's more eccentric orbit provides a more difficult challenge for Kepler's area law. \in{Figure}[fig:KeplerTerestrial] shows the areas swept out by Mars in the twenty days when it is farthest from the Sun (right) and the twenty days when it is closest (left). Once again, equal areas are swept out in equal times. Kepler checked areas along other parts of Mars's orbit, and all confirmed his area law.
 
-The areas swept out by Mars are not the same as the areas swept out by Mercury. Both planets have constant specific angular momentum, but Mars's specific angular momentum is much greater than Mercury's.
-Mars's specific angular momentum is about twice Mercury's, so Mars sweeps out about twice the area that Mercury does in the same time. You can roughly check this by measuring the areas in \in{figure}[fig:KeplerTerestrial].
+The areas swept out by Mars are not the same as the areas swept out by Mercury. Both planets have constant specific angular momentum, but Mars's specific angular momentum is about twice Mercury's, so Mars sweeps out about twice the area that Mercury does in the same time. You can roughly check this by measuring the areas in \in{figure}[fig:KeplerTerestrial].
 
 \section{Energy graphs for orbits}
 Each planet's orbit is a compound motion. The planet moves around the Sun in the $\theta$-direction while also approaching and receding from the Sun in the $r$-direction. In the last section, we found the surprisingly simple update formulas for the angular motion. In this section we turn our attention to the puzzling motion in the radial direction. Energy graphs will be essential.
@@ -1284,7 +1283,9 @@ The $\Phi+k_\theta$ curve for Venus is a similar shape, but shifted down toward 
 This shift is due to Venus's lower angular momentum.
 Lower angular momentum gives Venus a lower specific angular kinetic energy $k_\theta = l^2/2r^2$, which is why Venus's $\Phi+k_\theta$ curve in \in{figure}[fig:EnergyGraphKUH] is lower than Earth's.
 
-Like Earth, Venus sits right near the minimum of its $\Phi+k_\theta$ graph, always staying nearly the same distance from the Sun in a nearly circular, centered orbit. The dotted line in \in{figure}[fig:EnergyGraphKUH] shows the radius and specific energy of every possible circular, centered orbit. (See \in{figure}[fig:CircularH], \at{p.}[fig:CircularH].) This dotted line passes right through the minimum of every $\Phi+k_\theta$ curve. Earth and Venus sit on this line, since they are both in nearly circular, centered orbits.
+Like Earth, Venus sits right near the minimum of its $\Phi+k_\theta$ graph, always staying nearly the same distance from the Sun in a nearly circular, centered orbit. The dotted line in \in{figure}[fig:EnergyGraphKUH] shows the radius and specific energy of every possible circular, centered orbit.
+This dotted line passes right through the minimum of every $\Phi+k_\theta$ curve.
+Earth and Venus sit on this line, since they are both in nearly circular, centered orbits.
 
 Mercury has much less angular momentum, so its $\Phi+k_\theta$ curve is even lower and farther left than Venus's, putting Mercury much closer to the Sun. Unlike Venus and Earth, Mercury's orbit is quite eccentric. Mercury does not sit right at the minimum of its $\Phi+k_\theta$ curve. Mercury's total specific energy $h=\Phi+k_\theta+k_r$, shown by the thick, short, horizontal line labeled \quotation{Mercury,} is somewhat higher than the minimum of the $\Phi+k_\theta$ curve. This looks very much like the energy graph for a simple harmonic oscillator, and Mercury does indeed oscillate in the $r$ direction as it orbits the Sun.
 Mercury's oscillations have a period of 88 days.
