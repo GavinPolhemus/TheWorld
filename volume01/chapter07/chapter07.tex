@@ -556,7 +556,7 @@ Use conservation of angular momentum to relate the changing angular velocity to 
 \startformula\startmathalignment
 \NC  L\si + \cancel{\tau∆t} \NC= L\sf \NR
 \NC  I\si\omega\si \NC= I\sf\omega\sf \NR
-\NC  mr\si^2\omega\si \NC= mr\sf^2\omega\sf \NR
+\NC  \cancel{m}\,r\si^2\omega\si \NC= \cancel{m}\,r\sf^2\omega\sf \NR
 \stopmathalignment\stopformula
 \startformula
   r\sf = r\si\sqrt{\frac{\omega\si}{\omega\sf}}
@@ -567,26 +567,56 @@ At its farthest point, Earth is only slightly farther away from the Sun.
 \stopsolution
 \stopexample
 
-Since a planet's constant angular momentum is $L = I\omega = mr^2\omega$, the planet's angular velocity is 
+Each planet's angular momentum depends on the planet's mass, but the planet's masses do not affect their orbits. To understand orbits, we will use \keyterm{specific angular momentum}, $l = L/m$.
+In physics and chemistry, the term \quotation{specific} means \quotation{per mass.} (You may remember specific heats from chemistry.) Each planet's specific angular momentum depends on the planet's distance $r$ and angular velocit $\omega$.
 \startformula
-  \omega = \frac{L}{mr^2}
-    = \frac{l}{r^2}
+  l = \frac{L}{m}
+    = \frac{I\omega}{m}
+    = \frac{\cancel{m}\,r^2\omega}{\cancel{m}}
+    = r^2\omega
 \stopformula
-Since the planets' orbits are not affected by the planets' masses, I have introduced the \keyterm{specific angular momentum}, $l = L/m$.
-In physics and chemistry, the term \quotation{specific} means \quotation{per mass.} (You may remember specific heats from chemistry.) Specific angular momentum is conserved just like other momentums. The units of specific angular momentum are $\unit{m^2/s}$, or area per time, suggesting a close connection with Kepler's area law.
+A planet's distance and angular velocity can be determined through careful observations from Earth, making specific angular momentum relatively easy to compute. Planet's masses are harder to determine from Earth, making angular momentum much more difficult to compute.
 
-The angular velocity $\omega = l/r^2$ allows us to find the correct position update formula for $\theta$ as the planet's distance $r$ changes.
+\startexample[ex:EarthSpecificAngularMomentum]
+Find Earth's specific angular momentum, $l\sEarth$, using the distance and angular velocity from \in{example}[ex:EarthDistances].
+\startsolution
+We will use the distance and angular velocity given for early January, when Earth is closest to the Sun.
+\startformula
+  l\sEarth = r^2\omega
+    = (\unit{1.471e11m})^2 (\unit{2.059e-7rad/s})
+    = \unit{4.455e15 m^2/s}
+\stopformula
+Using the distance and angular velocity for early July, when Earth is farthest from the Sun, would have given the same specific angular momentum, $l\sEarth = \unit{4.455e15 m^2/s}$.
+\stopsolution
+\stopexample
+
+The units of specific angular momentum are $\unit{m^2/s}$, or area per time, suggesting a close connection with Kepler's area law!
+
+Now we can use Earth's specific angular momentum to find the correct angular velocity $\omega$ to use in the position update formula for $\theta$. Solve $l=r^2\omega$ for the angular velocity.
+\startformula
+  \omega = \frac{l}{r^2}
+\stopformula
+Earth's specific angular momentum $l$ is constant, so Earth's angular velocity $\omega$ is greatest when $r$ is smallest, and Earth's angular velocity is smallest when $r$ is greatest.
+
+The angular velocity allows us to find the correct position update formula for $\theta$ as the planet's distance $r$ changes.
 \startformula
   d\theta = \omega\,dt
     = \frac{l}{r^2}\,dt
 \stopformula
 Even as the specific angular momentum remains constant, the size of the angular steps $d\theta$ change as the planet moves closer and farther from the Sun. The angular steps are larger when the planet is closer to the Sun and $r$ is smaller; the angular steps are smaller when the planet is farther from the Sun and $r$ is larger\dash exactly the speeds Kepler sought to model, first with the equant and then with his constant area law.
 
-To see how our $\theta$ update formula compares with Kepler's area law, we can write the area law as an area update formula.
+To see how our $\theta$ update formula compares with Kepler's area law, we will find the small area $dA$ swept out in the short time $dt$.
+In polar coordinates, the small area $dA$ swept out by a planet is a long, thin triangle with length $r$ and width $r\,d\theta$, as shown in \in{figure}[fig:dA]. The thin triangle's area is
 \startformula
-	dA = (\text{const.})\,dt,
+	dA = \half (r)(r\,d\theta)
+		= \half r^2\,d\theta.
 \stopformula
-where $dA$ is a small change in area that occurs during the short duration $dt$, as shown in \in{figure}[fig:dA]. Kepler observed that equal areas are swept out in equal times, so the coefficient relating the area to the time must be a constant.
+We calculated the update $d\theta$ above, and we can use it here.
+\startformula\pagereference[eq:AreaUpdate]
+	dA = \half \cancel{r^2}\frac{l}{\cancel{r^2}}\,dt.
+		= \half l\,dt.
+\stopformula
+Since the specific angular momentum $l$ is a constant of the motion, this is exactly Kepler's area law stating that equal areas $dA$ are swept out in equal times $dt$. Kepler's area law is the earliest description of conservation of angular momentum.
 
 \startbuffer[dA]
 \environment env_physics
@@ -660,24 +690,30 @@ where $dA$ is a small change in area that occurs during the short duration $dt$,
 
 \marginTikZ{}{dA}{The small area $dA$ swept out by Earth during a small duration $dt$.} % vskip, name, caption
 
-In polar coordinates, the small area swept out by a planet is a long, thin triangle with length $r$ and width $r\,d\theta$. The thin triangle's area is
+\startexample[ex:EarthAreaDay]
+Find area swept out by Earth in one day.
+\startsolution
+We will find the area $dA$ for a short time $dt = \unit{1 day} = \unit{86,400 s}$. Earth's specific angular momentum $l\sEarth = \unit{4.455e15 m^2/s}$ was found in \in{example}[ex:EarthSpecificAngularMomentum].
 \startformula
-	dA = \half (r)(r\,d\theta)
-		= \half r^2\,d\theta.
+	dA = \half l\sEarth\,dt
+	   = \half (\unit{4.455e15 m^2/s})(\unit{86,400 s})
+	   = \unit{1.92e20 m^2}
 \stopformula
-We calculated the update $d\theta$ above, and we can use it here.
-\startformula\pagereference[eq:AreaUpdate]
-	dA = \half \cancel{r^2}\frac{l}{\cancel{r^2}}\,dt.
-		= \half l\,dt.
+Each day, Earth sweeps out a huge area, $\unit{192 Gm^2}$.
+\stopsolution
+\stopexample
+Since each small area $dA$ is the same size, many repeated steps $dt$ will produce a large area $\Delta A$ proportional to the steps' total duration $\Delta t$. As a result, we can write \keyterm{Kepler's area law} as a formula for any area $\Delta A$ swept out during any duration $\Delta t$.
+\startformula\pagereference[eq:KeplersAreaLaw]
+  \frac{\Delta A}{\Delta t} = \half l
 \stopformula
-Since the specific angular momentum $l$ is a constant of the motion, this is exactly Kepler's area law stating that equal areas $dA$ are swept out in equal times $dt$. Kepler's area law is the earliest description of conservation of angular momentum.
+On the left side is Kepler's area $\Delta A$ swept out during the duration $\Delta t$. On the right side is the modern concept of specific angular momentum. Both sides are constant for any orbit, no matter how eccentric it might be.
 
 Now that we understand Earth's changing speed in terms of angular momentum, let's return to Kepler. 
 With his new area law, Kepler had more precise positions for Earth, and he returned to the problem of Mars. His new effort is described in Book Five of \booktitle{New Astronomy}.
 
 Mars's more eccentric orbit provides a more difficult challenge for Kepler's area law. \in{Figure}[fig:KeplerTerestrial] shows the areas swept out by Mars in the twenty days when it is farthest from the Sun (right) and the twenty days when it is closest (left). Once again, equal areas are swept out in equal times. Kepler checked areas along other parts of Mars's orbit, and all confirmed his area law.
 
-The areas swept out by Mars are not the same as the areas swept out by Mercury. Both planets have constant specific angular momentum, but Mars's specific angular momentum is about twice Mercury's, so Mars sweeps out about twice the area that Mercury does in the same time. You can roughly check this by measuring the areas in \in{figure}[fig:KeplerTerestrial].
+The areas swept out by Mars are not the same as the areas swept out by Mercury. Both planets have constant specific angular momentum. Mars's specific angular momentum is $l\substar{\Mars} = \unit{5.48e15 m^2/s}$. Mercury's is $l\substar{\Mercury} = \unit{2.71e15 m^2/s}$. Since Mars's specific angular momentum is about twice Mercury's, Mars sweeps out about twice the area that Mercury does in the same time. You can roughly check this by measuring the areas in \in{figure}[fig:KeplerTerestrial].
 
 \section{Energy graphs for orbits}
 Each planet's orbit is a compound motion. The planet moves around the Sun in the $\theta$-direction while also approaching and receding from the Sun in the $r$-direction. In the last section, we found the surprisingly simple update formulas for the angular motion. In this section we turn our attention to the puzzling motion in the radial direction. Energy graphs will be essential.
@@ -848,7 +884,7 @@ We see from this formula that as a planet approaches the Sun, toward smaller $r$
 \stopbuffer
 
 \placetextfloat[bottom][fig:EnergyGraphKU] % location
-{Earth's rotational kinetic energy $K_\theta$ and potential energy $U$ plotted as functions of the distance from the Sun $r$. The sum $U +K_\theta$ cradles Earth at its minimum. $U$ prevents Earth from leaving the solar system, while $K_\theta$ keeps it from spiraling into the Sun. Earth is always also moving in the $\theta$ direction (not shown) as it orbits the Sun.}	 % caption text
+{Earth's angular kinetic energy $K_\theta$ and potential energy $U$ plotted as functions of the distance from the Sun $r$. The sum $U +K_\theta$ cradles Earth at its minimum. $U$ prevents Earth from leaving the solar system, while $K_\theta$ keeps it from spiraling into the Sun. Earth is always also moving in the $\theta$ direction (not shown) as it orbits the Sun.}	 % caption text
 {\noindent\typesetbuffer[TikZ:EnergyGraphKU]} % figure contents
 
 Earth's energy graph, in \in{figure}[fig:EnergyGraphKU], shows the angular kinetic energy $K_\theta$ along with the gravitational potential energy $U$. (This energy graph shows only the $r$-direction, not the $\theta$-direction.) The gravitational potential energy $U$ at the bottom should look familiar – rising toward zero far from the Sun and descending steeply close to the Sun.
@@ -857,13 +893,16 @@ Earth's angular kinetic energy trends in the opposite direction – descending t
 Since gravitational potential energy and angular kinetic energy change in opposite directions, these energy changes balance when Earth's distance from the Sun changes slightly along its slightly eccentric orbit.
 As Earth moves slightly toward the Sun, some gravitational potential energy is converted to angular kinetic energy. As Earth recedes slightly away from the Sun, some angular kinetic energy is converted back to gravitational potential energy. (The angular momentum $L$ stays constant during these energy changes.)
 
-The angular kinetic energy graph is not \emph{exactly} the opposite the gravitational potential energy graph. The angular kinetic energy $K_\theta$ has $r^2$ in the denominator, while the gravitational potential energy $U$ has only $r$ in the denominator. This makes the angular kinetic energy's behavior a bit sharper than gravitational potential energy's. Angular kinetic energy rises more sharply close to the Sun, and falls off more sharply far away. As a result, there is only one distance where the changes in energy balance, so that the sum stays the same.
+The angular kinetic energy graph is not \emph{exactly} the opposite the gravitational potential energy graph. The angular kinetic energy $K_\theta$ has $r^2$ in the denominator, while the gravitational potential energy $U$ has only $r$ in the denominator. This makes the angular kinetic energy's behavior a bit sharper than gravitational potential energy's. Angular kinetic energy rises more sharply close to the Sun, and falls off more sharply far away. As a result, there is only one distance where the energy changes balance, so that the sum stays the same.
+Earth sits right at this balanced distance, as can be seen by looking at the last curve on Earth's energy graph.
 
 The last curve on Earth's energy graph in \in{figure}[fig:EnergyGraphKU] is this sum of the gravitational potential energy and the angular kinetic energy.
 \startformula
 	U + K_\theta = -G\frac{mM}{r} + \frac{L^2}{2mr^2}
 \stopformula
-This curve increases sharply close to the Sun, due to the sharp rise in the angular kinetic energy $K_\theta$. The curve also rises towards zero far from the Sun, where the sharper drop in angular kinetic energy allows the more persistent rise of gravitational potential energy $U$ to dominate.
+This curve increases sharply close to the Sun, due to the sharp rise in the angular kinetic energy $K_\theta$. This sharp rise is called the \keyterm{centrifugal barrier} because it pushes Earth away from the center.
+(Latin \quotation{fugus} means \quotation{fleeing}, like a fugitive. The centrifugal barrier causes Earth to flee from the center.)
+The curve also rises towards zero far from the Sun, where the sharper drop in angular kinetic energy allows the more persistent rise of gravitational potential energy $U$ to dominate.
 
 In the middle is a minimum which cradles Earth, as shown by the Earth and Sun above the energy graph, and by the total energy $H$ marked at Earth's location on the graph.
 Earth rocks gently in this minimum, where the two energy curves' slopes are in balance. At this minimum, the slope of the total $U + K_\theta$ is zero. Earth's total energy $H$ is very close to this minimum value of $U+K_\theta$. (The contribution of Earth's radial kinetic energy $K_r$ is too small to be seen on this graph. In the next section, Mars will help us understand the role of $K_r$.) Earth does not have enough energy to climb either side of the $U+K_\theta$ minimum, so Earth's orbit is stable.
@@ -954,12 +993,12 @@ Earth rocks gently in this minimum, where the two energy curves' slopes are in b
 
 \marginTikZ{}{UK3D}{Earth's full orbit around the Sun and Earth's energy graph. Earth's orbit is at the minimum of $U + K_\theta$.} % vskip, name, caption
 
-Earth's full orbit is shown on the energy graph in \in{figure}[fig:UK3D], where the $\theta$ direction has been restored. This graph reminds me again of Kepler's early drinking cup model, where Earth's orbit was confined to a spherical shell between two platonic solids (\at{p.}[fig:Kepler1596system]). In our energy graph, Earth's orbit is held between two competing energies. Rising gravitational potential energy surrounds Earth's orbit, preventing Earth from wandering out of the Solar System. Rising angular kinetic energy sits inside Earth's orbit, preventing Earth from spiraling into the Sun.
+Earth's full orbit is shown on the energy graph in \in{figure}[fig:UK3D], where the $\theta$ direction has been restored. This graph reminds me again of Kepler's early drinking cup model, where Earth's orbit was confined to a spherical shell between two platonic solids (\at{p.}[fig:Kepler1596system]). In our energy graph, Earth's orbit is held between two competing energies. Rising gravitational potential energy surrounds Earth's orbit, preventing Earth from wandering out of the Solar System.
+Rising angular kinetic energy creates the centrifugal barrier inside Earth's orbit, preventing Earth from spiraling into the Sun.
 
-\section{Specific energy and specific angular momentum}
-In order to compare the different planets on a single energy graph, I plotted the energy per mass of each planet, as you can see by looking at the vertical axis on \in{figure}[fig:EnergyGraphKUH]. The energies on this graph represent the energies of each kilogram of the planet, not the energies of the entire planet. Even so, the energies are quite large. For example, each kilogram of Earth\dash and each kilogram of you\dash has a kinetic energy $K_\theta = \unit{4.44e8J}$ due to our high velocity around the Sun.
-
-\keyterm{centrifugal barrier}.
+\section{Specific energy graphs}
+Each planet's potential and kinetic energies depend on the planet's mass, but the planet's masses do not affect their orbits. To understand orbits, we will use \keyterm{specific energy}, which is energy per mass. 
+Earth's \keyterm{specific energy graph} is shown in \in{figure}[fig:SpecificEnergyGraphKU]. The specific energy graph looks almost identical to the energy graph in \in{figure}[fig:EnergyGraphKU], but the specific energy graph has several advantages.
 
 \startbuffer[TikZ:SpecificEnergyGraphKU]
 \environment env_physics
@@ -1068,79 +1107,39 @@ In order to compare the different planets on a single energy graph, I plotted th
 \stopbuffer
 
 \placetextfloat[bottom][fig:SpecificEnergyGraphKU] % location
-{Earth's rotational kinetic energy $K_\theta$ and potential energy $U$ plotted as functions of the distance from the Sun $r$. The sum $U +K_\theta$ cradles Earth at its minimum. $U$ prevents Earth from leaving the solar system, while $K_\theta$ keeps it from spiraling into the Sun. Earth is always also moving the $\theta$ direction (not shown) as it orbits the Sun.}	 % caption text
+{The Sun's gravitational potential $\Phi$ and Earth's specific angular kinetic energy $k_\theta$ plotted as functions of the distance from the Sun $r$. The sum $\Phi +k_\theta$ cradles Earth at its minimum.
+$\Phi$ prevents Earth from leaving the solar system, while $k_\theta$ keeps it from spiraling into the Sun. Earth is always also moving the $\theta$ direction (not shown) as it orbits the Sun.}	 % caption text
 {\noindent\typesetbuffer[TikZ:SpecificEnergyGraphKU]} % figure contents
 
-Finally, we find each planet's total energy $H$, which include's the planet's gravitational potential energy $U$ and kinetic energy $K$. The calculation is a bit messy, but the result is surprisingly simple.
-\startformula\startmathalignment
-\NC H	\NC = U + K			\NR
-\NC		\NC =  - G\frac{mM}{r} + \frac{L^2}{2I}	\NR
-\NC		\NC =  - G\frac{mM}{r} + \frac{m^2 GMr}{2mr^2}	\NR
-\NC		\NC =  - G\frac{mM}{r} + G\frac{mM}{2r}		\NR
-\NC		\NC = -G\frac{mM}{2r}						\NR
-\stopmathalignment\stopformula
-The total energy of a circular orbit is negative, and exactly half of the gravitational potential energy. 
-Circular orbits with a larger radius $r$ have a higher (less negative) total energy $H$.
+First, Earth's gravitational potential energy $U$ is replaced by the Sun's gravitational potential $\Phi$.
+The Sun's gravitational potential extends throughout the solar system, independent of the individual planets. Every planet is held in orbit by the same gravitational potential $\Phi$ produced by the Sun.
 
-\startuseMPgraphic{graph::CircularH} % I'd like to add minor ticks, 0.667mm long.
-vardef U =
-	path p;
-		for x = 0.5 step 0.1 until 3.1:
-			y := -13.3/x; % lua.mp.morse(x);
-			augment.p(x,y);
-		endfor;
-	p enddef;
-vardef H =
-	path p;
-		for x = 0.2 step 0.1 until 3.1:
-			y := -13.3/(2x); % lua.mp.morse(x);
-			augment.p(x,y);
-		endfor;
-	p enddef;
-draw begingraph(4cm,5cm);
-	setrange(0,-20, 3, 0);
-	for x=auto.x:
-		itick.bot(formatted("$@g$", x), x);
-		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
-		itick.top(formatted("@s", ""), x) withcolor "middlegray";
-	endfor
-	glabel.lft(textext("Specific Energy($\sci{8}\units{m^2/s^2}$)") rotated 90,OUT);
-	glabel.bot(textext("Distance from Sun $r$ ($\sci{11}\units{m}$)"), OUT);
-	gdraw(U) withpen pencircle scaled 0.8pt;
-	glabel.lrt("$\Phi$",10);
-	gdraw(H) withpen pencircle scaled 1pt dashed withdots;
-	glabel.ulft("$h$",10);
-%	glabel(mydot,(80));
-%	glabel(mydot,(210));
-%	glabel(mydot,(340));
-%	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
-%	gdraw((6.37,0) -- (6.37,-2)) withpen pencircle scaled 0.8pt;
-	for y=0 step -2 until -20:%auto.y:
-		itick.lft(formatted("$@g$", y), y);
-		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
-		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
-	endfor
-endgraph shifted (0,-5cm);
-%  pickup pencircle scaled 0.8pt ;
-%  draw externalfigure "EarthEratosthenes.png" scaled 0.127 shifted (-6.37mm,-6.37mm) ;
-%  draw fullcircle scaled 12.74mm;
-%  drawarrow (13mm,0) -- (-0.5mm,0);
-%    dotlabel.ulft  ("", (13mm,0)) ;
-%  drawarrow (26mm,0) -- (22.625mm,0);
-%    dotlabel.top  ("$F\sub{Newton}$", (26mm,0)) ;
-%  drawarrow (39mm,0) -- (37.5mm,0);
-%    dotlabel.llft  ("", (39mm,0)) ;
-\stopuseMPgraphic
+Second, Earth's specific kinetic energy, $k = K/m$, depends only on Earth's speed, making it easy to calculate from observations of Earth's orbit.
+\startformula
+  k = \frac{K}{m}
+    = \frac{\onehalf\cancel{m}\,v^2}{\cancel{m}}
+    = \onehalf v^2
+\stopformula
+The units of specific energy are $\unit{m^2/s^2}$, the same as the units of gravitational potential $\Phi$.
+%The units are shown on the vertical axis of Earth's specific energy graph.
 
-\startplacefigure[location=margin, reference=fig:CircularH, title={A planet's total specific energy $h=H/m$ in a circular, centered orbit is exactly half of the planet's gravitational potential $\Phi=U/m$.}]
-\small\reuseMPgraphic{graph::CircularH}
-\stopplacefigure
+Third, Earth's specific angular kinetic energy, $k_\theta = K_\theta/m$, is easily related to Earth's specific angular momentum $l$. Since $L=ml$, Earth's angular kinetic energy is 
+\startformula
+  K_\theta = \frac{L^2}{2I}
+    = \frac{(ml)^2}{2mr^2}
+    = \frac{m^{\cancel{2}}l^2}{2\cancel{m}\,r^2}
+    = m\frac{l^2}{2r^2}
+\stopformula
+This gives a simple \keyterm{specific angular kinetic energy formula} for $k_\theta$.% = K_\theta/m$.
+\startformula
+  k_\theta = \frac{l^2}{2r^2}
+\stopformula
+Earth's specific angular kinetic energy $k_\theta$ depends only on Earth's specific angular momentum $l$ and distance $r$, not on Earth's mass.
 
-The energy graph in \in{figure}[fig:CircularH] shows the gravitational potential energy and a dotted line at $-GM/2r$. Each dot represents the total energy of a possible circular orbit. Dots toward the upper right represent larger orbits with greater angular momentum and higher energy. These are the orbits of the outer planets. Dots toward the lower left represent smaller orbits with less angular momentum and lower energy. These are the orbits of the inner planets.
+Finally, the curve $\Phi + k_\theta$ shows the same minimum holding Earth in a stable orbit between the rising centrifugal barrier on the left and the rising gravitational potential on the right.
+Earth's total specific energy, $h = \Phi + k_\theta + k_r$, is shown in this minimum.
 
-Every planet is in the Sun's gravitational potential well, labeled $\Phi$ in \in{figure}[fig:EnergyGraphKUH].
-The size of the centrifugal barrier in the middle of the graph depends on the planet's specific angular momentum. Greater specific angular momentum increases the size of the centrifugal barrier.
-A larger centrifugal barrier pushes the planet's orbit farther out from the Sun, as shown in \in{figure}[fig:EnergyGraphKUH]. Less specific angular momentum produces a smaller centrifugal barrier, allowing the planet to orbit closer to the Sun, as for Mercury. The size of the centrifugal barrier is different for each planet, giving their orbits different sizes in the same gravitational potential well.
+\in{Figure}[fig:EnergyGraphKUH] shows the specific energy graphs for the four inner planets\dash Mercury, Venus, Earth and Mars. The planets are all in the Sun's gravitational potential well, shown by the bottom curve marked $\Phi$ is \in{figure}[fig:EnergyGraphKUH].
 
 \startbuffer[TikZ:EnergyGraphKUH]
 \environment env_physics
@@ -1180,7 +1179,8 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
       thin,
       domain=0.25:5,
       samples=150]
-    {(-13.27/x)+(3.68/x^2)};
+    {(-13.27/x)+(3.68/x^2)}
+    node[above right, pos=0.44] {$l\substar\Mercury = \unit{2.71e15 m^2/s}$};
   \addplot[ % H Mercury
       very thick,
       domain=0.46:0.698,
@@ -1191,7 +1191,8 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
       thin,
       domain=0.47:5,
       samples=150]
-    {(-13.27/x)+(7.179/x^2)};
+    {(-13.27/x)+(7.179/x^2)}
+    node[above right, pos=0.58] {$l\substar\Venus = \unit{3.79e15 m^2/s}$};
   \addplot[ % H Venus
       very thick,
       domain=1.075:1.089,
@@ -1200,9 +1201,10 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
     node[above, pos=0.5] {Venus};
   \addplot[ % K angular Earth
       thin,
-      domain=0.6:5,
+      domain=0.65:5,
       samples=150]
-    {(-13.27/x)+(9.926/x^2)};
+    {(-13.27/x)+(9.926/x^2)}
+    node[above right, pos=0.55] {$l\substar\Earth = \unit{4.45e15 m^2/s}$};
   \addplot[ % E Earth
       very thick,
      domain=1.471:1.521,
@@ -1211,9 +1213,10 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
    node[above, pos=0.5] {Earth};
   \addplot[ % K angular Mars
       thin,
-      domain=0.89:3,
+      domain=1.1:3,
       samples=150]
-    {(-13.27/x)+(14.99/x^2)};
+    {(-13.27/x)+(14.99/x^2)}
+    node[above right, pos=0.5] {$l\substar\Mars = \unit{5.48e15 m^2/s}$};
   \addplot[ % E Mars
       very thick,
       domain=2.067:2.492,
@@ -1272,33 +1275,37 @@ A larger centrifugal barrier pushes the planet's orbit farther out from the Sun,
 
 
 \placefigure[margin][fig:EnergyGraphKUH] % location
-{Specific energy graphs for the four terrestrial planets. The dotted line shows the specific energy and radius of perfectly circular orbits. Earth and Venus have nearly circular orbits. }	% caption text
-{\vskip1.5in\hbox{\noindent\starttikzpicture
+{Specific energy graphs for the four terrestrial planets. The dotted line shows the total specific energy of perfectly circular orbits. Earth and Venus have nearly circular orbits. }	% caption text
+{\vskip1.67in\hbox{\noindent\starttikzpicture
 	\draw[white] (0,0)-- ++(5,0.2); % Sky to make height better. Use \vskip6.4in for bottom.
 \stoptikzpicture}}
 
+Each planet has its own specific angular momentum $l$, which determines the size of the planets' potential barrier. 
+Greater specific angular momentum increases the size of the centrifugal barrier.
+A larger centrifugal barrier pushes the planet's orbit farther out from the Sun, as shown in \in{figure}[fig:EnergyGraphKUH]. Less specific angular momentum produces a smaller centrifugal barrier, allowing the planet to orbit closer to the Sun, as for Mercury. The size of the centrifugal barrier is different for each planet, giving their orbits different sizes in the same gravitational potential well.
+
 The four inner planets are shown at their correct distances from the Sun along the top of \in{figure}[fig:EnergyGraphKUH].
-Take a moment to locate Venus and Earth, and compare the specific energy graphs for these two planets. Earth's is the same $\Phi+k_\theta$ curve shown in \in{figure}[fig:EnergyGraphKU].
+Take a moment to locate Venus and Earth, and compare the specific energy graphs for these two planets. Earth's is the same $\Phi+k_\theta$ curve shown in \in{figure}[fig:SpecificEnergyGraphKU].
 The $\Phi+k_\theta$ curve for Venus is a similar shape, but shifted down toward lower specific energy and left toward smaller $r$.
-This shift is due to Venus's lower angular momentum.
-Lower angular momentum gives Venus a lower specific angular kinetic energy $k_\theta = l^2/2r^2$, which is why Venus's $\Phi+k_\theta$ curve in \in{figure}[fig:EnergyGraphKUH] is lower than Earth's.
+This shift is due to Venus's lower specific angular momentum.
+Lower specific angular momentum gives Venus a lower specific angular kinetic energy $k_\theta = l^2/2r^2$, which is why Venus's $\Phi+k_\theta$ curve in \in{figure}[fig:EnergyGraphKUH] is lower than Earth's.
 
 Like Earth, Venus sits right near the minimum of its $\Phi+k_\theta$ graph, always staying nearly the same distance from the Sun in a nearly circular, centered orbit. The dotted line in \in{figure}[fig:EnergyGraphKUH] shows the radius and specific energy of every possible circular, centered orbit.
 This dotted line passes right through the minimum of every $\Phi+k_\theta$ curve.
 Earth and Venus sit on this line, since they are both in nearly circular, centered orbits.
 
-Mercury has much less angular momentum, so its $\Phi+k_\theta$ curve is even lower and farther left than Venus's, putting Mercury much closer to the Sun. Unlike Venus and Earth, Mercury's orbit is quite eccentric. Mercury does not sit right at the minimum of its $\Phi+k_\theta$ curve. Mercury's total specific energy $h=\Phi+k_\theta+k_r$, shown by the thick, short, horizontal line labeled \quotation{Mercury,} is somewhat higher than the minimum of the $\Phi+k_\theta$ curve. This looks very much like the energy graph for a simple harmonic oscillator, and Mercury does indeed oscillate in the $r$ direction as it orbits the Sun.
+Mercury has much less specific angular momentum, so its $\Phi+k_\theta$ curve is even lower and farther left than Venus's, putting Mercury much closer to the Sun. Unlike Venus and Earth, Mercury's orbit is quite eccentric. Mercury does not sit right at the minimum of its $\Phi+k_\theta$ curve. Mercury's total specific energy $h=\Phi+k_\theta+k_r$, shown by the thick, short, horizontal line labeled \quotation{Mercury,} is somewhat higher than the minimum of the $\Phi+k_\theta$ curve. This looks very much like the energy graph for a simple harmonic oscillator, and Mercury does indeed oscillate in the $r$ direction as it orbits the Sun.
 Mercury's oscillations have a period of 88 days.
 
 The endpoints of Mercury's total specific energy line are Mercury's turning points. The left end of the line represents Mercury's closest approach to the Sun, and the right end represents Mercury's greatest distance from the Sun. This range of distances is shown by the range of positions for Mercury at the top of \in{figure}[fig:EnergyGraphKUH].
-Between the turning points, Mercury is moving in the $r$ direction as well as in $\theta$ direction. Mercury's radial motion requires some specific kinetic energy $k_r = \onehalf v_r^2$. No outside force does any work on Mercury, so Mercury's total specific energy $h=\Phi+k_\theta+k_r$ is constant as Mercury oscillates between the turning points.
+Between the turning points, Mercury is moving in the $r$ direction as well as in $\theta$ direction. Mercury's radial motion requires some specific radial kinetic energy $k_r = \onehalf v_r^2$. No outside force does any work on Mercury, so Mercury's total specific energy $h=\Phi+k_\theta+k_r$ is constant as Mercury oscillates between the turning points.
 
 Mars has the most specific angular momentum of the planets in \in{figure}[fig:EnergyGraphKUH], making it farthest from the Sun.
 Like Mercury, Mars has an eccentric orbit and does not sit at the minimum of the $\Phi+k_\theta$ curve. The thick, horizontal line labeled \quotation{Mars} shows Mars's total specific energy $h$ as it oscillates between the two turning points on the $\Phi+k_\theta$ curve.
-Mars oscillates over a significant range of distances from approximately $r\sub{min}=\unit{2 Gm}$ to $r\sub{max}=\unit{2.5 Gm}$, as shown by the range of Mars positions above the specific energy graph. These turning points in the specific energy graph are same maximum and minimum distances of Mars's orbit shown in \in{figure}[fig:KeplerTerestrial]. 
+Mars oscillates over a significant range of distances from approximately $r\sub{min}=\unit{2 Gm}$ to $r\sub{max}=\unit{2.5 Gm}$, as shown by the range of Mars positions above the specific energy graph. These turning points in the specific energy graph are the same maximum and minimum distances of Mars's orbit shown in \in{figure}[fig:KeplerTerestrial]. 
 The minimum of Mars's $\Phi+k_\theta$ curve is much wider and shallower than the minimum of Mercury's curve, so Mars oscillates much more slowly than Mercury. Mars's oscillations have a period of 687 days.
 
-If you look closely at Earth's specific energy graph in \in{figure}[fig:EnergyGraphKU] or \in[fig:EnergyGraphKUH], you will see that Earth's total specific energy $h$ is also a small line segment showing the Earth's small range of distances from the Sun.
+If you look closely at Earth's specific energy graph in \in{figure}[fig:SpecificEnergyGraphKU] or \in[fig:EnergyGraphKUH], you will see that Earth's total specific energy $h$ is also a small line segment showing the Earth's small range of distances from the Sun.
 Venus's range of distances is even smaller\dash barely visible in \in{figure}[fig:EnergyGraphKUH].
 
 %
@@ -1445,7 +1452,7 @@ Mars's full specific energy graph is shown in \in{figure}[fig:UKMars3D]. The orb
 ](
 {x * cos(deg(y))}, {x * sin(deg(y))}, {-13.27/x}
     );
-    \path (-1.8,-1,-8)node {$U$};
+    \path (-1.8,-1,-8)node {$\Phi$};
     \addplot3 [
         surf, faceted color = middlegray, color = gray,
         z buffer=sort,
@@ -1486,7 +1493,7 @@ Mars's full specific energy graph is shown in \in{figure}[fig:UKMars3D]. The orb
 ](
 {x * cos(deg(y))}, {x * sin(deg(y))}, {(-13.27/x)+(15/x^2)}
     );
-    \node at (1.8,-2.4,-4.2) {$U + K_\theta$};
+    \node at (1.8,-2.4,-4.2) {$\Phi + k_\theta$};
     \addplot3 [
         thick,
         domain=0:2*pi,
@@ -1537,11 +1544,11 @@ Mars's full specific energy graph is shown in \in{figure}[fig:UKMars3D]. The orb
 \stopaxis
 \stopbuffer
 
-\marginTikZ{}{UKMars3D}{A planet with angular momentum will not crash into the Sun, it will orbit.} % vskip, name, caption
+\marginTikZ{}{UKMars3D}{Mars's specific energy graph shows the Sun's gravitational potential well and Mars's centrifugal barrier. Mars does not sit right at the minimum of $\Phi + k_\theta$ because it has extra specific energy. This extra specific energy is like water in the moat. As Mars orbits the central Sun, it also oscillates between the two banks of the moat, making the orbit eccentric.} % vskip, name, caption
 
 If Mars were somehow given more specific radial kinetic energy $k_r$, the total specific energy $h$ would be higher, raising the level of the moat. This would make the moat wider. Mars's orbit, still traveling between the two shores, would be even more eccentric.
 
-The specific energy graph shows the full compound motion discovered by Kepler. The Sun's mass produces the gravitational potential well that keeps the planets from leaving the solar system. Each planet's conserved angular momentum produces a centrifugal barrier that keeps the planet from spiraling into the Sun. The balance between the gravitational potential and the centrifugal barrier determines the approximate radius of the orbit. Additional specific radial kinetic energy determines the eccentric orbit's exact $r\sub{min}$ and $r\sub{max}$.
+The specific energy graph shows the full compound motion discovered by Kepler. The Sun's mass produces the gravitational potential well that keeps the planets from leaving the solar system. Each planet's specific angular momentum produces a centrifugal barrier that keeps the planet from spiraling into the Sun. The balance between the gravitational potential and the centrifugal barrier determines the approximate radius of the orbit. Additional specific radial kinetic energy determines the eccentric orbit's exact $r\sub{min}$ and $r\sub{max}$.
 
 \section{Orbits are elliptic}
 \startblockquote
@@ -1767,13 +1774,13 @@ The only relationship we need between these two descriptions of the ellipse is t
 \noindent
 Mercury's specific energy graph in \in{figure}[fig:EnergyGraphKUHMercury] shows $r_0$, $r\sub{min}$, $r\sub{max}$ and $a$ for Mercury's eccentric orbit.
 
-\placefigure[margin][fig:Kepler1609Urania]{Woodcut from Kepler's \booktitle{New Astronomy} showing the elliptic orbit which explains the motion on Mars. The diagram includes Urania, the muse of astronomy, arriving on her 
-triumphal chariot with a laurel wreath – a crown for Kepler to honor his victory over the war god, Mars.} {\externalfigure[Kepler1609Urania][width=\rightmarginwidth]}
-
 Kepler finishes \booktitle{New Astronomy} with a detailed discussion of ellipses' properties and their application to Mars's orbit. His woodcut diagram is shown in \in{figure}[fig:Kepler1609Urania]. Kepler had finally triumphed over Mars.
-All that remained was to triumph over the process of getting \booktitle{New Astronomy} actually published, which took another four years.
+All that remained was to triumph over the process of getting \booktitle{New Astronomy} published\dash which took another four years.
 
-Kepler believed that his mathematical model of Mars's motion – the area law on an elliptic orbit – would apply to all of the planets. He was right. Telescopes, which were not available to Tycho or Kepler, allowed far more precise observations. Kepler's model continued to provided excellent predictions, not only for the planets' nearly circular orbits, but also for the highly elliptic orbits of comets like Halley's Comet, shown in \in{figure}[fig:HaleysComet]. 
+\placefigure[margin][fig:Kepler1609Urania]{Woodcut from Kepler's \booktitle{New Astronomy} showing the elliptic orbit which explains the motion on Mars. The diagram includes Urania, the muse of astronomy, arriving on her 
+triumphal chariot with a laurel wreath – a crown for Kepler to honor his victory over the war god, Mars.} {\vskip4.5in\externalfigure[Kepler1609Urania][width=\rightmarginwidth]}
+
+Kepler believed that his mathematical model of Mars's motion – the area law on an elliptic orbit – would apply to all of the planets. He was correct. Telescopes, which were not available to Tycho or Kepler, allowed far more precise observations. Kepler's model continued to provided excellent predictions, not only for the planets' nearly circular orbits, but also for the highly elliptic orbits of comets like Halley's Comet, shown in \in{figure}[fig:HaleysComet]. 
 
 \startbuffer[TikZ:HaleysComet]
 \environment env_physics
@@ -1918,25 +1925,27 @@ Kepler believed that his mathematical model of Mars's motion – the area law on
 \stopbuffer
 
 \placetextfloat[bottom][fig:HaleysComet] % location
-{The elliptic orbits of all eight planets and Halley's Comet. The planet's orbits are nearly circular, but off-center. Halley's Comet's orbit is highly elliptic, brining it near Earth approximately every $76$ years. It's next appearance will be in 2061. ($1\units{Tm} = 10^{12}\units{m}$)}	 % caption text
+{The elliptic orbits of all eight planets and Halley's Comet. The planet's orbits are nearly circular, but off-center. Halley's Comet's orbit is highly elliptic, bringing it near Earth approximately every $76$ years. It's next appearance will be in 2061. ($1\units{Tm} = 10^{12}\units{m}$)}	 % caption text
 {\noindent\typesetbuffer[TikZ:HaleysComet]} % figure contents
 
-
-Elliptic orbits do not have a constant radius, so the formulas for angular momentum and total energy need to be modified to use the parameters of the ellipse.
+Each planet's specific angular momentum $l$ and total specific energy $h$ can be easily found from the planet's orbit.
 \startformula
-	L = m\sqrt{GMr_0}
+	l = \sqrt{GMr_0}
 	\qquad
-	H = -G\frac{mM}{2a}
-	  = -G\frac{mM}{r\sub{min} + r\sub{max}}
+	h = -\frac{GM}{2a}
+	  = -\frac{GM}{r\sub{min} + r\sub{max}}
 \stopformula
-Total energy $H$ is determined by the ellipse's major axis $2a=r\sub{min} + r\sub{max}$. The angular momentum $L$ is determined by Kepler's $r_0$, the distance perpendicular to the ellipse's major axis in \in{figure}[fig:KeplerDistanceEllipse].
+The specific angular momentum $l$ is determined by Kepler's $r_0$, the vertical distance in \in{figure}[fig:KeplerDistanceEllipse].
+Total specific energy $h$ is determined by the ellipse's major axis $2a=r\sub{min} + r\sub{max}$, the horizontal distance in \in{figure}[fig:KeplerDistanceEllipse].
 
 
 \section{Harmonies of the World}
 
-Having mastered the geometry of orbits, Kepler next attempted to unite the quadrivium by finding musical relationships to explain the sizes and eccentricities of the planets' orbits. In 1621 he published his findings as \booktitle{Harmonies of the World,} a book with an amazing mixture of precise astronomical observations and calculations aligned with musical notation for chords and short musical phrases.
+Having mastered the geometry of orbits, Kepler next attempted to unite the quadrivium by finding musical relationships to explain the sizes and eccentricities of the planets' orbits. In 1621 he published his findings as \booktitle{Harmonies of the World,} a book with an amazing mixture of precise astronomical observations and calculations combined with musical notation for chords and short musical phrases.
 
-It must be admitted that in the early seventeenth century explaining astronomy with music was no more fanciful than introducing ellipses. However, ellipses have survived rigorous observations while the musical speculations have not. The book does contain one remarkable gem, which has come to be known as Kepler's third law. In studying the periods and sizes of the planets' orbits.
+In the early seventeenth century, explaining astronomy with music was no more fanciful than introducing ellipses.
+However, ellipses have survived rigorous observations, while Kepler's musical speculations have not.
+The book does contain one remarkable gem, which has come to be known as Kepler's third law. In studying the periods and sizes of the planets' orbits.
 \startblockquote
 I first believed I was dreaming... But it is absolutely certain and exact that the ratio which exists between the period times of any two planets is precisely the ratio of the \threehalves th power of the mean distance.\autocite{p.~180.}{Kepler1619}
 \stopblockquote
@@ -1947,29 +1956,31 @@ This ratio can be used to relate the periods and radii of any two planets' orbit
 where $T_1$ and $a_1$ are the period and semi-major of one planet's orbit, while $T_2$ and $a_2$ are those of the other.
 Kepler believed that the \threehalves th power was a sign of a musical perfect fifth. It is not.
 
-A planet's period can be calculated directly using Kepler's area law to fill the area of an elliptic orbit. The area $A$ of an ellipse is easiest to see in the standard mathematical description.
+A planet's period can be calculated directly using Kepler's area law (\at{p.}[eq:KeplersAreaLaw]) for one complete orbit. For a complete orbit, the total duration $\Delta t$ is the period $T$. The total area $\Delta A$ is the ellipses's area $A$.
 \startformula
-	A = \pi ab
+  \half l = \frac{\Delta A}{\Delta t}
+    = \frac{A}{T}
 \stopformula
-We saw Kepler's area law stated as an area update formula (p.\at[eq:AreaUpdate]).
+Solve for the period $T$.
 \startformula
-	dA = \frac{L}{2m}\,dt
+  T = \frac{2A}{l}
 \stopformula
-Since the all of the dA are the same size, this total area $A$ covered during the orbit's period $T$ is
+The denominator is given by the specific angular momentum formula $l = \sqrt{GMr_0}$. The numerator requires some geometry. The area of an ellipse is $A = \pi ab$.
+(This area formula is easiest to see in the ellips's mathematical description in \in{figure}[fig:MathEllipse].)
+It is an amusing fact about ellipses that the ratio of $a$ to $b$ is the same as the ratio of $b$ to $r_0$. 
 \startformula
-	A = \frac{L}{2m}\,T
+  \frac{a}{b} = \frac{b}{r_0}
 \stopformula
-Using the area of an ellipse, the formula for the planet's angular momentum, and the relation $b=\sqrt{ar_0}$, we can calculate the period $T$
-\startformula\startmathalignment
-\NC	\pi ab           \NC= \frac{L}{2m}\,T \NR
-\NC	\pi a\sqrt{a\cancel{r_0}} \NC= \frac{\cancel{m}\sqrt{GM\cancel{r_0}}}{2\cancel{m}}\,T \NR
-%\NC	2\pi a^{\threehalves}	\NC = \sqrt{GM}\,T \NR
-\NC	T \NC = \frac{2\pi}{\sqrt{GM}}\,a^{\threehalves}	\NR
-\stopmathalignment\stopformula
+This relation says that $b$ is the geometric mean of $a$ and $r_0$. Solving for $b$, we find $b=\sqrt{ar_0}$, and therefore $A = \pi a\sqrt{ar_0} = \pi a^{\threehalves}\sqrt{r_0}$. These relations simplify the formula for the orbit's period.
+\startformula
+  T = \frac{2A}{l}
+    = \frac{2\pi a^{\threehalves}\sqrt{\cancel{r_0}}}{\sqrt{GM\cancel{r_0}}}
+    = \frac{2\pi}{\sqrt{GM}}\,a^{\threehalves}
+\stopformula
+A planet's orbital period is proportional to the orbit's semi-major axis $a$ raised to the three-halves power. This is the modern statement of \keyterm{Kepler's third law}.
 
-A planet's orbital period is proportional to the orbit's semi-major axis $a$ raised to the three-halves power.
-
-When Newton presented his laws of motion and gravity in the \booktitle{Principia,} almost eighty years after \booktitle{New Astronomy}, his first application of those laws is a proof of Kepler's area law. Newton goes on to show that elliptic orbits arise only from a force that is inversely proportional to the squared distance. Finally, Newton showed that the \threehalves\ power ratio between period and radius is also a consequence of his theories of motion and gravity. 
+When Newton presented his laws of motion and gravity in the \booktitle{Principia,} almost eighty years after \booktitle{New Astronomy}, his first application of those laws is a proof of Kepler's area law. Newton goes on to show that elliptic orbits arise only from a force that is inversely proportional to the squared distance.
+Newton then showed that the \threehalves\ power ratio between period and radius is also a consequence of his theories of motion and gravity. 
 
 Finally, Newton showed that even a tiny change in the gravitational force formula causes the elliptic orbit's long axis to rotate slowly, so that over time the planet traces a flower pattern rather than a simple ellipse.
 Many planets' orbits do rotate slowly due to the slight pull of other planets. By 1859 it became clear that only Mercury's orbit rotates in a way that cannot be caused by other planets. This anomaly was not explained until 1915, when Albert Einstein was developing his own geometric model of gravity. For eight years, Einstein had been struggling to build his theory of curved space-time. In the final month, he discovered that his emerging theory predicts a slightly different path for planets close to the Sun. Einstein computed the effect on Mercury's orbit and found it exactly matched the well know anomaly in Mercury's orbit. He recalls, \quotation{for a few days, I was beside myself with joyous excitement.}
@@ -1998,6 +2009,72 @@ When the storm rages and the state is threatened by shipwreck, we can do nothing
 
 
 
+Finally, we find each planet's total energy $H$, which include's the planet's gravitational potential energy $U$ and kinetic energy $K$. The calculation is a bit messy, but the result is surprisingly simple.
+\startformula\startmathalignment
+\NC H	\NC = U + K			\NR
+\NC		\NC =  - G\frac{mM}{r} + \frac{L^2}{2I}	\NR
+\NC		\NC =  - G\frac{mM}{r} + \frac{m^2 GMr}{2mr^2}	\NR
+\NC		\NC =  - G\frac{mM}{r} + G\frac{mM}{2r}		\NR
+\NC		\NC = -G\frac{mM}{2r}						\NR
+\stopmathalignment\stopformula
+The total energy of a circular orbit is negative, and exactly half of the gravitational potential energy. 
+Circular orbits with a larger radius $r$ have a higher (less negative) total energy $H$.
+
+\startuseMPgraphic{graph::CircularH} % I'd like to add minor ticks, 0.667mm long.
+vardef U =
+	path p;
+		for x = 0.5 step 0.1 until 3.1:
+			y := -13.3/x; % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+vardef H =
+	path p;
+		for x = 0.2 step 0.1 until 3.1:
+			y := -13.3/(2x); % lua.mp.morse(x);
+			augment.p(x,y);
+		endfor;
+	p enddef;
+draw begingraph(4cm,5cm);
+	setrange(0,-20, 3, 0);
+	for x=auto.x:
+		itick.bot(formatted("$@g$", x), x);
+		itick.bot(formatted("@s", ""), x) withcolor "middlegray";
+		itick.top(formatted("@s", ""), x) withcolor "middlegray";
+	endfor
+	glabel.lft(textext("Specific Energy($\sci{8}\units{m^2/s^2}$)") rotated 90,OUT);
+	glabel.bot(textext("Distance from Sun $r$ ($\sci{11}\units{m}$)"), OUT);
+	gdraw(U) withpen pencircle scaled 0.8pt;
+	glabel.lrt("$\Phi$",10);
+	gdraw(H) withpen pencircle scaled 1pt dashed withdots;
+	glabel.ulft("$h$",10);
+%	glabel(mydot,(80));
+%	glabel(mydot,(210));
+%	glabel(mydot,(340));
+%	gfill(unitsquare xyscaled (6.37,-2)) withcolor "lightgray";
+%	gdraw((6.37,0) -- (6.37,-2)) withpen pencircle scaled 0.8pt;
+	for y=0 step -2 until -20:%auto.y:
+		itick.lft(formatted("$@g$", y), y);
+		itick.lft(formatted("@s", ""), y) withcolor "middlegray";
+		itick.rt(formatted("@s", ""), y) withcolor "middlegray";
+	endfor
+endgraph shifted (0,-5cm);
+%  pickup pencircle scaled 0.8pt ;
+%  draw externalfigure "EarthEratosthenes.png" scaled 0.127 shifted (-6.37mm,-6.37mm) ;
+%  draw fullcircle scaled 12.74mm;
+%  drawarrow (13mm,0) -- (-0.5mm,0);
+%    dotlabel.ulft  ("", (13mm,0)) ;
+%  drawarrow (26mm,0) -- (22.625mm,0);
+%    dotlabel.top  ("$F\sub{Newton}$", (26mm,0)) ;
+%  drawarrow (39mm,0) -- (37.5mm,0);
+%    dotlabel.llft  ("", (39mm,0)) ;
+\stopuseMPgraphic
+
+\startplacefigure[location=margin, reference=fig:CircularH, title={A planet's total specific energy $h=H/m$ in a circular, centered orbit is exactly half of the planet's gravitational potential $\Phi=U/m$.}]
+\small\reuseMPgraphic{graph::CircularH}
+\stopplacefigure
+
+The energy graph in \in{figure}[fig:CircularH] shows the gravitational potential energy and a dotted line at $-GM/2r$. Each dot represents the total energy of a possible circular orbit. Dots toward the upper right represent larger orbits with greater specific angular momentum and higher energy. These are the orbits of the outer planets. Dots toward the lower left represent smaller orbits with less specific angular momentum and lower energy. These are the orbits of the inner planets.
 
 %
 %\placetable
