@@ -6,27 +6,35 @@
 
 \def\volNo{II}
 \def\volDir{volume02}
-\def\volSubtitle{Electricity and Heat}
+%\def\volSubtitle{Electricity and Heat}
+\def\volSubtitle{Particles fill the Cosmos}
 
 \component common/titlepage
 \startfrontmatter
-	\component common/contents
-	\component chapter00/chapter00
+	\completecontent
+	%\component chapter00/chapter00
 \stopfrontmatter
 \setupuserpagenumber[number=1]
 \startbodymatter
 	\setupheadnumber[chapter][+8]
-	\component chapter09/chapter09 % Optics
+	%\component chapter09/chapter09 % Optics
+	\setupheadnumber[chapter][9]
 	\component chapter10/chapter10 % Particles in Fields
-	\component chapter11/chapter11 % Circuits
+	%\component chapter11/chapter11 % Circuits
+	\setupheadnumber[chapter][11]
 	\component chapter12/chapter12 % Heat
+	\component chapter13/chapter13 % Relativity
+	\component chapter14/chapter14 % Quantum
+	\component chapter15/chapter15 % Middle Model
+	\component chapter16/chapter16 % Cosmology
+	\component chapter17/chapter17 % Standard Model
 \stopbodymatter
 
 %\startappendices
 %\stopappendices
  
 \startbackmatter
-	\component common/bibliography
+	%\component common/bibliography
 	\component common/index
 \stopbackmatter
 
