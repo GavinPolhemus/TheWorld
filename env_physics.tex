@@ -5,8 +5,6 @@
 \setupunits[method=4,separator=cdot] % separator as thin space, decimal mark as period. alternative=text
 \registerunit[unit]
  [unitless=unitless,
-  J=joule,
-  N=newton, %N is messing up nano, causing N•s.
   cyc=cycle,
   cycle=cycle,
   rad=radian,
@@ -19,11 +17,14 @@
   mile=mile,
   e=electron,
   electron=electron,
-  V=volt,
-  T=tesla,
-%  C=coulomb,% C is messing up centi, causing cm -> C•m.
-%  K=K,% K is messing up kilo, causing kg -> K•g.
   Ω=ohm]
+\registerunitshortcut[unit]
+ [N=newton,
+  J=joule,
+  V=volt,
+  C=coulomb,
+  K=kelvin,
+  T=tesla]
 \setupunittext
  [unitless=\strut,
   cycle=cyc,
