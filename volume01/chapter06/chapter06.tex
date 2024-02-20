@@ -48,7 +48,7 @@ Finally, the universal gravitational constant $G$ is extremely small, so the gra
 \startexample[ex:BoxEarthGravU] How much work is required to lift a $3.0\units{kg}$ box from Earth’s surface to a location very far from Earth?
 
 \startsolution
-	This problem is just like the earlier example where Galileo lifted the pendulum (\in{ex.}[ex:GalileoPendulum1]), but now we must use the gravitational potential energy formula that works for large distances. The gravitational potential energy for the box and Earth is plotted in figure~\ref{fig:BoxEarthGravU}.
+	This problem is just like the earlier example where Galileo lifted the pendulum (\in{ex.}[ex:GalileoPendulum1]), but now we must use the gravitational potential energy formula that works for large distances. The gravitational potential energy for the box and Earth are plotted in figure~\ref{fig:BoxEarthGravU}.
 	\startformula\startmathalignment
 	\NC	H\si + W + \cancel{Q}	\NC = H\sf			\NR
 	\NC	K\si + U\si + W			\NC = K\sf + U\sf
@@ -131,7 +131,7 @@ The box enters the atmosphere with a speed of about $11\units{km/s}$, causing it
 \stopsolution
 \stopexample
 
-Use D.~Bernoulli's new formula for gravitational potential energy whenever the problem involves objects far from Earth's surface. The new formula is more complicated looking that the old $U=mgh$, but use the new formula in exactly the same way when using conservation of energy.
+Use D.~Bernoulli's new formula for gravitational potential energy whenever the problem involves objects far from Earth's surface. The new formula is more complicated looking than the old $U=mgh$, but use the new formula in exactly the same way when using conservation of energy.
 
 \section{Gravitational potential}
 We are going to step out of the historical story for a moment to address one of the most vexing questions about gravity: How does gravity reach across great distances?
@@ -277,14 +277,12 @@ We saw this in \in{example}[ex:BoxEarthGravU2], where we calculated the final sp
 If the box had been $\unit{3g}$ or $\unit{3000kg}$, it would have hit the atmosphere with exactly the same speed.
 Many earlier physicists, going back to Galileo, had noticed that the small object's mass does not matter, but Lagrange used this observation in a new way.
 
-For Lagrange's complex calculations, he wanted the small object's mass drop out of the formulas earlier, before the formulas became too complicated.
+For Lagrange's complex calculations, he wanted the small object's mass to drop out of the formulas earlier, before the formulas became too complicated.
 To achieve this, he defined the small object's gravitational potential energy $U$ in terms of the gravitational potential $\Phi$.
 \startformula
   U = m\Phi
 \stopformula
 To see the benefits of Lagrange's trick, let us consider a example using conservation of energy. The formulas threaten to become quite cumbersome, but the gravitational potential allows us to split the calculation into manageable parts.
-
-\startexample[ex:HalleySpeed] Halley's Comet orbits the Sun along a long, thin ellipse, shown in \in{figure}[fig:HalleyOuter]. When the comet is $\unit{1.50e12m}$ from the Sun (about as far as Saturn) its speed is $\unit{1.13e4 m/s} = \unit{11.3 km/s}$. What is the comet's speed when it makes its closest approach to the Sun at $\unit{8.77e10m}$?
 
 \startbuffer[HalleyOuter]
 \startpolaraxis
@@ -393,6 +391,7 @@ To see the benefits of Lagrange's trick, let us consider a example using conserv
 
 \marginTikZ{}{HalleyOuter}{Orbits of Mars, Jupiter, Saturn and Halley's Comet. (Distance in gigameteres. $\unit{1Gm} = 10^{12}\unit{m}$).} % vskip, name, caption
 
+\startexample[ex:HalleySpeed] Halley's Comet orbits the Sun along a long, thin ellipse, shown in \in{figure}[fig:HalleyOuter]. When the comet is $\unit{1.50e12m}$ from the Sun (about as far as Saturn) its speed is $\unit{1.13e4 m/s} = \unit{11.3 km/s}$. What is the comet's speed when it makes its closest approach to the Sun at $\unit{8.77e10m}$?
 \startsolution
 	Include gravitational potential energy $U=m\Phi$. $\Phi\si$ is the initial gravitational potential at $r\si=\unit{1.50e12m}$. $\Phi\sf$ is the final gravitational potential at $r\sf=\unit{8.77e10m}$.
 The change in gravitational potential is $\Delta\Phi = \Phi\sf - \Phi\si$.
@@ -618,60 +617,11 @@ As the magnitude of $x$ increases, the magnitude of Hooke's force $F$ also incre
 Finally, when the cart is in the center, at $x=0$, Hooke's law gives $F=0$, in agreement with Lagrange. 
 Lagrange's insight explains the spring's force. Hooke's law calculates the spring's force.
 
+
 %On the right half of the graph, the slope is positive, so any motion in the positive direction leads to higher potential energy.
 %The force, which is minus the slope, is therefore negative, pushing toward lower potential energy.
 %On the left half of the graph, the slope is negative. Any motion in the positive direction leads toward lower potential energy, so the force, which is minus the slope, pushes in the positive direction, again toward lower potential energy.
 %At the center, the slope and the force are both zero. Neither direction leads toward lower potential energy, and the force does not point in either direction.
-
-\startexample[ex:BlockonSpring] 
-A block is suspended from a spring, as shown in \in{figure}[fig:BlockonSpring]. The spring's stiffness is $k = \unit{100.0 N/m}$. When the block is hanging motionless (no bouncing or swinging), the block's weight stretches the spring $\unit{2.94 cm}$, as shown. (Since upward is positive, the end of the stretched spring is at $y=\unit{-2.94cm}$.) Find the block's mass.
-\startuseMPgraphic{graph::BlockonSpring}
-SpringRadius := 5mm ;
-SpringSlant := 0.4 ;
-Coils := 10 ;
-RelaxedLength := 1.6cm ;
-Stretch := 2.94cm ;
-pair Start, Stop ;
-pickup pencircle scaled 0.8pt
-draw (-1cm,0)--(2.5cm,0) withpen pencircle scaled 0.4pt withcolor 0.6 ;
-draw (1cm,-Stretch)--(2.5cm,-Stretch) withpen pencircle scaled 0.4pt withcolor 0.6 ;
-draw Spring((-1cm,RelaxedLength), (-1cm,0)) withpen pencircle scaled 1.6pt withcolor 0.4 ;
-draw Spring((1cm,RelaxedLength), (1cm,-Stretch)) withpen pencircle scaled 1.6pt withcolor 0.4 ;
-path Block ; Block := fullsquare scaled 2cm cornered .25cm shifted (1cm,-Stretch-1cm) ;
-fill Block withcolor "gray" ;
-draw Block ;
-fill fullsquare xyscaled (5cm,.2cm) shifted (0.5cm,RelaxedLength+.1cm) withcolor "gray" ;
-draw (-2cm,RelaxedLength) -- (3cm,RelaxedLength) ;
-draw_marked((2.5cm,-Stretch-2.5cm)--(2.5cm,RelaxedLength), Stretch+2.5cm);
-drawarrow (1cm,-Stretch)--(1cm,-Stretch+1.47cm) withpen pencircle scaled 1.6pt ;
-drawarrow (1cm,-Stretch-1cm)--(1cm,-Stretch-2.47cm) withpen pencircle scaled 1.6pt ;
-label.ulft("$F\sub{spring}$",(1cm,-Stretch));
-label.llft("$F_g$",(1cm,-Stretch-1cm));
-\stopuseMPgraphic
-
-\startplacefigure[location=margin, reference=fig:BlockonSpring, title={A block hangs motionless from a spring. The net force on the block is zero.}]
-\small
-\reuseMPgraphic{graph::BlockonSpring}
-\stopplacefigure
-
-\startsolution
-Since the block is motionless, its momentum remains zero. That is, $p\si = p\sf = 0$, even when we wait for some time $\Delta t > 0$. Use conservation of momentum.
-\startformula\startmathalignment
-\NC \cancel{p\si} + F\sn\,\Delta t \NC= \cancel{p\sf} \NR
-\NC  F\sn \NC= 0 \NR
-\stopmathalignment\stopformula
-The forces on the block are gravity pulling down and the spring pulling up. (Since the spring is in the $y$ direction, Hooke's law becomes $F\sub{spring} = -ky$.)
-\startformula\startmathalignment
-\NC F_g + F\sub{spring} \NC= 0 \NR
-\NC -mg - ky \NC= 0 \NR
-\NC m \NC= \frac{-ky}{g} 
-        = \frac{-(\unit{100.0N/m})(\unit{-0.0294m})}{\unit{9.8m/s^2}}
-        = \unit{0.300 kg} \NR
-\stopmathalignment\stopformula
-The block's mass is $\unit{300g}$.
-\stopsolution
-\stopexample
-As described in the last chapter, the potential energy function for real springs is not a perfect parabola (\at{p.}[fig:RealSpringGraphEnergy]). As a result, the potential energy's slope does not match Hooke's law for large displacements. Even so, Hooke's law is often an excellent approximation for limited displacements in many systems.
 
 Lagrange's insight also allows us to find the long range gravitational force from the long range gravitational potential energy (\at{p.}[sec:GravUSolarSys]).
 \startformula
@@ -743,56 +693,12 @@ Newton's law of universal gravitation can be used to find the gravitational forc
 %(You already knew that from looking at the energy graph.)
 The negative in Newton's law of universal gravitation guarantees that the force is always in the negative $r$ direction, toward Earth.
 Lagrange's insight explains the gravitational force. Newton's law of universal gravitation calculates the gravitational force.\pagereference[eq:UniversalGrav]
-\startexample[ex:BlockonSpringMoon] 
-The spring and block from \in{example}[ex:BlockonSpring] are taken to the Moon, and the experiment is repeated. When the block hangs motionless, what is the final position of the spring's bottom end?
-The Moon's mass is $M\substar{\Moon} = \unit{7.34e22 kg}$. The Moon's radius is $r\substar{\Moon} = \unit{1.74e6 m}$.
-\startsolution
-As in \in{example}[ex:BlockonSpring], the net force on the block is zero.
-The forces on the block are gravity pulling down and the spring pulling up, but we don't know the correct value for $g$ on the Moon, so we use Newton's law of universal gravitation to find the gravitational force on the $\unit{300g}$ block.
-\startformula\startmathalignment
-\NC F_g + F\sub{spring} \NC= 0 \NR
-\NC -G\frac{mM\substar{\Moon}}{r^2} - ky \NC= 0 \NR
-\NC y \NC= -G\frac{mM\substar{\Moon}}{kr^2} \NR
-\stopmathalignment\stopformula
-On the surface of the Moon, the distance from the Moon's center is simply the Moon's radius, $r = r\substar{\Moon} = \unit{1.74e6 m}$.
-\startformula
-  y = -G\frac{mM\substar{\Moon}}{kr\substar{\Moon}^2}
-    = -\unit{6.67e-11 m^3/kg s^2}\frac{(\unit{0.300kg})(\unit{7.34e22 kg})}{(\unit{100n/m})(\unit{1.74e6 m})^2}
-    = \unit{-0.0049m}
-\stopformula
-The spring stretches to $y = \unit{-0.49cm}$, as shown in \in{figure}[fig:BlockonSpringMoon].
-\stopsolution
-\startuseMPgraphic{graph::BlockonSpringMoon}
-SpringRadius := 5mm ;
-SpringSlant := 0.4 ;
-Coils := 10 ;
-RelaxedLength := 1.6cm ;
-Stretch := 0.485cm ;
-pair Start, Stop ;
-pickup pencircle scaled 0.8pt
-draw (-1cm,0)--(2.5cm,0) withpen pencircle scaled 0.4pt withcolor 0.6 ;
-draw (1cm,-Stretch)--(2.5cm,-Stretch) withpen pencircle scaled 0.4pt withcolor 0.6 ;
-draw Spring((-1cm,RelaxedLength), (-1cm,0)) withpen pencircle scaled 1.6pt withcolor 0.4 ;
-draw Spring((1cm,RelaxedLength), (1cm,-Stretch)) withpen pencircle scaled 1.6pt withcolor 0.4 ;
-path Block ; Block := fullsquare scaled 2cm cornered .25cm shifted (1cm,-Stretch-1cm) ;
-fill Block withcolor "gray" ;
-draw Block ;
-fill fullsquare xyscaled (5cm,.2cm) shifted (0.5cm,RelaxedLength+.1cm) withcolor "gray" ;
-draw (-2cm,RelaxedLength) -- (3cm,RelaxedLength) ;
-draw_marked((2.5cm,-Stretch-2.5cm)--(2.5cm,RelaxedLength), Stretch+2.5cm);
-drawarrow (1cm,-Stretch)--(1cm,-Stretch+0.24cm) withpen pencircle scaled 1.6pt ;
-drawarrow (1cm,-Stretch-1cm)--(1cm,-Stretch-1.24cm) withpen pencircle scaled 1.6pt ;
-label.bot("$F\sub{spring}$",(1cm,-Stretch));
-label.llft("$F_g$",(1cm,-Stretch-1cm));
-\stopuseMPgraphic
 
-\startplacefigure[location=margin, reference=fig:BlockonSpringMoon, title={The same block and spring from \in{figure}[fig:BlockonSpring], but now on the Moon. The net force is still zero, with both forces much smaller.}]
-\small
-\reuseMPgraphic{graph::BlockonSpringMoon}
-\stopplacefigure
-
-\stopexample
-Calculations using Newton's universal law of gravitation can get a bit messy, as in the last example. We will find a cleaner approach later in this chapter.
+%The gravitational force is often written $F = -mg$, where $g$ is the strength of the \keyterm{gravitational field}.
+%\startformula
+%	g = G\frac{M}{r^2},
+%\stopformula
+%Here on Earth's surface, $g=9.8\units{m/s^2}$. The gravitational field gets weaker with distance because of the $r^2$ in the denominator. The gravitational field formula can be used to find $g$ any distance from any celestial object. Objects with larger mass $M$ have stronger gravitational fields. Less massive objects's, like the Moon have weaker gravitational fields.
 
 Hooke published his law for springs in 1678. Newton presented his law of universal gravitation to the Royal Society in 1686. These two laws were early contributions to the patchwork of methods and principles developed during the seventeenth and eighteenth century. Lagrange's insight was that these laws, and many others, were consequences of the potential energy formulas discovered later by D.~Bernoulli. This insight was just one part of Lagrange's general procedure for mechanics.
 
@@ -916,21 +822,6 @@ We can use this formula to calculate $g$ here on Earth's surface. On Earth's sur
 \stopformula
 The gravitational field's magnitude $g$ will be different in different locations throughout the solar system, depending on the mass $M$ of the object producing the gravitational field and the distance $r$ from the object.
 
-\startexample[ex:gMoon] 
-Find the gravitational field's strength $g$ on the Moon's surface.
-The Moon's mass is $M\substar{\Moon} = \unit{7.34e22 kg}$. The Moon's radius is $r\substar{\Moon} = \unit{1.74e6 m}$.
-\startsolution
-On the surface of the Moon, the distance from the Moon's center is simply the Moon's radius, $r = r\substar{\Moon} = \unit{1.74e6 m}$.
-\startformula
-  g = \frac{GM\substar{\Moon}}{r^2}
-    = \frac{(\unit{6.67e-11 kg m^3/s^2})(\unit{7.34e22 kg})}{(\unit{1.74e6 m})^2}
-    = \unit{1.62 m/s^2}
-\stopformula
-The gravitational field on the Moon's surface is about one sixth as strong as here on Earth.
-\stopsolution
-\stopexample
-
-
 Newton's Law of Universal Gravitation can be found from the simple formula for gravitational force, $F = -mg$, with our new formula for the gravitational field's magnitude $g = GM/r^2$. 
 \startformula
   F = -mg
@@ -938,27 +829,13 @@ Newton's Law of Universal Gravitation can be found from the simple formula for g
     = -G\frac{mM}{r^2}
 \stopformula
 We will often find it convenient to use the simple formula for gravitational force early in a calculation, and then include the more complicated formula for $g$ later.
-\startexample[ex:BlockonSpringMoon] 
-The spring and block from \in{example}[ex:BlockonSpring] are taken to the Moon, and the experiment is repeated. When the block hangs motionless, what is the final position of the spring's bottom end?
-\startsolution
-As in \in{example}[ex:BlockonSpring], the net force on the block is zero.
-Now, we do know the correct value for $g$ on the Moon (\in{example}[ex:gMoon]), so we can use the simple formula for gravitational force!
-\startformula\startmathalignment
-\NC F_g + F\sub{spring} \NC= 0 \NR
-\NC -mg - ky \NC= 0 \NR
-\NC y \NC= -\frac{mg}{k}
-      = -\frac{(\unit{0.300kg})(\unit{1.62 m/s^2})}{\unit{100 N/m}} 
-      = \unit{-0.0049m} \NR
-\stopmathalignment\stopformula
-The spring stretches to $y = \unit{-0.49cm}$, as in \in{example}[ex:BlockonSpringMoon].
-\stopsolution
-\stopexample
+
 I hope you noticed that the relationship just described between gravitational field and gravitational potential is almost identical to Lagrange's relationship between force and potential energy, illustrated in \in{figure}[fig:BoxEarthGravF].
 Also notice one important difference:
 The gravitational potential energy $U$ and gravitational forces $F$ shown in \in{figure}[fig:BoxEarthGravF] are for a \unit{3.0kg} box. If the box had been \unit{3.0g} or \unit{3000kg}, the gravitational potential energy and gravitational forces would have been a thousand times smaller or larger.
 In contrast, the gravitational potential $\Phi$ and the gravitational field $g$ shown in \in{figure}[fig:EarthGravField] are exactly the same for a \unit{3.0g} box, a \unit{3000kg} box, or no box at all!
 
-We met three new gravitational concepts in this chapter: gravitational potential energy, the gravitational potential, and the gravitational field. All of these are related to each other and to gravitational force. Of these, the gravitational potential $\Phi$ is the most fundamental. All of the others follow from it, as shown below.
+I have introduces three new gravitational concepts in this chapter: gravitational potential energy, the gravitational potential, and the gravitational field. All of these are related to each other and to gravitational force. Of these, the gravitational potential $\Phi$ is the most fundamental. All of the others follow from it, as shown below.
 \startformula
 \startMPcode%graphic{GravRelations} % I'd like to add minor ticks, 0.667mm long.
   pickup pencircle scaled 0.8pt ;
@@ -1265,7 +1142,7 @@ There are no outside angular forces on the tabletop and clay. What is the new an
   draw halfcircle scaled 1.86cm ;
 \stopuseMPgraphic
 
-\startplacefigure[location=margin, reference=fig:PottersThrow, title={A collision between a big piece of clay and the potter's where can be treated using conservation of angular momentum.}]
+\startplacefigure[location=margin, reference=fig:PottersThrow, title={A collision between a big piece of clay and the potter's wheel can be treated using conservation of angular momentum.}]
 \small\reuseMPgraphic{PottersThrow}
 \stopplacefigure
 \startsolution
